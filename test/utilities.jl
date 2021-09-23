@@ -61,3 +61,35 @@ end
 
     @test AWS._merge("a", "b") == expected
 end
+
+@testset "_process_service_features" begin
+    @testset "use default" begin
+        user_feats = []
+        default_feats = [:a => false]
+        @test AWS._process_service_features(user_feats, default_feats) == :((; a=false))
+    end
+
+    @testset "user set" begin
+        user_feats = [:(a = true)]
+        default_feats = [:a => false]
+        @test AWS._process_service_features(user_feats, default_feats) == :((; a=true))
+    end
+
+    @testset "unknown feature" begin
+        user_feats = [:(b = true)]
+        default_feats = [:a => false]
+        @test_throws ArgumentError AWS._process_service_features(user_feats, default_feats)
+    end
+
+    @testset "unknown expression" begin
+        user_feats = [:(true)]
+        default_feats = [:a => false]
+        @test_throws ArgumentError AWS._process_service_features(user_feats, default_feats)
+    end
+
+    @testset "no defaults" begin
+        user_feats = []
+        default_feats = []
+        @test AWS._process_service_features(user_feats, default_feats) == :(NamedTuple())
+    end
+end

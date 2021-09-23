@@ -23,6 +23,7 @@ export sign!, sign_aws2!, sign_aws4!
 export JSONService, RestJSONService, RestXMLService, QueryService
 
 const DEFAULT_REGION = "us-east-1"
+const DEFAULT_SERVICE_FEATURES = []
 
 include(joinpath("utilities", "utilities.jl"))
 
@@ -122,12 +123,16 @@ using AWS: @service
 # Return
 - `Expression`: Base.include() call to introduce the high-level service API wrapper functions in your namespace
 """
-macro service(module_name::Symbol)
+macro service(module_name::Symbol, features...)
     service_name = joinpath(@__DIR__, "services", lowercase(string(module_name)) * ".jl")
+    service_features = _process_service_features(features, DEFAULT_SERVICE_FEATURES)
 
-    return Expr(:toplevel, :(module ($(esc(module_name)))
-    Base.include($(esc(module_name)), $(esc(service_name)))
-    end))
+    module_block = quote
+        const SERVICE_FEATURES = $service_features
+        include($service_name)
+    end
+
+    return Expr(:toplevel, Expr(:module, true, esc(module_name), esc(module_block)))
 end
 
 struct RestXMLService
@@ -207,6 +212,7 @@ function (service::RestXMLService)(
     request_uri::String,
     args::AbstractDict{String,<:Any}=Dict{String,Any}();
     aws_config::AbstractAWSConfig=global_aws_config(),
+    features::NamedTuple=NamedTuple(),
 )
     return_headers = _pop!(args, "return_headers", false)
 
@@ -259,6 +265,7 @@ function (service::QueryService)(
     operation::String,
     args::AbstractDict{String,<:Any}=Dict{String,Any}();
     aws_config::AbstractAWSConfig=global_aws_config(),
+    features::NamedTuple=NamedTuple(),
 )
     POST_RESOURCE = "/"
     return_headers = _pop!(args, "return_headers", false)
@@ -301,6 +308,7 @@ function (service::JSONService)(
     operation::String,
     args::AbstractDict{String,<:Any}=Dict{String,Any}();
     aws_config::AbstractAWSConfig=global_aws_config(),
+    features::NamedTuple=NamedTuple(),
 )
     POST_RESOURCE = "/"
     return_headers = _pop!(args, "return_headers", false)
@@ -343,6 +351,7 @@ function (service::RestJSONService)(
     request_uri::String,
     args::AbstractDict{String,<:Any}=Dict{String,String}();
     aws_config::AbstractAWSConfig=global_aws_config(),
+    features::NamedTuple=NamedTuple(),
 )
     return_headers = _pop!(args, "return_headers", false)
 

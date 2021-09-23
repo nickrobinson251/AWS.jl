@@ -103,3 +103,32 @@ function _generate_rest_resource(request_uri::String, args::AbstractDict{String,
 
     return request_uri
 end
+
+# Take a list of user defined features, `key=value` expressions, and verifies that all of
+# the keys are defined within `defaults`. If any key is not defined by the user then the
+# value from `defaults` will be used. Returns a `NamedTuple` expression.
+function _process_service_features(args, defaults)
+    feature_dict = Dict{Symbol,Any}(defaults)
+    for ex in args
+        if ex isa Expr && ex.head === :(=)
+            k, v = ex.args[1:2]
+            if haskey(feature_dict, k)
+                feature_dict[k] = v
+            else
+                throw(ArgumentError("Unsupported feature `$ex` specified"))
+            end
+        else
+            throw(ArgumentError("Expected feature, instead found: `$ex`"))
+        end
+    end
+
+    # Turn the feature dictionary into a `NamedTuple` expression. Note: Julia 1.4 and below
+    # do not support `:((;))`.
+    nt = if !isempty(feature_dict)
+        Expr(:tuple, Expr(:parameters, [Expr(:kw, p...) for p in feature_dict]...))
+    else
+        :(NamedTuple())
+    end
+
+    return nt
+end
