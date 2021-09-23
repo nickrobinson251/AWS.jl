@@ -54,7 +54,6 @@ end
     end
 end
 
-# TODO: Evaluate usefulness of this test
 @testset "issue 324" begin
     body = "Hello World!"
     file_name = "streaming.bin"
@@ -62,13 +61,20 @@ end
     try
         S3.create_bucket(bucket_name)
         S3.put_object(bucket_name, file_name, Dict("body" => body))
-        response = S3.get_object(bucket_name, file_name)
-        @test String(response) == body
+        resp = S3.get_object(bucket_name, file_name)
+        @test String(resp) == body
 
         # ERROR: MethodError: no method matching iterate(::Base.BufferStream)
         #   => BUG: header `response_stream` is pushed into the query...
-        response = S3.get_object(bucket_name, file_name)
-        @test String(take!(response.io)) == body
+        io = Base.BufferStream()
+        S3.get_object(
+            bucket_name, file_name, Dict("response_stream" => io, "return_stream" => true)
+        )
+        if bytesavailable(io) > 0
+            @test String(readavailable(io)) == body
+        else
+            @test "no body data was available" == body
+        end
 
     finally
         S3.delete_object(bucket_name, file_name)
