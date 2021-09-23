@@ -94,6 +94,7 @@ function create_delivery_stream(
         "CreateDeliveryStream",
         Dict{String,Any}("DeliveryStreamName" => DeliveryStreamName);
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 function create_delivery_stream(
@@ -109,6 +110,7 @@ function create_delivery_stream(
             ),
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -145,6 +147,7 @@ function delete_delivery_stream(
         "DeleteDeliveryStream",
         Dict{String,Any}("DeliveryStreamName" => DeliveryStreamName);
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 function delete_delivery_stream(
@@ -160,6 +163,7 @@ function delete_delivery_stream(
             ),
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -192,6 +196,7 @@ function describe_delivery_stream(
         "DescribeDeliveryStream",
         Dict{String,Any}("DeliveryStreamName" => DeliveryStreamName);
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 function describe_delivery_stream(
@@ -207,6 +212,7 @@ function describe_delivery_stream(
             ),
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -235,12 +241,14 @@ Optional parameters can be passed as a `params::Dict{String,<:Any}`. Valid keys 
 - `"Limit"`: The maximum number of delivery streams to list. The default value is 10.
 """
 function list_delivery_streams(; aws_config::AbstractAWSConfig=global_aws_config())
-    return firehose("ListDeliveryStreams"; aws_config=aws_config)
+    return firehose("ListDeliveryStreams"; aws_config=aws_config, features=SERVICE_FEATURES)
 end
 function list_delivery_streams(
     params::AbstractDict{String}; aws_config::AbstractAWSConfig=global_aws_config()
 )
-    return firehose("ListDeliveryStreams", params; aws_config=aws_config)
+    return firehose(
+        "ListDeliveryStreams", params; aws_config=aws_config, features=SERVICE_FEATURES
+    )
 end
 
 """
@@ -269,6 +277,7 @@ function list_tags_for_delivery_stream(
         "ListTagsForDeliveryStream",
         Dict{String,Any}("DeliveryStreamName" => DeliveryStreamName);
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 function list_tags_for_delivery_stream(
@@ -284,6 +293,7 @@ function list_tags_for_delivery_stream(
             ),
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -327,6 +337,7 @@ function put_record(
         "PutRecord",
         Dict{String,Any}("DeliveryStreamName" => DeliveryStreamName, "Record" => Record);
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 function put_record(
@@ -347,6 +358,7 @@ function put_record(
             ),
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -407,6 +419,7 @@ function put_record_batch(
         "PutRecordBatch",
         Dict{String,Any}("DeliveryStreamName" => DeliveryStreamName, "Records" => Records);
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 function put_record_batch(
@@ -427,6 +440,7 @@ function put_record_batch(
             ),
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -479,6 +493,7 @@ function start_delivery_stream_encryption(
         "StartDeliveryStreamEncryption",
         Dict{String,Any}("DeliveryStreamName" => DeliveryStreamName);
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 function start_delivery_stream_encryption(
@@ -494,6 +509,7 @@ function start_delivery_stream_encryption(
             ),
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -530,6 +546,7 @@ function stop_delivery_stream_encryption(
         "StopDeliveryStreamEncryption",
         Dict{String,Any}("DeliveryStreamName" => DeliveryStreamName);
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 function stop_delivery_stream_encryption(
@@ -545,6 +562,7 @@ function stop_delivery_stream_encryption(
             ),
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -573,6 +591,7 @@ function tag_delivery_stream(
         "TagDeliveryStream",
         Dict{String,Any}("DeliveryStreamName" => DeliveryStreamName, "Tags" => Tags);
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 function tag_delivery_stream(
@@ -593,6 +612,7 @@ function tag_delivery_stream(
             ),
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -618,6 +638,7 @@ function untag_delivery_stream(
         "UntagDeliveryStream",
         Dict{String,Any}("DeliveryStreamName" => DeliveryStreamName, "TagKeys" => TagKeys);
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 function untag_delivery_stream(
@@ -638,6 +659,7 @@ function untag_delivery_stream(
             ),
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -701,6 +723,7 @@ function update_destination(
             "DestinationId" => DestinationId,
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 function update_destination(
@@ -724,5 +747,6 @@ function update_destination(
             ),
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end

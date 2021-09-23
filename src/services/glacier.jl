@@ -37,6 +37,7 @@ function abort_multipart_upload(
         "DELETE",
         "/$(accountId)/vaults/$(vaultName)/multipart-uploads/$(uploadId)";
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 function abort_multipart_upload(
@@ -51,6 +52,7 @@ function abort_multipart_upload(
         "/$(accountId)/vaults/$(vaultName)/multipart-uploads/$(uploadId)",
         params;
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -83,7 +85,10 @@ function abort_vault_lock(
     accountId, vaultName; aws_config::AbstractAWSConfig=global_aws_config()
 )
     return glacier(
-        "DELETE", "/$(accountId)/vaults/$(vaultName)/lock-policy"; aws_config=aws_config
+        "DELETE",
+        "/$(accountId)/vaults/$(vaultName)/lock-policy";
+        aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 function abort_vault_lock(
@@ -97,6 +102,7 @@ function abort_vault_lock(
         "/$(accountId)/vaults/$(vaultName)/lock-policy",
         params;
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -129,6 +135,7 @@ function add_tags_to_vault(
         "POST",
         "/$(accountId)/vaults/$(vaultName)/tags?operation=add";
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 function add_tags_to_vault(
@@ -142,6 +149,7 @@ function add_tags_to_vault(
         "/$(accountId)/vaults/$(vaultName)/tags?operation=add",
         params;
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -203,6 +211,7 @@ function complete_multipart_upload(
         "POST",
         "/$(accountId)/vaults/$(vaultName)/multipart-uploads/$(uploadId)";
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 function complete_multipart_upload(
@@ -217,6 +226,7 @@ function complete_multipart_upload(
         "/$(accountId)/vaults/$(vaultName)/multipart-uploads/$(uploadId)",
         params;
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -252,6 +262,7 @@ function complete_vault_lock(
         "POST",
         "/$(accountId)/vaults/$(vaultName)/lock-policy/$(lockId)";
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 function complete_vault_lock(
@@ -266,6 +277,7 @@ function complete_vault_lock(
         "/$(accountId)/vaults/$(vaultName)/lock-policy/$(lockId)",
         params;
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -297,7 +309,12 @@ Glacier and Create Vault  in the Amazon Glacier Developer Guide.
 function create_vault(
     accountId, vaultName; aws_config::AbstractAWSConfig=global_aws_config()
 )
-    return glacier("PUT", "/$(accountId)/vaults/$(vaultName)"; aws_config=aws_config)
+    return glacier(
+        "PUT",
+        "/$(accountId)/vaults/$(vaultName)";
+        aws_config=aws_config,
+        features=SERVICE_FEATURES,
+    )
 end
 function create_vault(
     accountId,
@@ -306,7 +323,11 @@ function create_vault(
     aws_config::AbstractAWSConfig=global_aws_config(),
 )
     return glacier(
-        "PUT", "/$(accountId)/vaults/$(vaultName)", params; aws_config=aws_config
+        "PUT",
+        "/$(accountId)/vaults/$(vaultName)",
+        params;
+        aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -345,6 +366,7 @@ function delete_archive(
         "DELETE",
         "/$(accountId)/vaults/$(vaultName)/archives/$(archiveId)";
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 function delete_archive(
@@ -359,6 +381,7 @@ function delete_archive(
         "/$(accountId)/vaults/$(vaultName)/archives/$(archiveId)",
         params;
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -391,7 +414,12 @@ Glacier and Delete Vault  in the Amazon S3 Glacier Developer Guide.
 function delete_vault(
     accountId, vaultName; aws_config::AbstractAWSConfig=global_aws_config()
 )
-    return glacier("DELETE", "/$(accountId)/vaults/$(vaultName)"; aws_config=aws_config)
+    return glacier(
+        "DELETE",
+        "/$(accountId)/vaults/$(vaultName)";
+        aws_config=aws_config,
+        features=SERVICE_FEATURES,
+    )
 end
 function delete_vault(
     accountId,
@@ -400,7 +428,11 @@ function delete_vault(
     aws_config::AbstractAWSConfig=global_aws_config(),
 )
     return glacier(
-        "DELETE", "/$(accountId)/vaults/$(vaultName)", params; aws_config=aws_config
+        "DELETE",
+        "/$(accountId)/vaults/$(vaultName)",
+        params;
+        aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -428,7 +460,10 @@ function delete_vault_access_policy(
     accountId, vaultName; aws_config::AbstractAWSConfig=global_aws_config()
 )
     return glacier(
-        "DELETE", "/$(accountId)/vaults/$(vaultName)/access-policy"; aws_config=aws_config
+        "DELETE",
+        "/$(accountId)/vaults/$(vaultName)/access-policy";
+        aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 function delete_vault_access_policy(
@@ -442,6 +477,7 @@ function delete_vault_access_policy(
         "/$(accountId)/vaults/$(vaultName)/access-policy",
         params;
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -475,6 +511,7 @@ function delete_vault_notifications(
         "DELETE",
         "/$(accountId)/vaults/$(vaultName)/notification-configuration";
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 function delete_vault_notifications(
@@ -488,6 +525,7 @@ function delete_vault_notifications(
         "/$(accountId)/vaults/$(vaultName)/notification-configuration",
         params;
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -522,7 +560,10 @@ function describe_job(
     accountId, jobId, vaultName; aws_config::AbstractAWSConfig=global_aws_config()
 )
     return glacier(
-        "GET", "/$(accountId)/vaults/$(vaultName)/jobs/$(jobId)"; aws_config=aws_config
+        "GET",
+        "/$(accountId)/vaults/$(vaultName)/jobs/$(jobId)";
+        aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 function describe_job(
@@ -537,6 +578,7 @@ function describe_job(
         "/$(accountId)/vaults/$(vaultName)/jobs/$(jobId)",
         params;
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -570,7 +612,12 @@ Glacier Developer Guide.
 function describe_vault(
     accountId, vaultName; aws_config::AbstractAWSConfig=global_aws_config()
 )
-    return glacier("GET", "/$(accountId)/vaults/$(vaultName)"; aws_config=aws_config)
+    return glacier(
+        "GET",
+        "/$(accountId)/vaults/$(vaultName)";
+        aws_config=aws_config,
+        features=SERVICE_FEATURES,
+    )
 end
 function describe_vault(
     accountId,
@@ -579,7 +626,11 @@ function describe_vault(
     aws_config::AbstractAWSConfig=global_aws_config(),
 )
     return glacier(
-        "GET", "/$(accountId)/vaults/$(vaultName)", params; aws_config=aws_config
+        "GET",
+        "/$(accountId)/vaults/$(vaultName)",
+        params;
+        aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -602,7 +653,12 @@ Amazon Glacier Data Retrieval Policies.
 function get_data_retrieval_policy(
     accountId; aws_config::AbstractAWSConfig=global_aws_config()
 )
-    return glacier("GET", "/$(accountId)/policies/data-retrieval"; aws_config=aws_config)
+    return glacier(
+        "GET",
+        "/$(accountId)/policies/data-retrieval";
+        aws_config=aws_config,
+        features=SERVICE_FEATURES,
+    )
 end
 function get_data_retrieval_policy(
     accountId,
@@ -610,7 +666,11 @@ function get_data_retrieval_policy(
     aws_config::AbstractAWSConfig=global_aws_config(),
 )
     return glacier(
-        "GET", "/$(accountId)/policies/data-retrieval", params; aws_config=aws_config
+        "GET",
+        "/$(accountId)/policies/data-retrieval",
+        params;
+        aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -682,6 +742,7 @@ function get_job_output(
         "GET",
         "/$(accountId)/vaults/$(vaultName)/jobs/$(jobId)/output";
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 function get_job_output(
@@ -696,6 +757,7 @@ function get_job_output(
         "/$(accountId)/vaults/$(vaultName)/jobs/$(jobId)/output",
         params;
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -721,7 +783,10 @@ function get_vault_access_policy(
     accountId, vaultName; aws_config::AbstractAWSConfig=global_aws_config()
 )
     return glacier(
-        "GET", "/$(accountId)/vaults/$(vaultName)/access-policy"; aws_config=aws_config
+        "GET",
+        "/$(accountId)/vaults/$(vaultName)/access-policy";
+        aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 function get_vault_access_policy(
@@ -735,6 +800,7 @@ function get_vault_access_policy(
         "/$(accountId)/vaults/$(vaultName)/access-policy",
         params;
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -765,7 +831,10 @@ function get_vault_lock(
     accountId, vaultName; aws_config::AbstractAWSConfig=global_aws_config()
 )
     return glacier(
-        "GET", "/$(accountId)/vaults/$(vaultName)/lock-policy"; aws_config=aws_config
+        "GET",
+        "/$(accountId)/vaults/$(vaultName)/lock-policy";
+        aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 function get_vault_lock(
@@ -779,6 +848,7 @@ function get_vault_lock(
         "/$(accountId)/vaults/$(vaultName)/lock-policy",
         params;
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -813,6 +883,7 @@ function get_vault_notifications(
         "GET",
         "/$(accountId)/vaults/$(vaultName)/notification-configuration";
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 function get_vault_notifications(
@@ -826,6 +897,7 @@ function get_vault_notifications(
         "/$(accountId)/vaults/$(vaultName)/notification-configuration",
         params;
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -851,7 +923,12 @@ Optional parameters can be passed as a `params::Dict{String,<:Any}`. Valid keys 
 function initiate_job(
     accountId, vaultName; aws_config::AbstractAWSConfig=global_aws_config()
 )
-    return glacier("POST", "/$(accountId)/vaults/$(vaultName)/jobs"; aws_config=aws_config)
+    return glacier(
+        "POST",
+        "/$(accountId)/vaults/$(vaultName)/jobs";
+        aws_config=aws_config,
+        features=SERVICE_FEATURES,
+    )
 end
 function initiate_job(
     accountId,
@@ -860,7 +937,11 @@ function initiate_job(
     aws_config::AbstractAWSConfig=global_aws_config(),
 )
     return glacier(
-        "POST", "/$(accountId)/vaults/$(vaultName)/jobs", params; aws_config=aws_config
+        "POST",
+        "/$(accountId)/vaults/$(vaultName)/jobs",
+        params;
+        aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -910,7 +991,10 @@ function initiate_multipart_upload(
     accountId, vaultName; aws_config::AbstractAWSConfig=global_aws_config()
 )
     return glacier(
-        "POST", "/$(accountId)/vaults/$(vaultName)/multipart-uploads"; aws_config=aws_config
+        "POST",
+        "/$(accountId)/vaults/$(vaultName)/multipart-uploads";
+        aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 function initiate_multipart_upload(
@@ -924,6 +1008,7 @@ function initiate_multipart_upload(
         "/$(accountId)/vaults/$(vaultName)/multipart-uploads",
         params;
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -965,7 +1050,10 @@ function initiate_vault_lock(
     accountId, vaultName; aws_config::AbstractAWSConfig=global_aws_config()
 )
     return glacier(
-        "POST", "/$(accountId)/vaults/$(vaultName)/lock-policy"; aws_config=aws_config
+        "POST",
+        "/$(accountId)/vaults/$(vaultName)/lock-policy";
+        aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 function initiate_vault_lock(
@@ -979,6 +1067,7 @@ function initiate_vault_lock(
         "/$(accountId)/vaults/$(vaultName)/lock-policy",
         params;
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -1032,7 +1121,12 @@ Optional parameters can be passed as a `params::Dict{String,<:Any}`. Valid keys 
   InProgress, Succeeded, or Failed.
 """
 function list_jobs(accountId, vaultName; aws_config::AbstractAWSConfig=global_aws_config())
-    return glacier("GET", "/$(accountId)/vaults/$(vaultName)/jobs"; aws_config=aws_config)
+    return glacier(
+        "GET",
+        "/$(accountId)/vaults/$(vaultName)/jobs";
+        aws_config=aws_config,
+        features=SERVICE_FEATURES,
+    )
 end
 function list_jobs(
     accountId,
@@ -1041,7 +1135,11 @@ function list_jobs(
     aws_config::AbstractAWSConfig=global_aws_config(),
 )
     return glacier(
-        "GET", "/$(accountId)/vaults/$(vaultName)/jobs", params; aws_config=aws_config
+        "GET",
+        "/$(accountId)/vaults/$(vaultName)/jobs",
+        params;
+        aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -1089,7 +1187,10 @@ function list_multipart_uploads(
     accountId, vaultName; aws_config::AbstractAWSConfig=global_aws_config()
 )
     return glacier(
-        "GET", "/$(accountId)/vaults/$(vaultName)/multipart-uploads"; aws_config=aws_config
+        "GET",
+        "/$(accountId)/vaults/$(vaultName)/multipart-uploads";
+        aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 function list_multipart_uploads(
@@ -1103,6 +1204,7 @@ function list_multipart_uploads(
         "/$(accountId)/vaults/$(vaultName)/multipart-uploads",
         params;
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -1152,6 +1254,7 @@ function list_parts(
         "GET",
         "/$(accountId)/vaults/$(vaultName)/multipart-uploads/$(uploadId)";
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 function list_parts(
@@ -1166,6 +1269,7 @@ function list_parts(
         "/$(accountId)/vaults/$(vaultName)/multipart-uploads/$(uploadId)",
         params;
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -1185,7 +1289,12 @@ This operation lists the provisioned capacity units for the specified AWS accoun
 function list_provisioned_capacity(
     accountId; aws_config::AbstractAWSConfig=global_aws_config()
 )
-    return glacier("GET", "/$(accountId)/provisioned-capacity"; aws_config=aws_config)
+    return glacier(
+        "GET",
+        "/$(accountId)/provisioned-capacity";
+        aws_config=aws_config,
+        features=SERVICE_FEATURES,
+    )
 end
 function list_provisioned_capacity(
     accountId,
@@ -1193,7 +1302,11 @@ function list_provisioned_capacity(
     aws_config::AbstractAWSConfig=global_aws_config(),
 )
     return glacier(
-        "GET", "/$(accountId)/provisioned-capacity", params; aws_config=aws_config
+        "GET",
+        "/$(accountId)/provisioned-capacity",
+        params;
+        aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -1216,7 +1329,12 @@ Resources.
 function list_tags_for_vault(
     accountId, vaultName; aws_config::AbstractAWSConfig=global_aws_config()
 )
-    return glacier("GET", "/$(accountId)/vaults/$(vaultName)/tags"; aws_config=aws_config)
+    return glacier(
+        "GET",
+        "/$(accountId)/vaults/$(vaultName)/tags";
+        aws_config=aws_config,
+        features=SERVICE_FEATURES,
+    )
 end
 function list_tags_for_vault(
     accountId,
@@ -1225,7 +1343,11 @@ function list_tags_for_vault(
     aws_config::AbstractAWSConfig=global_aws_config(),
 )
     return glacier(
-        "GET", "/$(accountId)/vaults/$(vaultName)/tags", params; aws_config=aws_config
+        "GET",
+        "/$(accountId)/vaults/$(vaultName)/tags",
+        params;
+        aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -1263,14 +1385,22 @@ Optional parameters can be passed as a `params::Dict{String,<:Any}`. Valid keys 
   the listing of vaults should begin.
 """
 function list_vaults(accountId; aws_config::AbstractAWSConfig=global_aws_config())
-    return glacier("GET", "/$(accountId)/vaults"; aws_config=aws_config)
+    return glacier(
+        "GET", "/$(accountId)/vaults"; aws_config=aws_config, features=SERVICE_FEATURES
+    )
 end
 function list_vaults(
     accountId,
     params::AbstractDict{String};
     aws_config::AbstractAWSConfig=global_aws_config(),
 )
-    return glacier("GET", "/$(accountId)/vaults", params; aws_config=aws_config)
+    return glacier(
+        "GET",
+        "/$(accountId)/vaults",
+        params;
+        aws_config=aws_config,
+        features=SERVICE_FEATURES,
+    )
 end
 
 """
@@ -1289,7 +1419,12 @@ This operation purchases a provisioned capacity unit for an AWS account.
 function purchase_provisioned_capacity(
     accountId; aws_config::AbstractAWSConfig=global_aws_config()
 )
-    return glacier("POST", "/$(accountId)/provisioned-capacity"; aws_config=aws_config)
+    return glacier(
+        "POST",
+        "/$(accountId)/provisioned-capacity";
+        aws_config=aws_config,
+        features=SERVICE_FEATURES,
+    )
 end
 function purchase_provisioned_capacity(
     accountId,
@@ -1297,7 +1432,11 @@ function purchase_provisioned_capacity(
     aws_config::AbstractAWSConfig=global_aws_config(),
 )
     return glacier(
-        "POST", "/$(accountId)/provisioned-capacity", params; aws_config=aws_config
+        "POST",
+        "/$(accountId)/provisioned-capacity",
+        params;
+        aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -1328,6 +1467,7 @@ function remove_tags_from_vault(
         "POST",
         "/$(accountId)/vaults/$(vaultName)/tags?operation=remove";
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 function remove_tags_from_vault(
@@ -1341,6 +1481,7 @@ function remove_tags_from_vault(
         "/$(accountId)/vaults/$(vaultName)/tags?operation=remove",
         params;
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -1368,7 +1509,12 @@ Optional parameters can be passed as a `params::Dict{String,<:Any}`. Valid keys 
 function set_data_retrieval_policy(
     accountId; aws_config::AbstractAWSConfig=global_aws_config()
 )
-    return glacier("PUT", "/$(accountId)/policies/data-retrieval"; aws_config=aws_config)
+    return glacier(
+        "PUT",
+        "/$(accountId)/policies/data-retrieval";
+        aws_config=aws_config,
+        features=SERVICE_FEATURES,
+    )
 end
 function set_data_retrieval_policy(
     accountId,
@@ -1376,7 +1522,11 @@ function set_data_retrieval_policy(
     aws_config::AbstractAWSConfig=global_aws_config(),
 )
     return glacier(
-        "PUT", "/$(accountId)/policies/data-retrieval", params; aws_config=aws_config
+        "PUT",
+        "/$(accountId)/policies/data-retrieval",
+        params;
+        aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -1406,7 +1556,10 @@ function set_vault_access_policy(
     accountId, vaultName; aws_config::AbstractAWSConfig=global_aws_config()
 )
     return glacier(
-        "PUT", "/$(accountId)/vaults/$(vaultName)/access-policy"; aws_config=aws_config
+        "PUT",
+        "/$(accountId)/vaults/$(vaultName)/access-policy";
+        aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 function set_vault_access_policy(
@@ -1420,6 +1573,7 @@ function set_vault_access_policy(
         "/$(accountId)/vaults/$(vaultName)/access-policy",
         params;
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -1466,6 +1620,7 @@ function set_vault_notifications(
         "PUT",
         "/$(accountId)/vaults/$(vaultName)/notification-configuration";
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 function set_vault_notifications(
@@ -1479,6 +1634,7 @@ function set_vault_notifications(
         "/$(accountId)/vaults/$(vaultName)/notification-configuration",
         params;
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -1527,7 +1683,10 @@ function upload_archive(
     accountId, vaultName; aws_config::AbstractAWSConfig=global_aws_config()
 )
     return glacier(
-        "POST", "/$(accountId)/vaults/$(vaultName)/archives"; aws_config=aws_config
+        "POST",
+        "/$(accountId)/vaults/$(vaultName)/archives";
+        aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 function upload_archive(
@@ -1537,7 +1696,11 @@ function upload_archive(
     aws_config::AbstractAWSConfig=global_aws_config(),
 )
     return glacier(
-        "POST", "/$(accountId)/vaults/$(vaultName)/archives", params; aws_config=aws_config
+        "POST",
+        "/$(accountId)/vaults/$(vaultName)/archives",
+        params;
+        aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -1596,6 +1759,7 @@ function upload_multipart_part(
         "PUT",
         "/$(accountId)/vaults/$(vaultName)/multipart-uploads/$(uploadId)";
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 function upload_multipart_part(
@@ -1610,5 +1774,6 @@ function upload_multipart_part(
         "/$(accountId)/vaults/$(vaultName)/multipart-uploads/$(uploadId)",
         params;
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end

@@ -27,6 +27,7 @@ function batch_associate_scram_secret(
         "/v1/clusters/$(clusterArn)/scram-secrets",
         Dict{String,Any}("secretArnList" => secretArnList);
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 function batch_associate_scram_secret(
@@ -42,6 +43,7 @@ function batch_associate_scram_secret(
             mergewith(_merge, Dict{String,Any}("secretArnList" => secretArnList), params)
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -68,6 +70,7 @@ function batch_disassociate_scram_secret(
         "/v1/clusters/$(clusterArn)/scram-secrets",
         Dict{String,Any}("secretArnList" => secretArnList);
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 function batch_disassociate_scram_secret(
@@ -83,6 +86,7 @@ function batch_disassociate_scram_secret(
             mergewith(_merge, Dict{String,Any}("secretArnList" => secretArnList), params)
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -142,6 +146,7 @@ function create_cluster(
             "numberOfBrokerNodes" => numberOfBrokerNodes,
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 function create_cluster(
@@ -168,6 +173,7 @@ function create_cluster(
             ),
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -204,6 +210,7 @@ function create_configuration(
         "/v1/configurations",
         Dict{String,Any}("name" => name, "serverProperties" => serverProperties);
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 function create_configuration(
@@ -223,6 +230,7 @@ function create_configuration(
             ),
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -245,14 +253,25 @@ Optional parameters can be passed as a `params::Dict{String,<:Any}`. Valid keys 
             The current version of the MSK cluster.
 """
 function delete_cluster(clusterArn; aws_config::AbstractAWSConfig=global_aws_config())
-    return kafka("DELETE", "/v1/clusters/$(clusterArn)"; aws_config=aws_config)
+    return kafka(
+        "DELETE",
+        "/v1/clusters/$(clusterArn)";
+        aws_config=aws_config,
+        features=SERVICE_FEATURES,
+    )
 end
 function delete_cluster(
     clusterArn,
     params::AbstractDict{String};
     aws_config::AbstractAWSConfig=global_aws_config(),
 )
-    return kafka("DELETE", "/v1/clusters/$(clusterArn)", params; aws_config=aws_config)
+    return kafka(
+        "DELETE",
+        "/v1/clusters/$(clusterArn)",
+        params;
+        aws_config=aws_config,
+        features=SERVICE_FEATURES,
+    )
 end
 
 """
@@ -269,12 +288,23 @@ end
 
 """
 function delete_configuration(arn; aws_config::AbstractAWSConfig=global_aws_config())
-    return kafka("DELETE", "/v1/configurations/$(arn)"; aws_config=aws_config)
+    return kafka(
+        "DELETE",
+        "/v1/configurations/$(arn)";
+        aws_config=aws_config,
+        features=SERVICE_FEATURES,
+    )
 end
 function delete_configuration(
     arn, params::AbstractDict{String}; aws_config::AbstractAWSConfig=global_aws_config()
 )
-    return kafka("DELETE", "/v1/configurations/$(arn)", params; aws_config=aws_config)
+    return kafka(
+        "DELETE",
+        "/v1/configurations/$(arn)",
+        params;
+        aws_config=aws_config,
+        features=SERVICE_FEATURES,
+    )
 end
 
 """
@@ -292,14 +322,25 @@ specified in the request.
 
 """
 function describe_cluster(clusterArn; aws_config::AbstractAWSConfig=global_aws_config())
-    return kafka("GET", "/v1/clusters/$(clusterArn)"; aws_config=aws_config)
+    return kafka(
+        "GET",
+        "/v1/clusters/$(clusterArn)";
+        aws_config=aws_config,
+        features=SERVICE_FEATURES,
+    )
 end
 function describe_cluster(
     clusterArn,
     params::AbstractDict{String};
     aws_config::AbstractAWSConfig=global_aws_config(),
 )
-    return kafka("GET", "/v1/clusters/$(clusterArn)", params; aws_config=aws_config)
+    return kafka(
+        "GET",
+        "/v1/clusters/$(clusterArn)",
+        params;
+        aws_config=aws_config,
+        features=SERVICE_FEATURES,
+    )
 end
 
 """
@@ -318,7 +359,12 @@ end
 function describe_cluster_operation(
     clusterOperationArn; aws_config::AbstractAWSConfig=global_aws_config()
 )
-    return kafka("GET", "/v1/operations/$(clusterOperationArn)"; aws_config=aws_config)
+    return kafka(
+        "GET",
+        "/v1/operations/$(clusterOperationArn)";
+        aws_config=aws_config,
+        features=SERVICE_FEATURES,
+    )
 end
 function describe_cluster_operation(
     clusterOperationArn,
@@ -326,7 +372,11 @@ function describe_cluster_operation(
     aws_config::AbstractAWSConfig=global_aws_config(),
 )
     return kafka(
-        "GET", "/v1/operations/$(clusterOperationArn)", params; aws_config=aws_config
+        "GET",
+        "/v1/operations/$(clusterOperationArn)",
+        params;
+        aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -344,12 +394,20 @@ end
 
 """
 function describe_configuration(arn; aws_config::AbstractAWSConfig=global_aws_config())
-    return kafka("GET", "/v1/configurations/$(arn)"; aws_config=aws_config)
+    return kafka(
+        "GET", "/v1/configurations/$(arn)"; aws_config=aws_config, features=SERVICE_FEATURES
+    )
 end
 function describe_configuration(
     arn, params::AbstractDict{String}; aws_config::AbstractAWSConfig=global_aws_config()
 )
-    return kafka("GET", "/v1/configurations/$(arn)", params; aws_config=aws_config)
+    return kafka(
+        "GET",
+        "/v1/configurations/$(arn)",
+        params;
+        aws_config=aws_config,
+        features=SERVICE_FEATURES,
+    )
 end
 
 """
@@ -372,7 +430,10 @@ function describe_configuration_revision(
     arn, revision; aws_config::AbstractAWSConfig=global_aws_config()
 )
     return kafka(
-        "GET", "/v1/configurations/$(arn)/revisions/$(revision)"; aws_config=aws_config
+        "GET",
+        "/v1/configurations/$(arn)/revisions/$(revision)";
+        aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 function describe_configuration_revision(
@@ -386,6 +447,7 @@ function describe_configuration_revision(
         "/v1/configurations/$(arn)/revisions/$(revision)",
         params;
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -406,7 +468,10 @@ function get_bootstrap_brokers(
     clusterArn; aws_config::AbstractAWSConfig=global_aws_config()
 )
     return kafka(
-        "GET", "/v1/clusters/$(clusterArn)/bootstrap-brokers"; aws_config=aws_config
+        "GET",
+        "/v1/clusters/$(clusterArn)/bootstrap-brokers";
+        aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 function get_bootstrap_brokers(
@@ -415,7 +480,11 @@ function get_bootstrap_brokers(
     aws_config::AbstractAWSConfig=global_aws_config(),
 )
     return kafka(
-        "GET", "/v1/clusters/$(clusterArn)/bootstrap-brokers", params; aws_config=aws_config
+        "GET",
+        "/v1/clusters/$(clusterArn)/bootstrap-brokers",
+        params;
+        aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -434,12 +503,23 @@ Optional parameters can be passed as a `params::Dict{String,<:Any}`. Valid keys 
   
 """
 function get_compatible_kafka_versions(; aws_config::AbstractAWSConfig=global_aws_config())
-    return kafka("GET", "/v1/compatible-kafka-versions"; aws_config=aws_config)
+    return kafka(
+        "GET",
+        "/v1/compatible-kafka-versions";
+        aws_config=aws_config,
+        features=SERVICE_FEATURES,
+    )
 end
 function get_compatible_kafka_versions(
     params::AbstractDict{String}; aws_config::AbstractAWSConfig=global_aws_config()
 )
-    return kafka("GET", "/v1/compatible-kafka-versions", params; aws_config=aws_config)
+    return kafka(
+        "GET",
+        "/v1/compatible-kafka-versions",
+        params;
+        aws_config=aws_config,
+        features=SERVICE_FEATURES,
+    )
 end
 
 """
@@ -469,7 +549,12 @@ Optional parameters can be passed as a `params::Dict{String,<:Any}`. Valid keys 
 function list_cluster_operations(
     clusterArn; aws_config::AbstractAWSConfig=global_aws_config()
 )
-    return kafka("GET", "/v1/clusters/$(clusterArn)/operations"; aws_config=aws_config)
+    return kafka(
+        "GET",
+        "/v1/clusters/$(clusterArn)/operations";
+        aws_config=aws_config,
+        features=SERVICE_FEATURES,
+    )
 end
 function list_cluster_operations(
     clusterArn,
@@ -477,7 +562,11 @@ function list_cluster_operations(
     aws_config::AbstractAWSConfig=global_aws_config(),
 )
     return kafka(
-        "GET", "/v1/clusters/$(clusterArn)/operations", params; aws_config=aws_config
+        "GET",
+        "/v1/clusters/$(clusterArn)/operations",
+        params;
+        aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -504,12 +593,14 @@ Optional parameters can be passed as a `params::Dict{String,<:Any}`. Valid keys 
   next batch, provide this token in your next request.
 """
 function list_clusters(; aws_config::AbstractAWSConfig=global_aws_config())
-    return kafka("GET", "/v1/clusters"; aws_config=aws_config)
+    return kafka("GET", "/v1/clusters"; aws_config=aws_config, features=SERVICE_FEATURES)
 end
 function list_clusters(
     params::AbstractDict{String}; aws_config::AbstractAWSConfig=global_aws_config()
 )
-    return kafka("GET", "/v1/clusters", params; aws_config=aws_config)
+    return kafka(
+        "GET", "/v1/clusters", params; aws_config=aws_config, features=SERVICE_FEATURES
+    )
 end
 
 """
@@ -538,13 +629,22 @@ Optional parameters can be passed as a `params::Dict{String,<:Any}`. Valid keys 
 function list_configuration_revisions(
     arn; aws_config::AbstractAWSConfig=global_aws_config()
 )
-    return kafka("GET", "/v1/configurations/$(arn)/revisions"; aws_config=aws_config)
+    return kafka(
+        "GET",
+        "/v1/configurations/$(arn)/revisions";
+        aws_config=aws_config,
+        features=SERVICE_FEATURES,
+    )
 end
 function list_configuration_revisions(
     arn, params::AbstractDict{String}; aws_config::AbstractAWSConfig=global_aws_config()
 )
     return kafka(
-        "GET", "/v1/configurations/$(arn)/revisions", params; aws_config=aws_config
+        "GET",
+        "/v1/configurations/$(arn)/revisions",
+        params;
+        aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -567,12 +667,20 @@ Optional parameters can be passed as a `params::Dict{String,<:Any}`. Valid keys 
   next batch, provide this token in your next request.
 """
 function list_configurations(; aws_config::AbstractAWSConfig=global_aws_config())
-    return kafka("GET", "/v1/configurations"; aws_config=aws_config)
+    return kafka(
+        "GET", "/v1/configurations"; aws_config=aws_config, features=SERVICE_FEATURES
+    )
 end
 function list_configurations(
     params::AbstractDict{String}; aws_config::AbstractAWSConfig=global_aws_config()
 )
-    return kafka("GET", "/v1/configurations", params; aws_config=aws_config)
+    return kafka(
+        "GET",
+        "/v1/configurations",
+        params;
+        aws_config=aws_config,
+        features=SERVICE_FEATURES,
+    )
 end
 
 """
@@ -593,12 +701,20 @@ Optional parameters can be passed as a `params::Dict{String,<:Any}`. Valid keys 
   provide this token in your next request.
 """
 function list_kafka_versions(; aws_config::AbstractAWSConfig=global_aws_config())
-    return kafka("GET", "/v1/kafka-versions"; aws_config=aws_config)
+    return kafka(
+        "GET", "/v1/kafka-versions"; aws_config=aws_config, features=SERVICE_FEATURES
+    )
 end
 function list_kafka_versions(
     params::AbstractDict{String}; aws_config::AbstractAWSConfig=global_aws_config()
 )
-    return kafka("GET", "/v1/kafka-versions", params; aws_config=aws_config)
+    return kafka(
+        "GET",
+        "/v1/kafka-versions",
+        params;
+        aws_config=aws_config,
+        features=SERVICE_FEATURES,
+    )
 end
 
 """
@@ -625,14 +741,25 @@ Optional parameters can be passed as a `params::Dict{String,<:Any}`. Valid keys 
   next batch, provide this token in your next request.
 """
 function list_nodes(clusterArn; aws_config::AbstractAWSConfig=global_aws_config())
-    return kafka("GET", "/v1/clusters/$(clusterArn)/nodes"; aws_config=aws_config)
+    return kafka(
+        "GET",
+        "/v1/clusters/$(clusterArn)/nodes";
+        aws_config=aws_config,
+        features=SERVICE_FEATURES,
+    )
 end
 function list_nodes(
     clusterArn,
     params::AbstractDict{String};
     aws_config::AbstractAWSConfig=global_aws_config(),
 )
-    return kafka("GET", "/v1/clusters/$(clusterArn)/nodes", params; aws_config=aws_config)
+    return kafka(
+        "GET",
+        "/v1/clusters/$(clusterArn)/nodes",
+        params;
+        aws_config=aws_config,
+        features=SERVICE_FEATURES,
+    )
 end
 
 """
@@ -655,7 +782,12 @@ Optional parameters can be passed as a `params::Dict{String,<:Any}`. Valid keys 
             The nextToken of the query.
 """
 function list_scram_secrets(clusterArn; aws_config::AbstractAWSConfig=global_aws_config())
-    return kafka("GET", "/v1/clusters/$(clusterArn)/scram-secrets"; aws_config=aws_config)
+    return kafka(
+        "GET",
+        "/v1/clusters/$(clusterArn)/scram-secrets";
+        aws_config=aws_config,
+        features=SERVICE_FEATURES,
+    )
 end
 function list_scram_secrets(
     clusterArn,
@@ -663,7 +795,11 @@ function list_scram_secrets(
     aws_config::AbstractAWSConfig=global_aws_config(),
 )
     return kafka(
-        "GET", "/v1/clusters/$(clusterArn)/scram-secrets", params; aws_config=aws_config
+        "GET",
+        "/v1/clusters/$(clusterArn)/scram-secrets",
+        params;
+        aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -683,14 +819,22 @@ end
 function list_tags_for_resource(
     resourceArn; aws_config::AbstractAWSConfig=global_aws_config()
 )
-    return kafka("GET", "/v1/tags/$(resourceArn)"; aws_config=aws_config)
+    return kafka(
+        "GET", "/v1/tags/$(resourceArn)"; aws_config=aws_config, features=SERVICE_FEATURES
+    )
 end
 function list_tags_for_resource(
     resourceArn,
     params::AbstractDict{String};
     aws_config::AbstractAWSConfig=global_aws_config(),
 )
-    return kafka("GET", "/v1/tags/$(resourceArn)", params; aws_config=aws_config)
+    return kafka(
+        "GET",
+        "/v1/tags/$(resourceArn)",
+        params;
+        aws_config=aws_config,
+        features=SERVICE_FEATURES,
+    )
 end
 
 """
@@ -716,6 +860,7 @@ function reboot_broker(
         "/v1/clusters/$(clusterArn)/reboot-broker",
         Dict{String,Any}("brokerIds" => brokerIds);
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 function reboot_broker(
@@ -731,6 +876,7 @@ function reboot_broker(
             mergewith(_merge, Dict{String,Any}("brokerIds" => brokerIds), params)
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -755,6 +901,7 @@ function tag_resource(resourceArn, tags; aws_config::AbstractAWSConfig=global_aw
         "/v1/tags/$(resourceArn)",
         Dict{String,Any}("tags" => tags);
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 function tag_resource(
@@ -768,6 +915,7 @@ function tag_resource(
         "/v1/tags/$(resourceArn)",
         Dict{String,Any}(mergewith(_merge, Dict{String,Any}("tags" => tags), params));
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -811,6 +959,7 @@ function untag_resource(
         "/v1/tags/$(resourceArn)",
         Dict{String,Any}("tagKeys" => tagKeys);
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 function untag_resource(
@@ -824,6 +973,7 @@ function untag_resource(
         "/v1/tags/$(resourceArn)",
         Dict{String,Any}(mergewith(_merge, Dict{String,Any}("tagKeys" => tagKeys), params));
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -860,6 +1010,7 @@ function update_broker_count(
             "targetNumberOfBrokerNodes" => targetNumberOfBrokerNodes,
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 function update_broker_count(
@@ -883,6 +1034,7 @@ function update_broker_count(
             ),
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -919,6 +1071,7 @@ function update_broker_storage(
             "targetBrokerEBSVolumeInfo" => targetBrokerEBSVolumeInfo,
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 function update_broker_storage(
@@ -942,6 +1095,7 @@ function update_broker_storage(
             ),
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -977,6 +1131,7 @@ function update_broker_type(
             "currentVersion" => currentVersion, "targetInstanceType" => targetInstanceType
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 function update_broker_type(
@@ -1000,6 +1155,7 @@ function update_broker_type(
             ),
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -1036,6 +1192,7 @@ function update_cluster_configuration(
             "configurationInfo" => configurationInfo, "currentVersion" => currentVersion
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 function update_cluster_configuration(
@@ -1059,6 +1216,7 @@ function update_cluster_configuration(
             ),
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -1097,6 +1255,7 @@ function update_cluster_kafka_version(
             "currentVersion" => currentVersion, "targetKafkaVersion" => targetKafkaVersion
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 function update_cluster_kafka_version(
@@ -1120,6 +1279,7 @@ function update_cluster_kafka_version(
             ),
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -1153,6 +1313,7 @@ function update_configuration(
         "/v1/configurations/$(arn)",
         Dict{String,Any}("serverProperties" => serverProperties);
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 function update_configuration(
@@ -1170,6 +1331,7 @@ function update_configuration(
             ),
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -1208,6 +1370,7 @@ function update_monitoring(
         "/v1/clusters/$(clusterArn)/monitoring",
         Dict{String,Any}("currentVersion" => currentVersion);
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 function update_monitoring(
@@ -1223,6 +1386,7 @@ function update_monitoring(
             mergewith(_merge, Dict{String,Any}("currentVersion" => currentVersion), params)
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -1259,6 +1423,7 @@ function update_security(
         "/v1/clusters/$(clusterArn)/security",
         Dict{String,Any}("currentVersion" => currentVersion);
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 function update_security(
@@ -1274,5 +1439,6 @@ function update_security(
             mergewith(_merge, Dict{String,Any}("currentVersion" => currentVersion), params)
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end

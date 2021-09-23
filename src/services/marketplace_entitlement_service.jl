@@ -31,6 +31,7 @@ function get_entitlements(ProductCode; aws_config::AbstractAWSConfig=global_aws_
         "GetEntitlements",
         Dict{String,Any}("ProductCode" => ProductCode);
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 function get_entitlements(
@@ -44,5 +45,6 @@ function get_entitlements(
             mergewith(_merge, Dict{String,Any}("ProductCode" => ProductCode), params)
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end

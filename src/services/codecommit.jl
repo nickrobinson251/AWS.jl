@@ -33,6 +33,7 @@ function associate_approval_rule_template_with_repository(
             "repositoryName" => repositoryName,
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 function associate_approval_rule_template_with_repository(
@@ -54,6 +55,7 @@ function associate_approval_rule_template_with_repository(
             ),
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -84,6 +86,7 @@ function batch_associate_approval_rule_template_with_repositories(
             "repositoryNames" => repositoryNames,
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 function batch_associate_approval_rule_template_with_repositories(
@@ -105,6 +108,7 @@ function batch_associate_approval_rule_template_with_repositories(
             ),
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -157,6 +161,7 @@ function batch_describe_merge_conflicts(
             "sourceCommitSpecifier" => sourceCommitSpecifier,
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 function batch_describe_merge_conflicts(
@@ -182,6 +187,7 @@ function batch_describe_merge_conflicts(
             ),
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -212,6 +218,7 @@ function batch_disassociate_approval_rule_template_from_repositories(
             "repositoryNames" => repositoryNames,
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 function batch_disassociate_approval_rule_template_from_repositories(
@@ -233,6 +240,7 @@ function batch_disassociate_approval_rule_template_from_repositories(
             ),
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -255,6 +263,7 @@ function batch_get_commits(
         "BatchGetCommits",
         Dict{String,Any}("commitIds" => commitIds, "repositoryName" => repositoryName);
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 function batch_get_commits(
@@ -275,6 +284,7 @@ function batch_get_commits(
             ),
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -300,6 +310,7 @@ function batch_get_repositories(
         "BatchGetRepositories",
         Dict{String,Any}("repositoryNames" => repositoryNames);
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 function batch_get_repositories(
@@ -315,6 +326,7 @@ function batch_get_repositories(
             ),
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -369,6 +381,7 @@ function create_approval_rule_template(
             "approvalRuleTemplateName" => approvalRuleTemplateName,
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 function create_approval_rule_template(
@@ -390,6 +403,7 @@ function create_approval_rule_template(
             ),
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -418,6 +432,7 @@ function create_branch(
             "repositoryName" => repositoryName,
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 function create_branch(
@@ -441,6 +456,7 @@ function create_branch(
             ),
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -478,6 +494,7 @@ function create_commit(
         "CreateCommit",
         Dict{String,Any}("branchName" => branchName, "repositoryName" => repositoryName);
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 function create_commit(
@@ -498,6 +515,7 @@ function create_commit(
             ),
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -533,6 +551,7 @@ function create_pull_request(
             "targets" => targets, "title" => title, "clientRequestToken" => string(uuid4())
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 function create_pull_request(
@@ -555,6 +574,7 @@ function create_pull_request(
             ),
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -601,6 +621,7 @@ function create_pull_request_approval_rule(
             "pullRequestId" => pullRequestId,
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 function create_pull_request_approval_rule(
@@ -624,6 +645,7 @@ function create_pull_request_approval_rule(
             ),
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -657,6 +679,7 @@ function create_repository(
         "CreateRepository",
         Dict{String,Any}("repositoryName" => repositoryName);
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 function create_repository(
@@ -670,6 +693,7 @@ function create_repository(
             mergewith(_merge, Dict{String,Any}("repositoryName" => repositoryName), params)
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -729,6 +753,7 @@ function create_unreferenced_merge_commit(
             "sourceCommitSpecifier" => sourceCommitSpecifier,
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 function create_unreferenced_merge_commit(
@@ -754,6 +779,7 @@ function create_unreferenced_merge_commit(
             ),
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -775,6 +801,7 @@ function delete_approval_rule_template(
         "DeleteApprovalRuleTemplate",
         Dict{String,Any}("approvalRuleTemplateName" => approvalRuleTemplateName);
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 function delete_approval_rule_template(
@@ -792,6 +819,7 @@ function delete_approval_rule_template(
             ),
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -814,6 +842,7 @@ function delete_branch(
         "DeleteBranch",
         Dict{String,Any}("branchName" => branchName, "repositoryName" => repositoryName);
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 function delete_branch(
@@ -834,6 +863,7 @@ function delete_branch(
             ),
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -855,6 +885,7 @@ function delete_comment_content(
         "DeleteCommentContent",
         Dict{String,Any}("commentId" => commentId);
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 function delete_comment_content(
@@ -868,6 +899,7 @@ function delete_comment_content(
             mergewith(_merge, Dict{String,Any}("commentId" => commentId), params)
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -920,6 +952,7 @@ function delete_file(
             "repositoryName" => repositoryName,
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 function delete_file(
@@ -945,6 +978,7 @@ function delete_file(
             ),
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -973,6 +1007,7 @@ function delete_pull_request_approval_rule(
             "approvalRuleName" => approvalRuleName, "pullRequestId" => pullRequestId
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 function delete_pull_request_approval_rule(
@@ -993,6 +1028,7 @@ function delete_pull_request_approval_rule(
             ),
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -1015,6 +1051,7 @@ function delete_repository(
         "DeleteRepository",
         Dict{String,Any}("repositoryName" => repositoryName);
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 function delete_repository(
@@ -1028,6 +1065,7 @@ function delete_repository(
             mergewith(_merge, Dict{String,Any}("repositoryName" => repositoryName), params)
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -1081,6 +1119,7 @@ function describe_merge_conflicts(
             "sourceCommitSpecifier" => sourceCommitSpecifier,
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 function describe_merge_conflicts(
@@ -1108,6 +1147,7 @@ function describe_merge_conflicts(
             ),
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -1141,6 +1181,7 @@ function describe_pull_request_events(
         "DescribePullRequestEvents",
         Dict{String,Any}("pullRequestId" => pullRequestId);
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 function describe_pull_request_events(
@@ -1154,6 +1195,7 @@ function describe_pull_request_events(
             mergewith(_merge, Dict{String,Any}("pullRequestId" => pullRequestId), params)
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -1184,6 +1226,7 @@ function disassociate_approval_rule_template_from_repository(
             "repositoryName" => repositoryName,
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 function disassociate_approval_rule_template_from_repository(
@@ -1205,6 +1248,7 @@ function disassociate_approval_rule_template_from_repository(
             ),
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -1228,6 +1272,7 @@ function evaluate_pull_request_approval_rules(
         "EvaluatePullRequestApprovalRules",
         Dict{String,Any}("pullRequestId" => pullRequestId, "revisionId" => revisionId);
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 function evaluate_pull_request_approval_rules(
@@ -1248,6 +1293,7 @@ function evaluate_pull_request_approval_rules(
             ),
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -1269,6 +1315,7 @@ function get_approval_rule_template(
         "GetApprovalRuleTemplate",
         Dict{String,Any}("approvalRuleTemplateName" => approvalRuleTemplateName);
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 function get_approval_rule_template(
@@ -1286,6 +1333,7 @@ function get_approval_rule_template(
             ),
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -1305,6 +1353,7 @@ function get_blob(blobId, repositoryName; aws_config::AbstractAWSConfig=global_a
         "GetBlob",
         Dict{String,Any}("blobId" => blobId, "repositoryName" => repositoryName);
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 function get_blob(
@@ -1323,6 +1372,7 @@ function get_blob(
             ),
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -1339,12 +1389,12 @@ Optional parameters can be passed as a `params::Dict{String,<:Any}`. Valid keys 
   want to retrieve information.
 """
 function get_branch(; aws_config::AbstractAWSConfig=global_aws_config())
-    return codecommit("GetBranch"; aws_config=aws_config)
+    return codecommit("GetBranch"; aws_config=aws_config, features=SERVICE_FEATURES)
 end
 function get_branch(
     params::AbstractDict{String}; aws_config::AbstractAWSConfig=global_aws_config()
 )
-    return codecommit("GetBranch", params; aws_config=aws_config)
+    return codecommit("GetBranch", params; aws_config=aws_config, features=SERVICE_FEATURES)
 end
 
 """
@@ -1363,7 +1413,10 @@ GetCommentReactions.
 """
 function get_comment(commentId; aws_config::AbstractAWSConfig=global_aws_config())
     return codecommit(
-        "GetComment", Dict{String,Any}("commentId" => commentId); aws_config=aws_config
+        "GetComment",
+        Dict{String,Any}("commentId" => commentId);
+        aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 function get_comment(
@@ -1377,6 +1430,7 @@ function get_comment(
             mergewith(_merge, Dict{String,Any}("commentId" => commentId), params)
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -1404,6 +1458,7 @@ function get_comment_reactions(commentId; aws_config::AbstractAWSConfig=global_a
         "GetCommentReactions",
         Dict{String,Any}("commentId" => commentId);
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 function get_comment_reactions(
@@ -1417,6 +1472,7 @@ function get_comment_reactions(
             mergewith(_merge, Dict{String,Any}("commentId" => commentId), params)
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -1451,6 +1507,7 @@ function get_comments_for_compared_commit(
             "afterCommitId" => afterCommitId, "repositoryName" => repositoryName
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 function get_comments_for_compared_commit(
@@ -1471,6 +1528,7 @@ function get_comments_for_compared_commit(
             ),
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -1506,6 +1564,7 @@ function get_comments_for_pull_request(
         "GetCommentsForPullRequest",
         Dict{String,Any}("pullRequestId" => pullRequestId);
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 function get_comments_for_pull_request(
@@ -1519,6 +1578,7 @@ function get_comments_for_pull_request(
             mergewith(_merge, Dict{String,Any}("pullRequestId" => pullRequestId), params)
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -1540,6 +1600,7 @@ function get_commit(
         "GetCommit",
         Dict{String,Any}("commitId" => commitId, "repositoryName" => repositoryName);
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 function get_commit(
@@ -1560,6 +1621,7 @@ function get_commit(
             ),
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -1603,6 +1665,7 @@ function get_differences(
             "repositoryName" => repositoryName,
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 function get_differences(
@@ -1624,6 +1687,7 @@ function get_differences(
             ),
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -1652,6 +1716,7 @@ function get_file(
         "GetFile",
         Dict{String,Any}("filePath" => filePath, "repositoryName" => repositoryName);
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 function get_file(
@@ -1672,6 +1737,7 @@ function get_file(
             ),
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -1701,6 +1767,7 @@ function get_folder(
         "GetFolder",
         Dict{String,Any}("folderPath" => folderPath, "repositoryName" => repositoryName);
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 function get_folder(
@@ -1721,6 +1788,7 @@ function get_folder(
             ),
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -1763,6 +1831,7 @@ function get_merge_commit(
             "sourceCommitSpecifier" => sourceCommitSpecifier,
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 function get_merge_commit(
@@ -1786,6 +1855,7 @@ function get_merge_commit(
             ),
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -1834,6 +1904,7 @@ function get_merge_conflicts(
             "sourceCommitSpecifier" => sourceCommitSpecifier,
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 function get_merge_conflicts(
@@ -1859,6 +1930,7 @@ function get_merge_conflicts(
             ),
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -1903,6 +1975,7 @@ function get_merge_options(
             "sourceCommitSpecifier" => sourceCommitSpecifier,
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 function get_merge_options(
@@ -1926,6 +1999,7 @@ function get_merge_options(
             ),
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -1945,6 +2019,7 @@ function get_pull_request(pullRequestId; aws_config::AbstractAWSConfig=global_aw
         "GetPullRequest",
         Dict{String,Any}("pullRequestId" => pullRequestId);
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 function get_pull_request(
@@ -1958,6 +2033,7 @@ function get_pull_request(
             mergewith(_merge, Dict{String,Any}("pullRequestId" => pullRequestId), params)
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -1980,6 +2056,7 @@ function get_pull_request_approval_states(
         "GetPullRequestApprovalStates",
         Dict{String,Any}("pullRequestId" => pullRequestId, "revisionId" => revisionId);
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 function get_pull_request_approval_states(
@@ -2000,6 +2077,7 @@ function get_pull_request_approval_states(
             ),
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -2025,6 +2103,7 @@ function get_pull_request_override_state(
         "GetPullRequestOverrideState",
         Dict{String,Any}("pullRequestId" => pullRequestId, "revisionId" => revisionId);
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 function get_pull_request_override_state(
@@ -2045,6 +2124,7 @@ function get_pull_request_override_state(
             ),
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -2067,6 +2147,7 @@ function get_repository(repositoryName; aws_config::AbstractAWSConfig=global_aws
         "GetRepository",
         Dict{String,Any}("repositoryName" => repositoryName);
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 function get_repository(
@@ -2080,6 +2161,7 @@ function get_repository(
             mergewith(_merge, Dict{String,Any}("repositoryName" => repositoryName), params)
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -2100,6 +2182,7 @@ function get_repository_triggers(
         "GetRepositoryTriggers",
         Dict{String,Any}("repositoryName" => repositoryName);
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 function get_repository_triggers(
@@ -2113,6 +2196,7 @@ function get_repository_triggers(
             mergewith(_merge, Dict{String,Any}("repositoryName" => repositoryName), params)
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -2131,12 +2215,19 @@ Optional parameters can be passed as a `params::Dict{String,<:Any}`. Valid keys 
   batch of the results.
 """
 function list_approval_rule_templates(; aws_config::AbstractAWSConfig=global_aws_config())
-    return codecommit("ListApprovalRuleTemplates"; aws_config=aws_config)
+    return codecommit(
+        "ListApprovalRuleTemplates"; aws_config=aws_config, features=SERVICE_FEATURES
+    )
 end
 function list_approval_rule_templates(
     params::AbstractDict{String}; aws_config::AbstractAWSConfig=global_aws_config()
 )
-    return codecommit("ListApprovalRuleTemplates", params; aws_config=aws_config)
+    return codecommit(
+        "ListApprovalRuleTemplates",
+        params;
+        aws_config=aws_config,
+        features=SERVICE_FEATURES,
+    )
 end
 
 """
@@ -2163,6 +2254,7 @@ function list_associated_approval_rule_templates_for_repository(
         "ListAssociatedApprovalRuleTemplatesForRepository",
         Dict{String,Any}("repositoryName" => repositoryName);
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 function list_associated_approval_rule_templates_for_repository(
@@ -2176,6 +2268,7 @@ function list_associated_approval_rule_templates_for_repository(
             mergewith(_merge, Dict{String,Any}("repositoryName" => repositoryName), params)
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -2197,6 +2290,7 @@ function list_branches(repositoryName; aws_config::AbstractAWSConfig=global_aws_
         "ListBranches",
         Dict{String,Any}("repositoryName" => repositoryName);
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 function list_branches(
@@ -2210,6 +2304,7 @@ function list_branches(
             mergewith(_merge, Dict{String,Any}("repositoryName" => repositoryName), params)
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -2241,6 +2336,7 @@ function list_pull_requests(
         "ListPullRequests",
         Dict{String,Any}("repositoryName" => repositoryName);
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 function list_pull_requests(
@@ -2254,6 +2350,7 @@ function list_pull_requests(
             mergewith(_merge, Dict{String,Any}("repositoryName" => repositoryName), params)
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -2272,12 +2369,14 @@ Optional parameters can be passed as a `params::Dict{String,<:Any}`. Valid keys 
 - `"sortBy"`: The criteria used to sort the results of a list repositories operation.
 """
 function list_repositories(; aws_config::AbstractAWSConfig=global_aws_config())
-    return codecommit("ListRepositories"; aws_config=aws_config)
+    return codecommit("ListRepositories"; aws_config=aws_config, features=SERVICE_FEATURES)
 end
 function list_repositories(
     params::AbstractDict{String}; aws_config::AbstractAWSConfig=global_aws_config()
 )
-    return codecommit("ListRepositories", params; aws_config=aws_config)
+    return codecommit(
+        "ListRepositories", params; aws_config=aws_config, features=SERVICE_FEATURES
+    )
 end
 
 """
@@ -2304,6 +2403,7 @@ function list_repositories_for_approval_rule_template(
         "ListRepositoriesForApprovalRuleTemplate",
         Dict{String,Any}("approvalRuleTemplateName" => approvalRuleTemplateName);
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 function list_repositories_for_approval_rule_template(
@@ -2321,6 +2421,7 @@ function list_repositories_for_approval_rule_template(
             ),
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -2348,6 +2449,7 @@ function list_tags_for_resource(
         "ListTagsForResource",
         Dict{String,Any}("resourceArn" => resourceArn);
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 function list_tags_for_resource(
@@ -2361,6 +2463,7 @@ function list_tags_for_resource(
             mergewith(_merge, Dict{String,Any}("resourceArn" => resourceArn), params)
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -2395,6 +2498,7 @@ function merge_branches_by_fast_forward(
             "sourceCommitSpecifier" => sourceCommitSpecifier,
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 function merge_branches_by_fast_forward(
@@ -2418,6 +2522,7 @@ function merge_branches_by_fast_forward(
             ),
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -2470,6 +2575,7 @@ function merge_branches_by_squash(
             "sourceCommitSpecifier" => sourceCommitSpecifier,
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 function merge_branches_by_squash(
@@ -2493,6 +2599,7 @@ function merge_branches_by_squash(
             ),
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -2545,6 +2652,7 @@ function merge_branches_by_three_way(
             "sourceCommitSpecifier" => sourceCommitSpecifier,
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 function merge_branches_by_three_way(
@@ -2568,6 +2676,7 @@ function merge_branches_by_three_way(
             ),
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -2599,6 +2708,7 @@ function merge_pull_request_by_fast_forward(
             "pullRequestId" => pullRequestId, "repositoryName" => repositoryName
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 function merge_pull_request_by_fast_forward(
@@ -2619,6 +2729,7 @@ function merge_pull_request_by_fast_forward(
             ),
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -2668,6 +2779,7 @@ function merge_pull_request_by_squash(
             "pullRequestId" => pullRequestId, "repositoryName" => repositoryName
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 function merge_pull_request_by_squash(
@@ -2688,6 +2800,7 @@ function merge_pull_request_by_squash(
             ),
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -2737,6 +2850,7 @@ function merge_pull_request_by_three_way(
             "pullRequestId" => pullRequestId, "repositoryName" => repositoryName
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 function merge_pull_request_by_three_way(
@@ -2757,6 +2871,7 @@ function merge_pull_request_by_three_way(
             ),
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -2791,6 +2906,7 @@ function override_pull_request_approval_rules(
             "revisionId" => revisionId,
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 function override_pull_request_approval_rules(
@@ -2814,6 +2930,7 @@ function override_pull_request_approval_rules(
             ),
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -2856,6 +2973,7 @@ function post_comment_for_compared_commit(
             "clientRequestToken" => string(uuid4()),
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 function post_comment_for_compared_commit(
@@ -2880,6 +2998,7 @@ function post_comment_for_compared_commit(
             ),
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -2929,6 +3048,7 @@ function post_comment_for_pull_request(
             "clientRequestToken" => string(uuid4()),
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 function post_comment_for_pull_request(
@@ -2957,6 +3077,7 @@ function post_comment_for_pull_request(
             ),
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -2990,6 +3111,7 @@ function post_comment_reply(
             "clientRequestToken" => string(uuid4()),
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 function post_comment_reply(
@@ -3012,6 +3134,7 @@ function post_comment_reply(
             ),
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -3037,6 +3160,7 @@ function put_comment_reaction(
         "PutCommentReaction",
         Dict{String,Any}("commentId" => commentId, "reactionValue" => reactionValue);
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 function put_comment_reaction(
@@ -3057,6 +3181,7 @@ function put_comment_reaction(
             ),
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -3107,6 +3232,7 @@ function put_file(
             "repositoryName" => repositoryName,
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 function put_file(
@@ -3132,6 +3258,7 @@ function put_file(
             ),
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -3154,6 +3281,7 @@ function put_repository_triggers(
         "PutRepositoryTriggers",
         Dict{String,Any}("repositoryName" => repositoryName, "triggers" => triggers);
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 function put_repository_triggers(
@@ -3174,6 +3302,7 @@ function put_repository_triggers(
             ),
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -3195,6 +3324,7 @@ function tag_resource(resourceArn, tags; aws_config::AbstractAWSConfig=global_aw
         "TagResource",
         Dict{String,Any}("resourceArn" => resourceArn, "tags" => tags);
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 function tag_resource(
@@ -3213,6 +3343,7 @@ function tag_resource(
             ),
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -3236,6 +3367,7 @@ function test_repository_triggers(
         "TestRepositoryTriggers",
         Dict{String,Any}("repositoryName" => repositoryName, "triggers" => triggers);
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 function test_repository_triggers(
@@ -3256,6 +3388,7 @@ function test_repository_triggers(
             ),
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -3279,6 +3412,7 @@ function untag_resource(
         "UntagResource",
         Dict{String,Any}("resourceArn" => resourceArn, "tagKeys" => tagKeys);
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 function untag_resource(
@@ -3297,6 +3431,7 @@ function untag_resource(
             ),
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -3330,6 +3465,7 @@ function update_approval_rule_template_content(
             "newRuleContent" => newRuleContent,
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 function update_approval_rule_template_content(
@@ -3351,6 +3487,7 @@ function update_approval_rule_template_content(
             ),
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -3379,6 +3516,7 @@ function update_approval_rule_template_description(
             "approvalRuleTemplateName" => approvalRuleTemplateName,
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 function update_approval_rule_template_description(
@@ -3400,6 +3538,7 @@ function update_approval_rule_template_description(
             ),
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -3427,6 +3566,7 @@ function update_approval_rule_template_name(
             "oldApprovalRuleTemplateName" => oldApprovalRuleTemplateName,
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 function update_approval_rule_template_name(
@@ -3448,6 +3588,7 @@ function update_approval_rule_template_name(
             ),
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -3470,6 +3611,7 @@ function update_comment(
         "UpdateComment",
         Dict{String,Any}("commentId" => commentId, "content" => content);
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 function update_comment(
@@ -3488,6 +3630,7 @@ function update_comment(
             ),
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -3513,6 +3656,7 @@ function update_default_branch(
             "defaultBranchName" => defaultBranchName, "repositoryName" => repositoryName
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 function update_default_branch(
@@ -3534,6 +3678,7 @@ function update_default_branch(
             ),
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -3583,6 +3728,7 @@ function update_pull_request_approval_rule_content(
             "pullRequestId" => pullRequestId,
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 function update_pull_request_approval_rule_content(
@@ -3606,6 +3752,7 @@ function update_pull_request_approval_rule_content(
             ),
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -3636,6 +3783,7 @@ function update_pull_request_approval_state(
             "revisionId" => revisionId,
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 function update_pull_request_approval_state(
@@ -3659,6 +3807,7 @@ function update_pull_request_approval_state(
             ),
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -3682,6 +3831,7 @@ function update_pull_request_description(
         "UpdatePullRequestDescription",
         Dict{String,Any}("description" => description, "pullRequestId" => pullRequestId);
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 function update_pull_request_description(
@@ -3702,6 +3852,7 @@ function update_pull_request_description(
             ),
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -3727,6 +3878,7 @@ function update_pull_request_status(
             "pullRequestId" => pullRequestId, "pullRequestStatus" => pullRequestStatus
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 function update_pull_request_status(
@@ -3748,6 +3900,7 @@ function update_pull_request_status(
             ),
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -3770,6 +3923,7 @@ function update_pull_request_title(
         "UpdatePullRequestTitle",
         Dict{String,Any}("pullRequestId" => pullRequestId, "title" => title);
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 function update_pull_request_title(
@@ -3788,6 +3942,7 @@ function update_pull_request_title(
             ),
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -3817,6 +3972,7 @@ function update_repository_description(
         "UpdateRepositoryDescription",
         Dict{String,Any}("repositoryName" => repositoryName);
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 function update_repository_description(
@@ -3830,6 +3986,7 @@ function update_repository_description(
             mergewith(_merge, Dict{String,Any}("repositoryName" => repositoryName), params)
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -3854,6 +4011,7 @@ function update_repository_name(
         "UpdateRepositoryName",
         Dict{String,Any}("newName" => newName, "oldName" => oldName);
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 function update_repository_name(
@@ -3870,5 +4028,6 @@ function update_repository_name(
             ),
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end

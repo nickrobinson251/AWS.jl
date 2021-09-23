@@ -23,6 +23,7 @@ function acknowledge_job(jobId, nonce; aws_config::AbstractAWSConfig=global_aws_
         "AcknowledgeJob",
         Dict{String,Any}("jobId" => jobId, "nonce" => nonce);
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 function acknowledge_job(
@@ -37,6 +38,7 @@ function acknowledge_job(
             mergewith(_merge, Dict{String,Any}("jobId" => jobId, "nonce" => nonce), params)
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -62,6 +64,7 @@ function acknowledge_third_party_job(
         "AcknowledgeThirdPartyJob",
         Dict{String,Any}("clientToken" => clientToken, "jobId" => jobId, "nonce" => nonce);
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 function acknowledge_third_party_job(
@@ -83,6 +86,7 @@ function acknowledge_third_party_job(
             ),
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -130,6 +134,7 @@ function create_custom_action_type(
             "version" => version,
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 function create_custom_action_type(
@@ -157,6 +162,7 @@ function create_custom_action_type(
             ),
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -178,7 +184,10 @@ Optional parameters can be passed as a `params::Dict{String,<:Any}`. Valid keys 
 """
 function create_pipeline(pipeline; aws_config::AbstractAWSConfig=global_aws_config())
     return codepipeline(
-        "CreatePipeline", Dict{String,Any}("pipeline" => pipeline); aws_config=aws_config
+        "CreatePipeline",
+        Dict{String,Any}("pipeline" => pipeline);
+        aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 function create_pipeline(
@@ -192,6 +201,7 @@ function create_pipeline(
             mergewith(_merge, Dict{String,Any}("pipeline" => pipeline), params)
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -222,6 +232,7 @@ function delete_custom_action_type(
             "category" => category, "provider" => provider, "version" => version
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 function delete_custom_action_type(
@@ -243,6 +254,7 @@ function delete_custom_action_type(
             ),
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -258,7 +270,10 @@ Deletes the specified pipeline.
 """
 function delete_pipeline(name; aws_config::AbstractAWSConfig=global_aws_config())
     return codepipeline(
-        "DeletePipeline", Dict{String,Any}("name" => name); aws_config=aws_config
+        "DeletePipeline",
+        Dict{String,Any}("name" => name);
+        aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 function delete_pipeline(
@@ -268,6 +283,7 @@ function delete_pipeline(
         "DeletePipeline",
         Dict{String,Any}(mergewith(_merge, Dict{String,Any}("name" => name), params));
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -286,7 +302,10 @@ by calling PutWebhook with the same name, it will have a different URL.
 """
 function delete_webhook(name; aws_config::AbstractAWSConfig=global_aws_config())
     return codepipeline(
-        "DeleteWebhook", Dict{String,Any}("name" => name); aws_config=aws_config
+        "DeleteWebhook",
+        Dict{String,Any}("name" => name);
+        aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 function delete_webhook(
@@ -296,6 +315,7 @@ function delete_webhook(
         "DeleteWebhook",
         Dict{String,Any}(mergewith(_merge, Dict{String,Any}("name" => name), params));
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -314,12 +334,19 @@ Optional parameters can be passed as a `params::Dict{String,<:Any}`. Valid keys 
 function deregister_webhook_with_third_party(;
     aws_config::AbstractAWSConfig=global_aws_config()
 )
-    return codepipeline("DeregisterWebhookWithThirdParty"; aws_config=aws_config)
+    return codepipeline(
+        "DeregisterWebhookWithThirdParty"; aws_config=aws_config, features=SERVICE_FEATURES
+    )
 end
 function deregister_webhook_with_third_party(
     params::AbstractDict{String}; aws_config::AbstractAWSConfig=global_aws_config()
 )
-    return codepipeline("DeregisterWebhookWithThirdParty", params; aws_config=aws_config)
+    return codepipeline(
+        "DeregisterWebhookWithThirdParty",
+        params;
+        aws_config=aws_config,
+        features=SERVICE_FEATURES,
+    )
 end
 
 """
@@ -357,6 +384,7 @@ function disable_stage_transition(
             "transitionType" => transitionType,
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 function disable_stage_transition(
@@ -382,6 +410,7 @@ function disable_stage_transition(
             ),
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -415,6 +444,7 @@ function enable_stage_transition(
             "transitionType" => transitionType,
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 function enable_stage_transition(
@@ -438,6 +468,7 @@ function enable_stage_transition(
             ),
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -471,6 +502,7 @@ function get_action_type(
             "version" => version,
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 function get_action_type(
@@ -496,6 +528,7 @@ function get_action_type(
             ),
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -514,7 +547,10 @@ artifacts. This API also returns any secret values defined for the action.
 """
 function get_job_details(jobId; aws_config::AbstractAWSConfig=global_aws_config())
     return codepipeline(
-        "GetJobDetails", Dict{String,Any}("jobId" => jobId); aws_config=aws_config
+        "GetJobDetails",
+        Dict{String,Any}("jobId" => jobId);
+        aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 function get_job_details(
@@ -524,6 +560,7 @@ function get_job_details(
         "GetJobDetails",
         Dict{String,Any}(mergewith(_merge, Dict{String,Any}("jobId" => jobId), params));
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -546,7 +583,10 @@ Optional parameters can be passed as a `params::Dict{String,<:Any}`. Valid keys 
 """
 function get_pipeline(name; aws_config::AbstractAWSConfig=global_aws_config())
     return codepipeline(
-        "GetPipeline", Dict{String,Any}("name" => name); aws_config=aws_config
+        "GetPipeline",
+        Dict{String,Any}("name" => name);
+        aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 function get_pipeline(
@@ -556,6 +596,7 @@ function get_pipeline(
         "GetPipeline",
         Dict{String,Any}(mergewith(_merge, Dict{String,Any}("name" => name), params));
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -581,6 +622,7 @@ function get_pipeline_execution(
             "pipelineExecutionId" => pipelineExecutionId, "pipelineName" => pipelineName
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 function get_pipeline_execution(
@@ -602,6 +644,7 @@ function get_pipeline_execution(
             ),
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -619,7 +662,10 @@ information, such as the commit ID, for the current state.
 """
 function get_pipeline_state(name; aws_config::AbstractAWSConfig=global_aws_config())
     return codepipeline(
-        "GetPipelineState", Dict{String,Any}("name" => name); aws_config=aws_config
+        "GetPipelineState",
+        Dict{String,Any}("name" => name);
+        aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 function get_pipeline_state(
@@ -629,6 +675,7 @@ function get_pipeline_state(
         "GetPipelineState",
         Dict{String,Any}(mergewith(_merge, Dict{String,Any}("name" => name), params));
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -655,6 +702,7 @@ function get_third_party_job_details(
         "GetThirdPartyJobDetails",
         Dict{String,Any}("clientToken" => clientToken, "jobId" => jobId);
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 function get_third_party_job_details(
@@ -673,6 +721,7 @@ function get_third_party_job_details(
             ),
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -704,6 +753,7 @@ function list_action_executions(
         "ListActionExecutions",
         Dict{String,Any}("pipelineName" => pipelineName);
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 function list_action_executions(
@@ -717,6 +767,7 @@ function list_action_executions(
             mergewith(_merge, Dict{String,Any}("pipelineName" => pipelineName), params)
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -735,12 +786,14 @@ Optional parameters can be passed as a `params::Dict{String,<:Any}`. Valid keys 
 - `"regionFilter"`: The Region to filter on for the list of action types.
 """
 function list_action_types(; aws_config::AbstractAWSConfig=global_aws_config())
-    return codepipeline("ListActionTypes"; aws_config=aws_config)
+    return codepipeline("ListActionTypes"; aws_config=aws_config, features=SERVICE_FEATURES)
 end
 function list_action_types(
     params::AbstractDict{String}; aws_config::AbstractAWSConfig=global_aws_config()
 )
-    return codepipeline("ListActionTypes", params; aws_config=aws_config)
+    return codepipeline(
+        "ListActionTypes", params; aws_config=aws_config, features=SERVICE_FEATURES
+    )
 end
 
 """
@@ -769,6 +822,7 @@ function list_pipeline_executions(
         "ListPipelineExecutions",
         Dict{String,Any}("pipelineName" => pipelineName);
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 function list_pipeline_executions(
@@ -782,6 +836,7 @@ function list_pipeline_executions(
             mergewith(_merge, Dict{String,Any}("pipelineName" => pipelineName), params)
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -800,12 +855,14 @@ Optional parameters can be passed as a `params::Dict{String,<:Any}`. Valid keys 
   can be used to return the next set of pipelines in the list.
 """
 function list_pipelines(; aws_config::AbstractAWSConfig=global_aws_config())
-    return codepipeline("ListPipelines"; aws_config=aws_config)
+    return codepipeline("ListPipelines"; aws_config=aws_config, features=SERVICE_FEATURES)
 end
 function list_pipelines(
     params::AbstractDict{String}; aws_config::AbstractAWSConfig=global_aws_config()
 )
-    return codepipeline("ListPipelines", params; aws_config=aws_config)
+    return codepipeline(
+        "ListPipelines", params; aws_config=aws_config, features=SERVICE_FEATURES
+    )
 end
 
 """
@@ -831,6 +888,7 @@ function list_tags_for_resource(
         "ListTagsForResource",
         Dict{String,Any}("resourceArn" => resourceArn);
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 function list_tags_for_resource(
@@ -844,6 +902,7 @@ function list_tags_for_resource(
             mergewith(_merge, Dict{String,Any}("resourceArn" => resourceArn), params)
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -862,12 +921,14 @@ Optional parameters can be passed as a `params::Dict{String,<:Any}`. Valid keys 
   be used to return the next set of webhooks in the list.
 """
 function list_webhooks(; aws_config::AbstractAWSConfig=global_aws_config())
-    return codepipeline("ListWebhooks"; aws_config=aws_config)
+    return codepipeline("ListWebhooks"; aws_config=aws_config, features=SERVICE_FEATURES)
 end
 function list_webhooks(
     params::AbstractDict{String}; aws_config::AbstractAWSConfig=global_aws_config()
 )
-    return codepipeline("ListWebhooks", params; aws_config=aws_config)
+    return codepipeline(
+        "ListWebhooks", params; aws_config=aws_config, features=SERVICE_FEATURES
+    )
 end
 
 """
@@ -898,6 +959,7 @@ function poll_for_jobs(actionTypeId; aws_config::AbstractAWSConfig=global_aws_co
         "PollForJobs",
         Dict{String,Any}("actionTypeId" => actionTypeId);
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 function poll_for_jobs(
@@ -911,6 +973,7 @@ function poll_for_jobs(
             mergewith(_merge, Dict{String,Any}("actionTypeId" => actionTypeId), params)
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -937,6 +1000,7 @@ function poll_for_third_party_jobs(
         "PollForThirdPartyJobs",
         Dict{String,Any}("actionTypeId" => actionTypeId);
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 function poll_for_third_party_jobs(
@@ -950,6 +1014,7 @@ function poll_for_third_party_jobs(
             mergewith(_merge, Dict{String,Any}("actionTypeId" => actionTypeId), params)
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -983,6 +1048,7 @@ function put_action_revision(
             "stageName" => stageName,
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 function put_action_revision(
@@ -1008,6 +1074,7 @@ function put_action_revision(
             ),
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -1046,6 +1113,7 @@ function put_approval_result(
             "token" => token,
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 function put_approval_result(
@@ -1073,6 +1141,7 @@ function put_approval_result(
             ),
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -1096,6 +1165,7 @@ function put_job_failure_result(
         "PutJobFailureResult",
         Dict{String,Any}("failureDetails" => failureDetails, "jobId" => jobId);
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 function put_job_failure_result(
@@ -1114,6 +1184,7 @@ function put_job_failure_result(
             ),
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -1145,7 +1216,10 @@ Optional parameters can be passed as a `params::Dict{String,<:Any}`. Valid keys 
 """
 function put_job_success_result(jobId; aws_config::AbstractAWSConfig=global_aws_config())
     return codepipeline(
-        "PutJobSuccessResult", Dict{String,Any}("jobId" => jobId); aws_config=aws_config
+        "PutJobSuccessResult",
+        Dict{String,Any}("jobId" => jobId);
+        aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 function put_job_success_result(
@@ -1155,6 +1229,7 @@ function put_job_success_result(
         "PutJobSuccessResult",
         Dict{String,Any}(mergewith(_merge, Dict{String,Any}("jobId" => jobId), params));
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -1184,6 +1259,7 @@ function put_third_party_job_failure_result(
             "jobId" => jobId,
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 function put_third_party_job_failure_result(
@@ -1207,6 +1283,7 @@ function put_third_party_job_failure_result(
             ),
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -1241,6 +1318,7 @@ function put_third_party_job_success_result(
         "PutThirdPartyJobSuccessResult",
         Dict{String,Any}("clientToken" => clientToken, "jobId" => jobId);
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 function put_third_party_job_success_result(
@@ -1259,6 +1337,7 @@ function put_third_party_job_success_result(
             ),
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -1286,7 +1365,10 @@ Optional parameters can be passed as a `params::Dict{String,<:Any}`. Valid keys 
 """
 function put_webhook(webhook; aws_config::AbstractAWSConfig=global_aws_config())
     return codepipeline(
-        "PutWebhook", Dict{String,Any}("webhook" => webhook); aws_config=aws_config
+        "PutWebhook",
+        Dict{String,Any}("webhook" => webhook);
+        aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 function put_webhook(
@@ -1296,6 +1378,7 @@ function put_webhook(
         "PutWebhook",
         Dict{String,Any}(mergewith(_merge, Dict{String,Any}("webhook" => webhook), params));
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -1314,12 +1397,19 @@ Optional parameters can be passed as a `params::Dict{String,<:Any}`. Valid keys 
 function register_webhook_with_third_party(;
     aws_config::AbstractAWSConfig=global_aws_config()
 )
-    return codepipeline("RegisterWebhookWithThirdParty"; aws_config=aws_config)
+    return codepipeline(
+        "RegisterWebhookWithThirdParty"; aws_config=aws_config, features=SERVICE_FEATURES
+    )
 end
 function register_webhook_with_third_party(
     params::AbstractDict{String}; aws_config::AbstractAWSConfig=global_aws_config()
 )
-    return codepipeline("RegisterWebhookWithThirdParty", params; aws_config=aws_config)
+    return codepipeline(
+        "RegisterWebhookWithThirdParty",
+        params;
+        aws_config=aws_config,
+        features=SERVICE_FEATURES,
+    )
 end
 
 """
@@ -1356,6 +1446,7 @@ function retry_stage_execution(
             "stageName" => stageName,
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 function retry_stage_execution(
@@ -1381,6 +1472,7 @@ function retry_stage_execution(
             ),
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -1404,6 +1496,7 @@ function start_pipeline_execution(name; aws_config::AbstractAWSConfig=global_aws
         "StartPipelineExecution",
         Dict{String,Any}("name" => name, "clientRequestToken" => string(uuid4()));
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 function start_pipeline_execution(
@@ -1419,6 +1512,7 @@ function start_pipeline_execution(
             ),
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -1453,6 +1547,7 @@ function stop_pipeline_execution(
             "pipelineExecutionId" => pipelineExecutionId, "pipelineName" => pipelineName
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 function stop_pipeline_execution(
@@ -1474,6 +1569,7 @@ function stop_pipeline_execution(
             ),
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -1494,6 +1590,7 @@ function tag_resource(resourceArn, tags; aws_config::AbstractAWSConfig=global_aw
         "TagResource",
         Dict{String,Any}("resourceArn" => resourceArn, "tags" => tags);
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 function tag_resource(
@@ -1512,6 +1609,7 @@ function tag_resource(
             ),
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -1533,6 +1631,7 @@ function untag_resource(
         "UntagResource",
         Dict{String,Any}("resourceArn" => resourceArn, "tagKeys" => tagKeys);
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 function untag_resource(
@@ -1551,6 +1650,7 @@ function untag_resource(
             ),
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -1571,6 +1671,7 @@ function update_action_type(actionType; aws_config::AbstractAWSConfig=global_aws
         "UpdateActionType",
         Dict{String,Any}("actionType" => actionType);
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 function update_action_type(
@@ -1584,6 +1685,7 @@ function update_action_type(
             mergewith(_merge, Dict{String,Any}("actionType" => actionType), params)
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -1601,7 +1703,10 @@ Updating the pipeline increases the version number of the pipeline by 1.
 """
 function update_pipeline(pipeline; aws_config::AbstractAWSConfig=global_aws_config())
     return codepipeline(
-        "UpdatePipeline", Dict{String,Any}("pipeline" => pipeline); aws_config=aws_config
+        "UpdatePipeline",
+        Dict{String,Any}("pipeline" => pipeline);
+        aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 function update_pipeline(
@@ -1615,5 +1720,6 @@ function update_pipeline(
             mergewith(_merge, Dict{String,Any}("pipeline" => pipeline), params)
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end

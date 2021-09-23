@@ -26,6 +26,7 @@ function cancel_journal_kinesis_stream(
         "DELETE",
         "/ledgers/$(name)/journal-kinesis-streams/$(streamId)";
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 function cancel_journal_kinesis_stream(
@@ -39,6 +40,7 @@ function cancel_journal_kinesis_stream(
         "/ledgers/$(name)/journal-kinesis-streams/$(streamId)",
         params;
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -100,6 +102,7 @@ function create_ledger(
         "/ledgers",
         Dict{String,Any}("Name" => Name, "PermissionsMode" => PermissionsMode);
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 function create_ledger(
@@ -119,6 +122,7 @@ function create_ledger(
             ),
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -135,12 +139,20 @@ disable it by calling the UpdateLedger operation to set the flag to false.
 
 """
 function delete_ledger(name; aws_config::AbstractAWSConfig=global_aws_config())
-    return qldb("DELETE", "/ledgers/$(name)"; aws_config=aws_config)
+    return qldb(
+        "DELETE", "/ledgers/$(name)"; aws_config=aws_config, features=SERVICE_FEATURES
+    )
 end
 function delete_ledger(
     name, params::AbstractDict{String}; aws_config::AbstractAWSConfig=global_aws_config()
 )
-    return qldb("DELETE", "/ledgers/$(name)", params; aws_config=aws_config)
+    return qldb(
+        "DELETE",
+        "/ledgers/$(name)",
+        params;
+        aws_config=aws_config,
+        features=SERVICE_FEATURES,
+    )
 end
 
 """
@@ -163,7 +175,10 @@ function describe_journal_kinesis_stream(
     name, streamId; aws_config::AbstractAWSConfig=global_aws_config()
 )
     return qldb(
-        "GET", "/ledgers/$(name)/journal-kinesis-streams/$(streamId)"; aws_config=aws_config
+        "GET",
+        "/ledgers/$(name)/journal-kinesis-streams/$(streamId)";
+        aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 function describe_journal_kinesis_stream(
@@ -177,6 +192,7 @@ function describe_journal_kinesis_stream(
         "/ledgers/$(name)/journal-kinesis-streams/$(streamId)",
         params;
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -201,7 +217,10 @@ function describe_journal_s3_export(
     exportId, name; aws_config::AbstractAWSConfig=global_aws_config()
 )
     return qldb(
-        "GET", "/ledgers/$(name)/journal-s3-exports/$(exportId)"; aws_config=aws_config
+        "GET",
+        "/ledgers/$(name)/journal-s3-exports/$(exportId)";
+        aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 function describe_journal_s3_export(
@@ -215,6 +234,7 @@ function describe_journal_s3_export(
         "/ledgers/$(name)/journal-s3-exports/$(exportId)",
         params;
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -230,12 +250,14 @@ rest settings, and when it was created.
 
 """
 function describe_ledger(name; aws_config::AbstractAWSConfig=global_aws_config())
-    return qldb("GET", "/ledgers/$(name)"; aws_config=aws_config)
+    return qldb("GET", "/ledgers/$(name)"; aws_config=aws_config, features=SERVICE_FEATURES)
 end
 function describe_ledger(
     name, params::AbstractDict{String}; aws_config::AbstractAWSConfig=global_aws_config()
 )
-    return qldb("GET", "/ledgers/$(name)", params; aws_config=aws_config)
+    return qldb(
+        "GET", "/ledgers/$(name)", params; aws_config=aws_config, features=SERVICE_FEATURES
+    )
 end
 
 """
@@ -287,6 +309,7 @@ function export_journal_to_s3(
             "S3ExportConfiguration" => S3ExportConfiguration,
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 function export_journal_to_s3(
@@ -314,6 +337,7 @@ function export_journal_to_s3(
             ),
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -347,6 +371,7 @@ function get_block(BlockAddress, name; aws_config::AbstractAWSConfig=global_aws_
         "/ledgers/$(name)/block",
         Dict{String,Any}("BlockAddress" => BlockAddress);
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 function get_block(
@@ -362,6 +387,7 @@ function get_block(
             mergewith(_merge, Dict{String,Any}("BlockAddress" => BlockAddress), params)
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -377,12 +403,20 @@ includes a 256-bit hash value and a block address.
 
 """
 function get_digest(name; aws_config::AbstractAWSConfig=global_aws_config())
-    return qldb("POST", "/ledgers/$(name)/digest"; aws_config=aws_config)
+    return qldb(
+        "POST", "/ledgers/$(name)/digest"; aws_config=aws_config, features=SERVICE_FEATURES
+    )
 end
 function get_digest(
     name, params::AbstractDict{String}; aws_config::AbstractAWSConfig=global_aws_config()
 )
-    return qldb("POST", "/ledgers/$(name)/digest", params; aws_config=aws_config)
+    return qldb(
+        "POST",
+        "/ledgers/$(name)/digest",
+        params;
+        aws_config=aws_config,
+        features=SERVICE_FEATURES,
+    )
 end
 
 """
@@ -414,6 +448,7 @@ function get_revision(
         "/ledgers/$(name)/revision",
         Dict{String,Any}("BlockAddress" => BlockAddress, "DocumentId" => DocumentId);
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 function get_revision(
@@ -436,6 +471,7 @@ function get_revision(
             ),
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -465,13 +501,22 @@ Optional parameters can be passed as a `params::Dict{String,<:Any}`. Valid keys 
 function list_journal_kinesis_streams_for_ledger(
     name; aws_config::AbstractAWSConfig=global_aws_config()
 )
-    return qldb("GET", "/ledgers/$(name)/journal-kinesis-streams"; aws_config=aws_config)
+    return qldb(
+        "GET",
+        "/ledgers/$(name)/journal-kinesis-streams";
+        aws_config=aws_config,
+        features=SERVICE_FEATURES,
+    )
 end
 function list_journal_kinesis_streams_for_ledger(
     name, params::AbstractDict{String}; aws_config::AbstractAWSConfig=global_aws_config()
 )
     return qldb(
-        "GET", "/ledgers/$(name)/journal-kinesis-streams", params; aws_config=aws_config
+        "GET",
+        "/ledgers/$(name)/journal-kinesis-streams",
+        params;
+        aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -494,12 +539,20 @@ Optional parameters can be passed as a `params::Dict{String,<:Any}`. Valid keys 
   ListJournalS3Exports call, then you should use that value as input here.
 """
 function list_journal_s3_exports(; aws_config::AbstractAWSConfig=global_aws_config())
-    return qldb("GET", "/journal-s3-exports"; aws_config=aws_config)
+    return qldb(
+        "GET", "/journal-s3-exports"; aws_config=aws_config, features=SERVICE_FEATURES
+    )
 end
 function list_journal_s3_exports(
     params::AbstractDict{String}; aws_config::AbstractAWSConfig=global_aws_config()
 )
-    return qldb("GET", "/journal-s3-exports", params; aws_config=aws_config)
+    return qldb(
+        "GET",
+        "/journal-s3-exports",
+        params;
+        aws_config=aws_config,
+        features=SERVICE_FEATURES,
+    )
 end
 
 """
@@ -527,12 +580,23 @@ Optional parameters can be passed as a `params::Dict{String,<:Any}`. Valid keys 
 function list_journal_s3_exports_for_ledger(
     name; aws_config::AbstractAWSConfig=global_aws_config()
 )
-    return qldb("GET", "/ledgers/$(name)/journal-s3-exports"; aws_config=aws_config)
+    return qldb(
+        "GET",
+        "/ledgers/$(name)/journal-s3-exports";
+        aws_config=aws_config,
+        features=SERVICE_FEATURES,
+    )
 end
 function list_journal_s3_exports_for_ledger(
     name, params::AbstractDict{String}; aws_config::AbstractAWSConfig=global_aws_config()
 )
-    return qldb("GET", "/ledgers/$(name)/journal-s3-exports", params; aws_config=aws_config)
+    return qldb(
+        "GET",
+        "/ledgers/$(name)/journal-s3-exports",
+        params;
+        aws_config=aws_config,
+        features=SERVICE_FEATURES,
+    )
 end
 
 """
@@ -552,12 +616,12 @@ Optional parameters can be passed as a `params::Dict{String,<:Any}`. Valid keys 
   call, then you should use that value as input here.
 """
 function list_ledgers(; aws_config::AbstractAWSConfig=global_aws_config())
-    return qldb("GET", "/ledgers"; aws_config=aws_config)
+    return qldb("GET", "/ledgers"; aws_config=aws_config, features=SERVICE_FEATURES)
 end
 function list_ledgers(
     params::AbstractDict{String}; aws_config::AbstractAWSConfig=global_aws_config()
 )
-    return qldb("GET", "/ledgers", params; aws_config=aws_config)
+    return qldb("GET", "/ledgers", params; aws_config=aws_config, features=SERVICE_FEATURES)
 end
 
 """
@@ -574,14 +638,22 @@ Returns all tags for a specified Amazon QLDB resource.
 function list_tags_for_resource(
     resourceArn; aws_config::AbstractAWSConfig=global_aws_config()
 )
-    return qldb("GET", "/tags/$(resourceArn)"; aws_config=aws_config)
+    return qldb(
+        "GET", "/tags/$(resourceArn)"; aws_config=aws_config, features=SERVICE_FEATURES
+    )
 end
 function list_tags_for_resource(
     resourceArn,
     params::AbstractDict{String};
     aws_config::AbstractAWSConfig=global_aws_config(),
 )
-    return qldb("GET", "/tags/$(resourceArn)", params; aws_config=aws_config)
+    return qldb(
+        "GET",
+        "/tags/$(resourceArn)",
+        params;
+        aws_config=aws_config,
+        features=SERVICE_FEATURES,
+    )
 end
 
 """
@@ -637,6 +709,7 @@ function stream_journal_to_kinesis(
             "StreamName" => StreamName,
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 function stream_journal_to_kinesis(
@@ -664,6 +737,7 @@ function stream_journal_to_kinesis(
             ),
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -689,6 +763,7 @@ function tag_resource(Tags, resourceArn; aws_config::AbstractAWSConfig=global_aw
         "/tags/$(resourceArn)",
         Dict{String,Any}("Tags" => Tags);
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 function tag_resource(
@@ -702,6 +777,7 @@ function tag_resource(
         "/tags/$(resourceArn)",
         Dict{String,Any}(mergewith(_merge, Dict{String,Any}("Tags" => Tags), params));
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -726,6 +802,7 @@ function untag_resource(
         "/tags/$(resourceArn)",
         Dict{String,Any}("tagKeys" => tagKeys);
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 function untag_resource(
@@ -739,6 +816,7 @@ function untag_resource(
         "/tags/$(resourceArn)",
         Dict{String,Any}(mergewith(_merge, Dict{String,Any}("tagKeys" => tagKeys), params));
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -775,12 +853,20 @@ Optional parameters can be passed as a `params::Dict{String,<:Any}`. Valid keys 
   Guide.
 """
 function update_ledger(name; aws_config::AbstractAWSConfig=global_aws_config())
-    return qldb("PATCH", "/ledgers/$(name)"; aws_config=aws_config)
+    return qldb(
+        "PATCH", "/ledgers/$(name)"; aws_config=aws_config, features=SERVICE_FEATURES
+    )
 end
 function update_ledger(
     name, params::AbstractDict{String}; aws_config::AbstractAWSConfig=global_aws_config()
 )
-    return qldb("PATCH", "/ledgers/$(name)", params; aws_config=aws_config)
+    return qldb(
+        "PATCH",
+        "/ledgers/$(name)",
+        params;
+        aws_config=aws_config,
+        features=SERVICE_FEATURES,
+    )
 end
 
 """
@@ -818,6 +904,7 @@ function update_ledger_permissions_mode(
         "/ledgers/$(name)/permissions-mode",
         Dict{String,Any}("PermissionsMode" => PermissionsMode);
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 function update_ledger_permissions_mode(
@@ -835,5 +922,6 @@ function update_ledger_permissions_mode(
             ),
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end

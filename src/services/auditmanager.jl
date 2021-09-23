@@ -23,6 +23,7 @@ function associate_assessment_report_evidence_folder(
         "/assessments/$(assessmentId)/associateToAssessmentReport",
         Dict{String,Any}("evidenceFolderId" => evidenceFolderId);
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 function associate_assessment_report_evidence_folder(
@@ -40,6 +41,7 @@ function associate_assessment_report_evidence_folder(
             ),
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -68,6 +70,7 @@ function batch_associate_assessment_report_evidence(
             "evidenceFolderId" => evidenceFolderId, "evidenceIds" => evidenceIds
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 function batch_associate_assessment_report_evidence(
@@ -90,6 +93,7 @@ function batch_associate_assessment_report_evidence(
             ),
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -115,6 +119,7 @@ function batch_create_delegation_by_assessment(
         "/assessments/$(assessmentId)/delegations",
         Dict{String,Any}("createDelegationRequests" => createDelegationRequests);
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 function batch_create_delegation_by_assessment(
@@ -134,6 +139,7 @@ function batch_create_delegation_by_assessment(
             ),
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -156,6 +162,7 @@ function batch_delete_delegation_by_assessment(
         "/assessments/$(assessmentId)/delegations",
         Dict{String,Any}("delegationIds" => delegationIds);
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 function batch_delete_delegation_by_assessment(
@@ -171,6 +178,7 @@ function batch_delete_delegation_by_assessment(
             mergewith(_merge, Dict{String,Any}("delegationIds" => delegationIds), params)
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -199,6 +207,7 @@ function batch_disassociate_assessment_report_evidence(
             "evidenceFolderId" => evidenceFolderId, "evidenceIds" => evidenceIds
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 function batch_disassociate_assessment_report_evidence(
@@ -221,6 +230,7 @@ function batch_disassociate_assessment_report_evidence(
             ),
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -250,6 +260,7 @@ function batch_import_evidence_to_assessment_control(
         "/assessments/$(assessmentId)/controlSets/$(controlSetId)/controls/$(controlId)/evidence",
         Dict{String,Any}("manualEvidence" => manualEvidence);
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 function batch_import_evidence_to_assessment_control(
@@ -267,6 +278,7 @@ function batch_import_evidence_to_assessment_control(
             mergewith(_merge, Dict{String,Any}("manualEvidence" => manualEvidence), params)
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -308,6 +320,7 @@ function create_assessment(
             "scope" => scope,
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 function create_assessment(
@@ -336,6 +349,7 @@ function create_assessment(
             ),
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -364,6 +378,7 @@ function create_assessment_framework(
         "/assessmentFrameworks",
         Dict{String,Any}("controlSets" => controlSets, "name" => name);
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 function create_assessment_framework(
@@ -383,6 +398,7 @@ function create_assessment_framework(
             ),
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -408,6 +424,7 @@ function create_assessment_report(
         "/assessments/$(assessmentId)/reports",
         Dict{String,Any}("name" => name);
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 function create_assessment_report(
@@ -421,6 +438,7 @@ function create_assessment_report(
         "/assessments/$(assessmentId)/reports",
         Dict{String,Any}(mergewith(_merge, Dict{String,Any}("name" => name), params));
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -452,6 +470,7 @@ function create_control(
         "/controls",
         Dict{String,Any}("controlMappingSources" => controlMappingSources, "name" => name);
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 function create_control(
@@ -473,6 +492,7 @@ function create_control(
             ),
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -487,7 +507,12 @@ end
 
 """
 function delete_assessment(assessmentId; aws_config::AbstractAWSConfig=global_aws_config())
-    return auditmanager("DELETE", "/assessments/$(assessmentId)"; aws_config=aws_config)
+    return auditmanager(
+        "DELETE",
+        "/assessments/$(assessmentId)";
+        aws_config=aws_config,
+        features=SERVICE_FEATURES,
+    )
 end
 function delete_assessment(
     assessmentId,
@@ -495,7 +520,11 @@ function delete_assessment(
     aws_config::AbstractAWSConfig=global_aws_config(),
 )
     return auditmanager(
-        "DELETE", "/assessments/$(assessmentId)", params; aws_config=aws_config
+        "DELETE",
+        "/assessments/$(assessmentId)",
+        params;
+        aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -513,7 +542,10 @@ function delete_assessment_framework(
     frameworkId; aws_config::AbstractAWSConfig=global_aws_config()
 )
     return auditmanager(
-        "DELETE", "/assessmentFrameworks/$(frameworkId)"; aws_config=aws_config
+        "DELETE",
+        "/assessmentFrameworks/$(frameworkId)";
+        aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 function delete_assessment_framework(
@@ -522,7 +554,11 @@ function delete_assessment_framework(
     aws_config::AbstractAWSConfig=global_aws_config(),
 )
     return auditmanager(
-        "DELETE", "/assessmentFrameworks/$(frameworkId)", params; aws_config=aws_config
+        "DELETE",
+        "/assessmentFrameworks/$(frameworkId)",
+        params;
+        aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -544,6 +580,7 @@ function delete_assessment_report(
         "DELETE",
         "/assessments/$(assessmentId)/reports/$(assessmentReportId)";
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 function delete_assessment_report(
@@ -557,6 +594,7 @@ function delete_assessment_report(
         "/assessments/$(assessmentId)/reports/$(assessmentReportId)",
         params;
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -571,14 +609,22 @@ end
 
 """
 function delete_control(controlId; aws_config::AbstractAWSConfig=global_aws_config())
-    return auditmanager("DELETE", "/controls/$(controlId)"; aws_config=aws_config)
+    return auditmanager(
+        "DELETE", "/controls/$(controlId)"; aws_config=aws_config, features=SERVICE_FEATURES
+    )
 end
 function delete_control(
     controlId,
     params::AbstractDict{String};
     aws_config::AbstractAWSConfig=global_aws_config(),
 )
-    return auditmanager("DELETE", "/controls/$(controlId)", params; aws_config=aws_config)
+    return auditmanager(
+        "DELETE",
+        "/controls/$(controlId)",
+        params;
+        aws_config=aws_config,
+        features=SERVICE_FEATURES,
+    )
 end
 
 """
@@ -589,12 +635,23 @@ end
 
 """
 function deregister_account(; aws_config::AbstractAWSConfig=global_aws_config())
-    return auditmanager("POST", "/account/deregisterAccount"; aws_config=aws_config)
+    return auditmanager(
+        "POST",
+        "/account/deregisterAccount";
+        aws_config=aws_config,
+        features=SERVICE_FEATURES,
+    )
 end
 function deregister_account(
     params::AbstractDict{String}; aws_config::AbstractAWSConfig=global_aws_config()
 )
-    return auditmanager("POST", "/account/deregisterAccount", params; aws_config=aws_config)
+    return auditmanager(
+        "POST",
+        "/account/deregisterAccount",
+        params;
+        aws_config=aws_config,
+        features=SERVICE_FEATURES,
+    )
 end
 
 """
@@ -615,14 +672,21 @@ function deregister_organization_admin_account(;
     aws_config::AbstractAWSConfig=global_aws_config()
 )
     return auditmanager(
-        "POST", "/account/deregisterOrganizationAdminAccount"; aws_config=aws_config
+        "POST",
+        "/account/deregisterOrganizationAdminAccount";
+        aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 function deregister_organization_admin_account(
     params::AbstractDict{String}; aws_config::AbstractAWSConfig=global_aws_config()
 )
     return auditmanager(
-        "POST", "/account/deregisterOrganizationAdminAccount", params; aws_config=aws_config
+        "POST",
+        "/account/deregisterOrganizationAdminAccount",
+        params;
+        aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -645,6 +709,7 @@ function disassociate_assessment_report_evidence_folder(
         "/assessments/$(assessmentId)/disassociateFromAssessmentReport",
         Dict{String,Any}("evidenceFolderId" => evidenceFolderId);
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 function disassociate_assessment_report_evidence_folder(
@@ -662,6 +727,7 @@ function disassociate_assessment_report_evidence_folder(
             ),
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -673,12 +739,16 @@ end
 
 """
 function get_account_status(; aws_config::AbstractAWSConfig=global_aws_config())
-    return auditmanager("GET", "/account/status"; aws_config=aws_config)
+    return auditmanager(
+        "GET", "/account/status"; aws_config=aws_config, features=SERVICE_FEATURES
+    )
 end
 function get_account_status(
     params::AbstractDict{String}; aws_config::AbstractAWSConfig=global_aws_config()
 )
-    return auditmanager("GET", "/account/status", params; aws_config=aws_config)
+    return auditmanager(
+        "GET", "/account/status", params; aws_config=aws_config, features=SERVICE_FEATURES
+    )
 end
 
 """
@@ -692,7 +762,12 @@ end
 
 """
 function get_assessment(assessmentId; aws_config::AbstractAWSConfig=global_aws_config())
-    return auditmanager("GET", "/assessments/$(assessmentId)"; aws_config=aws_config)
+    return auditmanager(
+        "GET",
+        "/assessments/$(assessmentId)";
+        aws_config=aws_config,
+        features=SERVICE_FEATURES,
+    )
 end
 function get_assessment(
     assessmentId,
@@ -700,7 +775,11 @@ function get_assessment(
     aws_config::AbstractAWSConfig=global_aws_config(),
 )
     return auditmanager(
-        "GET", "/assessments/$(assessmentId)", params; aws_config=aws_config
+        "GET",
+        "/assessments/$(assessmentId)",
+        params;
+        aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -718,7 +797,10 @@ function get_assessment_framework(
     frameworkId; aws_config::AbstractAWSConfig=global_aws_config()
 )
     return auditmanager(
-        "GET", "/assessmentFrameworks/$(frameworkId)"; aws_config=aws_config
+        "GET",
+        "/assessmentFrameworks/$(frameworkId)";
+        aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 function get_assessment_framework(
@@ -727,7 +809,11 @@ function get_assessment_framework(
     aws_config::AbstractAWSConfig=global_aws_config(),
 )
     return auditmanager(
-        "GET", "/assessmentFrameworks/$(frameworkId)", params; aws_config=aws_config
+        "GET",
+        "/assessmentFrameworks/$(frameworkId)",
+        params;
+        aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -749,6 +835,7 @@ function get_assessment_report_url(
         "GET",
         "/assessments/$(assessmentId)/reports/$(assessmentReportId)/url";
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 function get_assessment_report_url(
@@ -762,6 +849,7 @@ function get_assessment_report_url(
         "/assessments/$(assessmentId)/reports/$(assessmentReportId)/url",
         params;
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -784,7 +872,10 @@ Optional parameters can be passed as a `params::Dict{String,<:Any}`. Valid keys 
 """
 function get_change_logs(assessmentId; aws_config::AbstractAWSConfig=global_aws_config())
     return auditmanager(
-        "GET", "/assessments/$(assessmentId)/changelogs"; aws_config=aws_config
+        "GET",
+        "/assessments/$(assessmentId)/changelogs";
+        aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 function get_change_logs(
@@ -793,7 +884,11 @@ function get_change_logs(
     aws_config::AbstractAWSConfig=global_aws_config(),
 )
     return auditmanager(
-        "GET", "/assessments/$(assessmentId)/changelogs", params; aws_config=aws_config
+        "GET",
+        "/assessments/$(assessmentId)/changelogs",
+        params;
+        aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -808,14 +903,22 @@ end
 
 """
 function get_control(controlId; aws_config::AbstractAWSConfig=global_aws_config())
-    return auditmanager("GET", "/controls/$(controlId)"; aws_config=aws_config)
+    return auditmanager(
+        "GET", "/controls/$(controlId)"; aws_config=aws_config, features=SERVICE_FEATURES
+    )
 end
 function get_control(
     controlId,
     params::AbstractDict{String};
     aws_config::AbstractAWSConfig=global_aws_config(),
 )
-    return auditmanager("GET", "/controls/$(controlId)", params; aws_config=aws_config)
+    return auditmanager(
+        "GET",
+        "/controls/$(controlId)",
+        params;
+        aws_config=aws_config,
+        features=SERVICE_FEATURES,
+    )
 end
 
 """
@@ -831,12 +934,16 @@ Optional parameters can be passed as a `params::Dict{String,<:Any}`. Valid keys 
 - `"nextToken"`:  The pagination token used to fetch the next set of results.
 """
 function get_delegations(; aws_config::AbstractAWSConfig=global_aws_config())
-    return auditmanager("GET", "/delegations"; aws_config=aws_config)
+    return auditmanager(
+        "GET", "/delegations"; aws_config=aws_config, features=SERVICE_FEATURES
+    )
 end
 function get_delegations(
     params::AbstractDict{String}; aws_config::AbstractAWSConfig=global_aws_config()
 )
-    return auditmanager("GET", "/delegations", params; aws_config=aws_config)
+    return auditmanager(
+        "GET", "/delegations", params; aws_config=aws_config, features=SERVICE_FEATURES
+    )
 end
 
 """
@@ -863,6 +970,7 @@ function get_evidence(
         "GET",
         "/assessments/$(assessmentId)/controlSets/$(controlSetId)/evidenceFolders/$(evidenceFolderId)/evidence/$(evidenceId)";
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 function get_evidence(
@@ -878,6 +986,7 @@ function get_evidence(
         "/assessments/$(assessmentId)/controlSets/$(controlSetId)/evidenceFolders/$(evidenceFolderId)/evidence/$(evidenceId)",
         params;
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -909,6 +1018,7 @@ function get_evidence_by_evidence_folder(
         "GET",
         "/assessments/$(assessmentId)/controlSets/$(controlSetId)/evidenceFolders/$(evidenceFolderId)/evidence";
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 function get_evidence_by_evidence_folder(
@@ -923,6 +1033,7 @@ function get_evidence_by_evidence_folder(
         "/assessments/$(assessmentId)/controlSets/$(controlSetId)/evidenceFolders/$(evidenceFolderId)/evidence",
         params;
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -948,6 +1059,7 @@ function get_evidence_folder(
         "GET",
         "/assessments/$(assessmentId)/controlSets/$(controlSetId)/evidenceFolders/$(evidenceFolderId)";
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 function get_evidence_folder(
@@ -962,6 +1074,7 @@ function get_evidence_folder(
         "/assessments/$(assessmentId)/controlSets/$(controlSetId)/evidenceFolders/$(evidenceFolderId)",
         params;
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -984,7 +1097,10 @@ function get_evidence_folders_by_assessment(
     assessmentId; aws_config::AbstractAWSConfig=global_aws_config()
 )
     return auditmanager(
-        "GET", "/assessments/$(assessmentId)/evidenceFolders"; aws_config=aws_config
+        "GET",
+        "/assessments/$(assessmentId)/evidenceFolders";
+        aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 function get_evidence_folders_by_assessment(
@@ -993,7 +1109,11 @@ function get_evidence_folders_by_assessment(
     aws_config::AbstractAWSConfig=global_aws_config(),
 )
     return auditmanager(
-        "GET", "/assessments/$(assessmentId)/evidenceFolders", params; aws_config=aws_config
+        "GET",
+        "/assessments/$(assessmentId)/evidenceFolders",
+        params;
+        aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -1022,6 +1142,7 @@ function get_evidence_folders_by_assessment_control(
         "GET",
         "/assessments/$(assessmentId)/evidenceFolders-by-assessment-control/$(controlSetId)/$(controlId)";
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 function get_evidence_folders_by_assessment_control(
@@ -1036,6 +1157,7 @@ function get_evidence_folders_by_assessment_control(
         "/assessments/$(assessmentId)/evidenceFolders-by-assessment-control/$(controlSetId)/$(controlId)",
         params;
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -1048,13 +1170,22 @@ organization.
 
 """
 function get_organization_admin_account(; aws_config::AbstractAWSConfig=global_aws_config())
-    return auditmanager("GET", "/account/organizationAdminAccount"; aws_config=aws_config)
+    return auditmanager(
+        "GET",
+        "/account/organizationAdminAccount";
+        aws_config=aws_config,
+        features=SERVICE_FEATURES,
+    )
 end
 function get_organization_admin_account(
     params::AbstractDict{String}; aws_config::AbstractAWSConfig=global_aws_config()
 )
     return auditmanager(
-        "GET", "/account/organizationAdminAccount", params; aws_config=aws_config
+        "GET",
+        "/account/organizationAdminAccount",
+        params;
+        aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -1066,12 +1197,16 @@ end
 
 """
 function get_services_in_scope(; aws_config::AbstractAWSConfig=global_aws_config())
-    return auditmanager("GET", "/services"; aws_config=aws_config)
+    return auditmanager(
+        "GET", "/services"; aws_config=aws_config, features=SERVICE_FEATURES
+    )
 end
 function get_services_in_scope(
     params::AbstractDict{String}; aws_config::AbstractAWSConfig=global_aws_config()
 )
-    return auditmanager("GET", "/services", params; aws_config=aws_config)
+    return auditmanager(
+        "GET", "/services", params; aws_config=aws_config, features=SERVICE_FEATURES
+    )
 end
 
 """
@@ -1085,14 +1220,22 @@ end
 
 """
 function get_settings(attribute; aws_config::AbstractAWSConfig=global_aws_config())
-    return auditmanager("GET", "/settings/$(attribute)"; aws_config=aws_config)
+    return auditmanager(
+        "GET", "/settings/$(attribute)"; aws_config=aws_config, features=SERVICE_FEATURES
+    )
 end
 function get_settings(
     attribute,
     params::AbstractDict{String};
     aws_config::AbstractAWSConfig=global_aws_config(),
 )
-    return auditmanager("GET", "/settings/$(attribute)", params; aws_config=aws_config)
+    return auditmanager(
+        "GET",
+        "/settings/$(attribute)",
+        params;
+        aws_config=aws_config,
+        features=SERVICE_FEATURES,
+    )
 end
 
 """
@@ -1118,6 +1261,7 @@ function list_assessment_frameworks(
         "/assessmentFrameworks",
         Dict{String,Any}("frameworkType" => frameworkType);
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 function list_assessment_frameworks(
@@ -1132,6 +1276,7 @@ function list_assessment_frameworks(
             mergewith(_merge, Dict{String,Any}("frameworkType" => frameworkType), params)
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -1148,12 +1293,20 @@ Optional parameters can be passed as a `params::Dict{String,<:Any}`. Valid keys 
 - `"nextToken"`:  The pagination token used to fetch the next set of results.
 """
 function list_assessment_reports(; aws_config::AbstractAWSConfig=global_aws_config())
-    return auditmanager("GET", "/assessmentReports"; aws_config=aws_config)
+    return auditmanager(
+        "GET", "/assessmentReports"; aws_config=aws_config, features=SERVICE_FEATURES
+    )
 end
 function list_assessment_reports(
     params::AbstractDict{String}; aws_config::AbstractAWSConfig=global_aws_config()
 )
-    return auditmanager("GET", "/assessmentReports", params; aws_config=aws_config)
+    return auditmanager(
+        "GET",
+        "/assessmentReports",
+        params;
+        aws_config=aws_config,
+        features=SERVICE_FEATURES,
+    )
 end
 
 """
@@ -1169,12 +1322,16 @@ Optional parameters can be passed as a `params::Dict{String,<:Any}`. Valid keys 
 - `"nextToken"`:  The pagination token used to fetch the next set of results.
 """
 function list_assessments(; aws_config::AbstractAWSConfig=global_aws_config())
-    return auditmanager("GET", "/assessments"; aws_config=aws_config)
+    return auditmanager(
+        "GET", "/assessments"; aws_config=aws_config, features=SERVICE_FEATURES
+    )
 end
 function list_assessments(
     params::AbstractDict{String}; aws_config::AbstractAWSConfig=global_aws_config()
 )
-    return auditmanager("GET", "/assessments", params; aws_config=aws_config)
+    return auditmanager(
+        "GET", "/assessments", params; aws_config=aws_config, features=SERVICE_FEATURES
+    )
 end
 
 """
@@ -1198,6 +1355,7 @@ function list_controls(controlType; aws_config::AbstractAWSConfig=global_aws_con
         "/controls",
         Dict{String,Any}("controlType" => controlType);
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 function list_controls(
@@ -1212,6 +1370,7 @@ function list_controls(
             mergewith(_merge, Dict{String,Any}("controlType" => controlType), params)
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -1238,6 +1397,7 @@ function list_keywords_for_data_source(
         "/dataSourceKeywords",
         Dict{String,Any}("source" => source);
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 function list_keywords_for_data_source(
@@ -1248,6 +1408,7 @@ function list_keywords_for_data_source(
         "/dataSourceKeywords",
         Dict{String,Any}(mergewith(_merge, Dict{String,Any}("source" => source), params));
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -1264,12 +1425,16 @@ Optional parameters can be passed as a `params::Dict{String,<:Any}`. Valid keys 
 - `"nextToken"`:  The pagination token used to fetch the next set of results.
 """
 function list_notifications(; aws_config::AbstractAWSConfig=global_aws_config())
-    return auditmanager("GET", "/notifications"; aws_config=aws_config)
+    return auditmanager(
+        "GET", "/notifications"; aws_config=aws_config, features=SERVICE_FEATURES
+    )
 end
 function list_notifications(
     params::AbstractDict{String}; aws_config::AbstractAWSConfig=global_aws_config()
 )
-    return auditmanager("GET", "/notifications", params; aws_config=aws_config)
+    return auditmanager(
+        "GET", "/notifications", params; aws_config=aws_config, features=SERVICE_FEATURES
+    )
 end
 
 """
@@ -1285,14 +1450,22 @@ end
 function list_tags_for_resource(
     resourceArn; aws_config::AbstractAWSConfig=global_aws_config()
 )
-    return auditmanager("GET", "/tags/$(resourceArn)"; aws_config=aws_config)
+    return auditmanager(
+        "GET", "/tags/$(resourceArn)"; aws_config=aws_config, features=SERVICE_FEATURES
+    )
 end
 function list_tags_for_resource(
     resourceArn,
     params::AbstractDict{String};
     aws_config::AbstractAWSConfig=global_aws_config(),
 )
-    return auditmanager("GET", "/tags/$(resourceArn)", params; aws_config=aws_config)
+    return auditmanager(
+        "GET",
+        "/tags/$(resourceArn)",
+        params;
+        aws_config=aws_config,
+        features=SERVICE_FEATURES,
+    )
 end
 
 """
@@ -1307,12 +1480,20 @@ Optional parameters can be passed as a `params::Dict{String,<:Any}`. Valid keys 
 - `"kmsKey"`:  The KMS key details.
 """
 function register_account(; aws_config::AbstractAWSConfig=global_aws_config())
-    return auditmanager("POST", "/account/registerAccount"; aws_config=aws_config)
+    return auditmanager(
+        "POST", "/account/registerAccount"; aws_config=aws_config, features=SERVICE_FEATURES
+    )
 end
 function register_account(
     params::AbstractDict{String}; aws_config::AbstractAWSConfig=global_aws_config()
 )
-    return auditmanager("POST", "/account/registerAccount", params; aws_config=aws_config)
+    return auditmanager(
+        "POST",
+        "/account/registerAccount",
+        params;
+        aws_config=aws_config,
+        features=SERVICE_FEATURES,
+    )
 end
 
 """
@@ -1334,6 +1515,7 @@ function register_organization_admin_account(
         "/account/registerOrganizationAdminAccount",
         Dict{String,Any}("adminAccountId" => adminAccountId);
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 function register_organization_admin_account(
@@ -1348,6 +1530,7 @@ function register_organization_admin_account(
             mergewith(_merge, Dict{String,Any}("adminAccountId" => adminAccountId), params)
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -1368,6 +1551,7 @@ function tag_resource(resourceArn, tags; aws_config::AbstractAWSConfig=global_aw
         "/tags/$(resourceArn)",
         Dict{String,Any}("tags" => tags);
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 function tag_resource(
@@ -1381,6 +1565,7 @@ function tag_resource(
         "/tags/$(resourceArn)",
         Dict{String,Any}(mergewith(_merge, Dict{String,Any}("tags" => tags), params));
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -1403,6 +1588,7 @@ function untag_resource(
         "/tags/$(resourceArn)",
         Dict{String,Any}("tagKeys" => tagKeys);
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 function untag_resource(
@@ -1416,6 +1602,7 @@ function untag_resource(
         "/tags/$(resourceArn)",
         Dict{String,Any}(mergewith(_merge, Dict{String,Any}("tagKeys" => tagKeys), params));
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -1445,6 +1632,7 @@ function update_assessment(
         "/assessments/$(assessmentId)",
         Dict{String,Any}("scope" => scope);
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 function update_assessment(
@@ -1458,6 +1646,7 @@ function update_assessment(
         "/assessments/$(assessmentId)",
         Dict{String,Any}(mergewith(_merge, Dict{String,Any}("scope" => scope), params));
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -1484,6 +1673,7 @@ function update_assessment_control(
         "PUT",
         "/assessments/$(assessmentId)/controlSets/$(controlSetId)/controls/$(controlId)";
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 function update_assessment_control(
@@ -1498,6 +1688,7 @@ function update_assessment_control(
         "/assessments/$(assessmentId)/controlSets/$(controlSetId)/controls/$(controlId)",
         params;
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -1526,6 +1717,7 @@ function update_assessment_control_set_status(
         "/assessments/$(assessmentId)/controlSets/$(controlSetId)/status",
         Dict{String,Any}("comment" => comment, "status" => status);
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 function update_assessment_control_set_status(
@@ -1545,6 +1737,7 @@ function update_assessment_control_set_status(
             ),
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -1573,6 +1766,7 @@ function update_assessment_framework(
         "/assessmentFrameworks/$(frameworkId)",
         Dict{String,Any}("controlSets" => controlSets, "name" => name);
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 function update_assessment_framework(
@@ -1593,6 +1787,7 @@ function update_assessment_framework(
             ),
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -1615,6 +1810,7 @@ function update_assessment_status(
         "/assessments/$(assessmentId)/status",
         Dict{String,Any}("status" => status);
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 function update_assessment_status(
@@ -1628,6 +1824,7 @@ function update_assessment_status(
         "/assessments/$(assessmentId)/status",
         Dict{String,Any}(mergewith(_merge, Dict{String,Any}("status" => status), params));
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -1662,6 +1859,7 @@ function update_control(
         "/controls/$(controlId)",
         Dict{String,Any}("controlMappingSources" => controlMappingSources, "name" => name);
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 function update_control(
@@ -1684,6 +1882,7 @@ function update_control(
             ),
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -1703,12 +1902,16 @@ Optional parameters can be passed as a `params::Dict{String,<:Any}`. Valid keys 
   Manager sends notifications.
 """
 function update_settings(; aws_config::AbstractAWSConfig=global_aws_config())
-    return auditmanager("PUT", "/settings"; aws_config=aws_config)
+    return auditmanager(
+        "PUT", "/settings"; aws_config=aws_config, features=SERVICE_FEATURES
+    )
 end
 function update_settings(
     params::AbstractDict{String}; aws_config::AbstractAWSConfig=global_aws_config()
 )
-    return auditmanager("PUT", "/settings", params; aws_config=aws_config)
+    return auditmanager(
+        "PUT", "/settings", params; aws_config=aws_config, features=SERVICE_FEATURES
+    )
 end
 
 """
@@ -1730,6 +1933,7 @@ function validate_assessment_report_integrity(
         "/assessmentReports/integrity",
         Dict{String,Any}("s3RelativePath" => s3RelativePath);
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 function validate_assessment_report_integrity(
@@ -1744,5 +1948,6 @@ function validate_assessment_report_integrity(
             mergewith(_merge, Dict{String,Any}("s3RelativePath" => s3RelativePath), params)
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end

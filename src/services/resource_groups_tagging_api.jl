@@ -13,13 +13,15 @@ only from the organization's management account and from the us-east-1 Region.
 
 """
 function describe_report_creation(; aws_config::AbstractAWSConfig=global_aws_config())
-    return resource_groups_tagging_api("DescribeReportCreation"; aws_config=aws_config)
+    return resource_groups_tagging_api(
+        "DescribeReportCreation"; aws_config=aws_config, features=SERVICE_FEATURES
+    )
 end
 function describe_report_creation(
     params::AbstractDict{String}; aws_config::AbstractAWSConfig=global_aws_config()
 )
     return resource_groups_tagging_api(
-        "DescribeReportCreation", params; aws_config=aws_config
+        "DescribeReportCreation", params; aws_config=aws_config, features=SERVICE_FEATURES
     )
 end
 
@@ -70,13 +72,15 @@ Optional parameters can be passed as a `params::Dict{String,<:Any}`. Valid keys 
   resources includes only resources with the specified target IDs.
 """
 function get_compliance_summary(; aws_config::AbstractAWSConfig=global_aws_config())
-    return resource_groups_tagging_api("GetComplianceSummary"; aws_config=aws_config)
+    return resource_groups_tagging_api(
+        "GetComplianceSummary"; aws_config=aws_config, features=SERVICE_FEATURES
+    )
 end
 function get_compliance_summary(
     params::AbstractDict{String}; aws_config::AbstractAWSConfig=global_aws_config()
 )
     return resource_groups_tagging_api(
-        "GetComplianceSummary", params; aws_config=aws_config
+        "GetComplianceSummary", params; aws_config=aws_config, features=SERVICE_FEATURES
     )
 end
 
@@ -160,12 +164,16 @@ Optional parameters can be passed as a `params::Dict{String,<:Any}`. Valid keys 
   minimum of 100 items up to a maximum of 500 items.
 """
 function get_resources(; aws_config::AbstractAWSConfig=global_aws_config())
-    return resource_groups_tagging_api("GetResources"; aws_config=aws_config)
+    return resource_groups_tagging_api(
+        "GetResources"; aws_config=aws_config, features=SERVICE_FEATURES
+    )
 end
 function get_resources(
     params::AbstractDict{String}; aws_config::AbstractAWSConfig=global_aws_config()
 )
-    return resource_groups_tagging_api("GetResources", params; aws_config=aws_config)
+    return resource_groups_tagging_api(
+        "GetResources", params; aws_config=aws_config, features=SERVICE_FEATURES
+    )
 end
 
 """
@@ -186,12 +194,16 @@ Optional parameters can be passed as a `params::Dict{String,<:Any}`. Valid keys 
   initial request.
 """
 function get_tag_keys(; aws_config::AbstractAWSConfig=global_aws_config())
-    return resource_groups_tagging_api("GetTagKeys"; aws_config=aws_config)
+    return resource_groups_tagging_api(
+        "GetTagKeys"; aws_config=aws_config, features=SERVICE_FEATURES
+    )
 end
 function get_tag_keys(
     params::AbstractDict{String}; aws_config::AbstractAWSConfig=global_aws_config()
 )
-    return resource_groups_tagging_api("GetTagKeys", params; aws_config=aws_config)
+    return resource_groups_tagging_api(
+        "GetTagKeys", params; aws_config=aws_config, features=SERVICE_FEATURES
+    )
 end
 
 """
@@ -218,7 +230,10 @@ Optional parameters can be passed as a `params::Dict{String,<:Any}`. Valid keys 
 """
 function get_tag_values(Key; aws_config::AbstractAWSConfig=global_aws_config())
     return resource_groups_tagging_api(
-        "GetTagValues", Dict{String,Any}("Key" => Key); aws_config=aws_config
+        "GetTagValues",
+        Dict{String,Any}("Key" => Key);
+        aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 function get_tag_values(
@@ -228,6 +243,7 @@ function get_tag_values(
         "GetTagValues",
         Dict{String,Any}(mergewith(_merge, Dict{String,Any}("Key" => Key), params));
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -254,6 +270,7 @@ function start_report_creation(S3Bucket; aws_config::AbstractAWSConfig=global_aw
         "StartReportCreation",
         Dict{String,Any}("S3Bucket" => S3Bucket);
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 function start_report_creation(
@@ -267,6 +284,7 @@ function start_report_creation(
             mergewith(_merge, Dict{String,Any}("S3Bucket" => S3Bucket), params)
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -302,6 +320,7 @@ function tag_resources(
         "TagResources",
         Dict{String,Any}("ResourceARNList" => ResourceARNList, "Tags" => Tags);
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 function tag_resources(
@@ -320,6 +339,7 @@ function tag_resources(
             ),
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -351,6 +371,7 @@ function untag_resources(
         "UntagResources",
         Dict{String,Any}("ResourceARNList" => ResourceARNList, "TagKeys" => TagKeys);
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 function untag_resources(
@@ -371,5 +392,6 @@ function untag_resources(
             ),
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end

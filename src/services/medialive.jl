@@ -20,7 +20,10 @@ function accept_input_device_transfer(
     inputDeviceId; aws_config::AbstractAWSConfig=global_aws_config()
 )
     return medialive(
-        "POST", "/prod/inputDevices/$(inputDeviceId)/accept"; aws_config=aws_config
+        "POST",
+        "/prod/inputDevices/$(inputDeviceId)/accept";
+        aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 function accept_input_device_transfer(
@@ -29,7 +32,11 @@ function accept_input_device_transfer(
     aws_config::AbstractAWSConfig=global_aws_config(),
 )
     return medialive(
-        "POST", "/prod/inputDevices/$(inputDeviceId)/accept", params; aws_config=aws_config
+        "POST",
+        "/prod/inputDevices/$(inputDeviceId)/accept",
+        params;
+        aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -47,12 +54,20 @@ Optional parameters can be passed as a `params::Dict{String,<:Any}`. Valid keys 
 - `"multiplexIds"`: List of multiplex IDs
 """
 function batch_delete(; aws_config::AbstractAWSConfig=global_aws_config())
-    return medialive("POST", "/prod/batch/delete"; aws_config=aws_config)
+    return medialive(
+        "POST", "/prod/batch/delete"; aws_config=aws_config, features=SERVICE_FEATURES
+    )
 end
 function batch_delete(
     params::AbstractDict{String}; aws_config::AbstractAWSConfig=global_aws_config()
 )
-    return medialive("POST", "/prod/batch/delete", params; aws_config=aws_config)
+    return medialive(
+        "POST",
+        "/prod/batch/delete",
+        params;
+        aws_config=aws_config,
+        features=SERVICE_FEATURES,
+    )
 end
 
 """
@@ -67,12 +82,20 @@ Optional parameters can be passed as a `params::Dict{String,<:Any}`. Valid keys 
 - `"multiplexIds"`: List of multiplex IDs
 """
 function batch_start(; aws_config::AbstractAWSConfig=global_aws_config())
-    return medialive("POST", "/prod/batch/start"; aws_config=aws_config)
+    return medialive(
+        "POST", "/prod/batch/start"; aws_config=aws_config, features=SERVICE_FEATURES
+    )
 end
 function batch_start(
     params::AbstractDict{String}; aws_config::AbstractAWSConfig=global_aws_config()
 )
-    return medialive("POST", "/prod/batch/start", params; aws_config=aws_config)
+    return medialive(
+        "POST",
+        "/prod/batch/start",
+        params;
+        aws_config=aws_config,
+        features=SERVICE_FEATURES,
+    )
 end
 
 """
@@ -87,12 +110,16 @@ Optional parameters can be passed as a `params::Dict{String,<:Any}`. Valid keys 
 - `"multiplexIds"`: List of multiplex IDs
 """
 function batch_stop(; aws_config::AbstractAWSConfig=global_aws_config())
-    return medialive("POST", "/prod/batch/stop"; aws_config=aws_config)
+    return medialive(
+        "POST", "/prod/batch/stop"; aws_config=aws_config, features=SERVICE_FEATURES
+    )
 end
 function batch_stop(
     params::AbstractDict{String}; aws_config::AbstractAWSConfig=global_aws_config()
 )
-    return medialive("POST", "/prod/batch/stop", params; aws_config=aws_config)
+    return medialive(
+        "POST", "/prod/batch/stop", params; aws_config=aws_config, features=SERVICE_FEATURES
+    )
 end
 
 """
@@ -110,7 +137,12 @@ Optional parameters can be passed as a `params::Dict{String,<:Any}`. Valid keys 
 - `"deletes"`: Schedule actions to delete from the schedule.
 """
 function batch_update_schedule(channelId; aws_config::AbstractAWSConfig=global_aws_config())
-    return medialive("PUT", "/prod/channels/$(channelId)/schedule"; aws_config=aws_config)
+    return medialive(
+        "PUT",
+        "/prod/channels/$(channelId)/schedule";
+        aws_config=aws_config,
+        features=SERVICE_FEATURES,
+    )
 end
 function batch_update_schedule(
     channelId,
@@ -118,7 +150,11 @@ function batch_update_schedule(
     aws_config::AbstractAWSConfig=global_aws_config(),
 )
     return medialive(
-        "PUT", "/prod/channels/$(channelId)/schedule", params; aws_config=aws_config
+        "PUT",
+        "/prod/channels/$(channelId)/schedule",
+        params;
+        aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -137,7 +173,10 @@ function cancel_input_device_transfer(
     inputDeviceId; aws_config::AbstractAWSConfig=global_aws_config()
 )
     return medialive(
-        "POST", "/prod/inputDevices/$(inputDeviceId)/cancel"; aws_config=aws_config
+        "POST",
+        "/prod/inputDevices/$(inputDeviceId)/cancel";
+        aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 function cancel_input_device_transfer(
@@ -146,7 +185,11 @@ function cancel_input_device_transfer(
     aws_config::AbstractAWSConfig=global_aws_config(),
 )
     return medialive(
-        "POST", "/prod/inputDevices/$(inputDeviceId)/cancel", params; aws_config=aws_config
+        "POST",
+        "/prod/inputDevices/$(inputDeviceId)/cancel",
+        params;
+        aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -182,6 +225,7 @@ function create_channel(; aws_config::AbstractAWSConfig=global_aws_config())
         "/prod/channels",
         Dict{String,Any}("requestId" => string(uuid4()));
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 function create_channel(
@@ -194,6 +238,7 @@ function create_channel(
             mergewith(_merge, Dict{String,Any}("requestId" => string(uuid4())), params)
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -236,6 +281,7 @@ function create_input(; aws_config::AbstractAWSConfig=global_aws_config())
         "/prod/inputs",
         Dict{String,Any}("requestId" => string(uuid4()));
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 function create_input(
@@ -248,6 +294,7 @@ function create_input(
             mergewith(_merge, Dict{String,Any}("requestId" => string(uuid4())), params)
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -263,12 +310,23 @@ Optional parameters can be passed as a `params::Dict{String,<:Any}`. Valid keys 
 - `"whitelistRules"`: List of IPv4 CIDR addresses to whitelist
 """
 function create_input_security_group(; aws_config::AbstractAWSConfig=global_aws_config())
-    return medialive("POST", "/prod/inputSecurityGroups"; aws_config=aws_config)
+    return medialive(
+        "POST",
+        "/prod/inputSecurityGroups";
+        aws_config=aws_config,
+        features=SERVICE_FEATURES,
+    )
 end
 function create_input_security_group(
     params::AbstractDict{String}; aws_config::AbstractAWSConfig=global_aws_config()
 )
-    return medialive("POST", "/prod/inputSecurityGroups", params; aws_config=aws_config)
+    return medialive(
+        "POST",
+        "/prod/inputSecurityGroups",
+        params;
+        aws_config=aws_config,
+        features=SERVICE_FEATURES,
+    )
 end
 
 """
@@ -306,6 +364,7 @@ function create_multiplex(
             "requestId" => requestId,
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 function create_multiplex(
@@ -332,6 +391,7 @@ function create_multiplex(
             ),
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -365,6 +425,7 @@ function create_multiplex_program(
             "requestId" => requestId,
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 function create_multiplex_program(
@@ -390,6 +451,7 @@ function create_multiplex_program(
             ),
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -415,6 +477,7 @@ function create_partner_input(inputId; aws_config::AbstractAWSConfig=global_aws_
         "/prod/inputs/$(inputId)/partners",
         Dict{String,Any}("requestId" => string(uuid4()));
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 function create_partner_input(
@@ -427,6 +490,7 @@ function create_partner_input(
             mergewith(_merge, Dict{String,Any}("requestId" => string(uuid4())), params)
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -444,14 +508,25 @@ Optional parameters can be passed as a `params::Dict{String,<:Any}`. Valid keys 
 - `"tags"`:
 """
 function create_tags(resource_arn; aws_config::AbstractAWSConfig=global_aws_config())
-    return medialive("POST", "/prod/tags/$(resource-arn)"; aws_config=aws_config)
+    return medialive(
+        "POST",
+        "/prod/tags/$(resource-arn)";
+        aws_config=aws_config,
+        features=SERVICE_FEATURES,
+    )
 end
 function create_tags(
     resource_arn,
     params::AbstractDict{String};
     aws_config::AbstractAWSConfig=global_aws_config(),
 )
-    return medialive("POST", "/prod/tags/$(resource-arn)", params; aws_config=aws_config)
+    return medialive(
+        "POST",
+        "/prod/tags/$(resource-arn)",
+        params;
+        aws_config=aws_config,
+        features=SERVICE_FEATURES,
+    )
 end
 
 """
@@ -465,14 +540,25 @@ Starts deletion of channel. The associated outputs are also deleted.
 
 """
 function delete_channel(channelId; aws_config::AbstractAWSConfig=global_aws_config())
-    return medialive("DELETE", "/prod/channels/$(channelId)"; aws_config=aws_config)
+    return medialive(
+        "DELETE",
+        "/prod/channels/$(channelId)";
+        aws_config=aws_config,
+        features=SERVICE_FEATURES,
+    )
 end
 function delete_channel(
     channelId,
     params::AbstractDict{String};
     aws_config::AbstractAWSConfig=global_aws_config(),
 )
-    return medialive("DELETE", "/prod/channels/$(channelId)", params; aws_config=aws_config)
+    return medialive(
+        "DELETE",
+        "/prod/channels/$(channelId)",
+        params;
+        aws_config=aws_config,
+        features=SERVICE_FEATURES,
+    )
 end
 
 """
@@ -486,12 +572,23 @@ Deletes the input end point
 
 """
 function delete_input(inputId; aws_config::AbstractAWSConfig=global_aws_config())
-    return medialive("DELETE", "/prod/inputs/$(inputId)"; aws_config=aws_config)
+    return medialive(
+        "DELETE",
+        "/prod/inputs/$(inputId)";
+        aws_config=aws_config,
+        features=SERVICE_FEATURES,
+    )
 end
 function delete_input(
     inputId, params::AbstractDict{String}; aws_config::AbstractAWSConfig=global_aws_config()
 )
-    return medialive("DELETE", "/prod/inputs/$(inputId)", params; aws_config=aws_config)
+    return medialive(
+        "DELETE",
+        "/prod/inputs/$(inputId)",
+        params;
+        aws_config=aws_config,
+        features=SERVICE_FEATURES,
+    )
 end
 
 """
@@ -508,7 +605,10 @@ function delete_input_security_group(
     inputSecurityGroupId; aws_config::AbstractAWSConfig=global_aws_config()
 )
     return medialive(
-        "DELETE", "/prod/inputSecurityGroups/$(inputSecurityGroupId)"; aws_config=aws_config
+        "DELETE",
+        "/prod/inputSecurityGroups/$(inputSecurityGroupId)";
+        aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 function delete_input_security_group(
@@ -521,6 +621,7 @@ function delete_input_security_group(
         "/prod/inputSecurityGroups/$(inputSecurityGroupId)",
         params;
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -535,7 +636,12 @@ Delete a multiplex. The multiplex must be idle.
 
 """
 function delete_multiplex(multiplexId; aws_config::AbstractAWSConfig=global_aws_config())
-    return medialive("DELETE", "/prod/multiplexes/$(multiplexId)"; aws_config=aws_config)
+    return medialive(
+        "DELETE",
+        "/prod/multiplexes/$(multiplexId)";
+        aws_config=aws_config,
+        features=SERVICE_FEATURES,
+    )
 end
 function delete_multiplex(
     multiplexId,
@@ -543,7 +649,11 @@ function delete_multiplex(
     aws_config::AbstractAWSConfig=global_aws_config(),
 )
     return medialive(
-        "DELETE", "/prod/multiplexes/$(multiplexId)", params; aws_config=aws_config
+        "DELETE",
+        "/prod/multiplexes/$(multiplexId)",
+        params;
+        aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -565,6 +675,7 @@ function delete_multiplex_program(
         "DELETE",
         "/prod/multiplexes/$(multiplexId)/programs/$(programName)";
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 function delete_multiplex_program(
@@ -578,6 +689,7 @@ function delete_multiplex_program(
         "/prod/multiplexes/$(multiplexId)/programs/$(programName)",
         params;
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -594,7 +706,12 @@ Delete an expired reservation.
 function delete_reservation(
     reservationId; aws_config::AbstractAWSConfig=global_aws_config()
 )
-    return medialive("DELETE", "/prod/reservations/$(reservationId)"; aws_config=aws_config)
+    return medialive(
+        "DELETE",
+        "/prod/reservations/$(reservationId)";
+        aws_config=aws_config,
+        features=SERVICE_FEATURES,
+    )
 end
 function delete_reservation(
     reservationId,
@@ -602,7 +719,11 @@ function delete_reservation(
     aws_config::AbstractAWSConfig=global_aws_config(),
 )
     return medialive(
-        "DELETE", "/prod/reservations/$(reservationId)", params; aws_config=aws_config
+        "DELETE",
+        "/prod/reservations/$(reservationId)",
+        params;
+        aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -618,7 +739,10 @@ Delete all schedule actions on a channel.
 """
 function delete_schedule(channelId; aws_config::AbstractAWSConfig=global_aws_config())
     return medialive(
-        "DELETE", "/prod/channels/$(channelId)/schedule"; aws_config=aws_config
+        "DELETE",
+        "/prod/channels/$(channelId)/schedule";
+        aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 function delete_schedule(
@@ -627,7 +751,11 @@ function delete_schedule(
     aws_config::AbstractAWSConfig=global_aws_config(),
 )
     return medialive(
-        "DELETE", "/prod/channels/$(channelId)/schedule", params; aws_config=aws_config
+        "DELETE",
+        "/prod/channels/$(channelId)/schedule",
+        params;
+        aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -650,6 +778,7 @@ function delete_tags(
         "/prod/tags/$(resource-arn)",
         Dict{String,Any}("tagKeys" => tagKeys);
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 function delete_tags(
@@ -663,6 +792,7 @@ function delete_tags(
         "/prod/tags/$(resource-arn)",
         Dict{String,Any}(mergewith(_merge, Dict{String,Any}("tagKeys" => tagKeys), params));
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -677,14 +807,25 @@ Gets details about a channel
 
 """
 function describe_channel(channelId; aws_config::AbstractAWSConfig=global_aws_config())
-    return medialive("GET", "/prod/channels/$(channelId)"; aws_config=aws_config)
+    return medialive(
+        "GET",
+        "/prod/channels/$(channelId)";
+        aws_config=aws_config,
+        features=SERVICE_FEATURES,
+    )
 end
 function describe_channel(
     channelId,
     params::AbstractDict{String};
     aws_config::AbstractAWSConfig=global_aws_config(),
 )
-    return medialive("GET", "/prod/channels/$(channelId)", params; aws_config=aws_config)
+    return medialive(
+        "GET",
+        "/prod/channels/$(channelId)",
+        params;
+        aws_config=aws_config,
+        features=SERVICE_FEATURES,
+    )
 end
 
 """
@@ -698,12 +839,20 @@ Produces details about an input
 
 """
 function describe_input(inputId; aws_config::AbstractAWSConfig=global_aws_config())
-    return medialive("GET", "/prod/inputs/$(inputId)"; aws_config=aws_config)
+    return medialive(
+        "GET", "/prod/inputs/$(inputId)"; aws_config=aws_config, features=SERVICE_FEATURES
+    )
 end
 function describe_input(
     inputId, params::AbstractDict{String}; aws_config::AbstractAWSConfig=global_aws_config()
 )
-    return medialive("GET", "/prod/inputs/$(inputId)", params; aws_config=aws_config)
+    return medialive(
+        "GET",
+        "/prod/inputs/$(inputId)",
+        params;
+        aws_config=aws_config,
+        features=SERVICE_FEATURES,
+    )
 end
 
 """
@@ -719,7 +868,12 @@ Gets the details for the input device
 function describe_input_device(
     inputDeviceId; aws_config::AbstractAWSConfig=global_aws_config()
 )
-    return medialive("GET", "/prod/inputDevices/$(inputDeviceId)"; aws_config=aws_config)
+    return medialive(
+        "GET",
+        "/prod/inputDevices/$(inputDeviceId)";
+        aws_config=aws_config,
+        features=SERVICE_FEATURES,
+    )
 end
 function describe_input_device(
     inputDeviceId,
@@ -727,7 +881,11 @@ function describe_input_device(
     aws_config::AbstractAWSConfig=global_aws_config(),
 )
     return medialive(
-        "GET", "/prod/inputDevices/$(inputDeviceId)", params; aws_config=aws_config
+        "GET",
+        "/prod/inputDevices/$(inputDeviceId)",
+        params;
+        aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -750,6 +908,7 @@ function describe_input_device_thumbnail(
         "/prod/inputDevices/$(inputDeviceId)/thumbnailData",
         Dict{String,Any}("headers" => Dict{String,Any}("accept" => accept));
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 function describe_input_device_thumbnail(
@@ -769,6 +928,7 @@ function describe_input_device_thumbnail(
             ),
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -786,7 +946,10 @@ function describe_input_security_group(
     inputSecurityGroupId; aws_config::AbstractAWSConfig=global_aws_config()
 )
     return medialive(
-        "GET", "/prod/inputSecurityGroups/$(inputSecurityGroupId)"; aws_config=aws_config
+        "GET",
+        "/prod/inputSecurityGroups/$(inputSecurityGroupId)";
+        aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 function describe_input_security_group(
@@ -799,6 +962,7 @@ function describe_input_security_group(
         "/prod/inputSecurityGroups/$(inputSecurityGroupId)",
         params;
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -813,7 +977,12 @@ Gets details about a multiplex.
 
 """
 function describe_multiplex(multiplexId; aws_config::AbstractAWSConfig=global_aws_config())
-    return medialive("GET", "/prod/multiplexes/$(multiplexId)"; aws_config=aws_config)
+    return medialive(
+        "GET",
+        "/prod/multiplexes/$(multiplexId)";
+        aws_config=aws_config,
+        features=SERVICE_FEATURES,
+    )
 end
 function describe_multiplex(
     multiplexId,
@@ -821,7 +990,11 @@ function describe_multiplex(
     aws_config::AbstractAWSConfig=global_aws_config(),
 )
     return medialive(
-        "GET", "/prod/multiplexes/$(multiplexId)", params; aws_config=aws_config
+        "GET",
+        "/prod/multiplexes/$(multiplexId)",
+        params;
+        aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -843,6 +1016,7 @@ function describe_multiplex_program(
         "GET",
         "/prod/multiplexes/$(multiplexId)/programs/$(programName)";
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 function describe_multiplex_program(
@@ -856,6 +1030,7 @@ function describe_multiplex_program(
         "/prod/multiplexes/$(multiplexId)/programs/$(programName)",
         params;
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -870,14 +1045,25 @@ Get details for an offering.
 
 """
 function describe_offering(offeringId; aws_config::AbstractAWSConfig=global_aws_config())
-    return medialive("GET", "/prod/offerings/$(offeringId)"; aws_config=aws_config)
+    return medialive(
+        "GET",
+        "/prod/offerings/$(offeringId)";
+        aws_config=aws_config,
+        features=SERVICE_FEATURES,
+    )
 end
 function describe_offering(
     offeringId,
     params::AbstractDict{String};
     aws_config::AbstractAWSConfig=global_aws_config(),
 )
-    return medialive("GET", "/prod/offerings/$(offeringId)", params; aws_config=aws_config)
+    return medialive(
+        "GET",
+        "/prod/offerings/$(offeringId)",
+        params;
+        aws_config=aws_config,
+        features=SERVICE_FEATURES,
+    )
 end
 
 """
@@ -893,7 +1079,12 @@ Get details for a reservation.
 function describe_reservation(
     reservationId; aws_config::AbstractAWSConfig=global_aws_config()
 )
-    return medialive("GET", "/prod/reservations/$(reservationId)"; aws_config=aws_config)
+    return medialive(
+        "GET",
+        "/prod/reservations/$(reservationId)";
+        aws_config=aws_config,
+        features=SERVICE_FEATURES,
+    )
 end
 function describe_reservation(
     reservationId,
@@ -901,7 +1092,11 @@ function describe_reservation(
     aws_config::AbstractAWSConfig=global_aws_config(),
 )
     return medialive(
-        "GET", "/prod/reservations/$(reservationId)", params; aws_config=aws_config
+        "GET",
+        "/prod/reservations/$(reservationId)",
+        params;
+        aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -920,7 +1115,12 @@ Optional parameters can be passed as a `params::Dict{String,<:Any}`. Valid keys 
 - `"nextToken"`:
 """
 function describe_schedule(channelId; aws_config::AbstractAWSConfig=global_aws_config())
-    return medialive("GET", "/prod/channels/$(channelId)/schedule"; aws_config=aws_config)
+    return medialive(
+        "GET",
+        "/prod/channels/$(channelId)/schedule";
+        aws_config=aws_config,
+        features=SERVICE_FEATURES,
+    )
 end
 function describe_schedule(
     channelId,
@@ -928,7 +1128,11 @@ function describe_schedule(
     aws_config::AbstractAWSConfig=global_aws_config(),
 )
     return medialive(
-        "GET", "/prod/channels/$(channelId)/schedule", params; aws_config=aws_config
+        "GET",
+        "/prod/channels/$(channelId)/schedule",
+        params;
+        aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -944,12 +1148,16 @@ Optional parameters can be passed as a `params::Dict{String,<:Any}`. Valid keys 
 - `"nextToken"`:
 """
 function list_channels(; aws_config::AbstractAWSConfig=global_aws_config())
-    return medialive("GET", "/prod/channels"; aws_config=aws_config)
+    return medialive(
+        "GET", "/prod/channels"; aws_config=aws_config, features=SERVICE_FEATURES
+    )
 end
 function list_channels(
     params::AbstractDict{String}; aws_config::AbstractAWSConfig=global_aws_config()
 )
-    return medialive("GET", "/prod/channels", params; aws_config=aws_config)
+    return medialive(
+        "GET", "/prod/channels", params; aws_config=aws_config, features=SERVICE_FEATURES
+    )
 end
 
 """
@@ -976,6 +1184,7 @@ function list_input_device_transfers(
         "/prod/inputDeviceTransfers",
         Dict{String,Any}("transferType" => transferType);
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 function list_input_device_transfers(
@@ -990,6 +1199,7 @@ function list_input_device_transfers(
             mergewith(_merge, Dict{String,Any}("transferType" => transferType), params)
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -1005,12 +1215,20 @@ Optional parameters can be passed as a `params::Dict{String,<:Any}`. Valid keys 
 - `"nextToken"`:
 """
 function list_input_devices(; aws_config::AbstractAWSConfig=global_aws_config())
-    return medialive("GET", "/prod/inputDevices"; aws_config=aws_config)
+    return medialive(
+        "GET", "/prod/inputDevices"; aws_config=aws_config, features=SERVICE_FEATURES
+    )
 end
 function list_input_devices(
     params::AbstractDict{String}; aws_config::AbstractAWSConfig=global_aws_config()
 )
-    return medialive("GET", "/prod/inputDevices", params; aws_config=aws_config)
+    return medialive(
+        "GET",
+        "/prod/inputDevices",
+        params;
+        aws_config=aws_config,
+        features=SERVICE_FEATURES,
+    )
 end
 
 """
@@ -1025,12 +1243,20 @@ Optional parameters can be passed as a `params::Dict{String,<:Any}`. Valid keys 
 - `"nextToken"`:
 """
 function list_input_security_groups(; aws_config::AbstractAWSConfig=global_aws_config())
-    return medialive("GET", "/prod/inputSecurityGroups"; aws_config=aws_config)
+    return medialive(
+        "GET", "/prod/inputSecurityGroups"; aws_config=aws_config, features=SERVICE_FEATURES
+    )
 end
 function list_input_security_groups(
     params::AbstractDict{String}; aws_config::AbstractAWSConfig=global_aws_config()
 )
-    return medialive("GET", "/prod/inputSecurityGroups", params; aws_config=aws_config)
+    return medialive(
+        "GET",
+        "/prod/inputSecurityGroups",
+        params;
+        aws_config=aws_config,
+        features=SERVICE_FEATURES,
+    )
 end
 
 """
@@ -1045,12 +1271,16 @@ Optional parameters can be passed as a `params::Dict{String,<:Any}`. Valid keys 
 - `"nextToken"`:
 """
 function list_inputs(; aws_config::AbstractAWSConfig=global_aws_config())
-    return medialive("GET", "/prod/inputs"; aws_config=aws_config)
+    return medialive(
+        "GET", "/prod/inputs"; aws_config=aws_config, features=SERVICE_FEATURES
+    )
 end
 function list_inputs(
     params::AbstractDict{String}; aws_config::AbstractAWSConfig=global_aws_config()
 )
-    return medialive("GET", "/prod/inputs", params; aws_config=aws_config)
+    return medialive(
+        "GET", "/prod/inputs", params; aws_config=aws_config, features=SERVICE_FEATURES
+    )
 end
 
 """
@@ -1071,7 +1301,10 @@ function list_multiplex_programs(
     multiplexId; aws_config::AbstractAWSConfig=global_aws_config()
 )
     return medialive(
-        "GET", "/prod/multiplexes/$(multiplexId)/programs"; aws_config=aws_config
+        "GET",
+        "/prod/multiplexes/$(multiplexId)/programs";
+        aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 function list_multiplex_programs(
@@ -1080,7 +1313,11 @@ function list_multiplex_programs(
     aws_config::AbstractAWSConfig=global_aws_config(),
 )
     return medialive(
-        "GET", "/prod/multiplexes/$(multiplexId)/programs", params; aws_config=aws_config
+        "GET",
+        "/prod/multiplexes/$(multiplexId)/programs",
+        params;
+        aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -1096,12 +1333,16 @@ Optional parameters can be passed as a `params::Dict{String,<:Any}`. Valid keys 
 - `"nextToken"`: The token to retrieve the next page of results.
 """
 function list_multiplexes(; aws_config::AbstractAWSConfig=global_aws_config())
-    return medialive("GET", "/prod/multiplexes"; aws_config=aws_config)
+    return medialive(
+        "GET", "/prod/multiplexes"; aws_config=aws_config, features=SERVICE_FEATURES
+    )
 end
 function list_multiplexes(
     params::AbstractDict{String}; aws_config::AbstractAWSConfig=global_aws_config()
 )
-    return medialive("GET", "/prod/multiplexes", params; aws_config=aws_config)
+    return medialive(
+        "GET", "/prod/multiplexes", params; aws_config=aws_config, features=SERVICE_FEATURES
+    )
 end
 
 """
@@ -1127,12 +1368,16 @@ Optional parameters can be passed as a `params::Dict{String,<:Any}`. Valid keys 
 - `"videoQuality"`: Filter by video quality, 'STANDARD', 'ENHANCED', or 'PREMIUM'
 """
 function list_offerings(; aws_config::AbstractAWSConfig=global_aws_config())
-    return medialive("GET", "/prod/offerings"; aws_config=aws_config)
+    return medialive(
+        "GET", "/prod/offerings"; aws_config=aws_config, features=SERVICE_FEATURES
+    )
 end
 function list_offerings(
     params::AbstractDict{String}; aws_config::AbstractAWSConfig=global_aws_config()
 )
-    return medialive("GET", "/prod/offerings", params; aws_config=aws_config)
+    return medialive(
+        "GET", "/prod/offerings", params; aws_config=aws_config, features=SERVICE_FEATURES
+    )
 end
 
 """
@@ -1155,12 +1400,20 @@ Optional parameters can be passed as a `params::Dict{String,<:Any}`. Valid keys 
 - `"videoQuality"`: Filter by video quality, 'STANDARD', 'ENHANCED', or 'PREMIUM'
 """
 function list_reservations(; aws_config::AbstractAWSConfig=global_aws_config())
-    return medialive("GET", "/prod/reservations"; aws_config=aws_config)
+    return medialive(
+        "GET", "/prod/reservations"; aws_config=aws_config, features=SERVICE_FEATURES
+    )
 end
 function list_reservations(
     params::AbstractDict{String}; aws_config::AbstractAWSConfig=global_aws_config()
 )
-    return medialive("GET", "/prod/reservations", params; aws_config=aws_config)
+    return medialive(
+        "GET",
+        "/prod/reservations",
+        params;
+        aws_config=aws_config,
+        features=SERVICE_FEATURES,
+    )
 end
 
 """
@@ -1176,14 +1429,25 @@ Produces list of tags that have been created for a resource
 function list_tags_for_resource(
     resource_arn; aws_config::AbstractAWSConfig=global_aws_config()
 )
-    return medialive("GET", "/prod/tags/$(resource-arn)"; aws_config=aws_config)
+    return medialive(
+        "GET",
+        "/prod/tags/$(resource-arn)";
+        aws_config=aws_config,
+        features=SERVICE_FEATURES,
+    )
 end
 function list_tags_for_resource(
     resource_arn,
     params::AbstractDict{String};
     aws_config::AbstractAWSConfig=global_aws_config(),
 )
-    return medialive("GET", "/prod/tags/$(resource-arn)", params; aws_config=aws_config)
+    return medialive(
+        "GET",
+        "/prod/tags/$(resource-arn)",
+        params;
+        aws_config=aws_config,
+        features=SERVICE_FEATURES,
+    )
 end
 
 """
@@ -1214,6 +1478,7 @@ function purchase_offering(
         "/prod/offerings/$(offeringId)/purchase",
         Dict{String,Any}("count" => count, "requestId" => string(uuid4()));
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 function purchase_offering(
@@ -1233,6 +1498,7 @@ function purchase_offering(
             ),
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -1251,7 +1517,10 @@ function reject_input_device_transfer(
     inputDeviceId; aws_config::AbstractAWSConfig=global_aws_config()
 )
     return medialive(
-        "POST", "/prod/inputDevices/$(inputDeviceId)/reject"; aws_config=aws_config
+        "POST",
+        "/prod/inputDevices/$(inputDeviceId)/reject";
+        aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 function reject_input_device_transfer(
@@ -1260,7 +1529,11 @@ function reject_input_device_transfer(
     aws_config::AbstractAWSConfig=global_aws_config(),
 )
     return medialive(
-        "POST", "/prod/inputDevices/$(inputDeviceId)/reject", params; aws_config=aws_config
+        "POST",
+        "/prod/inputDevices/$(inputDeviceId)/reject",
+        params;
+        aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -1275,7 +1548,12 @@ Starts an existing channel
 
 """
 function start_channel(channelId; aws_config::AbstractAWSConfig=global_aws_config())
-    return medialive("POST", "/prod/channels/$(channelId)/start"; aws_config=aws_config)
+    return medialive(
+        "POST",
+        "/prod/channels/$(channelId)/start";
+        aws_config=aws_config,
+        features=SERVICE_FEATURES,
+    )
 end
 function start_channel(
     channelId,
@@ -1283,7 +1561,11 @@ function start_channel(
     aws_config::AbstractAWSConfig=global_aws_config(),
 )
     return medialive(
-        "POST", "/prod/channels/$(channelId)/start", params; aws_config=aws_config
+        "POST",
+        "/prod/channels/$(channelId)/start",
+        params;
+        aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -1300,7 +1582,10 @@ explicitly start each channel.
 """
 function start_multiplex(multiplexId; aws_config::AbstractAWSConfig=global_aws_config())
     return medialive(
-        "POST", "/prod/multiplexes/$(multiplexId)/start"; aws_config=aws_config
+        "POST",
+        "/prod/multiplexes/$(multiplexId)/start";
+        aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 function start_multiplex(
@@ -1309,7 +1594,11 @@ function start_multiplex(
     aws_config::AbstractAWSConfig=global_aws_config(),
 )
     return medialive(
-        "POST", "/prod/multiplexes/$(multiplexId)/start", params; aws_config=aws_config
+        "POST",
+        "/prod/multiplexes/$(multiplexId)/start",
+        params;
+        aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -1324,7 +1613,12 @@ Stops a running channel
 
 """
 function stop_channel(channelId; aws_config::AbstractAWSConfig=global_aws_config())
-    return medialive("POST", "/prod/channels/$(channelId)/stop"; aws_config=aws_config)
+    return medialive(
+        "POST",
+        "/prod/channels/$(channelId)/stop";
+        aws_config=aws_config,
+        features=SERVICE_FEATURES,
+    )
 end
 function stop_channel(
     channelId,
@@ -1332,7 +1626,11 @@ function stop_channel(
     aws_config::AbstractAWSConfig=global_aws_config(),
 )
     return medialive(
-        "POST", "/prod/channels/$(channelId)/stop", params; aws_config=aws_config
+        "POST",
+        "/prod/channels/$(channelId)/stop",
+        params;
+        aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -1347,7 +1645,12 @@ Stops a running multiplex. If the multiplex isn't running, this action has no ef
 
 """
 function stop_multiplex(multiplexId; aws_config::AbstractAWSConfig=global_aws_config())
-    return medialive("POST", "/prod/multiplexes/$(multiplexId)/stop"; aws_config=aws_config)
+    return medialive(
+        "POST",
+        "/prod/multiplexes/$(multiplexId)/stop";
+        aws_config=aws_config,
+        features=SERVICE_FEATURES,
+    )
 end
 function stop_multiplex(
     multiplexId,
@@ -1355,7 +1658,11 @@ function stop_multiplex(
     aws_config::AbstractAWSConfig=global_aws_config(),
 )
     return medialive(
-        "POST", "/prod/multiplexes/$(multiplexId)/stop", params; aws_config=aws_config
+        "POST",
+        "/prod/multiplexes/$(multiplexId)/stop",
+        params;
+        aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -1380,7 +1687,10 @@ function transfer_input_device(
     inputDeviceId; aws_config::AbstractAWSConfig=global_aws_config()
 )
     return medialive(
-        "POST", "/prod/inputDevices/$(inputDeviceId)/transfer"; aws_config=aws_config
+        "POST",
+        "/prod/inputDevices/$(inputDeviceId)/transfer";
+        aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 function transfer_input_device(
@@ -1393,6 +1703,7 @@ function transfer_input_device(
         "/prod/inputDevices/$(inputDeviceId)/transfer",
         params;
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -1419,14 +1730,25 @@ Optional parameters can be passed as a `params::Dict{String,<:Any}`. Valid keys 
   that role will be removed.
 """
 function update_channel(channelId; aws_config::AbstractAWSConfig=global_aws_config())
-    return medialive("PUT", "/prod/channels/$(channelId)"; aws_config=aws_config)
+    return medialive(
+        "PUT",
+        "/prod/channels/$(channelId)";
+        aws_config=aws_config,
+        features=SERVICE_FEATURES,
+    )
 end
 function update_channel(
     channelId,
     params::AbstractDict{String};
     aws_config::AbstractAWSConfig=global_aws_config(),
 )
-    return medialive("PUT", "/prod/channels/$(channelId)", params; aws_config=aws_config)
+    return medialive(
+        "PUT",
+        "/prod/channels/$(channelId)",
+        params;
+        aws_config=aws_config,
+        features=SERVICE_FEATURES,
+    )
 end
 
 """
@@ -1451,6 +1773,7 @@ function update_channel_class(
         "/prod/channels/$(channelId)/channelClass",
         Dict{String,Any}("channelClass" => channelClass);
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 function update_channel_class(
@@ -1466,6 +1789,7 @@ function update_channel_class(
             mergewith(_merge, Dict{String,Any}("channelClass" => channelClass), params)
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -1500,12 +1824,20 @@ Only specify sources for PULL type Inputs. Leave
   Destinations empty.
 """
 function update_input(inputId; aws_config::AbstractAWSConfig=global_aws_config())
-    return medialive("PUT", "/prod/inputs/$(inputId)"; aws_config=aws_config)
+    return medialive(
+        "PUT", "/prod/inputs/$(inputId)"; aws_config=aws_config, features=SERVICE_FEATURES
+    )
 end
 function update_input(
     inputId, params::AbstractDict{String}; aws_config::AbstractAWSConfig=global_aws_config()
 )
-    return medialive("PUT", "/prod/inputs/$(inputId)", params; aws_config=aws_config)
+    return medialive(
+        "PUT",
+        "/prod/inputs/$(inputId)",
+        params;
+        aws_config=aws_config,
+        features=SERVICE_FEATURES,
+    )
 end
 
 """
@@ -1526,7 +1858,12 @@ Optional parameters can be passed as a `params::Dict{String,<:Any}`. Valid keys 
 function update_input_device(
     inputDeviceId; aws_config::AbstractAWSConfig=global_aws_config()
 )
-    return medialive("PUT", "/prod/inputDevices/$(inputDeviceId)"; aws_config=aws_config)
+    return medialive(
+        "PUT",
+        "/prod/inputDevices/$(inputDeviceId)";
+        aws_config=aws_config,
+        features=SERVICE_FEATURES,
+    )
 end
 function update_input_device(
     inputDeviceId,
@@ -1534,7 +1871,11 @@ function update_input_device(
     aws_config::AbstractAWSConfig=global_aws_config(),
 )
     return medialive(
-        "PUT", "/prod/inputDevices/$(inputDeviceId)", params; aws_config=aws_config
+        "PUT",
+        "/prod/inputDevices/$(inputDeviceId)",
+        params;
+        aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -1556,7 +1897,10 @@ function update_input_security_group(
     inputSecurityGroupId; aws_config::AbstractAWSConfig=global_aws_config()
 )
     return medialive(
-        "PUT", "/prod/inputSecurityGroups/$(inputSecurityGroupId)"; aws_config=aws_config
+        "PUT",
+        "/prod/inputSecurityGroups/$(inputSecurityGroupId)";
+        aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 function update_input_security_group(
@@ -1569,6 +1913,7 @@ function update_input_security_group(
         "/prod/inputSecurityGroups/$(inputSecurityGroupId)",
         params;
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -1587,7 +1932,12 @@ Optional parameters can be passed as a `params::Dict{String,<:Any}`. Valid keys 
 - `"name"`: Name of the multiplex.
 """
 function update_multiplex(multiplexId; aws_config::AbstractAWSConfig=global_aws_config())
-    return medialive("PUT", "/prod/multiplexes/$(multiplexId)"; aws_config=aws_config)
+    return medialive(
+        "PUT",
+        "/prod/multiplexes/$(multiplexId)";
+        aws_config=aws_config,
+        features=SERVICE_FEATURES,
+    )
 end
 function update_multiplex(
     multiplexId,
@@ -1595,7 +1945,11 @@ function update_multiplex(
     aws_config::AbstractAWSConfig=global_aws_config(),
 )
     return medialive(
-        "PUT", "/prod/multiplexes/$(multiplexId)", params; aws_config=aws_config
+        "PUT",
+        "/prod/multiplexes/$(multiplexId)",
+        params;
+        aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -1620,6 +1974,7 @@ function update_multiplex_program(
         "PUT",
         "/prod/multiplexes/$(multiplexId)/programs/$(programName)";
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 function update_multiplex_program(
@@ -1633,6 +1988,7 @@ function update_multiplex_program(
         "/prod/multiplexes/$(multiplexId)/programs/$(programName)",
         params;
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -1652,7 +2008,12 @@ Optional parameters can be passed as a `params::Dict{String,<:Any}`. Valid keys 
 function update_reservation(
     reservationId; aws_config::AbstractAWSConfig=global_aws_config()
 )
-    return medialive("PUT", "/prod/reservations/$(reservationId)"; aws_config=aws_config)
+    return medialive(
+        "PUT",
+        "/prod/reservations/$(reservationId)";
+        aws_config=aws_config,
+        features=SERVICE_FEATURES,
+    )
 end
 function update_reservation(
     reservationId,
@@ -1660,6 +2021,10 @@ function update_reservation(
     aws_config::AbstractAWSConfig=global_aws_config(),
 )
     return medialive(
-        "PUT", "/prod/reservations/$(reservationId)", params; aws_config=aws_config
+        "PUT",
+        "/prod/reservations/$(reservationId)",
+        params;
+        aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end

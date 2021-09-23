@@ -33,6 +33,7 @@ function batch_delete_recipe_version(
         "/recipes/$(name)/batchDeleteRecipeVersion",
         Dict{String,Any}("RecipeVersions" => RecipeVersions);
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 function batch_delete_recipe_version(
@@ -48,6 +49,7 @@ function batch_delete_recipe_version(
             mergewith(_merge, Dict{String,Any}("RecipeVersions" => RecipeVersions), params)
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -76,6 +78,7 @@ function create_dataset(Input, Name; aws_config::AbstractAWSConfig=global_aws_co
         "/datasets",
         Dict{String,Any}("Input" => Input, "Name" => Name);
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 function create_dataset(
@@ -91,6 +94,7 @@ function create_dataset(
             mergewith(_merge, Dict{String,Any}("Input" => Input, "Name" => Name), params)
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -148,6 +152,7 @@ function create_profile_job(
             "RoleArn" => RoleArn,
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 function create_profile_job(
@@ -174,6 +179,7 @@ function create_profile_job(
             ),
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -213,6 +219,7 @@ function create_project(
             "RoleArn" => RoleArn,
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 function create_project(
@@ -239,6 +246,7 @@ function create_project(
             ),
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -265,6 +273,7 @@ function create_recipe(Name, Steps; aws_config::AbstractAWSConfig=global_aws_con
         "/recipes",
         Dict{String,Any}("Name" => Name, "Steps" => Steps);
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 function create_recipe(
@@ -280,6 +289,7 @@ function create_recipe(
             mergewith(_merge, Dict{String,Any}("Name" => Name, "Steps" => Steps), params)
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -327,6 +337,7 @@ function create_recipe_job(Name, RoleArn; aws_config::AbstractAWSConfig=global_a
         "/recipeJobs",
         Dict{String,Any}("Name" => Name, "RoleArn" => RoleArn);
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 function create_recipe_job(
@@ -344,6 +355,7 @@ function create_recipe_job(
             ),
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -373,6 +385,7 @@ function create_schedule(
         "/schedules",
         Dict{String,Any}("CronExpression" => CronExpression, "Name" => Name);
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 function create_schedule(
@@ -392,6 +405,7 @@ function create_schedule(
             ),
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -406,12 +420,20 @@ Deletes a dataset from DataBrew.
 
 """
 function delete_dataset(name; aws_config::AbstractAWSConfig=global_aws_config())
-    return databrew("DELETE", "/datasets/$(name)"; aws_config=aws_config)
+    return databrew(
+        "DELETE", "/datasets/$(name)"; aws_config=aws_config, features=SERVICE_FEATURES
+    )
 end
 function delete_dataset(
     name, params::AbstractDict{String}; aws_config::AbstractAWSConfig=global_aws_config()
 )
-    return databrew("DELETE", "/datasets/$(name)", params; aws_config=aws_config)
+    return databrew(
+        "DELETE",
+        "/datasets/$(name)",
+        params;
+        aws_config=aws_config,
+        features=SERVICE_FEATURES,
+    )
 end
 
 """
@@ -425,12 +447,16 @@ Deletes the specified DataBrew job.
 
 """
 function delete_job(name; aws_config::AbstractAWSConfig=global_aws_config())
-    return databrew("DELETE", "/jobs/$(name)"; aws_config=aws_config)
+    return databrew(
+        "DELETE", "/jobs/$(name)"; aws_config=aws_config, features=SERVICE_FEATURES
+    )
 end
 function delete_job(
     name, params::AbstractDict{String}; aws_config::AbstractAWSConfig=global_aws_config()
 )
-    return databrew("DELETE", "/jobs/$(name)", params; aws_config=aws_config)
+    return databrew(
+        "DELETE", "/jobs/$(name)", params; aws_config=aws_config, features=SERVICE_FEATURES
+    )
 end
 
 """
@@ -444,12 +470,20 @@ Deletes an existing DataBrew project.
 
 """
 function delete_project(name; aws_config::AbstractAWSConfig=global_aws_config())
-    return databrew("DELETE", "/projects/$(name)"; aws_config=aws_config)
+    return databrew(
+        "DELETE", "/projects/$(name)"; aws_config=aws_config, features=SERVICE_FEATURES
+    )
 end
 function delete_project(
     name, params::AbstractDict{String}; aws_config::AbstractAWSConfig=global_aws_config()
 )
-    return databrew("DELETE", "/projects/$(name)", params; aws_config=aws_config)
+    return databrew(
+        "DELETE",
+        "/projects/$(name)",
+        params;
+        aws_config=aws_config,
+        features=SERVICE_FEATURES,
+    )
 end
 
 """
@@ -468,7 +502,10 @@ function delete_recipe_version(
     name, recipeVersion; aws_config::AbstractAWSConfig=global_aws_config()
 )
     return databrew(
-        "DELETE", "/recipes/$(name)/recipeVersion/$(recipeVersion)"; aws_config=aws_config
+        "DELETE",
+        "/recipes/$(name)/recipeVersion/$(recipeVersion)";
+        aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 function delete_recipe_version(
@@ -482,6 +519,7 @@ function delete_recipe_version(
         "/recipes/$(name)/recipeVersion/$(recipeVersion)",
         params;
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -496,12 +534,20 @@ Deletes the specified DataBrew schedule.
 
 """
 function delete_schedule(name; aws_config::AbstractAWSConfig=global_aws_config())
-    return databrew("DELETE", "/schedules/$(name)"; aws_config=aws_config)
+    return databrew(
+        "DELETE", "/schedules/$(name)"; aws_config=aws_config, features=SERVICE_FEATURES
+    )
 end
 function delete_schedule(
     name, params::AbstractDict{String}; aws_config::AbstractAWSConfig=global_aws_config()
 )
-    return databrew("DELETE", "/schedules/$(name)", params; aws_config=aws_config)
+    return databrew(
+        "DELETE",
+        "/schedules/$(name)",
+        params;
+        aws_config=aws_config,
+        features=SERVICE_FEATURES,
+    )
 end
 
 """
@@ -515,12 +561,16 @@ Returns the definition of a specific DataBrew dataset.
 
 """
 function describe_dataset(name; aws_config::AbstractAWSConfig=global_aws_config())
-    return databrew("GET", "/datasets/$(name)"; aws_config=aws_config)
+    return databrew(
+        "GET", "/datasets/$(name)"; aws_config=aws_config, features=SERVICE_FEATURES
+    )
 end
 function describe_dataset(
     name, params::AbstractDict{String}; aws_config::AbstractAWSConfig=global_aws_config()
 )
-    return databrew("GET", "/datasets/$(name)", params; aws_config=aws_config)
+    return databrew(
+        "GET", "/datasets/$(name)", params; aws_config=aws_config, features=SERVICE_FEATURES
+    )
 end
 
 """
@@ -534,12 +584,16 @@ Returns the definition of a specific DataBrew job.
 
 """
 function describe_job(name; aws_config::AbstractAWSConfig=global_aws_config())
-    return databrew("GET", "/jobs/$(name)"; aws_config=aws_config)
+    return databrew(
+        "GET", "/jobs/$(name)"; aws_config=aws_config, features=SERVICE_FEATURES
+    )
 end
 function describe_job(
     name, params::AbstractDict{String}; aws_config::AbstractAWSConfig=global_aws_config()
 )
-    return databrew("GET", "/jobs/$(name)", params; aws_config=aws_config)
+    return databrew(
+        "GET", "/jobs/$(name)", params; aws_config=aws_config, features=SERVICE_FEATURES
+    )
 end
 
 """
@@ -554,7 +608,12 @@ Represents one run of a DataBrew job.
 
 """
 function describe_job_run(name, runId; aws_config::AbstractAWSConfig=global_aws_config())
-    return databrew("GET", "/jobs/$(name)/jobRun/$(runId)"; aws_config=aws_config)
+    return databrew(
+        "GET",
+        "/jobs/$(name)/jobRun/$(runId)";
+        aws_config=aws_config,
+        features=SERVICE_FEATURES,
+    )
 end
 function describe_job_run(
     name,
@@ -562,7 +621,13 @@ function describe_job_run(
     params::AbstractDict{String};
     aws_config::AbstractAWSConfig=global_aws_config(),
 )
-    return databrew("GET", "/jobs/$(name)/jobRun/$(runId)", params; aws_config=aws_config)
+    return databrew(
+        "GET",
+        "/jobs/$(name)/jobRun/$(runId)",
+        params;
+        aws_config=aws_config,
+        features=SERVICE_FEATURES,
+    )
 end
 
 """
@@ -576,12 +641,16 @@ Returns the definition of a specific DataBrew project.
 
 """
 function describe_project(name; aws_config::AbstractAWSConfig=global_aws_config())
-    return databrew("GET", "/projects/$(name)"; aws_config=aws_config)
+    return databrew(
+        "GET", "/projects/$(name)"; aws_config=aws_config, features=SERVICE_FEATURES
+    )
 end
 function describe_project(
     name, params::AbstractDict{String}; aws_config::AbstractAWSConfig=global_aws_config()
 )
-    return databrew("GET", "/projects/$(name)", params; aws_config=aws_config)
+    return databrew(
+        "GET", "/projects/$(name)", params; aws_config=aws_config, features=SERVICE_FEATURES
+    )
 end
 
 """
@@ -599,12 +668,16 @@ Optional parameters can be passed as a `params::Dict{String,<:Any}`. Valid keys 
   the latest published version is returned.
 """
 function describe_recipe(name; aws_config::AbstractAWSConfig=global_aws_config())
-    return databrew("GET", "/recipes/$(name)"; aws_config=aws_config)
+    return databrew(
+        "GET", "/recipes/$(name)"; aws_config=aws_config, features=SERVICE_FEATURES
+    )
 end
 function describe_recipe(
     name, params::AbstractDict{String}; aws_config::AbstractAWSConfig=global_aws_config()
 )
-    return databrew("GET", "/recipes/$(name)", params; aws_config=aws_config)
+    return databrew(
+        "GET", "/recipes/$(name)", params; aws_config=aws_config, features=SERVICE_FEATURES
+    )
 end
 
 """
@@ -618,12 +691,20 @@ Returns the definition of a specific DataBrew schedule.
 
 """
 function describe_schedule(name; aws_config::AbstractAWSConfig=global_aws_config())
-    return databrew("GET", "/schedules/$(name)"; aws_config=aws_config)
+    return databrew(
+        "GET", "/schedules/$(name)"; aws_config=aws_config, features=SERVICE_FEATURES
+    )
 end
 function describe_schedule(
     name, params::AbstractDict{String}; aws_config::AbstractAWSConfig=global_aws_config()
 )
-    return databrew("GET", "/schedules/$(name)", params; aws_config=aws_config)
+    return databrew(
+        "GET",
+        "/schedules/$(name)",
+        params;
+        aws_config=aws_config,
+        features=SERVICE_FEATURES,
+    )
 end
 
 """
@@ -638,12 +719,14 @@ Optional parameters can be passed as a `params::Dict{String,<:Any}`. Valid keys 
 - `"nextToken"`: The token returned by a previous call to retrieve the next set of results.
 """
 function list_datasets(; aws_config::AbstractAWSConfig=global_aws_config())
-    return databrew("GET", "/datasets"; aws_config=aws_config)
+    return databrew("GET", "/datasets"; aws_config=aws_config, features=SERVICE_FEATURES)
 end
 function list_datasets(
     params::AbstractDict{String}; aws_config::AbstractAWSConfig=global_aws_config()
 )
-    return databrew("GET", "/datasets", params; aws_config=aws_config)
+    return databrew(
+        "GET", "/datasets", params; aws_config=aws_config, features=SERVICE_FEATURES
+    )
 end
 
 """
@@ -661,12 +744,20 @@ Optional parameters can be passed as a `params::Dict{String,<:Any}`. Valid keys 
 - `"nextToken"`: The token returned by a previous call to retrieve the next set of results.
 """
 function list_job_runs(name; aws_config::AbstractAWSConfig=global_aws_config())
-    return databrew("GET", "/jobs/$(name)/jobRuns"; aws_config=aws_config)
+    return databrew(
+        "GET", "/jobs/$(name)/jobRuns"; aws_config=aws_config, features=SERVICE_FEATURES
+    )
 end
 function list_job_runs(
     name, params::AbstractDict{String}; aws_config::AbstractAWSConfig=global_aws_config()
 )
-    return databrew("GET", "/jobs/$(name)/jobRuns", params; aws_config=aws_config)
+    return databrew(
+        "GET",
+        "/jobs/$(name)/jobRuns",
+        params;
+        aws_config=aws_config,
+        features=SERVICE_FEATURES,
+    )
 end
 
 """
@@ -687,12 +778,14 @@ Optional parameters can be passed as a `params::Dict{String,<:Any}`. Valid keys 
   those jobs that are associated with the specified project.
 """
 function list_jobs(; aws_config::AbstractAWSConfig=global_aws_config())
-    return databrew("GET", "/jobs"; aws_config=aws_config)
+    return databrew("GET", "/jobs"; aws_config=aws_config, features=SERVICE_FEATURES)
 end
 function list_jobs(
     params::AbstractDict{String}; aws_config::AbstractAWSConfig=global_aws_config()
 )
-    return databrew("GET", "/jobs", params; aws_config=aws_config)
+    return databrew(
+        "GET", "/jobs", params; aws_config=aws_config, features=SERVICE_FEATURES
+    )
 end
 
 """
@@ -707,12 +800,14 @@ Optional parameters can be passed as a `params::Dict{String,<:Any}`. Valid keys 
 - `"nextToken"`: The token returned by a previous call to retrieve the next set of results.
 """
 function list_projects(; aws_config::AbstractAWSConfig=global_aws_config())
-    return databrew("GET", "/projects"; aws_config=aws_config)
+    return databrew("GET", "/projects"; aws_config=aws_config, features=SERVICE_FEATURES)
 end
 function list_projects(
     params::AbstractDict{String}; aws_config::AbstractAWSConfig=global_aws_config()
 )
-    return databrew("GET", "/projects", params; aws_config=aws_config)
+    return databrew(
+        "GET", "/projects", params; aws_config=aws_config, features=SERVICE_FEATURES
+    )
 end
 
 """
@@ -731,7 +826,11 @@ Optional parameters can be passed as a `params::Dict{String,<:Any}`. Valid keys 
 """
 function list_recipe_versions(name; aws_config::AbstractAWSConfig=global_aws_config())
     return databrew(
-        "GET", "/recipeVersions", Dict{String,Any}("name" => name); aws_config=aws_config
+        "GET",
+        "/recipeVersions",
+        Dict{String,Any}("name" => name);
+        aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 function list_recipe_versions(
@@ -742,6 +841,7 @@ function list_recipe_versions(
         "/recipeVersions",
         Dict{String,Any}(mergewith(_merge, Dict{String,Any}("name" => name), params));
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -760,12 +860,14 @@ Optional parameters can be passed as a `params::Dict{String,<:Any}`. Valid keys 
   LATEST_PUBLISHED recipe versions. Valid values: LATEST_WORKING | LATEST_PUBLISHED
 """
 function list_recipes(; aws_config::AbstractAWSConfig=global_aws_config())
-    return databrew("GET", "/recipes"; aws_config=aws_config)
+    return databrew("GET", "/recipes"; aws_config=aws_config, features=SERVICE_FEATURES)
 end
 function list_recipes(
     params::AbstractDict{String}; aws_config::AbstractAWSConfig=global_aws_config()
 )
-    return databrew("GET", "/recipes", params; aws_config=aws_config)
+    return databrew(
+        "GET", "/recipes", params; aws_config=aws_config, features=SERVICE_FEATURES
+    )
 end
 
 """
@@ -781,12 +883,14 @@ Optional parameters can be passed as a `params::Dict{String,<:Any}`. Valid keys 
 - `"nextToken"`: The token returned by a previous call to retrieve the next set of results.
 """
 function list_schedules(; aws_config::AbstractAWSConfig=global_aws_config())
-    return databrew("GET", "/schedules"; aws_config=aws_config)
+    return databrew("GET", "/schedules"; aws_config=aws_config, features=SERVICE_FEATURES)
 end
 function list_schedules(
     params::AbstractDict{String}; aws_config::AbstractAWSConfig=global_aws_config()
 )
-    return databrew("GET", "/schedules", params; aws_config=aws_config)
+    return databrew(
+        "GET", "/schedules", params; aws_config=aws_config, features=SERVICE_FEATURES
+    )
 end
 
 """
@@ -803,14 +907,22 @@ Lists all the tags for a DataBrew resource.
 function list_tags_for_resource(
     ResourceArn; aws_config::AbstractAWSConfig=global_aws_config()
 )
-    return databrew("GET", "/tags/$(ResourceArn)"; aws_config=aws_config)
+    return databrew(
+        "GET", "/tags/$(ResourceArn)"; aws_config=aws_config, features=SERVICE_FEATURES
+    )
 end
 function list_tags_for_resource(
     ResourceArn,
     params::AbstractDict{String};
     aws_config::AbstractAWSConfig=global_aws_config(),
 )
-    return databrew("GET", "/tags/$(ResourceArn)", params; aws_config=aws_config)
+    return databrew(
+        "GET",
+        "/tags/$(ResourceArn)",
+        params;
+        aws_config=aws_config,
+        features=SERVICE_FEATURES,
+    )
 end
 
 """
@@ -828,12 +940,23 @@ Optional parameters can be passed as a `params::Dict{String,<:Any}`. Valid keys 
   recipe.
 """
 function publish_recipe(name; aws_config::AbstractAWSConfig=global_aws_config())
-    return databrew("POST", "/recipes/$(name)/publishRecipe"; aws_config=aws_config)
+    return databrew(
+        "POST",
+        "/recipes/$(name)/publishRecipe";
+        aws_config=aws_config,
+        features=SERVICE_FEATURES,
+    )
 end
 function publish_recipe(
     name, params::AbstractDict{String}; aws_config::AbstractAWSConfig=global_aws_config()
 )
-    return databrew("POST", "/recipes/$(name)/publishRecipe", params; aws_config=aws_config)
+    return databrew(
+        "POST",
+        "/recipes/$(name)/publishRecipe",
+        params;
+        aws_config=aws_config,
+        features=SERVICE_FEATURES,
+    )
 end
 
 """
@@ -860,14 +983,21 @@ function send_project_session_action(
     name; aws_config::AbstractAWSConfig=global_aws_config()
 )
     return databrew(
-        "PUT", "/projects/$(name)/sendProjectSessionAction"; aws_config=aws_config
+        "PUT",
+        "/projects/$(name)/sendProjectSessionAction";
+        aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 function send_project_session_action(
     name, params::AbstractDict{String}; aws_config::AbstractAWSConfig=global_aws_config()
 )
     return databrew(
-        "PUT", "/projects/$(name)/sendProjectSessionAction", params; aws_config=aws_config
+        "PUT",
+        "/projects/$(name)/sendProjectSessionAction",
+        params;
+        aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -882,12 +1012,23 @@ Runs a DataBrew job.
 
 """
 function start_job_run(name; aws_config::AbstractAWSConfig=global_aws_config())
-    return databrew("POST", "/jobs/$(name)/startJobRun"; aws_config=aws_config)
+    return databrew(
+        "POST",
+        "/jobs/$(name)/startJobRun";
+        aws_config=aws_config,
+        features=SERVICE_FEATURES,
+    )
 end
 function start_job_run(
     name, params::AbstractDict{String}; aws_config::AbstractAWSConfig=global_aws_config()
 )
-    return databrew("POST", "/jobs/$(name)/startJobRun", params; aws_config=aws_config)
+    return databrew(
+        "POST",
+        "/jobs/$(name)/startJobRun",
+        params;
+        aws_config=aws_config,
+        features=SERVICE_FEATURES,
+    )
 end
 
 """
@@ -905,13 +1046,22 @@ Optional parameters can be passed as a `params::Dict{String,<:Any}`. Valid keys 
   if a different client is currently accessing the project.
 """
 function start_project_session(name; aws_config::AbstractAWSConfig=global_aws_config())
-    return databrew("PUT", "/projects/$(name)/startProjectSession"; aws_config=aws_config)
+    return databrew(
+        "PUT",
+        "/projects/$(name)/startProjectSession";
+        aws_config=aws_config,
+        features=SERVICE_FEATURES,
+    )
 end
 function start_project_session(
     name, params::AbstractDict{String}; aws_config::AbstractAWSConfig=global_aws_config()
 )
     return databrew(
-        "PUT", "/projects/$(name)/startProjectSession", params; aws_config=aws_config
+        "PUT",
+        "/projects/$(name)/startProjectSession",
+        params;
+        aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -928,7 +1078,10 @@ Stops a particular run of a job.
 """
 function stop_job_run(name, runId; aws_config::AbstractAWSConfig=global_aws_config())
     return databrew(
-        "POST", "/jobs/$(name)/jobRun/$(runId)/stopJobRun"; aws_config=aws_config
+        "POST",
+        "/jobs/$(name)/jobRun/$(runId)/stopJobRun";
+        aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 function stop_job_run(
@@ -938,7 +1091,11 @@ function stop_job_run(
     aws_config::AbstractAWSConfig=global_aws_config(),
 )
     return databrew(
-        "POST", "/jobs/$(name)/jobRun/$(runId)/stopJobRun", params; aws_config=aws_config
+        "POST",
+        "/jobs/$(name)/jobRun/$(runId)/stopJobRun",
+        params;
+        aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -962,6 +1119,7 @@ function tag_resource(ResourceArn, Tags; aws_config::AbstractAWSConfig=global_aw
         "/tags/$(ResourceArn)",
         Dict{String,Any}("Tags" => Tags);
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 function tag_resource(
@@ -975,6 +1133,7 @@ function tag_resource(
         "/tags/$(ResourceArn)",
         Dict{String,Any}(mergewith(_merge, Dict{String,Any}("Tags" => Tags), params));
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -998,6 +1157,7 @@ function untag_resource(
         "/tags/$(ResourceArn)",
         Dict{String,Any}("tagKeys" => tagKeys);
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 function untag_resource(
@@ -1011,6 +1171,7 @@ function untag_resource(
         "/tags/$(ResourceArn)",
         Dict{String,Any}(mergewith(_merge, Dict{String,Any}("tagKeys" => tagKeys), params));
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -1037,6 +1198,7 @@ function update_dataset(Input, name; aws_config::AbstractAWSConfig=global_aws_co
         "/datasets/$(name)",
         Dict{String,Any}("Input" => Input);
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 function update_dataset(
@@ -1050,6 +1212,7 @@ function update_dataset(
         "/datasets/$(name)",
         Dict{String,Any}(mergewith(_merge, Dict{String,Any}("Input" => Input), params));
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -1095,6 +1258,7 @@ function update_profile_job(
         "/profileJobs/$(name)",
         Dict{String,Any}("OutputLocation" => OutputLocation, "RoleArn" => RoleArn);
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 function update_profile_job(
@@ -1115,6 +1279,7 @@ function update_profile_job(
             ),
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -1138,6 +1303,7 @@ function update_project(RoleArn, name; aws_config::AbstractAWSConfig=global_aws_
         "/projects/$(name)",
         Dict{String,Any}("RoleArn" => RoleArn);
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 function update_project(
@@ -1151,6 +1317,7 @@ function update_project(
         "/projects/$(name)",
         Dict{String,Any}(mergewith(_merge, Dict{String,Any}("RoleArn" => RoleArn), params));
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -1170,12 +1337,16 @@ Optional parameters can be passed as a `params::Dict{String,<:Any}`. Valid keys 
   action, and the conditions under which the action should succeed.
 """
 function update_recipe(name; aws_config::AbstractAWSConfig=global_aws_config())
-    return databrew("PUT", "/recipes/$(name)"; aws_config=aws_config)
+    return databrew(
+        "PUT", "/recipes/$(name)"; aws_config=aws_config, features=SERVICE_FEATURES
+    )
 end
 function update_recipe(
     name, params::AbstractDict{String}; aws_config::AbstractAWSConfig=global_aws_config()
 )
-    return databrew("PUT", "/recipes/$(name)", params; aws_config=aws_config)
+    return databrew(
+        "PUT", "/recipes/$(name)", params; aws_config=aws_config, features=SERVICE_FEATURES
+    )
 end
 
 """
@@ -1215,6 +1386,7 @@ function update_recipe_job(RoleArn, name; aws_config::AbstractAWSConfig=global_a
         "/recipeJobs/$(name)",
         Dict{String,Any}("RoleArn" => RoleArn);
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 function update_recipe_job(
@@ -1228,6 +1400,7 @@ function update_recipe_job(
         "/recipeJobs/$(name)",
         Dict{String,Any}(mergewith(_merge, Dict{String,Any}("RoleArn" => RoleArn), params));
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -1254,6 +1427,7 @@ function update_schedule(
         "/schedules/$(name)",
         Dict{String,Any}("CronExpression" => CronExpression);
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 function update_schedule(
@@ -1269,5 +1443,6 @@ function update_schedule(
             mergewith(_merge, Dict{String,Any}("CronExpression" => CronExpression), params)
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end

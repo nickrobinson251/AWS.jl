@@ -24,6 +24,7 @@ function create_workspace(; aws_config::AbstractAWSConfig=global_aws_config())
         "/workspaces",
         Dict{String,Any}("clientToken" => string(uuid4()));
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 function create_workspace(
@@ -36,6 +37,7 @@ function create_workspace(
             mergewith(_merge, Dict{String,Any}("clientToken" => string(uuid4())), params)
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -59,6 +61,7 @@ function delete_workspace(workspaceId; aws_config::AbstractAWSConfig=global_aws_
         "/workspaces/$(workspaceId)",
         Dict{String,Any}("clientToken" => string(uuid4()));
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 function delete_workspace(
@@ -73,6 +76,7 @@ function delete_workspace(
             mergewith(_merge, Dict{String,Any}("clientToken" => string(uuid4())), params)
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -87,14 +91,25 @@ Describes an existing AMP workspace.
 
 """
 function describe_workspace(workspaceId; aws_config::AbstractAWSConfig=global_aws_config())
-    return amp("GET", "/workspaces/$(workspaceId)"; aws_config=aws_config)
+    return amp(
+        "GET",
+        "/workspaces/$(workspaceId)";
+        aws_config=aws_config,
+        features=SERVICE_FEATURES,
+    )
 end
 function describe_workspace(
     workspaceId,
     params::AbstractDict{String};
     aws_config::AbstractAWSConfig=global_aws_config(),
 )
-    return amp("GET", "/workspaces/$(workspaceId)", params; aws_config=aws_config)
+    return amp(
+        "GET",
+        "/workspaces/$(workspaceId)",
+        params;
+        aws_config=aws_config,
+        features=SERVICE_FEATURES,
+    )
 end
 
 """
@@ -110,14 +125,22 @@ Lists the tags you have assigned to the resource.
 function list_tags_for_resource(
     resourceArn; aws_config::AbstractAWSConfig=global_aws_config()
 )
-    return amp("GET", "/tags/$(resourceArn)"; aws_config=aws_config)
+    return amp(
+        "GET", "/tags/$(resourceArn)"; aws_config=aws_config, features=SERVICE_FEATURES
+    )
 end
 function list_tags_for_resource(
     resourceArn,
     params::AbstractDict{String};
     aws_config::AbstractAWSConfig=global_aws_config(),
 )
-    return amp("GET", "/tags/$(resourceArn)", params; aws_config=aws_config)
+    return amp(
+        "GET",
+        "/tags/$(resourceArn)",
+        params;
+        aws_config=aws_config,
+        features=SERVICE_FEATURES,
+    )
 end
 
 """
@@ -135,12 +158,14 @@ Optional parameters can be passed as a `params::Dict{String,<:Any}`. Valid keys 
   is obtained from the output of the previous ListWorkspaces request.
 """
 function list_workspaces(; aws_config::AbstractAWSConfig=global_aws_config())
-    return amp("GET", "/workspaces"; aws_config=aws_config)
+    return amp("GET", "/workspaces"; aws_config=aws_config, features=SERVICE_FEATURES)
 end
 function list_workspaces(
     params::AbstractDict{String}; aws_config::AbstractAWSConfig=global_aws_config()
 )
-    return amp("GET", "/workspaces", params; aws_config=aws_config)
+    return amp(
+        "GET", "/workspaces", params; aws_config=aws_config, features=SERVICE_FEATURES
+    )
 end
 
 """
@@ -160,6 +185,7 @@ function tag_resource(resourceArn, tags; aws_config::AbstractAWSConfig=global_aw
         "/tags/$(resourceArn)",
         Dict{String,Any}("tags" => tags);
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 function tag_resource(
@@ -173,6 +199,7 @@ function tag_resource(
         "/tags/$(resourceArn)",
         Dict{String,Any}(mergewith(_merge, Dict{String,Any}("tags" => tags), params));
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -195,6 +222,7 @@ function untag_resource(
         "/tags/$(resourceArn)",
         Dict{String,Any}("tagKeys" => tagKeys);
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 function untag_resource(
@@ -208,6 +236,7 @@ function untag_resource(
         "/tags/$(resourceArn)",
         Dict{String,Any}(mergewith(_merge, Dict{String,Any}("tagKeys" => tagKeys), params));
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -234,6 +263,7 @@ function update_workspace_alias(
         "/workspaces/$(workspaceId)/alias",
         Dict{String,Any}("clientToken" => string(uuid4()));
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 function update_workspace_alias(
@@ -248,5 +278,6 @@ function update_workspace_alias(
             mergewith(_merge, Dict{String,Any}("clientToken" => string(uuid4())), params)
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end

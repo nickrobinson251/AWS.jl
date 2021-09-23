@@ -32,6 +32,7 @@ function associate_encryption_config(
             "encryptionConfig" => encryptionConfig, "clientRequestToken" => string(uuid4())
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 function associate_encryption_config(
@@ -54,6 +55,7 @@ function associate_encryption_config(
             ),
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -88,6 +90,7 @@ function associate_identity_provider_config(
         "/clusters/$(name)/identity-provider-configs/associate",
         Dict{String,Any}("oidc" => oidc, "clientRequestToken" => string(uuid4()));
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 function associate_identity_provider_config(
@@ -107,6 +110,7 @@ function associate_identity_provider_config(
             ),
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -149,6 +153,7 @@ function create_addon(addonName, name; aws_config::AbstractAWSConfig=global_aws_
         "/clusters/$(name)/addons",
         Dict{String,Any}("addonName" => addonName, "clientRequestToken" => string(uuid4()));
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 function create_addon(
@@ -170,6 +175,7 @@ function create_addon(
             ),
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -235,6 +241,7 @@ function create_cluster(
             "clientRequestToken" => string(uuid4()),
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 function create_cluster(
@@ -260,6 +267,7 @@ function create_cluster(
             ),
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -327,6 +335,7 @@ function create_fargate_profile(
             "clientRequestToken" => string(uuid4()),
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 function create_fargate_profile(
@@ -351,6 +360,7 @@ function create_fargate_profile(
             ),
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -457,6 +467,7 @@ function create_nodegroup(
             "clientRequestToken" => string(uuid4()),
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 function create_nodegroup(
@@ -483,6 +494,7 @@ function create_nodegroup(
             ),
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -505,7 +517,12 @@ Optional parameters can be passed as a `params::Dict{String,<:Any}`. Valid keys 
   the add-on, it is not removed.
 """
 function delete_addon(addonName, name; aws_config::AbstractAWSConfig=global_aws_config())
-    return eks("DELETE", "/clusters/$(name)/addons/$(addonName)"; aws_config=aws_config)
+    return eks(
+        "DELETE",
+        "/clusters/$(name)/addons/$(addonName)";
+        aws_config=aws_config,
+        features=SERVICE_FEATURES,
+    )
 end
 function delete_addon(
     addonName,
@@ -514,7 +531,11 @@ function delete_addon(
     aws_config::AbstractAWSConfig=global_aws_config(),
 )
     return eks(
-        "DELETE", "/clusters/$(name)/addons/$(addonName)", params; aws_config=aws_config
+        "DELETE",
+        "/clusters/$(name)/addons/$(addonName)",
+        params;
+        aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -535,12 +556,20 @@ information, see DeleteNodegroup and DeleteFargateProfile.
 
 """
 function delete_cluster(name; aws_config::AbstractAWSConfig=global_aws_config())
-    return eks("DELETE", "/clusters/$(name)"; aws_config=aws_config)
+    return eks(
+        "DELETE", "/clusters/$(name)"; aws_config=aws_config, features=SERVICE_FEATURES
+    )
 end
 function delete_cluster(
     name, params::AbstractDict{String}; aws_config::AbstractAWSConfig=global_aws_config()
 )
-    return eks("DELETE", "/clusters/$(name)", params; aws_config=aws_config)
+    return eks(
+        "DELETE",
+        "/clusters/$(name)",
+        params;
+        aws_config=aws_config,
+        features=SERVICE_FEATURES,
+    )
 end
 
 """
@@ -567,6 +596,7 @@ function delete_fargate_profile(
         "DELETE",
         "/clusters/$(name)/fargate-profiles/$(fargateProfileName)";
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 function delete_fargate_profile(
@@ -580,6 +610,7 @@ function delete_fargate_profile(
         "/clusters/$(name)/fargate-profiles/$(fargateProfileName)",
         params;
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -598,7 +629,10 @@ function delete_nodegroup(
     name, nodegroupName; aws_config::AbstractAWSConfig=global_aws_config()
 )
     return eks(
-        "DELETE", "/clusters/$(name)/node-groups/$(nodegroupName)"; aws_config=aws_config
+        "DELETE",
+        "/clusters/$(name)/node-groups/$(nodegroupName)";
+        aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 function delete_nodegroup(
@@ -612,6 +646,7 @@ function delete_nodegroup(
         "/clusters/$(name)/node-groups/$(nodegroupName)",
         params;
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -626,12 +661,23 @@ Deregisters a connected cluster to remove it from the Amazon EKS control plane.
 
 """
 function deregister_cluster(name; aws_config::AbstractAWSConfig=global_aws_config())
-    return eks("DELETE", "/cluster-registrations/$(name)"; aws_config=aws_config)
+    return eks(
+        "DELETE",
+        "/cluster-registrations/$(name)";
+        aws_config=aws_config,
+        features=SERVICE_FEATURES,
+    )
 end
 function deregister_cluster(
     name, params::AbstractDict{String}; aws_config::AbstractAWSConfig=global_aws_config()
 )
-    return eks("DELETE", "/cluster-registrations/$(name)", params; aws_config=aws_config)
+    return eks(
+        "DELETE",
+        "/cluster-registrations/$(name)",
+        params;
+        aws_config=aws_config,
+        features=SERVICE_FEATURES,
+    )
 end
 
 """
@@ -647,7 +693,12 @@ Describes an Amazon EKS add-on.
 
 """
 function describe_addon(addonName, name; aws_config::AbstractAWSConfig=global_aws_config())
-    return eks("GET", "/clusters/$(name)/addons/$(addonName)"; aws_config=aws_config)
+    return eks(
+        "GET",
+        "/clusters/$(name)/addons/$(addonName)";
+        aws_config=aws_config,
+        features=SERVICE_FEATURES,
+    )
 end
 function describe_addon(
     addonName,
@@ -656,7 +707,11 @@ function describe_addon(
     aws_config::AbstractAWSConfig=global_aws_config(),
 )
     return eks(
-        "GET", "/clusters/$(name)/addons/$(addonName)", params; aws_config=aws_config
+        "GET",
+        "/clusters/$(name)/addons/$(addonName)",
+        params;
+        aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -679,12 +734,23 @@ Optional parameters can be passed as a `params::Dict{String,<:Any}`. Valid keys 
   only to retrieve the next items in a list and not for other programmatic purposes.
 """
 function describe_addon_versions(; aws_config::AbstractAWSConfig=global_aws_config())
-    return eks("GET", "/addons/supported-versions"; aws_config=aws_config)
+    return eks(
+        "GET",
+        "/addons/supported-versions";
+        aws_config=aws_config,
+        features=SERVICE_FEATURES,
+    )
 end
 function describe_addon_versions(
     params::AbstractDict{String}; aws_config::AbstractAWSConfig=global_aws_config()
 )
-    return eks("GET", "/addons/supported-versions", params; aws_config=aws_config)
+    return eks(
+        "GET",
+        "/addons/supported-versions",
+        params;
+        aws_config=aws_config,
+        features=SERVICE_FEATURES,
+    )
 end
 
 """
@@ -702,12 +768,14 @@ available until the cluster reaches the ACTIVE state.
 
 """
 function describe_cluster(name; aws_config::AbstractAWSConfig=global_aws_config())
-    return eks("GET", "/clusters/$(name)"; aws_config=aws_config)
+    return eks("GET", "/clusters/$(name)"; aws_config=aws_config, features=SERVICE_FEATURES)
 end
 function describe_cluster(
     name, params::AbstractDict{String}; aws_config::AbstractAWSConfig=global_aws_config()
 )
-    return eks("GET", "/clusters/$(name)", params; aws_config=aws_config)
+    return eks(
+        "GET", "/clusters/$(name)", params; aws_config=aws_config, features=SERVICE_FEATURES
+    )
 end
 
 """
@@ -728,6 +796,7 @@ function describe_fargate_profile(
         "GET",
         "/clusters/$(name)/fargate-profiles/$(fargateProfileName)";
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 function describe_fargate_profile(
@@ -741,6 +810,7 @@ function describe_fargate_profile(
         "/clusters/$(name)/fargate-profiles/$(fargateProfileName)",
         params;
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -763,6 +833,7 @@ function describe_identity_provider_config(
         "/clusters/$(name)/identity-provider-configs/describe",
         Dict{String,Any}("identityProviderConfig" => identityProviderConfig);
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 function describe_identity_provider_config(
@@ -782,6 +853,7 @@ function describe_identity_provider_config(
             ),
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -800,7 +872,10 @@ function describe_nodegroup(
     name, nodegroupName; aws_config::AbstractAWSConfig=global_aws_config()
 )
     return eks(
-        "GET", "/clusters/$(name)/node-groups/$(nodegroupName)"; aws_config=aws_config
+        "GET",
+        "/clusters/$(name)/node-groups/$(nodegroupName)";
+        aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 function describe_nodegroup(
@@ -814,6 +889,7 @@ function describe_nodegroup(
         "/clusters/$(name)/node-groups/$(nodegroupName)",
         params;
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -837,7 +913,12 @@ Optional parameters can be passed as a `params::Dict{String,<:Any}`. Valid keys 
 - `"nodegroupName"`: The name of the Amazon EKS node group associated with the update.
 """
 function describe_update(name, updateId; aws_config::AbstractAWSConfig=global_aws_config())
-    return eks("GET", "/clusters/$(name)/updates/$(updateId)"; aws_config=aws_config)
+    return eks(
+        "GET",
+        "/clusters/$(name)/updates/$(updateId)";
+        aws_config=aws_config,
+        features=SERVICE_FEATURES,
+    )
 end
 function describe_update(
     name,
@@ -846,7 +927,11 @@ function describe_update(
     aws_config::AbstractAWSConfig=global_aws_config(),
 )
     return eks(
-        "GET", "/clusters/$(name)/updates/$(updateId)", params; aws_config=aws_config
+        "GET",
+        "/clusters/$(name)/updates/$(updateId)",
+        params;
+        aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -878,6 +963,7 @@ function disassociate_identity_provider_config(
             "clientRequestToken" => string(uuid4()),
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 function disassociate_identity_provider_config(
@@ -900,6 +986,7 @@ function disassociate_identity_provider_config(
             ),
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -927,12 +1014,20 @@ Optional parameters can be passed as a `params::Dict{String,<:Any}`. Valid keys 
   items in a list and not for other programmatic purposes.
 """
 function list_addons(name; aws_config::AbstractAWSConfig=global_aws_config())
-    return eks("GET", "/clusters/$(name)/addons"; aws_config=aws_config)
+    return eks(
+        "GET", "/clusters/$(name)/addons"; aws_config=aws_config, features=SERVICE_FEATURES
+    )
 end
 function list_addons(
     name, params::AbstractDict{String}; aws_config::AbstractAWSConfig=global_aws_config()
 )
-    return eks("GET", "/clusters/$(name)/addons", params; aws_config=aws_config)
+    return eks(
+        "GET",
+        "/clusters/$(name)/addons",
+        params;
+        aws_config=aws_config,
+        features=SERVICE_FEATURES,
+    )
 end
 
 """
@@ -958,12 +1053,12 @@ Optional parameters can be passed as a `params::Dict{String,<:Any}`. Valid keys 
   the next items in a list and not for other programmatic purposes.
 """
 function list_clusters(; aws_config::AbstractAWSConfig=global_aws_config())
-    return eks("GET", "/clusters"; aws_config=aws_config)
+    return eks("GET", "/clusters"; aws_config=aws_config, features=SERVICE_FEATURES)
 end
 function list_clusters(
     params::AbstractDict{String}; aws_config::AbstractAWSConfig=global_aws_config()
 )
-    return eks("GET", "/clusters", params; aws_config=aws_config)
+    return eks("GET", "/clusters", params; aws_config=aws_config, features=SERVICE_FEATURES)
 end
 
 """
@@ -991,12 +1086,23 @@ Optional parameters can be passed as a `params::Dict{String,<:Any}`. Valid keys 
   Pagination continues from the end of the previous results that returned the nextToken value.
 """
 function list_fargate_profiles(name; aws_config::AbstractAWSConfig=global_aws_config())
-    return eks("GET", "/clusters/$(name)/fargate-profiles"; aws_config=aws_config)
+    return eks(
+        "GET",
+        "/clusters/$(name)/fargate-profiles";
+        aws_config=aws_config,
+        features=SERVICE_FEATURES,
+    )
 end
 function list_fargate_profiles(
     name, params::AbstractDict{String}; aws_config::AbstractAWSConfig=global_aws_config()
 )
-    return eks("GET", "/clusters/$(name)/fargate-profiles", params; aws_config=aws_config)
+    return eks(
+        "GET",
+        "/clusters/$(name)/fargate-profiles",
+        params;
+        aws_config=aws_config,
+        features=SERVICE_FEATURES,
+    )
 end
 
 """
@@ -1025,13 +1131,22 @@ Optional parameters can be passed as a `params::Dict{String,<:Any}`. Valid keys 
 function list_identity_provider_configs(
     name; aws_config::AbstractAWSConfig=global_aws_config()
 )
-    return eks("GET", "/clusters/$(name)/identity-provider-configs"; aws_config=aws_config)
+    return eks(
+        "GET",
+        "/clusters/$(name)/identity-provider-configs";
+        aws_config=aws_config,
+        features=SERVICE_FEATURES,
+    )
 end
 function list_identity_provider_configs(
     name, params::AbstractDict{String}; aws_config::AbstractAWSConfig=global_aws_config()
 )
     return eks(
-        "GET", "/clusters/$(name)/identity-provider-configs", params; aws_config=aws_config
+        "GET",
+        "/clusters/$(name)/identity-provider-configs",
+        params;
+        aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -1059,12 +1174,23 @@ Optional parameters can be passed as a `params::Dict{String,<:Any}`. Valid keys 
   Pagination continues from the end of the previous results that returned the nextToken value.
 """
 function list_nodegroups(name; aws_config::AbstractAWSConfig=global_aws_config())
-    return eks("GET", "/clusters/$(name)/node-groups"; aws_config=aws_config)
+    return eks(
+        "GET",
+        "/clusters/$(name)/node-groups";
+        aws_config=aws_config,
+        features=SERVICE_FEATURES,
+    )
 end
 function list_nodegroups(
     name, params::AbstractDict{String}; aws_config::AbstractAWSConfig=global_aws_config()
 )
-    return eks("GET", "/clusters/$(name)/node-groups", params; aws_config=aws_config)
+    return eks(
+        "GET",
+        "/clusters/$(name)/node-groups",
+        params;
+        aws_config=aws_config,
+        features=SERVICE_FEATURES,
+    )
 end
 
 """
@@ -1082,14 +1208,22 @@ List the tags for an Amazon EKS resource.
 function list_tags_for_resource(
     resourceArn; aws_config::AbstractAWSConfig=global_aws_config()
 )
-    return eks("GET", "/tags/$(resourceArn)"; aws_config=aws_config)
+    return eks(
+        "GET", "/tags/$(resourceArn)"; aws_config=aws_config, features=SERVICE_FEATURES
+    )
 end
 function list_tags_for_resource(
     resourceArn,
     params::AbstractDict{String};
     aws_config::AbstractAWSConfig=global_aws_config(),
 )
-    return eks("GET", "/tags/$(resourceArn)", params; aws_config=aws_config)
+    return eks(
+        "GET",
+        "/tags/$(resourceArn)",
+        params;
+        aws_config=aws_config,
+        features=SERVICE_FEATURES,
+    )
 end
 
 """
@@ -1117,12 +1251,20 @@ Optional parameters can be passed as a `params::Dict{String,<:Any}`. Valid keys 
 - `"nodegroupName"`: The name of the Amazon EKS managed node group to list updates for.
 """
 function list_updates(name; aws_config::AbstractAWSConfig=global_aws_config())
-    return eks("GET", "/clusters/$(name)/updates"; aws_config=aws_config)
+    return eks(
+        "GET", "/clusters/$(name)/updates"; aws_config=aws_config, features=SERVICE_FEATURES
+    )
 end
 function list_updates(
     name, params::AbstractDict{String}; aws_config::AbstractAWSConfig=global_aws_config()
 )
-    return eks("GET", "/clusters/$(name)/updates", params; aws_config=aws_config)
+    return eks(
+        "GET",
+        "/clusters/$(name)/updates",
+        params;
+        aws_config=aws_config,
+        features=SERVICE_FEATURES,
+    )
 end
 
 """
@@ -1161,6 +1303,7 @@ function register_cluster(
             "clientRequestToken" => string(uuid4()),
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 function register_cluster(
@@ -1184,6 +1327,7 @@ function register_cluster(
             ),
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -1210,6 +1354,7 @@ function tag_resource(resourceArn, tags; aws_config::AbstractAWSConfig=global_aw
         "/tags/$(resourceArn)",
         Dict{String,Any}("tags" => tags);
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 function tag_resource(
@@ -1223,6 +1368,7 @@ function tag_resource(
         "/tags/$(resourceArn)",
         Dict{String,Any}(mergewith(_merge, Dict{String,Any}("tags" => tags), params));
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -1246,6 +1392,7 @@ function untag_resource(
         "/tags/$(resourceArn)",
         Dict{String,Any}("tagKeys" => tagKeys);
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 function untag_resource(
@@ -1259,6 +1406,7 @@ function untag_resource(
         "/tags/$(resourceArn)",
         Dict{String,Any}(mergewith(_merge, Dict{String,Any}("tagKeys" => tagKeys), params));
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -1295,6 +1443,7 @@ function update_addon(addonName, name; aws_config::AbstractAWSConfig=global_aws_
         "/clusters/$(name)/addons/$(addonName)/update",
         Dict{String,Any}("clientRequestToken" => string(uuid4()));
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 function update_addon(
@@ -1312,6 +1461,7 @@ function update_addon(
             ),
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -1356,6 +1506,7 @@ function update_cluster_config(name; aws_config::AbstractAWSConfig=global_aws_co
         "/clusters/$(name)/update-config",
         Dict{String,Any}("clientRequestToken" => string(uuid4()));
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 function update_cluster_config(
@@ -1370,6 +1521,7 @@ function update_cluster_config(
             ),
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -1404,6 +1556,7 @@ function update_cluster_version(
         "/clusters/$(name)/updates",
         Dict{String,Any}("version" => version, "clientRequestToken" => string(uuid4()));
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 function update_cluster_version(
@@ -1425,6 +1578,7 @@ function update_cluster_version(
             ),
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -1461,6 +1615,7 @@ function update_nodegroup_config(
         "/clusters/$(name)/node-groups/$(nodegroupName)/update-config",
         Dict{String,Any}("clientRequestToken" => string(uuid4()));
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 function update_nodegroup_config(
@@ -1478,6 +1633,7 @@ function update_nodegroup_config(
             ),
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -1540,6 +1696,7 @@ function update_nodegroup_version(
         "/clusters/$(name)/node-groups/$(nodegroupName)/update-version",
         Dict{String,Any}("clientRequestToken" => string(uuid4()));
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 function update_nodegroup_version(
@@ -1557,5 +1714,6 @@ function update_nodegroup_version(
             ),
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end

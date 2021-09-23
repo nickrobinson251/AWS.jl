@@ -40,6 +40,7 @@ function create_lifecycle_policy(
             "State" => State,
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 function create_lifecycle_policy(
@@ -66,6 +67,7 @@ function create_lifecycle_policy(
             ),
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -83,14 +85,22 @@ specified.
 function delete_lifecycle_policy(
     policyId; aws_config::AbstractAWSConfig=global_aws_config()
 )
-    return dlm("DELETE", "/policies/$(policyId)/"; aws_config=aws_config)
+    return dlm(
+        "DELETE", "/policies/$(policyId)/"; aws_config=aws_config, features=SERVICE_FEATURES
+    )
 end
 function delete_lifecycle_policy(
     policyId,
     params::AbstractDict{String};
     aws_config::AbstractAWSConfig=global_aws_config(),
 )
-    return dlm("DELETE", "/policies/$(policyId)/", params; aws_config=aws_config)
+    return dlm(
+        "DELETE",
+        "/policies/$(policyId)/",
+        params;
+        aws_config=aws_config,
+        features=SERVICE_FEATURES,
+    )
 end
 
 """
@@ -111,12 +121,12 @@ Optional parameters can be passed as a `params::Dict{String,<:Any}`. Valid keys 
 - `"targetTags"`: The target tag for a policy. Tags are strings in the format key=value.
 """
 function get_lifecycle_policies(; aws_config::AbstractAWSConfig=global_aws_config())
-    return dlm("GET", "/policies"; aws_config=aws_config)
+    return dlm("GET", "/policies"; aws_config=aws_config, features=SERVICE_FEATURES)
 end
 function get_lifecycle_policies(
     params::AbstractDict{String}; aws_config::AbstractAWSConfig=global_aws_config()
 )
-    return dlm("GET", "/policies", params; aws_config=aws_config)
+    return dlm("GET", "/policies", params; aws_config=aws_config, features=SERVICE_FEATURES)
 end
 
 """
@@ -130,14 +140,22 @@ Gets detailed information about the specified lifecycle policy.
 
 """
 function get_lifecycle_policy(policyId; aws_config::AbstractAWSConfig=global_aws_config())
-    return dlm("GET", "/policies/$(policyId)/"; aws_config=aws_config)
+    return dlm(
+        "GET", "/policies/$(policyId)/"; aws_config=aws_config, features=SERVICE_FEATURES
+    )
 end
 function get_lifecycle_policy(
     policyId,
     params::AbstractDict{String};
     aws_config::AbstractAWSConfig=global_aws_config(),
 )
-    return dlm("GET", "/policies/$(policyId)/", params; aws_config=aws_config)
+    return dlm(
+        "GET",
+        "/policies/$(policyId)/",
+        params;
+        aws_config=aws_config,
+        features=SERVICE_FEATURES,
+    )
 end
 
 """
@@ -153,14 +171,22 @@ Lists the tags for the specified resource.
 function list_tags_for_resource(
     resourceArn; aws_config::AbstractAWSConfig=global_aws_config()
 )
-    return dlm("GET", "/tags/$(resourceArn)"; aws_config=aws_config)
+    return dlm(
+        "GET", "/tags/$(resourceArn)"; aws_config=aws_config, features=SERVICE_FEATURES
+    )
 end
 function list_tags_for_resource(
     resourceArn,
     params::AbstractDict{String};
     aws_config::AbstractAWSConfig=global_aws_config(),
 )
-    return dlm("GET", "/tags/$(resourceArn)", params; aws_config=aws_config)
+    return dlm(
+        "GET",
+        "/tags/$(resourceArn)",
+        params;
+        aws_config=aws_config,
+        features=SERVICE_FEATURES,
+    )
 end
 
 """
@@ -180,6 +206,7 @@ function tag_resource(Tags, resourceArn; aws_config::AbstractAWSConfig=global_aw
         "/tags/$(resourceArn)",
         Dict{String,Any}("Tags" => Tags);
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 function tag_resource(
@@ -193,6 +220,7 @@ function tag_resource(
         "/tags/$(resourceArn)",
         Dict{String,Any}(mergewith(_merge, Dict{String,Any}("Tags" => Tags), params));
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -215,6 +243,7 @@ function untag_resource(
         "/tags/$(resourceArn)",
         Dict{String,Any}("tagKeys" => tagKeys);
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 function untag_resource(
@@ -228,6 +257,7 @@ function untag_resource(
         "/tags/$(resourceArn)",
         Dict{String,Any}(mergewith(_merge, Dict{String,Any}("tagKeys" => tagKeys), params));
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -252,12 +282,20 @@ Optional parameters can be passed as a `params::Dict{String,<:Any}`. Valid keys 
 function update_lifecycle_policy(
     policyId; aws_config::AbstractAWSConfig=global_aws_config()
 )
-    return dlm("PATCH", "/policies/$(policyId)"; aws_config=aws_config)
+    return dlm(
+        "PATCH", "/policies/$(policyId)"; aws_config=aws_config, features=SERVICE_FEATURES
+    )
 end
 function update_lifecycle_policy(
     policyId,
     params::AbstractDict{String};
     aws_config::AbstractAWSConfig=global_aws_config(),
 )
-    return dlm("PATCH", "/policies/$(policyId)", params; aws_config=aws_config)
+    return dlm(
+        "PATCH",
+        "/policies/$(policyId)",
+        params;
+        aws_config=aws_config,
+        features=SERVICE_FEATURES,
+    )
 end

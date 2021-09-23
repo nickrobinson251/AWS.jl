@@ -26,6 +26,7 @@ function add_tags(
         "AddTags",
         Dict{String,Any}("LoadBalancerNames" => LoadBalancerNames, "Tags" => Tags);
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 function add_tags(
@@ -44,6 +45,7 @@ function add_tags(
             ),
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -71,6 +73,7 @@ function apply_security_groups_to_load_balancer(
             "LoadBalancerName" => LoadBalancerName, "SecurityGroups" => SecurityGroups
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 function apply_security_groups_to_load_balancer(
@@ -92,6 +95,7 @@ function apply_security_groups_to_load_balancer(
             ),
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -117,6 +121,7 @@ function attach_load_balancer_to_subnets(
         "AttachLoadBalancerToSubnets",
         Dict{String,Any}("LoadBalancerName" => LoadBalancerName, "Subnets" => Subnets);
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 function attach_load_balancer_to_subnets(
@@ -137,6 +142,7 @@ function attach_load_balancer_to_subnets(
             ),
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -162,6 +168,7 @@ function configure_health_check(
             "HealthCheck" => HealthCheck, "LoadBalancerName" => LoadBalancerName
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 function configure_health_check(
@@ -182,6 +189,7 @@ function configure_health_check(
             ),
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -221,6 +229,7 @@ function create_app_cookie_stickiness_policy(
             "PolicyName" => PolicyName,
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 function create_app_cookie_stickiness_policy(
@@ -244,6 +253,7 @@ function create_app_cookie_stickiness_policy(
             ),
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -284,6 +294,7 @@ function create_lbcookie_stickiness_policy(
             "LoadBalancerName" => LoadBalancerName, "PolicyName" => PolicyName
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 function create_lbcookie_stickiness_policy(
@@ -304,6 +315,7 @@ function create_lbcookie_stickiness_policy(
             ),
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -352,6 +364,7 @@ function create_load_balancer(
         "CreateLoadBalancer",
         Dict{String,Any}("Listeners" => Listeners, "LoadBalancerName" => LoadBalancerName);
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 function create_load_balancer(
@@ -372,6 +385,7 @@ function create_load_balancer(
             ),
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -396,6 +410,7 @@ function create_load_balancer_listeners(
         "CreateLoadBalancerListeners",
         Dict{String,Any}("Listeners" => Listeners, "LoadBalancerName" => LoadBalancerName);
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 function create_load_balancer_listeners(
@@ -416,6 +431,7 @@ function create_load_balancer_listeners(
             ),
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -452,6 +468,7 @@ function create_load_balancer_policy(
             "PolicyTypeName" => PolicyTypeName,
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 function create_load_balancer_policy(
@@ -475,6 +492,7 @@ function create_load_balancer_policy(
             ),
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -500,6 +518,7 @@ function delete_load_balancer(
         "DeleteLoadBalancer",
         Dict{String,Any}("LoadBalancerName" => LoadBalancerName);
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 function delete_load_balancer(
@@ -515,6 +534,7 @@ function delete_load_balancer(
             ),
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -538,6 +558,7 @@ function delete_load_balancer_listeners(
             "LoadBalancerName" => LoadBalancerName, "LoadBalancerPorts" => LoadBalancerPorts
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 function delete_load_balancer_listeners(
@@ -559,6 +580,7 @@ function delete_load_balancer_listeners(
             ),
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -583,6 +605,7 @@ function delete_load_balancer_policy(
             "LoadBalancerName" => LoadBalancerName, "PolicyName" => PolicyName
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 function delete_load_balancer_policy(
@@ -603,6 +626,7 @@ function delete_load_balancer_policy(
             ),
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -628,6 +652,7 @@ function deregister_instances_from_load_balancer(
         "DeregisterInstancesFromLoadBalancer",
         Dict{String,Any}("Instances" => Instances, "LoadBalancerName" => LoadBalancerName);
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 function deregister_instances_from_load_balancer(
@@ -648,6 +673,7 @@ function deregister_instances_from_load_balancer(
             ),
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -665,12 +691,16 @@ Optional parameters can be passed as a `params::Dict{String,<:Any}`. Valid keys 
 - `"PageSize"`: The maximum number of results to return with this call.
 """
 function describe_account_limits(; aws_config::AbstractAWSConfig=global_aws_config())
-    return elastic_load_balancing("DescribeAccountLimits"; aws_config=aws_config)
+    return elastic_load_balancing(
+        "DescribeAccountLimits"; aws_config=aws_config, features=SERVICE_FEATURES
+    )
 end
 function describe_account_limits(
     params::AbstractDict{String}; aws_config::AbstractAWSConfig=global_aws_config()
 )
-    return elastic_load_balancing("DescribeAccountLimits", params; aws_config=aws_config)
+    return elastic_load_balancing(
+        "DescribeAccountLimits", params; aws_config=aws_config, features=SERVICE_FEATURES
+    )
 end
 
 """
@@ -697,6 +727,7 @@ function describe_instance_health(
         "DescribeInstanceHealth",
         Dict{String,Any}("LoadBalancerName" => LoadBalancerName);
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 function describe_instance_health(
@@ -712,6 +743,7 @@ function describe_instance_health(
             ),
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -732,6 +764,7 @@ function describe_load_balancer_attributes(
         "DescribeLoadBalancerAttributes",
         Dict{String,Any}("LoadBalancerName" => LoadBalancerName);
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 function describe_load_balancer_attributes(
@@ -747,6 +780,7 @@ function describe_load_balancer_attributes(
             ),
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -769,13 +803,18 @@ Optional parameters can be passed as a `params::Dict{String,<:Any}`. Valid keys 
 function describe_load_balancer_policies(;
     aws_config::AbstractAWSConfig=global_aws_config()
 )
-    return elastic_load_balancing("DescribeLoadBalancerPolicies"; aws_config=aws_config)
+    return elastic_load_balancing(
+        "DescribeLoadBalancerPolicies"; aws_config=aws_config, features=SERVICE_FEATURES
+    )
 end
 function describe_load_balancer_policies(
     params::AbstractDict{String}; aws_config::AbstractAWSConfig=global_aws_config()
 )
     return elastic_load_balancing(
-        "DescribeLoadBalancerPolicies", params; aws_config=aws_config
+        "DescribeLoadBalancerPolicies",
+        params;
+        aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -799,13 +838,18 @@ Optional parameters can be passed as a `params::Dict{String,<:Any}`. Valid keys 
 function describe_load_balancer_policy_types(;
     aws_config::AbstractAWSConfig=global_aws_config()
 )
-    return elastic_load_balancing("DescribeLoadBalancerPolicyTypes"; aws_config=aws_config)
+    return elastic_load_balancing(
+        "DescribeLoadBalancerPolicyTypes"; aws_config=aws_config, features=SERVICE_FEATURES
+    )
 end
 function describe_load_balancer_policy_types(
     params::AbstractDict{String}; aws_config::AbstractAWSConfig=global_aws_config()
 )
     return elastic_load_balancing(
-        "DescribeLoadBalancerPolicyTypes", params; aws_config=aws_config
+        "DescribeLoadBalancerPolicyTypes",
+        params;
+        aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -825,12 +869,16 @@ Optional parameters can be passed as a `params::Dict{String,<:Any}`. Valid keys 
   400). The default is 400.
 """
 function describe_load_balancers(; aws_config::AbstractAWSConfig=global_aws_config())
-    return elastic_load_balancing("DescribeLoadBalancers"; aws_config=aws_config)
+    return elastic_load_balancing(
+        "DescribeLoadBalancers"; aws_config=aws_config, features=SERVICE_FEATURES
+    )
 end
 function describe_load_balancers(
     params::AbstractDict{String}; aws_config::AbstractAWSConfig=global_aws_config()
 )
-    return elastic_load_balancing("DescribeLoadBalancers", params; aws_config=aws_config)
+    return elastic_load_balancing(
+        "DescribeLoadBalancers", params; aws_config=aws_config, features=SERVICE_FEATURES
+    )
 end
 
 """
@@ -848,6 +896,7 @@ function describe_tags(LoadBalancerNames; aws_config::AbstractAWSConfig=global_a
         "DescribeTags",
         Dict{String,Any}("LoadBalancerNames" => LoadBalancerNames);
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 function describe_tags(
@@ -863,6 +912,7 @@ function describe_tags(
             ),
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -887,6 +937,7 @@ function detach_load_balancer_from_subnets(
         "DetachLoadBalancerFromSubnets",
         Dict{String,Any}("LoadBalancerName" => LoadBalancerName, "Subnets" => Subnets);
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 function detach_load_balancer_from_subnets(
@@ -907,6 +958,7 @@ function detach_load_balancer_from_subnets(
             ),
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -937,6 +989,7 @@ function disable_availability_zones_for_load_balancer(
             "AvailabilityZones" => AvailabilityZones, "LoadBalancerName" => LoadBalancerName
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 function disable_availability_zones_for_load_balancer(
@@ -958,6 +1011,7 @@ function disable_availability_zones_for_load_balancer(
             ),
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -986,6 +1040,7 @@ function enable_availability_zones_for_load_balancer(
             "AvailabilityZones" => AvailabilityZones, "LoadBalancerName" => LoadBalancerName
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 function enable_availability_zones_for_load_balancer(
@@ -1007,6 +1062,7 @@ function enable_availability_zones_for_load_balancer(
             ),
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -1038,6 +1094,7 @@ function modify_load_balancer_attributes(
             "LoadBalancerName" => LoadBalancerName,
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 function modify_load_balancer_attributes(
@@ -1059,6 +1116,7 @@ function modify_load_balancer_attributes(
             ),
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -1093,6 +1151,7 @@ function register_instances_with_load_balancer(
         "RegisterInstancesWithLoadBalancer",
         Dict{String,Any}("Instances" => Instances, "LoadBalancerName" => LoadBalancerName);
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 function register_instances_with_load_balancer(
@@ -1113,6 +1172,7 @@ function register_instances_with_load_balancer(
             ),
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -1135,6 +1195,7 @@ function remove_tags(
         "RemoveTags",
         Dict{String,Any}("LoadBalancerNames" => LoadBalancerNames, "Tags" => Tags);
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 function remove_tags(
@@ -1153,6 +1214,7 @@ function remove_tags(
             ),
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -1185,6 +1247,7 @@ function set_load_balancer_listener_sslcertificate(
             "SSLCertificateId" => SSLCertificateId,
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 function set_load_balancer_listener_sslcertificate(
@@ -1208,6 +1271,7 @@ function set_load_balancer_listener_sslcertificate(
             ),
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -1248,6 +1312,7 @@ function set_load_balancer_policies_for_backend_server(
             "PolicyNames" => PolicyNames,
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 function set_load_balancer_policies_for_backend_server(
@@ -1271,6 +1336,7 @@ function set_load_balancer_policies_for_backend_server(
             ),
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -1306,6 +1372,7 @@ function set_load_balancer_policies_of_listener(
             "PolicyNames" => PolicyNames,
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 function set_load_balancer_policies_of_listener(
@@ -1329,5 +1396,6 @@ function set_load_balancer_policies_of_listener(
             ),
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end

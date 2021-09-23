@@ -16,13 +16,15 @@ Optional parameters can be passed as a `params::Dict{String,<:Any}`. Valid keys 
   is case sensitive, and can't include spaces.
 """
 function delete_report_definition(; aws_config::AbstractAWSConfig=global_aws_config())
-    return cost_and_usage_report_service("DeleteReportDefinition"; aws_config=aws_config)
+    return cost_and_usage_report_service(
+        "DeleteReportDefinition"; aws_config=aws_config, features=SERVICE_FEATURES
+    )
 end
 function delete_report_definition(
     params::AbstractDict{String}; aws_config::AbstractAWSConfig=global_aws_config()
 )
     return cost_and_usage_report_service(
-        "DeleteReportDefinition", params; aws_config=aws_config
+        "DeleteReportDefinition", params; aws_config=aws_config, features=SERVICE_FEATURES
     )
 end
 
@@ -38,13 +40,18 @@ Optional parameters can be passed as a `params::Dict{String,<:Any}`. Valid keys 
 - `"NextToken"`:
 """
 function describe_report_definitions(; aws_config::AbstractAWSConfig=global_aws_config())
-    return cost_and_usage_report_service("DescribeReportDefinitions"; aws_config=aws_config)
+    return cost_and_usage_report_service(
+        "DescribeReportDefinitions"; aws_config=aws_config, features=SERVICE_FEATURES
+    )
 end
 function describe_report_definitions(
     params::AbstractDict{String}; aws_config::AbstractAWSConfig=global_aws_config()
 )
     return cost_and_usage_report_service(
-        "DescribeReportDefinitions", params; aws_config=aws_config
+        "DescribeReportDefinitions",
+        params;
+        aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -68,6 +75,7 @@ function modify_report_definition(
             "ReportDefinition" => ReportDefinition, "ReportName" => ReportName
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 function modify_report_definition(
@@ -88,6 +96,7 @@ function modify_report_definition(
             ),
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -109,6 +118,7 @@ function put_report_definition(
         "PutReportDefinition",
         Dict{String,Any}("ReportDefinition" => ReportDefinition);
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 function put_report_definition(
@@ -124,5 +134,6 @@ function put_report_definition(
             ),
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end

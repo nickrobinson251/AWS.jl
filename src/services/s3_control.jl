@@ -54,6 +54,7 @@ function create_access_point(
             "headers" => Dict{String,Any}("x-amz-account-id" => x_amz_account_id),
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 function create_access_point(
@@ -77,6 +78,7 @@ function create_access_point(
             ),
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -107,6 +109,7 @@ function create_access_point_for_object_lambda(
             "headers" => Dict{String,Any}("x-amz-account-id" => x_amz_account_id),
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 function create_access_point_for_object_lambda(
@@ -130,6 +133,7 @@ function create_access_point_for_object_lambda(
             ),
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -176,12 +180,20 @@ Optional parameters can be passed as a `params::Dict{String,<:Any}`. Valid keys 
   required by Amazon S3 on Outposts buckets.
 """
 function create_bucket(name; aws_config::AbstractAWSConfig=global_aws_config())
-    return s3_control("PUT", "/v20180820/bucket/$(name)"; aws_config=aws_config)
+    return s3_control(
+        "PUT", "/v20180820/bucket/$(name)"; aws_config=aws_config, features=SERVICE_FEATURES
+    )
 end
 function create_bucket(
     name, params::AbstractDict{String}; aws_config::AbstractAWSConfig=global_aws_config()
 )
-    return s3_control("PUT", "/v20180820/bucket/$(name)", params; aws_config=aws_config)
+    return s3_control(
+        "PUT",
+        "/v20180820/bucket/$(name)",
+        params;
+        aws_config=aws_config,
+        features=SERVICE_FEATURES,
+    )
 end
 
 """
@@ -240,6 +252,7 @@ function create_job(
             "headers" => Dict{String,Any}("x-amz-account-id" => x_amz_account_id),
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 function create_job(
@@ -272,6 +285,7 @@ function create_job(
             ),
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -315,6 +329,7 @@ function create_multi_region_access_point(
             "headers" => Dict{String,Any}("x-amz-account-id" => x_amz_account_id),
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 function create_multi_region_access_point(
@@ -339,6 +354,7 @@ function create_multi_region_access_point(
             ),
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -377,6 +393,7 @@ function delete_access_point(
             "headers" => Dict{String,Any}("x-amz-account-id" => x_amz_account_id)
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 function delete_access_point(
@@ -398,6 +415,7 @@ function delete_access_point(
             ),
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -425,6 +443,7 @@ function delete_access_point_for_object_lambda(
             "headers" => Dict{String,Any}("x-amz-account-id" => x_amz_account_id)
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 function delete_access_point_for_object_lambda(
@@ -446,6 +465,7 @@ function delete_access_point_for_object_lambda(
             ),
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -484,6 +504,7 @@ function delete_access_point_policy(
             "headers" => Dict{String,Any}("x-amz-account-id" => x_amz_account_id)
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 function delete_access_point_policy(
@@ -505,6 +526,7 @@ function delete_access_point_policy(
             ),
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -532,6 +554,7 @@ function delete_access_point_policy_for_object_lambda(
             "headers" => Dict{String,Any}("x-amz-account-id" => x_amz_account_id)
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 function delete_access_point_policy_for_object_lambda(
@@ -553,6 +576,7 @@ function delete_access_point_policy_for_object_lambda(
             ),
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -594,6 +618,7 @@ function delete_bucket(
             "headers" => Dict{String,Any}("x-amz-account-id" => x_amz_account_id)
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 function delete_bucket(
@@ -615,6 +640,7 @@ function delete_bucket(
             ),
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -663,6 +689,7 @@ function delete_bucket_lifecycle_configuration(
             "headers" => Dict{String,Any}("x-amz-account-id" => x_amz_account_id)
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 function delete_bucket_lifecycle_configuration(
@@ -684,6 +711,7 @@ function delete_bucket_lifecycle_configuration(
             ),
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -735,6 +763,7 @@ function delete_bucket_policy(
             "headers" => Dict{String,Any}("x-amz-account-id" => x_amz_account_id)
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 function delete_bucket_policy(
@@ -756,6 +785,7 @@ function delete_bucket_policy(
             ),
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -799,6 +829,7 @@ function delete_bucket_tagging(
             "headers" => Dict{String,Any}("x-amz-account-id" => x_amz_account_id)
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 function delete_bucket_tagging(
@@ -820,6 +851,7 @@ function delete_bucket_tagging(
             ),
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -848,6 +880,7 @@ function delete_job_tagging(
             "headers" => Dict{String,Any}("x-amz-account-id" => x_amz_account_id)
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 function delete_job_tagging(
@@ -869,6 +902,7 @@ function delete_job_tagging(
             ),
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -911,6 +945,7 @@ function delete_multi_region_access_point(
             "headers" => Dict{String,Any}("x-amz-account-id" => x_amz_account_id),
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 function delete_multi_region_access_point(
@@ -935,6 +970,7 @@ function delete_multi_region_access_point(
             ),
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -961,6 +997,7 @@ function delete_public_access_block(
             "headers" => Dict{String,Any}("x-amz-account-id" => x_amz_account_id)
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 function delete_public_access_block(
@@ -981,6 +1018,7 @@ function delete_public_access_block(
             ),
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -1009,6 +1047,7 @@ function delete_storage_lens_configuration(
             "headers" => Dict{String,Any}("x-amz-account-id" => x_amz_account_id)
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 function delete_storage_lens_configuration(
@@ -1030,6 +1069,7 @@ function delete_storage_lens_configuration(
             ),
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -1058,6 +1098,7 @@ function delete_storage_lens_configuration_tagging(
             "headers" => Dict{String,Any}("x-amz-account-id" => x_amz_account_id)
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 function delete_storage_lens_configuration_tagging(
@@ -1079,6 +1120,7 @@ function delete_storage_lens_configuration_tagging(
             ),
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -1106,6 +1148,7 @@ function describe_job(
             "headers" => Dict{String,Any}("x-amz-account-id" => x_amz_account_id)
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 function describe_job(
@@ -1127,6 +1170,7 @@ function describe_job(
             ),
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -1159,6 +1203,7 @@ function describe_multi_region_access_point_operation(
             "headers" => Dict{String,Any}("x-amz-account-id" => x_amz_account_id)
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 function describe_multi_region_access_point_operation(
@@ -1180,6 +1225,7 @@ function describe_multi_region_access_point_operation(
             ),
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -1220,6 +1266,7 @@ function get_access_point(
             "headers" => Dict{String,Any}("x-amz-account-id" => x_amz_account_id)
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 function get_access_point(
@@ -1241,6 +1288,7 @@ function get_access_point(
             ),
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -1269,6 +1317,7 @@ function get_access_point_configuration_for_object_lambda(
             "headers" => Dict{String,Any}("x-amz-account-id" => x_amz_account_id)
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 function get_access_point_configuration_for_object_lambda(
@@ -1290,6 +1339,7 @@ function get_access_point_configuration_for_object_lambda(
             ),
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -1318,6 +1368,7 @@ function get_access_point_for_object_lambda(
             "headers" => Dict{String,Any}("x-amz-account-id" => x_amz_account_id)
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 function get_access_point_for_object_lambda(
@@ -1339,6 +1390,7 @@ function get_access_point_for_object_lambda(
             ),
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -1373,6 +1425,7 @@ function get_access_point_policy(
             "headers" => Dict{String,Any}("x-amz-account-id" => x_amz_account_id)
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 function get_access_point_policy(
@@ -1394,6 +1447,7 @@ function get_access_point_policy(
             ),
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -1421,6 +1475,7 @@ function get_access_point_policy_for_object_lambda(
             "headers" => Dict{String,Any}("x-amz-account-id" => x_amz_account_id)
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 function get_access_point_policy_for_object_lambda(
@@ -1442,6 +1497,7 @@ function get_access_point_policy_for_object_lambda(
             ),
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -1468,6 +1524,7 @@ function get_access_point_policy_status(
             "headers" => Dict{String,Any}("x-amz-account-id" => x_amz_account_id)
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 function get_access_point_policy_status(
@@ -1489,6 +1546,7 @@ function get_access_point_policy_status(
             ),
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -1514,6 +1572,7 @@ function get_access_point_policy_status_for_object_lambda(
             "headers" => Dict{String,Any}("x-amz-account-id" => x_amz_account_id)
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 function get_access_point_policy_status_for_object_lambda(
@@ -1535,6 +1594,7 @@ function get_access_point_policy_status_for_object_lambda(
             ),
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -1581,6 +1641,7 @@ function get_bucket(
             "headers" => Dict{String,Any}("x-amz-account-id" => x_amz_account_id)
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 function get_bucket(
@@ -1602,6 +1663,7 @@ function get_bucket(
             ),
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -1652,6 +1714,7 @@ function get_bucket_lifecycle_configuration(
             "headers" => Dict{String,Any}("x-amz-account-id" => x_amz_account_id)
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 function get_bucket_lifecycle_configuration(
@@ -1673,6 +1736,7 @@ function get_bucket_lifecycle_configuration(
             ),
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -1724,6 +1788,7 @@ function get_bucket_policy(
             "headers" => Dict{String,Any}("x-amz-account-id" => x_amz_account_id)
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 function get_bucket_policy(
@@ -1745,6 +1810,7 @@ function get_bucket_policy(
             ),
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -1789,6 +1855,7 @@ function get_bucket_tagging(
             "headers" => Dict{String,Any}("x-amz-account-id" => x_amz_account_id)
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 function get_bucket_tagging(
@@ -1810,6 +1877,7 @@ function get_bucket_tagging(
             ),
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -1838,6 +1906,7 @@ function get_job_tagging(
             "headers" => Dict{String,Any}("x-amz-account-id" => x_amz_account_id)
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 function get_job_tagging(
@@ -1859,6 +1928,7 @@ function get_job_tagging(
             ),
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -1892,6 +1962,7 @@ function get_multi_region_access_point(
             "headers" => Dict{String,Any}("x-amz-account-id" => x_amz_account_id)
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 function get_multi_region_access_point(
@@ -1913,6 +1984,7 @@ function get_multi_region_access_point(
             ),
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -1946,6 +2018,7 @@ function get_multi_region_access_point_policy(
             "headers" => Dict{String,Any}("x-amz-account-id" => x_amz_account_id)
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 function get_multi_region_access_point_policy(
@@ -1967,6 +2040,7 @@ function get_multi_region_access_point_policy(
             ),
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -2000,6 +2074,7 @@ function get_multi_region_access_point_policy_status(
             "headers" => Dict{String,Any}("x-amz-account-id" => x_amz_account_id)
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 function get_multi_region_access_point_policy_status(
@@ -2021,6 +2096,7 @@ function get_multi_region_access_point_policy_status(
             ),
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -2047,6 +2123,7 @@ function get_public_access_block(
             "headers" => Dict{String,Any}("x-amz-account-id" => x_amz_account_id)
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 function get_public_access_block(
@@ -2067,6 +2144,7 @@ function get_public_access_block(
             ),
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -2095,6 +2173,7 @@ function get_storage_lens_configuration(
             "headers" => Dict{String,Any}("x-amz-account-id" => x_amz_account_id)
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 function get_storage_lens_configuration(
@@ -2116,6 +2195,7 @@ function get_storage_lens_configuration(
             ),
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -2144,6 +2224,7 @@ function get_storage_lens_configuration_tagging(
             "headers" => Dict{String,Any}("x-amz-account-id" => x_amz_account_id)
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 function get_storage_lens_configuration_tagging(
@@ -2165,6 +2246,7 @@ function get_storage_lens_configuration_tagging(
             ),
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -2218,6 +2300,7 @@ function list_access_points(
             "headers" => Dict{String,Any}("x-amz-account-id" => x_amz_account_id)
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 function list_access_points(
@@ -2238,6 +2321,7 @@ function list_access_points(
             ),
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -2276,6 +2360,7 @@ function list_access_points_for_object_lambda(
             "headers" => Dict{String,Any}("x-amz-account-id" => x_amz_account_id)
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 function list_access_points_for_object_lambda(
@@ -2296,6 +2381,7 @@ function list_access_points_for_object_lambda(
             ),
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -2331,6 +2417,7 @@ function list_jobs(x_amz_account_id; aws_config::AbstractAWSConfig=global_aws_co
             "headers" => Dict{String,Any}("x-amz-account-id" => x_amz_account_id)
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 function list_jobs(
@@ -2351,6 +2438,7 @@ function list_jobs(
             ),
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -2387,6 +2475,7 @@ function list_multi_region_access_points(
             "headers" => Dict{String,Any}("x-amz-account-id" => x_amz_account_id)
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 function list_multi_region_access_points(
@@ -2407,6 +2496,7 @@ function list_multi_region_access_points(
             ),
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -2440,6 +2530,7 @@ function list_regional_buckets(
             "headers" => Dict{String,Any}("x-amz-account-id" => x_amz_account_id)
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 function list_regional_buckets(
@@ -2460,6 +2551,7 @@ function list_regional_buckets(
             ),
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -2490,6 +2582,7 @@ function list_storage_lens_configurations(
             "headers" => Dict{String,Any}("x-amz-account-id" => x_amz_account_id)
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 function list_storage_lens_configurations(
@@ -2510,6 +2603,7 @@ function list_storage_lens_configurations(
             ),
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -2539,6 +2633,7 @@ function put_access_point_configuration_for_object_lambda(
             "headers" => Dict{String,Any}("x-amz-account-id" => x_amz_account_id),
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 function put_access_point_configuration_for_object_lambda(
@@ -2562,6 +2657,7 @@ function put_access_point_configuration_for_object_lambda(
             ),
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -2608,6 +2704,7 @@ function put_access_point_policy(
             "headers" => Dict{String,Any}("x-amz-account-id" => x_amz_account_id),
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 function put_access_point_policy(
@@ -2631,6 +2728,7 @@ function put_access_point_policy(
             ),
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -2661,6 +2759,7 @@ function put_access_point_policy_for_object_lambda(
             "headers" => Dict{String,Any}("x-amz-account-id" => x_amz_account_id),
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 function put_access_point_policy_for_object_lambda(
@@ -2684,6 +2783,7 @@ function put_access_point_policy_for_object_lambda(
             ),
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -2723,6 +2823,7 @@ function put_bucket_lifecycle_configuration(
             "headers" => Dict{String,Any}("x-amz-account-id" => x_amz_account_id)
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 function put_bucket_lifecycle_configuration(
@@ -2744,6 +2845,7 @@ function put_bucket_lifecycle_configuration(
             ),
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -2801,6 +2903,7 @@ function put_bucket_policy(
             "headers" => Dict{String,Any}("x-amz-account-id" => x_amz_account_id),
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 function put_bucket_policy(
@@ -2824,6 +2927,7 @@ function put_bucket_policy(
             ),
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -2887,6 +2991,7 @@ function put_bucket_tagging(
             "headers" => Dict{String,Any}("x-amz-account-id" => x_amz_account_id),
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 function put_bucket_tagging(
@@ -2910,6 +3015,7 @@ function put_bucket_tagging(
             ),
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -2955,6 +3061,7 @@ function put_job_tagging(
             "headers" => Dict{String,Any}("x-amz-account-id" => x_amz_account_id),
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 function put_job_tagging(
@@ -2978,6 +3085,7 @@ function put_job_tagging(
             ),
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -3018,6 +3126,7 @@ function put_multi_region_access_point_policy(
             "headers" => Dict{String,Any}("x-amz-account-id" => x_amz_account_id),
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 function put_multi_region_access_point_policy(
@@ -3042,6 +3151,7 @@ function put_multi_region_access_point_policy(
             ),
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -3073,6 +3183,7 @@ function put_public_access_block(
             "headers" => Dict{String,Any}("x-amz-account-id" => x_amz_account_id),
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 function put_public_access_block(
@@ -3095,6 +3206,7 @@ function put_public_access_block(
             ),
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -3132,6 +3244,7 @@ function put_storage_lens_configuration(
             "headers" => Dict{String,Any}("x-amz-account-id" => x_amz_account_id),
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 function put_storage_lens_configuration(
@@ -3155,6 +3268,7 @@ function put_storage_lens_configuration(
             ),
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -3191,6 +3305,7 @@ function put_storage_lens_configuration_tagging(
             "headers" => Dict{String,Any}("x-amz-account-id" => x_amz_account_id),
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 function put_storage_lens_configuration_tagging(
@@ -3214,6 +3329,7 @@ function put_storage_lens_configuration_tagging(
             ),
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -3243,6 +3359,7 @@ function update_job_priority(
             "headers" => Dict{String,Any}("x-amz-account-id" => x_amz_account_id),
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 function update_job_priority(
@@ -3266,6 +3383,7 @@ function update_job_priority(
             ),
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -3303,6 +3421,7 @@ function update_job_status(
             "headers" => Dict{String,Any}("x-amz-account-id" => x_amz_account_id),
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 function update_job_status(
@@ -3326,5 +3445,6 @@ function update_job_status(
             ),
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end

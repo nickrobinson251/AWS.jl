@@ -27,6 +27,7 @@ function create_cluster(ClusterName; aws_config::AbstractAWSConfig=global_aws_co
         "/cluster",
         Dict{String,Any}("ClusterName" => ClusterName, "ClientToken" => string(uuid4()));
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 function create_cluster(
@@ -47,6 +48,7 @@ function create_cluster(
             ),
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -80,6 +82,7 @@ function create_control_panel(
             "ClientToken" => string(uuid4()),
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 function create_control_panel(
@@ -103,6 +106,7 @@ function create_control_panel(
             ),
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -139,6 +143,7 @@ function create_routing_control(
             "ClientToken" => string(uuid4()),
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 function create_routing_control(
@@ -162,6 +167,7 @@ function create_routing_control(
             ),
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -191,6 +197,7 @@ function create_safety_rule(; aws_config::AbstractAWSConfig=global_aws_config())
         "/safetyrule",
         Dict{String,Any}("ClientToken" => string(uuid4()));
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 function create_safety_rule(
@@ -203,6 +210,7 @@ function create_safety_rule(
             mergewith(_merge, Dict{String,Any}("ClientToken" => string(uuid4())), params)
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -218,7 +226,7 @@ Delete a cluster.
 """
 function delete_cluster(ClusterArn; aws_config::AbstractAWSConfig=global_aws_config())
     return route53_recovery_control_config(
-        "DELETE", "/cluster/$(ClusterArn)"; aws_config=aws_config
+        "DELETE", "/cluster/$(ClusterArn)"; aws_config=aws_config, features=SERVICE_FEATURES
     )
 end
 function delete_cluster(
@@ -227,7 +235,11 @@ function delete_cluster(
     aws_config::AbstractAWSConfig=global_aws_config(),
 )
     return route53_recovery_control_config(
-        "DELETE", "/cluster/$(ClusterArn)", params; aws_config=aws_config
+        "DELETE",
+        "/cluster/$(ClusterArn)",
+        params;
+        aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -246,7 +258,10 @@ function delete_control_panel(
     ControlPanelArn; aws_config::AbstractAWSConfig=global_aws_config()
 )
     return route53_recovery_control_config(
-        "DELETE", "/controlpanel/$(ControlPanelArn)"; aws_config=aws_config
+        "DELETE",
+        "/controlpanel/$(ControlPanelArn)";
+        aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 function delete_control_panel(
@@ -255,7 +270,11 @@ function delete_control_panel(
     aws_config::AbstractAWSConfig=global_aws_config(),
 )
     return route53_recovery_control_config(
-        "DELETE", "/controlpanel/$(ControlPanelArn)", params; aws_config=aws_config
+        "DELETE",
+        "/controlpanel/$(ControlPanelArn)",
+        params;
+        aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -274,7 +293,10 @@ function delete_routing_control(
     RoutingControlArn; aws_config::AbstractAWSConfig=global_aws_config()
 )
     return route53_recovery_control_config(
-        "DELETE", "/routingcontrol/$(RoutingControlArn)"; aws_config=aws_config
+        "DELETE",
+        "/routingcontrol/$(RoutingControlArn)";
+        aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 function delete_routing_control(
@@ -283,7 +305,11 @@ function delete_routing_control(
     aws_config::AbstractAWSConfig=global_aws_config(),
 )
     return route53_recovery_control_config(
-        "DELETE", "/routingcontrol/$(RoutingControlArn)", params; aws_config=aws_config
+        "DELETE",
+        "/routingcontrol/$(RoutingControlArn)",
+        params;
+        aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -301,7 +327,10 @@ function delete_safety_rule(
     SafetyRuleArn; aws_config::AbstractAWSConfig=global_aws_config()
 )
     return route53_recovery_control_config(
-        "DELETE", "/safetyrule/$(SafetyRuleArn)"; aws_config=aws_config
+        "DELETE",
+        "/safetyrule/$(SafetyRuleArn)";
+        aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 function delete_safety_rule(
@@ -310,7 +339,11 @@ function delete_safety_rule(
     aws_config::AbstractAWSConfig=global_aws_config(),
 )
     return route53_recovery_control_config(
-        "DELETE", "/safetyrule/$(SafetyRuleArn)", params; aws_config=aws_config
+        "DELETE",
+        "/safetyrule/$(SafetyRuleArn)",
+        params;
+        aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -328,7 +361,7 @@ status, and Amazon Resource Name (ARN).
 """
 function describe_cluster(ClusterArn; aws_config::AbstractAWSConfig=global_aws_config())
     return route53_recovery_control_config(
-        "GET", "/cluster/$(ClusterArn)"; aws_config=aws_config
+        "GET", "/cluster/$(ClusterArn)"; aws_config=aws_config, features=SERVICE_FEATURES
     )
 end
 function describe_cluster(
@@ -337,7 +370,11 @@ function describe_cluster(
     aws_config::AbstractAWSConfig=global_aws_config(),
 )
     return route53_recovery_control_config(
-        "GET", "/cluster/$(ClusterArn)", params; aws_config=aws_config
+        "GET",
+        "/cluster/$(ClusterArn)",
+        params;
+        aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -356,7 +393,10 @@ function describe_control_panel(
     ControlPanelArn; aws_config::AbstractAWSConfig=global_aws_config()
 )
     return route53_recovery_control_config(
-        "GET", "/controlpanel/$(ControlPanelArn)"; aws_config=aws_config
+        "GET",
+        "/controlpanel/$(ControlPanelArn)";
+        aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 function describe_control_panel(
@@ -365,7 +405,11 @@ function describe_control_panel(
     aws_config::AbstractAWSConfig=global_aws_config(),
 )
     return route53_recovery_control_config(
-        "GET", "/controlpanel/$(ControlPanelArn)", params; aws_config=aws_config
+        "GET",
+        "/controlpanel/$(ControlPanelArn)",
+        params;
+        aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -388,7 +432,10 @@ function describe_routing_control(
     RoutingControlArn; aws_config::AbstractAWSConfig=global_aws_config()
 )
     return route53_recovery_control_config(
-        "GET", "/routingcontrol/$(RoutingControlArn)"; aws_config=aws_config
+        "GET",
+        "/routingcontrol/$(RoutingControlArn)";
+        aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 function describe_routing_control(
@@ -397,7 +444,11 @@ function describe_routing_control(
     aws_config::AbstractAWSConfig=global_aws_config(),
 )
     return route53_recovery_control_config(
-        "GET", "/routingcontrol/$(RoutingControlArn)", params; aws_config=aws_config
+        "GET",
+        "/routingcontrol/$(RoutingControlArn)",
+        params;
+        aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -416,7 +467,10 @@ function describe_safety_rule(
     SafetyRuleArn; aws_config::AbstractAWSConfig=global_aws_config()
 )
     return route53_recovery_control_config(
-        "GET", "/safetyrule/$(SafetyRuleArn)"; aws_config=aws_config
+        "GET",
+        "/safetyrule/$(SafetyRuleArn)";
+        aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 function describe_safety_rule(
@@ -425,7 +479,11 @@ function describe_safety_rule(
     aws_config::AbstractAWSConfig=global_aws_config(),
 )
     return route53_recovery_control_config(
-        "GET", "/safetyrule/$(SafetyRuleArn)", params; aws_config=aws_config
+        "GET",
+        "/safetyrule/$(SafetyRuleArn)",
+        params;
+        aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -452,6 +510,7 @@ function list_associated_route53_health_checks(
         "GET",
         "/routingcontrol/$(RoutingControlArn)/associatedRoute53HealthChecks";
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 function list_associated_route53_health_checks(
@@ -464,6 +523,7 @@ function list_associated_route53_health_checks(
         "/routingcontrol/$(RoutingControlArn)/associatedRoute53HealthChecks",
         params;
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -479,12 +539,16 @@ Optional parameters can be passed as a `params::Dict{String,<:Any}`. Valid keys 
 - `"NextToken"`: The token that identifies which batch of results you want to see.
 """
 function list_clusters(; aws_config::AbstractAWSConfig=global_aws_config())
-    return route53_recovery_control_config("GET", "/cluster"; aws_config=aws_config)
+    return route53_recovery_control_config(
+        "GET", "/cluster"; aws_config=aws_config, features=SERVICE_FEATURES
+    )
 end
 function list_clusters(
     params::AbstractDict{String}; aws_config::AbstractAWSConfig=global_aws_config()
 )
-    return route53_recovery_control_config("GET", "/cluster", params; aws_config=aws_config)
+    return route53_recovery_control_config(
+        "GET", "/cluster", params; aws_config=aws_config, features=SERVICE_FEATURES
+    )
 end
 
 """
@@ -500,13 +564,15 @@ Optional parameters can be passed as a `params::Dict{String,<:Any}`. Valid keys 
 - `"NextToken"`: The token that identifies which batch of results you want to see.
 """
 function list_control_panels(; aws_config::AbstractAWSConfig=global_aws_config())
-    return route53_recovery_control_config("GET", "/controlpanels"; aws_config=aws_config)
+    return route53_recovery_control_config(
+        "GET", "/controlpanels"; aws_config=aws_config, features=SERVICE_FEATURES
+    )
 end
 function list_control_panels(
     params::AbstractDict{String}; aws_config::AbstractAWSConfig=global_aws_config()
 )
     return route53_recovery_control_config(
-        "GET", "/controlpanels", params; aws_config=aws_config
+        "GET", "/controlpanels", params; aws_config=aws_config, features=SERVICE_FEATURES
     )
 end
 
@@ -532,7 +598,10 @@ function list_routing_controls(
     ControlPanelArn; aws_config::AbstractAWSConfig=global_aws_config()
 )
     return route53_recovery_control_config(
-        "GET", "/controlpanel/$(ControlPanelArn)/routingcontrols"; aws_config=aws_config
+        "GET",
+        "/controlpanel/$(ControlPanelArn)/routingcontrols";
+        aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 function list_routing_controls(
@@ -545,6 +614,7 @@ function list_routing_controls(
         "/controlpanel/$(ControlPanelArn)/routingcontrols",
         params;
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -568,7 +638,10 @@ function list_safety_rules(
     ControlPanelArn; aws_config::AbstractAWSConfig=global_aws_config()
 )
     return route53_recovery_control_config(
-        "GET", "/controlpanel/$(ControlPanelArn)/safetyrules"; aws_config=aws_config
+        "GET",
+        "/controlpanel/$(ControlPanelArn)/safetyrules";
+        aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 function list_safety_rules(
@@ -577,7 +650,11 @@ function list_safety_rules(
     aws_config::AbstractAWSConfig=global_aws_config(),
 )
     return route53_recovery_control_config(
-        "GET", "/controlpanel/$(ControlPanelArn)/safetyrules", params; aws_config=aws_config
+        "GET",
+        "/controlpanel/$(ControlPanelArn)/safetyrules",
+        params;
+        aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -603,6 +680,7 @@ function update_control_panel(
             "ControlPanelArn" => ControlPanelArn, "ControlPanelName" => ControlPanelName
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 function update_control_panel(
@@ -625,6 +703,7 @@ function update_control_panel(
             ),
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -652,6 +731,7 @@ function update_routing_control(
             "RoutingControlName" => RoutingControlName,
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 function update_routing_control(
@@ -674,6 +754,7 @@ function update_routing_control(
             ),
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -691,12 +772,14 @@ Optional parameters can be passed as a `params::Dict{String,<:Any}`. Valid keys 
 - `"GatingRuleUpdate"`:
 """
 function update_safety_rule(; aws_config::AbstractAWSConfig=global_aws_config())
-    return route53_recovery_control_config("PUT", "/safetyrule"; aws_config=aws_config)
+    return route53_recovery_control_config(
+        "PUT", "/safetyrule"; aws_config=aws_config, features=SERVICE_FEATURES
+    )
 end
 function update_safety_rule(
     params::AbstractDict{String}; aws_config::AbstractAWSConfig=global_aws_config()
 )
     return route53_recovery_control_config(
-        "PUT", "/safetyrule", params; aws_config=aws_config
+        "PUT", "/safetyrule", params; aws_config=aws_config, features=SERVICE_FEATURES
     )
 end

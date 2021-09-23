@@ -16,12 +16,16 @@ Deletes an object at the specified path.
 
 """
 function delete_object(Path; aws_config::AbstractAWSConfig=global_aws_config())
-    return mediastore_data("DELETE", "/$(Path)"; aws_config=aws_config)
+    return mediastore_data(
+        "DELETE", "/$(Path)"; aws_config=aws_config, features=SERVICE_FEATURES
+    )
 end
 function delete_object(
     Path, params::AbstractDict{String}; aws_config::AbstractAWSConfig=global_aws_config()
 )
-    return mediastore_data("DELETE", "/$(Path)", params; aws_config=aws_config)
+    return mediastore_data(
+        "DELETE", "/$(Path)", params; aws_config=aws_config, features=SERVICE_FEATURES
+    )
 end
 
 """
@@ -36,12 +40,16 @@ Gets the headers for an object at the specified path.
 
 """
 function describe_object(Path; aws_config::AbstractAWSConfig=global_aws_config())
-    return mediastore_data("HEAD", "/$(Path)"; aws_config=aws_config)
+    return mediastore_data(
+        "HEAD", "/$(Path)"; aws_config=aws_config, features=SERVICE_FEATURES
+    )
 end
 function describe_object(
     Path, params::AbstractDict{String}; aws_config::AbstractAWSConfig=global_aws_config()
 )
-    return mediastore_data("HEAD", "/$(Path)", params; aws_config=aws_config)
+    return mediastore_data(
+        "HEAD", "/$(Path)", params; aws_config=aws_config, features=SERVICE_FEATURES
+    )
 end
 
 """
@@ -75,12 +83,16 @@ Optional parameters can be passed as a `params::Dict{String,<:Any}`. Valid keys 
   availability.
 """
 function get_object(Path; aws_config::AbstractAWSConfig=global_aws_config())
-    return mediastore_data("GET", "/$(Path)"; aws_config=aws_config)
+    return mediastore_data(
+        "GET", "/$(Path)"; aws_config=aws_config, features=SERVICE_FEATURES
+    )
 end
 function get_object(
     Path, params::AbstractDict{String}; aws_config::AbstractAWSConfig=global_aws_config()
 )
-    return mediastore_data("GET", "/$(Path)", params; aws_config=aws_config)
+    return mediastore_data(
+        "GET", "/$(Path)", params; aws_config=aws_config, features=SERVICE_FEATURES
+    )
 end
 
 """
@@ -106,12 +118,14 @@ Optional parameters can be passed as a `params::Dict{String,<:Any}`. Valid keys 
   name&gt;/&lt;folder name&gt;/&lt;file name&gt;
 """
 function list_items(; aws_config::AbstractAWSConfig=global_aws_config())
-    return mediastore_data("GET", "/"; aws_config=aws_config)
+    return mediastore_data("GET", "/"; aws_config=aws_config, features=SERVICE_FEATURES)
 end
 function list_items(
     params::AbstractDict{String}; aws_config::AbstractAWSConfig=global_aws_config()
 )
-    return mediastore_data("GET", "/", params; aws_config=aws_config)
+    return mediastore_data(
+        "GET", "/", params; aws_config=aws_config, features=SERVICE_FEATURES
+    )
 end
 
 """
@@ -156,7 +170,11 @@ Optional parameters can be passed as a `params::Dict{String,<:Any}`. Valid keys 
 """
 function put_object(Body, Path; aws_config::AbstractAWSConfig=global_aws_config())
     return mediastore_data(
-        "PUT", "/$(Path)", Dict{String,Any}("Body" => Body); aws_config=aws_config
+        "PUT",
+        "/$(Path)",
+        Dict{String,Any}("Body" => Body);
+        aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 function put_object(
@@ -170,5 +188,6 @@ function put_object(
         "/$(Path)",
         Dict{String,Any}(mergewith(_merge, Dict{String,Any}("Body" => Body), params));
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end

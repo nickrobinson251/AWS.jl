@@ -22,6 +22,7 @@ function accept_shared_directory(
         "AcceptSharedDirectory",
         Dict{String,Any}("SharedDirectoryId" => SharedDirectoryId);
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 function accept_shared_directory(
@@ -37,6 +38,7 @@ function accept_shared_directory(
             ),
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -87,6 +89,7 @@ function add_ip_routes(
         "AddIpRoutes",
         Dict{String,Any}("DirectoryId" => DirectoryId, "IpRoutes" => IpRoutes);
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 function add_ip_routes(
@@ -105,6 +108,7 @@ function add_ip_routes(
             ),
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -133,6 +137,7 @@ function add_region(
             "VPCSettings" => VPCSettings,
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 function add_region(
@@ -156,6 +161,7 @@ function add_region(
             ),
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -179,6 +185,7 @@ function add_tags_to_resource(
         "AddTagsToResource",
         Dict{String,Any}("ResourceId" => ResourceId, "Tags" => Tags);
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 function add_tags_to_resource(
@@ -195,6 +202,7 @@ function add_tags_to_resource(
             ),
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -221,6 +229,7 @@ function cancel_schema_extension(
             "DirectoryId" => DirectoryId, "SchemaExtensionId" => SchemaExtensionId
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 function cancel_schema_extension(
@@ -241,6 +250,7 @@ function cancel_schema_extension(
             ),
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -279,6 +289,7 @@ function connect_directory(
             "Size" => Size,
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 function connect_directory(
@@ -304,6 +315,7 @@ function connect_directory(
             ),
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -328,6 +340,7 @@ function create_alias(Alias, DirectoryId; aws_config::AbstractAWSConfig=global_a
         "CreateAlias",
         Dict{String,Any}("Alias" => Alias, "DirectoryId" => DirectoryId);
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 function create_alias(
@@ -346,6 +359,7 @@ function create_alias(
             ),
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -379,6 +393,7 @@ function create_computer(
             "Password" => Password,
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 function create_computer(
@@ -402,6 +417,7 @@ function create_computer(
             ),
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -436,6 +452,7 @@ function create_conditional_forwarder(
             "RemoteDomainName" => RemoteDomainName,
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 function create_conditional_forwarder(
@@ -459,6 +476,7 @@ function create_conditional_forwarder(
             ),
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -503,6 +521,7 @@ function create_directory(
         "CreateDirectory",
         Dict{String,Any}("Name" => Name, "Password" => Password, "Size" => Size);
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 function create_directory(
@@ -522,6 +541,7 @@ function create_directory(
             ),
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -546,6 +566,7 @@ function create_log_subscription(
         "CreateLogSubscription",
         Dict{String,Any}("DirectoryId" => DirectoryId, "LogGroupName" => LogGroupName);
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 function create_log_subscription(
@@ -566,6 +587,7 @@ function create_log_subscription(
             ),
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -610,6 +632,7 @@ function create_microsoft_ad(
             "Name" => Name, "Password" => Password, "VpcSettings" => VpcSettings
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 function create_microsoft_ad(
@@ -631,6 +654,7 @@ function create_microsoft_ad(
             ),
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -653,6 +677,7 @@ function create_snapshot(DirectoryId; aws_config::AbstractAWSConfig=global_aws_c
         "CreateSnapshot",
         Dict{String,Any}("DirectoryId" => DirectoryId);
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 function create_snapshot(
@@ -666,6 +691,7 @@ function create_snapshot(
             mergewith(_merge, Dict{String,Any}("DirectoryId" => DirectoryId), params)
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -713,6 +739,7 @@ function create_trust(
             "TrustPassword" => TrustPassword,
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 function create_trust(
@@ -738,6 +765,7 @@ function create_trust(
             ),
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -762,6 +790,7 @@ function delete_conditional_forwarder(
             "DirectoryId" => DirectoryId, "RemoteDomainName" => RemoteDomainName
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 function delete_conditional_forwarder(
@@ -782,6 +811,7 @@ function delete_conditional_forwarder(
             ),
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -803,6 +833,7 @@ function delete_directory(DirectoryId; aws_config::AbstractAWSConfig=global_aws_
         "DeleteDirectory",
         Dict{String,Any}("DirectoryId" => DirectoryId);
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 function delete_directory(
@@ -816,6 +847,7 @@ function delete_directory(
             mergewith(_merge, Dict{String,Any}("DirectoryId" => DirectoryId), params)
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -836,6 +868,7 @@ function delete_log_subscription(
         "DeleteLogSubscription",
         Dict{String,Any}("DirectoryId" => DirectoryId);
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 function delete_log_subscription(
@@ -849,6 +882,7 @@ function delete_log_subscription(
             mergewith(_merge, Dict{String,Any}("DirectoryId" => DirectoryId), params)
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -867,6 +901,7 @@ function delete_snapshot(SnapshotId; aws_config::AbstractAWSConfig=global_aws_co
         "DeleteSnapshot",
         Dict{String,Any}("SnapshotId" => SnapshotId);
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 function delete_snapshot(
@@ -880,6 +915,7 @@ function delete_snapshot(
             mergewith(_merge, Dict{String,Any}("SnapshotId" => SnapshotId), params)
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -900,7 +936,10 @@ Optional parameters can be passed as a `params::Dict{String,<:Any}`. Valid keys 
 """
 function delete_trust(TrustId; aws_config::AbstractAWSConfig=global_aws_config())
     return directory_service(
-        "DeleteTrust", Dict{String,Any}("TrustId" => TrustId); aws_config=aws_config
+        "DeleteTrust",
+        Dict{String,Any}("TrustId" => TrustId);
+        aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 function delete_trust(
@@ -910,6 +949,7 @@ function delete_trust(
         "DeleteTrust",
         Dict{String,Any}(mergewith(_merge, Dict{String,Any}("TrustId" => TrustId), params));
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -932,6 +972,7 @@ function deregister_certificate(
         "DeregisterCertificate",
         Dict{String,Any}("CertificateId" => CertificateId, "DirectoryId" => DirectoryId);
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 function deregister_certificate(
@@ -952,6 +993,7 @@ function deregister_certificate(
             ),
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -975,6 +1017,7 @@ function deregister_event_topic(
         "DeregisterEventTopic",
         Dict{String,Any}("DirectoryId" => DirectoryId, "TopicName" => TopicName);
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 function deregister_event_topic(
@@ -993,6 +1036,7 @@ function deregister_event_topic(
             ),
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -1015,6 +1059,7 @@ function describe_certificate(
         "DescribeCertificate",
         Dict{String,Any}("CertificateId" => CertificateId, "DirectoryId" => DirectoryId);
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 function describe_certificate(
@@ -1035,6 +1080,7 @@ function describe_certificate(
             ),
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -1067,6 +1113,7 @@ function describe_client_authentication_settings(
         "DescribeClientAuthenticationSettings",
         Dict{String,Any}("DirectoryId" => DirectoryId);
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 function describe_client_authentication_settings(
@@ -1080,6 +1127,7 @@ function describe_client_authentication_settings(
             mergewith(_merge, Dict{String,Any}("DirectoryId" => DirectoryId), params)
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -1108,6 +1156,7 @@ function describe_conditional_forwarders(
         "DescribeConditionalForwarders",
         Dict{String,Any}("DirectoryId" => DirectoryId);
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 function describe_conditional_forwarders(
@@ -1121,6 +1170,7 @@ function describe_conditional_forwarders(
             mergewith(_merge, Dict{String,Any}("DirectoryId" => DirectoryId), params)
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -1148,12 +1198,16 @@ Optional parameters can be passed as a `params::Dict{String,<:Any}`. Valid keys 
   DescribeDirectories. Pass null if this is the first call.
 """
 function describe_directories(; aws_config::AbstractAWSConfig=global_aws_config())
-    return directory_service("DescribeDirectories"; aws_config=aws_config)
+    return directory_service(
+        "DescribeDirectories"; aws_config=aws_config, features=SERVICE_FEATURES
+    )
 end
 function describe_directories(
     params::AbstractDict{String}; aws_config::AbstractAWSConfig=global_aws_config()
 )
-    return directory_service("DescribeDirectories", params; aws_config=aws_config)
+    return directory_service(
+        "DescribeDirectories", params; aws_config=aws_config, features=SERVICE_FEATURES
+    )
 end
 
 """
@@ -1181,6 +1235,7 @@ function describe_domain_controllers(
         "DescribeDomainControllers",
         Dict{String,Any}("DirectoryId" => DirectoryId);
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 function describe_domain_controllers(
@@ -1194,6 +1249,7 @@ function describe_domain_controllers(
             mergewith(_merge, Dict{String,Any}("DirectoryId" => DirectoryId), params)
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -1214,12 +1270,16 @@ Optional parameters can be passed as a `params::Dict{String,<:Any}`. Valid keys 
   list results in an InvalidParameterException being thrown.
 """
 function describe_event_topics(; aws_config::AbstractAWSConfig=global_aws_config())
-    return directory_service("DescribeEventTopics"; aws_config=aws_config)
+    return directory_service(
+        "DescribeEventTopics"; aws_config=aws_config, features=SERVICE_FEATURES
+    )
 end
 function describe_event_topics(
     params::AbstractDict{String}; aws_config::AbstractAWSConfig=global_aws_config()
 )
-    return directory_service("DescribeEventTopics", params; aws_config=aws_config)
+    return directory_service(
+        "DescribeEventTopics", params; aws_config=aws_config, features=SERVICE_FEATURES
+    )
 end
 
 """
@@ -1245,6 +1305,7 @@ function describe_ldapssettings(
         "DescribeLDAPSSettings",
         Dict{String,Any}("DirectoryId" => DirectoryId);
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 function describe_ldapssettings(
@@ -1258,6 +1319,7 @@ function describe_ldapssettings(
             mergewith(_merge, Dict{String,Any}("DirectoryId" => DirectoryId), params)
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -1281,6 +1343,7 @@ function describe_regions(DirectoryId; aws_config::AbstractAWSConfig=global_aws_
         "DescribeRegions",
         Dict{String,Any}("DirectoryId" => DirectoryId);
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 function describe_regions(
@@ -1294,6 +1357,7 @@ function describe_regions(
             mergewith(_merge, Dict{String,Any}("DirectoryId" => DirectoryId), params)
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -1321,6 +1385,7 @@ function describe_shared_directories(
         "DescribeSharedDirectories",
         Dict{String,Any}("OwnerDirectoryId" => OwnerDirectoryId);
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 function describe_shared_directories(
@@ -1336,6 +1401,7 @@ function describe_shared_directories(
             ),
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -1361,12 +1427,16 @@ Optional parameters can be passed as a `params::Dict{String,<:Any}`. Valid keys 
   members.
 """
 function describe_snapshots(; aws_config::AbstractAWSConfig=global_aws_config())
-    return directory_service("DescribeSnapshots"; aws_config=aws_config)
+    return directory_service(
+        "DescribeSnapshots"; aws_config=aws_config, features=SERVICE_FEATURES
+    )
 end
 function describe_snapshots(
     params::AbstractDict{String}; aws_config::AbstractAWSConfig=global_aws_config()
 )
-    return directory_service("DescribeSnapshots", params; aws_config=aws_config)
+    return directory_service(
+        "DescribeSnapshots", params; aws_config=aws_config, features=SERVICE_FEATURES
+    )
 end
 
 """
@@ -1389,12 +1459,16 @@ Optional parameters can be passed as a `params::Dict{String,<:Any}`. Valid keys 
   account are returned. An empty list results in an InvalidParameterException being thrown.
 """
 function describe_trusts(; aws_config::AbstractAWSConfig=global_aws_config())
-    return directory_service("DescribeTrusts"; aws_config=aws_config)
+    return directory_service(
+        "DescribeTrusts"; aws_config=aws_config, features=SERVICE_FEATURES
+    )
 end
 function describe_trusts(
     params::AbstractDict{String}; aws_config::AbstractAWSConfig=global_aws_config()
 )
-    return directory_service("DescribeTrusts", params; aws_config=aws_config)
+    return directory_service(
+        "DescribeTrusts", params; aws_config=aws_config, features=SERVICE_FEATURES
+    )
 end
 
 """
@@ -1416,6 +1490,7 @@ function disable_client_authentication(
         "DisableClientAuthentication",
         Dict{String,Any}("DirectoryId" => DirectoryId, "Type" => Type);
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 function disable_client_authentication(
@@ -1434,6 +1509,7 @@ function disable_client_authentication(
             ),
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -1453,6 +1529,7 @@ function disable_ldaps(DirectoryId, Type; aws_config::AbstractAWSConfig=global_a
         "DisableLDAPS",
         Dict{String,Any}("DirectoryId" => DirectoryId, "Type" => Type);
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 function disable_ldaps(
@@ -1471,6 +1548,7 @@ function disable_ldaps(
             ),
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -1490,6 +1568,7 @@ function disable_radius(DirectoryId; aws_config::AbstractAWSConfig=global_aws_co
         "DisableRadius",
         Dict{String,Any}("DirectoryId" => DirectoryId);
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 function disable_radius(
@@ -1503,6 +1582,7 @@ function disable_radius(
             mergewith(_merge, Dict{String,Any}("DirectoryId" => DirectoryId), params)
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -1528,7 +1608,10 @@ Optional parameters can be passed as a `params::Dict{String,<:Any}`. Valid keys 
 """
 function disable_sso(DirectoryId; aws_config::AbstractAWSConfig=global_aws_config())
     return directory_service(
-        "DisableSso", Dict{String,Any}("DirectoryId" => DirectoryId); aws_config=aws_config
+        "DisableSso",
+        Dict{String,Any}("DirectoryId" => DirectoryId);
+        aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 function disable_sso(
@@ -1542,6 +1625,7 @@ function disable_sso(
             mergewith(_merge, Dict{String,Any}("DirectoryId" => DirectoryId), params)
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -1565,6 +1649,7 @@ function enable_client_authentication(
         "EnableClientAuthentication",
         Dict{String,Any}("DirectoryId" => DirectoryId, "Type" => Type);
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 function enable_client_authentication(
@@ -1583,6 +1668,7 @@ function enable_client_authentication(
             ),
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -1602,6 +1688,7 @@ function enable_ldaps(DirectoryId, Type; aws_config::AbstractAWSConfig=global_aw
         "EnableLDAPS",
         Dict{String,Any}("DirectoryId" => DirectoryId, "Type" => Type);
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 function enable_ldaps(
@@ -1620,6 +1707,7 @@ function enable_ldaps(
             ),
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -1643,6 +1731,7 @@ function enable_radius(
         "EnableRadius",
         Dict{String,Any}("DirectoryId" => DirectoryId, "RadiusSettings" => RadiusSettings);
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 function enable_radius(
@@ -1663,6 +1752,7 @@ function enable_radius(
             ),
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -1690,7 +1780,10 @@ Optional parameters can be passed as a `params::Dict{String,<:Any}`. Valid keys 
 """
 function enable_sso(DirectoryId; aws_config::AbstractAWSConfig=global_aws_config())
     return directory_service(
-        "EnableSso", Dict{String,Any}("DirectoryId" => DirectoryId); aws_config=aws_config
+        "EnableSso",
+        Dict{String,Any}("DirectoryId" => DirectoryId);
+        aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 function enable_sso(
@@ -1704,6 +1797,7 @@ function enable_sso(
             mergewith(_merge, Dict{String,Any}("DirectoryId" => DirectoryId), params)
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -1715,12 +1809,16 @@ Obtains directory limit information for the current Region.
 
 """
 function get_directory_limits(; aws_config::AbstractAWSConfig=global_aws_config())
-    return directory_service("GetDirectoryLimits"; aws_config=aws_config)
+    return directory_service(
+        "GetDirectoryLimits"; aws_config=aws_config, features=SERVICE_FEATURES
+    )
 end
 function get_directory_limits(
     params::AbstractDict{String}; aws_config::AbstractAWSConfig=global_aws_config()
 )
-    return directory_service("GetDirectoryLimits", params; aws_config=aws_config)
+    return directory_service(
+        "GetDirectoryLimits", params; aws_config=aws_config, features=SERVICE_FEATURES
+    )
 end
 
 """
@@ -1738,6 +1836,7 @@ function get_snapshot_limits(DirectoryId; aws_config::AbstractAWSConfig=global_a
         "GetSnapshotLimits",
         Dict{String,Any}("DirectoryId" => DirectoryId);
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 function get_snapshot_limits(
@@ -1751,6 +1850,7 @@ function get_snapshot_limits(
             mergewith(_merge, Dict{String,Any}("DirectoryId" => DirectoryId), params)
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -1777,6 +1877,7 @@ function list_certificates(DirectoryId; aws_config::AbstractAWSConfig=global_aws
         "ListCertificates",
         Dict{String,Any}("DirectoryId" => DirectoryId);
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 function list_certificates(
@@ -1790,6 +1891,7 @@ function list_certificates(
             mergewith(_merge, Dict{String,Any}("DirectoryId" => DirectoryId), params)
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -1815,6 +1917,7 @@ function list_ip_routes(DirectoryId; aws_config::AbstractAWSConfig=global_aws_co
         "ListIpRoutes",
         Dict{String,Any}("DirectoryId" => DirectoryId);
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 function list_ip_routes(
@@ -1828,6 +1931,7 @@ function list_ip_routes(
             mergewith(_merge, Dict{String,Any}("DirectoryId" => DirectoryId), params)
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -1847,12 +1951,16 @@ Optional parameters can be passed as a `params::Dict{String,<:Any}`. Valid keys 
 - `"NextToken"`: The token for the next set of items to return.
 """
 function list_log_subscriptions(; aws_config::AbstractAWSConfig=global_aws_config())
-    return directory_service("ListLogSubscriptions"; aws_config=aws_config)
+    return directory_service(
+        "ListLogSubscriptions"; aws_config=aws_config, features=SERVICE_FEATURES
+    )
 end
 function list_log_subscriptions(
     params::AbstractDict{String}; aws_config::AbstractAWSConfig=global_aws_config()
 )
-    return directory_service("ListLogSubscriptions", params; aws_config=aws_config)
+    return directory_service(
+        "ListLogSubscriptions", params; aws_config=aws_config, features=SERVICE_FEATURES
+    )
 end
 
 """
@@ -1878,6 +1986,7 @@ function list_schema_extensions(
         "ListSchemaExtensions",
         Dict{String,Any}("DirectoryId" => DirectoryId);
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 function list_schema_extensions(
@@ -1891,6 +2000,7 @@ function list_schema_extensions(
             mergewith(_merge, Dict{String,Any}("DirectoryId" => DirectoryId), params)
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -1915,6 +2025,7 @@ function list_tags_for_resource(
         "ListTagsForResource",
         Dict{String,Any}("ResourceId" => ResourceId);
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 function list_tags_for_resource(
@@ -1928,6 +2039,7 @@ function list_tags_for_resource(
             mergewith(_merge, Dict{String,Any}("ResourceId" => ResourceId), params)
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -1957,6 +2069,7 @@ function register_certificate(
             "CertificateData" => CertificateData, "DirectoryId" => DirectoryId
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 function register_certificate(
@@ -1977,6 +2090,7 @@ function register_certificate(
             ),
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -2004,6 +2118,7 @@ function register_event_topic(
         "RegisterEventTopic",
         Dict{String,Any}("DirectoryId" => DirectoryId, "TopicName" => TopicName);
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 function register_event_topic(
@@ -2022,6 +2137,7 @@ function register_event_topic(
             ),
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -2043,6 +2159,7 @@ function reject_shared_directory(
         "RejectSharedDirectory",
         Dict{String,Any}("SharedDirectoryId" => SharedDirectoryId);
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 function reject_shared_directory(
@@ -2058,6 +2175,7 @@ function reject_shared_directory(
             ),
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -2080,6 +2198,7 @@ function remove_ip_routes(
         "RemoveIpRoutes",
         Dict{String,Any}("CidrIps" => CidrIps, "DirectoryId" => DirectoryId);
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 function remove_ip_routes(
@@ -2098,6 +2217,7 @@ function remove_ip_routes(
             ),
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -2118,6 +2238,7 @@ function remove_region(DirectoryId; aws_config::AbstractAWSConfig=global_aws_con
         "RemoveRegion",
         Dict{String,Any}("DirectoryId" => DirectoryId);
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 function remove_region(
@@ -2131,6 +2252,7 @@ function remove_region(
             mergewith(_merge, Dict{String,Any}("DirectoryId" => DirectoryId), params)
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -2152,6 +2274,7 @@ function remove_tags_from_resource(
         "RemoveTagsFromResource",
         Dict{String,Any}("ResourceId" => ResourceId, "TagKeys" => TagKeys);
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 function remove_tags_from_resource(
@@ -2170,6 +2293,7 @@ function remove_tags_from_resource(
             ),
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -2205,6 +2329,7 @@ function reset_user_password(
             "UserName" => UserName,
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 function reset_user_password(
@@ -2228,6 +2353,7 @@ function reset_user_password(
             ),
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -2253,6 +2379,7 @@ function restore_from_snapshot(
         "RestoreFromSnapshot",
         Dict{String,Any}("SnapshotId" => SnapshotId);
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 function restore_from_snapshot(
@@ -2266,6 +2393,7 @@ function restore_from_snapshot(
             mergewith(_merge, Dict{String,Any}("SnapshotId" => SnapshotId), params)
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -2313,6 +2441,7 @@ function share_directory(
             "ShareTarget" => ShareTarget,
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 function share_directory(
@@ -2336,6 +2465,7 @@ function share_directory(
             ),
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -2372,6 +2502,7 @@ function start_schema_extension(
             "LdifContent" => LdifContent,
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 function start_schema_extension(
@@ -2398,6 +2529,7 @@ function start_schema_extension(
             ),
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -2421,6 +2553,7 @@ function unshare_directory(
         "UnshareDirectory",
         Dict{String,Any}("DirectoryId" => DirectoryId, "UnshareTarget" => UnshareTarget);
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 function unshare_directory(
@@ -2441,6 +2574,7 @@ function unshare_directory(
             ),
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -2473,6 +2607,7 @@ function update_conditional_forwarder(
             "RemoteDomainName" => RemoteDomainName,
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 function update_conditional_forwarder(
@@ -2496,6 +2631,7 @@ function update_conditional_forwarder(
             ),
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -2522,6 +2658,7 @@ function update_number_of_domain_controllers(
         "UpdateNumberOfDomainControllers",
         Dict{String,Any}("DesiredNumber" => DesiredNumber, "DirectoryId" => DirectoryId);
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 function update_number_of_domain_controllers(
@@ -2542,6 +2679,7 @@ function update_number_of_domain_controllers(
             ),
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -2566,6 +2704,7 @@ function update_radius(
         "UpdateRadius",
         Dict{String,Any}("DirectoryId" => DirectoryId, "RadiusSettings" => RadiusSettings);
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 function update_radius(
@@ -2586,6 +2725,7 @@ function update_radius(
             ),
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -2605,7 +2745,10 @@ Optional parameters can be passed as a `params::Dict{String,<:Any}`. Valid keys 
 """
 function update_trust(TrustId; aws_config::AbstractAWSConfig=global_aws_config())
     return directory_service(
-        "UpdateTrust", Dict{String,Any}("TrustId" => TrustId); aws_config=aws_config
+        "UpdateTrust",
+        Dict{String,Any}("TrustId" => TrustId);
+        aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 function update_trust(
@@ -2615,6 +2758,7 @@ function update_trust(
         "UpdateTrust",
         Dict{String,Any}(mergewith(_merge, Dict{String,Any}("TrustId" => TrustId), params));
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -2632,7 +2776,10 @@ directory and an external domain.
 """
 function verify_trust(TrustId; aws_config::AbstractAWSConfig=global_aws_config())
     return directory_service(
-        "VerifyTrust", Dict{String,Any}("TrustId" => TrustId); aws_config=aws_config
+        "VerifyTrust",
+        Dict{String,Any}("TrustId" => TrustId);
+        aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 function verify_trust(
@@ -2642,5 +2789,6 @@ function verify_trust(
         "VerifyTrust",
         Dict{String,Any}(mergewith(_merge, Dict{String,Any}("TrustId" => TrustId), params));
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end

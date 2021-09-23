@@ -33,6 +33,7 @@ function add_profile_key(
             "KeyName" => KeyName, "ProfileId" => ProfileId, "Values" => Values
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 function add_profile_key(
@@ -56,6 +57,7 @@ function add_profile_key(
             ),
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -98,6 +100,7 @@ function create_domain(
         "/domains/$(DomainName)",
         Dict{String,Any}("DefaultExpirationDays" => DefaultExpirationDays);
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 function create_domain(
@@ -117,6 +120,7 @@ function create_domain(
             ),
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -160,7 +164,10 @@ Optional parameters can be passed as a `params::Dict{String,<:Any}`. Valid keys 
 """
 function create_profile(DomainName; aws_config::AbstractAWSConfig=global_aws_config())
     return customer_profiles(
-        "POST", "/domains/$(DomainName)/profiles"; aws_config=aws_config
+        "POST",
+        "/domains/$(DomainName)/profiles";
+        aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 function create_profile(
@@ -169,7 +176,11 @@ function create_profile(
     aws_config::AbstractAWSConfig=global_aws_config(),
 )
     return customer_profiles(
-        "POST", "/domains/$(DomainName)/profiles", params; aws_config=aws_config
+        "POST",
+        "/domains/$(DomainName)/profiles",
+        params;
+        aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -185,7 +196,9 @@ and their related objects.
 
 """
 function delete_domain(DomainName; aws_config::AbstractAWSConfig=global_aws_config())
-    return customer_profiles("DELETE", "/domains/$(DomainName)"; aws_config=aws_config)
+    return customer_profiles(
+        "DELETE", "/domains/$(DomainName)"; aws_config=aws_config, features=SERVICE_FEATURES
+    )
 end
 function delete_domain(
     DomainName,
@@ -193,7 +206,11 @@ function delete_domain(
     aws_config::AbstractAWSConfig=global_aws_config(),
 )
     return customer_profiles(
-        "DELETE", "/domains/$(DomainName)", params; aws_config=aws_config
+        "DELETE",
+        "/domains/$(DomainName)",
+        params;
+        aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -216,6 +233,7 @@ function delete_integration(
         "/domains/$(DomainName)/integrations/delete",
         Dict{String,Any}("Uri" => Uri);
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 function delete_integration(
@@ -229,6 +247,7 @@ function delete_integration(
         "/domains/$(DomainName)/integrations/delete",
         Dict{String,Any}(mergewith(_merge, Dict{String,Any}("Uri" => Uri), params));
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -251,6 +270,7 @@ function delete_profile(
         "/domains/$(DomainName)/profiles/delete",
         Dict{String,Any}("ProfileId" => ProfileId);
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 function delete_profile(
@@ -266,6 +286,7 @@ function delete_profile(
             mergewith(_merge, Dict{String,Any}("ProfileId" => ProfileId), params)
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -296,6 +317,7 @@ function delete_profile_key(
             "KeyName" => KeyName, "ProfileId" => ProfileId, "Values" => Values
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 function delete_profile_key(
@@ -319,6 +341,7 @@ function delete_profile_key(
             ),
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -352,6 +375,7 @@ function delete_profile_object(
             "ProfileObjectUniqueKey" => ProfileObjectUniqueKey,
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 function delete_profile_object(
@@ -377,6 +401,7 @@ function delete_profile_object(
             ),
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -401,6 +426,7 @@ function delete_profile_object_type(
         "DELETE",
         "/domains/$(DomainName)/object-types/$(ObjectTypeName)";
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 function delete_profile_object_type(
@@ -414,6 +440,7 @@ function delete_profile_object_type(
         "/domains/$(DomainName)/object-types/$(ObjectTypeName)",
         params;
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -428,14 +455,22 @@ Returns information about a specific domain.
 
 """
 function get_domain(DomainName; aws_config::AbstractAWSConfig=global_aws_config())
-    return customer_profiles("GET", "/domains/$(DomainName)"; aws_config=aws_config)
+    return customer_profiles(
+        "GET", "/domains/$(DomainName)"; aws_config=aws_config, features=SERVICE_FEATURES
+    )
 end
 function get_domain(
     DomainName,
     params::AbstractDict{String};
     aws_config::AbstractAWSConfig=global_aws_config(),
 )
-    return customer_profiles("GET", "/domains/$(DomainName)", params; aws_config=aws_config)
+    return customer_profiles(
+        "GET",
+        "/domains/$(DomainName)",
+        params;
+        aws_config=aws_config,
+        features=SERVICE_FEATURES,
+    )
 end
 
 """
@@ -455,6 +490,7 @@ function get_integration(DomainName, Uri; aws_config::AbstractAWSConfig=global_a
         "/domains/$(DomainName)/integrations",
         Dict{String,Any}("Uri" => Uri);
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 function get_integration(
@@ -468,6 +504,7 @@ function get_integration(
         "/domains/$(DomainName)/integrations",
         Dict{String,Any}(mergewith(_merge, Dict{String,Any}("Uri" => Uri), params));
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -499,7 +536,12 @@ Optional parameters can be passed as a `params::Dict{String,<:Any}`. Valid keys 
   previous response in the next request to retrieve the next set of results.
 """
 function get_matches(DomainName; aws_config::AbstractAWSConfig=global_aws_config())
-    return customer_profiles("GET", "/domains/$(DomainName)/matches"; aws_config=aws_config)
+    return customer_profiles(
+        "GET",
+        "/domains/$(DomainName)/matches";
+        aws_config=aws_config,
+        features=SERVICE_FEATURES,
+    )
 end
 function get_matches(
     DomainName,
@@ -507,7 +549,11 @@ function get_matches(
     aws_config::AbstractAWSConfig=global_aws_config(),
 )
     return customer_profiles(
-        "GET", "/domains/$(DomainName)/matches", params; aws_config=aws_config
+        "GET",
+        "/domains/$(DomainName)/matches",
+        params;
+        aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -529,6 +575,7 @@ function get_profile_object_type(
         "GET",
         "/domains/$(DomainName)/object-types/$(ObjectTypeName)";
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 function get_profile_object_type(
@@ -542,6 +589,7 @@ function get_profile_object_type(
         "/domains/$(DomainName)/object-types/$(ObjectTypeName)",
         params;
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -561,7 +609,9 @@ matches one of the TemplateIds, it uses the mappings from the template.
 function get_profile_object_type_template(
     TemplateId; aws_config::AbstractAWSConfig=global_aws_config()
 )
-    return customer_profiles("GET", "/templates/$(TemplateId)"; aws_config=aws_config)
+    return customer_profiles(
+        "GET", "/templates/$(TemplateId)"; aws_config=aws_config, features=SERVICE_FEATURES
+    )
 end
 function get_profile_object_type_template(
     TemplateId,
@@ -569,7 +619,11 @@ function get_profile_object_type_template(
     aws_config::AbstractAWSConfig=global_aws_config(),
 )
     return customer_profiles(
-        "GET", "/templates/$(TemplateId)", params; aws_config=aws_config
+        "GET",
+        "/templates/$(TemplateId)",
+        params;
+        aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -589,7 +643,11 @@ Optional parameters can be passed as a `params::Dict{String,<:Any}`. Valid keys 
 """
 function list_account_integrations(Uri; aws_config::AbstractAWSConfig=global_aws_config())
     return customer_profiles(
-        "POST", "/integrations", Dict{String,Any}("Uri" => Uri); aws_config=aws_config
+        "POST",
+        "/integrations",
+        Dict{String,Any}("Uri" => Uri);
+        aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 function list_account_integrations(
@@ -600,6 +658,7 @@ function list_account_integrations(
         "/integrations",
         Dict{String,Any}(mergewith(_merge, Dict{String,Any}("Uri" => Uri), params));
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -615,12 +674,16 @@ Optional parameters can be passed as a `params::Dict{String,<:Any}`. Valid keys 
 - `"next-token"`: The pagination token from the previous ListDomain API call.
 """
 function list_domains(; aws_config::AbstractAWSConfig=global_aws_config())
-    return customer_profiles("GET", "/domains"; aws_config=aws_config)
+    return customer_profiles(
+        "GET", "/domains"; aws_config=aws_config, features=SERVICE_FEATURES
+    )
 end
 function list_domains(
     params::AbstractDict{String}; aws_config::AbstractAWSConfig=global_aws_config()
 )
-    return customer_profiles("GET", "/domains", params; aws_config=aws_config)
+    return customer_profiles(
+        "GET", "/domains", params; aws_config=aws_config, features=SERVICE_FEATURES
+    )
 end
 
 """
@@ -639,7 +702,10 @@ Optional parameters can be passed as a `params::Dict{String,<:Any}`. Valid keys 
 """
 function list_integrations(DomainName; aws_config::AbstractAWSConfig=global_aws_config())
     return customer_profiles(
-        "GET", "/domains/$(DomainName)/integrations"; aws_config=aws_config
+        "GET",
+        "/domains/$(DomainName)/integrations";
+        aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 function list_integrations(
@@ -648,7 +714,11 @@ function list_integrations(
     aws_config::AbstractAWSConfig=global_aws_config(),
 )
     return customer_profiles(
-        "GET", "/domains/$(DomainName)/integrations", params; aws_config=aws_config
+        "GET",
+        "/domains/$(DomainName)/integrations",
+        params;
+        aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -666,12 +736,16 @@ Optional parameters can be passed as a `params::Dict{String,<:Any}`. Valid keys 
 function list_profile_object_type_templates(;
     aws_config::AbstractAWSConfig=global_aws_config()
 )
-    return customer_profiles("GET", "/templates"; aws_config=aws_config)
+    return customer_profiles(
+        "GET", "/templates"; aws_config=aws_config, features=SERVICE_FEATURES
+    )
 end
 function list_profile_object_type_templates(
     params::AbstractDict{String}; aws_config::AbstractAWSConfig=global_aws_config()
 )
-    return customer_profiles("GET", "/templates", params; aws_config=aws_config)
+    return customer_profiles(
+        "GET", "/templates", params; aws_config=aws_config, features=SERVICE_FEATURES
+    )
 end
 
 """
@@ -692,7 +766,10 @@ function list_profile_object_types(
     DomainName; aws_config::AbstractAWSConfig=global_aws_config()
 )
     return customer_profiles(
-        "GET", "/domains/$(DomainName)/object-types"; aws_config=aws_config
+        "GET",
+        "/domains/$(DomainName)/object-types";
+        aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 function list_profile_object_types(
@@ -701,7 +778,11 @@ function list_profile_object_types(
     aws_config::AbstractAWSConfig=global_aws_config(),
 )
     return customer_profiles(
-        "GET", "/domains/$(DomainName)/object-types", params; aws_config=aws_config
+        "GET",
+        "/domains/$(DomainName)/object-types",
+        params;
+        aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -731,6 +812,7 @@ function list_profile_objects(
         "/domains/$(DomainName)/profiles/objects",
         Dict{String,Any}("ObjectTypeName" => ObjectTypeName, "ProfileId" => ProfileId);
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 function list_profile_objects(
@@ -753,6 +835,7 @@ function list_profile_objects(
             ),
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -770,14 +853,22 @@ Customer Profiles, domains, profile object types, and integrations can be tagged
 function list_tags_for_resource(
     resourceArn; aws_config::AbstractAWSConfig=global_aws_config()
 )
-    return customer_profiles("GET", "/tags/$(resourceArn)"; aws_config=aws_config)
+    return customer_profiles(
+        "GET", "/tags/$(resourceArn)"; aws_config=aws_config, features=SERVICE_FEATURES
+    )
 end
 function list_tags_for_resource(
     resourceArn,
     params::AbstractDict{String};
     aws_config::AbstractAWSConfig=global_aws_config(),
 )
-    return customer_profiles("GET", "/tags/$(resourceArn)", params; aws_config=aws_config)
+    return customer_profiles(
+        "GET",
+        "/tags/$(resourceArn)",
+        params;
+        aws_config=aws_config,
+        features=SERVICE_FEATURES,
+    )
 end
 
 """
@@ -822,6 +913,7 @@ function merge_profiles(
             "MainProfileId" => MainProfileId, "ProfileIdsToBeMerged" => ProfileIdsToBeMerged
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 function merge_profiles(
@@ -845,6 +937,7 @@ function merge_profiles(
             ),
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -874,6 +967,7 @@ function put_integration(
         "/domains/$(DomainName)/integrations",
         Dict{String,Any}("ObjectTypeName" => ObjectTypeName);
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 function put_integration(
@@ -889,6 +983,7 @@ function put_integration(
             mergewith(_merge, Dict{String,Any}("ObjectTypeName" => ObjectTypeName), params)
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -919,6 +1014,7 @@ function put_profile_object(
         "/domains/$(DomainName)/profiles/objects",
         Dict{String,Any}("Object" => Object, "ObjectTypeName" => ObjectTypeName);
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 function put_profile_object(
@@ -939,6 +1035,7 @@ function put_profile_object(
             ),
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -979,6 +1076,7 @@ function put_profile_object_type(
         "/domains/$(DomainName)/object-types/$(ObjectTypeName)",
         Dict{String,Any}("Description" => Description);
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 function put_profile_object_type(
@@ -995,6 +1093,7 @@ function put_profile_object_type(
             mergewith(_merge, Dict{String,Any}("Description" => Description), params)
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -1026,6 +1125,7 @@ function search_profiles(
         "/domains/$(DomainName)/profiles/search",
         Dict{String,Any}("KeyName" => KeyName, "Values" => Values);
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 function search_profiles(
@@ -1044,6 +1144,7 @@ function search_profiles(
             ),
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -1073,6 +1174,7 @@ function tag_resource(resourceArn, tags; aws_config::AbstractAWSConfig=global_aw
         "/tags/$(resourceArn)",
         Dict{String,Any}("tags" => tags);
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 function tag_resource(
@@ -1086,6 +1188,7 @@ function tag_resource(
         "/tags/$(resourceArn)",
         Dict{String,Any}(mergewith(_merge, Dict{String,Any}("tags" => tags), params));
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -1109,6 +1212,7 @@ function untag_resource(
         "/tags/$(resourceArn)",
         Dict{String,Any}("tagKeys" => tagKeys);
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 function untag_resource(
@@ -1122,6 +1226,7 @@ function untag_resource(
         "/tags/$(resourceArn)",
         Dict{String,Any}(mergewith(_merge, Dict{String,Any}("tagKeys" => tagKeys), params));
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -1156,14 +1261,22 @@ Optional parameters can be passed as a `params::Dict{String,<:Any}`. Valid keys 
 - `"Tags"`: The tags used to organize, track, or control access for this resource.
 """
 function update_domain(DomainName; aws_config::AbstractAWSConfig=global_aws_config())
-    return customer_profiles("PUT", "/domains/$(DomainName)"; aws_config=aws_config)
+    return customer_profiles(
+        "PUT", "/domains/$(DomainName)"; aws_config=aws_config, features=SERVICE_FEATURES
+    )
 end
 function update_domain(
     DomainName,
     params::AbstractDict{String};
     aws_config::AbstractAWSConfig=global_aws_config(),
 )
-    return customer_profiles("PUT", "/domains/$(DomainName)", params; aws_config=aws_config)
+    return customer_profiles(
+        "PUT",
+        "/domains/$(DomainName)",
+        params;
+        aws_config=aws_config,
+        features=SERVICE_FEATURES,
+    )
 end
 
 """
@@ -1215,6 +1328,7 @@ function update_profile(
         "/domains/$(DomainName)/profiles",
         Dict{String,Any}("ProfileId" => ProfileId);
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 function update_profile(
@@ -1230,5 +1344,6 @@ function update_profile(
             mergewith(_merge, Dict{String,Any}("ProfileId" => ProfileId), params)
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end

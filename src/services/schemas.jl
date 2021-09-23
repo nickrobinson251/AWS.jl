@@ -26,6 +26,7 @@ function create_discoverer(SourceArn; aws_config::AbstractAWSConfig=global_aws_c
         "/v1/discoverers",
         Dict{String,Any}("SourceArn" => SourceArn);
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 function create_discoverer(
@@ -40,6 +41,7 @@ function create_discoverer(
             mergewith(_merge, Dict{String,Any}("SourceArn" => SourceArn), params)
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -58,7 +60,12 @@ Optional parameters can be passed as a `params::Dict{String,<:Any}`. Valid keys 
 - `"tags"`: Tags to associate with the registry.
 """
 function create_registry(registryName; aws_config::AbstractAWSConfig=global_aws_config())
-    return schemas("POST", "/v1/registries/name/$(registryName)"; aws_config=aws_config)
+    return schemas(
+        "POST",
+        "/v1/registries/name/$(registryName)";
+        aws_config=aws_config,
+        features=SERVICE_FEATURES,
+    )
 end
 function create_registry(
     registryName,
@@ -66,7 +73,11 @@ function create_registry(
     aws_config::AbstractAWSConfig=global_aws_config(),
 )
     return schemas(
-        "POST", "/v1/registries/name/$(registryName)", params; aws_config=aws_config
+        "POST",
+        "/v1/registries/name/$(registryName)",
+        params;
+        aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -99,6 +110,7 @@ function create_schema(
         "/v1/registries/name/$(registryName)/schemas/name/$(schemaName)",
         Dict{String,Any}("Content" => Content, "Type" => Type);
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 function create_schema(
@@ -118,6 +130,7 @@ function create_schema(
             ),
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -132,7 +145,12 @@ Deletes a discoverer.
 
 """
 function delete_discoverer(discovererId; aws_config::AbstractAWSConfig=global_aws_config())
-    return schemas("DELETE", "/v1/discoverers/id/$(discovererId)"; aws_config=aws_config)
+    return schemas(
+        "DELETE",
+        "/v1/discoverers/id/$(discovererId)";
+        aws_config=aws_config,
+        features=SERVICE_FEATURES,
+    )
 end
 function delete_discoverer(
     discovererId,
@@ -140,7 +158,11 @@ function delete_discoverer(
     aws_config::AbstractAWSConfig=global_aws_config(),
 )
     return schemas(
-        "DELETE", "/v1/discoverers/id/$(discovererId)", params; aws_config=aws_config
+        "DELETE",
+        "/v1/discoverers/id/$(discovererId)",
+        params;
+        aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -155,7 +177,12 @@ Deletes a Registry.
 
 """
 function delete_registry(registryName; aws_config::AbstractAWSConfig=global_aws_config())
-    return schemas("DELETE", "/v1/registries/name/$(registryName)"; aws_config=aws_config)
+    return schemas(
+        "DELETE",
+        "/v1/registries/name/$(registryName)";
+        aws_config=aws_config,
+        features=SERVICE_FEATURES,
+    )
 end
 function delete_registry(
     registryName,
@@ -163,7 +190,11 @@ function delete_registry(
     aws_config::AbstractAWSConfig=global_aws_config(),
 )
     return schemas(
-        "DELETE", "/v1/registries/name/$(registryName)", params; aws_config=aws_config
+        "DELETE",
+        "/v1/registries/name/$(registryName)",
+        params;
+        aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -178,12 +209,14 @@ Optional parameters can be passed as a `params::Dict{String,<:Any}`. Valid keys 
 - `"registryName"`: The name of the registry.
 """
 function delete_resource_policy(; aws_config::AbstractAWSConfig=global_aws_config())
-    return schemas("DELETE", "/v1/policy"; aws_config=aws_config)
+    return schemas("DELETE", "/v1/policy"; aws_config=aws_config, features=SERVICE_FEATURES)
 end
 function delete_resource_policy(
     params::AbstractDict{String}; aws_config::AbstractAWSConfig=global_aws_config()
 )
-    return schemas("DELETE", "/v1/policy", params; aws_config=aws_config)
+    return schemas(
+        "DELETE", "/v1/policy", params; aws_config=aws_config, features=SERVICE_FEATURES
+    )
 end
 
 """
@@ -204,6 +237,7 @@ function delete_schema(
         "DELETE",
         "/v1/registries/name/$(registryName)/schemas/name/$(schemaName)";
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 function delete_schema(
@@ -217,6 +251,7 @@ function delete_schema(
         "/v1/registries/name/$(registryName)/schemas/name/$(schemaName)",
         params;
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -242,6 +277,7 @@ function delete_schema_version(
         "DELETE",
         "/v1/registries/name/$(registryName)/schemas/name/$(schemaName)/version/$(schemaVersion)";
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 function delete_schema_version(
@@ -256,6 +292,7 @@ function delete_schema_version(
         "/v1/registries/name/$(registryName)/schemas/name/$(schemaName)/version/$(schemaVersion)",
         params;
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -281,6 +318,7 @@ function describe_code_binding(
         "GET",
         "/v1/registries/name/$(registryName)/schemas/name/$(schemaName)/language/$(language)";
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 function describe_code_binding(
@@ -295,6 +333,7 @@ function describe_code_binding(
         "/v1/registries/name/$(registryName)/schemas/name/$(schemaName)/language/$(language)",
         params;
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -311,7 +350,12 @@ Describes the discoverer.
 function describe_discoverer(
     discovererId; aws_config::AbstractAWSConfig=global_aws_config()
 )
-    return schemas("GET", "/v1/discoverers/id/$(discovererId)"; aws_config=aws_config)
+    return schemas(
+        "GET",
+        "/v1/discoverers/id/$(discovererId)";
+        aws_config=aws_config,
+        features=SERVICE_FEATURES,
+    )
 end
 function describe_discoverer(
     discovererId,
@@ -319,7 +363,11 @@ function describe_discoverer(
     aws_config::AbstractAWSConfig=global_aws_config(),
 )
     return schemas(
-        "GET", "/v1/discoverers/id/$(discovererId)", params; aws_config=aws_config
+        "GET",
+        "/v1/discoverers/id/$(discovererId)",
+        params;
+        aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -334,7 +382,12 @@ Describes the registry.
 
 """
 function describe_registry(registryName; aws_config::AbstractAWSConfig=global_aws_config())
-    return schemas("GET", "/v1/registries/name/$(registryName)"; aws_config=aws_config)
+    return schemas(
+        "GET",
+        "/v1/registries/name/$(registryName)";
+        aws_config=aws_config,
+        features=SERVICE_FEATURES,
+    )
 end
 function describe_registry(
     registryName,
@@ -342,7 +395,11 @@ function describe_registry(
     aws_config::AbstractAWSConfig=global_aws_config(),
 )
     return schemas(
-        "GET", "/v1/registries/name/$(registryName)", params; aws_config=aws_config
+        "GET",
+        "/v1/registries/name/$(registryName)",
+        params;
+        aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -367,6 +424,7 @@ function describe_schema(
         "GET",
         "/v1/registries/name/$(registryName)/schemas/name/$(schemaName)";
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 function describe_schema(
@@ -380,6 +438,7 @@ function describe_schema(
         "/v1/registries/name/$(registryName)/schemas/name/$(schemaName)",
         params;
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -406,6 +465,7 @@ function export_schema(
         "/v1/registries/name/$(registryName)/schemas/name/$(schemaName)/export",
         Dict{String,Any}("type" => type);
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 function export_schema(
@@ -420,6 +480,7 @@ function export_schema(
         "/v1/registries/name/$(registryName)/schemas/name/$(schemaName)/export",
         Dict{String,Any}(mergewith(_merge, Dict{String,Any}("type" => type), params));
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -445,6 +506,7 @@ function get_code_binding_source(
         "GET",
         "/v1/registries/name/$(registryName)/schemas/name/$(schemaName)/language/$(language)/source";
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 function get_code_binding_source(
@@ -459,6 +521,7 @@ function get_code_binding_source(
         "/v1/registries/name/$(registryName)/schemas/name/$(schemaName)/language/$(language)/source",
         params;
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -483,6 +546,7 @@ function get_discovered_schema(
         "/v1/discover",
         Dict{String,Any}("Events" => Events, "Type" => Type);
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 function get_discovered_schema(
@@ -498,6 +562,7 @@ function get_discovered_schema(
             mergewith(_merge, Dict{String,Any}("Events" => Events, "Type" => Type), params)
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -512,12 +577,14 @@ Optional parameters can be passed as a `params::Dict{String,<:Any}`. Valid keys 
 - `"registryName"`: The name of the registry.
 """
 function get_resource_policy(; aws_config::AbstractAWSConfig=global_aws_config())
-    return schemas("GET", "/v1/policy"; aws_config=aws_config)
+    return schemas("GET", "/v1/policy"; aws_config=aws_config, features=SERVICE_FEATURES)
 end
 function get_resource_policy(
     params::AbstractDict{String}; aws_config::AbstractAWSConfig=global_aws_config()
 )
-    return schemas("GET", "/v1/policy", params; aws_config=aws_config)
+    return schemas(
+        "GET", "/v1/policy", params; aws_config=aws_config, features=SERVICE_FEATURES
+    )
 end
 
 """
@@ -538,12 +605,16 @@ Optional parameters can be passed as a `params::Dict{String,<:Any}`. Valid keys 
   with the specified prefix.
 """
 function list_discoverers(; aws_config::AbstractAWSConfig=global_aws_config())
-    return schemas("GET", "/v1/discoverers"; aws_config=aws_config)
+    return schemas(
+        "GET", "/v1/discoverers"; aws_config=aws_config, features=SERVICE_FEATURES
+    )
 end
 function list_discoverers(
     params::AbstractDict{String}; aws_config::AbstractAWSConfig=global_aws_config()
 )
-    return schemas("GET", "/v1/discoverers", params; aws_config=aws_config)
+    return schemas(
+        "GET", "/v1/discoverers", params; aws_config=aws_config, features=SERVICE_FEATURES
+    )
 end
 
 """
@@ -564,12 +635,16 @@ Optional parameters can be passed as a `params::Dict{String,<:Any}`. Valid keys 
   the ones provided by AWS.
 """
 function list_registries(; aws_config::AbstractAWSConfig=global_aws_config())
-    return schemas("GET", "/v1/registries"; aws_config=aws_config)
+    return schemas(
+        "GET", "/v1/registries"; aws_config=aws_config, features=SERVICE_FEATURES
+    )
 end
 function list_registries(
     params::AbstractDict{String}; aws_config::AbstractAWSConfig=global_aws_config()
 )
-    return schemas("GET", "/v1/registries", params; aws_config=aws_config)
+    return schemas(
+        "GET", "/v1/registries", params; aws_config=aws_config, features=SERVICE_FEATURES
+    )
 end
 
 """
@@ -596,6 +671,7 @@ function list_schema_versions(
         "GET",
         "/v1/registries/name/$(registryName)/schemas/name/$(schemaName)/versions";
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 function list_schema_versions(
@@ -609,6 +685,7 @@ function list_schema_versions(
         "/v1/registries/name/$(registryName)/schemas/name/$(schemaName)/versions",
         params;
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -632,7 +709,10 @@ Optional parameters can be passed as a `params::Dict{String,<:Any}`. Valid keys 
 """
 function list_schemas(registryName; aws_config::AbstractAWSConfig=global_aws_config())
     return schemas(
-        "GET", "/v1/registries/name/$(registryName)/schemas"; aws_config=aws_config
+        "GET",
+        "/v1/registries/name/$(registryName)/schemas";
+        aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 function list_schemas(
@@ -641,7 +721,11 @@ function list_schemas(
     aws_config::AbstractAWSConfig=global_aws_config(),
 )
     return schemas(
-        "GET", "/v1/registries/name/$(registryName)/schemas", params; aws_config=aws_config
+        "GET",
+        "/v1/registries/name/$(registryName)/schemas",
+        params;
+        aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -658,14 +742,22 @@ Get tags for resource.
 function list_tags_for_resource(
     resource_arn; aws_config::AbstractAWSConfig=global_aws_config()
 )
-    return schemas("GET", "/tags/$(resource-arn)"; aws_config=aws_config)
+    return schemas(
+        "GET", "/tags/$(resource-arn)"; aws_config=aws_config, features=SERVICE_FEATURES
+    )
 end
 function list_tags_for_resource(
     resource_arn,
     params::AbstractDict{String};
     aws_config::AbstractAWSConfig=global_aws_config(),
 )
-    return schemas("GET", "/tags/$(resource-arn)", params; aws_config=aws_config)
+    return schemas(
+        "GET",
+        "/tags/$(resource-arn)",
+        params;
+        aws_config=aws_config,
+        features=SERVICE_FEATURES,
+    )
 end
 
 """
@@ -690,6 +782,7 @@ function put_code_binding(
         "POST",
         "/v1/registries/name/$(registryName)/schemas/name/$(schemaName)/language/$(language)";
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 function put_code_binding(
@@ -704,6 +797,7 @@ function put_code_binding(
         "/v1/registries/name/$(registryName)/schemas/name/$(schemaName)/language/$(language)",
         params;
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -723,7 +817,11 @@ Optional parameters can be passed as a `params::Dict{String,<:Any}`. Valid keys 
 """
 function put_resource_policy(Policy; aws_config::AbstractAWSConfig=global_aws_config())
     return schemas(
-        "PUT", "/v1/policy", Dict{String,Any}("Policy" => Policy); aws_config=aws_config
+        "PUT",
+        "/v1/policy",
+        Dict{String,Any}("Policy" => Policy);
+        aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 function put_resource_policy(
@@ -734,6 +832,7 @@ function put_resource_policy(
         "/v1/policy",
         Dict{String,Any}(mergewith(_merge, Dict{String,Any}("Policy" => Policy), params));
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -763,6 +862,7 @@ function search_schemas(
         "/v1/registries/name/$(registryName)/schemas/search",
         Dict{String,Any}("keywords" => keywords);
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 function search_schemas(
@@ -778,6 +878,7 @@ function search_schemas(
             mergewith(_merge, Dict{String,Any}("keywords" => keywords), params)
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -793,7 +894,10 @@ Starts the discoverer
 """
 function start_discoverer(discovererId; aws_config::AbstractAWSConfig=global_aws_config())
     return schemas(
-        "POST", "/v1/discoverers/id/$(discovererId)/start"; aws_config=aws_config
+        "POST",
+        "/v1/discoverers/id/$(discovererId)/start";
+        aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 function start_discoverer(
@@ -802,7 +906,11 @@ function start_discoverer(
     aws_config::AbstractAWSConfig=global_aws_config(),
 )
     return schemas(
-        "POST", "/v1/discoverers/id/$(discovererId)/start", params; aws_config=aws_config
+        "POST",
+        "/v1/discoverers/id/$(discovererId)/start",
+        params;
+        aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -817,7 +925,12 @@ Stops the discoverer
 
 """
 function stop_discoverer(discovererId; aws_config::AbstractAWSConfig=global_aws_config())
-    return schemas("POST", "/v1/discoverers/id/$(discovererId)/stop"; aws_config=aws_config)
+    return schemas(
+        "POST",
+        "/v1/discoverers/id/$(discovererId)/stop";
+        aws_config=aws_config,
+        features=SERVICE_FEATURES,
+    )
 end
 function stop_discoverer(
     discovererId,
@@ -825,7 +938,11 @@ function stop_discoverer(
     aws_config::AbstractAWSConfig=global_aws_config(),
 )
     return schemas(
-        "POST", "/v1/discoverers/id/$(discovererId)/stop", params; aws_config=aws_config
+        "POST",
+        "/v1/discoverers/id/$(discovererId)/stop",
+        params;
+        aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -846,6 +963,7 @@ function tag_resource(resource_arn, tags; aws_config::AbstractAWSConfig=global_a
         "/tags/$(resource-arn)",
         Dict{String,Any}("tags" => tags);
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 function tag_resource(
@@ -859,6 +977,7 @@ function tag_resource(
         "/tags/$(resource-arn)",
         Dict{String,Any}(mergewith(_merge, Dict{String,Any}("tags" => tags), params));
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -881,6 +1000,7 @@ function untag_resource(
         "/tags/$(resource-arn)",
         Dict{String,Any}("tagKeys" => tagKeys);
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 function untag_resource(
@@ -894,6 +1014,7 @@ function untag_resource(
         "/tags/$(resource-arn)",
         Dict{String,Any}(mergewith(_merge, Dict{String,Any}("tagKeys" => tagKeys), params));
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -913,7 +1034,12 @@ Optional parameters can be passed as a `params::Dict{String,<:Any}`. Valid keys 
 - `"Description"`: The description of the discoverer to update.
 """
 function update_discoverer(discovererId; aws_config::AbstractAWSConfig=global_aws_config())
-    return schemas("PUT", "/v1/discoverers/id/$(discovererId)"; aws_config=aws_config)
+    return schemas(
+        "PUT",
+        "/v1/discoverers/id/$(discovererId)";
+        aws_config=aws_config,
+        features=SERVICE_FEATURES,
+    )
 end
 function update_discoverer(
     discovererId,
@@ -921,7 +1047,11 @@ function update_discoverer(
     aws_config::AbstractAWSConfig=global_aws_config(),
 )
     return schemas(
-        "PUT", "/v1/discoverers/id/$(discovererId)", params; aws_config=aws_config
+        "PUT",
+        "/v1/discoverers/id/$(discovererId)",
+        params;
+        aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -939,7 +1069,12 @@ Optional parameters can be passed as a `params::Dict{String,<:Any}`. Valid keys 
 - `"Description"`: The description of the registry to update.
 """
 function update_registry(registryName; aws_config::AbstractAWSConfig=global_aws_config())
-    return schemas("PUT", "/v1/registries/name/$(registryName)"; aws_config=aws_config)
+    return schemas(
+        "PUT",
+        "/v1/registries/name/$(registryName)";
+        aws_config=aws_config,
+        features=SERVICE_FEATURES,
+    )
 end
 function update_registry(
     registryName,
@@ -947,7 +1082,11 @@ function update_registry(
     aws_config::AbstractAWSConfig=global_aws_config(),
 )
     return schemas(
-        "PUT", "/v1/registries/name/$(registryName)", params; aws_config=aws_config
+        "PUT",
+        "/v1/registries/name/$(registryName)",
+        params;
+        aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -976,6 +1115,7 @@ function update_schema(
         "/v1/registries/name/$(registryName)/schemas/name/$(schemaName)",
         Dict{String,Any}("ClientTokenId" => string(uuid4()));
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 function update_schema(
@@ -991,5 +1131,6 @@ function update_schema(
             mergewith(_merge, Dict{String,Any}("ClientTokenId" => string(uuid4())), params)
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end

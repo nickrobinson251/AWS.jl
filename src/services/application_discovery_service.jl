@@ -29,6 +29,7 @@ function associate_configuration_items_to_application(
             "configurationIds" => configurationIds,
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 function associate_configuration_items_to_application(
@@ -50,6 +51,7 @@ function associate_configuration_items_to_application(
             ),
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -76,6 +78,7 @@ function batch_delete_import_data(
         "BatchDeleteImportData",
         Dict{String,Any}("importTaskIds" => importTaskIds);
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 function batch_delete_import_data(
@@ -89,6 +92,7 @@ function batch_delete_import_data(
             mergewith(_merge, Dict{String,Any}("importTaskIds" => importTaskIds), params)
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -107,7 +111,10 @@ Optional parameters can be passed as a `params::Dict{String,<:Any}`. Valid keys 
 """
 function create_application(name; aws_config::AbstractAWSConfig=global_aws_config())
     return application_discovery_service(
-        "CreateApplication", Dict{String,Any}("name" => name); aws_config=aws_config
+        "CreateApplication",
+        Dict{String,Any}("name" => name);
+        aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 function create_application(
@@ -117,6 +124,7 @@ function create_application(
         "CreateApplication",
         Dict{String,Any}(mergewith(_merge, Dict{String,Any}("name" => name), params));
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -141,6 +149,7 @@ function create_tags(
         "CreateTags",
         Dict{String,Any}("configurationIds" => configurationIds, "tags" => tags);
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 function create_tags(
@@ -159,6 +168,7 @@ function create_tags(
             ),
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -179,6 +189,7 @@ function delete_applications(
         "DeleteApplications",
         Dict{String,Any}("configurationIds" => configurationIds);
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 function delete_applications(
@@ -194,6 +205,7 @@ function delete_applications(
             ),
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -218,6 +230,7 @@ function delete_tags(configurationIds; aws_config::AbstractAWSConfig=global_aws_
         "DeleteTags",
         Dict{String,Any}("configurationIds" => configurationIds);
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 function delete_tags(
@@ -233,6 +246,7 @@ function delete_tags(
             ),
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -259,12 +273,16 @@ Optional parameters can be passed as a `params::Dict{String,<:Any}`. Valid keys 
   get the next set of 10.
 """
 function describe_agents(; aws_config::AbstractAWSConfig=global_aws_config())
-    return application_discovery_service("DescribeAgents"; aws_config=aws_config)
+    return application_discovery_service(
+        "DescribeAgents"; aws_config=aws_config, features=SERVICE_FEATURES
+    )
 end
 function describe_agents(
     params::AbstractDict{String}; aws_config::AbstractAWSConfig=global_aws_config()
 )
-    return application_discovery_service("DescribeAgents", params; aws_config=aws_config)
+    return application_discovery_service(
+        "DescribeAgents", params; aws_config=aws_config, features=SERVICE_FEATURES
+    )
 end
 
 """
@@ -290,6 +308,7 @@ function describe_configurations(
         "DescribeConfigurations",
         Dict{String,Any}("configurationIds" => configurationIds);
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 function describe_configurations(
@@ -305,6 +324,7 @@ function describe_configurations(
             ),
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -323,13 +343,18 @@ Optional parameters can be passed as a `params::Dict{String,<:Any}`. Valid keys 
 - `"nextToken"`: The token from the previous call to DescribeExportTasks.
 """
 function describe_continuous_exports(; aws_config::AbstractAWSConfig=global_aws_config())
-    return application_discovery_service("DescribeContinuousExports"; aws_config=aws_config)
+    return application_discovery_service(
+        "DescribeContinuousExports"; aws_config=aws_config, features=SERVICE_FEATURES
+    )
 end
 function describe_continuous_exports(
     params::AbstractDict{String}; aws_config::AbstractAWSConfig=global_aws_config()
 )
     return application_discovery_service(
-        "DescribeContinuousExports", params; aws_config=aws_config
+        "DescribeContinuousExports",
+        params;
+        aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -348,14 +373,17 @@ Optional parameters can be passed as a `params::Dict{String,<:Any}`. Valid keys 
 """
 function describe_export_configurations(; aws_config::AbstractAWSConfig=global_aws_config())
     return application_discovery_service(
-        "DescribeExportConfigurations"; aws_config=aws_config
+        "DescribeExportConfigurations"; aws_config=aws_config, features=SERVICE_FEATURES
     )
 end
 function describe_export_configurations(
     params::AbstractDict{String}; aws_config::AbstractAWSConfig=global_aws_config()
 )
     return application_discovery_service(
-        "DescribeExportConfigurations", params; aws_config=aws_config
+        "DescribeExportConfigurations",
+        params;
+        aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -381,13 +409,15 @@ Optional parameters can be passed as a `params::Dict{String,<:Any}`. Valid keys 
   value. This value is null when there are no more results to return.
 """
 function describe_export_tasks(; aws_config::AbstractAWSConfig=global_aws_config())
-    return application_discovery_service("DescribeExportTasks"; aws_config=aws_config)
+    return application_discovery_service(
+        "DescribeExportTasks"; aws_config=aws_config, features=SERVICE_FEATURES
+    )
 end
 function describe_export_tasks(
     params::AbstractDict{String}; aws_config::AbstractAWSConfig=global_aws_config()
 )
     return application_discovery_service(
-        "DescribeExportTasks", params; aws_config=aws_config
+        "DescribeExportTasks", params; aws_config=aws_config, features=SERVICE_FEATURES
     )
 end
 
@@ -408,13 +438,15 @@ Optional parameters can be passed as a `params::Dict{String,<:Any}`. Valid keys 
 - `"nextToken"`: The token to request a specific page of results.
 """
 function describe_import_tasks(; aws_config::AbstractAWSConfig=global_aws_config())
-    return application_discovery_service("DescribeImportTasks"; aws_config=aws_config)
+    return application_discovery_service(
+        "DescribeImportTasks"; aws_config=aws_config, features=SERVICE_FEATURES
+    )
 end
 function describe_import_tasks(
     params::AbstractDict{String}; aws_config::AbstractAWSConfig=global_aws_config()
 )
     return application_discovery_service(
-        "DescribeImportTasks", params; aws_config=aws_config
+        "DescribeImportTasks", params; aws_config=aws_config, features=SERVICE_FEATURES
     )
 end
 
@@ -438,12 +470,16 @@ Optional parameters can be passed as a `params::Dict{String,<:Any}`. Valid keys 
 - `"nextToken"`: A token to start the list. Use this token to get the next set of results.
 """
 function describe_tags(; aws_config::AbstractAWSConfig=global_aws_config())
-    return application_discovery_service("DescribeTags"; aws_config=aws_config)
+    return application_discovery_service(
+        "DescribeTags"; aws_config=aws_config, features=SERVICE_FEATURES
+    )
 end
 function describe_tags(
     params::AbstractDict{String}; aws_config::AbstractAWSConfig=global_aws_config()
 )
-    return application_discovery_service("DescribeTags", params; aws_config=aws_config)
+    return application_discovery_service(
+        "DescribeTags", params; aws_config=aws_config, features=SERVICE_FEATURES
+    )
 end
 
 """
@@ -471,6 +507,7 @@ function disassociate_configuration_items_from_application(
             "configurationIds" => configurationIds,
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 function disassociate_configuration_items_from_application(
@@ -492,6 +529,7 @@ function disassociate_configuration_items_from_application(
             ),
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -508,13 +546,15 @@ in six hours.
 
 """
 function export_configurations(; aws_config::AbstractAWSConfig=global_aws_config())
-    return application_discovery_service("ExportConfigurations"; aws_config=aws_config)
+    return application_discovery_service(
+        "ExportConfigurations"; aws_config=aws_config, features=SERVICE_FEATURES
+    )
 end
 function export_configurations(
     params::AbstractDict{String}; aws_config::AbstractAWSConfig=global_aws_config()
 )
     return application_discovery_service(
-        "ExportConfigurations", params; aws_config=aws_config
+        "ExportConfigurations", params; aws_config=aws_config, features=SERVICE_FEATURES
     )
 end
 
@@ -527,13 +567,15 @@ parameters and is called as is at the command prompt as shown in the example.
 
 """
 function get_discovery_summary(; aws_config::AbstractAWSConfig=global_aws_config())
-    return application_discovery_service("GetDiscoverySummary"; aws_config=aws_config)
+    return application_discovery_service(
+        "GetDiscoverySummary"; aws_config=aws_config, features=SERVICE_FEATURES
+    )
 end
 function get_discovery_summary(
     params::AbstractDict{String}; aws_config::AbstractAWSConfig=global_aws_config()
 )
     return application_discovery_service(
-        "GetDiscoverySummary", params; aws_config=aws_config
+        "GetDiscoverySummary", params; aws_config=aws_config, features=SERVICE_FEATURES
     )
 end
 
@@ -569,6 +611,7 @@ function list_configurations(
         "ListConfigurations",
         Dict{String,Any}("configurationType" => configurationType);
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 function list_configurations(
@@ -584,6 +627,7 @@ function list_configurations(
             ),
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -614,6 +658,7 @@ function list_server_neighbors(
         "ListServerNeighbors",
         Dict{String,Any}("configurationId" => configurationId);
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 function list_server_neighbors(
@@ -629,6 +674,7 @@ function list_server_neighbors(
             ),
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -640,13 +686,15 @@ Start the continuous flow of agent's discovered data into Amazon Athena.
 
 """
 function start_continuous_export(; aws_config::AbstractAWSConfig=global_aws_config())
-    return application_discovery_service("StartContinuousExport"; aws_config=aws_config)
+    return application_discovery_service(
+        "StartContinuousExport"; aws_config=aws_config, features=SERVICE_FEATURES
+    )
 end
 function start_continuous_export(
     params::AbstractDict{String}; aws_config::AbstractAWSConfig=global_aws_config()
 )
     return application_discovery_service(
-        "StartContinuousExport", params; aws_config=aws_config
+        "StartContinuousExport", params; aws_config=aws_config, features=SERVICE_FEATURES
     )
 end
 
@@ -672,6 +720,7 @@ function start_data_collection_by_agent_ids(
         "StartDataCollectionByAgentIds",
         Dict{String,Any}("agentIds" => agentIds);
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 function start_data_collection_by_agent_ids(
@@ -685,6 +734,7 @@ function start_data_collection_by_agent_ids(
             mergewith(_merge, Dict{String,Any}("agentIds" => agentIds), params)
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -718,12 +768,16 @@ Optional parameters can be passed as a `params::Dict{String,<:Any}`. Valid keys 
   starting from the first data collected by the agent.
 """
 function start_export_task(; aws_config::AbstractAWSConfig=global_aws_config())
-    return application_discovery_service("StartExportTask"; aws_config=aws_config)
+    return application_discovery_service(
+        "StartExportTask"; aws_config=aws_config, features=SERVICE_FEATURES
+    )
 end
 function start_export_task(
     params::AbstractDict{String}; aws_config::AbstractAWSConfig=global_aws_config()
 )
-    return application_discovery_service("StartExportTask", params; aws_config=aws_config)
+    return application_discovery_service(
+        "StartExportTask", params; aws_config=aws_config, features=SERVICE_FEATURES
+    )
 end
 
 """
@@ -774,6 +828,7 @@ function start_import_task(
             "clientRequestToken" => string(uuid4()),
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 function start_import_task(
@@ -796,6 +851,7 @@ function start_import_task(
             ),
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -814,6 +870,7 @@ function stop_continuous_export(exportId; aws_config::AbstractAWSConfig=global_a
         "StopContinuousExport",
         Dict{String,Any}("exportId" => exportId);
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 function stop_continuous_export(
@@ -827,6 +884,7 @@ function stop_continuous_export(
             mergewith(_merge, Dict{String,Any}("exportId" => exportId), params)
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -847,6 +905,7 @@ function stop_data_collection_by_agent_ids(
         "StopDataCollectionByAgentIds",
         Dict{String,Any}("agentIds" => agentIds);
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 function stop_data_collection_by_agent_ids(
@@ -860,6 +919,7 @@ function stop_data_collection_by_agent_ids(
             mergewith(_merge, Dict{String,Any}("agentIds" => agentIds), params)
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -884,6 +944,7 @@ function update_application(
         "UpdateApplication",
         Dict{String,Any}("configurationId" => configurationId);
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 function update_application(
@@ -899,5 +960,6 @@ function update_application(
             ),
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end

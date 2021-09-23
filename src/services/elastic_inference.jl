@@ -30,6 +30,7 @@ function describe_accelerator_offerings(
         "/describe-accelerator-offerings",
         Dict{String,Any}("locationType" => locationType);
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 function describe_accelerator_offerings(
@@ -44,6 +45,7 @@ function describe_accelerator_offerings(
             mergewith(_merge, Dict{String,Any}("locationType" => locationType), params)
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -56,13 +58,22 @@ characteristics, such as memory and throughput.
 
 """
 function describe_accelerator_types(; aws_config::AbstractAWSConfig=global_aws_config())
-    return elastic_inference("GET", "/describe-accelerator-types"; aws_config=aws_config)
+    return elastic_inference(
+        "GET",
+        "/describe-accelerator-types";
+        aws_config=aws_config,
+        features=SERVICE_FEATURES,
+    )
 end
 function describe_accelerator_types(
     params::AbstractDict{String}; aws_config::AbstractAWSConfig=global_aws_config()
 )
     return elastic_inference(
-        "GET", "/describe-accelerator-types", params; aws_config=aws_config
+        "GET",
+        "/describe-accelerator-types",
+        params;
+        aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -87,13 +98,19 @@ Optional parameters can be passed as a `params::Dict{String,<:Any}`. Valid keys 
   a previously truncated response.
 """
 function describe_accelerators(; aws_config::AbstractAWSConfig=global_aws_config())
-    return elastic_inference("POST", "/describe-accelerators"; aws_config=aws_config)
+    return elastic_inference(
+        "POST", "/describe-accelerators"; aws_config=aws_config, features=SERVICE_FEATURES
+    )
 end
 function describe_accelerators(
     params::AbstractDict{String}; aws_config::AbstractAWSConfig=global_aws_config()
 )
     return elastic_inference(
-        "POST", "/describe-accelerators", params; aws_config=aws_config
+        "POST",
+        "/describe-accelerators",
+        params;
+        aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -110,14 +127,22 @@ end
 function list_tags_for_resource(
     resourceArn; aws_config::AbstractAWSConfig=global_aws_config()
 )
-    return elastic_inference("GET", "/tags/$(resourceArn)"; aws_config=aws_config)
+    return elastic_inference(
+        "GET", "/tags/$(resourceArn)"; aws_config=aws_config, features=SERVICE_FEATURES
+    )
 end
 function list_tags_for_resource(
     resourceArn,
     params::AbstractDict{String};
     aws_config::AbstractAWSConfig=global_aws_config(),
 )
-    return elastic_inference("GET", "/tags/$(resourceArn)", params; aws_config=aws_config)
+    return elastic_inference(
+        "GET",
+        "/tags/$(resourceArn)",
+        params;
+        aws_config=aws_config,
+        features=SERVICE_FEATURES,
+    )
 end
 
 """
@@ -137,6 +162,7 @@ function tag_resource(resourceArn, tags; aws_config::AbstractAWSConfig=global_aw
         "/tags/$(resourceArn)",
         Dict{String,Any}("tags" => tags);
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 function tag_resource(
@@ -150,6 +176,7 @@ function tag_resource(
         "/tags/$(resourceArn)",
         Dict{String,Any}(mergewith(_merge, Dict{String,Any}("tags" => tags), params));
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -172,6 +199,7 @@ function untag_resource(
         "/tags/$(resourceArn)",
         Dict{String,Any}("tagKeys" => tagKeys);
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 function untag_resource(
@@ -185,5 +213,6 @@ function untag_resource(
         "/tags/$(resourceArn)",
         Dict{String,Any}(mergewith(_merge, Dict{String,Any}("tagKeys" => tagKeys), params));
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end

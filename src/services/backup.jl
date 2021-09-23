@@ -32,6 +32,7 @@ function create_backup_plan(BackupPlan; aws_config::AbstractAWSConfig=global_aws
         "/backup/plans/",
         Dict{String,Any}("BackupPlan" => BackupPlan);
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 function create_backup_plan(
@@ -46,6 +47,7 @@ function create_backup_plan(
             mergewith(_merge, Dict{String,Any}("BackupPlan" => BackupPlan), params)
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -85,6 +87,7 @@ function create_backup_selection(
         "/backup/plans/$(backupPlanId)/selections/",
         Dict{String,Any}("BackupSelection" => BackupSelection);
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 function create_backup_selection(
@@ -102,6 +105,7 @@ function create_backup_selection(
             ),
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -132,14 +136,25 @@ Optional parameters can be passed as a `params::Dict{String,<:Any}`. Valid keys 
 function create_backup_vault(
     backupVaultName; aws_config::AbstractAWSConfig=global_aws_config()
 )
-    return backup("PUT", "/backup-vaults/$(backupVaultName)"; aws_config=aws_config)
+    return backup(
+        "PUT",
+        "/backup-vaults/$(backupVaultName)";
+        aws_config=aws_config,
+        features=SERVICE_FEATURES,
+    )
 end
 function create_backup_vault(
     backupVaultName,
     params::AbstractDict{String};
     aws_config::AbstractAWSConfig=global_aws_config(),
 )
-    return backup("PUT", "/backup-vaults/$(backupVaultName)", params; aws_config=aws_config)
+    return backup(
+        "PUT",
+        "/backup-vaults/$(backupVaultName)",
+        params;
+        aws_config=aws_config,
+        features=SERVICE_FEATURES,
+    )
 end
 
 """
@@ -181,6 +196,7 @@ function create_framework(
             "IdempotencyToken" => string(uuid4()),
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 function create_framework(
@@ -204,6 +220,7 @@ function create_framework(
             ),
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -252,6 +269,7 @@ function create_report_plan(
             "IdempotencyToken" => string(uuid4()),
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 function create_report_plan(
@@ -277,6 +295,7 @@ function create_report_plan(
             ),
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -293,14 +312,25 @@ plan. Previous versions, if any, will still exist.
 
 """
 function delete_backup_plan(backupPlanId; aws_config::AbstractAWSConfig=global_aws_config())
-    return backup("DELETE", "/backup/plans/$(backupPlanId)"; aws_config=aws_config)
+    return backup(
+        "DELETE",
+        "/backup/plans/$(backupPlanId)";
+        aws_config=aws_config,
+        features=SERVICE_FEATURES,
+    )
 end
 function delete_backup_plan(
     backupPlanId,
     params::AbstractDict{String};
     aws_config::AbstractAWSConfig=global_aws_config(),
 )
-    return backup("DELETE", "/backup/plans/$(backupPlanId)", params; aws_config=aws_config)
+    return backup(
+        "DELETE",
+        "/backup/plans/$(backupPlanId)",
+        params;
+        aws_config=aws_config,
+        features=SERVICE_FEATURES,
+    )
 end
 
 """
@@ -323,6 +353,7 @@ function delete_backup_selection(
         "DELETE",
         "/backup/plans/$(backupPlanId)/selections/$(selectionId)";
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 function delete_backup_selection(
@@ -336,6 +367,7 @@ function delete_backup_selection(
         "/backup/plans/$(backupPlanId)/selections/$(selectionId)",
         params;
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -355,7 +387,12 @@ Deletes the backup vault identified by its name. A vault can be deleted only if 
 function delete_backup_vault(
     backupVaultName; aws_config::AbstractAWSConfig=global_aws_config()
 )
-    return backup("DELETE", "/backup-vaults/$(backupVaultName)"; aws_config=aws_config)
+    return backup(
+        "DELETE",
+        "/backup-vaults/$(backupVaultName)";
+        aws_config=aws_config,
+        features=SERVICE_FEATURES,
+    )
 end
 function delete_backup_vault(
     backupVaultName,
@@ -363,7 +400,11 @@ function delete_backup_vault(
     aws_config::AbstractAWSConfig=global_aws_config(),
 )
     return backup(
-        "DELETE", "/backup-vaults/$(backupVaultName)", params; aws_config=aws_config
+        "DELETE",
+        "/backup-vaults/$(backupVaultName)",
+        params;
+        aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -384,7 +425,10 @@ function delete_backup_vault_access_policy(
     backupVaultName; aws_config::AbstractAWSConfig=global_aws_config()
 )
     return backup(
-        "DELETE", "/backup-vaults/$(backupVaultName)/access-policy"; aws_config=aws_config
+        "DELETE",
+        "/backup-vaults/$(backupVaultName)/access-policy";
+        aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 function delete_backup_vault_access_policy(
@@ -397,6 +441,7 @@ function delete_backup_vault_access_policy(
         "/backup-vaults/$(backupVaultName)/access-policy",
         params;
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -419,6 +464,7 @@ function delete_backup_vault_notifications(
         "DELETE",
         "/backup-vaults/$(backupVaultName)/notification-configuration";
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 function delete_backup_vault_notifications(
@@ -431,6 +477,7 @@ function delete_backup_vault_notifications(
         "/backup-vaults/$(backupVaultName)/notification-configuration",
         params;
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -445,7 +492,12 @@ Deletes the framework specified by a framework name.
 
 """
 function delete_framework(frameworkName; aws_config::AbstractAWSConfig=global_aws_config())
-    return backup("DELETE", "/audit/frameworks/$(frameworkName)"; aws_config=aws_config)
+    return backup(
+        "DELETE",
+        "/audit/frameworks/$(frameworkName)";
+        aws_config=aws_config,
+        features=SERVICE_FEATURES,
+    )
 end
 function delete_framework(
     frameworkName,
@@ -453,7 +505,11 @@ function delete_framework(
     aws_config::AbstractAWSConfig=global_aws_config(),
 )
     return backup(
-        "DELETE", "/audit/frameworks/$(frameworkName)", params; aws_config=aws_config
+        "DELETE",
+        "/audit/frameworks/$(frameworkName)",
+        params;
+        aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -482,6 +538,7 @@ function delete_recovery_point(
         "DELETE",
         "/backup-vaults/$(backupVaultName)/recovery-points/$(recoveryPointArn)";
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 function delete_recovery_point(
@@ -495,6 +552,7 @@ function delete_recovery_point(
         "/backup-vaults/$(backupVaultName)/recovery-points/$(recoveryPointArn)",
         params;
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -511,7 +569,12 @@ Deletes the report plan specified by a report plan name.
 function delete_report_plan(
     reportPlanName; aws_config::AbstractAWSConfig=global_aws_config()
 )
-    return backup("DELETE", "/audit/report-plans/$(reportPlanName)"; aws_config=aws_config)
+    return backup(
+        "DELETE",
+        "/audit/report-plans/$(reportPlanName)";
+        aws_config=aws_config,
+        features=SERVICE_FEATURES,
+    )
 end
 function delete_report_plan(
     reportPlanName,
@@ -519,7 +582,11 @@ function delete_report_plan(
     aws_config::AbstractAWSConfig=global_aws_config(),
 )
     return backup(
-        "DELETE", "/audit/report-plans/$(reportPlanName)", params; aws_config=aws_config
+        "DELETE",
+        "/audit/report-plans/$(reportPlanName)",
+        params;
+        aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -534,14 +601,25 @@ Returns backup job details for the specified BackupJobId.
 
 """
 function describe_backup_job(backupJobId; aws_config::AbstractAWSConfig=global_aws_config())
-    return backup("GET", "/backup-jobs/$(backupJobId)"; aws_config=aws_config)
+    return backup(
+        "GET",
+        "/backup-jobs/$(backupJobId)";
+        aws_config=aws_config,
+        features=SERVICE_FEATURES,
+    )
 end
 function describe_backup_job(
     backupJobId,
     params::AbstractDict{String};
     aws_config::AbstractAWSConfig=global_aws_config(),
 )
-    return backup("GET", "/backup-jobs/$(backupJobId)", params; aws_config=aws_config)
+    return backup(
+        "GET",
+        "/backup-jobs/$(backupJobId)",
+        params;
+        aws_config=aws_config,
+        features=SERVICE_FEATURES,
+    )
 end
 
 """
@@ -560,14 +638,25 @@ Returns metadata about a backup vault specified by its name.
 function describe_backup_vault(
     backupVaultName; aws_config::AbstractAWSConfig=global_aws_config()
 )
-    return backup("GET", "/backup-vaults/$(backupVaultName)"; aws_config=aws_config)
+    return backup(
+        "GET",
+        "/backup-vaults/$(backupVaultName)";
+        aws_config=aws_config,
+        features=SERVICE_FEATURES,
+    )
 end
 function describe_backup_vault(
     backupVaultName,
     params::AbstractDict{String};
     aws_config::AbstractAWSConfig=global_aws_config(),
 )
-    return backup("GET", "/backup-vaults/$(backupVaultName)", params; aws_config=aws_config)
+    return backup(
+        "GET",
+        "/backup-vaults/$(backupVaultName)",
+        params;
+        aws_config=aws_config,
+        features=SERVICE_FEATURES,
+    )
 end
 
 """
@@ -581,14 +670,22 @@ Returns metadata associated with creating a copy of a resource.
 
 """
 function describe_copy_job(copyJobId; aws_config::AbstractAWSConfig=global_aws_config())
-    return backup("GET", "/copy-jobs/$(copyJobId)"; aws_config=aws_config)
+    return backup(
+        "GET", "/copy-jobs/$(copyJobId)"; aws_config=aws_config, features=SERVICE_FEATURES
+    )
 end
 function describe_copy_job(
     copyJobId,
     params::AbstractDict{String};
     aws_config::AbstractAWSConfig=global_aws_config(),
 )
-    return backup("GET", "/copy-jobs/$(copyJobId)", params; aws_config=aws_config)
+    return backup(
+        "GET",
+        "/copy-jobs/$(copyJobId)",
+        params;
+        aws_config=aws_config,
+        features=SERVICE_FEATURES,
+    )
 end
 
 """
@@ -604,7 +701,12 @@ Returns the framework details for the specified FrameworkName.
 function describe_framework(
     frameworkName; aws_config::AbstractAWSConfig=global_aws_config()
 )
-    return backup("GET", "/audit/frameworks/$(frameworkName)"; aws_config=aws_config)
+    return backup(
+        "GET",
+        "/audit/frameworks/$(frameworkName)";
+        aws_config=aws_config,
+        features=SERVICE_FEATURES,
+    )
 end
 function describe_framework(
     frameworkName,
@@ -612,7 +714,11 @@ function describe_framework(
     aws_config::AbstractAWSConfig=global_aws_config(),
 )
     return backup(
-        "GET", "/audit/frameworks/$(frameworkName)", params; aws_config=aws_config
+        "GET",
+        "/audit/frameworks/$(frameworkName)",
+        params;
+        aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -626,12 +732,16 @@ describe-global-settings --region us-west-2
 
 """
 function describe_global_settings(; aws_config::AbstractAWSConfig=global_aws_config())
-    return backup("GET", "/global-settings"; aws_config=aws_config)
+    return backup(
+        "GET", "/global-settings"; aws_config=aws_config, features=SERVICE_FEATURES
+    )
 end
 function describe_global_settings(
     params::AbstractDict{String}; aws_config::AbstractAWSConfig=global_aws_config()
 )
-    return backup("GET", "/global-settings", params; aws_config=aws_config)
+    return backup(
+        "GET", "/global-settings", params; aws_config=aws_config, features=SERVICE_FEATURES
+    )
 end
 
 """
@@ -649,14 +759,22 @@ Amazon Resource Name (ARN), and the Amazon Web Services service type of the save
 function describe_protected_resource(
     resourceArn; aws_config::AbstractAWSConfig=global_aws_config()
 )
-    return backup("GET", "/resources/$(resourceArn)"; aws_config=aws_config)
+    return backup(
+        "GET", "/resources/$(resourceArn)"; aws_config=aws_config, features=SERVICE_FEATURES
+    )
 end
 function describe_protected_resource(
     resourceArn,
     params::AbstractDict{String};
     aws_config::AbstractAWSConfig=global_aws_config(),
 )
-    return backup("GET", "/resources/$(resourceArn)", params; aws_config=aws_config)
+    return backup(
+        "GET",
+        "/resources/$(resourceArn)",
+        params;
+        aws_config=aws_config,
+        features=SERVICE_FEATURES,
+    )
 end
 
 """
@@ -683,6 +801,7 @@ function describe_recovery_point(
         "GET",
         "/backup-vaults/$(backupVaultName)/recovery-points/$(recoveryPointArn)";
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 function describe_recovery_point(
@@ -696,6 +815,7 @@ function describe_recovery_point(
         "/backup-vaults/$(backupVaultName)/recovery-points/$(recoveryPointArn)",
         params;
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -710,12 +830,16 @@ does not try to protect that service's resources in this Region.
 
 """
 function describe_region_settings(; aws_config::AbstractAWSConfig=global_aws_config())
-    return backup("GET", "/account-settings"; aws_config=aws_config)
+    return backup(
+        "GET", "/account-settings"; aws_config=aws_config, features=SERVICE_FEATURES
+    )
 end
 function describe_region_settings(
     params::AbstractDict{String}; aws_config::AbstractAWSConfig=global_aws_config()
 )
-    return backup("GET", "/account-settings", params; aws_config=aws_config)
+    return backup(
+        "GET", "/account-settings", params; aws_config=aws_config, features=SERVICE_FEATURES
+    )
 end
 
 """
@@ -730,14 +854,25 @@ Returns the details associated with creating a report as specified by its Report
 
 """
 function describe_report_job(reportJobId; aws_config::AbstractAWSConfig=global_aws_config())
-    return backup("GET", "/audit/report-jobs/$(reportJobId)"; aws_config=aws_config)
+    return backup(
+        "GET",
+        "/audit/report-jobs/$(reportJobId)";
+        aws_config=aws_config,
+        features=SERVICE_FEATURES,
+    )
 end
 function describe_report_job(
     reportJobId,
     params::AbstractDict{String};
     aws_config::AbstractAWSConfig=global_aws_config(),
 )
-    return backup("GET", "/audit/report-jobs/$(reportJobId)", params; aws_config=aws_config)
+    return backup(
+        "GET",
+        "/audit/report-jobs/$(reportJobId)",
+        params;
+        aws_config=aws_config,
+        features=SERVICE_FEATURES,
+    )
 end
 
 """
@@ -754,7 +889,12 @@ Services Region.
 function describe_report_plan(
     reportPlanName; aws_config::AbstractAWSConfig=global_aws_config()
 )
-    return backup("GET", "/audit/report-plans/$(reportPlanName)"; aws_config=aws_config)
+    return backup(
+        "GET",
+        "/audit/report-plans/$(reportPlanName)";
+        aws_config=aws_config,
+        features=SERVICE_FEATURES,
+    )
 end
 function describe_report_plan(
     reportPlanName,
@@ -762,7 +902,11 @@ function describe_report_plan(
     aws_config::AbstractAWSConfig=global_aws_config(),
 )
     return backup(
-        "GET", "/audit/report-plans/$(reportPlanName)", params; aws_config=aws_config
+        "GET",
+        "/audit/report-plans/$(reportPlanName)",
+        params;
+        aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -779,14 +923,25 @@ Returns metadata associated with a restore job that is specified by a job ID.
 function describe_restore_job(
     restoreJobId; aws_config::AbstractAWSConfig=global_aws_config()
 )
-    return backup("GET", "/restore-jobs/$(restoreJobId)"; aws_config=aws_config)
+    return backup(
+        "GET",
+        "/restore-jobs/$(restoreJobId)";
+        aws_config=aws_config,
+        features=SERVICE_FEATURES,
+    )
 end
 function describe_restore_job(
     restoreJobId,
     params::AbstractDict{String};
     aws_config::AbstractAWSConfig=global_aws_config(),
 )
-    return backup("GET", "/restore-jobs/$(restoreJobId)", params; aws_config=aws_config)
+    return backup(
+        "GET",
+        "/restore-jobs/$(restoreJobId)",
+        params;
+        aws_config=aws_config,
+        features=SERVICE_FEATURES,
+    )
 end
 
 """
@@ -811,6 +966,7 @@ function disassociate_recovery_point(
         "POST",
         "/backup-vaults/$(backupVaultName)/recovery-points/$(recoveryPointArn)/disassociate";
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 function disassociate_recovery_point(
@@ -824,6 +980,7 @@ function disassociate_recovery_point(
         "/backup-vaults/$(backupVaultName)/recovery-points/$(recoveryPointArn)/disassociate",
         params;
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -840,7 +997,12 @@ Returns the backup plan that is specified by the plan ID as a backup template.
 function export_backup_plan_template(
     backupPlanId; aws_config::AbstractAWSConfig=global_aws_config()
 )
-    return backup("GET", "/backup/plans/$(backupPlanId)/toTemplate/"; aws_config=aws_config)
+    return backup(
+        "GET",
+        "/backup/plans/$(backupPlanId)/toTemplate/";
+        aws_config=aws_config,
+        features=SERVICE_FEATURES,
+    )
 end
 function export_backup_plan_template(
     backupPlanId,
@@ -848,7 +1010,11 @@ function export_backup_plan_template(
     aws_config::AbstractAWSConfig=global_aws_config(),
 )
     return backup(
-        "GET", "/backup/plans/$(backupPlanId)/toTemplate/", params; aws_config=aws_config
+        "GET",
+        "/backup/plans/$(backupPlanId)/toTemplate/",
+        params;
+        aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -868,14 +1034,25 @@ Optional parameters can be passed as a `params::Dict{String,<:Any}`. Valid keys 
   most 1,024 bytes long. Version IDs cannot be edited.
 """
 function get_backup_plan(backupPlanId; aws_config::AbstractAWSConfig=global_aws_config())
-    return backup("GET", "/backup/plans/$(backupPlanId)/"; aws_config=aws_config)
+    return backup(
+        "GET",
+        "/backup/plans/$(backupPlanId)/";
+        aws_config=aws_config,
+        features=SERVICE_FEATURES,
+    )
 end
 function get_backup_plan(
     backupPlanId,
     params::AbstractDict{String};
     aws_config::AbstractAWSConfig=global_aws_config(),
 )
-    return backup("GET", "/backup/plans/$(backupPlanId)/", params; aws_config=aws_config)
+    return backup(
+        "GET",
+        "/backup/plans/$(backupPlanId)/",
+        params;
+        aws_config=aws_config,
+        features=SERVICE_FEATURES,
+    )
 end
 
 """
@@ -896,6 +1073,7 @@ function get_backup_plan_from_json(
         "/backup/template/json/toPlan",
         Dict{String,Any}("BackupPlanTemplateJson" => BackupPlanTemplateJson);
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 function get_backup_plan_from_json(
@@ -914,6 +1092,7 @@ function get_backup_plan_from_json(
             ),
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -931,7 +1110,10 @@ function get_backup_plan_from_template(
     templateId; aws_config::AbstractAWSConfig=global_aws_config()
 )
     return backup(
-        "GET", "/backup/template/plans/$(templateId)/toPlan"; aws_config=aws_config
+        "GET",
+        "/backup/template/plans/$(templateId)/toPlan";
+        aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 function get_backup_plan_from_template(
@@ -940,7 +1122,11 @@ function get_backup_plan_from_template(
     aws_config::AbstractAWSConfig=global_aws_config(),
 )
     return backup(
-        "GET", "/backup/template/plans/$(templateId)/toPlan", params; aws_config=aws_config
+        "GET",
+        "/backup/template/plans/$(templateId)/toPlan",
+        params;
+        aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -964,6 +1150,7 @@ function get_backup_selection(
         "GET",
         "/backup/plans/$(backupPlanId)/selections/$(selectionId)";
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 function get_backup_selection(
@@ -977,6 +1164,7 @@ function get_backup_selection(
         "/backup/plans/$(backupPlanId)/selections/$(selectionId)",
         params;
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -997,7 +1185,10 @@ function get_backup_vault_access_policy(
     backupVaultName; aws_config::AbstractAWSConfig=global_aws_config()
 )
     return backup(
-        "GET", "/backup-vaults/$(backupVaultName)/access-policy"; aws_config=aws_config
+        "GET",
+        "/backup-vaults/$(backupVaultName)/access-policy";
+        aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 function get_backup_vault_access_policy(
@@ -1010,6 +1201,7 @@ function get_backup_vault_access_policy(
         "/backup-vaults/$(backupVaultName)/access-policy",
         params;
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -1033,6 +1225,7 @@ function get_backup_vault_notifications(
         "GET",
         "/backup-vaults/$(backupVaultName)/notification-configuration";
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 function get_backup_vault_notifications(
@@ -1045,6 +1238,7 @@ function get_backup_vault_notifications(
         "/backup-vaults/$(backupVaultName)/notification-configuration",
         params;
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -1071,6 +1265,7 @@ function get_recovery_point_restore_metadata(
         "GET",
         "/backup-vaults/$(backupVaultName)/recovery-points/$(recoveryPointArn)/restore-metadata";
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 function get_recovery_point_restore_metadata(
@@ -1084,6 +1279,7 @@ function get_recovery_point_restore_metadata(
         "/backup-vaults/$(backupVaultName)/recovery-points/$(recoveryPointArn)/restore-metadata",
         params;
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -1095,12 +1291,20 @@ Returns the Amazon Web Services resource types supported by Backup.
 
 """
 function get_supported_resource_types(; aws_config::AbstractAWSConfig=global_aws_config())
-    return backup("GET", "/supported-resource-types"; aws_config=aws_config)
+    return backup(
+        "GET", "/supported-resource-types"; aws_config=aws_config, features=SERVICE_FEATURES
+    )
 end
 function get_supported_resource_types(
     params::AbstractDict{String}; aws_config::AbstractAWSConfig=global_aws_config()
 )
-    return backup("GET", "/supported-resource-types", params; aws_config=aws_config)
+    return backup(
+        "GET",
+        "/supported-resource-types",
+        params;
+        aws_config=aws_config,
+        features=SERVICE_FEATURES,
+    )
 end
 
 """
@@ -1134,12 +1338,14 @@ Optional parameters can be passed as a `params::Dict{String,<:Any}`. Valid keys 
 - `"state"`: Returns only backup jobs that are in the specified state.
 """
 function list_backup_jobs(; aws_config::AbstractAWSConfig=global_aws_config())
-    return backup("GET", "/backup-jobs/"; aws_config=aws_config)
+    return backup("GET", "/backup-jobs/"; aws_config=aws_config, features=SERVICE_FEATURES)
 end
 function list_backup_jobs(
     params::AbstractDict{String}; aws_config::AbstractAWSConfig=global_aws_config()
 )
-    return backup("GET", "/backup-jobs/", params; aws_config=aws_config)
+    return backup(
+        "GET", "/backup-jobs/", params; aws_config=aws_config, features=SERVICE_FEATURES
+    )
 end
 
 """
@@ -1157,12 +1363,20 @@ Optional parameters can be passed as a `params::Dict{String,<:Any}`. Valid keys 
   items in your list starting at the location pointed to by the next token.
 """
 function list_backup_plan_templates(; aws_config::AbstractAWSConfig=global_aws_config())
-    return backup("GET", "/backup/template/plans"; aws_config=aws_config)
+    return backup(
+        "GET", "/backup/template/plans"; aws_config=aws_config, features=SERVICE_FEATURES
+    )
 end
 function list_backup_plan_templates(
     params::AbstractDict{String}; aws_config::AbstractAWSConfig=global_aws_config()
 )
-    return backup("GET", "/backup/template/plans", params; aws_config=aws_config)
+    return backup(
+        "GET",
+        "/backup/template/plans",
+        params;
+        aws_config=aws_config,
+        features=SERVICE_FEATURES,
+    )
 end
 
 """
@@ -1185,7 +1399,12 @@ Optional parameters can be passed as a `params::Dict{String,<:Any}`. Valid keys 
 function list_backup_plan_versions(
     backupPlanId; aws_config::AbstractAWSConfig=global_aws_config()
 )
-    return backup("GET", "/backup/plans/$(backupPlanId)/versions/"; aws_config=aws_config)
+    return backup(
+        "GET",
+        "/backup/plans/$(backupPlanId)/versions/";
+        aws_config=aws_config,
+        features=SERVICE_FEATURES,
+    )
 end
 function list_backup_plan_versions(
     backupPlanId,
@@ -1193,7 +1412,11 @@ function list_backup_plan_versions(
     aws_config::AbstractAWSConfig=global_aws_config(),
 )
     return backup(
-        "GET", "/backup/plans/$(backupPlanId)/versions/", params; aws_config=aws_config
+        "GET",
+        "/backup/plans/$(backupPlanId)/versions/",
+        params;
+        aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -1215,12 +1438,14 @@ Optional parameters can be passed as a `params::Dict{String,<:Any}`. Valid keys 
   items in your list starting at the location pointed to by the next token.
 """
 function list_backup_plans(; aws_config::AbstractAWSConfig=global_aws_config())
-    return backup("GET", "/backup/plans/"; aws_config=aws_config)
+    return backup("GET", "/backup/plans/"; aws_config=aws_config, features=SERVICE_FEATURES)
 end
 function list_backup_plans(
     params::AbstractDict{String}; aws_config::AbstractAWSConfig=global_aws_config()
 )
-    return backup("GET", "/backup/plans/", params; aws_config=aws_config)
+    return backup(
+        "GET", "/backup/plans/", params; aws_config=aws_config, features=SERVICE_FEATURES
+    )
 end
 
 """
@@ -1243,7 +1468,12 @@ Optional parameters can be passed as a `params::Dict{String,<:Any}`. Valid keys 
 function list_backup_selections(
     backupPlanId; aws_config::AbstractAWSConfig=global_aws_config()
 )
-    return backup("GET", "/backup/plans/$(backupPlanId)/selections/"; aws_config=aws_config)
+    return backup(
+        "GET",
+        "/backup/plans/$(backupPlanId)/selections/";
+        aws_config=aws_config,
+        features=SERVICE_FEATURES,
+    )
 end
 function list_backup_selections(
     backupPlanId,
@@ -1251,7 +1481,11 @@ function list_backup_selections(
     aws_config::AbstractAWSConfig=global_aws_config(),
 )
     return backup(
-        "GET", "/backup/plans/$(backupPlanId)/selections/", params; aws_config=aws_config
+        "GET",
+        "/backup/plans/$(backupPlanId)/selections/",
+        params;
+        aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -1269,12 +1503,16 @@ Optional parameters can be passed as a `params::Dict{String,<:Any}`. Valid keys 
   items in your list starting at the location pointed to by the next token.
 """
 function list_backup_vaults(; aws_config::AbstractAWSConfig=global_aws_config())
-    return backup("GET", "/backup-vaults/"; aws_config=aws_config)
+    return backup(
+        "GET", "/backup-vaults/"; aws_config=aws_config, features=SERVICE_FEATURES
+    )
 end
 function list_backup_vaults(
     params::AbstractDict{String}; aws_config::AbstractAWSConfig=global_aws_config()
 )
-    return backup("GET", "/backup-vaults/", params; aws_config=aws_config)
+    return backup(
+        "GET", "/backup-vaults/", params; aws_config=aws_config, features=SERVICE_FEATURES
+    )
 end
 
 """
@@ -1305,12 +1543,14 @@ Optional parameters can be passed as a `params::Dict{String,<:Any}`. Valid keys 
 - `"state"`: Returns only copy jobs that are in the specified state.
 """
 function list_copy_jobs(; aws_config::AbstractAWSConfig=global_aws_config())
-    return backup("GET", "/copy-jobs/"; aws_config=aws_config)
+    return backup("GET", "/copy-jobs/"; aws_config=aws_config, features=SERVICE_FEATURES)
 end
 function list_copy_jobs(
     params::AbstractDict{String}; aws_config::AbstractAWSConfig=global_aws_config()
 )
-    return backup("GET", "/copy-jobs/", params; aws_config=aws_config)
+    return backup(
+        "GET", "/copy-jobs/", params; aws_config=aws_config, features=SERVICE_FEATURES
+    )
 end
 
 """
@@ -1328,12 +1568,16 @@ Optional parameters can be passed as a `params::Dict{String,<:Any}`. Valid keys 
   which can be used to return the next set of items in the list.
 """
 function list_frameworks(; aws_config::AbstractAWSConfig=global_aws_config())
-    return backup("GET", "/audit/frameworks"; aws_config=aws_config)
+    return backup(
+        "GET", "/audit/frameworks"; aws_config=aws_config, features=SERVICE_FEATURES
+    )
 end
 function list_frameworks(
     params::AbstractDict{String}; aws_config::AbstractAWSConfig=global_aws_config()
 )
-    return backup("GET", "/audit/frameworks", params; aws_config=aws_config)
+    return backup(
+        "GET", "/audit/frameworks", params; aws_config=aws_config, features=SERVICE_FEATURES
+    )
 end
 
 """
@@ -1351,12 +1595,14 @@ Optional parameters can be passed as a `params::Dict{String,<:Any}`. Valid keys 
   items in your list starting at the location pointed to by the next token.
 """
 function list_protected_resources(; aws_config::AbstractAWSConfig=global_aws_config())
-    return backup("GET", "/resources/"; aws_config=aws_config)
+    return backup("GET", "/resources/"; aws_config=aws_config, features=SERVICE_FEATURES)
 end
 function list_protected_resources(
     params::AbstractDict{String}; aws_config::AbstractAWSConfig=global_aws_config()
 )
-    return backup("GET", "/resources/", params; aws_config=aws_config)
+    return backup(
+        "GET", "/resources/", params; aws_config=aws_config, features=SERVICE_FEATURES
+    )
 end
 
 """
@@ -1391,7 +1637,10 @@ function list_recovery_points_by_backup_vault(
     backupVaultName; aws_config::AbstractAWSConfig=global_aws_config()
 )
     return backup(
-        "GET", "/backup-vaults/$(backupVaultName)/recovery-points/"; aws_config=aws_config
+        "GET",
+        "/backup-vaults/$(backupVaultName)/recovery-points/";
+        aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 function list_recovery_points_by_backup_vault(
@@ -1404,6 +1653,7 @@ function list_recovery_points_by_backup_vault(
         "/backup-vaults/$(backupVaultName)/recovery-points/",
         params;
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -1431,7 +1681,10 @@ function list_recovery_points_by_resource(
     resourceArn; aws_config::AbstractAWSConfig=global_aws_config()
 )
     return backup(
-        "GET", "/resources/$(resourceArn)/recovery-points/"; aws_config=aws_config
+        "GET",
+        "/resources/$(resourceArn)/recovery-points/";
+        aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 function list_recovery_points_by_resource(
@@ -1440,7 +1693,11 @@ function list_recovery_points_by_resource(
     aws_config::AbstractAWSConfig=global_aws_config(),
 )
     return backup(
-        "GET", "/resources/$(resourceArn)/recovery-points/", params; aws_config=aws_config
+        "GET",
+        "/resources/$(resourceArn)/recovery-points/",
+        params;
+        aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -1467,12 +1724,20 @@ Optional parameters can be passed as a `params::Dict{String,<:Any}`. Valid keys 
   CREATED | RUNNING | COMPLETED | FAILED
 """
 function list_report_jobs(; aws_config::AbstractAWSConfig=global_aws_config())
-    return backup("GET", "/audit/report-jobs"; aws_config=aws_config)
+    return backup(
+        "GET", "/audit/report-jobs"; aws_config=aws_config, features=SERVICE_FEATURES
+    )
 end
 function list_report_jobs(
     params::AbstractDict{String}; aws_config::AbstractAWSConfig=global_aws_config()
 )
-    return backup("GET", "/audit/report-jobs", params; aws_config=aws_config)
+    return backup(
+        "GET",
+        "/audit/report-jobs",
+        params;
+        aws_config=aws_config,
+        features=SERVICE_FEATURES,
+    )
 end
 
 """
@@ -1490,12 +1755,20 @@ Optional parameters can be passed as a `params::Dict{String,<:Any}`. Valid keys 
   which can be used to return the next set of items in the list.
 """
 function list_report_plans(; aws_config::AbstractAWSConfig=global_aws_config())
-    return backup("GET", "/audit/report-plans"; aws_config=aws_config)
+    return backup(
+        "GET", "/audit/report-plans"; aws_config=aws_config, features=SERVICE_FEATURES
+    )
 end
 function list_report_plans(
     params::AbstractDict{String}; aws_config::AbstractAWSConfig=global_aws_config()
 )
-    return backup("GET", "/audit/report-plans", params; aws_config=aws_config)
+    return backup(
+        "GET",
+        "/audit/report-plans",
+        params;
+        aws_config=aws_config,
+        features=SERVICE_FEATURES,
+    )
 end
 
 """
@@ -1518,12 +1791,14 @@ Optional parameters can be passed as a `params::Dict{String,<:Any}`. Valid keys 
 - `"status"`: Returns only restore jobs associated with the specified job status.
 """
 function list_restore_jobs(; aws_config::AbstractAWSConfig=global_aws_config())
-    return backup("GET", "/restore-jobs/"; aws_config=aws_config)
+    return backup("GET", "/restore-jobs/"; aws_config=aws_config, features=SERVICE_FEATURES)
 end
 function list_restore_jobs(
     params::AbstractDict{String}; aws_config::AbstractAWSConfig=global_aws_config()
 )
-    return backup("GET", "/restore-jobs/", params; aws_config=aws_config)
+    return backup(
+        "GET", "/restore-jobs/", params; aws_config=aws_config, features=SERVICE_FEATURES
+    )
 end
 
 """
@@ -1546,14 +1821,22 @@ Optional parameters can be passed as a `params::Dict{String,<:Any}`. Valid keys 
   items in your list starting at the location pointed to by the next token.
 """
 function list_tags(resourceArn; aws_config::AbstractAWSConfig=global_aws_config())
-    return backup("GET", "/tags/$(resourceArn)/"; aws_config=aws_config)
+    return backup(
+        "GET", "/tags/$(resourceArn)/"; aws_config=aws_config, features=SERVICE_FEATURES
+    )
 end
 function list_tags(
     resourceArn,
     params::AbstractDict{String};
     aws_config::AbstractAWSConfig=global_aws_config(),
 )
-    return backup("GET", "/tags/$(resourceArn)/", params; aws_config=aws_config)
+    return backup(
+        "GET",
+        "/tags/$(resourceArn)/",
+        params;
+        aws_config=aws_config,
+        features=SERVICE_FEATURES,
+    )
 end
 
 """
@@ -1577,7 +1860,10 @@ function put_backup_vault_access_policy(
     backupVaultName; aws_config::AbstractAWSConfig=global_aws_config()
 )
     return backup(
-        "PUT", "/backup-vaults/$(backupVaultName)/access-policy"; aws_config=aws_config
+        "PUT",
+        "/backup-vaults/$(backupVaultName)/access-policy";
+        aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 function put_backup_vault_access_policy(
@@ -1590,6 +1876,7 @@ function put_backup_vault_access_policy(
         "/backup-vaults/$(backupVaultName)/access-policy",
         params;
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -1627,6 +1914,7 @@ function put_backup_vault_notifications(
             "BackupVaultEvents" => BackupVaultEvents, "SNSTopicArn" => SNSTopicArn
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 function put_backup_vault_notifications(
@@ -1649,6 +1937,7 @@ function put_backup_vault_notifications(
             ),
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -1711,6 +2000,7 @@ function start_backup_job(
             "ResourceArn" => ResourceArn,
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 function start_backup_job(
@@ -1735,6 +2025,7 @@ function start_backup_job(
             ),
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -1783,6 +2074,7 @@ function start_copy_job(
             "SourceBackupVaultName" => SourceBackupVaultName,
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 function start_copy_job(
@@ -1809,6 +2101,7 @@ function start_copy_job(
             ),
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -1833,6 +2126,7 @@ function start_report_job(reportPlanName; aws_config::AbstractAWSConfig=global_a
         "/audit/report-jobs/$(reportPlanName)",
         Dict{String,Any}("IdempotencyToken" => string(uuid4()));
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 function start_report_job(
@@ -1849,6 +2143,7 @@ function start_report_job(
             ),
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -1909,6 +2204,7 @@ function start_restore_job(
             "RecoveryPointArn" => RecoveryPointArn,
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 function start_restore_job(
@@ -1933,6 +2229,7 @@ function start_restore_job(
             ),
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -1947,14 +2244,25 @@ Attempts to cancel a job to create a one-time backup of a resource.
 
 """
 function stop_backup_job(backupJobId; aws_config::AbstractAWSConfig=global_aws_config())
-    return backup("POST", "/backup-jobs/$(backupJobId)"; aws_config=aws_config)
+    return backup(
+        "POST",
+        "/backup-jobs/$(backupJobId)";
+        aws_config=aws_config,
+        features=SERVICE_FEATURES,
+    )
 end
 function stop_backup_job(
     backupJobId,
     params::AbstractDict{String};
     aws_config::AbstractAWSConfig=global_aws_config(),
 )
-    return backup("POST", "/backup-jobs/$(backupJobId)", params; aws_config=aws_config)
+    return backup(
+        "POST",
+        "/backup-jobs/$(backupJobId)",
+        params;
+        aws_config=aws_config,
+        features=SERVICE_FEATURES,
+    )
 end
 
 """
@@ -1977,6 +2285,7 @@ function tag_resource(Tags, resourceArn; aws_config::AbstractAWSConfig=global_aw
         "/tags/$(resourceArn)",
         Dict{String,Any}("Tags" => Tags);
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 function tag_resource(
@@ -1990,6 +2299,7 @@ function tag_resource(
         "/tags/$(resourceArn)",
         Dict{String,Any}(mergewith(_merge, Dict{String,Any}("Tags" => Tags), params));
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -2014,6 +2324,7 @@ function untag_resource(
         "/untag/$(resourceArn)",
         Dict{String,Any}("TagKeyList" => TagKeyList);
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 function untag_resource(
@@ -2029,6 +2340,7 @@ function untag_resource(
             mergewith(_merge, Dict{String,Any}("TagKeyList" => TagKeyList), params)
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -2053,6 +2365,7 @@ function update_backup_plan(
         "/backup/plans/$(backupPlanId)",
         Dict{String,Any}("BackupPlan" => BackupPlan);
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 function update_backup_plan(
@@ -2068,6 +2381,7 @@ function update_backup_plan(
             mergewith(_merge, Dict{String,Any}("BackupPlan" => BackupPlan), params)
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -2099,6 +2413,7 @@ function update_framework(frameworkName; aws_config::AbstractAWSConfig=global_aw
         "/audit/frameworks/$(frameworkName)",
         Dict{String,Any}("IdempotencyToken" => string(uuid4()));
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 function update_framework(
@@ -2115,6 +2430,7 @@ function update_framework(
             ),
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -2133,12 +2449,16 @@ Optional parameters can be passed as a `params::Dict{String,<:Any}`. Valid keys 
   us-west-2.
 """
 function update_global_settings(; aws_config::AbstractAWSConfig=global_aws_config())
-    return backup("PUT", "/global-settings"; aws_config=aws_config)
+    return backup(
+        "PUT", "/global-settings"; aws_config=aws_config, features=SERVICE_FEATURES
+    )
 end
 function update_global_settings(
     params::AbstractDict{String}; aws_config::AbstractAWSConfig=global_aws_config()
 )
-    return backup("PUT", "/global-settings", params; aws_config=aws_config)
+    return backup(
+        "PUT", "/global-settings", params; aws_config=aws_config, features=SERVICE_FEATURES
+    )
 end
 
 """
@@ -2181,6 +2501,7 @@ function update_recovery_point_lifecycle(
         "POST",
         "/backup-vaults/$(backupVaultName)/recovery-points/$(recoveryPointArn)";
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 function update_recovery_point_lifecycle(
@@ -2194,6 +2515,7 @@ function update_recovery_point_lifecycle(
         "/backup-vaults/$(backupVaultName)/recovery-points/$(recoveryPointArn)",
         params;
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -2213,12 +2535,16 @@ Optional parameters can be passed as a `params::Dict{String,<:Any}`. Valid keys 
   preferences for the Region.
 """
 function update_region_settings(; aws_config::AbstractAWSConfig=global_aws_config())
-    return backup("PUT", "/account-settings"; aws_config=aws_config)
+    return backup(
+        "PUT", "/account-settings"; aws_config=aws_config, features=SERVICE_FEATURES
+    )
 end
 function update_region_settings(
     params::AbstractDict{String}; aws_config::AbstractAWSConfig=global_aws_config()
 )
-    return backup("PUT", "/account-settings", params; aws_config=aws_config)
+    return backup(
+        "PUT", "/account-settings", params; aws_config=aws_config, features=SERVICE_FEATURES
+    )
 end
 
 """
@@ -2255,6 +2581,7 @@ function update_report_plan(
         "/audit/report-plans/$(reportPlanName)",
         Dict{String,Any}("IdempotencyToken" => string(uuid4()));
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 function update_report_plan(
@@ -2271,5 +2598,6 @@ function update_report_plan(
             ),
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end

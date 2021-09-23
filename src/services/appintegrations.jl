@@ -38,6 +38,7 @@ function create_event_integration(
             "ClientToken" => string(uuid4()),
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 function create_event_integration(
@@ -63,6 +64,7 @@ function create_event_integration(
             ),
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -78,13 +80,22 @@ with clients, the request is rejected.
 
 """
 function delete_event_integration(Name; aws_config::AbstractAWSConfig=global_aws_config())
-    return appintegrations("DELETE", "/eventIntegrations/$(Name)"; aws_config=aws_config)
+    return appintegrations(
+        "DELETE",
+        "/eventIntegrations/$(Name)";
+        aws_config=aws_config,
+        features=SERVICE_FEATURES,
+    )
 end
 function delete_event_integration(
     Name, params::AbstractDict{String}; aws_config::AbstractAWSConfig=global_aws_config()
 )
     return appintegrations(
-        "DELETE", "/eventIntegrations/$(Name)", params; aws_config=aws_config
+        "DELETE",
+        "/eventIntegrations/$(Name)",
+        params;
+        aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -99,13 +110,22 @@ Return information about the event integration.
 
 """
 function get_event_integration(Name; aws_config::AbstractAWSConfig=global_aws_config())
-    return appintegrations("GET", "/eventIntegrations/$(Name)"; aws_config=aws_config)
+    return appintegrations(
+        "GET",
+        "/eventIntegrations/$(Name)";
+        aws_config=aws_config,
+        features=SERVICE_FEATURES,
+    )
 end
 function get_event_integration(
     Name, params::AbstractDict{String}; aws_config::AbstractAWSConfig=global_aws_config()
 )
     return appintegrations(
-        "GET", "/eventIntegrations/$(Name)", params; aws_config=aws_config
+        "GET",
+        "/eventIntegrations/$(Name)",
+        params;
+        aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -128,14 +148,21 @@ function list_event_integration_associations(
     Name; aws_config::AbstractAWSConfig=global_aws_config()
 )
     return appintegrations(
-        "GET", "/eventIntegrations/$(Name)/associations"; aws_config=aws_config
+        "GET",
+        "/eventIntegrations/$(Name)/associations";
+        aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 function list_event_integration_associations(
     Name, params::AbstractDict{String}; aws_config::AbstractAWSConfig=global_aws_config()
 )
     return appintegrations(
-        "GET", "/eventIntegrations/$(Name)/associations", params; aws_config=aws_config
+        "GET",
+        "/eventIntegrations/$(Name)/associations",
+        params;
+        aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -152,12 +179,20 @@ Optional parameters can be passed as a `params::Dict{String,<:Any}`. Valid keys 
   previous response in the next request to retrieve the next set of results.
 """
 function list_event_integrations(; aws_config::AbstractAWSConfig=global_aws_config())
-    return appintegrations("GET", "/eventIntegrations"; aws_config=aws_config)
+    return appintegrations(
+        "GET", "/eventIntegrations"; aws_config=aws_config, features=SERVICE_FEATURES
+    )
 end
 function list_event_integrations(
     params::AbstractDict{String}; aws_config::AbstractAWSConfig=global_aws_config()
 )
-    return appintegrations("GET", "/eventIntegrations", params; aws_config=aws_config)
+    return appintegrations(
+        "GET",
+        "/eventIntegrations",
+        params;
+        aws_config=aws_config,
+        features=SERVICE_FEATURES,
+    )
 end
 
 """
@@ -173,14 +208,22 @@ Lists the tags for the specified resource.
 function list_tags_for_resource(
     resourceArn; aws_config::AbstractAWSConfig=global_aws_config()
 )
-    return appintegrations("GET", "/tags/$(resourceArn)"; aws_config=aws_config)
+    return appintegrations(
+        "GET", "/tags/$(resourceArn)"; aws_config=aws_config, features=SERVICE_FEATURES
+    )
 end
 function list_tags_for_resource(
     resourceArn,
     params::AbstractDict{String};
     aws_config::AbstractAWSConfig=global_aws_config(),
 )
-    return appintegrations("GET", "/tags/$(resourceArn)", params; aws_config=aws_config)
+    return appintegrations(
+        "GET",
+        "/tags/$(resourceArn)",
+        params;
+        aws_config=aws_config,
+        features=SERVICE_FEATURES,
+    )
 end
 
 """
@@ -200,6 +243,7 @@ function tag_resource(resourceArn, tags; aws_config::AbstractAWSConfig=global_aw
         "/tags/$(resourceArn)",
         Dict{String,Any}("tags" => tags);
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 function tag_resource(
@@ -213,6 +257,7 @@ function tag_resource(
         "/tags/$(resourceArn)",
         Dict{String,Any}(mergewith(_merge, Dict{String,Any}("tags" => tags), params));
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -235,6 +280,7 @@ function untag_resource(
         "/tags/$(resourceArn)",
         Dict{String,Any}("tagKeys" => tagKeys);
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 function untag_resource(
@@ -248,6 +294,7 @@ function untag_resource(
         "/tags/$(resourceArn)",
         Dict{String,Any}(mergewith(_merge, Dict{String,Any}("tagKeys" => tagKeys), params));
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -265,12 +312,21 @@ Optional parameters can be passed as a `params::Dict{String,<:Any}`. Valid keys 
 - `"Description"`: The description of the event inegration.
 """
 function update_event_integration(Name; aws_config::AbstractAWSConfig=global_aws_config())
-    return appintegrations("PATCH", "/eventIntegrations/$(Name)"; aws_config=aws_config)
+    return appintegrations(
+        "PATCH",
+        "/eventIntegrations/$(Name)";
+        aws_config=aws_config,
+        features=SERVICE_FEATURES,
+    )
 end
 function update_event_integration(
     Name, params::AbstractDict{String}; aws_config::AbstractAWSConfig=global_aws_config()
 )
     return appintegrations(
-        "PATCH", "/eventIntegrations/$(Name)", params; aws_config=aws_config
+        "PATCH",
+        "/eventIntegrations/$(Name)",
+        params;
+        aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end

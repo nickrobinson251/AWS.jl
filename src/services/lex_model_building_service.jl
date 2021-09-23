@@ -29,14 +29,18 @@ Optional parameters can be passed as a `params::Dict{String,<:Any}`. Valid keys 
 """
 function create_bot_version(name; aws_config::AbstractAWSConfig=global_aws_config())
     return lex_model_building_service(
-        "POST", "/bots/$(name)/versions"; aws_config=aws_config
+        "POST", "/bots/$(name)/versions"; aws_config=aws_config, features=SERVICE_FEATURES
     )
 end
 function create_bot_version(
     name, params::AbstractDict{String}; aws_config::AbstractAWSConfig=global_aws_config()
 )
     return lex_model_building_service(
-        "POST", "/bots/$(name)/versions", params; aws_config=aws_config
+        "POST",
+        "/bots/$(name)/versions",
+        params;
+        aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -67,14 +71,21 @@ Optional parameters can be passed as a `params::Dict{String,<:Any}`. Valid keys 
 """
 function create_intent_version(name; aws_config::AbstractAWSConfig=global_aws_config())
     return lex_model_building_service(
-        "POST", "/intents/$(name)/versions"; aws_config=aws_config
+        "POST",
+        "/intents/$(name)/versions";
+        aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 function create_intent_version(
     name, params::AbstractDict{String}; aws_config::AbstractAWSConfig=global_aws_config()
 )
     return lex_model_building_service(
-        "POST", "/intents/$(name)/versions", params; aws_config=aws_config
+        "POST",
+        "/intents/$(name)/versions",
+        params;
+        aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -104,14 +115,21 @@ Optional parameters can be passed as a `params::Dict{String,<:Any}`. Valid keys 
 """
 function create_slot_type_version(name; aws_config::AbstractAWSConfig=global_aws_config())
     return lex_model_building_service(
-        "POST", "/slottypes/$(name)/versions"; aws_config=aws_config
+        "POST",
+        "/slottypes/$(name)/versions";
+        aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 function create_slot_type_version(
     name, params::AbstractDict{String}; aws_config::AbstractAWSConfig=global_aws_config()
 )
     return lex_model_building_service(
-        "POST", "/slottypes/$(name)/versions", params; aws_config=aws_config
+        "POST",
+        "/slottypes/$(name)/versions",
+        params;
+        aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -136,13 +154,15 @@ lex:DeleteBot action.
 
 """
 function delete_bot(name; aws_config::AbstractAWSConfig=global_aws_config())
-    return lex_model_building_service("DELETE", "/bots/$(name)"; aws_config=aws_config)
+    return lex_model_building_service(
+        "DELETE", "/bots/$(name)"; aws_config=aws_config, features=SERVICE_FEATURES
+    )
 end
 function delete_bot(
     name, params::AbstractDict{String}; aws_config::AbstractAWSConfig=global_aws_config()
 )
     return lex_model_building_service(
-        "DELETE", "/bots/$(name)", params; aws_config=aws_config
+        "DELETE", "/bots/$(name)", params; aws_config=aws_config, features=SERVICE_FEATURES
     )
 end
 
@@ -164,7 +184,10 @@ again, delete the referring association until the DeleteBotAlias operation is su
 """
 function delete_bot_alias(botName, name; aws_config::AbstractAWSConfig=global_aws_config())
     return lex_model_building_service(
-        "DELETE", "/bots/$(botName)/aliases/$(name)"; aws_config=aws_config
+        "DELETE",
+        "/bots/$(botName)/aliases/$(name)";
+        aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 function delete_bot_alias(
@@ -174,7 +197,11 @@ function delete_bot_alias(
     aws_config::AbstractAWSConfig=global_aws_config(),
 )
     return lex_model_building_service(
-        "DELETE", "/bots/$(botName)/aliases/$(name)", params; aws_config=aws_config
+        "DELETE",
+        "/bots/$(botName)/aliases/$(name)",
+        params;
+        aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -199,6 +226,7 @@ function delete_bot_channel_association(
         "DELETE",
         "/bots/$(botName)/aliases/$(aliasName)/channels/$(name)";
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 function delete_bot_channel_association(
@@ -213,6 +241,7 @@ function delete_bot_channel_association(
         "/bots/$(botName)/aliases/$(aliasName)/channels/$(name)",
         params;
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -233,7 +262,10 @@ function delete_bot_version(
     name, version; aws_config::AbstractAWSConfig=global_aws_config()
 )
     return lex_model_building_service(
-        "DELETE", "/bots/$(name)/versions/$(version)"; aws_config=aws_config
+        "DELETE",
+        "/bots/$(name)/versions/$(version)";
+        aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 function delete_bot_version(
@@ -243,7 +275,11 @@ function delete_bot_version(
     aws_config::AbstractAWSConfig=global_aws_config(),
 )
     return lex_model_building_service(
-        "DELETE", "/bots/$(name)/versions/$(version)", params; aws_config=aws_config
+        "DELETE",
+        "/bots/$(name)/versions/$(version)",
+        params;
+        aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -266,13 +302,19 @@ This operation requires permission for the lex:DeleteIntent action.
 
 """
 function delete_intent(name; aws_config::AbstractAWSConfig=global_aws_config())
-    return lex_model_building_service("DELETE", "/intents/$(name)"; aws_config=aws_config)
+    return lex_model_building_service(
+        "DELETE", "/intents/$(name)"; aws_config=aws_config, features=SERVICE_FEATURES
+    )
 end
 function delete_intent(
     name, params::AbstractDict{String}; aws_config::AbstractAWSConfig=global_aws_config()
 )
     return lex_model_building_service(
-        "DELETE", "/intents/$(name)", params; aws_config=aws_config
+        "DELETE",
+        "/intents/$(name)",
+        params;
+        aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -294,7 +336,10 @@ function delete_intent_version(
     name, version; aws_config::AbstractAWSConfig=global_aws_config()
 )
     return lex_model_building_service(
-        "DELETE", "/intents/$(name)/versions/$(version)"; aws_config=aws_config
+        "DELETE",
+        "/intents/$(name)/versions/$(version)";
+        aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 function delete_intent_version(
@@ -304,7 +349,11 @@ function delete_intent_version(
     aws_config::AbstractAWSConfig=global_aws_config(),
 )
     return lex_model_building_service(
-        "DELETE", "/intents/$(name)/versions/$(version)", params; aws_config=aws_config
+        "DELETE",
+        "/intents/$(name)/versions/$(version)",
+        params;
+        aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -328,13 +377,19 @@ lex:DeleteSlotType action.
 
 """
 function delete_slot_type(name; aws_config::AbstractAWSConfig=global_aws_config())
-    return lex_model_building_service("DELETE", "/slottypes/$(name)"; aws_config=aws_config)
+    return lex_model_building_service(
+        "DELETE", "/slottypes/$(name)"; aws_config=aws_config, features=SERVICE_FEATURES
+    )
 end
 function delete_slot_type(
     name, params::AbstractDict{String}; aws_config::AbstractAWSConfig=global_aws_config()
 )
     return lex_model_building_service(
-        "DELETE", "/slottypes/$(name)", params; aws_config=aws_config
+        "DELETE",
+        "/slottypes/$(name)",
+        params;
+        aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -356,7 +411,10 @@ function delete_slot_type_version(
     name, version; aws_config::AbstractAWSConfig=global_aws_config()
 )
     return lex_model_building_service(
-        "DELETE", "/slottypes/$(name)/version/$(version)"; aws_config=aws_config
+        "DELETE",
+        "/slottypes/$(name)/version/$(version)";
+        aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 function delete_slot_type_version(
@@ -366,7 +424,11 @@ function delete_slot_type_version(
     aws_config::AbstractAWSConfig=global_aws_config(),
 )
     return lex_model_building_service(
-        "DELETE", "/slottypes/$(name)/version/$(version)", params; aws_config=aws_config
+        "DELETE",
+        "/slottypes/$(name)/version/$(version)",
+        params;
+        aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -394,7 +456,10 @@ function delete_utterances(
     botName, userId; aws_config::AbstractAWSConfig=global_aws_config()
 )
     return lex_model_building_service(
-        "DELETE", "/bots/$(botName)/utterances/$(userId)"; aws_config=aws_config
+        "DELETE",
+        "/bots/$(botName)/utterances/$(userId)";
+        aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 function delete_utterances(
@@ -404,7 +469,11 @@ function delete_utterances(
     aws_config::AbstractAWSConfig=global_aws_config(),
 )
     return lex_model_building_service(
-        "DELETE", "/bots/$(botName)/utterances/$(userId)", params; aws_config=aws_config
+        "DELETE",
+        "/bots/$(botName)/utterances/$(userId)",
+        params;
+        aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -422,7 +491,10 @@ version or alias.   This operation requires permissions for the lex:GetBot actio
 """
 function get_bot(name, versionoralias; aws_config::AbstractAWSConfig=global_aws_config())
     return lex_model_building_service(
-        "GET", "/bots/$(name)/versions/$(versionoralias)"; aws_config=aws_config
+        "GET",
+        "/bots/$(name)/versions/$(versionoralias)";
+        aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 function get_bot(
@@ -432,7 +504,11 @@ function get_bot(
     aws_config::AbstractAWSConfig=global_aws_config(),
 )
     return lex_model_building_service(
-        "GET", "/bots/$(name)/versions/$(versionoralias)", params; aws_config=aws_config
+        "GET",
+        "/bots/$(name)/versions/$(versionoralias)",
+        params;
+        aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -450,7 +526,10 @@ versioning-aliases. This operation requires permissions for the lex:GetBotAlias 
 """
 function get_bot_alias(botName, name; aws_config::AbstractAWSConfig=global_aws_config())
     return lex_model_building_service(
-        "GET", "/bots/$(botName)/aliases/$(name)"; aws_config=aws_config
+        "GET",
+        "/bots/$(botName)/aliases/$(name)";
+        aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 function get_bot_alias(
@@ -460,7 +539,11 @@ function get_bot_alias(
     aws_config::AbstractAWSConfig=global_aws_config(),
 )
     return lex_model_building_service(
-        "GET", "/bots/$(botName)/aliases/$(name)", params; aws_config=aws_config
+        "GET",
+        "/bots/$(botName)/aliases/$(name)",
+        params;
+        aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -487,14 +570,18 @@ Optional parameters can be passed as a `params::Dict{String,<:Any}`. Valid keys 
 """
 function get_bot_aliases(botName; aws_config::AbstractAWSConfig=global_aws_config())
     return lex_model_building_service(
-        "GET", "/bots/$(botName)/aliases/"; aws_config=aws_config
+        "GET", "/bots/$(botName)/aliases/"; aws_config=aws_config, features=SERVICE_FEATURES
     )
 end
 function get_bot_aliases(
     botName, params::AbstractDict{String}; aws_config::AbstractAWSConfig=global_aws_config()
 )
     return lex_model_building_service(
-        "GET", "/bots/$(botName)/aliases/", params; aws_config=aws_config
+        "GET",
+        "/bots/$(botName)/aliases/",
+        params;
+        aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -520,6 +607,7 @@ function get_bot_channel_association(
         "GET",
         "/bots/$(botName)/aliases/$(aliasName)/channels/$(name)";
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 function get_bot_channel_association(
@@ -534,6 +622,7 @@ function get_bot_channel_association(
         "/bots/$(botName)/aliases/$(aliasName)/channels/$(name)",
         params;
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -566,7 +655,10 @@ function get_bot_channel_associations(
     aliasName, botName; aws_config::AbstractAWSConfig=global_aws_config()
 )
     return lex_model_building_service(
-        "GET", "/bots/$(botName)/aliases/$(aliasName)/channels/"; aws_config=aws_config
+        "GET",
+        "/bots/$(botName)/aliases/$(aliasName)/channels/";
+        aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 function get_bot_channel_associations(
@@ -580,6 +672,7 @@ function get_bot_channel_associations(
         "/bots/$(botName)/aliases/$(aliasName)/channels/",
         params;
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -607,14 +700,18 @@ Optional parameters can be passed as a `params::Dict{String,<:Any}`. Valid keys 
 """
 function get_bot_versions(name; aws_config::AbstractAWSConfig=global_aws_config())
     return lex_model_building_service(
-        "GET", "/bots/$(name)/versions/"; aws_config=aws_config
+        "GET", "/bots/$(name)/versions/"; aws_config=aws_config, features=SERVICE_FEATURES
     )
 end
 function get_bot_versions(
     name, params::AbstractDict{String}; aws_config::AbstractAWSConfig=global_aws_config()
 )
     return lex_model_building_service(
-        "GET", "/bots/$(name)/versions/", params; aws_config=aws_config
+        "GET",
+        "/bots/$(name)/versions/",
+        params;
+        aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -639,12 +736,16 @@ Optional parameters can be passed as a `params::Dict{String,<:Any}`. Valid keys 
   next page of bots, specify the pagination token in the next request.
 """
 function get_bots(; aws_config::AbstractAWSConfig=global_aws_config())
-    return lex_model_building_service("GET", "/bots/"; aws_config=aws_config)
+    return lex_model_building_service(
+        "GET", "/bots/"; aws_config=aws_config, features=SERVICE_FEATURES
+    )
 end
 function get_bots(
     params::AbstractDict{String}; aws_config::AbstractAWSConfig=global_aws_config()
 )
-    return lex_model_building_service("GET", "/bots/", params; aws_config=aws_config)
+    return lex_model_building_service(
+        "GET", "/bots/", params; aws_config=aws_config, features=SERVICE_FEATURES
+    )
 end
 
 """
@@ -661,7 +762,10 @@ lex:GetBuiltinIntent action.
 """
 function get_builtin_intent(signature; aws_config::AbstractAWSConfig=global_aws_config())
     return lex_model_building_service(
-        "GET", "/builtins/intents/$(signature)"; aws_config=aws_config
+        "GET",
+        "/builtins/intents/$(signature)";
+        aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 function get_builtin_intent(
@@ -670,7 +774,11 @@ function get_builtin_intent(
     aws_config::AbstractAWSConfig=global_aws_config(),
 )
     return lex_model_building_service(
-        "GET", "/builtins/intents/$(signature)", params; aws_config=aws_config
+        "GET",
+        "/builtins/intents/$(signature)",
+        params;
+        aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -695,13 +803,19 @@ Optional parameters can be passed as a `params::Dict{String,<:Any}`. Valid keys 
   Built-in Intents in the Alexa Skills Kit.
 """
 function get_builtin_intents(; aws_config::AbstractAWSConfig=global_aws_config())
-    return lex_model_building_service("GET", "/builtins/intents/"; aws_config=aws_config)
+    return lex_model_building_service(
+        "GET", "/builtins/intents/"; aws_config=aws_config, features=SERVICE_FEATURES
+    )
 end
 function get_builtin_intents(
     params::AbstractDict{String}; aws_config::AbstractAWSConfig=global_aws_config()
 )
     return lex_model_building_service(
-        "GET", "/builtins/intents/", params; aws_config=aws_config
+        "GET",
+        "/builtins/intents/",
+        params;
+        aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -727,13 +841,19 @@ Optional parameters can be passed as a `params::Dict{String,<:Any}`. Valid keys 
   matches both \"xyzabc\" and \"abcxyz.\"
 """
 function get_builtin_slot_types(; aws_config::AbstractAWSConfig=global_aws_config())
-    return lex_model_building_service("GET", "/builtins/slottypes/"; aws_config=aws_config)
+    return lex_model_building_service(
+        "GET", "/builtins/slottypes/"; aws_config=aws_config, features=SERVICE_FEATURES
+    )
 end
 function get_builtin_slot_types(
     params::AbstractDict{String}; aws_config::AbstractAWSConfig=global_aws_config()
 )
     return lex_model_building_service(
-        "GET", "/builtins/slottypes/", params; aws_config=aws_config
+        "GET",
+        "/builtins/slottypes/",
+        params;
+        aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -767,6 +887,7 @@ function get_export(
             "version" => version,
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 function get_export(
@@ -793,6 +914,7 @@ function get_export(
             ),
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -807,7 +929,9 @@ Gets information about an import job started with the StartImport operation.
 
 """
 function get_import(importId; aws_config::AbstractAWSConfig=global_aws_config())
-    return lex_model_building_service("GET", "/imports/$(importId)"; aws_config=aws_config)
+    return lex_model_building_service(
+        "GET", "/imports/$(importId)"; aws_config=aws_config, features=SERVICE_FEATURES
+    )
 end
 function get_import(
     importId,
@@ -815,7 +939,11 @@ function get_import(
     aws_config::AbstractAWSConfig=global_aws_config(),
 )
     return lex_model_building_service(
-        "GET", "/imports/$(importId)", params; aws_config=aws_config
+        "GET",
+        "/imports/$(importId)",
+        params;
+        aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -833,7 +961,10 @@ intent version.   This operation requires permissions to perform the lex:GetInte
 """
 function get_intent(name, version; aws_config::AbstractAWSConfig=global_aws_config())
     return lex_model_building_service(
-        "GET", "/intents/$(name)/versions/$(version)"; aws_config=aws_config
+        "GET",
+        "/intents/$(name)/versions/$(version)";
+        aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 function get_intent(
@@ -843,7 +974,11 @@ function get_intent(
     aws_config::AbstractAWSConfig=global_aws_config(),
 )
     return lex_model_building_service(
-        "GET", "/intents/$(name)/versions/$(version)", params; aws_config=aws_config
+        "GET",
+        "/intents/$(name)/versions/$(version)",
+        params;
+        aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -871,14 +1006,21 @@ Optional parameters can be passed as a `params::Dict{String,<:Any}`. Valid keys 
 """
 function get_intent_versions(name; aws_config::AbstractAWSConfig=global_aws_config())
     return lex_model_building_service(
-        "GET", "/intents/$(name)/versions/"; aws_config=aws_config
+        "GET",
+        "/intents/$(name)/versions/";
+        aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 function get_intent_versions(
     name, params::AbstractDict{String}; aws_config::AbstractAWSConfig=global_aws_config()
 )
     return lex_model_building_service(
-        "GET", "/intents/$(name)/versions/", params; aws_config=aws_config
+        "GET",
+        "/intents/$(name)/versions/",
+        params;
+        aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -903,12 +1045,16 @@ Optional parameters can be passed as a `params::Dict{String,<:Any}`. Valid keys 
   fetch the next page of intents, specify the pagination token in the next request.
 """
 function get_intents(; aws_config::AbstractAWSConfig=global_aws_config())
-    return lex_model_building_service("GET", "/intents/"; aws_config=aws_config)
+    return lex_model_building_service(
+        "GET", "/intents/"; aws_config=aws_config, features=SERVICE_FEATURES
+    )
 end
 function get_intents(
     params::AbstractDict{String}; aws_config::AbstractAWSConfig=global_aws_config()
 )
-    return lex_model_building_service("GET", "/intents/", params; aws_config=aws_config)
+    return lex_model_building_service(
+        "GET", "/intents/", params; aws_config=aws_config, features=SERVICE_FEATURES
+    )
 end
 
 """
@@ -926,7 +1072,10 @@ the migration.
 """
 function get_migration(migrationId; aws_config::AbstractAWSConfig=global_aws_config())
     return lex_model_building_service(
-        "GET", "/migrations/$(migrationId)"; aws_config=aws_config
+        "GET",
+        "/migrations/$(migrationId)";
+        aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 function get_migration(
@@ -935,7 +1084,11 @@ function get_migration(
     aws_config::AbstractAWSConfig=global_aws_config(),
 )
     return lex_model_building_service(
-        "GET", "/migrations/$(migrationId)", params; aws_config=aws_config
+        "GET",
+        "/migrations/$(migrationId)",
+        params;
+        aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -961,12 +1114,16 @@ Optional parameters can be passed as a `params::Dict{String,<:Any}`. Valid keys 
   specified string. The string is matched anywhere in bot name.
 """
 function get_migrations(; aws_config::AbstractAWSConfig=global_aws_config())
-    return lex_model_building_service("GET", "/migrations"; aws_config=aws_config)
+    return lex_model_building_service(
+        "GET", "/migrations"; aws_config=aws_config, features=SERVICE_FEATURES
+    )
 end
 function get_migrations(
     params::AbstractDict{String}; aws_config::AbstractAWSConfig=global_aws_config()
 )
-    return lex_model_building_service("GET", "/migrations", params; aws_config=aws_config)
+    return lex_model_building_service(
+        "GET", "/migrations", params; aws_config=aws_config, features=SERVICE_FEATURES
+    )
 end
 
 """
@@ -984,7 +1141,10 @@ for the lex:GetSlotType action.
 """
 function get_slot_type(name, version; aws_config::AbstractAWSConfig=global_aws_config())
     return lex_model_building_service(
-        "GET", "/slottypes/$(name)/versions/$(version)"; aws_config=aws_config
+        "GET",
+        "/slottypes/$(name)/versions/$(version)";
+        aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 function get_slot_type(
@@ -994,7 +1154,11 @@ function get_slot_type(
     aws_config::AbstractAWSConfig=global_aws_config(),
 )
     return lex_model_building_service(
-        "GET", "/slottypes/$(name)/versions/$(version)", params; aws_config=aws_config
+        "GET",
+        "/slottypes/$(name)/versions/$(version)",
+        params;
+        aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -1023,14 +1187,21 @@ Optional parameters can be passed as a `params::Dict{String,<:Any}`. Valid keys 
 """
 function get_slot_type_versions(name; aws_config::AbstractAWSConfig=global_aws_config())
     return lex_model_building_service(
-        "GET", "/slottypes/$(name)/versions/"; aws_config=aws_config
+        "GET",
+        "/slottypes/$(name)/versions/";
+        aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 function get_slot_type_versions(
     name, params::AbstractDict{String}; aws_config::AbstractAWSConfig=global_aws_config()
 )
     return lex_model_building_service(
-        "GET", "/slottypes/$(name)/versions/", params; aws_config=aws_config
+        "GET",
+        "/slottypes/$(name)/versions/",
+        params;
+        aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -1056,12 +1227,16 @@ Optional parameters can be passed as a `params::Dict{String,<:Any}`. Valid keys 
   request.
 """
 function get_slot_types(; aws_config::AbstractAWSConfig=global_aws_config())
-    return lex_model_building_service("GET", "/slottypes/"; aws_config=aws_config)
+    return lex_model_building_service(
+        "GET", "/slottypes/"; aws_config=aws_config, features=SERVICE_FEATURES
+    )
 end
 function get_slot_types(
     params::AbstractDict{String}; aws_config::AbstractAWSConfig=global_aws_config()
 )
-    return lex_model_building_service("GET", "/slottypes/", params; aws_config=aws_config)
+    return lex_model_building_service(
+        "GET", "/slottypes/", params; aws_config=aws_config, features=SERVICE_FEATURES
+    )
 end
 
 """
@@ -1101,6 +1276,7 @@ function get_utterances_view(
         "/bots/$(botname)/utterances?view=aggregation",
         Dict{String,Any}("bot_versions" => bot_versions, "status_type" => status_type);
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 function get_utterances_view(
@@ -1123,6 +1299,7 @@ function get_utterances_view(
             ),
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -1140,7 +1317,9 @@ channels can have tags associated with them.
 function list_tags_for_resource(
     resourceArn; aws_config::AbstractAWSConfig=global_aws_config()
 )
-    return lex_model_building_service("GET", "/tags/$(resourceArn)"; aws_config=aws_config)
+    return lex_model_building_service(
+        "GET", "/tags/$(resourceArn)"; aws_config=aws_config, features=SERVICE_FEATURES
+    )
 end
 function list_tags_for_resource(
     resourceArn,
@@ -1148,7 +1327,11 @@ function list_tags_for_resource(
     aws_config::AbstractAWSConfig=global_aws_config(),
 )
     return lex_model_building_service(
-        "GET", "/tags/$(resourceArn)", params; aws_config=aws_config
+        "GET",
+        "/tags/$(resourceArn)",
+        params;
+        aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -1292,6 +1475,7 @@ function put_bot(
         "/bots/$(name)/versions/$LATEST",
         Dict{String,Any}("childDirected" => childDirected, "locale" => locale);
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 function put_bot(
@@ -1312,6 +1496,7 @@ function put_bot(
             ),
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -1351,6 +1536,7 @@ function put_bot_alias(
         "/bots/$(botName)/aliases/$(name)",
         Dict{String,Any}("botVersion" => botVersion);
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 function put_bot_alias(
@@ -1367,6 +1553,7 @@ function put_bot_alias(
             mergewith(_merge, Dict{String,Any}("botVersion" => botVersion), params)
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -1471,14 +1658,21 @@ Optional parameters can be passed as a `params::Dict{String,<:Any}`. Valid keys 
 """
 function put_intent(name; aws_config::AbstractAWSConfig=global_aws_config())
     return lex_model_building_service(
-        "PUT", "/intents/$(name)/versions/$LATEST"; aws_config=aws_config
+        "PUT",
+        "/intents/$(name)/versions/$LATEST";
+        aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 function put_intent(
     name, params::AbstractDict{String}; aws_config::AbstractAWSConfig=global_aws_config()
 )
     return lex_model_building_service(
-        "PUT", "/intents/$(name)/versions/$LATEST", params; aws_config=aws_config
+        "PUT",
+        "/intents/$(name)/versions/$LATEST",
+        params;
+        aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -1540,14 +1734,21 @@ Optional parameters can be passed as a `params::Dict{String,<:Any}`. Valid keys 
 """
 function put_slot_type(name; aws_config::AbstractAWSConfig=global_aws_config())
     return lex_model_building_service(
-        "PUT", "/slottypes/$(name)/versions/$LATEST"; aws_config=aws_config
+        "PUT",
+        "/slottypes/$(name)/versions/$LATEST";
+        aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 function put_slot_type(
     name, params::AbstractDict{String}; aws_config::AbstractAWSConfig=global_aws_config()
 )
     return lex_model_building_service(
-        "PUT", "/slottypes/$(name)/versions/$LATEST", params; aws_config=aws_config
+        "PUT",
+        "/slottypes/$(name)/versions/$LATEST",
+        params;
+        aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -1589,6 +1790,7 @@ function start_import(
             "resourceType" => resourceType,
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 function start_import(
@@ -1613,6 +1815,7 @@ function start_import(
             ),
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -1659,6 +1862,7 @@ function start_migration(
             "v2BotRole" => v2BotRole,
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 function start_migration(
@@ -1687,6 +1891,7 @@ function start_migration(
             ),
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -1710,6 +1915,7 @@ function tag_resource(resourceArn, tags; aws_config::AbstractAWSConfig=global_aw
         "/tags/$(resourceArn)",
         Dict{String,Any}("tags" => tags);
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 function tag_resource(
@@ -1723,6 +1929,7 @@ function tag_resource(
         "/tags/$(resourceArn)",
         Dict{String,Any}(mergewith(_merge, Dict{String,Any}("tags" => tags), params));
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -1746,6 +1953,7 @@ function untag_resource(
         "/tags/$(resourceArn)",
         Dict{String,Any}("tagKeys" => tagKeys);
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 function untag_resource(
@@ -1759,5 +1967,6 @@ function untag_resource(
         "/tags/$(resourceArn)",
         Dict{String,Any}(mergewith(_merge, Dict{String,Any}("tagKeys" => tagKeys), params));
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end

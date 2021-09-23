@@ -27,6 +27,7 @@ function clone_backend(
         "/backend/$(appId)/environments/$(backendEnvironmentName)/clone",
         Dict{String,Any}("targetEnvironmentName" => targetEnvironmentName);
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 function clone_backend(
@@ -47,6 +48,7 @@ function clone_backend(
             ),
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -82,6 +84,7 @@ function create_backend(
             "backendEnvironmentName" => backendEnvironmentName,
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 function create_backend(
@@ -106,6 +109,7 @@ function create_backend(
             ),
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -138,6 +142,7 @@ function create_backend_api(
             "resourceName" => resourceName,
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 function create_backend_api(
@@ -163,6 +168,7 @@ function create_backend_api(
             ),
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -195,6 +201,7 @@ function create_backend_auth(
             "resourceName" => resourceName,
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 function create_backend_auth(
@@ -220,6 +227,7 @@ function create_backend_auth(
             ),
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -237,12 +245,20 @@ Optional parameters can be passed as a `params::Dict{String,<:Any}`. Valid keys 
 - `"backendManagerAppId"`: The app ID for the backend manager.
 """
 function create_backend_config(appId; aws_config::AbstractAWSConfig=global_aws_config())
-    return amplifybackend("POST", "/backend/$(appId)/config"; aws_config=aws_config)
+    return amplifybackend(
+        "POST", "/backend/$(appId)/config"; aws_config=aws_config, features=SERVICE_FEATURES
+    )
 end
 function create_backend_config(
     appId, params::AbstractDict{String}; aws_config::AbstractAWSConfig=global_aws_config()
 )
-    return amplifybackend("POST", "/backend/$(appId)/config", params; aws_config=aws_config)
+    return amplifybackend(
+        "POST",
+        "/backend/$(appId)/config",
+        params;
+        aws_config=aws_config,
+        features=SERVICE_FEATURES,
+    )
 end
 
 """
@@ -256,13 +272,22 @@ Generates a one-time challenge code to authenticate a user into your Amplify Adm
 
 """
 function create_token(appId; aws_config::AbstractAWSConfig=global_aws_config())
-    return amplifybackend("POST", "/backend/$(appId)/challenge"; aws_config=aws_config)
+    return amplifybackend(
+        "POST",
+        "/backend/$(appId)/challenge";
+        aws_config=aws_config,
+        features=SERVICE_FEATURES,
+    )
 end
 function create_token(
     appId, params::AbstractDict{String}; aws_config::AbstractAWSConfig=global_aws_config()
 )
     return amplifybackend(
-        "POST", "/backend/$(appId)/challenge", params; aws_config=aws_config
+        "POST",
+        "/backend/$(appId)/challenge",
+        params;
+        aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -284,6 +309,7 @@ function delete_backend(
         "POST",
         "/backend/$(appId)/environments/$(backendEnvironmentName)/remove";
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 function delete_backend(
@@ -297,6 +323,7 @@ function delete_backend(
         "/backend/$(appId)/environments/$(backendEnvironmentName)/remove",
         params;
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -327,6 +354,7 @@ function delete_backend_api(
         "/backend/$(appId)/api/$(backendEnvironmentName)/remove",
         Dict{String,Any}("resourceName" => resourceName);
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 function delete_backend_api(
@@ -343,6 +371,7 @@ function delete_backend_api(
             mergewith(_merge, Dict{String,Any}("resourceName" => resourceName), params)
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -369,6 +398,7 @@ function delete_backend_auth(
         "/backend/$(appId)/auth/$(backendEnvironmentName)/remove",
         Dict{String,Any}("resourceName" => resourceName);
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 function delete_backend_auth(
@@ -385,6 +415,7 @@ function delete_backend_auth(
             mergewith(_merge, Dict{String,Any}("resourceName" => resourceName), params)
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -401,7 +432,10 @@ Deletes the challenge token based on the given appId and sessionId.
 """
 function delete_token(appId, sessionId; aws_config::AbstractAWSConfig=global_aws_config())
     return amplifybackend(
-        "POST", "/backend/$(appId)/challenge/$(sessionId)/remove"; aws_config=aws_config
+        "POST",
+        "/backend/$(appId)/challenge/$(sessionId)/remove";
+        aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 function delete_token(
@@ -415,6 +449,7 @@ function delete_token(
         "/backend/$(appId)/challenge/$(sessionId)/remove",
         params;
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -441,6 +476,7 @@ function generate_backend_apimodels(
         "/backend/$(appId)/api/$(backendEnvironmentName)/generateModels",
         Dict{String,Any}("resourceName" => resourceName);
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 function generate_backend_apimodels(
@@ -457,6 +493,7 @@ function generate_backend_apimodels(
             mergewith(_merge, Dict{String,Any}("resourceName" => resourceName), params)
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -474,13 +511,22 @@ Optional parameters can be passed as a `params::Dict{String,<:Any}`. Valid keys 
 - `"backendEnvironmentName"`: The name of the backend environment.
 """
 function get_backend(appId; aws_config::AbstractAWSConfig=global_aws_config())
-    return amplifybackend("POST", "/backend/$(appId)/details"; aws_config=aws_config)
+    return amplifybackend(
+        "POST",
+        "/backend/$(appId)/details";
+        aws_config=aws_config,
+        features=SERVICE_FEATURES,
+    )
 end
 function get_backend(
     appId, params::AbstractDict{String}; aws_config::AbstractAWSConfig=global_aws_config()
 )
     return amplifybackend(
-        "POST", "/backend/$(appId)/details", params; aws_config=aws_config
+        "POST",
+        "/backend/$(appId)/details",
+        params;
+        aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -511,6 +557,7 @@ function get_backend_api(
         "/backend/$(appId)/api/$(backendEnvironmentName)/details",
         Dict{String,Any}("resourceName" => resourceName);
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 function get_backend_api(
@@ -527,6 +574,7 @@ function get_backend_api(
             mergewith(_merge, Dict{String,Any}("resourceName" => resourceName), params)
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -553,6 +601,7 @@ function get_backend_apimodels(
         "/backend/$(appId)/api/$(backendEnvironmentName)/getModels",
         Dict{String,Any}("resourceName" => resourceName);
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 function get_backend_apimodels(
@@ -569,6 +618,7 @@ function get_backend_apimodels(
             mergewith(_merge, Dict{String,Any}("resourceName" => resourceName), params)
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -595,6 +645,7 @@ function get_backend_auth(
         "/backend/$(appId)/auth/$(backendEnvironmentName)/details",
         Dict{String,Any}("resourceName" => resourceName);
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 function get_backend_auth(
@@ -611,6 +662,7 @@ function get_backend_auth(
             mergewith(_merge, Dict{String,Any}("resourceName" => resourceName), params)
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -633,6 +685,7 @@ function get_backend_job(
         "GET",
         "/backend/$(appId)/job/$(backendEnvironmentName)/$(jobId)";
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 function get_backend_job(
@@ -647,6 +700,7 @@ function get_backend_job(
         "/backend/$(appId)/job/$(backendEnvironmentName)/$(jobId)",
         params;
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -663,7 +717,10 @@ Gets the challenge token based on the given appId and sessionId.
 """
 function get_token(appId, sessionId; aws_config::AbstractAWSConfig=global_aws_config())
     return amplifybackend(
-        "GET", "/backend/$(appId)/challenge/$(sessionId)"; aws_config=aws_config
+        "GET",
+        "/backend/$(appId)/challenge/$(sessionId)";
+        aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 function get_token(
@@ -673,7 +730,11 @@ function get_token(
     aws_config::AbstractAWSConfig=global_aws_config(),
 )
     return amplifybackend(
-        "GET", "/backend/$(appId)/challenge/$(sessionId)", params; aws_config=aws_config
+        "GET",
+        "/backend/$(appId)/challenge/$(sessionId)",
+        params;
+        aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -711,6 +772,7 @@ function import_backend_auth(
             "webClientId" => webClientId,
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 function import_backend_auth(
@@ -737,6 +799,7 @@ function import_backend_auth(
             ),
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -764,7 +827,10 @@ function list_backend_jobs(
     appId, backendEnvironmentName; aws_config::AbstractAWSConfig=global_aws_config()
 )
     return amplifybackend(
-        "POST", "/backend/$(appId)/job/$(backendEnvironmentName)"; aws_config=aws_config
+        "POST",
+        "/backend/$(appId)/job/$(backendEnvironmentName)";
+        aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 function list_backend_jobs(
@@ -778,6 +844,7 @@ function list_backend_jobs(
         "/backend/$(appId)/job/$(backendEnvironmentName)",
         params;
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -795,12 +862,20 @@ Optional parameters can be passed as a `params::Dict{String,<:Any}`. Valid keys 
 - `"cleanAmplifyApp"`: Cleans up the Amplify Console app if this value is set to true.
 """
 function remove_all_backends(appId; aws_config::AbstractAWSConfig=global_aws_config())
-    return amplifybackend("POST", "/backend/$(appId)/remove"; aws_config=aws_config)
+    return amplifybackend(
+        "POST", "/backend/$(appId)/remove"; aws_config=aws_config, features=SERVICE_FEATURES
+    )
 end
 function remove_all_backends(
     appId, params::AbstractDict{String}; aws_config::AbstractAWSConfig=global_aws_config()
 )
-    return amplifybackend("POST", "/backend/$(appId)/remove", params; aws_config=aws_config)
+    return amplifybackend(
+        "POST",
+        "/backend/$(appId)/remove",
+        params;
+        aws_config=aws_config,
+        features=SERVICE_FEATURES,
+    )
 end
 
 """
@@ -814,13 +889,22 @@ Removes the AWS resources required to access the Amplify Admin UI.
 
 """
 function remove_backend_config(appId; aws_config::AbstractAWSConfig=global_aws_config())
-    return amplifybackend("POST", "/backend/$(appId)/config/remove"; aws_config=aws_config)
+    return amplifybackend(
+        "POST",
+        "/backend/$(appId)/config/remove";
+        aws_config=aws_config,
+        features=SERVICE_FEATURES,
+    )
 end
 function remove_backend_config(
     appId, params::AbstractDict{String}; aws_config::AbstractAWSConfig=global_aws_config()
 )
     return amplifybackend(
-        "POST", "/backend/$(appId)/config/remove", params; aws_config=aws_config
+        "POST",
+        "/backend/$(appId)/config/remove",
+        params;
+        aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -851,6 +935,7 @@ function update_backend_api(
         "/backend/$(appId)/api/$(backendEnvironmentName)",
         Dict{String,Any}("resourceName" => resourceName);
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 function update_backend_api(
@@ -867,6 +952,7 @@ function update_backend_api(
             mergewith(_merge, Dict{String,Any}("resourceName" => resourceName), params)
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -897,6 +983,7 @@ function update_backend_auth(
             "resourceConfig" => resourceConfig, "resourceName" => resourceName
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 function update_backend_auth(
@@ -920,6 +1007,7 @@ function update_backend_auth(
             ),
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -937,13 +1025,22 @@ Optional parameters can be passed as a `params::Dict{String,<:Any}`. Valid keys 
 - `"loginAuthConfig"`: Describes the Amazon Cognito configuration for Admin UI access.
 """
 function update_backend_config(appId; aws_config::AbstractAWSConfig=global_aws_config())
-    return amplifybackend("POST", "/backend/$(appId)/config/update"; aws_config=aws_config)
+    return amplifybackend(
+        "POST",
+        "/backend/$(appId)/config/update";
+        aws_config=aws_config,
+        features=SERVICE_FEATURES,
+    )
 end
 function update_backend_config(
     appId, params::AbstractDict{String}; aws_config::AbstractAWSConfig=global_aws_config()
 )
     return amplifybackend(
-        "POST", "/backend/$(appId)/config/update", params; aws_config=aws_config
+        "POST",
+        "/backend/$(appId)/config/update",
+        params;
+        aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -972,6 +1069,7 @@ function update_backend_job(
         "POST",
         "/backend/$(appId)/job/$(backendEnvironmentName)/$(jobId)";
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 function update_backend_job(
@@ -986,5 +1084,6 @@ function update_backend_job(
         "/backend/$(appId)/job/$(backendEnvironmentName)/$(jobId)",
         params;
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end

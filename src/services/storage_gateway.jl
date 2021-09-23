@@ -68,6 +68,7 @@ function activate_gateway(
             "GatewayTimezone" => GatewayTimezone,
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 function activate_gateway(
@@ -93,6 +94,7 @@ function activate_gateway(
             ),
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -117,6 +119,7 @@ function add_cache(DiskIds, GatewayARN; aws_config::AbstractAWSConfig=global_aws
         "AddCache",
         Dict{String,Any}("DiskIds" => DiskIds, "GatewayARN" => GatewayARN);
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 function add_cache(
@@ -135,6 +138,7 @@ function add_cache(
             ),
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -166,6 +170,7 @@ function add_tags_to_resource(
         "AddTagsToResource",
         Dict{String,Any}("ResourceARN" => ResourceARN, "Tags" => Tags);
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 function add_tags_to_resource(
@@ -184,6 +189,7 @@ function add_tags_to_resource(
             ),
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -210,6 +216,7 @@ function add_upload_buffer(
         "AddUploadBuffer",
         Dict{String,Any}("DiskIds" => DiskIds, "GatewayARN" => GatewayARN);
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 function add_upload_buffer(
@@ -228,6 +235,7 @@ function add_upload_buffer(
             ),
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -257,6 +265,7 @@ function add_working_storage(
         "AddWorkingStorage",
         Dict{String,Any}("DiskIds" => DiskIds, "GatewayARN" => GatewayARN);
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 function add_working_storage(
@@ -275,6 +284,7 @@ function add_working_storage(
             ),
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -311,6 +321,7 @@ function assign_tape_pool(
         "AssignTapePool",
         Dict{String,Any}("PoolId" => PoolId, "TapeARN" => TapeARN);
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 function assign_tape_pool(
@@ -327,6 +338,7 @@ function assign_tape_pool(
             ),
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -378,6 +390,7 @@ function associate_file_system(
             "UserName" => UserName,
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 function associate_file_system(
@@ -405,6 +418,7 @@ function associate_file_system(
             ),
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -453,6 +467,7 @@ function attach_volume(
             "VolumeARN" => VolumeARN,
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 function attach_volume(
@@ -476,6 +491,7 @@ function attach_volume(
             ),
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -499,6 +515,7 @@ function cancel_archival(
         "CancelArchival",
         Dict{String,Any}("GatewayARN" => GatewayARN, "TapeARN" => TapeARN);
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 function cancel_archival(
@@ -517,6 +534,7 @@ function cancel_archival(
             ),
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -541,6 +559,7 @@ function cancel_retrieval(
         "CancelRetrieval",
         Dict{String,Any}("GatewayARN" => GatewayARN, "TapeARN" => TapeARN);
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 function cancel_retrieval(
@@ -559,6 +578,7 @@ function cancel_retrieval(
             ),
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -634,6 +654,7 @@ function create_cachedi_scsivolume(
             "VolumeSizeInBytes" => VolumeSizeInBytes,
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 function create_cachedi_scsivolume(
@@ -661,6 +682,7 @@ function create_cachedi_scsivolume(
             ),
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -764,6 +786,7 @@ function create_nfsfile_share(
             "Role" => Role,
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 function create_nfsfile_share(
@@ -789,6 +812,7 @@ function create_nfsfile_share(
             ),
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -915,6 +939,7 @@ function create_smbfile_share(
             "Role" => Role,
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 function create_smbfile_share(
@@ -940,6 +965,7 @@ function create_smbfile_share(
             ),
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -987,6 +1013,7 @@ function create_snapshot(
             "SnapshotDescription" => SnapshotDescription, "VolumeARN" => VolumeARN
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 function create_snapshot(
@@ -1007,6 +1034,7 @@ function create_snapshot(
             ),
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -1052,6 +1080,7 @@ function create_snapshot_from_volume_recovery_point(
             "SnapshotDescription" => SnapshotDescription, "VolumeARN" => VolumeARN
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 function create_snapshot_from_volume_recovery_point(
@@ -1072,6 +1101,7 @@ function create_snapshot_from_volume_recovery_point(
             ),
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -1140,6 +1170,7 @@ function create_storedi_scsivolume(
             "TargetName" => TargetName,
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 function create_storedi_scsivolume(
@@ -1167,6 +1198,7 @@ function create_storedi_scsivolume(
             ),
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -1204,6 +1236,7 @@ function create_tape_pool(
         "CreateTapePool",
         Dict{String,Any}("PoolName" => PoolName, "StorageClass" => StorageClass);
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 function create_tape_pool(
@@ -1222,6 +1255,7 @@ function create_tape_pool(
             ),
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -1278,6 +1312,7 @@ function create_tape_with_barcode(
             "TapeSizeInBytes" => TapeSizeInBytes,
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 function create_tape_with_barcode(
@@ -1301,6 +1336,7 @@ function create_tape_with_barcode(
             ),
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -1365,6 +1401,7 @@ function create_tapes(
             "TapeSizeInBytes" => TapeSizeInBytes,
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 function create_tapes(
@@ -1392,6 +1429,7 @@ function create_tapes(
             ),
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -1414,6 +1452,7 @@ function delete_automatic_tape_creation_policy(
         "DeleteAutomaticTapeCreationPolicy",
         Dict{String,Any}("GatewayARN" => GatewayARN);
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 function delete_automatic_tape_creation_policy(
@@ -1427,6 +1466,7 @@ function delete_automatic_tape_creation_policy(
             mergewith(_merge, Dict{String,Any}("GatewayARN" => GatewayARN), params)
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -1453,6 +1493,7 @@ function delete_bandwidth_rate_limit(
         "DeleteBandwidthRateLimit",
         Dict{String,Any}("BandwidthType" => BandwidthType, "GatewayARN" => GatewayARN);
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 function delete_bandwidth_rate_limit(
@@ -1473,6 +1514,7 @@ function delete_bandwidth_rate_limit(
             ),
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -1498,6 +1540,7 @@ function delete_chap_credentials(
         "DeleteChapCredentials",
         Dict{String,Any}("InitiatorName" => InitiatorName, "TargetARN" => TargetARN);
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 function delete_chap_credentials(
@@ -1518,6 +1561,7 @@ function delete_chap_credentials(
             ),
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -1544,6 +1588,7 @@ function delete_file_share(FileShareARN; aws_config::AbstractAWSConfig=global_aw
         "DeleteFileShare",
         Dict{String,Any}("FileShareARN" => FileShareARN);
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 function delete_file_share(
@@ -1557,6 +1602,7 @@ function delete_file_share(
             mergewith(_merge, Dict{String,Any}("FileShareARN" => FileShareARN), params)
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -1582,7 +1628,10 @@ Amazon EC2 console. For more information, see the Storage Gateway detail page.
 """
 function delete_gateway(GatewayARN; aws_config::AbstractAWSConfig=global_aws_config())
     return storage_gateway(
-        "DeleteGateway", Dict{String,Any}("GatewayARN" => GatewayARN); aws_config=aws_config
+        "DeleteGateway",
+        Dict{String,Any}("GatewayARN" => GatewayARN);
+        aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 function delete_gateway(
@@ -1596,6 +1645,7 @@ function delete_gateway(
             mergewith(_merge, Dict{String,Any}("GatewayARN" => GatewayARN), params)
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -1622,6 +1672,7 @@ function delete_snapshot_schedule(
         "DeleteSnapshotSchedule",
         Dict{String,Any}("VolumeARN" => VolumeARN);
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 function delete_snapshot_schedule(
@@ -1635,6 +1686,7 @@ function delete_snapshot_schedule(
             mergewith(_merge, Dict{String,Any}("VolumeARN" => VolumeARN), params)
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -1663,6 +1715,7 @@ function delete_tape(GatewayARN, TapeARN; aws_config::AbstractAWSConfig=global_a
         "DeleteTape",
         Dict{String,Any}("GatewayARN" => GatewayARN, "TapeARN" => TapeARN);
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 function delete_tape(
@@ -1681,6 +1734,7 @@ function delete_tape(
             ),
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -1704,7 +1758,10 @@ Optional parameters can be passed as a `params::Dict{String,<:Any}`. Valid keys 
 """
 function delete_tape_archive(TapeARN; aws_config::AbstractAWSConfig=global_aws_config())
     return storage_gateway(
-        "DeleteTapeArchive", Dict{String,Any}("TapeARN" => TapeARN); aws_config=aws_config
+        "DeleteTapeArchive",
+        Dict{String,Any}("TapeARN" => TapeARN);
+        aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 function delete_tape_archive(
@@ -1714,6 +1771,7 @@ function delete_tape_archive(
         "DeleteTapeArchive",
         Dict{String,Any}(mergewith(_merge, Dict{String,Any}("TapeARN" => TapeARN), params));
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -1731,7 +1789,10 @@ tape pool.
 """
 function delete_tape_pool(PoolARN; aws_config::AbstractAWSConfig=global_aws_config())
     return storage_gateway(
-        "DeleteTapePool", Dict{String,Any}("PoolARN" => PoolARN); aws_config=aws_config
+        "DeleteTapePool",
+        Dict{String,Any}("PoolARN" => PoolARN);
+        aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 function delete_tape_pool(
@@ -1741,6 +1802,7 @@ function delete_tape_pool(
         "DeleteTapePool",
         Dict{String,Any}(mergewith(_merge, Dict{String,Any}("PoolARN" => PoolARN), params));
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -1767,7 +1829,10 @@ to delete.
 """
 function delete_volume(VolumeARN; aws_config::AbstractAWSConfig=global_aws_config())
     return storage_gateway(
-        "DeleteVolume", Dict{String,Any}("VolumeARN" => VolumeARN); aws_config=aws_config
+        "DeleteVolume",
+        Dict{String,Any}("VolumeARN" => VolumeARN);
+        aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 function delete_volume(
@@ -1781,6 +1846,7 @@ function delete_volume(
             mergewith(_merge, Dict{String,Any}("VolumeARN" => VolumeARN), params)
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -1803,6 +1869,7 @@ function describe_availability_monitor_test(
         "DescribeAvailabilityMonitorTest",
         Dict{String,Any}("GatewayARN" => GatewayARN);
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 function describe_availability_monitor_test(
@@ -1816,6 +1883,7 @@ function describe_availability_monitor_test(
             mergewith(_merge, Dict{String,Any}("GatewayARN" => GatewayARN), params)
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -1841,6 +1909,7 @@ function describe_bandwidth_rate_limit(
         "DescribeBandwidthRateLimit",
         Dict{String,Any}("GatewayARN" => GatewayARN);
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 function describe_bandwidth_rate_limit(
@@ -1854,6 +1923,7 @@ function describe_bandwidth_rate_limit(
             mergewith(_merge, Dict{String,Any}("GatewayARN" => GatewayARN), params)
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -1885,6 +1955,7 @@ function describe_bandwidth_rate_limit_schedule(
         "DescribeBandwidthRateLimitSchedule",
         Dict{String,Any}("GatewayARN" => GatewayARN);
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 function describe_bandwidth_rate_limit_schedule(
@@ -1898,6 +1969,7 @@ function describe_bandwidth_rate_limit_schedule(
             mergewith(_merge, Dict{String,Any}("GatewayARN" => GatewayARN), params)
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -1915,7 +1987,10 @@ configured as cache, and it includes the amount of cache allocated and used.
 """
 function describe_cache(GatewayARN; aws_config::AbstractAWSConfig=global_aws_config())
     return storage_gateway(
-        "DescribeCache", Dict{String,Any}("GatewayARN" => GatewayARN); aws_config=aws_config
+        "DescribeCache",
+        Dict{String,Any}("GatewayARN" => GatewayARN);
+        aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 function describe_cache(
@@ -1929,6 +2004,7 @@ function describe_cache(
             mergewith(_merge, Dict{String,Any}("GatewayARN" => GatewayARN), params)
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -1954,6 +2030,7 @@ function describe_cachedi_scsivolumes(
         "DescribeCachediSCSIVolumes",
         Dict{String,Any}("VolumeARNs" => VolumeARNs);
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 function describe_cachedi_scsivolumes(
@@ -1967,6 +2044,7 @@ function describe_cachedi_scsivolumes(
             mergewith(_merge, Dict{String,Any}("VolumeARNs" => VolumeARNs), params)
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -1991,6 +2069,7 @@ function describe_chap_credentials(
         "DescribeChapCredentials",
         Dict{String,Any}("TargetARN" => TargetARN);
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 function describe_chap_credentials(
@@ -2004,6 +2083,7 @@ function describe_chap_credentials(
             mergewith(_merge, Dict{String,Any}("TargetARN" => TargetARN), params)
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -2026,6 +2106,7 @@ function describe_file_system_associations(
         "DescribeFileSystemAssociations",
         Dict{String,Any}("FileSystemAssociationARNList" => FileSystemAssociationARNList);
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 function describe_file_system_associations(
@@ -2045,6 +2126,7 @@ function describe_file_system_associations(
             ),
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -2067,6 +2149,7 @@ function describe_gateway_information(
         "DescribeGatewayInformation",
         Dict{String,Any}("GatewayARN" => GatewayARN);
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 function describe_gateway_information(
@@ -2080,6 +2163,7 @@ function describe_gateway_information(
             mergewith(_merge, Dict{String,Any}("GatewayARN" => GatewayARN), params)
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -2101,6 +2185,7 @@ function describe_maintenance_start_time(
         "DescribeMaintenanceStartTime",
         Dict{String,Any}("GatewayARN" => GatewayARN);
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 function describe_maintenance_start_time(
@@ -2114,6 +2199,7 @@ function describe_maintenance_start_time(
             mergewith(_merge, Dict{String,Any}("GatewayARN" => GatewayARN), params)
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -2136,6 +2222,7 @@ function describe_nfsfile_shares(
         "DescribeNFSFileShares",
         Dict{String,Any}("FileShareARNList" => FileShareARNList);
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 function describe_nfsfile_shares(
@@ -2151,6 +2238,7 @@ function describe_nfsfile_shares(
             ),
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -2173,6 +2261,7 @@ function describe_smbfile_shares(
         "DescribeSMBFileShares",
         Dict{String,Any}("FileShareARNList" => FileShareARNList);
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 function describe_smbfile_shares(
@@ -2188,6 +2277,7 @@ function describe_smbfile_shares(
             ),
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -2207,6 +2297,7 @@ function describe_smbsettings(GatewayARN; aws_config::AbstractAWSConfig=global_a
         "DescribeSMBSettings",
         Dict{String,Any}("GatewayARN" => GatewayARN);
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 function describe_smbsettings(
@@ -2220,6 +2311,7 @@ function describe_smbsettings(
             mergewith(_merge, Dict{String,Any}("GatewayARN" => GatewayARN), params)
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -2243,6 +2335,7 @@ function describe_snapshot_schedule(
         "DescribeSnapshotSchedule",
         Dict{String,Any}("VolumeARN" => VolumeARN);
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 function describe_snapshot_schedule(
@@ -2256,6 +2349,7 @@ function describe_snapshot_schedule(
             mergewith(_merge, Dict{String,Any}("VolumeARN" => VolumeARN), params)
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -2281,6 +2375,7 @@ function describe_storedi_scsivolumes(
         "DescribeStorediSCSIVolumes",
         Dict{String,Any}("VolumeARNs" => VolumeARNs);
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 function describe_storedi_scsivolumes(
@@ -2294,6 +2389,7 @@ function describe_storedi_scsivolumes(
             mergewith(_merge, Dict{String,Any}("VolumeARNs" => VolumeARNs), params)
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -2316,12 +2412,16 @@ Optional parameters can be passed as a `params::Dict{String,<:Any}`. Valid keys 
   the virtual tapes you want to describe.
 """
 function describe_tape_archives(; aws_config::AbstractAWSConfig=global_aws_config())
-    return storage_gateway("DescribeTapeArchives"; aws_config=aws_config)
+    return storage_gateway(
+        "DescribeTapeArchives"; aws_config=aws_config, features=SERVICE_FEATURES
+    )
 end
 function describe_tape_archives(
     params::AbstractDict{String}; aws_config::AbstractAWSConfig=global_aws_config()
 )
-    return storage_gateway("DescribeTapeArchives", params; aws_config=aws_config)
+    return storage_gateway(
+        "DescribeTapeArchives", params; aws_config=aws_config, features=SERVICE_FEATURES
+    )
 end
 
 """
@@ -2351,6 +2451,7 @@ function describe_tape_recovery_points(
         "DescribeTapeRecoveryPoints",
         Dict{String,Any}("GatewayARN" => GatewayARN);
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 function describe_tape_recovery_points(
@@ -2364,6 +2465,7 @@ function describe_tape_recovery_points(
             mergewith(_merge, Dict{String,Any}("GatewayARN" => GatewayARN), params)
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -2391,7 +2493,10 @@ Optional parameters can be passed as a `params::Dict{String,<:Any}`. Valid keys 
 """
 function describe_tapes(GatewayARN; aws_config::AbstractAWSConfig=global_aws_config())
     return storage_gateway(
-        "DescribeTapes", Dict{String,Any}("GatewayARN" => GatewayARN); aws_config=aws_config
+        "DescribeTapes",
+        Dict{String,Any}("GatewayARN" => GatewayARN);
+        aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 function describe_tapes(
@@ -2405,6 +2510,7 @@ function describe_tapes(
             mergewith(_merge, Dict{String,Any}("GatewayARN" => GatewayARN), params)
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -2428,6 +2534,7 @@ function describe_upload_buffer(
         "DescribeUploadBuffer",
         Dict{String,Any}("GatewayARN" => GatewayARN);
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 function describe_upload_buffer(
@@ -2441,6 +2548,7 @@ function describe_upload_buffer(
             mergewith(_merge, Dict{String,Any}("GatewayARN" => GatewayARN), params)
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -2471,6 +2579,7 @@ function describe_vtldevices(GatewayARN; aws_config::AbstractAWSConfig=global_aw
         "DescribeVTLDevices",
         Dict{String,Any}("GatewayARN" => GatewayARN);
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 function describe_vtldevices(
@@ -2484,6 +2593,7 @@ function describe_vtldevices(
             mergewith(_merge, Dict{String,Any}("GatewayARN" => GatewayARN), params)
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -2510,6 +2620,7 @@ function describe_working_storage(
         "DescribeWorkingStorage",
         Dict{String,Any}("GatewayARN" => GatewayARN);
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 function describe_working_storage(
@@ -2523,6 +2634,7 @@ function describe_working_storage(
             mergewith(_merge, Dict{String,Any}("GatewayARN" => GatewayARN), params)
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -2547,7 +2659,10 @@ Optional parameters can be passed as a `params::Dict{String,<:Any}`. Valid keys 
 """
 function detach_volume(VolumeARN; aws_config::AbstractAWSConfig=global_aws_config())
     return storage_gateway(
-        "DetachVolume", Dict{String,Any}("VolumeARN" => VolumeARN); aws_config=aws_config
+        "DetachVolume",
+        Dict{String,Any}("VolumeARN" => VolumeARN);
+        aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 function detach_volume(
@@ -2561,6 +2676,7 @@ function detach_volume(
             mergewith(_merge, Dict{String,Any}("VolumeARN" => VolumeARN), params)
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -2583,6 +2699,7 @@ function disable_gateway(GatewayARN; aws_config::AbstractAWSConfig=global_aws_co
         "DisableGateway",
         Dict{String,Any}("GatewayARN" => GatewayARN);
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 function disable_gateway(
@@ -2596,6 +2713,7 @@ function disable_gateway(
             mergewith(_merge, Dict{String,Any}("GatewayARN" => GatewayARN), params)
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -2625,6 +2743,7 @@ function disassociate_file_system(
         "DisassociateFileSystem",
         Dict{String,Any}("FileSystemAssociationARN" => FileSystemAssociationARN);
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 function disassociate_file_system(
@@ -2642,6 +2761,7 @@ function disassociate_file_system(
             ),
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -2690,6 +2810,7 @@ function join_domain(
             "UserName" => UserName,
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 function join_domain(
@@ -2715,6 +2836,7 @@ function join_domain(
             ),
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -2733,13 +2855,20 @@ Optional parameters can be passed as a `params::Dict{String,<:Any}`. Valid keys 
 function list_automatic_tape_creation_policies(;
     aws_config::AbstractAWSConfig=global_aws_config()
 )
-    return storage_gateway("ListAutomaticTapeCreationPolicies"; aws_config=aws_config)
+    return storage_gateway(
+        "ListAutomaticTapeCreationPolicies";
+        aws_config=aws_config,
+        features=SERVICE_FEATURES,
+    )
 end
 function list_automatic_tape_creation_policies(
     params::AbstractDict{String}; aws_config::AbstractAWSConfig=global_aws_config()
 )
     return storage_gateway(
-        "ListAutomaticTapeCreationPolicies", params; aws_config=aws_config
+        "ListAutomaticTapeCreationPolicies",
+        params;
+        aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -2762,12 +2891,16 @@ Optional parameters can be passed as a `params::Dict{String,<:Any}`. Valid keys 
   ListFileShares. Optional.
 """
 function list_file_shares(; aws_config::AbstractAWSConfig=global_aws_config())
-    return storage_gateway("ListFileShares"; aws_config=aws_config)
+    return storage_gateway(
+        "ListFileShares"; aws_config=aws_config, features=SERVICE_FEATURES
+    )
 end
 function list_file_shares(
     params::AbstractDict{String}; aws_config::AbstractAWSConfig=global_aws_config()
 )
-    return storage_gateway("ListFileShares", params; aws_config=aws_config)
+    return storage_gateway(
+        "ListFileShares", params; aws_config=aws_config, features=SERVICE_FEATURES
+    )
 end
 
 """
@@ -2787,12 +2920,19 @@ Optional parameters can be passed as a `params::Dict{String,<:Any}`. Valid keys 
   call to ListFileSystemAssociations. Optional.
 """
 function list_file_system_associations(; aws_config::AbstractAWSConfig=global_aws_config())
-    return storage_gateway("ListFileSystemAssociations"; aws_config=aws_config)
+    return storage_gateway(
+        "ListFileSystemAssociations"; aws_config=aws_config, features=SERVICE_FEATURES
+    )
 end
 function list_file_system_associations(
     params::AbstractDict{String}; aws_config::AbstractAWSConfig=global_aws_config()
 )
-    return storage_gateway("ListFileSystemAssociations", params; aws_config=aws_config)
+    return storage_gateway(
+        "ListFileSystemAssociations",
+        params;
+        aws_config=aws_config,
+        features=SERVICE_FEATURES,
+    )
 end
 
 """
@@ -2815,12 +2955,14 @@ Optional parameters can be passed as a `params::Dict{String,<:Any}`. Valid keys 
   list of gateways.
 """
 function list_gateways(; aws_config::AbstractAWSConfig=global_aws_config())
-    return storage_gateway("ListGateways"; aws_config=aws_config)
+    return storage_gateway("ListGateways"; aws_config=aws_config, features=SERVICE_FEATURES)
 end
 function list_gateways(
     params::AbstractDict{String}; aws_config::AbstractAWSConfig=global_aws_config()
 )
-    return storage_gateway("ListGateways", params; aws_config=aws_config)
+    return storage_gateway(
+        "ListGateways", params; aws_config=aws_config, features=SERVICE_FEATURES
+    )
 end
 
 """
@@ -2844,6 +2986,7 @@ function list_local_disks(GatewayARN; aws_config::AbstractAWSConfig=global_aws_c
         "ListLocalDisks",
         Dict{String,Any}("GatewayARN" => GatewayARN);
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 function list_local_disks(
@@ -2857,6 +3000,7 @@ function list_local_disks(
             mergewith(_merge, Dict{String,Any}("GatewayARN" => GatewayARN), params)
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -2885,6 +3029,7 @@ function list_tags_for_resource(
         "ListTagsForResource",
         Dict{String,Any}("ResourceARN" => ResourceARN);
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 function list_tags_for_resource(
@@ -2898,6 +3043,7 @@ function list_tags_for_resource(
             mergewith(_merge, Dict{String,Any}("ResourceARN" => ResourceARN), params)
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -2923,12 +3069,16 @@ Optional parameters can be passed as a `params::Dict{String,<:Any}`. Valid keys 
   pools.
 """
 function list_tape_pools(; aws_config::AbstractAWSConfig=global_aws_config())
-    return storage_gateway("ListTapePools"; aws_config=aws_config)
+    return storage_gateway(
+        "ListTapePools"; aws_config=aws_config, features=SERVICE_FEATURES
+    )
 end
 function list_tape_pools(
     params::AbstractDict{String}; aws_config::AbstractAWSConfig=global_aws_config()
 )
-    return storage_gateway("ListTapePools", params; aws_config=aws_config)
+    return storage_gateway(
+        "ListTapePools", params; aws_config=aws_config, features=SERVICE_FEATURES
+    )
 end
 
 """
@@ -2953,12 +3103,14 @@ Optional parameters can be passed as a `params::Dict{String,<:Any}`. Valid keys 
 - `"TapeARNs"`:
 """
 function list_tapes(; aws_config::AbstractAWSConfig=global_aws_config())
-    return storage_gateway("ListTapes"; aws_config=aws_config)
+    return storage_gateway("ListTapes"; aws_config=aws_config, features=SERVICE_FEATURES)
 end
 function list_tapes(
     params::AbstractDict{String}; aws_config::AbstractAWSConfig=global_aws_config()
 )
-    return storage_gateway("ListTapes", params; aws_config=aws_config)
+    return storage_gateway(
+        "ListTapes", params; aws_config=aws_config, features=SERVICE_FEATURES
+    )
 end
 
 """
@@ -2981,6 +3133,7 @@ function list_volume_initiators(
         "ListVolumeInitiators",
         Dict{String,Any}("VolumeARN" => VolumeARN);
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 function list_volume_initiators(
@@ -2994,6 +3147,7 @@ function list_volume_initiators(
             mergewith(_merge, Dict{String,Any}("VolumeARN" => VolumeARN), params)
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -3019,6 +3173,7 @@ function list_volume_recovery_points(
         "ListVolumeRecoveryPoints",
         Dict{String,Any}("GatewayARN" => GatewayARN);
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 function list_volume_recovery_points(
@@ -3032,6 +3187,7 @@ function list_volume_recovery_points(
             mergewith(_merge, Dict{String,Any}("GatewayARN" => GatewayARN), params)
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -3058,12 +3214,14 @@ Optional parameters can be passed as a `params::Dict{String,<:Any}`. Valid keys 
   volumes. Obtain the marker from the response of a previous List iSCSI Volumes request.
 """
 function list_volumes(; aws_config::AbstractAWSConfig=global_aws_config())
-    return storage_gateway("ListVolumes"; aws_config=aws_config)
+    return storage_gateway("ListVolumes"; aws_config=aws_config, features=SERVICE_FEATURES)
 end
 function list_volumes(
     params::AbstractDict{String}; aws_config::AbstractAWSConfig=global_aws_config()
 )
-    return storage_gateway("ListVolumes", params; aws_config=aws_config)
+    return storage_gateway(
+        "ListVolumes", params; aws_config=aws_config, features=SERVICE_FEATURES
+    )
 end
 
 """
@@ -3091,6 +3249,7 @@ function notify_when_uploaded(
         "NotifyWhenUploaded",
         Dict{String,Any}("FileShareARN" => FileShareARN);
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 function notify_when_uploaded(
@@ -3104,6 +3263,7 @@ function notify_when_uploaded(
             mergewith(_merge, Dict{String,Any}("FileShareARN" => FileShareARN), params)
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -3154,6 +3314,7 @@ function refresh_cache(FileShareARN; aws_config::AbstractAWSConfig=global_aws_co
         "RefreshCache",
         Dict{String,Any}("FileShareARN" => FileShareARN);
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 function refresh_cache(
@@ -3167,6 +3328,7 @@ function refresh_cache(
             mergewith(_merge, Dict{String,Any}("FileShareARN" => FileShareARN), params)
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -3191,6 +3353,7 @@ function remove_tags_from_resource(
         "RemoveTagsFromResource",
         Dict{String,Any}("ResourceARN" => ResourceARN, "TagKeys" => TagKeys);
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 function remove_tags_from_resource(
@@ -3209,6 +3372,7 @@ function remove_tags_from_resource(
             ),
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -3233,7 +3397,10 @@ properly.
 """
 function reset_cache(GatewayARN; aws_config::AbstractAWSConfig=global_aws_config())
     return storage_gateway(
-        "ResetCache", Dict{String,Any}("GatewayARN" => GatewayARN); aws_config=aws_config
+        "ResetCache",
+        Dict{String,Any}("GatewayARN" => GatewayARN);
+        aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 function reset_cache(
@@ -3247,6 +3414,7 @@ function reset_cache(
             mergewith(_merge, Dict{String,Any}("GatewayARN" => GatewayARN), params)
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -3278,6 +3446,7 @@ function retrieve_tape_archive(
         "RetrieveTapeArchive",
         Dict{String,Any}("GatewayARN" => GatewayARN, "TapeARN" => TapeARN);
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 function retrieve_tape_archive(
@@ -3296,6 +3465,7 @@ function retrieve_tape_archive(
             ),
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -3323,6 +3493,7 @@ function retrieve_tape_recovery_point(
         "RetrieveTapeRecoveryPoint",
         Dict{String,Any}("GatewayARN" => GatewayARN, "TapeARN" => TapeARN);
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 function retrieve_tape_recovery_point(
@@ -3341,6 +3512,7 @@ function retrieve_tape_recovery_point(
             ),
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -3366,6 +3538,7 @@ function set_local_console_password(
             "GatewayARN" => GatewayARN, "LocalConsolePassword" => LocalConsolePassword
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 function set_local_console_password(
@@ -3387,6 +3560,7 @@ function set_local_console_password(
             ),
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -3411,6 +3585,7 @@ function set_smbguest_password(
         "SetSMBGuestPassword",
         Dict{String,Any}("GatewayARN" => GatewayARN, "Password" => Password);
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 function set_smbguest_password(
@@ -3429,6 +3604,7 @@ function set_smbguest_password(
             ),
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -3459,6 +3635,7 @@ function shutdown_gateway(GatewayARN; aws_config::AbstractAWSConfig=global_aws_c
         "ShutdownGateway",
         Dict{String,Any}("GatewayARN" => GatewayARN);
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 function shutdown_gateway(
@@ -3472,6 +3649,7 @@ function shutdown_gateway(
             mergewith(_merge, Dict{String,Any}("GatewayARN" => GatewayARN), params)
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -3496,6 +3674,7 @@ function start_availability_monitor_test(
         "StartAvailabilityMonitorTest",
         Dict{String,Any}("GatewayARN" => GatewayARN);
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 function start_availability_monitor_test(
@@ -3509,6 +3688,7 @@ function start_availability_monitor_test(
             mergewith(_merge, Dict{String,Any}("GatewayARN" => GatewayARN), params)
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -3531,7 +3711,10 @@ your request.
 """
 function start_gateway(GatewayARN; aws_config::AbstractAWSConfig=global_aws_config())
     return storage_gateway(
-        "StartGateway", Dict{String,Any}("GatewayARN" => GatewayARN); aws_config=aws_config
+        "StartGateway",
+        Dict{String,Any}("GatewayARN" => GatewayARN);
+        aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 function start_gateway(
@@ -3545,6 +3728,7 @@ function start_gateway(
             mergewith(_merge, Dict{String,Any}("GatewayARN" => GatewayARN), params)
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -3576,6 +3760,7 @@ function update_automatic_tape_creation_policy(
             "GatewayARN" => GatewayARN,
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 function update_automatic_tape_creation_policy(
@@ -3597,6 +3782,7 @@ function update_automatic_tape_creation_policy(
             ),
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -3629,6 +3815,7 @@ function update_bandwidth_rate_limit(
         "UpdateBandwidthRateLimit",
         Dict{String,Any}("GatewayARN" => GatewayARN);
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 function update_bandwidth_rate_limit(
@@ -3642,6 +3829,7 @@ function update_bandwidth_rate_limit(
             mergewith(_merge, Dict{String,Any}("GatewayARN" => GatewayARN), params)
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -3673,6 +3861,7 @@ function update_bandwidth_rate_limit_schedule(
             "GatewayARN" => GatewayARN,
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 function update_bandwidth_rate_limit_schedule(
@@ -3694,6 +3883,7 @@ function update_bandwidth_rate_limit_schedule(
             ),
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -3736,6 +3926,7 @@ function update_chap_credentials(
             "TargetARN" => TargetARN,
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 function update_chap_credentials(
@@ -3759,6 +3950,7 @@ function update_chap_credentials(
             ),
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -3790,6 +3982,7 @@ function update_file_system_association(
         "UpdateFileSystemAssociation",
         Dict{String,Any}("FileSystemAssociationARN" => FileSystemAssociationARN);
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 function update_file_system_association(
@@ -3807,6 +4000,7 @@ function update_file_system_association(
             ),
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -3839,6 +4033,7 @@ function update_gateway_information(
         "UpdateGatewayInformation",
         Dict{String,Any}("GatewayARN" => GatewayARN);
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 function update_gateway_information(
@@ -3852,6 +4047,7 @@ function update_gateway_information(
             mergewith(_merge, Dict{String,Any}("GatewayARN" => GatewayARN), params)
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -3880,6 +4076,7 @@ function update_gateway_software_now(
         "UpdateGatewaySoftwareNow",
         Dict{String,Any}("GatewayARN" => GatewayARN);
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 function update_gateway_software_now(
@@ -3893,6 +4090,7 @@ function update_gateway_software_now(
             mergewith(_merge, Dict{String,Any}("GatewayARN" => GatewayARN), params)
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -3930,6 +4128,7 @@ function update_maintenance_start_time(
             "MinuteOfHour" => MinuteOfHour,
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 function update_maintenance_start_time(
@@ -3953,6 +4152,7 @@ function update_maintenance_start_time(
             ),
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -4018,6 +4218,7 @@ function update_nfsfile_share(
         "UpdateNFSFileShare",
         Dict{String,Any}("FileShareARN" => FileShareARN);
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 function update_nfsfile_share(
@@ -4031,6 +4232,7 @@ function update_nfsfile_share(
             mergewith(_merge, Dict{String,Any}("FileShareARN" => FileShareARN), params)
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -4121,6 +4323,7 @@ function update_smbfile_share(
         "UpdateSMBFileShare",
         Dict{String,Any}("FileShareARN" => FileShareARN);
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 function update_smbfile_share(
@@ -4134,6 +4337,7 @@ function update_smbfile_share(
             mergewith(_merge, Dict{String,Any}("FileShareARN" => FileShareARN), params)
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -4158,6 +4362,7 @@ function update_smbfile_share_visibility(
             "FileSharesVisible" => FileSharesVisible, "GatewayARN" => GatewayARN
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 function update_smbfile_share_visibility(
@@ -4178,6 +4383,7 @@ function update_smbfile_share_visibility(
             ),
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -4212,6 +4418,7 @@ function update_smbsecurity_strategy(
             "GatewayARN" => GatewayARN, "SMBSecurityStrategy" => SMBSecurityStrategy
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 function update_smbsecurity_strategy(
@@ -4232,6 +4439,7 @@ function update_smbsecurity_strategy(
             ),
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -4276,6 +4484,7 @@ function update_snapshot_schedule(
             "VolumeARN" => VolumeARN,
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 function update_snapshot_schedule(
@@ -4299,6 +4508,7 @@ function update_snapshot_schedule(
             ),
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -4324,6 +4534,7 @@ function update_vtldevice_type(
         "UpdateVTLDeviceType",
         Dict{String,Any}("DeviceType" => DeviceType, "VTLDeviceARN" => VTLDeviceARN);
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 function update_vtldevice_type(
@@ -4344,5 +4555,6 @@ function update_vtldevice_type(
             ),
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end

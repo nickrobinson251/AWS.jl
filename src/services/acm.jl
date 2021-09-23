@@ -36,6 +36,7 @@ function add_tags_to_certificate(
         "AddTagsToCertificate",
         Dict{String,Any}("CertificateArn" => CertificateArn, "Tags" => Tags);
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 function add_tags_to_certificate(
@@ -54,6 +55,7 @@ function add_tags_to_certificate(
             ),
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -83,6 +85,7 @@ function delete_certificate(
         "DeleteCertificate",
         Dict{String,Any}("CertificateArn" => CertificateArn);
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 function delete_certificate(
@@ -96,6 +99,7 @@ function delete_certificate(
             mergewith(_merge, Dict{String,Any}("CertificateArn" => CertificateArn), params)
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -119,6 +123,7 @@ function describe_certificate(
         "DescribeCertificate",
         Dict{String,Any}("CertificateArn" => CertificateArn);
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 function describe_certificate(
@@ -132,6 +137,7 @@ function describe_certificate(
             mergewith(_merge, Dict{String,Any}("CertificateArn" => CertificateArn), params)
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -162,6 +168,7 @@ function export_certificate(
         "ExportCertificate",
         Dict{String,Any}("CertificateArn" => CertificateArn, "Passphrase" => Passphrase);
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 function export_certificate(
@@ -182,6 +189,7 @@ function export_certificate(
             ),
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -193,12 +201,14 @@ Returns the account configuration options associated with an Amazon Web Services
 
 """
 function get_account_configuration(; aws_config::AbstractAWSConfig=global_aws_config())
-    return acm("GetAccountConfiguration"; aws_config=aws_config)
+    return acm("GetAccountConfiguration"; aws_config=aws_config, features=SERVICE_FEATURES)
 end
 function get_account_configuration(
     params::AbstractDict{String}; aws_config::AbstractAWSConfig=global_aws_config()
 )
-    return acm("GetAccountConfiguration", params; aws_config=aws_config)
+    return acm(
+        "GetAccountConfiguration", params; aws_config=aws_config, features=SERVICE_FEATURES
+    )
 end
 
 """
@@ -221,6 +231,7 @@ function get_certificate(CertificateArn; aws_config::AbstractAWSConfig=global_aw
         "GetCertificate",
         Dict{String,Any}("CertificateArn" => CertificateArn);
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 function get_certificate(
@@ -234,6 +245,7 @@ function get_certificate(
             mergewith(_merge, Dict{String,Any}("CertificateArn" => CertificateArn), params)
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -289,6 +301,7 @@ function import_certificate(
         "ImportCertificate",
         Dict{String,Any}("Certificate" => Certificate, "PrivateKey" => PrivateKey);
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 function import_certificate(
@@ -307,6 +320,7 @@ function import_certificate(
             ),
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -333,12 +347,12 @@ Optional parameters can be passed as a `params::Dict{String,<:Any}`. Valid keys 
   NextToken from the response you just received.
 """
 function list_certificates(; aws_config::AbstractAWSConfig=global_aws_config())
-    return acm("ListCertificates"; aws_config=aws_config)
+    return acm("ListCertificates"; aws_config=aws_config, features=SERVICE_FEATURES)
 end
 function list_certificates(
     params::AbstractDict{String}; aws_config::AbstractAWSConfig=global_aws_config()
 )
-    return acm("ListCertificates", params; aws_config=aws_config)
+    return acm("ListCertificates", params; aws_config=aws_config, features=SERVICE_FEATURES)
 end
 
 """
@@ -363,6 +377,7 @@ function list_tags_for_certificate(
         "ListTagsForCertificate",
         Dict{String,Any}("CertificateArn" => CertificateArn);
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 function list_tags_for_certificate(
@@ -376,6 +391,7 @@ function list_tags_for_certificate(
             mergewith(_merge, Dict{String,Any}("CertificateArn" => CertificateArn), params)
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -407,6 +423,7 @@ function put_account_configuration(
         "PutAccountConfiguration",
         Dict{String,Any}("IdempotencyToken" => IdempotencyToken);
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 function put_account_configuration(
@@ -422,6 +439,7 @@ function put_account_configuration(
             ),
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -451,6 +469,7 @@ function remove_tags_from_certificate(
         "RemoveTagsFromCertificate",
         Dict{String,Any}("CertificateArn" => CertificateArn, "Tags" => Tags);
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 function remove_tags_from_certificate(
@@ -469,6 +488,7 @@ function remove_tags_from_certificate(
             ),
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -495,6 +515,7 @@ function renew_certificate(
         "RenewCertificate",
         Dict{String,Any}("CertificateArn" => CertificateArn);
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 function renew_certificate(
@@ -508,6 +529,7 @@ function renew_certificate(
             mergewith(_merge, Dict{String,Any}("CertificateArn" => CertificateArn), params)
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -581,6 +603,7 @@ function request_certificate(DomainName; aws_config::AbstractAWSConfig=global_aw
         "RequestCertificate",
         Dict{String,Any}("DomainName" => DomainName);
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 function request_certificate(
@@ -594,6 +617,7 @@ function request_certificate(
             mergewith(_merge, Dict{String,Any}("DomainName" => DomainName), params)
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -643,6 +667,7 @@ function resend_validation_email(
             "ValidationDomain" => ValidationDomain,
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 function resend_validation_email(
@@ -666,6 +691,7 @@ function resend_validation_email(
             ),
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -693,6 +719,7 @@ function update_certificate_options(
         "UpdateCertificateOptions",
         Dict{String,Any}("CertificateArn" => CertificateArn, "Options" => Options);
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 function update_certificate_options(
@@ -711,5 +738,6 @@ function update_certificate_options(
             ),
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end

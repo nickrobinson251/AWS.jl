@@ -27,6 +27,7 @@ function add_tags_to_stream(
         "AddTagsToStream",
         Dict{String,Any}("StreamName" => StreamName, "Tags" => Tags);
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 function add_tags_to_stream(
@@ -43,6 +44,7 @@ function add_tags_to_stream(
             ),
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -90,6 +92,7 @@ function create_stream(
         "CreateStream",
         Dict{String,Any}("ShardCount" => ShardCount, "StreamName" => StreamName);
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 function create_stream(
@@ -108,6 +111,7 @@ function create_stream(
             ),
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -136,6 +140,7 @@ function decrease_stream_retention_period(
             "RetentionPeriodHours" => RetentionPeriodHours, "StreamName" => StreamName
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 function decrease_stream_retention_period(
@@ -157,6 +162,7 @@ function decrease_stream_retention_period(
             ),
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -187,7 +193,10 @@ Optional parameters can be passed as a `params::Dict{String,<:Any}`. Valid keys 
 """
 function delete_stream(StreamName; aws_config::AbstractAWSConfig=global_aws_config())
     return kinesis(
-        "DeleteStream", Dict{String,Any}("StreamName" => StreamName); aws_config=aws_config
+        "DeleteStream",
+        Dict{String,Any}("StreamName" => StreamName);
+        aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 function delete_stream(
@@ -201,6 +210,7 @@ function delete_stream(
             mergewith(_merge, Dict{String,Any}("StreamName" => StreamName), params)
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -228,12 +238,16 @@ Optional parameters can be passed as a `params::Dict{String,<:Any}`. Valid keys 
   For more information, see Amazon Resource Names (ARNs) and AWS Service Namespaces.
 """
 function deregister_stream_consumer(; aws_config::AbstractAWSConfig=global_aws_config())
-    return kinesis("DeregisterStreamConsumer"; aws_config=aws_config)
+    return kinesis(
+        "DeregisterStreamConsumer"; aws_config=aws_config, features=SERVICE_FEATURES
+    )
 end
 function deregister_stream_consumer(
     params::AbstractDict{String}; aws_config::AbstractAWSConfig=global_aws_config()
 )
-    return kinesis("DeregisterStreamConsumer", params; aws_config=aws_config)
+    return kinesis(
+        "DeregisterStreamConsumer", params; aws_config=aws_config, features=SERVICE_FEATURES
+    )
 end
 
 """
@@ -246,12 +260,14 @@ transaction per second per account.
 
 """
 function describe_limits(; aws_config::AbstractAWSConfig=global_aws_config())
-    return kinesis("DescribeLimits"; aws_config=aws_config)
+    return kinesis("DescribeLimits"; aws_config=aws_config, features=SERVICE_FEATURES)
 end
 function describe_limits(
     params::AbstractDict{String}; aws_config::AbstractAWSConfig=global_aws_config()
 )
-    return kinesis("DescribeLimits", params; aws_config=aws_config)
+    return kinesis(
+        "DescribeLimits", params; aws_config=aws_config, features=SERVICE_FEATURES
+    )
 end
 
 """
@@ -284,6 +300,7 @@ function describe_stream(StreamName; aws_config::AbstractAWSConfig=global_aws_co
         "DescribeStream",
         Dict{String,Any}("StreamName" => StreamName);
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 function describe_stream(
@@ -297,6 +314,7 @@ function describe_stream(
             mergewith(_merge, Dict{String,Any}("StreamName" => StreamName), params)
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -321,12 +339,16 @@ Optional parameters can be passed as a `params::Dict{String,<:Any}`. Valid keys 
   For more information, see Amazon Resource Names (ARNs) and AWS Service Namespaces.
 """
 function describe_stream_consumer(; aws_config::AbstractAWSConfig=global_aws_config())
-    return kinesis("DescribeStreamConsumer"; aws_config=aws_config)
+    return kinesis(
+        "DescribeStreamConsumer"; aws_config=aws_config, features=SERVICE_FEATURES
+    )
 end
 function describe_stream_consumer(
     params::AbstractDict{String}; aws_config::AbstractAWSConfig=global_aws_config()
 )
-    return kinesis("DescribeStreamConsumer", params; aws_config=aws_config)
+    return kinesis(
+        "DescribeStreamConsumer", params; aws_config=aws_config, features=SERVICE_FEATURES
+    )
 end
 
 """
@@ -350,6 +372,7 @@ function describe_stream_summary(
         "DescribeStreamSummary",
         Dict{String,Any}("StreamName" => StreamName);
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 function describe_stream_summary(
@@ -363,6 +386,7 @@ function describe_stream_summary(
             mergewith(_merge, Dict{String,Any}("StreamName" => StreamName), params)
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -393,6 +417,7 @@ function disable_enhanced_monitoring(
             "ShardLevelMetrics" => ShardLevelMetrics, "StreamName" => StreamName
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 function disable_enhanced_monitoring(
@@ -413,6 +438,7 @@ function disable_enhanced_monitoring(
             ),
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -442,6 +468,7 @@ function enable_enhanced_monitoring(
             "ShardLevelMetrics" => ShardLevelMetrics, "StreamName" => StreamName
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 function enable_enhanced_monitoring(
@@ -462,6 +489,7 @@ function enable_enhanced_monitoring(
             ),
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -526,6 +554,7 @@ function get_records(ShardIterator; aws_config::AbstractAWSConfig=global_aws_con
         "GetRecords",
         Dict{String,Any}("ShardIterator" => ShardIterator);
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 function get_records(
@@ -539,6 +568,7 @@ function get_records(
             mergewith(_merge, Dict{String,Any}("ShardIterator" => ShardIterator), params)
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -612,6 +642,7 @@ function get_shard_iterator(
             "StreamName" => StreamName,
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 function get_shard_iterator(
@@ -635,6 +666,7 @@ function get_shard_iterator(
             ),
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -666,6 +698,7 @@ function increase_stream_retention_period(
             "RetentionPeriodHours" => RetentionPeriodHours, "StreamName" => StreamName
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 function increase_stream_retention_period(
@@ -687,6 +720,7 @@ function increase_stream_retention_period(
             ),
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -736,12 +770,12 @@ Optional parameters can be passed as a `params::Dict{String,<:Any}`. Valid keys 
   specify this parameter if you specify the NextToken parameter.
 """
 function list_shards(; aws_config::AbstractAWSConfig=global_aws_config())
-    return kinesis("ListShards"; aws_config=aws_config)
+    return kinesis("ListShards"; aws_config=aws_config, features=SERVICE_FEATURES)
 end
 function list_shards(
     params::AbstractDict{String}; aws_config::AbstractAWSConfig=global_aws_config()
 )
-    return kinesis("ListShards", params; aws_config=aws_config)
+    return kinesis("ListShards", params; aws_config=aws_config, features=SERVICE_FEATURES)
 end
 
 """
@@ -787,6 +821,7 @@ function list_stream_consumers(StreamARN; aws_config::AbstractAWSConfig=global_a
         "ListStreamConsumers",
         Dict{String,Any}("StreamARN" => StreamARN);
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 function list_stream_consumers(
@@ -800,6 +835,7 @@ function list_stream_consumers(
             mergewith(_merge, Dict{String,Any}("StreamARN" => StreamARN), params)
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -825,12 +861,12 @@ Optional parameters can be passed as a `params::Dict{String,<:Any}`. Valid keys 
 - `"Limit"`: The maximum number of streams to list.
 """
 function list_streams(; aws_config::AbstractAWSConfig=global_aws_config())
-    return kinesis("ListStreams"; aws_config=aws_config)
+    return kinesis("ListStreams"; aws_config=aws_config, features=SERVICE_FEATURES)
 end
 function list_streams(
     params::AbstractDict{String}; aws_config::AbstractAWSConfig=global_aws_config()
 )
-    return kinesis("ListStreams", params; aws_config=aws_config)
+    return kinesis("ListStreams", params; aws_config=aws_config, features=SERVICE_FEATURES)
 end
 
 """
@@ -857,6 +893,7 @@ function list_tags_for_stream(StreamName; aws_config::AbstractAWSConfig=global_a
         "ListTagsForStream",
         Dict{String,Any}("StreamName" => StreamName);
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 function list_tags_for_stream(
@@ -870,6 +907,7 @@ function list_tags_for_stream(
             mergewith(_merge, Dict{String,Any}("StreamName" => StreamName), params)
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -922,6 +960,7 @@ function merge_shards(
             "StreamName" => StreamName,
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 function merge_shards(
@@ -945,6 +984,7 @@ function merge_shards(
             ),
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -1012,6 +1052,7 @@ function put_record(
             "Data" => Data, "PartitionKey" => PartitionKey, "StreamName" => StreamName
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 function put_record(
@@ -1035,6 +1076,7 @@ function put_record(
             ),
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -1096,6 +1138,7 @@ function put_records(Records, StreamName; aws_config::AbstractAWSConfig=global_a
         "PutRecords",
         Dict{String,Any}("Records" => Records, "StreamName" => StreamName);
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 function put_records(
@@ -1114,6 +1157,7 @@ function put_records(
             ),
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -1147,6 +1191,7 @@ function register_stream_consumer(
         "RegisterStreamConsumer",
         Dict{String,Any}("ConsumerName" => ConsumerName, "StreamARN" => StreamARN);
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 function register_stream_consumer(
@@ -1165,6 +1210,7 @@ function register_stream_consumer(
             ),
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -1189,6 +1235,7 @@ function remove_tags_from_stream(
         "RemoveTagsFromStream",
         Dict{String,Any}("StreamName" => StreamName, "TagKeys" => TagKeys);
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 function remove_tags_from_stream(
@@ -1207,6 +1254,7 @@ function remove_tags_from_stream(
             ),
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -1269,6 +1317,7 @@ function split_shard(
             "StreamName" => StreamName,
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 function split_shard(
@@ -1292,6 +1341,7 @@ function split_shard(
             ),
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -1334,6 +1384,7 @@ function start_stream_encryption(
             "EncryptionType" => EncryptionType, "KeyId" => KeyId, "StreamName" => StreamName
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 function start_stream_encryption(
@@ -1357,6 +1408,7 @@ function start_stream_encryption(
             ),
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -1399,6 +1451,7 @@ function stop_stream_encryption(
             "EncryptionType" => EncryptionType, "KeyId" => KeyId, "StreamName" => StreamName
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 function stop_stream_encryption(
@@ -1422,6 +1475,7 @@ function stop_stream_encryption(
             ),
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -1477,6 +1531,7 @@ function update_shard_count(
             "TargetShardCount" => TargetShardCount,
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 function update_shard_count(
@@ -1500,5 +1555,6 @@ function update_shard_count(
             ),
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end

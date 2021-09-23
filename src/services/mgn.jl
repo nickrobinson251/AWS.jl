@@ -26,6 +26,7 @@ function change_server_life_cycle_state(
         "/ChangeServerLifeCycleState",
         Dict{String,Any}("lifeCycle" => lifeCycle, "sourceServerID" => sourceServerID);
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 function change_server_life_cycle_state(
@@ -47,6 +48,7 @@ function change_server_life_cycle_state(
             ),
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -117,6 +119,7 @@ function create_replication_configuration_template(
             "useDedicatedReplicationServer" => useDedicatedReplicationServer,
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 function create_replication_configuration_template(
@@ -158,6 +161,7 @@ function create_replication_configuration_template(
             ),
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -173,7 +177,11 @@ Deletes a single Job by ID.
 """
 function delete_job(jobID; aws_config::AbstractAWSConfig=global_aws_config())
     return mgn(
-        "POST", "/DeleteJob", Dict{String,Any}("jobID" => jobID); aws_config=aws_config
+        "POST",
+        "/DeleteJob",
+        Dict{String,Any}("jobID" => jobID);
+        aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 function delete_job(
@@ -184,6 +192,7 @@ function delete_job(
         "/DeleteJob",
         Dict{String,Any}(mergewith(_merge, Dict{String,Any}("jobID" => jobID), params));
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -208,6 +217,7 @@ function delete_replication_configuration_template(
             "replicationConfigurationTemplateID" => replicationConfigurationTemplateID
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 function delete_replication_configuration_template(
@@ -229,6 +239,7 @@ function delete_replication_configuration_template(
             ),
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -250,6 +261,7 @@ function delete_source_server(
         "/DeleteSourceServer",
         Dict{String,Any}("sourceServerID" => sourceServerID);
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 function delete_source_server(
@@ -264,6 +276,7 @@ function delete_source_server(
             mergewith(_merge, Dict{String,Any}("sourceServerID" => sourceServerID), params)
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -287,6 +300,7 @@ function describe_job_log_items(jobID; aws_config::AbstractAWSConfig=global_aws_
         "/DescribeJobLogItems",
         Dict{String,Any}("jobID" => jobID);
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 function describe_job_log_items(
@@ -297,6 +311,7 @@ function describe_job_log_items(
         "/DescribeJobLogItems",
         Dict{String,Any}(mergewith(_merge, Dict{String,Any}("jobID" => jobID), params));
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -324,6 +339,7 @@ function describe_jobs(filters; aws_config::AbstractAWSConfig=global_aws_config(
         "/DescribeJobs",
         Dict{String,Any}("filters" => filters);
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 function describe_jobs(
@@ -334,6 +350,7 @@ function describe_jobs(
         "/DescribeJobs",
         Dict{String,Any}(mergewith(_merge, Dict{String,Any}("filters" => filters), params));
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -362,6 +379,7 @@ function describe_replication_configuration_templates(
             "replicationConfigurationTemplateIDs" => replicationConfigurationTemplateIDs
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 function describe_replication_configuration_templates(
@@ -383,6 +401,7 @@ function describe_replication_configuration_templates(
             ),
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -406,6 +425,7 @@ function describe_source_servers(filters; aws_config::AbstractAWSConfig=global_a
         "/DescribeSourceServers",
         Dict{String,Any}("filters" => filters);
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 function describe_source_servers(
@@ -416,6 +436,7 @@ function describe_source_servers(
         "/DescribeSourceServers",
         Dict{String,Any}(mergewith(_merge, Dict{String,Any}("filters" => filters), params));
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -446,6 +467,7 @@ function disconnect_from_service(
         "/DisconnectFromService",
         Dict{String,Any}("sourceServerID" => sourceServerID);
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 function disconnect_from_service(
@@ -460,6 +482,7 @@ function disconnect_from_service(
             mergewith(_merge, Dict{String,Any}("sourceServerID" => sourceServerID), params)
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -487,6 +510,7 @@ function finalize_cutover(sourceServerID; aws_config::AbstractAWSConfig=global_a
         "/FinalizeCutover",
         Dict{String,Any}("sourceServerID" => sourceServerID);
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 function finalize_cutover(
@@ -501,6 +525,7 @@ function finalize_cutover(
             mergewith(_merge, Dict{String,Any}("sourceServerID" => sourceServerID), params)
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -522,6 +547,7 @@ function get_launch_configuration(
         "/GetLaunchConfiguration",
         Dict{String,Any}("sourceServerID" => sourceServerID);
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 function get_launch_configuration(
@@ -536,6 +562,7 @@ function get_launch_configuration(
             mergewith(_merge, Dict{String,Any}("sourceServerID" => sourceServerID), params)
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -557,6 +584,7 @@ function get_replication_configuration(
         "/GetReplicationConfiguration",
         Dict{String,Any}("sourceServerID" => sourceServerID);
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 function get_replication_configuration(
@@ -571,6 +599,7 @@ function get_replication_configuration(
             mergewith(_merge, Dict{String,Any}("sourceServerID" => sourceServerID), params)
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -582,12 +611,20 @@ Initialize Application Migration Service.
 
 """
 function initialize_service(; aws_config::AbstractAWSConfig=global_aws_config())
-    return mgn("POST", "/InitializeService"; aws_config=aws_config)
+    return mgn(
+        "POST", "/InitializeService"; aws_config=aws_config, features=SERVICE_FEATURES
+    )
 end
 function initialize_service(
     params::AbstractDict{String}; aws_config::AbstractAWSConfig=global_aws_config()
 )
-    return mgn("POST", "/InitializeService", params; aws_config=aws_config)
+    return mgn(
+        "POST",
+        "/InitializeService",
+        params;
+        aws_config=aws_config,
+        features=SERVICE_FEATURES,
+    )
 end
 
 """
@@ -603,14 +640,22 @@ List all tags for your Application Migration Service resources.
 function list_tags_for_resource(
     resourceArn; aws_config::AbstractAWSConfig=global_aws_config()
 )
-    return mgn("GET", "/tags/$(resourceArn)"; aws_config=aws_config)
+    return mgn(
+        "GET", "/tags/$(resourceArn)"; aws_config=aws_config, features=SERVICE_FEATURES
+    )
 end
 function list_tags_for_resource(
     resourceArn,
     params::AbstractDict{String};
     aws_config::AbstractAWSConfig=global_aws_config(),
 )
-    return mgn("GET", "/tags/$(resourceArn)", params; aws_config=aws_config)
+    return mgn(
+        "GET",
+        "/tags/$(resourceArn)",
+        params;
+        aws_config=aws_config,
+        features=SERVICE_FEATURES,
+    )
 end
 
 """
@@ -631,6 +676,7 @@ function mark_as_archived(sourceServerID; aws_config::AbstractAWSConfig=global_a
         "/MarkAsArchived",
         Dict{String,Any}("sourceServerID" => sourceServerID);
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 function mark_as_archived(
@@ -645,6 +691,7 @@ function mark_as_archived(
             mergewith(_merge, Dict{String,Any}("sourceServerID" => sourceServerID), params)
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -669,6 +716,7 @@ function retry_data_replication(
         "/RetryDataReplication",
         Dict{String,Any}("sourceServerID" => sourceServerID);
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 function retry_data_replication(
@@ -683,6 +731,7 @@ function retry_data_replication(
             mergewith(_merge, Dict{String,Any}("sourceServerID" => sourceServerID), params)
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -707,6 +756,7 @@ function start_cutover(sourceServerIDs; aws_config::AbstractAWSConfig=global_aws
         "/StartCutover",
         Dict{String,Any}("sourceServerIDs" => sourceServerIDs);
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 function start_cutover(
@@ -723,6 +773,7 @@ function start_cutover(
             ),
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -747,6 +798,7 @@ function start_test(sourceServerIDs; aws_config::AbstractAWSConfig=global_aws_co
         "/StartTest",
         Dict{String,Any}("sourceServerIDs" => sourceServerIDs);
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 function start_test(
@@ -763,6 +815,7 @@ function start_test(
             ),
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -786,6 +839,7 @@ function tag_resource(resourceArn, tags; aws_config::AbstractAWSConfig=global_aw
         "/tags/$(resourceArn)",
         Dict{String,Any}("tags" => tags);
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 function tag_resource(
@@ -799,6 +853,7 @@ function tag_resource(
         "/tags/$(resourceArn)",
         Dict{String,Any}(mergewith(_merge, Dict{String,Any}("tags" => tags), params));
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -825,6 +880,7 @@ function terminate_target_instances(
         "/TerminateTargetInstances",
         Dict{String,Any}("sourceServerIDs" => sourceServerIDs);
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 function terminate_target_instances(
@@ -841,6 +897,7 @@ function terminate_target_instances(
             ),
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -864,6 +921,7 @@ function untag_resource(
         "/tags/$(resourceArn)",
         Dict{String,Any}("tagKeys" => tagKeys);
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 function untag_resource(
@@ -877,6 +935,7 @@ function untag_resource(
         "/tags/$(resourceArn)",
         Dict{String,Any}(mergewith(_merge, Dict{String,Any}("tagKeys" => tagKeys), params));
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -907,6 +966,7 @@ function update_launch_configuration(
         "/UpdateLaunchConfiguration",
         Dict{String,Any}("sourceServerID" => sourceServerID);
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 function update_launch_configuration(
@@ -921,6 +981,7 @@ function update_launch_configuration(
             mergewith(_merge, Dict{String,Any}("sourceServerID" => sourceServerID), params)
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -963,6 +1024,7 @@ function update_replication_configuration(
         "/UpdateReplicationConfiguration",
         Dict{String,Any}("sourceServerID" => sourceServerID);
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 function update_replication_configuration(
@@ -977,6 +1039,7 @@ function update_replication_configuration(
             mergewith(_merge, Dict{String,Any}("sourceServerID" => sourceServerID), params)
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 
@@ -1025,6 +1088,7 @@ function update_replication_configuration_template(
             "replicationConfigurationTemplateID" => replicationConfigurationTemplateID
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
 function update_replication_configuration_template(
@@ -1046,5 +1110,6 @@ function update_replication_configuration_template(
             ),
         );
         aws_config=aws_config,
+        features=SERVICE_FEATURES,
     )
 end
