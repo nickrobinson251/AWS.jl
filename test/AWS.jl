@@ -862,6 +862,7 @@ end
             # GET with an IO target
             mktemp() do f, io
                 S3.get_object(bucket_name, file_name, Dict("response_stream" => io))
+                flush(io)
                 @test read(f, String) == body
             end
         finally
@@ -960,7 +961,7 @@ end
             end
 
             for vault in vault_names
-                result_tags = Glacier.list_tags_for_vault("-", vault)
+                result_tags = Dict(Glacier.list_tags_for_vault("-", vault))
                 @test result_tags == tags
             end
 
@@ -1004,8 +1005,7 @@ end
             end
 
             for vault in vault_names
-                result_tags = AWSServices.glacier("GET", "/-/vaults/$vault/tags")
-
+                result_tags = Dict(AWSServices.glacier("GET", "/-/vaults/$vault/tags"))
                 @test result_tags == tags
             end
 
