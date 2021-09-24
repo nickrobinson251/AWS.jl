@@ -108,7 +108,7 @@ end
 # the keys are defined within `defaults`. If any key is not defined by the user then the
 # value from `defaults` will be used. Returns a `NamedTuple` expression.
 function _process_service_features(args, defaults)
-    feature_dict = Dict{Symbol,Any}(defaults)
+    feature_dict = Dict{Symbol,Any}(pairs(defaults))
     for ex in args
         if ex isa Expr && ex.head === :(=)
             k, v = ex.args[1:2]

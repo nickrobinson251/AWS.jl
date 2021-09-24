@@ -23,7 +23,7 @@ export sign!, sign_aws2!, sign_aws4!
 export JSONService, RestJSONService, RestXMLService, QueryService
 
 const DEFAULT_REGION = "us-east-1"
-const DEFAULT_SERVICE_FEATURES = []
+const DEFAULT_SERVICE_FEATURES = NamedTuple()
 
 include(joinpath("utilities", "utilities.jl"))
 
@@ -212,7 +212,7 @@ function (service::RestXMLService)(
     request_uri::String,
     args::AbstractDict{String,<:Any}=Dict{String,Any}();
     aws_config::AbstractAWSConfig=global_aws_config(),
-    features::NamedTuple=NamedTuple(),
+    features::NamedTuple=DEFAULT_SERVICE_FEATURES,
 )
     return_headers = _pop!(args, "return_headers", false)
 
@@ -265,7 +265,7 @@ function (service::QueryService)(
     operation::String,
     args::AbstractDict{String,<:Any}=Dict{String,Any}();
     aws_config::AbstractAWSConfig=global_aws_config(),
-    features::NamedTuple=NamedTuple(),
+    features::NamedTuple=DEFAULT_SERVICE_FEATURES,
 )
     POST_RESOURCE = "/"
     return_headers = _pop!(args, "return_headers", false)
@@ -308,7 +308,7 @@ function (service::JSONService)(
     operation::String,
     args::AbstractDict{String,<:Any}=Dict{String,Any}();
     aws_config::AbstractAWSConfig=global_aws_config(),
-    features::NamedTuple=NamedTuple(),
+    features::NamedTuple=DEFAULT_SERVICE_FEATURES,
 )
     POST_RESOURCE = "/"
     return_headers = _pop!(args, "return_headers", false)
@@ -351,7 +351,7 @@ function (service::RestJSONService)(
     request_uri::String,
     args::AbstractDict{String,<:Any}=Dict{String,String}();
     aws_config::AbstractAWSConfig=global_aws_config(),
-    features::NamedTuple=NamedTuple(),
+    features::NamedTuple=DEFAULT_SERVICE_FEATURES,
 )
     return_headers = _pop!(args, "return_headers", false)
 
