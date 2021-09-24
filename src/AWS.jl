@@ -20,7 +20,7 @@ export AbstractAWSConfig, AWSConfig, AWSExceptions, AWSServices, Request
 export ec2_instance_metadata, ec2_instance_region
 export generate_service_url, global_aws_config, set_user_agent
 export sign!, sign_aws2!, sign_aws4!
-export JSONService, RestJSONService, RestXMLService, QueryService
+export JSONService, RestJSONService, RestXMLService, QueryService, set_features
 
 const DEFAULT_REGION = "us-east-1"
 const DEFAULT_SERVICE_FEATURES = NamedTuple()
@@ -135,19 +135,21 @@ macro service(module_name::Symbol, features...)
     return Expr(:toplevel, Expr(:module, true, esc(module_name), esc(module_block)))
 end
 
-struct RestXMLService
+abstract type Service end
+
+struct RestXMLService <: Service
     signing_name::String
     endpoint_prefix::String
     api_version::String
 end
 
-struct QueryService
+struct QueryService <: Service
     signing_name::String
     endpoint_prefix::String
     api_version::String
 end
 
-struct JSONService
+struct JSONService <: Service
     signing_name::String
     endpoint_prefix::String
     api_version::String
@@ -156,7 +158,7 @@ struct JSONService
     target::String
 end
 
-struct RestJSONService
+struct RestJSONService <: Service
     signing_name::String
     endpoint_prefix::String
     api_version::String
@@ -168,6 +170,16 @@ function RestJSONService(signing_name::String, endpoint_prefix::String, api_vers
     return RestJSONService(
         signing_name, endpoint_prefix, api_version, LittleDict{String,String}()
     )
+end
+
+struct ServiceWrapper{S<:Service}
+    service::S
+    features::NamedTuple
+end
+
+function set_features(service::Service; features...)
+    features = merge(DEFAULT_SERVICE_FEATURES, features)
+    return ServiceWrapper(service, features)
 end
 
 # Needs to be included after the definition of struct otherwise it cannot find them
@@ -373,6 +385,11 @@ function (service::RestJSONService)(
     request.content = json(args)
 
     return submit_request(aws_config, request; return_headers=return_headers)
+end
+
+function (service::ServiceWrapper)(args...; features::NamedTuple=NamedTuple(), kwargs...)
+    features = merge(service.features, features)
+    return service.service(args...; features=features, kwargs...)
 end
 
 function __init__()
