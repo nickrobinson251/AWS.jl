@@ -1,5 +1,5 @@
 @testset "service module" begin
-    @service S3
+    @service S3 use_response_type = true
     @test :S3 in names(Main)
 end
 
@@ -542,7 +542,7 @@ end
 
 @testset "STS" begin
     @testset "high-level" begin
-        @service STS
+        @service STS use_response_type = true
 
         response = STS.get_caller_identity()
         d = response["GetCallerIdentityResult"]
@@ -564,7 +564,7 @@ end
 
 @testset "json" begin
     @testset "high-level secrets manager" begin
-        @service Secrets_Manager
+        @service Secrets_Manager use_response_type = true
 
         secret_name = "aws-jl-test---" * _now_formatted()
         secret_string = "sshhh it is a secret!"
@@ -631,7 +631,7 @@ end
 
 @testset "query" begin
     @testset "high-level iam" begin
-        @service IAM
+        @service IAM use_response_type = true
 
         policy_arn = ""
         expected_policy_name = "aws-jl-test---" * _now_formatted()
@@ -702,7 +702,7 @@ end
     end
 
     @testset "high-level sqs" begin
-        @service SQS
+        @service SQS use_response_type = true
 
         queue_name = "aws-jl-test---" * _now_formatted()
         expected_message = "Hello for AWS.jl"
@@ -819,7 +819,7 @@ end
 
 @testset "rest-xml" begin
     @testset "high-level s3" begin
-        @service S3
+        @service S3 use_response_type = true
 
         bucket_name = "aws-jl-test---" * _now_formatted()
         file_name = string(uuid4())
@@ -941,7 +941,7 @@ end
 
 @testset "rest-json" begin
     @testset "high-level glacier" begin
-        @service Glacier
+        @service Glacier use_response_type = true
 
         timestamp = _now_formatted()
         vault_names = ["aws-jl-test-01---$timestamp", "aws-jl-test-02---$timestamp"]

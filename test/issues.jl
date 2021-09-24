@@ -1,4 +1,4 @@
-@service S3
+@service S3 use_response_type = true
 
 bucket_name = "aws-jl-test-issues---" * _now_formatted()
 S3.create_bucket(bucket_name)
@@ -46,7 +46,7 @@ end
     end
 
     @testset "lambda" begin
-        @service Lambda
+        @service Lambda use_response_type = true
 
         @test_throws NoCredentials Lambda.list_functions(;
             aws_config=AWSConfig(; creds=nothing)
