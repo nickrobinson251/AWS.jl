@@ -23,7 +23,6 @@ export sign!, sign_aws2!, sign_aws4!
 export JSONService, RestJSONService, RestXMLService, QueryService, set_features
 
 const DEFAULT_REGION = "us-east-1"
-const DEFAULT_SERVICE_FEATURES = NamedTuple()
 
 include(joinpath("utilities", "utilities.jl"))
 
@@ -41,6 +40,8 @@ using ..AWSExceptions: AWSException
 
 const user_agent = Ref("AWS.jl/1.0.0")
 const aws_config = Ref{AbstractAWSConfig}()
+
+Base.@kwdef struct FeatureSet end
 
 """
     global_aws_config()
@@ -125,10 +126,11 @@ using AWS: @service
 """
 macro service(module_name::Symbol, features...)
     service_name = joinpath(@__DIR__, "services", lowercase(string(module_name)) * ".jl")
-    service_features = _process_service_features(features, DEFAULT_SERVICE_FEATURES)
+    map(_assignment_to_kw!, features)
 
     module_block = quote
-        const SERVICE_FEATURES = $service_features
+        using AWS: FeatureSet
+        const SERVICE_FEATURE_SET = FeatureSet(; $(features...))
         include($service_name)
     end
 
@@ -174,12 +176,11 @@ end
 
 struct ServiceWrapper{S<:Service}
     service::S
-    features::NamedTuple
+    feature_set::FeatureSet
 end
 
 function set_features(service::Service; features...)
-    features = merge(DEFAULT_SERVICE_FEATURES, features)
-    return ServiceWrapper(service, features)
+    return ServiceWrapper(service, FeatureSet(; features...))
 end
 
 # Needs to be included after the definition of struct otherwise it cannot find them
@@ -224,7 +225,7 @@ function (service::RestXMLService)(
     request_uri::String,
     args::AbstractDict{String,<:Any}=Dict{String,Any}();
     aws_config::AbstractAWSConfig=global_aws_config(),
-    features::NamedTuple=DEFAULT_SERVICE_FEATURES,
+    feature_set::FeatureSet=FeatureSet(),
 )
     return_headers = _pop!(args, "return_headers", false)
 
@@ -277,7 +278,7 @@ function (service::QueryService)(
     operation::String,
     args::AbstractDict{String,<:Any}=Dict{String,Any}();
     aws_config::AbstractAWSConfig=global_aws_config(),
-    features::NamedTuple=DEFAULT_SERVICE_FEATURES,
+    feature_set::FeatureSet=FeatureSet(),
 )
     POST_RESOURCE = "/"
     return_headers = _pop!(args, "return_headers", false)
@@ -320,7 +321,7 @@ function (service::JSONService)(
     operation::String,
     args::AbstractDict{String,<:Any}=Dict{String,Any}();
     aws_config::AbstractAWSConfig=global_aws_config(),
-    features::NamedTuple=DEFAULT_SERVICE_FEATURES,
+    feature_set::FeatureSet=FeatureSet(),
 )
     POST_RESOURCE = "/"
     return_headers = _pop!(args, "return_headers", false)
@@ -363,7 +364,7 @@ function (service::RestJSONService)(
     request_uri::String,
     args::AbstractDict{String,<:Any}=Dict{String,String}();
     aws_config::AbstractAWSConfig=global_aws_config(),
-    features::NamedTuple=DEFAULT_SERVICE_FEATURES,
+    feature_set::FeatureSet=FeatureSet(),
 )
     return_headers = _pop!(args, "return_headers", false)
 
@@ -387,9 +388,9 @@ function (service::RestJSONService)(
     return submit_request(aws_config, request; return_headers=return_headers)
 end
 
-function (service::ServiceWrapper)(args...; features::NamedTuple=NamedTuple(), kwargs...)
-    features = merge(service.features, features)
-    return service.service(args...; features=features, kwargs...)
+function (service::ServiceWrapper)(args...; feature_set=nothing, kwargs...)
+    feature_set = something(feature_set, service.feature_set)
+    return service.service(args...; feature_set=feature_set, kwargs...)
 end
 
 function __init__()
