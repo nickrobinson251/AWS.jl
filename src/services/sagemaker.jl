@@ -36,7 +36,7 @@ function add_association(
         "AddAssociation",
         Dict{String,Any}("DestinationArn" => DestinationArn, "SourceArn" => SourceArn);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function add_association(
@@ -57,7 +57,7 @@ function add_association(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -96,7 +96,7 @@ function add_tags(ResourceArn, Tags; aws_config::AbstractAWSConfig=global_aws_co
         "AddTags",
         Dict{String,Any}("ResourceArn" => ResourceArn, "Tags" => Tags);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function add_tags(
@@ -115,7 +115,7 @@ function add_tags(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -141,7 +141,7 @@ function associate_trial_component(
             "TrialComponentName" => TrialComponentName, "TrialName" => TrialName
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function associate_trial_component(
@@ -162,7 +162,7 @@ function associate_trial_component(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -198,7 +198,7 @@ function create_action(
             "ActionName" => ActionName, "ActionType" => ActionType, "Source" => Source
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function create_action(
@@ -222,7 +222,7 @@ function create_action(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -271,7 +271,7 @@ function create_algorithm(
             "TrainingSpecification" => TrainingSpecification,
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function create_algorithm(
@@ -293,7 +293,7 @@ function create_algorithm(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -336,7 +336,7 @@ function create_app(
             "UserProfileName" => UserProfileName,
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function create_app(
@@ -362,7 +362,7 @@ function create_app(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -389,7 +389,7 @@ function create_app_image_config(
         "CreateAppImageConfig",
         Dict{String,Any}("AppImageConfigName" => AppImageConfigName);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function create_app_image_config(
@@ -405,7 +405,7 @@ function create_app_image_config(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -436,7 +436,7 @@ function create_artifact(
         "CreateArtifact",
         Dict{String,Any}("ArtifactType" => ArtifactType, "Source" => Source);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function create_artifact(
@@ -455,7 +455,7 @@ function create_artifact(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -511,7 +511,7 @@ function create_auto_mljob(
             "RoleArn" => RoleArn,
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function create_auto_mljob(
@@ -537,7 +537,7 @@ function create_auto_mljob(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -573,7 +573,7 @@ function create_code_repository(
             "CodeRepositoryName" => CodeRepositoryName, "GitConfig" => GitConfig
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function create_code_repository(
@@ -594,7 +594,7 @@ function create_code_repository(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -663,7 +663,7 @@ function create_compilation_job(
             "StoppingCondition" => StoppingCondition,
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function create_compilation_job(
@@ -691,7 +691,7 @@ function create_compilation_job(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -724,7 +724,7 @@ function create_context(
             "ContextName" => ContextName, "ContextType" => ContextType, "Source" => Source
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function create_context(
@@ -748,7 +748,7 @@ function create_context(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -798,7 +798,7 @@ function create_data_quality_job_definition(
             "RoleArn" => RoleArn,
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function create_data_quality_job_definition(
@@ -828,7 +828,7 @@ function create_data_quality_job_definition(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -862,7 +862,7 @@ function create_device_fleet(
             "DeviceFleetName" => DeviceFleetName, "OutputConfig" => OutputConfig
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function create_device_fleet(
@@ -883,7 +883,7 @@ function create_device_fleet(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -959,7 +959,7 @@ function create_domain(
             "VpcId" => VpcId,
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function create_domain(
@@ -987,7 +987,7 @@ function create_domain(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -1036,7 +1036,7 @@ function create_edge_packaging_job(
             "RoleArn" => RoleArn,
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function create_edge_packaging_job(
@@ -1066,7 +1066,7 @@ function create_edge_packaging_job(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -1137,7 +1137,7 @@ function create_endpoint(
             "EndpointConfigName" => EndpointConfigName, "EndpointName" => EndpointName
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function create_endpoint(
@@ -1159,7 +1159,7 @@ function create_endpoint(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -1234,7 +1234,7 @@ function create_endpoint_config(
             "ProductionVariants" => ProductionVariants,
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function create_endpoint_config(
@@ -1256,7 +1256,7 @@ function create_endpoint_config(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -1299,7 +1299,7 @@ function create_experiment(
         "CreateExperiment",
         Dict{String,Any}("ExperimentName" => ExperimentName);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function create_experiment(
@@ -1313,7 +1313,7 @@ function create_experiment(
             mergewith(_merge, Dict{String,Any}("ExperimentName" => ExperimentName), params)
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -1386,7 +1386,7 @@ function create_feature_group(
             "RecordIdentifierFeatureName" => RecordIdentifierFeatureName,
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function create_feature_group(
@@ -1412,7 +1412,7 @@ function create_feature_group(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -1458,7 +1458,7 @@ function create_flow_definition(
             "RoleArn" => RoleArn,
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function create_flow_definition(
@@ -1484,7 +1484,7 @@ function create_flow_definition(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -1513,7 +1513,7 @@ function create_human_task_ui(
         "CreateHumanTaskUi",
         Dict{String,Any}("HumanTaskUiName" => HumanTaskUiName, "UiTemplate" => UiTemplate);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function create_human_task_ui(
@@ -1534,7 +1534,7 @@ function create_human_task_ui(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -1595,7 +1595,7 @@ function create_hyper_parameter_tuning_job(
             "HyperParameterTuningJobName" => HyperParameterTuningJobName,
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function create_hyper_parameter_tuning_job(
@@ -1617,7 +1617,7 @@ function create_hyper_parameter_tuning_job(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -1645,7 +1645,7 @@ function create_image(ImageName, RoleArn; aws_config::AbstractAWSConfig=global_a
         "CreateImage",
         Dict{String,Any}("ImageName" => ImageName, "RoleArn" => RoleArn);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function create_image(
@@ -1664,7 +1664,7 @@ function create_image(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -1693,7 +1693,7 @@ function create_image_version(
             "BaseImage" => BaseImage, "ClientToken" => ClientToken, "ImageName" => ImageName
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function create_image_version(
@@ -1717,7 +1717,7 @@ function create_image_version(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -1847,7 +1847,7 @@ function create_labeling_job(
             "RoleArn" => RoleArn,
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function create_labeling_job(
@@ -1877,7 +1877,7 @@ function create_labeling_job(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -1939,7 +1939,7 @@ function create_model(
         "CreateModel",
         Dict{String,Any}("ExecutionRoleArn" => ExecutionRoleArn, "ModelName" => ModelName);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function create_model(
@@ -1960,7 +1960,7 @@ function create_model(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -2009,7 +2009,7 @@ function create_model_bias_job_definition(
             "RoleArn" => RoleArn,
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function create_model_bias_job_definition(
@@ -2039,7 +2039,7 @@ function create_model_bias_job_definition(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -2089,7 +2089,7 @@ function create_model_explainability_job_definition(
             "RoleArn" => RoleArn,
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function create_model_explainability_job_definition(
@@ -2121,7 +2121,7 @@ function create_model_explainability_job_definition(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -2175,7 +2175,7 @@ function create_model_package(; aws_config::AbstractAWSConfig=global_aws_config(
         "CreateModelPackage",
         Dict{String,Any}("ClientToken" => string(uuid4()));
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function create_model_package(
@@ -2187,7 +2187,7 @@ function create_model_package(
             mergewith(_merge, Dict{String,Any}("ClientToken" => string(uuid4())), params)
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -2214,7 +2214,7 @@ function create_model_package_group(
         "CreateModelPackageGroup",
         Dict{String,Any}("ModelPackageGroupName" => ModelPackageGroupName);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function create_model_package_group(
@@ -2232,7 +2232,7 @@ function create_model_package_group(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -2282,7 +2282,7 @@ function create_model_quality_job_definition(
             "RoleArn" => RoleArn,
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function create_model_quality_job_definition(
@@ -2312,7 +2312,7 @@ function create_model_quality_job_definition(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -2346,7 +2346,7 @@ function create_monitoring_schedule(
             "MonitoringScheduleName" => MonitoringScheduleName,
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function create_monitoring_schedule(
@@ -2368,7 +2368,7 @@ function create_monitoring_schedule(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -2472,7 +2472,7 @@ function create_notebook_instance(
             "RoleArn" => RoleArn,
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function create_notebook_instance(
@@ -2496,7 +2496,7 @@ function create_notebook_instance(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -2534,7 +2534,7 @@ function create_notebook_instance_lifecycle_config(
             "NotebookInstanceLifecycleConfigName" => NotebookInstanceLifecycleConfigName
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function create_notebook_instance_lifecycle_config(
@@ -2555,7 +2555,7 @@ function create_notebook_instance_lifecycle_config(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -2595,7 +2595,7 @@ function create_pipeline(
             "RoleArn" => RoleArn,
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function create_pipeline(
@@ -2621,7 +2621,7 @@ function create_pipeline(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -2662,7 +2662,7 @@ function create_presigned_domain_url(
         "CreatePresignedDomainUrl",
         Dict{String,Any}("DomainId" => DomainId, "UserProfileName" => UserProfileName);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function create_presigned_domain_url(
@@ -2683,7 +2683,7 @@ function create_presigned_domain_url(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -2722,7 +2722,7 @@ function create_presigned_notebook_instance_url(
         "CreatePresignedNotebookInstanceUrl",
         Dict{String,Any}("NotebookInstanceName" => NotebookInstanceName);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function create_presigned_notebook_instance_url(
@@ -2740,7 +2740,7 @@ function create_presigned_notebook_instance_url(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -2792,7 +2792,7 @@ function create_processing_job(
             "RoleArn" => RoleArn,
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function create_processing_job(
@@ -2818,7 +2818,7 @@ function create_processing_job(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -2854,7 +2854,7 @@ function create_project(
             "ServiceCatalogProvisioningDetails" => ServiceCatalogProvisioningDetails,
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function create_project(
@@ -2877,7 +2877,7 @@ function create_project(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -2914,7 +2914,7 @@ function create_studio_lifecycle_config(
             "StudioLifecycleConfigName" => StudioLifecycleConfigName,
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function create_studio_lifecycle_config(
@@ -2938,7 +2938,7 @@ function create_studio_lifecycle_config(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -3078,7 +3078,7 @@ function create_training_job(
             "TrainingJobName" => TrainingJobName,
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function create_training_job(
@@ -3108,7 +3108,7 @@ function create_training_job(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -3197,7 +3197,7 @@ function create_transform_job(
             "TransformResources" => TransformResources,
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function create_transform_job(
@@ -3225,7 +3225,7 @@ function create_transform_job(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -3262,7 +3262,7 @@ function create_trial(
         "CreateTrial",
         Dict{String,Any}("ExperimentName" => ExperimentName, "TrialName" => TrialName);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function create_trial(
@@ -3283,7 +3283,7 @@ function create_trial(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -3327,7 +3327,7 @@ function create_trial_component(
         "CreateTrialComponent",
         Dict{String,Any}("TrialComponentName" => TrialComponentName);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function create_trial_component(
@@ -3343,7 +3343,7 @@ function create_trial_component(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -3385,7 +3385,7 @@ function create_user_profile(
         "CreateUserProfile",
         Dict{String,Any}("DomainId" => DomainId, "UserProfileName" => UserProfileName);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function create_user_profile(
@@ -3406,7 +3406,7 @@ function create_user_profile(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -3446,7 +3446,7 @@ function create_workforce(WorkforceName; aws_config::AbstractAWSConfig=global_aw
         "CreateWorkforce",
         Dict{String,Any}("WorkforceName" => WorkforceName);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function create_workforce(
@@ -3460,7 +3460,7 @@ function create_workforce(
             mergewith(_merge, Dict{String,Any}("WorkforceName" => WorkforceName), params)
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -3511,7 +3511,7 @@ function create_workteam(
             "WorkteamName" => WorkteamName,
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function create_workteam(
@@ -3535,7 +3535,7 @@ function create_workteam(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -3554,7 +3554,7 @@ function delete_action(ActionName; aws_config::AbstractAWSConfig=global_aws_conf
         "DeleteAction",
         Dict{String,Any}("ActionName" => ActionName);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function delete_action(
@@ -3568,7 +3568,7 @@ function delete_action(
             mergewith(_merge, Dict{String,Any}("ActionName" => ActionName), params)
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -3587,7 +3587,7 @@ function delete_algorithm(AlgorithmName; aws_config::AbstractAWSConfig=global_aw
         "DeleteAlgorithm",
         Dict{String,Any}("AlgorithmName" => AlgorithmName);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function delete_algorithm(
@@ -3601,7 +3601,7 @@ function delete_algorithm(
             mergewith(_merge, Dict{String,Any}("AlgorithmName" => AlgorithmName), params)
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -3634,7 +3634,7 @@ function delete_app(
             "UserProfileName" => UserProfileName,
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function delete_app(
@@ -3660,7 +3660,7 @@ function delete_app(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -3681,7 +3681,7 @@ function delete_app_image_config(
         "DeleteAppImageConfig",
         Dict{String,Any}("AppImageConfigName" => AppImageConfigName);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function delete_app_image_config(
@@ -3697,7 +3697,7 @@ function delete_app_image_config(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -3713,13 +3713,15 @@ Optional parameters can be passed as a `params::Dict{String,<:Any}`. Valid keys 
 - `"Source"`: The URI of the source.
 """
 function delete_artifact(; aws_config::AbstractAWSConfig=global_aws_config())
-    return sagemaker("DeleteArtifact"; aws_config=aws_config, features=SERVICE_FEATURES)
+    return sagemaker(
+        "DeleteArtifact"; aws_config=aws_config, feature_set=SERVICE_FEATURE_SET
+    )
 end
 function delete_artifact(
     params::AbstractDict{String}; aws_config::AbstractAWSConfig=global_aws_config()
 )
     return sagemaker(
-        "DeleteArtifact", params; aws_config=aws_config, features=SERVICE_FEATURES
+        "DeleteArtifact", params; aws_config=aws_config, feature_set=SERVICE_FEATURE_SET
     )
 end
 
@@ -3741,7 +3743,7 @@ function delete_association(
         "DeleteAssociation",
         Dict{String,Any}("DestinationArn" => DestinationArn, "SourceArn" => SourceArn);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function delete_association(
@@ -3762,7 +3764,7 @@ function delete_association(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -3783,7 +3785,7 @@ function delete_code_repository(
         "DeleteCodeRepository",
         Dict{String,Any}("CodeRepositoryName" => CodeRepositoryName);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function delete_code_repository(
@@ -3799,7 +3801,7 @@ function delete_code_repository(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -3818,7 +3820,7 @@ function delete_context(ContextName; aws_config::AbstractAWSConfig=global_aws_co
         "DeleteContext",
         Dict{String,Any}("ContextName" => ContextName);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function delete_context(
@@ -3832,7 +3834,7 @@ function delete_context(
             mergewith(_merge, Dict{String,Any}("ContextName" => ContextName), params)
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -3853,7 +3855,7 @@ function delete_data_quality_job_definition(
         "DeleteDataQualityJobDefinition",
         Dict{String,Any}("JobDefinitionName" => JobDefinitionName);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function delete_data_quality_job_definition(
@@ -3869,7 +3871,7 @@ function delete_data_quality_job_definition(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -3890,7 +3892,7 @@ function delete_device_fleet(
         "DeleteDeviceFleet",
         Dict{String,Any}("DeviceFleetName" => DeviceFleetName);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function delete_device_fleet(
@@ -3906,7 +3908,7 @@ function delete_device_fleet(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -3932,7 +3934,7 @@ function delete_domain(DomainId; aws_config::AbstractAWSConfig=global_aws_config
         "DeleteDomain",
         Dict{String,Any}("DomainId" => DomainId);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function delete_domain(
@@ -3946,7 +3948,7 @@ function delete_domain(
             mergewith(_merge, Dict{String,Any}("DomainId" => DomainId), params)
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -3967,7 +3969,7 @@ function delete_endpoint(EndpointName; aws_config::AbstractAWSConfig=global_aws_
         "DeleteEndpoint",
         Dict{String,Any}("EndpointName" => EndpointName);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function delete_endpoint(
@@ -3981,7 +3983,7 @@ function delete_endpoint(
             mergewith(_merge, Dict{String,Any}("EndpointName" => EndpointName), params)
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -4008,7 +4010,7 @@ function delete_endpoint_config(
         "DeleteEndpointConfig",
         Dict{String,Any}("EndpointConfigName" => EndpointConfigName);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function delete_endpoint_config(
@@ -4024,7 +4026,7 @@ function delete_endpoint_config(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -4046,7 +4048,7 @@ function delete_experiment(
         "DeleteExperiment",
         Dict{String,Any}("ExperimentName" => ExperimentName);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function delete_experiment(
@@ -4060,7 +4062,7 @@ function delete_experiment(
             mergewith(_merge, Dict{String,Any}("ExperimentName" => ExperimentName), params)
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -4086,7 +4088,7 @@ function delete_feature_group(
         "DeleteFeatureGroup",
         Dict{String,Any}("FeatureGroupName" => FeatureGroupName);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function delete_feature_group(
@@ -4102,7 +4104,7 @@ function delete_feature_group(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -4123,7 +4125,7 @@ function delete_flow_definition(
         "DeleteFlowDefinition",
         Dict{String,Any}("FlowDefinitionName" => FlowDefinitionName);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function delete_flow_definition(
@@ -4139,7 +4141,7 @@ function delete_flow_definition(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -4163,7 +4165,7 @@ function delete_human_task_ui(
         "DeleteHumanTaskUi",
         Dict{String,Any}("HumanTaskUiName" => HumanTaskUiName);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function delete_human_task_ui(
@@ -4179,7 +4181,7 @@ function delete_human_task_ui(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -4199,7 +4201,7 @@ function delete_image(ImageName; aws_config::AbstractAWSConfig=global_aws_config
         "DeleteImage",
         Dict{String,Any}("ImageName" => ImageName);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function delete_image(
@@ -4213,7 +4215,7 @@ function delete_image(
             mergewith(_merge, Dict{String,Any}("ImageName" => ImageName), params)
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -4236,7 +4238,7 @@ function delete_image_version(
         "DeleteImageVersion",
         Dict{String,Any}("ImageName" => ImageName, "Version" => Version);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function delete_image_version(
@@ -4255,7 +4257,7 @@ function delete_image_version(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -4276,7 +4278,7 @@ function delete_model(ModelName; aws_config::AbstractAWSConfig=global_aws_config
         "DeleteModel",
         Dict{String,Any}("ModelName" => ModelName);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function delete_model(
@@ -4290,7 +4292,7 @@ function delete_model(
             mergewith(_merge, Dict{String,Any}("ModelName" => ModelName), params)
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -4311,7 +4313,7 @@ function delete_model_bias_job_definition(
         "DeleteModelBiasJobDefinition",
         Dict{String,Any}("JobDefinitionName" => JobDefinitionName);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function delete_model_bias_job_definition(
@@ -4327,7 +4329,7 @@ function delete_model_bias_job_definition(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -4348,7 +4350,7 @@ function delete_model_explainability_job_definition(
         "DeleteModelExplainabilityJobDefinition",
         Dict{String,Any}("JobDefinitionName" => JobDefinitionName);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function delete_model_explainability_job_definition(
@@ -4364,7 +4366,7 @@ function delete_model_explainability_job_definition(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -4389,7 +4391,7 @@ function delete_model_package(
         "DeleteModelPackage",
         Dict{String,Any}("ModelPackageName" => ModelPackageName);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function delete_model_package(
@@ -4405,7 +4407,7 @@ function delete_model_package(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -4426,7 +4428,7 @@ function delete_model_package_group(
         "DeleteModelPackageGroup",
         Dict{String,Any}("ModelPackageGroupName" => ModelPackageGroupName);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function delete_model_package_group(
@@ -4444,7 +4446,7 @@ function delete_model_package_group(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -4465,7 +4467,7 @@ function delete_model_package_group_policy(
         "DeleteModelPackageGroupPolicy",
         Dict{String,Any}("ModelPackageGroupName" => ModelPackageGroupName);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function delete_model_package_group_policy(
@@ -4483,7 +4485,7 @@ function delete_model_package_group_policy(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -4504,7 +4506,7 @@ function delete_model_quality_job_definition(
         "DeleteModelQualityJobDefinition",
         Dict{String,Any}("JobDefinitionName" => JobDefinitionName);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function delete_model_quality_job_definition(
@@ -4520,7 +4522,7 @@ function delete_model_quality_job_definition(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -4542,7 +4544,7 @@ function delete_monitoring_schedule(
         "DeleteMonitoringSchedule",
         Dict{String,Any}("MonitoringScheduleName" => MonitoringScheduleName);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function delete_monitoring_schedule(
@@ -4560,7 +4562,7 @@ function delete_monitoring_schedule(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -4584,7 +4586,7 @@ function delete_notebook_instance(
         "DeleteNotebookInstance",
         Dict{String,Any}("NotebookInstanceName" => NotebookInstanceName);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function delete_notebook_instance(
@@ -4602,7 +4604,7 @@ function delete_notebook_instance(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -4626,7 +4628,7 @@ function delete_notebook_instance_lifecycle_config(
             "NotebookInstanceLifecycleConfigName" => NotebookInstanceLifecycleConfigName
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function delete_notebook_instance_lifecycle_config(
@@ -4647,7 +4649,7 @@ function delete_notebook_instance_lifecycle_config(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -4674,7 +4676,7 @@ function delete_pipeline(
             "ClientRequestToken" => ClientRequestToken, "PipelineName" => PipelineName
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function delete_pipeline(
@@ -4696,7 +4698,7 @@ function delete_pipeline(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -4715,7 +4717,7 @@ function delete_project(ProjectName; aws_config::AbstractAWSConfig=global_aws_co
         "DeleteProject",
         Dict{String,Any}("ProjectName" => ProjectName);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function delete_project(
@@ -4729,7 +4731,7 @@ function delete_project(
             mergewith(_merge, Dict{String,Any}("ProjectName" => ProjectName), params)
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -4752,7 +4754,7 @@ function delete_studio_lifecycle_config(
         "DeleteStudioLifecycleConfig",
         Dict{String,Any}("StudioLifecycleConfigName" => StudioLifecycleConfigName);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function delete_studio_lifecycle_config(
@@ -4770,7 +4772,7 @@ function delete_studio_lifecycle_config(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -4798,7 +4800,7 @@ function delete_tags(
         "DeleteTags",
         Dict{String,Any}("ResourceArn" => ResourceArn, "TagKeys" => TagKeys);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function delete_tags(
@@ -4817,7 +4819,7 @@ function delete_tags(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -4837,7 +4839,7 @@ function delete_trial(TrialName; aws_config::AbstractAWSConfig=global_aws_config
         "DeleteTrial",
         Dict{String,Any}("TrialName" => TrialName);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function delete_trial(
@@ -4851,7 +4853,7 @@ function delete_trial(
             mergewith(_merge, Dict{String,Any}("TrialName" => TrialName), params)
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -4874,7 +4876,7 @@ function delete_trial_component(
         "DeleteTrialComponent",
         Dict{String,Any}("TrialComponentName" => TrialComponentName);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function delete_trial_component(
@@ -4890,7 +4892,7 @@ function delete_trial_component(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -4913,7 +4915,7 @@ function delete_user_profile(
         "DeleteUserProfile",
         Dict{String,Any}("DomainId" => DomainId, "UserProfileName" => UserProfileName);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function delete_user_profile(
@@ -4934,7 +4936,7 @@ function delete_user_profile(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -4958,7 +4960,7 @@ function delete_workforce(WorkforceName; aws_config::AbstractAWSConfig=global_aw
         "DeleteWorkforce",
         Dict{String,Any}("WorkforceName" => WorkforceName);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function delete_workforce(
@@ -4972,7 +4974,7 @@ function delete_workforce(
             mergewith(_merge, Dict{String,Any}("WorkforceName" => WorkforceName), params)
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -4991,7 +4993,7 @@ function delete_workteam(WorkteamName; aws_config::AbstractAWSConfig=global_aws_
         "DeleteWorkteam",
         Dict{String,Any}("WorkteamName" => WorkteamName);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function delete_workteam(
@@ -5005,7 +5007,7 @@ function delete_workteam(
             mergewith(_merge, Dict{String,Any}("WorkteamName" => WorkteamName), params)
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -5030,7 +5032,7 @@ function deregister_devices(
             "DeviceFleetName" => DeviceFleetName, "DeviceNames" => DeviceNames
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function deregister_devices(
@@ -5051,7 +5053,7 @@ function deregister_devices(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -5070,7 +5072,7 @@ function describe_action(ActionName; aws_config::AbstractAWSConfig=global_aws_co
         "DescribeAction",
         Dict{String,Any}("ActionName" => ActionName);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function describe_action(
@@ -5084,7 +5086,7 @@ function describe_action(
             mergewith(_merge, Dict{String,Any}("ActionName" => ActionName), params)
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -5105,7 +5107,7 @@ function describe_algorithm(
         "DescribeAlgorithm",
         Dict{String,Any}("AlgorithmName" => AlgorithmName);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function describe_algorithm(
@@ -5119,7 +5121,7 @@ function describe_algorithm(
             mergewith(_merge, Dict{String,Any}("AlgorithmName" => AlgorithmName), params)
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -5152,7 +5154,7 @@ function describe_app(
             "UserProfileName" => UserProfileName,
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function describe_app(
@@ -5178,7 +5180,7 @@ function describe_app(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -5199,7 +5201,7 @@ function describe_app_image_config(
         "DescribeAppImageConfig",
         Dict{String,Any}("AppImageConfigName" => AppImageConfigName);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function describe_app_image_config(
@@ -5215,7 +5217,7 @@ function describe_app_image_config(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -5234,7 +5236,7 @@ function describe_artifact(ArtifactArn; aws_config::AbstractAWSConfig=global_aws
         "DescribeArtifact",
         Dict{String,Any}("ArtifactArn" => ArtifactArn);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function describe_artifact(
@@ -5248,7 +5250,7 @@ function describe_artifact(
             mergewith(_merge, Dict{String,Any}("ArtifactArn" => ArtifactArn), params)
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -5269,7 +5271,7 @@ function describe_auto_mljob(
         "DescribeAutoMLJob",
         Dict{String,Any}("AutoMLJobName" => AutoMLJobName);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function describe_auto_mljob(
@@ -5283,7 +5285,7 @@ function describe_auto_mljob(
             mergewith(_merge, Dict{String,Any}("AutoMLJobName" => AutoMLJobName), params)
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -5304,7 +5306,7 @@ function describe_code_repository(
         "DescribeCodeRepository",
         Dict{String,Any}("CodeRepositoryName" => CodeRepositoryName);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function describe_code_repository(
@@ -5320,7 +5322,7 @@ function describe_code_repository(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -5344,7 +5346,7 @@ function describe_compilation_job(
         "DescribeCompilationJob",
         Dict{String,Any}("CompilationJobName" => CompilationJobName);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function describe_compilation_job(
@@ -5360,7 +5362,7 @@ function describe_compilation_job(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -5379,7 +5381,7 @@ function describe_context(ContextName; aws_config::AbstractAWSConfig=global_aws_
         "DescribeContext",
         Dict{String,Any}("ContextName" => ContextName);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function describe_context(
@@ -5393,7 +5395,7 @@ function describe_context(
             mergewith(_merge, Dict{String,Any}("ContextName" => ContextName), params)
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -5414,7 +5416,7 @@ function describe_data_quality_job_definition(
         "DescribeDataQualityJobDefinition",
         Dict{String,Any}("JobDefinitionName" => JobDefinitionName);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function describe_data_quality_job_definition(
@@ -5430,7 +5432,7 @@ function describe_data_quality_job_definition(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -5455,7 +5457,7 @@ function describe_device(
         "DescribeDevice",
         Dict{String,Any}("DeviceFleetName" => DeviceFleetName, "DeviceName" => DeviceName);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function describe_device(
@@ -5476,7 +5478,7 @@ function describe_device(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -5497,7 +5499,7 @@ function describe_device_fleet(
         "DescribeDeviceFleet",
         Dict{String,Any}("DeviceFleetName" => DeviceFleetName);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function describe_device_fleet(
@@ -5513,7 +5515,7 @@ function describe_device_fleet(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -5532,7 +5534,7 @@ function describe_domain(DomainId; aws_config::AbstractAWSConfig=global_aws_conf
         "DescribeDomain",
         Dict{String,Any}("DomainId" => DomainId);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function describe_domain(
@@ -5546,7 +5548,7 @@ function describe_domain(
             mergewith(_merge, Dict{String,Any}("DomainId" => DomainId), params)
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -5567,7 +5569,7 @@ function describe_edge_packaging_job(
         "DescribeEdgePackagingJob",
         Dict{String,Any}("EdgePackagingJobName" => EdgePackagingJobName);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function describe_edge_packaging_job(
@@ -5585,7 +5587,7 @@ function describe_edge_packaging_job(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -5604,7 +5606,7 @@ function describe_endpoint(EndpointName; aws_config::AbstractAWSConfig=global_aw
         "DescribeEndpoint",
         Dict{String,Any}("EndpointName" => EndpointName);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function describe_endpoint(
@@ -5618,7 +5620,7 @@ function describe_endpoint(
             mergewith(_merge, Dict{String,Any}("EndpointName" => EndpointName), params)
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -5640,7 +5642,7 @@ function describe_endpoint_config(
         "DescribeEndpointConfig",
         Dict{String,Any}("EndpointConfigName" => EndpointConfigName);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function describe_endpoint_config(
@@ -5656,7 +5658,7 @@ function describe_endpoint_config(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -5677,7 +5679,7 @@ function describe_experiment(
         "DescribeExperiment",
         Dict{String,Any}("ExperimentName" => ExperimentName);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function describe_experiment(
@@ -5691,7 +5693,7 @@ function describe_experiment(
             mergewith(_merge, Dict{String,Any}("ExperimentName" => ExperimentName), params)
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -5717,7 +5719,7 @@ function describe_feature_group(
         "DescribeFeatureGroup",
         Dict{String,Any}("FeatureGroupName" => FeatureGroupName);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function describe_feature_group(
@@ -5733,7 +5735,7 @@ function describe_feature_group(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -5754,7 +5756,7 @@ function describe_flow_definition(
         "DescribeFlowDefinition",
         Dict{String,Any}("FlowDefinitionName" => FlowDefinitionName);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function describe_flow_definition(
@@ -5770,7 +5772,7 @@ function describe_flow_definition(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -5792,7 +5794,7 @@ function describe_human_task_ui(
         "DescribeHumanTaskUi",
         Dict{String,Any}("HumanTaskUiName" => HumanTaskUiName);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function describe_human_task_ui(
@@ -5808,7 +5810,7 @@ function describe_human_task_ui(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -5829,7 +5831,7 @@ function describe_hyper_parameter_tuning_job(
         "DescribeHyperParameterTuningJob",
         Dict{String,Any}("HyperParameterTuningJobName" => HyperParameterTuningJobName);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function describe_hyper_parameter_tuning_job(
@@ -5849,7 +5851,7 @@ function describe_hyper_parameter_tuning_job(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -5868,7 +5870,7 @@ function describe_image(ImageName; aws_config::AbstractAWSConfig=global_aws_conf
         "DescribeImage",
         Dict{String,Any}("ImageName" => ImageName);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function describe_image(
@@ -5882,7 +5884,7 @@ function describe_image(
             mergewith(_merge, Dict{String,Any}("ImageName" => ImageName), params)
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -5906,7 +5908,7 @@ function describe_image_version(
         "DescribeImageVersion",
         Dict{String,Any}("ImageName" => ImageName);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function describe_image_version(
@@ -5920,7 +5922,7 @@ function describe_image_version(
             mergewith(_merge, Dict{String,Any}("ImageName" => ImageName), params)
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -5941,7 +5943,7 @@ function describe_labeling_job(
         "DescribeLabelingJob",
         Dict{String,Any}("LabelingJobName" => LabelingJobName);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function describe_labeling_job(
@@ -5957,7 +5959,7 @@ function describe_labeling_job(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -5976,7 +5978,7 @@ function describe_model(ModelName; aws_config::AbstractAWSConfig=global_aws_conf
         "DescribeModel",
         Dict{String,Any}("ModelName" => ModelName);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function describe_model(
@@ -5990,7 +5992,7 @@ function describe_model(
             mergewith(_merge, Dict{String,Any}("ModelName" => ModelName), params)
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -6012,7 +6014,7 @@ function describe_model_bias_job_definition(
         "DescribeModelBiasJobDefinition",
         Dict{String,Any}("JobDefinitionName" => JobDefinitionName);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function describe_model_bias_job_definition(
@@ -6028,7 +6030,7 @@ function describe_model_bias_job_definition(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -6050,7 +6052,7 @@ function describe_model_explainability_job_definition(
         "DescribeModelExplainabilityJobDefinition",
         Dict{String,Any}("JobDefinitionName" => JobDefinitionName);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function describe_model_explainability_job_definition(
@@ -6066,7 +6068,7 @@ function describe_model_explainability_job_definition(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -6092,7 +6094,7 @@ function describe_model_package(
         "DescribeModelPackage",
         Dict{String,Any}("ModelPackageName" => ModelPackageName);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function describe_model_package(
@@ -6108,7 +6110,7 @@ function describe_model_package(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -6129,7 +6131,7 @@ function describe_model_package_group(
         "DescribeModelPackageGroup",
         Dict{String,Any}("ModelPackageGroupName" => ModelPackageGroupName);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function describe_model_package_group(
@@ -6147,7 +6149,7 @@ function describe_model_package_group(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -6169,7 +6171,7 @@ function describe_model_quality_job_definition(
         "DescribeModelQualityJobDefinition",
         Dict{String,Any}("JobDefinitionName" => JobDefinitionName);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function describe_model_quality_job_definition(
@@ -6185,7 +6187,7 @@ function describe_model_quality_job_definition(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -6206,7 +6208,7 @@ function describe_monitoring_schedule(
         "DescribeMonitoringSchedule",
         Dict{String,Any}("MonitoringScheduleName" => MonitoringScheduleName);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function describe_monitoring_schedule(
@@ -6224,7 +6226,7 @@ function describe_monitoring_schedule(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -6246,7 +6248,7 @@ function describe_notebook_instance(
         "DescribeNotebookInstance",
         Dict{String,Any}("NotebookInstanceName" => NotebookInstanceName);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function describe_notebook_instance(
@@ -6264,7 +6266,7 @@ function describe_notebook_instance(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -6290,7 +6292,7 @@ function describe_notebook_instance_lifecycle_config(
             "NotebookInstanceLifecycleConfigName" => NotebookInstanceLifecycleConfigName
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function describe_notebook_instance_lifecycle_config(
@@ -6311,7 +6313,7 @@ function describe_notebook_instance_lifecycle_config(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -6330,7 +6332,7 @@ function describe_pipeline(PipelineName; aws_config::AbstractAWSConfig=global_aw
         "DescribePipeline",
         Dict{String,Any}("PipelineName" => PipelineName);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function describe_pipeline(
@@ -6344,7 +6346,7 @@ function describe_pipeline(
             mergewith(_merge, Dict{String,Any}("PipelineName" => PipelineName), params)
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -6365,7 +6367,7 @@ function describe_pipeline_definition_for_execution(
         "DescribePipelineDefinitionForExecution",
         Dict{String,Any}("PipelineExecutionArn" => PipelineExecutionArn);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function describe_pipeline_definition_for_execution(
@@ -6383,7 +6385,7 @@ function describe_pipeline_definition_for_execution(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -6404,7 +6406,7 @@ function describe_pipeline_execution(
         "DescribePipelineExecution",
         Dict{String,Any}("PipelineExecutionArn" => PipelineExecutionArn);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function describe_pipeline_execution(
@@ -6422,7 +6424,7 @@ function describe_pipeline_execution(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -6444,7 +6446,7 @@ function describe_processing_job(
         "DescribeProcessingJob",
         Dict{String,Any}("ProcessingJobName" => ProcessingJobName);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function describe_processing_job(
@@ -6460,7 +6462,7 @@ function describe_processing_job(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -6479,7 +6481,7 @@ function describe_project(ProjectName; aws_config::AbstractAWSConfig=global_aws_
         "DescribeProject",
         Dict{String,Any}("ProjectName" => ProjectName);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function describe_project(
@@ -6493,7 +6495,7 @@ function describe_project(
             mergewith(_merge, Dict{String,Any}("ProjectName" => ProjectName), params)
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -6515,7 +6517,7 @@ function describe_studio_lifecycle_config(
         "DescribeStudioLifecycleConfig",
         Dict{String,Any}("StudioLifecycleConfigName" => StudioLifecycleConfigName);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function describe_studio_lifecycle_config(
@@ -6533,7 +6535,7 @@ function describe_studio_lifecycle_config(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -6555,7 +6557,7 @@ function describe_subscribed_workteam(
         "DescribeSubscribedWorkteam",
         Dict{String,Any}("WorkteamArn" => WorkteamArn);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function describe_subscribed_workteam(
@@ -6569,7 +6571,7 @@ function describe_subscribed_workteam(
             mergewith(_merge, Dict{String,Any}("WorkteamArn" => WorkteamArn), params)
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -6594,7 +6596,7 @@ function describe_training_job(
         "DescribeTrainingJob",
         Dict{String,Any}("TrainingJobName" => TrainingJobName);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function describe_training_job(
@@ -6610,7 +6612,7 @@ function describe_training_job(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -6631,7 +6633,7 @@ function describe_transform_job(
         "DescribeTransformJob",
         Dict{String,Any}("TransformJobName" => TransformJobName);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function describe_transform_job(
@@ -6647,7 +6649,7 @@ function describe_transform_job(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -6666,7 +6668,7 @@ function describe_trial(TrialName; aws_config::AbstractAWSConfig=global_aws_conf
         "DescribeTrial",
         Dict{String,Any}("TrialName" => TrialName);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function describe_trial(
@@ -6680,7 +6682,7 @@ function describe_trial(
             mergewith(_merge, Dict{String,Any}("TrialName" => TrialName), params)
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -6701,7 +6703,7 @@ function describe_trial_component(
         "DescribeTrialComponent",
         Dict{String,Any}("TrialComponentName" => TrialComponentName);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function describe_trial_component(
@@ -6717,7 +6719,7 @@ function describe_trial_component(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -6739,7 +6741,7 @@ function describe_user_profile(
         "DescribeUserProfile",
         Dict{String,Any}("DomainId" => DomainId, "UserProfileName" => UserProfileName);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function describe_user_profile(
@@ -6760,7 +6762,7 @@ function describe_user_profile(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -6786,7 +6788,7 @@ function describe_workforce(
         "DescribeWorkforce",
         Dict{String,Any}("WorkforceName" => WorkforceName);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function describe_workforce(
@@ -6800,7 +6802,7 @@ function describe_workforce(
             mergewith(_merge, Dict{String,Any}("WorkforceName" => WorkforceName), params)
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -6821,7 +6823,7 @@ function describe_workteam(WorkteamName; aws_config::AbstractAWSConfig=global_aw
         "DescribeWorkteam",
         Dict{String,Any}("WorkteamName" => WorkteamName);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function describe_workteam(
@@ -6835,7 +6837,7 @@ function describe_workteam(
             mergewith(_merge, Dict{String,Any}("WorkteamName" => WorkteamName), params)
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -6853,7 +6855,7 @@ function disable_sagemaker_servicecatalog_portfolio(;
     return sagemaker(
         "DisableSagemakerServicecatalogPortfolio";
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function disable_sagemaker_servicecatalog_portfolio(
@@ -6863,7 +6865,7 @@ function disable_sagemaker_servicecatalog_portfolio(
         "DisableSagemakerServicecatalogPortfolio",
         params;
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -6892,7 +6894,7 @@ function disassociate_trial_component(
             "TrialComponentName" => TrialComponentName, "TrialName" => TrialName
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function disassociate_trial_component(
@@ -6913,7 +6915,7 @@ function disassociate_trial_component(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -6931,7 +6933,7 @@ function enable_sagemaker_servicecatalog_portfolio(;
     return sagemaker(
         "EnableSagemakerServicecatalogPortfolio";
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function enable_sagemaker_servicecatalog_portfolio(
@@ -6941,7 +6943,7 @@ function enable_sagemaker_servicecatalog_portfolio(
         "EnableSagemakerServicecatalogPortfolio",
         params;
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -6962,7 +6964,7 @@ function get_device_fleet_report(
         "GetDeviceFleetReport",
         Dict{String,Any}("DeviceFleetName" => DeviceFleetName);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function get_device_fleet_report(
@@ -6978,7 +6980,7 @@ function get_device_fleet_report(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -7002,7 +7004,7 @@ function get_model_package_group_policy(
         "GetModelPackageGroupPolicy",
         Dict{String,Any}("ModelPackageGroupName" => ModelPackageGroupName);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function get_model_package_group_policy(
@@ -7020,7 +7022,7 @@ function get_model_package_group_policy(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -7038,7 +7040,7 @@ function get_sagemaker_servicecatalog_portfolio_status(;
     return sagemaker(
         "GetSagemakerServicecatalogPortfolioStatus";
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function get_sagemaker_servicecatalog_portfolio_status(
@@ -7048,7 +7050,7 @@ function get_sagemaker_servicecatalog_portfolio_status(
         "GetSagemakerServicecatalogPortfolioStatus",
         params;
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -7072,7 +7074,7 @@ function get_search_suggestions(Resource; aws_config::AbstractAWSConfig=global_a
         "GetSearchSuggestions",
         Dict{String,Any}("Resource" => Resource);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function get_search_suggestions(
@@ -7086,7 +7088,7 @@ function get_search_suggestions(
             mergewith(_merge, Dict{String,Any}("Resource" => Resource), params)
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -7112,13 +7114,13 @@ Optional parameters can be passed as a `params::Dict{String,<:Any}`. Valid keys 
 - `"SourceUri"`: A filter that returns only actions with the specified source URI.
 """
 function list_actions(; aws_config::AbstractAWSConfig=global_aws_config())
-    return sagemaker("ListActions"; aws_config=aws_config, features=SERVICE_FEATURES)
+    return sagemaker("ListActions"; aws_config=aws_config, feature_set=SERVICE_FEATURE_SET)
 end
 function list_actions(
     params::AbstractDict{String}; aws_config::AbstractAWSConfig=global_aws_config()
 )
     return sagemaker(
-        "ListActions", params; aws_config=aws_config, features=SERVICE_FEATURES
+        "ListActions", params; aws_config=aws_config, feature_set=SERVICE_FEATURE_SET
     )
 end
 
@@ -7144,13 +7146,15 @@ Optional parameters can be passed as a `params::Dict{String,<:Any}`. Valid keys 
 - `"SortOrder"`: The sort order for the results. The default is Ascending.
 """
 function list_algorithms(; aws_config::AbstractAWSConfig=global_aws_config())
-    return sagemaker("ListAlgorithms"; aws_config=aws_config, features=SERVICE_FEATURES)
+    return sagemaker(
+        "ListAlgorithms"; aws_config=aws_config, feature_set=SERVICE_FEATURE_SET
+    )
 end
 function list_algorithms(
     params::AbstractDict{String}; aws_config::AbstractAWSConfig=global_aws_config()
 )
     return sagemaker(
-        "ListAlgorithms", params; aws_config=aws_config, features=SERVICE_FEATURES
+        "ListAlgorithms", params; aws_config=aws_config, feature_set=SERVICE_FEATURE_SET
     )
 end
 
@@ -7183,14 +7187,17 @@ Optional parameters can be passed as a `params::Dict{String,<:Any}`. Valid keys 
 """
 function list_app_image_configs(; aws_config::AbstractAWSConfig=global_aws_config())
     return sagemaker(
-        "ListAppImageConfigs"; aws_config=aws_config, features=SERVICE_FEATURES
+        "ListAppImageConfigs"; aws_config=aws_config, feature_set=SERVICE_FEATURE_SET
     )
 end
 function list_app_image_configs(
     params::AbstractDict{String}; aws_config::AbstractAWSConfig=global_aws_config()
 )
     return sagemaker(
-        "ListAppImageConfigs", params; aws_config=aws_config, features=SERVICE_FEATURES
+        "ListAppImageConfigs",
+        params;
+        aws_config=aws_config,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -7211,12 +7218,14 @@ Optional parameters can be passed as a `params::Dict{String,<:Any}`. Valid keys 
 - `"UserProfileNameEquals"`: A parameter to search by user profile name.
 """
 function list_apps(; aws_config::AbstractAWSConfig=global_aws_config())
-    return sagemaker("ListApps"; aws_config=aws_config, features=SERVICE_FEATURES)
+    return sagemaker("ListApps"; aws_config=aws_config, feature_set=SERVICE_FEATURE_SET)
 end
 function list_apps(
     params::AbstractDict{String}; aws_config::AbstractAWSConfig=global_aws_config()
 )
-    return sagemaker("ListApps", params; aws_config=aws_config, features=SERVICE_FEATURES)
+    return sagemaker(
+        "ListApps", params; aws_config=aws_config, feature_set=SERVICE_FEATURE_SET
+    )
 end
 
 """
@@ -7241,13 +7250,15 @@ Optional parameters can be passed as a `params::Dict{String,<:Any}`. Valid keys 
 - `"SourceUri"`: A filter that returns only artifacts with the specified source URI.
 """
 function list_artifacts(; aws_config::AbstractAWSConfig=global_aws_config())
-    return sagemaker("ListArtifacts"; aws_config=aws_config, features=SERVICE_FEATURES)
+    return sagemaker(
+        "ListArtifacts"; aws_config=aws_config, feature_set=SERVICE_FEATURE_SET
+    )
 end
 function list_artifacts(
     params::AbstractDict{String}; aws_config::AbstractAWSConfig=global_aws_config()
 )
     return sagemaker(
-        "ListArtifacts", params; aws_config=aws_config, features=SERVICE_FEATURES
+        "ListArtifacts", params; aws_config=aws_config, feature_set=SERVICE_FEATURE_SET
     )
 end
 
@@ -7278,13 +7289,15 @@ Optional parameters can be passed as a `params::Dict{String,<:Any}`. Valid keys 
 - `"SourceType"`: A filter that returns only associations with the specified source type.
 """
 function list_associations(; aws_config::AbstractAWSConfig=global_aws_config())
-    return sagemaker("ListAssociations"; aws_config=aws_config, features=SERVICE_FEATURES)
+    return sagemaker(
+        "ListAssociations"; aws_config=aws_config, feature_set=SERVICE_FEATURE_SET
+    )
 end
 function list_associations(
     params::AbstractDict{String}; aws_config::AbstractAWSConfig=global_aws_config()
 )
     return sagemaker(
-        "ListAssociations", params; aws_config=aws_config, features=SERVICE_FEATURES
+        "ListAssociations", params; aws_config=aws_config, feature_set=SERVICE_FEATURE_SET
     )
 end
 
@@ -7309,13 +7322,15 @@ Optional parameters can be passed as a `params::Dict{String,<:Any}`. Valid keys 
 - `"StatusEquals"`: Request a list of jobs, using a filter for status.
 """
 function list_auto_mljobs(; aws_config::AbstractAWSConfig=global_aws_config())
-    return sagemaker("ListAutoMLJobs"; aws_config=aws_config, features=SERVICE_FEATURES)
+    return sagemaker(
+        "ListAutoMLJobs"; aws_config=aws_config, feature_set=SERVICE_FEATURE_SET
+    )
 end
 function list_auto_mljobs(
     params::AbstractDict{String}; aws_config::AbstractAWSConfig=global_aws_config()
 )
     return sagemaker(
-        "ListAutoMLJobs", params; aws_config=aws_config, features=SERVICE_FEATURES
+        "ListAutoMLJobs", params; aws_config=aws_config, feature_set=SERVICE_FEATURE_SET
     )
 end
 
@@ -7345,7 +7360,7 @@ function list_candidates_for_auto_mljob(
         "ListCandidatesForAutoMLJob",
         Dict{String,Any}("AutoMLJobName" => AutoMLJobName);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function list_candidates_for_auto_mljob(
@@ -7359,7 +7374,7 @@ function list_candidates_for_auto_mljob(
             mergewith(_merge, Dict{String,Any}("AutoMLJobName" => AutoMLJobName), params)
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -7390,14 +7405,17 @@ Optional parameters can be passed as a `params::Dict{String,<:Any}`. Valid keys 
 """
 function list_code_repositories(; aws_config::AbstractAWSConfig=global_aws_config())
     return sagemaker(
-        "ListCodeRepositories"; aws_config=aws_config, features=SERVICE_FEATURES
+        "ListCodeRepositories"; aws_config=aws_config, feature_set=SERVICE_FEATURE_SET
     )
 end
 function list_code_repositories(
     params::AbstractDict{String}; aws_config::AbstractAWSConfig=global_aws_config()
 )
     return sagemaker(
-        "ListCodeRepositories", params; aws_config=aws_config, features=SERVICE_FEATURES
+        "ListCodeRepositories",
+        params;
+        aws_config=aws_config,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -7432,14 +7450,17 @@ Optional parameters can be passed as a `params::Dict{String,<:Any}`. Valid keys 
 """
 function list_compilation_jobs(; aws_config::AbstractAWSConfig=global_aws_config())
     return sagemaker(
-        "ListCompilationJobs"; aws_config=aws_config, features=SERVICE_FEATURES
+        "ListCompilationJobs"; aws_config=aws_config, feature_set=SERVICE_FEATURE_SET
     )
 end
 function list_compilation_jobs(
     params::AbstractDict{String}; aws_config::AbstractAWSConfig=global_aws_config()
 )
     return sagemaker(
-        "ListCompilationJobs", params; aws_config=aws_config, features=SERVICE_FEATURES
+        "ListCompilationJobs",
+        params;
+        aws_config=aws_config,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -7465,13 +7486,13 @@ Optional parameters can be passed as a `params::Dict{String,<:Any}`. Valid keys 
 - `"SourceUri"`: A filter that returns only contexts with the specified source URI.
 """
 function list_contexts(; aws_config::AbstractAWSConfig=global_aws_config())
-    return sagemaker("ListContexts"; aws_config=aws_config, features=SERVICE_FEATURES)
+    return sagemaker("ListContexts"; aws_config=aws_config, feature_set=SERVICE_FEATURE_SET)
 end
 function list_contexts(
     params::AbstractDict{String}; aws_config::AbstractAWSConfig=global_aws_config()
 )
     return sagemaker(
-        "ListContexts", params; aws_config=aws_config, features=SERVICE_FEATURES
+        "ListContexts", params; aws_config=aws_config, feature_set=SERVICE_FEATURE_SET
     )
 end
 
@@ -7504,7 +7525,9 @@ function list_data_quality_job_definitions(;
     aws_config::AbstractAWSConfig=global_aws_config()
 )
     return sagemaker(
-        "ListDataQualityJobDefinitions"; aws_config=aws_config, features=SERVICE_FEATURES
+        "ListDataQualityJobDefinitions";
+        aws_config=aws_config,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function list_data_quality_job_definitions(
@@ -7514,7 +7537,7 @@ function list_data_quality_job_definitions(
         "ListDataQualityJobDefinitions",
         params;
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -7539,13 +7562,15 @@ Optional parameters can be passed as a `params::Dict{String,<:Any}`. Valid keys 
 - `"SortOrder"`: What direction to sort in.
 """
 function list_device_fleets(; aws_config::AbstractAWSConfig=global_aws_config())
-    return sagemaker("ListDeviceFleets"; aws_config=aws_config, features=SERVICE_FEATURES)
+    return sagemaker(
+        "ListDeviceFleets"; aws_config=aws_config, feature_set=SERVICE_FEATURE_SET
+    )
 end
 function list_device_fleets(
     params::AbstractDict{String}; aws_config::AbstractAWSConfig=global_aws_config()
 )
     return sagemaker(
-        "ListDeviceFleets", params; aws_config=aws_config, features=SERVICE_FEATURES
+        "ListDeviceFleets", params; aws_config=aws_config, feature_set=SERVICE_FEATURE_SET
     )
 end
 
@@ -7566,13 +7591,13 @@ Optional parameters can be passed as a `params::Dict{String,<:Any}`. Valid keys 
   tokening.
 """
 function list_devices(; aws_config::AbstractAWSConfig=global_aws_config())
-    return sagemaker("ListDevices"; aws_config=aws_config, features=SERVICE_FEATURES)
+    return sagemaker("ListDevices"; aws_config=aws_config, feature_set=SERVICE_FEATURE_SET)
 end
 function list_devices(
     params::AbstractDict{String}; aws_config::AbstractAWSConfig=global_aws_config()
 )
     return sagemaker(
-        "ListDevices", params; aws_config=aws_config, features=SERVICE_FEATURES
+        "ListDevices", params; aws_config=aws_config, feature_set=SERVICE_FEATURE_SET
     )
 end
 
@@ -7589,13 +7614,13 @@ Optional parameters can be passed as a `params::Dict{String,<:Any}`. Valid keys 
   it in your next request to receive the next set of results.
 """
 function list_domains(; aws_config::AbstractAWSConfig=global_aws_config())
-    return sagemaker("ListDomains"; aws_config=aws_config, features=SERVICE_FEATURES)
+    return sagemaker("ListDomains"; aws_config=aws_config, feature_set=SERVICE_FEATURE_SET)
 end
 function list_domains(
     params::AbstractDict{String}; aws_config::AbstractAWSConfig=global_aws_config()
 )
     return sagemaker(
-        "ListDomains", params; aws_config=aws_config, features=SERVICE_FEATURES
+        "ListDomains", params; aws_config=aws_config, feature_set=SERVICE_FEATURE_SET
     )
 end
 
@@ -7622,14 +7647,17 @@ Optional parameters can be passed as a `params::Dict{String,<:Any}`. Valid keys 
 """
 function list_edge_packaging_jobs(; aws_config::AbstractAWSConfig=global_aws_config())
     return sagemaker(
-        "ListEdgePackagingJobs"; aws_config=aws_config, features=SERVICE_FEATURES
+        "ListEdgePackagingJobs"; aws_config=aws_config, feature_set=SERVICE_FEATURE_SET
     )
 end
 function list_edge_packaging_jobs(
     params::AbstractDict{String}; aws_config::AbstractAWSConfig=global_aws_config()
 )
     return sagemaker(
-        "ListEdgePackagingJobs", params; aws_config=aws_config, features=SERVICE_FEATURES
+        "ListEdgePackagingJobs",
+        params;
+        aws_config=aws_config,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -7656,14 +7684,17 @@ Optional parameters can be passed as a `params::Dict{String,<:Any}`. Valid keys 
 """
 function list_endpoint_configs(; aws_config::AbstractAWSConfig=global_aws_config())
     return sagemaker(
-        "ListEndpointConfigs"; aws_config=aws_config, features=SERVICE_FEATURES
+        "ListEndpointConfigs"; aws_config=aws_config, feature_set=SERVICE_FEATURE_SET
     )
 end
 function list_endpoint_configs(
     params::AbstractDict{String}; aws_config::AbstractAWSConfig=global_aws_config()
 )
     return sagemaker(
-        "ListEndpointConfigs", params; aws_config=aws_config, features=SERVICE_FEATURES
+        "ListEndpointConfigs",
+        params;
+        aws_config=aws_config,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -7695,13 +7726,15 @@ Optional parameters can be passed as a `params::Dict{String,<:Any}`. Valid keys 
 - `"StatusEquals"`:  A filter that returns only endpoints with the specified status.
 """
 function list_endpoints(; aws_config::AbstractAWSConfig=global_aws_config())
-    return sagemaker("ListEndpoints"; aws_config=aws_config, features=SERVICE_FEATURES)
+    return sagemaker(
+        "ListEndpoints"; aws_config=aws_config, feature_set=SERVICE_FEATURE_SET
+    )
 end
 function list_endpoints(
     params::AbstractDict{String}; aws_config::AbstractAWSConfig=global_aws_config()
 )
     return sagemaker(
-        "ListEndpoints", params; aws_config=aws_config, features=SERVICE_FEATURES
+        "ListEndpoints", params; aws_config=aws_config, feature_set=SERVICE_FEATURE_SET
     )
 end
 
@@ -7726,13 +7759,15 @@ Optional parameters can be passed as a `params::Dict{String,<:Any}`. Valid keys 
 - `"SortOrder"`: The sort order. The default value is Descending.
 """
 function list_experiments(; aws_config::AbstractAWSConfig=global_aws_config())
-    return sagemaker("ListExperiments"; aws_config=aws_config, features=SERVICE_FEATURES)
+    return sagemaker(
+        "ListExperiments"; aws_config=aws_config, feature_set=SERVICE_FEATURE_SET
+    )
 end
 function list_experiments(
     params::AbstractDict{String}; aws_config::AbstractAWSConfig=global_aws_config()
 )
     return sagemaker(
-        "ListExperiments", params; aws_config=aws_config, features=SERVICE_FEATURES
+        "ListExperiments", params; aws_config=aws_config, feature_set=SERVICE_FEATURE_SET
     )
 end
 
@@ -7758,13 +7793,15 @@ Optional parameters can be passed as a `params::Dict{String,<:Any}`. Valid keys 
 - `"SortOrder"`: The order in which feature groups are listed.
 """
 function list_feature_groups(; aws_config::AbstractAWSConfig=global_aws_config())
-    return sagemaker("ListFeatureGroups"; aws_config=aws_config, features=SERVICE_FEATURES)
+    return sagemaker(
+        "ListFeatureGroups"; aws_config=aws_config, feature_set=SERVICE_FEATURE_SET
+    )
 end
 function list_feature_groups(
     params::AbstractDict{String}; aws_config::AbstractAWSConfig=global_aws_config()
 )
     return sagemaker(
-        "ListFeatureGroups", params; aws_config=aws_config, features=SERVICE_FEATURES
+        "ListFeatureGroups", params; aws_config=aws_config, feature_set=SERVICE_FEATURE_SET
     )
 end
 
@@ -7789,14 +7826,17 @@ Optional parameters can be passed as a `params::Dict{String,<:Any}`. Valid keys 
 """
 function list_flow_definitions(; aws_config::AbstractAWSConfig=global_aws_config())
     return sagemaker(
-        "ListFlowDefinitions"; aws_config=aws_config, features=SERVICE_FEATURES
+        "ListFlowDefinitions"; aws_config=aws_config, feature_set=SERVICE_FEATURE_SET
     )
 end
 function list_flow_definitions(
     params::AbstractDict{String}; aws_config::AbstractAWSConfig=global_aws_config()
 )
     return sagemaker(
-        "ListFlowDefinitions", params; aws_config=aws_config, features=SERVICE_FEATURES
+        "ListFlowDefinitions",
+        params;
+        aws_config=aws_config,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -7820,13 +7860,15 @@ Optional parameters can be passed as a `params::Dict{String,<:Any}`. Valid keys 
   Ascending or Descending order.
 """
 function list_human_task_uis(; aws_config::AbstractAWSConfig=global_aws_config())
-    return sagemaker("ListHumanTaskUis"; aws_config=aws_config, features=SERVICE_FEATURES)
+    return sagemaker(
+        "ListHumanTaskUis"; aws_config=aws_config, feature_set=SERVICE_FEATURE_SET
+    )
 end
 function list_human_task_uis(
     params::AbstractDict{String}; aws_config::AbstractAWSConfig=global_aws_config()
 )
     return sagemaker(
-        "ListHumanTaskUis", params; aws_config=aws_config, features=SERVICE_FEATURES
+        "ListHumanTaskUis", params; aws_config=aws_config, feature_set=SERVICE_FEATURE_SET
     )
 end
 
@@ -7861,7 +7903,9 @@ function list_hyper_parameter_tuning_jobs(;
     aws_config::AbstractAWSConfig=global_aws_config()
 )
     return sagemaker(
-        "ListHyperParameterTuningJobs"; aws_config=aws_config, features=SERVICE_FEATURES
+        "ListHyperParameterTuningJobs";
+        aws_config=aws_config,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function list_hyper_parameter_tuning_jobs(
@@ -7871,7 +7915,7 @@ function list_hyper_parameter_tuning_jobs(
         "ListHyperParameterTuningJobs",
         params;
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -7907,7 +7951,7 @@ function list_image_versions(ImageName; aws_config::AbstractAWSConfig=global_aws
         "ListImageVersions",
         Dict{String,Any}("ImageName" => ImageName);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function list_image_versions(
@@ -7921,7 +7965,7 @@ function list_image_versions(
             mergewith(_merge, Dict{String,Any}("ImageName" => ImageName), params)
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -7952,12 +7996,14 @@ Optional parameters can be passed as a `params::Dict{String,<:Any}`. Valid keys 
 - `"SortOrder"`: The sort order. The default value is DESCENDING.
 """
 function list_images(; aws_config::AbstractAWSConfig=global_aws_config())
-    return sagemaker("ListImages"; aws_config=aws_config, features=SERVICE_FEATURES)
+    return sagemaker("ListImages"; aws_config=aws_config, feature_set=SERVICE_FEATURE_SET)
 end
 function list_images(
     params::AbstractDict{String}; aws_config::AbstractAWSConfig=global_aws_config()
 )
-    return sagemaker("ListImages", params; aws_config=aws_config, features=SERVICE_FEATURES)
+    return sagemaker(
+        "ListImages", params; aws_config=aws_config, feature_set=SERVICE_FEATURE_SET
+    )
 end
 
 """
@@ -7988,13 +8034,15 @@ Optional parameters can be passed as a `params::Dict{String,<:Any}`. Valid keys 
 - `"StatusEquals"`: A filter that retrieves only labeling jobs with a specific status.
 """
 function list_labeling_jobs(; aws_config::AbstractAWSConfig=global_aws_config())
-    return sagemaker("ListLabelingJobs"; aws_config=aws_config, features=SERVICE_FEATURES)
+    return sagemaker(
+        "ListLabelingJobs"; aws_config=aws_config, feature_set=SERVICE_FEATURE_SET
+    )
 end
 function list_labeling_jobs(
     params::AbstractDict{String}; aws_config::AbstractAWSConfig=global_aws_config()
 )
     return sagemaker(
-        "ListLabelingJobs", params; aws_config=aws_config, features=SERVICE_FEATURES
+        "ListLabelingJobs", params; aws_config=aws_config, feature_set=SERVICE_FEATURE_SET
     )
 end
 
@@ -8031,7 +8079,7 @@ function list_labeling_jobs_for_workteam(
         "ListLabelingJobsForWorkteam",
         Dict{String,Any}("WorkteamArn" => WorkteamArn);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function list_labeling_jobs_for_workteam(
@@ -8045,7 +8093,7 @@ function list_labeling_jobs_for_workteam(
             mergewith(_merge, Dict{String,Any}("WorkteamArn" => WorkteamArn), params)
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -8076,7 +8124,9 @@ function list_model_bias_job_definitions(;
     aws_config::AbstractAWSConfig=global_aws_config()
 )
     return sagemaker(
-        "ListModelBiasJobDefinitions"; aws_config=aws_config, features=SERVICE_FEATURES
+        "ListModelBiasJobDefinitions";
+        aws_config=aws_config,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function list_model_bias_job_definitions(
@@ -8086,7 +8136,7 @@ function list_model_bias_job_definitions(
         "ListModelBiasJobDefinitions",
         params;
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -8120,7 +8170,7 @@ function list_model_explainability_job_definitions(;
     return sagemaker(
         "ListModelExplainabilityJobDefinitions";
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function list_model_explainability_job_definitions(
@@ -8130,7 +8180,7 @@ function list_model_explainability_job_definitions(
         "ListModelExplainabilityJobDefinitions",
         params;
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -8157,14 +8207,17 @@ Optional parameters can be passed as a `params::Dict{String,<:Any}`. Valid keys 
 """
 function list_model_package_groups(; aws_config::AbstractAWSConfig=global_aws_config())
     return sagemaker(
-        "ListModelPackageGroups"; aws_config=aws_config, features=SERVICE_FEATURES
+        "ListModelPackageGroups"; aws_config=aws_config, feature_set=SERVICE_FEATURE_SET
     )
 end
 function list_model_package_groups(
     params::AbstractDict{String}; aws_config::AbstractAWSConfig=global_aws_config()
 )
     return sagemaker(
-        "ListModelPackageGroups", params; aws_config=aws_config, features=SERVICE_FEATURES
+        "ListModelPackageGroups",
+        params;
+        aws_config=aws_config,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -8198,13 +8251,15 @@ Optional parameters can be passed as a `params::Dict{String,<:Any}`. Valid keys 
 - `"SortOrder"`: The sort order for the results. The default is Ascending.
 """
 function list_model_packages(; aws_config::AbstractAWSConfig=global_aws_config())
-    return sagemaker("ListModelPackages"; aws_config=aws_config, features=SERVICE_FEATURES)
+    return sagemaker(
+        "ListModelPackages"; aws_config=aws_config, feature_set=SERVICE_FEATURE_SET
+    )
 end
 function list_model_packages(
     params::AbstractDict{String}; aws_config::AbstractAWSConfig=global_aws_config()
 )
     return sagemaker(
-        "ListModelPackages", params; aws_config=aws_config, features=SERVICE_FEATURES
+        "ListModelPackages", params; aws_config=aws_config, feature_set=SERVICE_FEATURE_SET
     )
 end
 
@@ -8236,7 +8291,9 @@ function list_model_quality_job_definitions(;
     aws_config::AbstractAWSConfig=global_aws_config()
 )
     return sagemaker(
-        "ListModelQualityJobDefinitions"; aws_config=aws_config, features=SERVICE_FEATURES
+        "ListModelQualityJobDefinitions";
+        aws_config=aws_config,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function list_model_quality_job_definitions(
@@ -8246,7 +8303,7 @@ function list_model_quality_job_definitions(
         "ListModelQualityJobDefinitions",
         params;
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -8272,12 +8329,14 @@ Optional parameters can be passed as a `params::Dict{String,<:Any}`. Valid keys 
 - `"SortOrder"`: The sort order for results. The default is Descending.
 """
 function list_models(; aws_config::AbstractAWSConfig=global_aws_config())
-    return sagemaker("ListModels"; aws_config=aws_config, features=SERVICE_FEATURES)
+    return sagemaker("ListModels"; aws_config=aws_config, feature_set=SERVICE_FEATURE_SET)
 end
 function list_models(
     params::AbstractDict{String}; aws_config::AbstractAWSConfig=global_aws_config()
 )
-    return sagemaker("ListModels", params; aws_config=aws_config, features=SERVICE_FEATURES)
+    return sagemaker(
+        "ListModels", params; aws_config=aws_config, feature_set=SERVICE_FEATURE_SET
+    )
 end
 
 """
@@ -8314,14 +8373,17 @@ Optional parameters can be passed as a `params::Dict{String,<:Any}`. Valid keys 
 """
 function list_monitoring_executions(; aws_config::AbstractAWSConfig=global_aws_config())
     return sagemaker(
-        "ListMonitoringExecutions"; aws_config=aws_config, features=SERVICE_FEATURES
+        "ListMonitoringExecutions"; aws_config=aws_config, feature_set=SERVICE_FEATURE_SET
     )
 end
 function list_monitoring_executions(
     params::AbstractDict{String}; aws_config::AbstractAWSConfig=global_aws_config()
 )
     return sagemaker(
-        "ListMonitoringExecutions", params; aws_config=aws_config, features=SERVICE_FEATURES
+        "ListMonitoringExecutions",
+        params;
+        aws_config=aws_config,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -8360,14 +8422,17 @@ Optional parameters can be passed as a `params::Dict{String,<:Any}`. Valid keys 
 """
 function list_monitoring_schedules(; aws_config::AbstractAWSConfig=global_aws_config())
     return sagemaker(
-        "ListMonitoringSchedules"; aws_config=aws_config, features=SERVICE_FEATURES
+        "ListMonitoringSchedules"; aws_config=aws_config, feature_set=SERVICE_FEATURE_SET
     )
 end
 function list_monitoring_schedules(
     params::AbstractDict{String}; aws_config::AbstractAWSConfig=global_aws_config()
 )
     return sagemaker(
-        "ListMonitoringSchedules", params; aws_config=aws_config, features=SERVICE_FEATURES
+        "ListMonitoringSchedules",
+        params;
+        aws_config=aws_config,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -8403,7 +8468,7 @@ function list_notebook_instance_lifecycle_configs(;
     return sagemaker(
         "ListNotebookInstanceLifecycleConfigs";
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function list_notebook_instance_lifecycle_configs(
@@ -8413,7 +8478,7 @@ function list_notebook_instance_lifecycle_configs(
         "ListNotebookInstanceLifecycleConfigs",
         params;
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -8457,14 +8522,17 @@ Optional parameters can be passed as a `params::Dict{String,<:Any}`. Valid keys 
 """
 function list_notebook_instances(; aws_config::AbstractAWSConfig=global_aws_config())
     return sagemaker(
-        "ListNotebookInstances"; aws_config=aws_config, features=SERVICE_FEATURES
+        "ListNotebookInstances"; aws_config=aws_config, feature_set=SERVICE_FEATURE_SET
     )
 end
 function list_notebook_instances(
     params::AbstractDict{String}; aws_config::AbstractAWSConfig=global_aws_config()
 )
     return sagemaker(
-        "ListNotebookInstances", params; aws_config=aws_config, features=SERVICE_FEATURES
+        "ListNotebookInstances",
+        params;
+        aws_config=aws_config,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -8485,7 +8553,7 @@ Optional parameters can be passed as a `params::Dict{String,<:Any}`. Valid keys 
 """
 function list_pipeline_execution_steps(; aws_config::AbstractAWSConfig=global_aws_config())
     return sagemaker(
-        "ListPipelineExecutionSteps"; aws_config=aws_config, features=SERVICE_FEATURES
+        "ListPipelineExecutionSteps"; aws_config=aws_config, feature_set=SERVICE_FEATURE_SET
     )
 end
 function list_pipeline_execution_steps(
@@ -8495,7 +8563,7 @@ function list_pipeline_execution_steps(
         "ListPipelineExecutionSteps",
         params;
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -8528,7 +8596,7 @@ function list_pipeline_executions(
         "ListPipelineExecutions",
         Dict{String,Any}("PipelineName" => PipelineName);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function list_pipeline_executions(
@@ -8542,7 +8610,7 @@ function list_pipeline_executions(
             mergewith(_merge, Dict{String,Any}("PipelineName" => PipelineName), params)
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -8569,7 +8637,7 @@ function list_pipeline_parameters_for_execution(
         "ListPipelineParametersForExecution",
         Dict{String,Any}("PipelineExecutionArn" => PipelineExecutionArn);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function list_pipeline_parameters_for_execution(
@@ -8587,7 +8655,7 @@ function list_pipeline_parameters_for_execution(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -8612,13 +8680,15 @@ Optional parameters can be passed as a `params::Dict{String,<:Any}`. Valid keys 
 - `"SortOrder"`: The sort order for results.
 """
 function list_pipelines(; aws_config::AbstractAWSConfig=global_aws_config())
-    return sagemaker("ListPipelines"; aws_config=aws_config, features=SERVICE_FEATURES)
+    return sagemaker(
+        "ListPipelines"; aws_config=aws_config, feature_set=SERVICE_FEATURE_SET
+    )
 end
 function list_pipelines(
     params::AbstractDict{String}; aws_config::AbstractAWSConfig=global_aws_config()
 )
     return sagemaker(
-        "ListPipelines", params; aws_config=aws_config, features=SERVICE_FEATURES
+        "ListPipelines", params; aws_config=aws_config, feature_set=SERVICE_FEATURE_SET
     )
 end
 
@@ -8649,13 +8719,15 @@ Optional parameters can be passed as a `params::Dict{String,<:Any}`. Valid keys 
 - `"StatusEquals"`: A filter that retrieves only processing jobs with a specific status.
 """
 function list_processing_jobs(; aws_config::AbstractAWSConfig=global_aws_config())
-    return sagemaker("ListProcessingJobs"; aws_config=aws_config, features=SERVICE_FEATURES)
+    return sagemaker(
+        "ListProcessingJobs"; aws_config=aws_config, feature_set=SERVICE_FEATURE_SET
+    )
 end
 function list_processing_jobs(
     params::AbstractDict{String}; aws_config::AbstractAWSConfig=global_aws_config()
 )
     return sagemaker(
-        "ListProcessingJobs", params; aws_config=aws_config, features=SERVICE_FEATURES
+        "ListProcessingJobs", params; aws_config=aws_config, feature_set=SERVICE_FEATURE_SET
     )
 end
 
@@ -8681,13 +8753,13 @@ Optional parameters can be passed as a `params::Dict{String,<:Any}`. Valid keys 
 - `"SortOrder"`: The sort order for results. The default is Ascending.
 """
 function list_projects(; aws_config::AbstractAWSConfig=global_aws_config())
-    return sagemaker("ListProjects"; aws_config=aws_config, features=SERVICE_FEATURES)
+    return sagemaker("ListProjects"; aws_config=aws_config, feature_set=SERVICE_FEATURE_SET)
 end
 function list_projects(
     params::AbstractDict{String}; aws_config::AbstractAWSConfig=global_aws_config()
 )
     return sagemaker(
-        "ListProjects", params; aws_config=aws_config, features=SERVICE_FEATURES
+        "ListProjects", params; aws_config=aws_config, feature_set=SERVICE_FEATURE_SET
     )
 end
 
@@ -8721,7 +8793,7 @@ Optional parameters can be passed as a `params::Dict{String,<:Any}`. Valid keys 
 """
 function list_studio_lifecycle_configs(; aws_config::AbstractAWSConfig=global_aws_config())
     return sagemaker(
-        "ListStudioLifecycleConfigs"; aws_config=aws_config, features=SERVICE_FEATURES
+        "ListStudioLifecycleConfigs"; aws_config=aws_config, feature_set=SERVICE_FEATURE_SET
     )
 end
 function list_studio_lifecycle_configs(
@@ -8731,7 +8803,7 @@ function list_studio_lifecycle_configs(
         "ListStudioLifecycleConfigs",
         params;
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -8754,14 +8826,17 @@ Optional parameters can be passed as a `params::Dict{String,<:Any}`. Valid keys 
 """
 function list_subscribed_workteams(; aws_config::AbstractAWSConfig=global_aws_config())
     return sagemaker(
-        "ListSubscribedWorkteams"; aws_config=aws_config, features=SERVICE_FEATURES
+        "ListSubscribedWorkteams"; aws_config=aws_config, feature_set=SERVICE_FEATURE_SET
     )
 end
 function list_subscribed_workteams(
     params::AbstractDict{String}; aws_config::AbstractAWSConfig=global_aws_config()
 )
     return sagemaker(
-        "ListSubscribedWorkteams", params; aws_config=aws_config, features=SERVICE_FEATURES
+        "ListSubscribedWorkteams",
+        params;
+        aws_config=aws_config,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -8787,7 +8862,7 @@ function list_tags(ResourceArn; aws_config::AbstractAWSConfig=global_aws_config(
         "ListTags",
         Dict{String,Any}("ResourceArn" => ResourceArn);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function list_tags(
@@ -8801,7 +8876,7 @@ function list_tags(
             mergewith(_merge, Dict{String,Any}("ResourceArn" => ResourceArn), params)
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -8840,13 +8915,15 @@ Optional parameters can be passed as a `params::Dict{String,<:Any}`. Valid keys 
 - `"StatusEquals"`: A filter that retrieves only training jobs with a specific status.
 """
 function list_training_jobs(; aws_config::AbstractAWSConfig=global_aws_config())
-    return sagemaker("ListTrainingJobs"; aws_config=aws_config, features=SERVICE_FEATURES)
+    return sagemaker(
+        "ListTrainingJobs"; aws_config=aws_config, feature_set=SERVICE_FEATURE_SET
+    )
 end
 function list_training_jobs(
     params::AbstractDict{String}; aws_config::AbstractAWSConfig=global_aws_config()
 )
     return sagemaker(
-        "ListTrainingJobs", params; aws_config=aws_config, features=SERVICE_FEATURES
+        "ListTrainingJobs", params; aws_config=aws_config, feature_set=SERVICE_FEATURE_SET
     )
 end
 
@@ -8880,7 +8957,7 @@ function list_training_jobs_for_hyper_parameter_tuning_job(
         "ListTrainingJobsForHyperParameterTuningJob",
         Dict{String,Any}("HyperParameterTuningJobName" => HyperParameterTuningJobName);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function list_training_jobs_for_hyper_parameter_tuning_job(
@@ -8900,7 +8977,7 @@ function list_training_jobs_for_hyper_parameter_tuning_job(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -8932,13 +9009,15 @@ Optional parameters can be passed as a `params::Dict{String,<:Any}`. Valid keys 
 - `"StatusEquals"`: A filter that retrieves only transform jobs with a specific status.
 """
 function list_transform_jobs(; aws_config::AbstractAWSConfig=global_aws_config())
-    return sagemaker("ListTransformJobs"; aws_config=aws_config, features=SERVICE_FEATURES)
+    return sagemaker(
+        "ListTransformJobs"; aws_config=aws_config, feature_set=SERVICE_FEATURE_SET
+    )
 end
 function list_transform_jobs(
     params::AbstractDict{String}; aws_config::AbstractAWSConfig=global_aws_config()
 )
     return sagemaker(
-        "ListTransformJobs", params; aws_config=aws_config, features=SERVICE_FEATURES
+        "ListTransformJobs", params; aws_config=aws_config, feature_set=SERVICE_FEATURE_SET
     )
 end
 
@@ -8972,14 +9051,17 @@ Optional parameters can be passed as a `params::Dict{String,<:Any}`. Valid keys 
 """
 function list_trial_components(; aws_config::AbstractAWSConfig=global_aws_config())
     return sagemaker(
-        "ListTrialComponents"; aws_config=aws_config, features=SERVICE_FEATURES
+        "ListTrialComponents"; aws_config=aws_config, feature_set=SERVICE_FEATURE_SET
     )
 end
 function list_trial_components(
     params::AbstractDict{String}; aws_config::AbstractAWSConfig=global_aws_config()
 )
     return sagemaker(
-        "ListTrialComponents", params; aws_config=aws_config, features=SERVICE_FEATURES
+        "ListTrialComponents",
+        params;
+        aws_config=aws_config,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -9009,12 +9091,14 @@ Optional parameters can be passed as a `params::Dict{String,<:Any}`. Valid keys 
   specified trial component.
 """
 function list_trials(; aws_config::AbstractAWSConfig=global_aws_config())
-    return sagemaker("ListTrials"; aws_config=aws_config, features=SERVICE_FEATURES)
+    return sagemaker("ListTrials"; aws_config=aws_config, feature_set=SERVICE_FEATURE_SET)
 end
 function list_trials(
     params::AbstractDict{String}; aws_config::AbstractAWSConfig=global_aws_config()
 )
-    return sagemaker("ListTrials", params; aws_config=aws_config, features=SERVICE_FEATURES)
+    return sagemaker(
+        "ListTrials", params; aws_config=aws_config, feature_set=SERVICE_FEATURE_SET
+    )
 end
 
 """
@@ -9034,13 +9118,15 @@ Optional parameters can be passed as a `params::Dict{String,<:Any}`. Valid keys 
 - `"UserProfileNameContains"`: A parameter by which to filter the results.
 """
 function list_user_profiles(; aws_config::AbstractAWSConfig=global_aws_config())
-    return sagemaker("ListUserProfiles"; aws_config=aws_config, features=SERVICE_FEATURES)
+    return sagemaker(
+        "ListUserProfiles"; aws_config=aws_config, feature_set=SERVICE_FEATURE_SET
+    )
 end
 function list_user_profiles(
     params::AbstractDict{String}; aws_config::AbstractAWSConfig=global_aws_config()
 )
     return sagemaker(
-        "ListUserProfiles", params; aws_config=aws_config, features=SERVICE_FEATURES
+        "ListUserProfiles", params; aws_config=aws_config, feature_set=SERVICE_FEATURE_SET
     )
 end
 
@@ -9061,13 +9147,15 @@ Optional parameters can be passed as a `params::Dict{String,<:Any}`. Valid keys 
 - `"SortOrder"`: Sort workforces in ascending or descending order.
 """
 function list_workforces(; aws_config::AbstractAWSConfig=global_aws_config())
-    return sagemaker("ListWorkforces"; aws_config=aws_config, features=SERVICE_FEATURES)
+    return sagemaker(
+        "ListWorkforces"; aws_config=aws_config, feature_set=SERVICE_FEATURE_SET
+    )
 end
 function list_workforces(
     params::AbstractDict{String}; aws_config::AbstractAWSConfig=global_aws_config()
 )
     return sagemaker(
-        "ListWorkforces", params; aws_config=aws_config, features=SERVICE_FEATURES
+        "ListWorkforces", params; aws_config=aws_config, feature_set=SERVICE_FEATURE_SET
     )
 end
 
@@ -9090,13 +9178,15 @@ Optional parameters can be passed as a `params::Dict{String,<:Any}`. Valid keys 
 - `"SortOrder"`: The sort order for results. The default is Ascending.
 """
 function list_workteams(; aws_config::AbstractAWSConfig=global_aws_config())
-    return sagemaker("ListWorkteams"; aws_config=aws_config, features=SERVICE_FEATURES)
+    return sagemaker(
+        "ListWorkteams"; aws_config=aws_config, feature_set=SERVICE_FEATURE_SET
+    )
 end
 function list_workteams(
     params::AbstractDict{String}; aws_config::AbstractAWSConfig=global_aws_config()
 )
     return sagemaker(
-        "ListWorkteams", params; aws_config=aws_config, features=SERVICE_FEATURES
+        "ListWorkteams", params; aws_config=aws_config, feature_set=SERVICE_FEATURE_SET
     )
 end
 
@@ -9123,7 +9213,7 @@ function put_model_package_group_policy(
             "ResourcePolicy" => ResourcePolicy,
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function put_model_package_group_policy(
@@ -9145,7 +9235,7 @@ function put_model_package_group_policy(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -9170,7 +9260,7 @@ function register_devices(
         "RegisterDevices",
         Dict{String,Any}("DeviceFleetName" => DeviceFleetName, "Devices" => Devices);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function register_devices(
@@ -9191,7 +9281,7 @@ function register_devices(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -9220,7 +9310,7 @@ function render_ui_template(
         "RenderUiTemplate",
         Dict{String,Any}("RoleArn" => RoleArn, "Task" => Task);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function render_ui_template(
@@ -9237,7 +9327,7 @@ function render_ui_template(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -9265,7 +9355,7 @@ function retry_pipeline_execution(
             "PipelineExecutionArn" => PipelineExecutionArn,
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function retry_pipeline_execution(
@@ -9287,7 +9377,7 @@ function retry_pipeline_execution(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -9323,7 +9413,7 @@ function search(Resource; aws_config::AbstractAWSConfig=global_aws_config())
         "Search",
         Dict{String,Any}("Resource" => Resource);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function search(
@@ -9337,7 +9427,7 @@ function search(
             mergewith(_merge, Dict{String,Any}("Resource" => Resource), params)
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -9367,7 +9457,7 @@ function send_pipeline_execution_step_failure(
             "CallbackToken" => CallbackToken, "ClientRequestToken" => string(uuid4())
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function send_pipeline_execution_step_failure(
@@ -9388,7 +9478,7 @@ function send_pipeline_execution_step_failure(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -9419,7 +9509,7 @@ function send_pipeline_execution_step_success(
             "CallbackToken" => CallbackToken, "ClientRequestToken" => string(uuid4())
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function send_pipeline_execution_step_success(
@@ -9440,7 +9530,7 @@ function send_pipeline_execution_step_success(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -9462,7 +9552,7 @@ function start_monitoring_schedule(
         "StartMonitoringSchedule",
         Dict{String,Any}("MonitoringScheduleName" => MonitoringScheduleName);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function start_monitoring_schedule(
@@ -9480,7 +9570,7 @@ function start_monitoring_schedule(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -9504,7 +9594,7 @@ function start_notebook_instance(
         "StartNotebookInstance",
         Dict{String,Any}("NotebookInstanceName" => NotebookInstanceName);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function start_notebook_instance(
@@ -9522,7 +9612,7 @@ function start_notebook_instance(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -9552,7 +9642,7 @@ function start_pipeline_execution(
             "ClientRequestToken" => ClientRequestToken, "PipelineName" => PipelineName
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function start_pipeline_execution(
@@ -9574,7 +9664,7 @@ function start_pipeline_execution(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -9593,7 +9683,7 @@ function stop_auto_mljob(AutoMLJobName; aws_config::AbstractAWSConfig=global_aws
         "StopAutoMLJob",
         Dict{String,Any}("AutoMLJobName" => AutoMLJobName);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function stop_auto_mljob(
@@ -9607,7 +9697,7 @@ function stop_auto_mljob(
             mergewith(_merge, Dict{String,Any}("AutoMLJobName" => AutoMLJobName), params)
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -9632,7 +9722,7 @@ function stop_compilation_job(
         "StopCompilationJob",
         Dict{String,Any}("CompilationJobName" => CompilationJobName);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function stop_compilation_job(
@@ -9648,7 +9738,7 @@ function stop_compilation_job(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -9669,7 +9759,7 @@ function stop_edge_packaging_job(
         "StopEdgePackagingJob",
         Dict{String,Any}("EdgePackagingJobName" => EdgePackagingJobName);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function stop_edge_packaging_job(
@@ -9687,7 +9777,7 @@ function stop_edge_packaging_job(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -9712,7 +9802,7 @@ function stop_hyper_parameter_tuning_job(
         "StopHyperParameterTuningJob",
         Dict{String,Any}("HyperParameterTuningJobName" => HyperParameterTuningJobName);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function stop_hyper_parameter_tuning_job(
@@ -9732,7 +9822,7 @@ function stop_hyper_parameter_tuning_job(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -9754,7 +9844,7 @@ function stop_labeling_job(
         "StopLabelingJob",
         Dict{String,Any}("LabelingJobName" => LabelingJobName);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function stop_labeling_job(
@@ -9770,7 +9860,7 @@ function stop_labeling_job(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -9791,7 +9881,7 @@ function stop_monitoring_schedule(
         "StopMonitoringSchedule",
         Dict{String,Any}("MonitoringScheduleName" => MonitoringScheduleName);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function stop_monitoring_schedule(
@@ -9809,7 +9899,7 @@ function stop_monitoring_schedule(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -9836,7 +9926,7 @@ function stop_notebook_instance(
         "StopNotebookInstance",
         Dict{String,Any}("NotebookInstanceName" => NotebookInstanceName);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function stop_notebook_instance(
@@ -9854,7 +9944,7 @@ function stop_notebook_instance(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -9895,7 +9985,7 @@ function stop_pipeline_execution(
             "PipelineExecutionArn" => PipelineExecutionArn,
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function stop_pipeline_execution(
@@ -9917,7 +10007,7 @@ function stop_pipeline_execution(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -9938,7 +10028,7 @@ function stop_processing_job(
         "StopProcessingJob",
         Dict{String,Any}("ProcessingJobName" => ProcessingJobName);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function stop_processing_job(
@@ -9954,7 +10044,7 @@ function stop_processing_job(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -9979,7 +10069,7 @@ function stop_training_job(
         "StopTrainingJob",
         Dict{String,Any}("TrainingJobName" => TrainingJobName);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function stop_training_job(
@@ -9995,7 +10085,7 @@ function stop_training_job(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -10019,7 +10109,7 @@ function stop_transform_job(
         "StopTransformJob",
         Dict{String,Any}("TransformJobName" => TransformJobName);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function stop_transform_job(
@@ -10035,7 +10125,7 @@ function stop_transform_job(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -10060,7 +10150,7 @@ function update_action(ActionName; aws_config::AbstractAWSConfig=global_aws_conf
         "UpdateAction",
         Dict{String,Any}("ActionName" => ActionName);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function update_action(
@@ -10074,7 +10164,7 @@ function update_action(
             mergewith(_merge, Dict{String,Any}("ActionName" => ActionName), params)
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -10098,7 +10188,7 @@ function update_app_image_config(
         "UpdateAppImageConfig",
         Dict{String,Any}("AppImageConfigName" => AppImageConfigName);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function update_app_image_config(
@@ -10114,7 +10204,7 @@ function update_app_image_config(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -10138,7 +10228,7 @@ function update_artifact(ArtifactArn; aws_config::AbstractAWSConfig=global_aws_c
         "UpdateArtifact",
         Dict{String,Any}("ArtifactArn" => ArtifactArn);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function update_artifact(
@@ -10152,7 +10242,7 @@ function update_artifact(
             mergewith(_merge, Dict{String,Any}("ArtifactArn" => ArtifactArn), params)
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -10180,7 +10270,7 @@ function update_code_repository(
         "UpdateCodeRepository",
         Dict{String,Any}("CodeRepositoryName" => CodeRepositoryName);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function update_code_repository(
@@ -10196,7 +10286,7 @@ function update_code_repository(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -10220,7 +10310,7 @@ function update_context(ContextName; aws_config::AbstractAWSConfig=global_aws_co
         "UpdateContext",
         Dict{String,Any}("ContextName" => ContextName);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function update_context(
@@ -10234,7 +10324,7 @@ function update_context(
             mergewith(_merge, Dict{String,Any}("ContextName" => ContextName), params)
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -10266,7 +10356,7 @@ function update_device_fleet(
             "DeviceFleetName" => DeviceFleetName, "OutputConfig" => OutputConfig
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function update_device_fleet(
@@ -10287,7 +10377,7 @@ function update_device_fleet(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -10309,7 +10399,7 @@ function update_devices(
         "UpdateDevices",
         Dict{String,Any}("DeviceFleetName" => DeviceFleetName, "Devices" => Devices);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function update_devices(
@@ -10330,7 +10420,7 @@ function update_devices(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -10352,7 +10442,7 @@ function update_domain(DomainId; aws_config::AbstractAWSConfig=global_aws_config
         "UpdateDomain",
         Dict{String,Any}("DomainId" => DomainId);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function update_domain(
@@ -10366,7 +10456,7 @@ function update_domain(
             mergewith(_merge, Dict{String,Any}("DomainId" => DomainId), params)
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -10414,7 +10504,7 @@ function update_endpoint(
             "EndpointConfigName" => EndpointConfigName, "EndpointName" => EndpointName
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function update_endpoint(
@@ -10436,7 +10526,7 @@ function update_endpoint(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -10467,7 +10557,7 @@ function update_endpoint_weights_and_capacities(
             "EndpointName" => EndpointName,
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function update_endpoint_weights_and_capacities(
@@ -10489,7 +10579,7 @@ function update_endpoint_weights_and_capacities(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -10516,7 +10606,7 @@ function update_experiment(
         "UpdateExperiment",
         Dict{String,Any}("ExperimentName" => ExperimentName);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function update_experiment(
@@ -10530,7 +10620,7 @@ function update_experiment(
             mergewith(_merge, Dict{String,Any}("ExperimentName" => ExperimentName), params)
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -10558,7 +10648,7 @@ function update_image(ImageName; aws_config::AbstractAWSConfig=global_aws_config
         "UpdateImage",
         Dict{String,Any}("ImageName" => ImageName);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function update_image(
@@ -10572,7 +10662,7 @@ function update_image(
             mergewith(_merge, Dict{String,Any}("ImageName" => ImageName), params)
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -10600,7 +10690,7 @@ function update_model_package(
             "ModelPackageArn" => ModelPackageArn,
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function update_model_package(
@@ -10622,7 +10712,7 @@ function update_model_package(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -10651,7 +10741,7 @@ function update_monitoring_schedule(
             "MonitoringScheduleName" => MonitoringScheduleName,
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function update_monitoring_schedule(
@@ -10673,7 +10763,7 @@ function update_monitoring_schedule(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -10747,7 +10837,7 @@ function update_notebook_instance(
         "UpdateNotebookInstance",
         Dict{String,Any}("NotebookInstanceName" => NotebookInstanceName);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function update_notebook_instance(
@@ -10765,7 +10855,7 @@ function update_notebook_instance(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -10796,7 +10886,7 @@ function update_notebook_instance_lifecycle_config(
             "NotebookInstanceLifecycleConfigName" => NotebookInstanceLifecycleConfigName
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function update_notebook_instance_lifecycle_config(
@@ -10817,7 +10907,7 @@ function update_notebook_instance_lifecycle_config(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -10842,7 +10932,7 @@ function update_pipeline(PipelineName; aws_config::AbstractAWSConfig=global_aws_
         "UpdatePipeline",
         Dict{String,Any}("PipelineName" => PipelineName);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function update_pipeline(
@@ -10856,7 +10946,7 @@ function update_pipeline(
             mergewith(_merge, Dict{String,Any}("PipelineName" => PipelineName), params)
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -10881,7 +10971,7 @@ function update_pipeline_execution(
         "UpdatePipelineExecution",
         Dict{String,Any}("PipelineExecutionArn" => PipelineExecutionArn);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function update_pipeline_execution(
@@ -10899,7 +10989,7 @@ function update_pipeline_execution(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -10927,7 +11017,7 @@ function update_training_job(
         "UpdateTrainingJob",
         Dict{String,Any}("TrainingJobName" => TrainingJobName);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function update_training_job(
@@ -10943,7 +11033,7 @@ function update_training_job(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -10966,7 +11056,7 @@ function update_trial(TrialName; aws_config::AbstractAWSConfig=global_aws_config
         "UpdateTrial",
         Dict{String,Any}("TrialName" => TrialName);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function update_trial(
@@ -10980,7 +11070,7 @@ function update_trial(
             mergewith(_merge, Dict{String,Any}("TrialName" => TrialName), params)
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -11017,7 +11107,7 @@ function update_trial_component(
         "UpdateTrialComponent",
         Dict{String,Any}("TrialComponentName" => TrialComponentName);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function update_trial_component(
@@ -11033,7 +11123,7 @@ function update_trial_component(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -11058,7 +11148,7 @@ function update_user_profile(
         "UpdateUserProfile",
         Dict{String,Any}("DomainId" => DomainId, "UserProfileName" => UserProfileName);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function update_user_profile(
@@ -11079,7 +11169,7 @@ function update_user_profile(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -11117,7 +11207,7 @@ function update_workforce(WorkforceName; aws_config::AbstractAWSConfig=global_aw
         "UpdateWorkforce",
         Dict{String,Any}("WorkforceName" => WorkforceName);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function update_workforce(
@@ -11131,7 +11221,7 @@ function update_workforce(
             mergewith(_merge, Dict{String,Any}("WorkforceName" => WorkforceName), params)
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -11171,7 +11261,7 @@ function update_workteam(WorkteamName; aws_config::AbstractAWSConfig=global_aws_
         "UpdateWorkteam",
         Dict{String,Any}("WorkteamName" => WorkteamName);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function update_workteam(
@@ -11185,6 +11275,6 @@ function update_workteam(
             mergewith(_merge, Dict{String,Any}("WorkteamName" => WorkteamName), params)
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end

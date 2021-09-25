@@ -80,7 +80,7 @@ function describe_dimension_keys(
             "StartTime" => StartTime,
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function describe_dimension_keys(
@@ -110,7 +110,7 @@ function describe_dimension_keys(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -159,7 +159,7 @@ function get_dimension_key_details(
             "ServiceType" => ServiceType,
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function get_dimension_key_details(
@@ -185,7 +185,7 @@ function get_dimension_key_details(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -247,7 +247,7 @@ function get_resource_metrics(
             "StartTime" => StartTime,
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function get_resource_metrics(
@@ -275,6 +275,6 @@ function get_resource_metrics(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end

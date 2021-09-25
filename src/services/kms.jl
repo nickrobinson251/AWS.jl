@@ -29,7 +29,7 @@ function cancel_key_deletion(KeyId; aws_config::AbstractAWSConfig=global_aws_con
         "CancelKeyDeletion",
         Dict{String,Any}("KeyId" => KeyId);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function cancel_key_deletion(
@@ -39,7 +39,7 @@ function cancel_key_deletion(
         "CancelKeyDeletion",
         Dict{String,Any}(mergewith(_merge, Dict{String,Any}("KeyId" => KeyId), params));
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -87,7 +87,7 @@ function connect_custom_key_store(
         "ConnectCustomKeyStore",
         Dict{String,Any}("CustomKeyStoreId" => CustomKeyStoreId);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function connect_custom_key_store(
@@ -103,7 +103,7 @@ function connect_custom_key_store(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -155,7 +155,7 @@ function create_alias(
         "CreateAlias",
         Dict{String,Any}("AliasName" => AliasName, "TargetKeyId" => TargetKeyId);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function create_alias(
@@ -174,7 +174,7 @@ function create_alias(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -232,7 +232,7 @@ function create_custom_key_store(
             "TrustAnchorCertificate" => TrustAnchorCertificate,
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function create_custom_key_store(
@@ -258,7 +258,7 @@ function create_custom_key_store(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -358,7 +358,7 @@ function create_grant(
             "Operations" => Operations,
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function create_grant(
@@ -382,7 +382,7 @@ function create_grant(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -554,12 +554,12 @@ Optional parameters can be passed as a `params::Dict{String,<:Any}`. Valid keys 
   can also be used to control access to a KMS key. For details, see Tagging Keys.
 """
 function create_key(; aws_config::AbstractAWSConfig=global_aws_config())
-    return kms("CreateKey"; aws_config=aws_config, features=SERVICE_FEATURES)
+    return kms("CreateKey"; aws_config=aws_config, feature_set=SERVICE_FEATURE_SET)
 end
 function create_key(
     params::AbstractDict{String}; aws_config::AbstractAWSConfig=global_aws_config()
 )
-    return kms("CreateKey", params; aws_config=aws_config, features=SERVICE_FEATURES)
+    return kms("CreateKey", params; aws_config=aws_config, feature_set=SERVICE_FEATURE_SET)
 end
 
 """
@@ -645,7 +645,7 @@ function decrypt(CiphertextBlob; aws_config::AbstractAWSConfig=global_aws_config
         "Decrypt",
         Dict{String,Any}("CiphertextBlob" => CiphertextBlob);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function decrypt(
@@ -659,7 +659,7 @@ function decrypt(
             mergewith(_merge, Dict{String,Any}("CiphertextBlob" => CiphertextBlob), params)
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -691,7 +691,7 @@ function delete_alias(AliasName; aws_config::AbstractAWSConfig=global_aws_config
         "DeleteAlias",
         Dict{String,Any}("AliasName" => AliasName);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function delete_alias(
@@ -705,7 +705,7 @@ function delete_alias(
             mergewith(_merge, Dict{String,Any}("AliasName" => AliasName), params)
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -747,7 +747,7 @@ function delete_custom_key_store(
         "DeleteCustomKeyStore",
         Dict{String,Any}("CustomKeyStoreId" => CustomKeyStoreId);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function delete_custom_key_store(
@@ -763,7 +763,7 @@ function delete_custom_key_store(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -798,7 +798,7 @@ function delete_imported_key_material(
         "DeleteImportedKeyMaterial",
         Dict{String,Any}("KeyId" => KeyId);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function delete_imported_key_material(
@@ -808,7 +808,7 @@ function delete_imported_key_material(
         "DeleteImportedKeyMaterial",
         Dict{String,Any}(mergewith(_merge, Dict{String,Any}("KeyId" => KeyId), params));
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -856,13 +856,18 @@ Optional parameters can be passed as a `params::Dict{String,<:Any}`. Valid keys 
   received.
 """
 function describe_custom_key_stores(; aws_config::AbstractAWSConfig=global_aws_config())
-    return kms("DescribeCustomKeyStores"; aws_config=aws_config, features=SERVICE_FEATURES)
+    return kms(
+        "DescribeCustomKeyStores"; aws_config=aws_config, feature_set=SERVICE_FEATURE_SET
+    )
 end
 function describe_custom_key_stores(
     params::AbstractDict{String}; aws_config::AbstractAWSConfig=global_aws_config()
 )
     return kms(
-        "DescribeCustomKeyStores", params; aws_config=aws_config, features=SERVICE_FEATURES
+        "DescribeCustomKeyStores",
+        params;
+        aws_config=aws_config,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -920,7 +925,7 @@ function describe_key(KeyId; aws_config::AbstractAWSConfig=global_aws_config())
         "DescribeKey",
         Dict{String,Any}("KeyId" => KeyId);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function describe_key(
@@ -930,7 +935,7 @@ function describe_key(
         "DescribeKey",
         Dict{String,Any}(mergewith(_merge, Dict{String,Any}("KeyId" => KeyId), params));
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -959,7 +964,7 @@ function disable_key(KeyId; aws_config::AbstractAWSConfig=global_aws_config())
         "DisableKey",
         Dict{String,Any}("KeyId" => KeyId);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function disable_key(
@@ -969,7 +974,7 @@ function disable_key(
         "DisableKey",
         Dict{String,Any}(mergewith(_merge, Dict{String,Any}("KeyId" => KeyId), params));
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -1001,7 +1006,7 @@ function disable_key_rotation(KeyId; aws_config::AbstractAWSConfig=global_aws_co
         "DisableKeyRotation",
         Dict{String,Any}("KeyId" => KeyId);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function disable_key_rotation(
@@ -1011,7 +1016,7 @@ function disable_key_rotation(
         "DisableKeyRotation",
         Dict{String,Any}(mergewith(_merge, Dict{String,Any}("KeyId" => KeyId), params));
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -1047,7 +1052,7 @@ function disconnect_custom_key_store(
         "DisconnectCustomKeyStore",
         Dict{String,Any}("CustomKeyStoreId" => CustomKeyStoreId);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function disconnect_custom_key_store(
@@ -1063,7 +1068,7 @@ function disconnect_custom_key_store(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -1090,7 +1095,7 @@ function enable_key(KeyId; aws_config::AbstractAWSConfig=global_aws_config())
         "EnableKey",
         Dict{String,Any}("KeyId" => KeyId);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function enable_key(
@@ -1100,7 +1105,7 @@ function enable_key(
         "EnableKey",
         Dict{String,Any}(mergewith(_merge, Dict{String,Any}("KeyId" => KeyId), params));
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -1133,7 +1138,7 @@ function enable_key_rotation(KeyId; aws_config::AbstractAWSConfig=global_aws_con
         "EnableKeyRotation",
         Dict{String,Any}("KeyId" => KeyId);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function enable_key_rotation(
@@ -1143,7 +1148,7 @@ function enable_key_rotation(
         "EnableKeyRotation",
         Dict{String,Any}(mergewith(_merge, Dict{String,Any}("KeyId" => KeyId), params));
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -1228,7 +1233,7 @@ function encrypt(KeyId, Plaintext; aws_config::AbstractAWSConfig=global_aws_conf
         "Encrypt",
         Dict{String,Any}("KeyId" => KeyId, "Plaintext" => Plaintext);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function encrypt(
@@ -1245,7 +1250,7 @@ function encrypt(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -1329,7 +1334,7 @@ function generate_data_key(KeyId; aws_config::AbstractAWSConfig=global_aws_confi
         "GenerateDataKey",
         Dict{String,Any}("KeyId" => KeyId);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function generate_data_key(
@@ -1339,7 +1344,7 @@ function generate_data_key(
         "GenerateDataKey",
         Dict{String,Any}(mergewith(_merge, Dict{String,Any}("KeyId" => KeyId), params));
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -1421,7 +1426,7 @@ function generate_data_key_pair(
         "GenerateDataKeyPair",
         Dict{String,Any}("KeyId" => KeyId, "KeyPairSpec" => KeyPairSpec);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function generate_data_key_pair(
@@ -1440,7 +1445,7 @@ function generate_data_key_pair(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -1515,7 +1520,7 @@ function generate_data_key_pair_without_plaintext(
         "GenerateDataKeyPairWithoutPlaintext",
         Dict{String,Any}("KeyId" => KeyId, "KeyPairSpec" => KeyPairSpec);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function generate_data_key_pair_without_plaintext(
@@ -1534,7 +1539,7 @@ function generate_data_key_pair_without_plaintext(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -1611,7 +1616,7 @@ function generate_data_key_without_plaintext(
         "GenerateDataKeyWithoutPlaintext",
         Dict{String,Any}("KeyId" => KeyId);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function generate_data_key_without_plaintext(
@@ -1621,7 +1626,7 @@ function generate_data_key_without_plaintext(
         "GenerateDataKeyWithoutPlaintext",
         Dict{String,Any}(mergewith(_merge, Dict{String,Any}("KeyId" => KeyId), params));
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -1646,12 +1651,14 @@ Optional parameters can be passed as a `params::Dict{String,<:Any}`. Valid keys 
 - `"NumberOfBytes"`: The length of the byte string.
 """
 function generate_random(; aws_config::AbstractAWSConfig=global_aws_config())
-    return kms("GenerateRandom"; aws_config=aws_config, features=SERVICE_FEATURES)
+    return kms("GenerateRandom"; aws_config=aws_config, feature_set=SERVICE_FEATURE_SET)
 end
 function generate_random(
     params::AbstractDict{String}; aws_config::AbstractAWSConfig=global_aws_config()
 )
-    return kms("GenerateRandom", params; aws_config=aws_config, features=SERVICE_FEATURES)
+    return kms(
+        "GenerateRandom", params; aws_config=aws_config, feature_set=SERVICE_FEATURE_SET
+    )
 end
 
 """
@@ -1678,7 +1685,7 @@ function get_key_policy(
         "GetKeyPolicy",
         Dict{String,Any}("KeyId" => KeyId, "PolicyName" => PolicyName);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function get_key_policy(
@@ -1697,7 +1704,7 @@ function get_key_policy(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -1734,7 +1741,7 @@ function get_key_rotation_status(KeyId; aws_config::AbstractAWSConfig=global_aws
         "GetKeyRotationStatus",
         Dict{String,Any}("KeyId" => KeyId);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function get_key_rotation_status(
@@ -1744,7 +1751,7 @@ function get_key_rotation_status(
         "GetKeyRotationStatus",
         Dict{String,Any}(mergewith(_merge, Dict{String,Any}("KeyId" => KeyId), params));
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -1798,7 +1805,7 @@ function get_parameters_for_import(
             "WrappingKeySpec" => WrappingKeySpec,
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function get_parameters_for_import(
@@ -1822,7 +1829,7 @@ function get_parameters_for_import(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -1881,7 +1888,7 @@ function get_public_key(KeyId; aws_config::AbstractAWSConfig=global_aws_config()
         "GetPublicKey",
         Dict{String,Any}("KeyId" => KeyId);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function get_public_key(
@@ -1891,7 +1898,7 @@ function get_public_key(
         "GetPublicKey",
         Dict{String,Any}(mergewith(_merge, Dict{String,Any}("KeyId" => KeyId), params));
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -1969,7 +1976,7 @@ function import_key_material(
             "KeyId" => KeyId,
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function import_key_material(
@@ -1993,7 +2000,7 @@ function import_key_material(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -2034,12 +2041,14 @@ Optional parameters can be passed as a `params::Dict{String,<:Any}`. Valid keys 
   received.
 """
 function list_aliases(; aws_config::AbstractAWSConfig=global_aws_config())
-    return kms("ListAliases"; aws_config=aws_config, features=SERVICE_FEATURES)
+    return kms("ListAliases"; aws_config=aws_config, feature_set=SERVICE_FEATURE_SET)
 end
 function list_aliases(
     params::AbstractDict{String}; aws_config::AbstractAWSConfig=global_aws_config()
 )
-    return kms("ListAliases", params; aws_config=aws_config, features=SERVICE_FEATURES)
+    return kms(
+        "ListAliases", params; aws_config=aws_config, feature_set=SERVICE_FEATURE_SET
+    )
 end
 
 """
@@ -2086,7 +2095,7 @@ function list_grants(KeyId; aws_config::AbstractAWSConfig=global_aws_config())
         "ListGrants",
         Dict{String,Any}("KeyId" => KeyId);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function list_grants(
@@ -2096,7 +2105,7 @@ function list_grants(
         "ListGrants",
         Dict{String,Any}(mergewith(_merge, Dict{String,Any}("KeyId" => KeyId), params));
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -2132,7 +2141,7 @@ function list_key_policies(KeyId; aws_config::AbstractAWSConfig=global_aws_confi
         "ListKeyPolicies",
         Dict{String,Any}("KeyId" => KeyId);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function list_key_policies(
@@ -2142,7 +2151,7 @@ function list_key_policies(
         "ListKeyPolicies",
         Dict{String,Any}(mergewith(_merge, Dict{String,Any}("KeyId" => KeyId), params));
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -2166,12 +2175,12 @@ Optional parameters can be passed as a `params::Dict{String,<:Any}`. Valid keys 
   received.
 """
 function list_keys(; aws_config::AbstractAWSConfig=global_aws_config())
-    return kms("ListKeys"; aws_config=aws_config, features=SERVICE_FEATURES)
+    return kms("ListKeys"; aws_config=aws_config, feature_set=SERVICE_FEATURE_SET)
 end
 function list_keys(
     params::AbstractDict{String}; aws_config::AbstractAWSConfig=global_aws_config()
 )
-    return kms("ListKeys", params; aws_config=aws_config, features=SERVICE_FEATURES)
+    return kms("ListKeys", params; aws_config=aws_config, feature_set=SERVICE_FEATURE_SET)
 end
 
 """
@@ -2207,7 +2216,7 @@ function list_resource_tags(KeyId; aws_config::AbstractAWSConfig=global_aws_conf
         "ListResourceTags",
         Dict{String,Any}("KeyId" => KeyId);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function list_resource_tags(
@@ -2217,7 +2226,7 @@ function list_resource_tags(
         "ListResourceTags",
         Dict{String,Any}(mergewith(_merge, Dict{String,Any}("KeyId" => KeyId), params));
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -2266,7 +2275,7 @@ function list_retirable_grants(
         "ListRetirableGrants",
         Dict{String,Any}("RetiringPrincipal" => RetiringPrincipal);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function list_retirable_grants(
@@ -2282,7 +2291,7 @@ function list_retirable_grants(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -2337,7 +2346,7 @@ function put_key_policy(
         "PutKeyPolicy",
         Dict{String,Any}("KeyId" => KeyId, "Policy" => Policy, "PolicyName" => PolicyName);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function put_key_policy(
@@ -2359,7 +2368,7 @@ function put_key_policy(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -2485,7 +2494,7 @@ function re_encrypt(
             "CiphertextBlob" => CiphertextBlob, "DestinationKeyId" => DestinationKeyId
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function re_encrypt(
@@ -2507,7 +2516,7 @@ function re_encrypt(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -2623,7 +2632,7 @@ function replicate_key(
         "ReplicateKey",
         Dict{String,Any}("KeyId" => KeyId, "ReplicaRegion" => ReplicaRegion);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function replicate_key(
@@ -2642,7 +2651,7 @@ function replicate_key(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -2680,12 +2689,14 @@ Optional parameters can be passed as a `params::Dict{String,<:Any}`. Valid keys 
   arn:aws:kms:us-east-2:444455556666:key/1234abcd-12ab-34cd-56ef-1234567890ab
 """
 function retire_grant(; aws_config::AbstractAWSConfig=global_aws_config())
-    return kms("RetireGrant"; aws_config=aws_config, features=SERVICE_FEATURES)
+    return kms("RetireGrant"; aws_config=aws_config, feature_set=SERVICE_FEATURE_SET)
 end
 function retire_grant(
     params::AbstractDict{String}; aws_config::AbstractAWSConfig=global_aws_config()
 )
-    return kms("RetireGrant", params; aws_config=aws_config, features=SERVICE_FEATURES)
+    return kms(
+        "RetireGrant", params; aws_config=aws_config, feature_set=SERVICE_FEATURE_SET
+    )
 end
 
 """
@@ -2721,7 +2732,7 @@ function revoke_grant(GrantId, KeyId; aws_config::AbstractAWSConfig=global_aws_c
         "RevokeGrant",
         Dict{String,Any}("GrantId" => GrantId, "KeyId" => KeyId);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function revoke_grant(
@@ -2738,7 +2749,7 @@ function revoke_grant(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -2795,7 +2806,7 @@ function schedule_key_deletion(KeyId; aws_config::AbstractAWSConfig=global_aws_c
         "ScheduleKeyDeletion",
         Dict{String,Any}("KeyId" => KeyId);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function schedule_key_deletion(
@@ -2805,7 +2816,7 @@ function schedule_key_deletion(
         "ScheduleKeyDeletion",
         Dict{String,Any}(mergewith(_merge, Dict{String,Any}("KeyId" => KeyId), params));
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -2876,7 +2887,7 @@ function sign(
             "KeyId" => KeyId, "Message" => Message, "SigningAlgorithm" => SigningAlgorithm
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function sign(
@@ -2900,7 +2911,7 @@ function sign(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -2941,7 +2952,7 @@ function tag_resource(KeyId, Tags; aws_config::AbstractAWSConfig=global_aws_conf
         "TagResource",
         Dict{String,Any}("KeyId" => KeyId, "Tags" => Tags);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function tag_resource(
@@ -2956,7 +2967,7 @@ function tag_resource(
             mergewith(_merge, Dict{String,Any}("KeyId" => KeyId, "Tags" => Tags), params)
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -2992,7 +3003,7 @@ function untag_resource(KeyId, TagKeys; aws_config::AbstractAWSConfig=global_aws
         "UntagResource",
         Dict{String,Any}("KeyId" => KeyId, "TagKeys" => TagKeys);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function untag_resource(
@@ -3009,7 +3020,7 @@ function untag_resource(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -3061,7 +3072,7 @@ function update_alias(
         "UpdateAlias",
         Dict{String,Any}("AliasName" => AliasName, "TargetKeyId" => TargetKeyId);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function update_alias(
@@ -3080,7 +3091,7 @@ function update_alias(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -3141,7 +3152,7 @@ function update_custom_key_store(
         "UpdateCustomKeyStore",
         Dict{String,Any}("CustomKeyStoreId" => CustomKeyStoreId);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function update_custom_key_store(
@@ -3157,7 +3168,7 @@ function update_custom_key_store(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -3187,7 +3198,7 @@ function update_key_description(
         "UpdateKeyDescription",
         Dict{String,Any}("Description" => Description, "KeyId" => KeyId);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function update_key_description(
@@ -3206,7 +3217,7 @@ function update_key_description(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -3271,7 +3282,7 @@ function update_primary_region(
         "UpdatePrimaryRegion",
         Dict{String,Any}("KeyId" => KeyId, "PrimaryRegion" => PrimaryRegion);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function update_primary_region(
@@ -3290,7 +3301,7 @@ function update_primary_region(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -3369,7 +3380,7 @@ function verify(
             "SigningAlgorithm" => SigningAlgorithm,
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function verify(
@@ -3395,6 +3406,6 @@ function verify(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end

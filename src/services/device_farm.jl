@@ -31,7 +31,7 @@ function create_device_pool(
         "CreateDevicePool",
         Dict{String,Any}("name" => name, "projectArn" => projectArn, "rules" => rules);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function create_device_pool(
@@ -53,7 +53,7 @@ function create_device_pool(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -82,7 +82,7 @@ function create_instance_profile(name; aws_config::AbstractAWSConfig=global_aws_
         "CreateInstanceProfile",
         Dict{String,Any}("name" => name);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function create_instance_profile(
@@ -92,7 +92,7 @@ function create_instance_profile(
         "CreateInstanceProfile",
         Dict{String,Any}(mergewith(_merge, Dict{String,Any}("name" => name), params));
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -135,7 +135,7 @@ function create_network_profile(
         "CreateNetworkProfile",
         Dict{String,Any}("name" => name, "projectArn" => projectArn);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function create_network_profile(
@@ -152,7 +152,7 @@ function create_network_profile(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -176,7 +176,7 @@ function create_project(name; aws_config::AbstractAWSConfig=global_aws_config())
         "CreateProject",
         Dict{String,Any}("name" => name);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function create_project(
@@ -186,7 +186,7 @@ function create_project(
         "CreateProject",
         Dict{String,Any}(mergewith(_merge, Dict{String,Any}("name" => name), params));
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -239,7 +239,7 @@ function create_remote_access_session(
         "CreateRemoteAccessSession",
         Dict{String,Any}("deviceArn" => deviceArn, "projectArn" => projectArn);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function create_remote_access_session(
@@ -258,7 +258,7 @@ function create_remote_access_session(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -281,7 +281,7 @@ function create_test_grid_project(name; aws_config::AbstractAWSConfig=global_aws
         "CreateTestGridProject",
         Dict{String,Any}("name" => name);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function create_test_grid_project(
@@ -291,7 +291,7 @@ function create_test_grid_project(
         "CreateTestGridProject",
         Dict{String,Any}(mergewith(_merge, Dict{String,Any}("name" => name), params));
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -317,7 +317,7 @@ function create_test_grid_url(
             "expiresInSeconds" => expiresInSeconds, "projectArn" => projectArn
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function create_test_grid_url(
@@ -338,7 +338,7 @@ function create_test_grid_url(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -379,7 +379,7 @@ function create_upload(
         "CreateUpload",
         Dict{String,Any}("name" => name, "projectArn" => projectArn, "type" => type);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function create_upload(
@@ -401,7 +401,7 @@ function create_upload(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -439,7 +439,7 @@ function create_vpceconfiguration(
             "vpceServiceName" => vpceServiceName,
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function create_vpceconfiguration(
@@ -463,7 +463,7 @@ function create_vpceconfiguration(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -483,7 +483,7 @@ function delete_device_pool(arn; aws_config::AbstractAWSConfig=global_aws_config
         "DeleteDevicePool",
         Dict{String,Any}("arn" => arn);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function delete_device_pool(
@@ -493,7 +493,7 @@ function delete_device_pool(
         "DeleteDevicePool",
         Dict{String,Any}(mergewith(_merge, Dict{String,Any}("arn" => arn), params));
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -513,7 +513,7 @@ function delete_instance_profile(arn; aws_config::AbstractAWSConfig=global_aws_c
         "DeleteInstanceProfile",
         Dict{String,Any}("arn" => arn);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function delete_instance_profile(
@@ -523,7 +523,7 @@ function delete_instance_profile(
         "DeleteInstanceProfile",
         Dict{String,Any}(mergewith(_merge, Dict{String,Any}("arn" => arn), params));
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -542,7 +542,7 @@ function delete_network_profile(arn; aws_config::AbstractAWSConfig=global_aws_co
         "DeleteNetworkProfile",
         Dict{String,Any}("arn" => arn);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function delete_network_profile(
@@ -552,7 +552,7 @@ function delete_network_profile(
         "DeleteNetworkProfile",
         Dict{String,Any}(mergewith(_merge, Dict{String,Any}("arn" => arn), params));
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -572,7 +572,7 @@ function delete_project(arn; aws_config::AbstractAWSConfig=global_aws_config())
         "DeleteProject",
         Dict{String,Any}("arn" => arn);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function delete_project(
@@ -582,7 +582,7 @@ function delete_project(
         "DeleteProject",
         Dict{String,Any}(mergewith(_merge, Dict{String,Any}("arn" => arn), params));
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -604,7 +604,7 @@ function delete_remote_access_session(
         "DeleteRemoteAccessSession",
         Dict{String,Any}("arn" => arn);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function delete_remote_access_session(
@@ -614,7 +614,7 @@ function delete_remote_access_session(
         "DeleteRemoteAccessSession",
         Dict{String,Any}(mergewith(_merge, Dict{String,Any}("arn" => arn), params));
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -634,7 +634,7 @@ function delete_run(arn; aws_config::AbstractAWSConfig=global_aws_config())
         "DeleteRun",
         Dict{String,Any}("arn" => arn);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function delete_run(
@@ -644,7 +644,7 @@ function delete_run(
         "DeleteRun",
         Dict{String,Any}(mergewith(_merge, Dict{String,Any}("arn" => arn), params));
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -667,7 +667,7 @@ function delete_test_grid_project(
         "DeleteTestGridProject",
         Dict{String,Any}("projectArn" => projectArn);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function delete_test_grid_project(
@@ -681,7 +681,7 @@ function delete_test_grid_project(
             mergewith(_merge, Dict{String,Any}("projectArn" => projectArn), params)
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -700,7 +700,7 @@ function delete_upload(arn; aws_config::AbstractAWSConfig=global_aws_config())
         "DeleteUpload",
         Dict{String,Any}("arn" => arn);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function delete_upload(
@@ -710,7 +710,7 @@ function delete_upload(
         "DeleteUpload",
         Dict{String,Any}(mergewith(_merge, Dict{String,Any}("arn" => arn), params));
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -730,7 +730,7 @@ function delete_vpceconfiguration(arn; aws_config::AbstractAWSConfig=global_aws_
         "DeleteVPCEConfiguration",
         Dict{String,Any}("arn" => arn);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function delete_vpceconfiguration(
@@ -740,7 +740,7 @@ function delete_vpceconfiguration(
         "DeleteVPCEConfiguration",
         Dict{String,Any}(mergewith(_merge, Dict{String,Any}("arn" => arn), params));
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -754,14 +754,14 @@ by the account.
 """
 function get_account_settings(; aws_config::AbstractAWSConfig=global_aws_config())
     return device_farm(
-        "GetAccountSettings"; aws_config=aws_config, features=SERVICE_FEATURES
+        "GetAccountSettings"; aws_config=aws_config, feature_set=SERVICE_FEATURE_SET
     )
 end
 function get_account_settings(
     params::AbstractDict{String}; aws_config::AbstractAWSConfig=global_aws_config()
 )
     return device_farm(
-        "GetAccountSettings", params; aws_config=aws_config, features=SERVICE_FEATURES
+        "GetAccountSettings", params; aws_config=aws_config, feature_set=SERVICE_FEATURE_SET
     )
 end
 
@@ -780,7 +780,7 @@ function get_device(arn; aws_config::AbstractAWSConfig=global_aws_config())
         "GetDevice",
         Dict{String,Any}("arn" => arn);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function get_device(
@@ -790,7 +790,7 @@ function get_device(
         "GetDevice",
         Dict{String,Any}(mergewith(_merge, Dict{String,Any}("arn" => arn), params));
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -809,7 +809,7 @@ function get_device_instance(arn; aws_config::AbstractAWSConfig=global_aws_confi
         "GetDeviceInstance",
         Dict{String,Any}("arn" => arn);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function get_device_instance(
@@ -819,7 +819,7 @@ function get_device_instance(
         "GetDeviceInstance",
         Dict{String,Any}(mergewith(_merge, Dict{String,Any}("arn" => arn), params));
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -838,7 +838,7 @@ function get_device_pool(arn; aws_config::AbstractAWSConfig=global_aws_config())
         "GetDevicePool",
         Dict{String,Any}("arn" => arn);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function get_device_pool(
@@ -848,7 +848,7 @@ function get_device_pool(
         "GetDevicePool",
         Dict{String,Any}(mergewith(_merge, Dict{String,Any}("arn" => arn), params));
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -881,7 +881,7 @@ function get_device_pool_compatibility(
         "GetDevicePoolCompatibility",
         Dict{String,Any}("devicePoolArn" => devicePoolArn);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function get_device_pool_compatibility(
@@ -895,7 +895,7 @@ function get_device_pool_compatibility(
             mergewith(_merge, Dict{String,Any}("devicePoolArn" => devicePoolArn), params)
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -914,7 +914,7 @@ function get_instance_profile(arn; aws_config::AbstractAWSConfig=global_aws_conf
         "GetInstanceProfile",
         Dict{String,Any}("arn" => arn);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function get_instance_profile(
@@ -924,7 +924,7 @@ function get_instance_profile(
         "GetInstanceProfile",
         Dict{String,Any}(mergewith(_merge, Dict{String,Any}("arn" => arn), params));
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -943,7 +943,7 @@ function get_job(arn; aws_config::AbstractAWSConfig=global_aws_config())
         "GetJob",
         Dict{String,Any}("arn" => arn);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function get_job(
@@ -953,7 +953,7 @@ function get_job(
         "GetJob",
         Dict{String,Any}(mergewith(_merge, Dict{String,Any}("arn" => arn), params));
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -972,7 +972,7 @@ function get_network_profile(arn; aws_config::AbstractAWSConfig=global_aws_confi
         "GetNetworkProfile",
         Dict{String,Any}("arn" => arn);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function get_network_profile(
@@ -982,7 +982,7 @@ function get_network_profile(
         "GetNetworkProfile",
         Dict{String,Any}(mergewith(_merge, Dict{String,Any}("arn" => arn), params));
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -1003,14 +1003,14 @@ Optional parameters can be passed as a `params::Dict{String,<:Any}`. Valid keys 
 """
 function get_offering_status(; aws_config::AbstractAWSConfig=global_aws_config())
     return device_farm(
-        "GetOfferingStatus"; aws_config=aws_config, features=SERVICE_FEATURES
+        "GetOfferingStatus"; aws_config=aws_config, feature_set=SERVICE_FEATURE_SET
     )
 end
 function get_offering_status(
     params::AbstractDict{String}; aws_config::AbstractAWSConfig=global_aws_config()
 )
     return device_farm(
-        "GetOfferingStatus", params; aws_config=aws_config, features=SERVICE_FEATURES
+        "GetOfferingStatus", params; aws_config=aws_config, feature_set=SERVICE_FEATURE_SET
     )
 end
 
@@ -1029,7 +1029,7 @@ function get_project(arn; aws_config::AbstractAWSConfig=global_aws_config())
         "GetProject",
         Dict{String,Any}("arn" => arn);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function get_project(
@@ -1039,7 +1039,7 @@ function get_project(
         "GetProject",
         Dict{String,Any}(mergewith(_merge, Dict{String,Any}("arn" => arn), params));
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -1059,7 +1059,7 @@ function get_remote_access_session(arn; aws_config::AbstractAWSConfig=global_aws
         "GetRemoteAccessSession",
         Dict{String,Any}("arn" => arn);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function get_remote_access_session(
@@ -1069,7 +1069,7 @@ function get_remote_access_session(
         "GetRemoteAccessSession",
         Dict{String,Any}(mergewith(_merge, Dict{String,Any}("arn" => arn), params));
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -1088,7 +1088,7 @@ function get_run(arn; aws_config::AbstractAWSConfig=global_aws_config())
         "GetRun",
         Dict{String,Any}("arn" => arn);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function get_run(
@@ -1098,7 +1098,7 @@ function get_run(
         "GetRun",
         Dict{String,Any}(mergewith(_merge, Dict{String,Any}("arn" => arn), params));
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -1117,7 +1117,7 @@ function get_suite(arn; aws_config::AbstractAWSConfig=global_aws_config())
         "GetSuite",
         Dict{String,Any}("arn" => arn);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function get_suite(
@@ -1127,7 +1127,7 @@ function get_suite(
         "GetSuite",
         Dict{String,Any}(mergewith(_merge, Dict{String,Any}("arn" => arn), params));
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -1146,7 +1146,7 @@ function get_test(arn; aws_config::AbstractAWSConfig=global_aws_config())
         "GetTest",
         Dict{String,Any}("arn" => arn);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function get_test(
@@ -1156,7 +1156,7 @@ function get_test(
         "GetTest",
         Dict{String,Any}(mergewith(_merge, Dict{String,Any}("arn" => arn), params));
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -1178,7 +1178,7 @@ function get_test_grid_project(
         "GetTestGridProject",
         Dict{String,Any}("projectArn" => projectArn);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function get_test_grid_project(
@@ -1192,7 +1192,7 @@ function get_test_grid_project(
             mergewith(_merge, Dict{String,Any}("projectArn" => projectArn), params)
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -1214,14 +1214,14 @@ Optional parameters can be passed as a `params::Dict{String,<:Any}`. Valid keys 
 """
 function get_test_grid_session(; aws_config::AbstractAWSConfig=global_aws_config())
     return device_farm(
-        "GetTestGridSession"; aws_config=aws_config, features=SERVICE_FEATURES
+        "GetTestGridSession"; aws_config=aws_config, feature_set=SERVICE_FEATURE_SET
     )
 end
 function get_test_grid_session(
     params::AbstractDict{String}; aws_config::AbstractAWSConfig=global_aws_config()
 )
     return device_farm(
-        "GetTestGridSession", params; aws_config=aws_config, features=SERVICE_FEATURES
+        "GetTestGridSession", params; aws_config=aws_config, feature_set=SERVICE_FEATURE_SET
     )
 end
 
@@ -1240,7 +1240,7 @@ function get_upload(arn; aws_config::AbstractAWSConfig=global_aws_config())
         "GetUpload",
         Dict{String,Any}("arn" => arn);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function get_upload(
@@ -1250,7 +1250,7 @@ function get_upload(
         "GetUpload",
         Dict{String,Any}(mergewith(_merge, Dict{String,Any}("arn" => arn), params));
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -1271,7 +1271,7 @@ function get_vpceconfiguration(arn; aws_config::AbstractAWSConfig=global_aws_con
         "GetVPCEConfiguration",
         Dict{String,Any}("arn" => arn);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function get_vpceconfiguration(
@@ -1281,7 +1281,7 @@ function get_vpceconfiguration(
         "GetVPCEConfiguration",
         Dict{String,Any}(mergewith(_merge, Dict{String,Any}("arn" => arn), params));
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -1307,7 +1307,7 @@ function install_to_remote_access_session(
             "appArn" => appArn, "remoteAccessSessionArn" => remoteAccessSessionArn
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function install_to_remote_access_session(
@@ -1328,7 +1328,7 @@ function install_to_remote_access_session(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -1352,7 +1352,7 @@ function list_artifacts(arn, type; aws_config::AbstractAWSConfig=global_aws_conf
         "ListArtifacts",
         Dict{String,Any}("arn" => arn, "type" => type);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function list_artifacts(
@@ -1367,7 +1367,7 @@ function list_artifacts(
             mergewith(_merge, Dict{String,Any}("arn" => arn, "type" => type), params)
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -1387,14 +1387,17 @@ Optional parameters can be passed as a `params::Dict{String,<:Any}`. Valid keys 
 """
 function list_device_instances(; aws_config::AbstractAWSConfig=global_aws_config())
     return device_farm(
-        "ListDeviceInstances"; aws_config=aws_config, features=SERVICE_FEATURES
+        "ListDeviceInstances"; aws_config=aws_config, feature_set=SERVICE_FEATURE_SET
     )
 end
 function list_device_instances(
     params::AbstractDict{String}; aws_config::AbstractAWSConfig=global_aws_config()
 )
     return device_farm(
-        "ListDeviceInstances", params; aws_config=aws_config, features=SERVICE_FEATURES
+        "ListDeviceInstances",
+        params;
+        aws_config=aws_config,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -1420,7 +1423,7 @@ function list_device_pools(arn; aws_config::AbstractAWSConfig=global_aws_config(
         "ListDevicePools",
         Dict{String,Any}("arn" => arn);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function list_device_pools(
@@ -1430,7 +1433,7 @@ function list_device_pools(
         "ListDevicePools",
         Dict{String,Any}(mergewith(_merge, Dict{String,Any}("arn" => arn), params));
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -1472,13 +1475,15 @@ Optional parameters can be passed as a `params::Dict{String,<:Any}`. Valid keys 
   which can be used to return the next set of items in the list.
 """
 function list_devices(; aws_config::AbstractAWSConfig=global_aws_config())
-    return device_farm("ListDevices"; aws_config=aws_config, features=SERVICE_FEATURES)
+    return device_farm(
+        "ListDevices"; aws_config=aws_config, feature_set=SERVICE_FEATURE_SET
+    )
 end
 function list_devices(
     params::AbstractDict{String}; aws_config::AbstractAWSConfig=global_aws_config()
 )
     return device_farm(
-        "ListDevices", params; aws_config=aws_config, features=SERVICE_FEATURES
+        "ListDevices", params; aws_config=aws_config, feature_set=SERVICE_FEATURE_SET
     )
 end
 
@@ -1497,14 +1502,17 @@ Optional parameters can be passed as a `params::Dict{String,<:Any}`. Valid keys 
 """
 function list_instance_profiles(; aws_config::AbstractAWSConfig=global_aws_config())
     return device_farm(
-        "ListInstanceProfiles"; aws_config=aws_config, features=SERVICE_FEATURES
+        "ListInstanceProfiles"; aws_config=aws_config, feature_set=SERVICE_FEATURE_SET
     )
 end
 function list_instance_profiles(
     params::AbstractDict{String}; aws_config::AbstractAWSConfig=global_aws_config()
 )
     return device_farm(
-        "ListInstanceProfiles", params; aws_config=aws_config, features=SERVICE_FEATURES
+        "ListInstanceProfiles",
+        params;
+        aws_config=aws_config,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -1527,7 +1535,7 @@ function list_jobs(arn; aws_config::AbstractAWSConfig=global_aws_config())
         "ListJobs",
         Dict{String,Any}("arn" => arn);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function list_jobs(
@@ -1537,7 +1545,7 @@ function list_jobs(
         "ListJobs",
         Dict{String,Any}(mergewith(_merge, Dict{String,Any}("arn" => arn), params));
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -1563,7 +1571,7 @@ function list_network_profiles(arn; aws_config::AbstractAWSConfig=global_aws_con
         "ListNetworkProfiles",
         Dict{String,Any}("arn" => arn);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function list_network_profiles(
@@ -1573,7 +1581,7 @@ function list_network_profiles(
         "ListNetworkProfiles",
         Dict{String,Any}(mergewith(_merge, Dict{String,Any}("arn" => arn), params));
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -1593,14 +1601,17 @@ Optional parameters can be passed as a `params::Dict{String,<:Any}`. Valid keys 
 """
 function list_offering_promotions(; aws_config::AbstractAWSConfig=global_aws_config())
     return device_farm(
-        "ListOfferingPromotions"; aws_config=aws_config, features=SERVICE_FEATURES
+        "ListOfferingPromotions"; aws_config=aws_config, feature_set=SERVICE_FEATURE_SET
     )
 end
 function list_offering_promotions(
     params::AbstractDict{String}; aws_config::AbstractAWSConfig=global_aws_config()
 )
     return device_farm(
-        "ListOfferingPromotions", params; aws_config=aws_config, features=SERVICE_FEATURES
+        "ListOfferingPromotions",
+        params;
+        aws_config=aws_config,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -1621,14 +1632,17 @@ Optional parameters can be passed as a `params::Dict{String,<:Any}`. Valid keys 
 """
 function list_offering_transactions(; aws_config::AbstractAWSConfig=global_aws_config())
     return device_farm(
-        "ListOfferingTransactions"; aws_config=aws_config, features=SERVICE_FEATURES
+        "ListOfferingTransactions"; aws_config=aws_config, feature_set=SERVICE_FEATURE_SET
     )
 end
 function list_offering_transactions(
     params::AbstractDict{String}; aws_config::AbstractAWSConfig=global_aws_config()
 )
     return device_farm(
-        "ListOfferingTransactions", params; aws_config=aws_config, features=SERVICE_FEATURES
+        "ListOfferingTransactions",
+        params;
+        aws_config=aws_config,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -1647,13 +1661,15 @@ Optional parameters can be passed as a `params::Dict{String,<:Any}`. Valid keys 
   which can be used to return the next set of items in the list.
 """
 function list_offerings(; aws_config::AbstractAWSConfig=global_aws_config())
-    return device_farm("ListOfferings"; aws_config=aws_config, features=SERVICE_FEATURES)
+    return device_farm(
+        "ListOfferings"; aws_config=aws_config, feature_set=SERVICE_FEATURE_SET
+    )
 end
 function list_offerings(
     params::AbstractDict{String}; aws_config::AbstractAWSConfig=global_aws_config()
 )
     return device_farm(
-        "ListOfferings", params; aws_config=aws_config, features=SERVICE_FEATURES
+        "ListOfferings", params; aws_config=aws_config, feature_set=SERVICE_FEATURE_SET
     )
 end
 
@@ -1671,13 +1687,15 @@ Optional parameters can be passed as a `params::Dict{String,<:Any}`. Valid keys 
   which can be used to return the next set of items in the list.
 """
 function list_projects(; aws_config::AbstractAWSConfig=global_aws_config())
-    return device_farm("ListProjects"; aws_config=aws_config, features=SERVICE_FEATURES)
+    return device_farm(
+        "ListProjects"; aws_config=aws_config, feature_set=SERVICE_FEATURE_SET
+    )
 end
 function list_projects(
     params::AbstractDict{String}; aws_config::AbstractAWSConfig=global_aws_config()
 )
     return device_farm(
-        "ListProjects", params; aws_config=aws_config, features=SERVICE_FEATURES
+        "ListProjects", params; aws_config=aws_config, feature_set=SERVICE_FEATURE_SET
     )
 end
 
@@ -1701,7 +1719,7 @@ function list_remote_access_sessions(arn; aws_config::AbstractAWSConfig=global_a
         "ListRemoteAccessSessions",
         Dict{String,Any}("arn" => arn);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function list_remote_access_sessions(
@@ -1711,7 +1729,7 @@ function list_remote_access_sessions(
         "ListRemoteAccessSessions",
         Dict{String,Any}(mergewith(_merge, Dict{String,Any}("arn" => arn), params));
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -1734,7 +1752,7 @@ function list_runs(arn; aws_config::AbstractAWSConfig=global_aws_config())
         "ListRuns",
         Dict{String,Any}("arn" => arn);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function list_runs(
@@ -1744,7 +1762,7 @@ function list_runs(
         "ListRuns",
         Dict{String,Any}(mergewith(_merge, Dict{String,Any}("arn" => arn), params));
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -1767,7 +1785,7 @@ function list_samples(arn; aws_config::AbstractAWSConfig=global_aws_config())
         "ListSamples",
         Dict{String,Any}("arn" => arn);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function list_samples(
@@ -1777,7 +1795,7 @@ function list_samples(
         "ListSamples",
         Dict{String,Any}(mergewith(_merge, Dict{String,Any}("arn" => arn), params));
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -1800,7 +1818,7 @@ function list_suites(arn; aws_config::AbstractAWSConfig=global_aws_config())
         "ListSuites",
         Dict{String,Any}("arn" => arn);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function list_suites(
@@ -1810,7 +1828,7 @@ function list_suites(
         "ListSuites",
         Dict{String,Any}(mergewith(_merge, Dict{String,Any}("arn" => arn), params));
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -1834,7 +1852,7 @@ function list_tags_for_resource(
         "ListTagsForResource",
         Dict{String,Any}("ResourceARN" => ResourceARN);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function list_tags_for_resource(
@@ -1848,7 +1866,7 @@ function list_tags_for_resource(
             mergewith(_merge, Dict{String,Any}("ResourceARN" => ResourceARN), params)
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -1865,14 +1883,17 @@ Optional parameters can be passed as a `params::Dict{String,<:Any}`. Valid keys 
 """
 function list_test_grid_projects(; aws_config::AbstractAWSConfig=global_aws_config())
     return device_farm(
-        "ListTestGridProjects"; aws_config=aws_config, features=SERVICE_FEATURES
+        "ListTestGridProjects"; aws_config=aws_config, feature_set=SERVICE_FEATURE_SET
     )
 end
 function list_test_grid_projects(
     params::AbstractDict{String}; aws_config::AbstractAWSConfig=global_aws_config()
 )
     return device_farm(
-        "ListTestGridProjects", params; aws_config=aws_config, features=SERVICE_FEATURES
+        "ListTestGridProjects",
+        params;
+        aws_config=aws_config,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -1897,7 +1918,7 @@ function list_test_grid_session_actions(
         "ListTestGridSessionActions",
         Dict{String,Any}("sessionArn" => sessionArn);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function list_test_grid_session_actions(
@@ -1911,7 +1932,7 @@ function list_test_grid_session_actions(
             mergewith(_merge, Dict{String,Any}("sessionArn" => sessionArn), params)
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -1937,7 +1958,7 @@ function list_test_grid_session_artifacts(
         "ListTestGridSessionArtifacts",
         Dict{String,Any}("sessionArn" => sessionArn);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function list_test_grid_session_artifacts(
@@ -1951,7 +1972,7 @@ function list_test_grid_session_artifacts(
             mergewith(_merge, Dict{String,Any}("sessionArn" => sessionArn), params)
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -1981,7 +2002,7 @@ function list_test_grid_sessions(
         "ListTestGridSessions",
         Dict{String,Any}("projectArn" => projectArn);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function list_test_grid_sessions(
@@ -1995,7 +2016,7 @@ function list_test_grid_sessions(
             mergewith(_merge, Dict{String,Any}("projectArn" => projectArn), params)
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -2018,7 +2039,7 @@ function list_tests(arn; aws_config::AbstractAWSConfig=global_aws_config())
         "ListTests",
         Dict{String,Any}("arn" => arn);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function list_tests(
@@ -2028,7 +2049,7 @@ function list_tests(
         "ListTests",
         Dict{String,Any}(mergewith(_merge, Dict{String,Any}("arn" => arn), params));
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -2055,7 +2076,7 @@ function list_unique_problems(arn; aws_config::AbstractAWSConfig=global_aws_conf
         "ListUniqueProblems",
         Dict{String,Any}("arn" => arn);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function list_unique_problems(
@@ -2065,7 +2086,7 @@ function list_unique_problems(
         "ListUniqueProblems",
         Dict{String,Any}(mergewith(_merge, Dict{String,Any}("arn" => arn), params));
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -2100,7 +2121,7 @@ function list_uploads(arn; aws_config::AbstractAWSConfig=global_aws_config())
         "ListUploads",
         Dict{String,Any}("arn" => arn);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function list_uploads(
@@ -2110,7 +2131,7 @@ function list_uploads(
         "ListUploads",
         Dict{String,Any}(mergewith(_merge, Dict{String,Any}("arn" => arn), params));
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -2130,14 +2151,17 @@ Optional parameters can be passed as a `params::Dict{String,<:Any}`. Valid keys 
 """
 function list_vpceconfigurations(; aws_config::AbstractAWSConfig=global_aws_config())
     return device_farm(
-        "ListVPCEConfigurations"; aws_config=aws_config, features=SERVICE_FEATURES
+        "ListVPCEConfigurations"; aws_config=aws_config, feature_set=SERVICE_FEATURE_SET
     )
 end
 function list_vpceconfigurations(
     params::AbstractDict{String}; aws_config::AbstractAWSConfig=global_aws_config()
 )
     return device_farm(
-        "ListVPCEConfigurations", params; aws_config=aws_config, features=SERVICE_FEATURES
+        "ListVPCEConfigurations",
+        params;
+        aws_config=aws_config,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -2165,7 +2189,7 @@ function purchase_offering(
         "PurchaseOffering",
         Dict{String,Any}("offeringId" => offeringId, "quantity" => quantity);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function purchase_offering(
@@ -2184,7 +2208,7 @@ function purchase_offering(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -2209,7 +2233,7 @@ function renew_offering(
         "RenewOffering",
         Dict{String,Any}("offeringId" => offeringId, "quantity" => quantity);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function renew_offering(
@@ -2228,7 +2252,7 @@ function renew_offering(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -2260,7 +2284,7 @@ function schedule_run(projectArn, test; aws_config::AbstractAWSConfig=global_aws
         "ScheduleRun",
         Dict{String,Any}("projectArn" => projectArn, "test" => test);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function schedule_run(
@@ -2277,7 +2301,7 @@ function schedule_run(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -2300,7 +2324,7 @@ function stop_job(arn; aws_config::AbstractAWSConfig=global_aws_config())
         "StopJob",
         Dict{String,Any}("arn" => arn);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function stop_job(
@@ -2310,7 +2334,7 @@ function stop_job(
         "StopJob",
         Dict{String,Any}(mergewith(_merge, Dict{String,Any}("arn" => arn), params));
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -2329,7 +2353,7 @@ function stop_remote_access_session(arn; aws_config::AbstractAWSConfig=global_aw
         "StopRemoteAccessSession",
         Dict{String,Any}("arn" => arn);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function stop_remote_access_session(
@@ -2339,7 +2363,7 @@ function stop_remote_access_session(
         "StopRemoteAccessSession",
         Dict{String,Any}(mergewith(_merge, Dict{String,Any}("arn" => arn), params));
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -2362,7 +2386,7 @@ function stop_run(arn; aws_config::AbstractAWSConfig=global_aws_config())
         "StopRun",
         Dict{String,Any}("arn" => arn);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function stop_run(
@@ -2372,7 +2396,7 @@ function stop_run(
         "StopRun",
         Dict{String,Any}(mergewith(_merge, Dict{String,Any}("arn" => arn), params));
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -2399,7 +2423,7 @@ function tag_resource(ResourceARN, Tags; aws_config::AbstractAWSConfig=global_aw
         "TagResource",
         Dict{String,Any}("ResourceARN" => ResourceARN, "Tags" => Tags);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function tag_resource(
@@ -2418,7 +2442,7 @@ function tag_resource(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -2443,7 +2467,7 @@ function untag_resource(
         "UntagResource",
         Dict{String,Any}("ResourceARN" => ResourceARN, "TagKeys" => TagKeys);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function untag_resource(
@@ -2462,7 +2486,7 @@ function untag_resource(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -2486,7 +2510,7 @@ function update_device_instance(arn; aws_config::AbstractAWSConfig=global_aws_co
         "UpdateDeviceInstance",
         Dict{String,Any}("arn" => arn);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function update_device_instance(
@@ -2496,7 +2520,7 @@ function update_device_instance(
         "UpdateDeviceInstance",
         Dict{String,Any}(mergewith(_merge, Dict{String,Any}("arn" => arn), params));
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -2536,7 +2560,7 @@ function update_device_pool(arn; aws_config::AbstractAWSConfig=global_aws_config
         "UpdateDevicePool",
         Dict{String,Any}("arn" => arn);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function update_device_pool(
@@ -2546,7 +2570,7 @@ function update_device_pool(
         "UpdateDevicePool",
         Dict{String,Any}(mergewith(_merge, Dict{String,Any}("arn" => arn), params));
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -2576,7 +2600,7 @@ function update_instance_profile(arn; aws_config::AbstractAWSConfig=global_aws_c
         "UpdateInstanceProfile",
         Dict{String,Any}("arn" => arn);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function update_instance_profile(
@@ -2586,7 +2610,7 @@ function update_instance_profile(
         "UpdateInstanceProfile",
         Dict{String,Any}(mergewith(_merge, Dict{String,Any}("arn" => arn), params));
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -2629,7 +2653,7 @@ function update_network_profile(arn; aws_config::AbstractAWSConfig=global_aws_co
         "UpdateNetworkProfile",
         Dict{String,Any}("arn" => arn);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function update_network_profile(
@@ -2639,7 +2663,7 @@ function update_network_profile(
         "UpdateNetworkProfile",
         Dict{String,Any}(mergewith(_merge, Dict{String,Any}("arn" => arn), params));
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -2663,7 +2687,7 @@ function update_project(arn; aws_config::AbstractAWSConfig=global_aws_config())
         "UpdateProject",
         Dict{String,Any}("arn" => arn);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function update_project(
@@ -2673,7 +2697,7 @@ function update_project(
         "UpdateProject",
         Dict{String,Any}(mergewith(_merge, Dict{String,Any}("arn" => arn), params));
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -2699,7 +2723,7 @@ function update_test_grid_project(
         "UpdateTestGridProject",
         Dict{String,Any}("projectArn" => projectArn);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function update_test_grid_project(
@@ -2713,7 +2737,7 @@ function update_test_grid_project(
             mergewith(_merge, Dict{String,Any}("projectArn" => projectArn), params)
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -2739,7 +2763,7 @@ function update_upload(arn; aws_config::AbstractAWSConfig=global_aws_config())
         "UpdateUpload",
         Dict{String,Any}("arn" => arn);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function update_upload(
@@ -2749,7 +2773,7 @@ function update_upload(
         "UpdateUpload",
         Dict{String,Any}(mergewith(_merge, Dict{String,Any}("arn" => arn), params));
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -2779,7 +2803,7 @@ function update_vpceconfiguration(arn; aws_config::AbstractAWSConfig=global_aws_
         "UpdateVPCEConfiguration",
         Dict{String,Any}("arn" => arn);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function update_vpceconfiguration(
@@ -2789,6 +2813,6 @@ function update_vpceconfiguration(
         "UpdateVPCEConfiguration",
         Dict{String,Any}(mergewith(_merge, Dict{String,Any}("arn" => arn), params));
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end

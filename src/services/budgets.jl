@@ -29,7 +29,7 @@ function create_budget(AccountId, Budget; aws_config::AbstractAWSConfig=global_a
         "CreateBudget",
         Dict{String,Any}("AccountId" => AccountId, "Budget" => Budget);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function create_budget(
@@ -48,7 +48,7 @@ function create_budget(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -98,7 +98,7 @@ function create_budget_action(
             "Subscribers" => Subscribers,
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function create_budget_action(
@@ -134,7 +134,7 @@ function create_budget_action(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -171,7 +171,7 @@ function create_notification(
             "Subscribers" => Subscribers,
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function create_notification(
@@ -197,7 +197,7 @@ function create_notification(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -233,7 +233,7 @@ function create_subscriber(
             "Subscriber" => Subscriber,
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function create_subscriber(
@@ -259,7 +259,7 @@ function create_subscriber(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -282,7 +282,7 @@ function delete_budget(
         "DeleteBudget",
         Dict{String,Any}("AccountId" => AccountId, "BudgetName" => BudgetName);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function delete_budget(
@@ -301,7 +301,7 @@ function delete_budget(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -326,7 +326,7 @@ function delete_budget_action(
             "AccountId" => AccountId, "ActionId" => ActionId, "BudgetName" => BudgetName
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function delete_budget_action(
@@ -350,7 +350,7 @@ function delete_budget_action(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -379,7 +379,7 @@ function delete_notification(
             "Notification" => Notification,
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function delete_notification(
@@ -403,7 +403,7 @@ function delete_notification(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -438,7 +438,7 @@ function delete_subscriber(
             "Subscriber" => Subscriber,
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function delete_subscriber(
@@ -464,7 +464,7 @@ function delete_subscriber(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -488,7 +488,7 @@ function describe_budget(
         "DescribeBudget",
         Dict{String,Any}("AccountId" => AccountId, "BudgetName" => BudgetName);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function describe_budget(
@@ -507,7 +507,7 @@ function describe_budget(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -532,7 +532,7 @@ function describe_budget_action(
             "AccountId" => AccountId, "ActionId" => ActionId, "BudgetName" => BudgetName
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function describe_budget_action(
@@ -556,7 +556,7 @@ function describe_budget_action(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -586,7 +586,7 @@ function describe_budget_action_histories(
             "AccountId" => AccountId, "ActionId" => ActionId, "BudgetName" => BudgetName
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function describe_budget_action_histories(
@@ -610,7 +610,7 @@ function describe_budget_action_histories(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -635,7 +635,7 @@ function describe_budget_actions_for_account(
         "DescribeBudgetActionsForAccount",
         Dict{String,Any}("AccountId" => AccountId);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function describe_budget_actions_for_account(
@@ -649,7 +649,7 @@ function describe_budget_actions_for_account(
             mergewith(_merge, Dict{String,Any}("AccountId" => AccountId), params)
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -675,7 +675,7 @@ function describe_budget_actions_for_budget(
         "DescribeBudgetActionsForBudget",
         Dict{String,Any}("AccountId" => AccountId, "BudgetName" => BudgetName);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function describe_budget_actions_for_budget(
@@ -694,7 +694,7 @@ function describe_budget_actions_for_budget(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -723,7 +723,7 @@ function describe_budget_performance_history(
         "DescribeBudgetPerformanceHistory",
         Dict{String,Any}("AccountId" => AccountId, "BudgetName" => BudgetName);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function describe_budget_performance_history(
@@ -742,7 +742,7 @@ function describe_budget_performance_history(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -769,7 +769,7 @@ function describe_budgets(AccountId; aws_config::AbstractAWSConfig=global_aws_co
         "DescribeBudgets",
         Dict{String,Any}("AccountId" => AccountId);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function describe_budgets(
@@ -783,7 +783,7 @@ function describe_budgets(
             mergewith(_merge, Dict{String,Any}("AccountId" => AccountId), params)
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -812,7 +812,7 @@ function describe_notifications_for_budget(
         "DescribeNotificationsForBudget",
         Dict{String,Any}("AccountId" => AccountId, "BudgetName" => BudgetName);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function describe_notifications_for_budget(
@@ -831,7 +831,7 @@ function describe_notifications_for_budget(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -865,7 +865,7 @@ function describe_subscribers_for_notification(
             "Notification" => Notification,
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function describe_subscribers_for_notification(
@@ -889,7 +889,7 @@ function describe_subscribers_for_notification(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -922,7 +922,7 @@ function execute_budget_action(
             "ExecutionType" => ExecutionType,
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function execute_budget_action(
@@ -948,7 +948,7 @@ function execute_budget_action(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -975,7 +975,7 @@ function update_budget(
         "UpdateBudget",
         Dict{String,Any}("AccountId" => AccountId, "NewBudget" => NewBudget);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function update_budget(
@@ -994,7 +994,7 @@ function update_budget(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -1028,7 +1028,7 @@ function update_budget_action(
             "AccountId" => AccountId, "ActionId" => ActionId, "BudgetName" => BudgetName
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function update_budget_action(
@@ -1052,7 +1052,7 @@ function update_budget_action(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -1086,7 +1086,7 @@ function update_notification(
             "OldNotification" => OldNotification,
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function update_notification(
@@ -1112,7 +1112,7 @@ function update_notification(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -1149,7 +1149,7 @@ function update_subscriber(
             "OldSubscriber" => OldSubscriber,
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function update_subscriber(
@@ -1177,6 +1177,6 @@ function update_subscriber(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end

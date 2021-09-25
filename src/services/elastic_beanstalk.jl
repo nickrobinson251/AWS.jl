@@ -19,14 +19,17 @@ Optional parameters can be passed as a `params::Dict{String,<:Any}`. Valid keys 
 """
 function abort_environment_update(; aws_config::AbstractAWSConfig=global_aws_config())
     return elastic_beanstalk(
-        "AbortEnvironmentUpdate"; aws_config=aws_config, features=SERVICE_FEATURES
+        "AbortEnvironmentUpdate"; aws_config=aws_config, feature_set=SERVICE_FEATURE_SET
     )
 end
 function abort_environment_update(
     params::AbstractDict{String}; aws_config::AbstractAWSConfig=global_aws_config()
 )
     return elastic_beanstalk(
-        "AbortEnvironmentUpdate", params; aws_config=aws_config, features=SERVICE_FEATURES
+        "AbortEnvironmentUpdate",
+        params;
+        aws_config=aws_config,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -53,7 +56,7 @@ function apply_environment_managed_action(
         "ApplyEnvironmentManagedAction",
         Dict{String,Any}("ActionId" => ActionId);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function apply_environment_managed_action(
@@ -67,7 +70,7 @@ function apply_environment_managed_action(
             mergewith(_merge, Dict{String,Any}("ActionId" => ActionId), params)
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -95,7 +98,7 @@ function associate_environment_operations_role(
             "EnvironmentName" => EnvironmentName, "OperationsRole" => OperationsRole
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function associate_environment_operations_role(
@@ -116,7 +119,7 @@ function associate_environment_operations_role(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -137,7 +140,7 @@ function check_dnsavailability(
         "CheckDNSAvailability",
         Dict{String,Any}("CNAMEPrefix" => CNAMEPrefix);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function check_dnsavailability(
@@ -151,7 +154,7 @@ function check_dnsavailability(
             mergewith(_merge, Dict{String,Any}("CNAMEPrefix" => CNAMEPrefix), params)
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -179,14 +182,17 @@ Optional parameters can be passed as a `params::Dict{String,<:Any}`. Valid keys 
 """
 function compose_environments(; aws_config::AbstractAWSConfig=global_aws_config())
     return elastic_beanstalk(
-        "ComposeEnvironments"; aws_config=aws_config, features=SERVICE_FEATURES
+        "ComposeEnvironments"; aws_config=aws_config, feature_set=SERVICE_FEATURE_SET
     )
 end
 function compose_environments(
     params::AbstractDict{String}; aws_config::AbstractAWSConfig=global_aws_config()
 )
     return elastic_beanstalk(
-        "ComposeEnvironments", params; aws_config=aws_config, features=SERVICE_FEATURES
+        "ComposeEnvironments",
+        params;
+        aws_config=aws_config,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -216,7 +222,7 @@ function create_application(
         "CreateApplication",
         Dict{String,Any}("ApplicationName" => ApplicationName);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function create_application(
@@ -232,7 +238,7 @@ function create_application(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -291,7 +297,7 @@ function create_application_version(
             "ApplicationName" => ApplicationName, "VersionLabel" => VersionLabel
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function create_application_version(
@@ -312,7 +318,7 @@ function create_application_version(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -374,7 +380,7 @@ function create_configuration_template(
             "ApplicationName" => ApplicationName, "TemplateName" => TemplateName
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function create_configuration_template(
@@ -395,7 +401,7 @@ function create_configuration_template(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -462,7 +468,7 @@ function create_environment(
         "CreateEnvironment",
         Dict{String,Any}("ApplicationName" => ApplicationName);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function create_environment(
@@ -478,7 +484,7 @@ function create_environment(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -516,7 +522,7 @@ function create_platform_version(
             "PlatformVersion" => PlatformVersion,
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function create_platform_version(
@@ -540,7 +546,7 @@ function create_platform_version(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -556,14 +562,17 @@ CreateStorageLocation still returns the bucket name but does not create a new bu
 """
 function create_storage_location(; aws_config::AbstractAWSConfig=global_aws_config())
     return elastic_beanstalk(
-        "CreateStorageLocation"; aws_config=aws_config, features=SERVICE_FEATURES
+        "CreateStorageLocation"; aws_config=aws_config, feature_set=SERVICE_FEATURE_SET
     )
 end
 function create_storage_location(
     params::AbstractDict{String}; aws_config::AbstractAWSConfig=global_aws_config()
 )
     return elastic_beanstalk(
-        "CreateStorageLocation", params; aws_config=aws_config, features=SERVICE_FEATURES
+        "CreateStorageLocation",
+        params;
+        aws_config=aws_config,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -590,7 +599,7 @@ function delete_application(
         "DeleteApplication",
         Dict{String,Any}("ApplicationName" => ApplicationName);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function delete_application(
@@ -606,7 +615,7 @@ function delete_application(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -636,7 +645,7 @@ function delete_application_version(
             "ApplicationName" => ApplicationName, "VersionLabel" => VersionLabel
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function delete_application_version(
@@ -657,7 +666,7 @@ function delete_application_version(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -683,7 +692,7 @@ function delete_configuration_template(
             "ApplicationName" => ApplicationName, "TemplateName" => TemplateName
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function delete_configuration_template(
@@ -704,7 +713,7 @@ function delete_configuration_template(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -733,7 +742,7 @@ function delete_environment_configuration(
             "ApplicationName" => ApplicationName, "EnvironmentName" => EnvironmentName
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function delete_environment_configuration(
@@ -755,7 +764,7 @@ function delete_environment_configuration(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -771,14 +780,17 @@ Optional parameters can be passed as a `params::Dict{String,<:Any}`. Valid keys 
 """
 function delete_platform_version(; aws_config::AbstractAWSConfig=global_aws_config())
     return elastic_beanstalk(
-        "DeletePlatformVersion"; aws_config=aws_config, features=SERVICE_FEATURES
+        "DeletePlatformVersion"; aws_config=aws_config, feature_set=SERVICE_FEATURE_SET
     )
 end
 function delete_platform_version(
     params::AbstractDict{String}; aws_config::AbstractAWSConfig=global_aws_config()
 )
     return elastic_beanstalk(
-        "DeletePlatformVersion", params; aws_config=aws_config, features=SERVICE_FEATURES
+        "DeletePlatformVersion",
+        params;
+        aws_config=aws_config,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -792,7 +804,7 @@ AWS account. The result currently has one set of attributes—resource quotas.
 """
 function describe_account_attributes(; aws_config::AbstractAWSConfig=global_aws_config())
     return elastic_beanstalk(
-        "DescribeAccountAttributes"; aws_config=aws_config, features=SERVICE_FEATURES
+        "DescribeAccountAttributes"; aws_config=aws_config, feature_set=SERVICE_FEATURE_SET
     )
 end
 function describe_account_attributes(
@@ -802,7 +814,7 @@ function describe_account_attributes(
         "DescribeAccountAttributes",
         params;
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -826,7 +838,9 @@ Optional parameters can be passed as a `params::Dict{String,<:Any}`. Valid keys 
 """
 function describe_application_versions(; aws_config::AbstractAWSConfig=global_aws_config())
     return elastic_beanstalk(
-        "DescribeApplicationVersions"; aws_config=aws_config, features=SERVICE_FEATURES
+        "DescribeApplicationVersions";
+        aws_config=aws_config,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function describe_application_versions(
@@ -836,7 +850,7 @@ function describe_application_versions(
         "DescribeApplicationVersions",
         params;
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -853,14 +867,17 @@ Optional parameters can be passed as a `params::Dict{String,<:Any}`. Valid keys 
 """
 function describe_applications(; aws_config::AbstractAWSConfig=global_aws_config())
     return elastic_beanstalk(
-        "DescribeApplications"; aws_config=aws_config, features=SERVICE_FEATURES
+        "DescribeApplications"; aws_config=aws_config, feature_set=SERVICE_FEATURE_SET
     )
 end
 function describe_applications(
     params::AbstractDict{String}; aws_config::AbstractAWSConfig=global_aws_config()
 )
     return elastic_beanstalk(
-        "DescribeApplications", params; aws_config=aws_config, features=SERVICE_FEATURES
+        "DescribeApplications",
+        params;
+        aws_config=aws_config,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -889,7 +906,9 @@ Optional parameters can be passed as a `params::Dict{String,<:Any}`. Valid keys 
 """
 function describe_configuration_options(; aws_config::AbstractAWSConfig=global_aws_config())
     return elastic_beanstalk(
-        "DescribeConfigurationOptions"; aws_config=aws_config, features=SERVICE_FEATURES
+        "DescribeConfigurationOptions";
+        aws_config=aws_config,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function describe_configuration_options(
@@ -899,7 +918,7 @@ function describe_configuration_options(
         "DescribeConfigurationOptions",
         params;
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -936,7 +955,7 @@ function describe_configuration_settings(
         "DescribeConfigurationSettings",
         Dict{String,Any}("ApplicationName" => ApplicationName);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function describe_configuration_settings(
@@ -952,7 +971,7 @@ function describe_configuration_settings(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -975,7 +994,7 @@ Optional parameters can be passed as a `params::Dict{String,<:Any}`. Valid keys 
 """
 function describe_environment_health(; aws_config::AbstractAWSConfig=global_aws_config())
     return elastic_beanstalk(
-        "DescribeEnvironmentHealth"; aws_config=aws_config, features=SERVICE_FEATURES
+        "DescribeEnvironmentHealth"; aws_config=aws_config, feature_set=SERVICE_FEATURE_SET
     )
 end
 function describe_environment_health(
@@ -985,7 +1004,7 @@ function describe_environment_health(
         "DescribeEnvironmentHealth",
         params;
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -1008,7 +1027,7 @@ function describe_environment_managed_action_history(;
     return elastic_beanstalk(
         "DescribeEnvironmentManagedActionHistory";
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function describe_environment_managed_action_history(
@@ -1018,7 +1037,7 @@ function describe_environment_managed_action_history(
         "DescribeEnvironmentManagedActionHistory",
         params;
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -1040,7 +1059,7 @@ function describe_environment_managed_actions(;
     return elastic_beanstalk(
         "DescribeEnvironmentManagedActions";
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function describe_environment_managed_actions(
@@ -1050,7 +1069,7 @@ function describe_environment_managed_actions(
         "DescribeEnvironmentManagedActions",
         params;
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -1071,7 +1090,9 @@ Optional parameters can be passed as a `params::Dict{String,<:Any}`. Valid keys 
 """
 function describe_environment_resources(; aws_config::AbstractAWSConfig=global_aws_config())
     return elastic_beanstalk(
-        "DescribeEnvironmentResources"; aws_config=aws_config, features=SERVICE_FEATURES
+        "DescribeEnvironmentResources";
+        aws_config=aws_config,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function describe_environment_resources(
@@ -1081,7 +1102,7 @@ function describe_environment_resources(
         "DescribeEnvironmentResources",
         params;
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -1115,14 +1136,17 @@ Optional parameters can be passed as a `params::Dict{String,<:Any}`. Valid keys 
 """
 function describe_environments(; aws_config::AbstractAWSConfig=global_aws_config())
     return elastic_beanstalk(
-        "DescribeEnvironments"; aws_config=aws_config, features=SERVICE_FEATURES
+        "DescribeEnvironments"; aws_config=aws_config, feature_set=SERVICE_FEATURE_SET
     )
 end
 function describe_environments(
     params::AbstractDict{String}; aws_config::AbstractAWSConfig=global_aws_config()
 )
     return elastic_beanstalk(
-        "DescribeEnvironments", params; aws_config=aws_config, features=SERVICE_FEATURES
+        "DescribeEnvironments",
+        params;
+        aws_config=aws_config,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -1163,14 +1187,14 @@ Optional parameters can be passed as a `params::Dict{String,<:Any}`. Valid keys 
 """
 function describe_events(; aws_config::AbstractAWSConfig=global_aws_config())
     return elastic_beanstalk(
-        "DescribeEvents"; aws_config=aws_config, features=SERVICE_FEATURES
+        "DescribeEvents"; aws_config=aws_config, feature_set=SERVICE_FEATURE_SET
     )
 end
 function describe_events(
     params::AbstractDict{String}; aws_config::AbstractAWSConfig=global_aws_config()
 )
     return elastic_beanstalk(
-        "DescribeEvents", params; aws_config=aws_config, features=SERVICE_FEATURES
+        "DescribeEvents", params; aws_config=aws_config, feature_set=SERVICE_FEATURE_SET
     )
 end
 
@@ -1191,14 +1215,17 @@ Optional parameters can be passed as a `params::Dict{String,<:Any}`. Valid keys 
 """
 function describe_instances_health(; aws_config::AbstractAWSConfig=global_aws_config())
     return elastic_beanstalk(
-        "DescribeInstancesHealth"; aws_config=aws_config, features=SERVICE_FEATURES
+        "DescribeInstancesHealth"; aws_config=aws_config, feature_set=SERVICE_FEATURE_SET
     )
 end
 function describe_instances_health(
     params::AbstractDict{String}; aws_config::AbstractAWSConfig=global_aws_config()
 )
     return elastic_beanstalk(
-        "DescribeInstancesHealth", params; aws_config=aws_config, features=SERVICE_FEATURES
+        "DescribeInstancesHealth",
+        params;
+        aws_config=aws_config,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -1216,14 +1243,17 @@ Optional parameters can be passed as a `params::Dict{String,<:Any}`. Valid keys 
 """
 function describe_platform_version(; aws_config::AbstractAWSConfig=global_aws_config())
     return elastic_beanstalk(
-        "DescribePlatformVersion"; aws_config=aws_config, features=SERVICE_FEATURES
+        "DescribePlatformVersion"; aws_config=aws_config, feature_set=SERVICE_FEATURE_SET
     )
 end
 function describe_platform_version(
     params::AbstractDict{String}; aws_config::AbstractAWSConfig=global_aws_config()
 )
     return elastic_beanstalk(
-        "DescribePlatformVersion", params; aws_config=aws_config, features=SERVICE_FEATURES
+        "DescribePlatformVersion",
+        params;
+        aws_config=aws_config,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -1248,7 +1278,7 @@ function disassociate_environment_operations_role(
         "DisassociateEnvironmentOperationsRole",
         Dict{String,Any}("EnvironmentName" => EnvironmentName);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function disassociate_environment_operations_role(
@@ -1264,7 +1294,7 @@ function disassociate_environment_operations_role(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -1278,7 +1308,9 @@ then in reverse chronological order.
 """
 function list_available_solution_stacks(; aws_config::AbstractAWSConfig=global_aws_config())
     return elastic_beanstalk(
-        "ListAvailableSolutionStacks"; aws_config=aws_config, features=SERVICE_FEATURES
+        "ListAvailableSolutionStacks";
+        aws_config=aws_config,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function list_available_solution_stacks(
@@ -1288,7 +1320,7 @@ function list_available_solution_stacks(
         "ListAvailableSolutionStacks",
         params;
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -1320,14 +1352,17 @@ Optional parameters can be passed as a `params::Dict{String,<:Any}`. Valid keys 
 """
 function list_platform_branches(; aws_config::AbstractAWSConfig=global_aws_config())
     return elastic_beanstalk(
-        "ListPlatformBranches"; aws_config=aws_config, features=SERVICE_FEATURES
+        "ListPlatformBranches"; aws_config=aws_config, feature_set=SERVICE_FEATURE_SET
     )
 end
 function list_platform_branches(
     params::AbstractDict{String}; aws_config::AbstractAWSConfig=global_aws_config()
 )
     return elastic_beanstalk(
-        "ListPlatformBranches", params; aws_config=aws_config, features=SERVICE_FEATURES
+        "ListPlatformBranches",
+        params;
+        aws_config=aws_config,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -1351,14 +1386,17 @@ Optional parameters can be passed as a `params::Dict{String,<:Any}`. Valid keys 
 """
 function list_platform_versions(; aws_config::AbstractAWSConfig=global_aws_config())
     return elastic_beanstalk(
-        "ListPlatformVersions"; aws_config=aws_config, features=SERVICE_FEATURES
+        "ListPlatformVersions"; aws_config=aws_config, feature_set=SERVICE_FEATURE_SET
     )
 end
 function list_platform_versions(
     params::AbstractDict{String}; aws_config::AbstractAWSConfig=global_aws_config()
 )
     return elastic_beanstalk(
-        "ListPlatformVersions", params; aws_config=aws_config, features=SERVICE_FEATURES
+        "ListPlatformVersions",
+        params;
+        aws_config=aws_config,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -1382,7 +1420,7 @@ function list_tags_for_resource(
         "ListTagsForResource",
         Dict{String,Any}("ResourceArn" => ResourceArn);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function list_tags_for_resource(
@@ -1396,7 +1434,7 @@ function list_tags_for_resource(
             mergewith(_merge, Dict{String,Any}("ResourceArn" => ResourceArn), params)
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -1418,14 +1456,14 @@ Optional parameters can be passed as a `params::Dict{String,<:Any}`. Valid keys 
 """
 function rebuild_environment(; aws_config::AbstractAWSConfig=global_aws_config())
     return elastic_beanstalk(
-        "RebuildEnvironment"; aws_config=aws_config, features=SERVICE_FEATURES
+        "RebuildEnvironment"; aws_config=aws_config, feature_set=SERVICE_FEATURE_SET
     )
 end
 function rebuild_environment(
     params::AbstractDict{String}; aws_config::AbstractAWSConfig=global_aws_config()
 )
     return elastic_beanstalk(
-        "RebuildEnvironment", params; aws_config=aws_config, features=SERVICE_FEATURES
+        "RebuildEnvironment", params; aws_config=aws_config, feature_set=SERVICE_FEATURE_SET
     )
 end
 
@@ -1462,7 +1500,7 @@ function request_environment_info(
         "RequestEnvironmentInfo",
         Dict{String,Any}("InfoType" => InfoType);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function request_environment_info(
@@ -1476,7 +1514,7 @@ function request_environment_info(
             mergewith(_merge, Dict{String,Any}("InfoType" => InfoType), params)
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -1498,14 +1536,14 @@ Optional parameters can be passed as a `params::Dict{String,<:Any}`. Valid keys 
 """
 function restart_app_server(; aws_config::AbstractAWSConfig=global_aws_config())
     return elastic_beanstalk(
-        "RestartAppServer"; aws_config=aws_config, features=SERVICE_FEATURES
+        "RestartAppServer"; aws_config=aws_config, feature_set=SERVICE_FEATURE_SET
     )
 end
 function restart_app_server(
     params::AbstractDict{String}; aws_config::AbstractAWSConfig=global_aws_config()
 )
     return elastic_beanstalk(
-        "RestartAppServer", params; aws_config=aws_config, features=SERVICE_FEATURES
+        "RestartAppServer", params; aws_config=aws_config, feature_set=SERVICE_FEATURE_SET
     )
 end
 
@@ -1537,7 +1575,7 @@ function retrieve_environment_info(
         "RetrieveEnvironmentInfo",
         Dict{String,Any}("InfoType" => InfoType);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function retrieve_environment_info(
@@ -1551,7 +1589,7 @@ function retrieve_environment_info(
             mergewith(_merge, Dict{String,Any}("InfoType" => InfoType), params)
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -1581,14 +1619,17 @@ Optional parameters can be passed as a `params::Dict{String,<:Any}`. Valid keys 
 """
 function swap_environment_cnames(; aws_config::AbstractAWSConfig=global_aws_config())
     return elastic_beanstalk(
-        "SwapEnvironmentCNAMEs"; aws_config=aws_config, features=SERVICE_FEATURES
+        "SwapEnvironmentCNAMEs"; aws_config=aws_config, feature_set=SERVICE_FEATURE_SET
     )
 end
 function swap_environment_cnames(
     params::AbstractDict{String}; aws_config::AbstractAWSConfig=global_aws_config()
 )
     return elastic_beanstalk(
-        "SwapEnvironmentCNAMEs", params; aws_config=aws_config, features=SERVICE_FEATURES
+        "SwapEnvironmentCNAMEs",
+        params;
+        aws_config=aws_config,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -1617,14 +1658,17 @@ Optional parameters can be passed as a `params::Dict{String,<:Any}`. Valid keys 
 """
 function terminate_environment(; aws_config::AbstractAWSConfig=global_aws_config())
     return elastic_beanstalk(
-        "TerminateEnvironment"; aws_config=aws_config, features=SERVICE_FEATURES
+        "TerminateEnvironment"; aws_config=aws_config, feature_set=SERVICE_FEATURE_SET
     )
 end
 function terminate_environment(
     params::AbstractDict{String}; aws_config::AbstractAWSConfig=global_aws_config()
 )
     return elastic_beanstalk(
-        "TerminateEnvironment", params; aws_config=aws_config, features=SERVICE_FEATURES
+        "TerminateEnvironment",
+        params;
+        aws_config=aws_config,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -1652,7 +1696,7 @@ function update_application(
         "UpdateApplication",
         Dict{String,Any}("ApplicationName" => ApplicationName);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function update_application(
@@ -1668,7 +1712,7 @@ function update_application(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -1695,7 +1739,7 @@ function update_application_resource_lifecycle(
             "ResourceLifecycleConfig" => ResourceLifecycleConfig,
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function update_application_resource_lifecycle(
@@ -1717,7 +1761,7 @@ function update_application_resource_lifecycle(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -1749,7 +1793,7 @@ function update_application_version(
             "ApplicationName" => ApplicationName, "VersionLabel" => VersionLabel
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function update_application_version(
@@ -1770,7 +1814,7 @@ function update_application_version(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -1808,7 +1852,7 @@ function update_configuration_template(
             "ApplicationName" => ApplicationName, "TemplateName" => TemplateName
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function update_configuration_template(
@@ -1829,7 +1873,7 @@ function update_configuration_template(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -1883,14 +1927,14 @@ Optional parameters can be passed as a `params::Dict{String,<:Any}`. Valid keys 
 """
 function update_environment(; aws_config::AbstractAWSConfig=global_aws_config())
     return elastic_beanstalk(
-        "UpdateEnvironment"; aws_config=aws_config, features=SERVICE_FEATURES
+        "UpdateEnvironment"; aws_config=aws_config, feature_set=SERVICE_FEATURE_SET
     )
 end
 function update_environment(
     params::AbstractDict{String}; aws_config::AbstractAWSConfig=global_aws_config()
 )
     return elastic_beanstalk(
-        "UpdateEnvironment", params; aws_config=aws_config, features=SERVICE_FEATURES
+        "UpdateEnvironment", params; aws_config=aws_config, feature_set=SERVICE_FEATURE_SET
     )
 end
 
@@ -1927,7 +1971,7 @@ function update_tags_for_resource(
         "UpdateTagsForResource",
         Dict{String,Any}("ResourceArn" => ResourceArn);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function update_tags_for_resource(
@@ -1941,7 +1985,7 @@ function update_tags_for_resource(
             mergewith(_merge, Dict{String,Any}("ResourceArn" => ResourceArn), params)
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -1974,7 +2018,7 @@ function validate_configuration_settings(
             "ApplicationName" => ApplicationName, "OptionSettings" => OptionSettings
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function validate_configuration_settings(
@@ -1995,6 +2039,6 @@ function validate_configuration_settings(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end

@@ -29,7 +29,7 @@ function create_environment(name; aws_config::AbstractAWSConfig=global_aws_confi
         "/environment",
         Dict{String,Any}("name" => name);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function create_environment(
@@ -40,7 +40,7 @@ function create_environment(
         "/environment",
         Dict{String,Any}(mergewith(_merge, Dict{String,Any}("name" => name), params));
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -61,7 +61,7 @@ function delete_environment(
         "DELETE",
         "/environment/$(environmentId)";
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function delete_environment(
@@ -74,7 +74,7 @@ function delete_environment(
         "/environment/$(environmentId)",
         params;
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -93,7 +93,7 @@ function get_environment(environmentId; aws_config::AbstractAWSConfig=global_aws
         "GET",
         "/environment/$(environmentId)";
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function get_environment(
@@ -106,7 +106,7 @@ function get_environment(
         "/environment/$(environmentId)",
         params;
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -124,13 +124,19 @@ Optional parameters can be passed as a `params::Dict{String,<:Any}`. Valid keys 
   value from the response object of the previous page call.
 """
 function list_environments(; aws_config::AbstractAWSConfig=global_aws_config())
-    return finspace("GET", "/environment"; aws_config=aws_config, features=SERVICE_FEATURES)
+    return finspace(
+        "GET", "/environment"; aws_config=aws_config, feature_set=SERVICE_FEATURE_SET
+    )
 end
 function list_environments(
     params::AbstractDict{String}; aws_config::AbstractAWSConfig=global_aws_config()
 )
     return finspace(
-        "GET", "/environment", params; aws_config=aws_config, features=SERVICE_FEATURES
+        "GET",
+        "/environment",
+        params;
+        aws_config=aws_config,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -148,7 +154,10 @@ function list_tags_for_resource(
     resourceArn; aws_config::AbstractAWSConfig=global_aws_config()
 )
     return finspace(
-        "GET", "/tags/$(resourceArn)"; aws_config=aws_config, features=SERVICE_FEATURES
+        "GET",
+        "/tags/$(resourceArn)";
+        aws_config=aws_config,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function list_tags_for_resource(
@@ -161,7 +170,7 @@ function list_tags_for_resource(
         "/tags/$(resourceArn)",
         params;
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -182,7 +191,7 @@ function tag_resource(resourceArn, tags; aws_config::AbstractAWSConfig=global_aw
         "/tags/$(resourceArn)",
         Dict{String,Any}("tags" => tags);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function tag_resource(
@@ -196,7 +205,7 @@ function tag_resource(
         "/tags/$(resourceArn)",
         Dict{String,Any}(mergewith(_merge, Dict{String,Any}("tags" => tags), params));
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -220,7 +229,7 @@ function untag_resource(
         "/tags/$(resourceArn)",
         Dict{String,Any}("tagKeys" => tagKeys);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function untag_resource(
@@ -234,7 +243,7 @@ function untag_resource(
         "/tags/$(resourceArn)",
         Dict{String,Any}(mergewith(_merge, Dict{String,Any}("tagKeys" => tagKeys), params));
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -263,7 +272,7 @@ function update_environment(
         "PUT",
         "/environment/$(environmentId)";
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function update_environment(
@@ -276,6 +285,6 @@ function update_environment(
         "/environment/$(environmentId)",
         params;
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end

@@ -20,7 +20,10 @@ function claim_devices_by_claim_code(
     claimCode; aws_config::AbstractAWSConfig=global_aws_config()
 )
     return iot_1click_devices_service(
-        "PUT", "/claims/$(claimCode)"; aws_config=aws_config, features=SERVICE_FEATURES
+        "PUT",
+        "/claims/$(claimCode)";
+        aws_config=aws_config,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function claim_devices_by_claim_code(
@@ -33,7 +36,7 @@ function claim_devices_by_claim_code(
         "/claims/$(claimCode)",
         params;
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -51,7 +54,10 @@ device.
 """
 function describe_device(deviceId; aws_config::AbstractAWSConfig=global_aws_config())
     return iot_1click_devices_service(
-        "GET", "/devices/$(deviceId)"; aws_config=aws_config, features=SERVICE_FEATURES
+        "GET",
+        "/devices/$(deviceId)";
+        aws_config=aws_config,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function describe_device(
@@ -64,7 +70,7 @@ function describe_device(
         "/devices/$(deviceId)",
         params;
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -94,7 +100,7 @@ function finalize_device_claim(deviceId; aws_config::AbstractAWSConfig=global_aw
         "PUT",
         "/devices/$(deviceId)/finalize-claim";
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function finalize_device_claim(
@@ -107,7 +113,7 @@ function finalize_device_claim(
         "/devices/$(deviceId)/finalize-claim",
         params;
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -126,7 +132,7 @@ function get_device_methods(deviceId; aws_config::AbstractAWSConfig=global_aws_c
         "GET",
         "/devices/$(deviceId)/methods";
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function get_device_methods(
@@ -139,7 +145,7 @@ function get_device_methods(
         "/devices/$(deviceId)/methods",
         params;
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -164,7 +170,7 @@ function initiate_device_claim(deviceId; aws_config::AbstractAWSConfig=global_aw
         "PUT",
         "/devices/$(deviceId)/initiate-claim";
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function initiate_device_claim(
@@ -177,7 +183,7 @@ function initiate_device_claim(
         "/devices/$(deviceId)/initiate-claim",
         params;
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -202,7 +208,7 @@ function invoke_device_method(deviceId; aws_config::AbstractAWSConfig=global_aws
         "POST",
         "/devices/$(deviceId)/methods";
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function invoke_device_method(
@@ -215,7 +221,7 @@ function invoke_device_method(
         "/devices/$(deviceId)/methods",
         params;
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -251,7 +257,7 @@ function list_device_events(
         "/devices/$(deviceId)/events",
         Dict{String,Any}("fromTimeStamp" => fromTimeStamp, "toTimeStamp" => toTimeStamp);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function list_device_events(
@@ -274,7 +280,7 @@ function list_device_events(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -294,14 +300,14 @@ Optional parameters can be passed as a `params::Dict{String,<:Any}`. Valid keys 
 """
 function list_devices(; aws_config::AbstractAWSConfig=global_aws_config())
     return iot_1click_devices_service(
-        "GET", "/devices"; aws_config=aws_config, features=SERVICE_FEATURES
+        "GET", "/devices"; aws_config=aws_config, feature_set=SERVICE_FEATURE_SET
     )
 end
 function list_devices(
     params::AbstractDict{String}; aws_config::AbstractAWSConfig=global_aws_config()
 )
     return iot_1click_devices_service(
-        "GET", "/devices", params; aws_config=aws_config, features=SERVICE_FEATURES
+        "GET", "/devices", params; aws_config=aws_config, feature_set=SERVICE_FEATURE_SET
     )
 end
 
@@ -319,7 +325,10 @@ function list_tags_for_resource(
     resource_arn; aws_config::AbstractAWSConfig=global_aws_config()
 )
     return iot_1click_devices_service(
-        "GET", "/tags/$(resource-arn)"; aws_config=aws_config, features=SERVICE_FEATURES
+        "GET",
+        "/tags/$(resource-arn)";
+        aws_config=aws_config,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function list_tags_for_resource(
@@ -332,7 +341,7 @@ function list_tags_for_resource(
         "/tags/$(resource-arn)",
         params;
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -357,7 +366,7 @@ function tag_resource(resource_arn, tags; aws_config::AbstractAWSConfig=global_a
         "/tags/$(resource-arn)",
         Dict{String,Any}("tags" => tags);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function tag_resource(
@@ -371,7 +380,7 @@ function tag_resource(
         "/tags/$(resource-arn)",
         Dict{String,Any}(mergewith(_merge, Dict{String,Any}("tags" => tags), params));
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -390,7 +399,7 @@ function unclaim_device(deviceId; aws_config::AbstractAWSConfig=global_aws_confi
         "PUT",
         "/devices/$(deviceId)/unclaim";
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function unclaim_device(
@@ -403,7 +412,7 @@ function unclaim_device(
         "/devices/$(deviceId)/unclaim",
         params;
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -428,7 +437,7 @@ function untag_resource(
         "/tags/$(resource-arn)",
         Dict{String,Any}("tagKeys" => tagKeys);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function untag_resource(
@@ -442,7 +451,7 @@ function untag_resource(
         "/tags/$(resource-arn)",
         Dict{String,Any}(mergewith(_merge, Dict{String,Any}("tagKeys" => tagKeys), params));
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -467,7 +476,7 @@ function update_device_state(deviceId; aws_config::AbstractAWSConfig=global_aws_
         "PUT",
         "/devices/$(deviceId)/state";
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function update_device_state(
@@ -480,6 +489,6 @@ function update_device_state(
         "/devices/$(deviceId)/state",
         params;
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end

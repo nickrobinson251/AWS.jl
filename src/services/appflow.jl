@@ -47,7 +47,7 @@ function create_connector_profile(
             "connectorType" => connectorType,
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function create_connector_profile(
@@ -74,7 +74,7 @@ function create_connector_profile(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -127,7 +127,7 @@ function create_flow(
             "triggerConfig" => triggerConfig,
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function create_flow(
@@ -156,7 +156,7 @@ function create_flow(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -183,7 +183,7 @@ function delete_connector_profile(
         "/delete-connector-profile",
         Dict{String,Any}("connectorProfileName" => connectorProfileName);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function delete_connector_profile(
@@ -202,7 +202,7 @@ function delete_connector_profile(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -229,7 +229,7 @@ function delete_flow(flowName; aws_config::AbstractAWSConfig=global_aws_config()
         "/delete-flow",
         Dict{String,Any}("flowName" => flowName);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function delete_flow(
@@ -244,7 +244,7 @@ function delete_flow(
             mergewith(_merge, Dict{String,Any}("flowName" => flowName), params)
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -273,7 +273,7 @@ function describe_connector_entity(
         "/describe-connector-entity",
         Dict{String,Any}("connectorEntityName" => connectorEntityName);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function describe_connector_entity(
@@ -292,7 +292,7 @@ function describe_connector_entity(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -319,7 +319,7 @@ function describe_connector_profiles(; aws_config::AbstractAWSConfig=global_aws_
         "POST",
         "/describe-connector-profiles";
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function describe_connector_profiles(
@@ -330,7 +330,7 @@ function describe_connector_profiles(
         "/describe-connector-profiles",
         params;
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -351,7 +351,10 @@ Optional parameters can be passed as a `params::Dict{String,<:Any}`. Valid keys 
 """
 function describe_connectors(; aws_config::AbstractAWSConfig=global_aws_config())
     return appflow(
-        "POST", "/describe-connectors"; aws_config=aws_config, features=SERVICE_FEATURES
+        "POST",
+        "/describe-connectors";
+        aws_config=aws_config,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function describe_connectors(
@@ -362,7 +365,7 @@ function describe_connectors(
         "/describe-connectors",
         params;
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -383,7 +386,7 @@ function describe_flow(flowName; aws_config::AbstractAWSConfig=global_aws_config
         "/describe-flow",
         Dict{String,Any}("flowName" => flowName);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function describe_flow(
@@ -398,7 +401,7 @@ function describe_flow(
             mergewith(_merge, Dict{String,Any}("flowName" => flowName), params)
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -426,7 +429,7 @@ function describe_flow_execution_records(
         "/describe-flow-execution-records",
         Dict{String,Any}("flowName" => flowName);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function describe_flow_execution_records(
@@ -441,7 +444,7 @@ function describe_flow_execution_records(
             mergewith(_merge, Dict{String,Any}("flowName" => flowName), params)
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -467,7 +470,10 @@ Optional parameters can be passed as a `params::Dict{String,<:Any}`. Valid keys 
 """
 function list_connector_entities(; aws_config::AbstractAWSConfig=global_aws_config())
     return appflow(
-        "POST", "/list-connector-entities"; aws_config=aws_config, features=SERVICE_FEATURES
+        "POST",
+        "/list-connector-entities";
+        aws_config=aws_config,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function list_connector_entities(
@@ -478,7 +484,7 @@ function list_connector_entities(
         "/list-connector-entities",
         params;
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -495,13 +501,19 @@ Optional parameters can be passed as a `params::Dict{String,<:Any}`. Valid keys 
 - `"nextToken"`:  The pagination token for next page of data.
 """
 function list_flows(; aws_config::AbstractAWSConfig=global_aws_config())
-    return appflow("POST", "/list-flows"; aws_config=aws_config, features=SERVICE_FEATURES)
+    return appflow(
+        "POST", "/list-flows"; aws_config=aws_config, feature_set=SERVICE_FEATURE_SET
+    )
 end
 function list_flows(
     params::AbstractDict{String}; aws_config::AbstractAWSConfig=global_aws_config()
 )
     return appflow(
-        "POST", "/list-flows", params; aws_config=aws_config, features=SERVICE_FEATURES
+        "POST",
+        "/list-flows",
+        params;
+        aws_config=aws_config,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -519,7 +531,10 @@ function list_tags_for_resource(
     resourceArn; aws_config::AbstractAWSConfig=global_aws_config()
 )
     return appflow(
-        "GET", "/tags/$(resourceArn)"; aws_config=aws_config, features=SERVICE_FEATURES
+        "GET",
+        "/tags/$(resourceArn)";
+        aws_config=aws_config,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function list_tags_for_resource(
@@ -532,7 +547,7 @@ function list_tags_for_resource(
         "/tags/$(resourceArn)",
         params;
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -554,7 +569,7 @@ function start_flow(flowName; aws_config::AbstractAWSConfig=global_aws_config())
         "/start-flow",
         Dict{String,Any}("flowName" => flowName);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function start_flow(
@@ -569,7 +584,7 @@ function start_flow(
             mergewith(_merge, Dict{String,Any}("flowName" => flowName), params)
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -592,7 +607,7 @@ function stop_flow(flowName; aws_config::AbstractAWSConfig=global_aws_config())
         "/stop-flow",
         Dict{String,Any}("flowName" => flowName);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function stop_flow(
@@ -607,7 +622,7 @@ function stop_flow(
             mergewith(_merge, Dict{String,Any}("flowName" => flowName), params)
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -628,7 +643,7 @@ function tag_resource(resourceArn, tags; aws_config::AbstractAWSConfig=global_aw
         "/tags/$(resourceArn)",
         Dict{String,Any}("tags" => tags);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function tag_resource(
@@ -642,7 +657,7 @@ function tag_resource(
         "/tags/$(resourceArn)",
         Dict{String,Any}(mergewith(_merge, Dict{String,Any}("tags" => tags), params));
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -665,7 +680,7 @@ function untag_resource(
         "/tags/$(resourceArn)",
         Dict{String,Any}("tagKeys" => tagKeys);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function untag_resource(
@@ -679,7 +694,7 @@ function untag_resource(
         "/tags/$(resourceArn)",
         Dict{String,Any}(mergewith(_merge, Dict{String,Any}("tagKeys" => tagKeys), params));
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -712,7 +727,7 @@ function update_connector_profile(
             "connectorProfileName" => connectorProfileName,
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function update_connector_profile(
@@ -737,7 +752,7 @@ function update_connector_profile(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -780,7 +795,7 @@ function update_flow(
             "triggerConfig" => triggerConfig,
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function update_flow(
@@ -809,6 +824,6 @@ function update_flow(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end

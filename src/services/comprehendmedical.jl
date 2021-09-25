@@ -23,7 +23,7 @@ function describe_entities_detection_v2_job(
         "DescribeEntitiesDetectionV2Job",
         Dict{String,Any}("JobId" => JobId);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function describe_entities_detection_v2_job(
@@ -33,7 +33,7 @@ function describe_entities_detection_v2_job(
         "DescribeEntitiesDetectionV2Job",
         Dict{String,Any}(mergewith(_merge, Dict{String,Any}("JobId" => JobId), params));
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -56,7 +56,7 @@ function describe_icd10_cminference_job(
         "DescribeICD10CMInferenceJob",
         Dict{String,Any}("JobId" => JobId);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function describe_icd10_cminference_job(
@@ -66,7 +66,7 @@ function describe_icd10_cminference_job(
         "DescribeICD10CMInferenceJob",
         Dict{String,Any}(mergewith(_merge, Dict{String,Any}("JobId" => JobId), params));
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -87,7 +87,7 @@ function describe_phidetection_job(JobId; aws_config::AbstractAWSConfig=global_a
         "DescribePHIDetectionJob",
         Dict{String,Any}("JobId" => JobId);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function describe_phidetection_job(
@@ -97,7 +97,7 @@ function describe_phidetection_job(
         "DescribePHIDetectionJob",
         Dict{String,Any}(mergewith(_merge, Dict{String,Any}("JobId" => JobId), params));
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -120,7 +120,7 @@ function describe_rx_norm_inference_job(
         "DescribeRxNormInferenceJob",
         Dict{String,Any}("JobId" => JobId);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function describe_rx_norm_inference_job(
@@ -130,7 +130,7 @@ function describe_rx_norm_inference_job(
         "DescribeRxNormInferenceJob",
         Dict{String,Any}(mergewith(_merge, Dict{String,Any}("JobId" => JobId), params));
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -153,7 +153,7 @@ function detect_entities(Text; aws_config::AbstractAWSConfig=global_aws_config()
         "DetectEntities",
         Dict{String,Any}("Text" => Text);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function detect_entities(
@@ -163,7 +163,7 @@ function detect_entities(
         "DetectEntities",
         Dict{String,Any}(mergewith(_merge, Dict{String,Any}("Text" => Text), params));
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -190,7 +190,7 @@ function detect_entities_v2(Text; aws_config::AbstractAWSConfig=global_aws_confi
         "DetectEntitiesV2",
         Dict{String,Any}("Text" => Text);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function detect_entities_v2(
@@ -200,7 +200,7 @@ function detect_entities_v2(
         "DetectEntitiesV2",
         Dict{String,Any}(mergewith(_merge, Dict{String,Any}("Text" => Text), params));
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -222,7 +222,7 @@ function detect_phi(Text; aws_config::AbstractAWSConfig=global_aws_config())
         "DetectPHI",
         Dict{String,Any}("Text" => Text);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function detect_phi(
@@ -232,7 +232,7 @@ function detect_phi(
         "DetectPHI",
         Dict{String,Any}(mergewith(_merge, Dict{String,Any}("Text" => Text), params));
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -255,7 +255,7 @@ function infer_icd10_cm(Text; aws_config::AbstractAWSConfig=global_aws_config())
         "InferICD10CM",
         Dict{String,Any}("Text" => Text);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function infer_icd10_cm(
@@ -265,7 +265,7 @@ function infer_icd10_cm(
         "InferICD10CM",
         Dict{String,Any}(mergewith(_merge, Dict{String,Any}("Text" => Text), params));
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -288,7 +288,7 @@ function infer_rx_norm(Text; aws_config::AbstractAWSConfig=global_aws_config())
         "InferRxNorm",
         Dict{String,Any}("Text" => Text);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function infer_rx_norm(
@@ -298,7 +298,7 @@ function infer_rx_norm(
         "InferRxNorm",
         Dict{String,Any}(mergewith(_merge, Dict{String,Any}("Text" => Text), params));
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -320,7 +320,9 @@ function list_entities_detection_v2_jobs(;
     aws_config::AbstractAWSConfig=global_aws_config()
 )
     return comprehendmedical(
-        "ListEntitiesDetectionV2Jobs"; aws_config=aws_config, features=SERVICE_FEATURES
+        "ListEntitiesDetectionV2Jobs";
+        aws_config=aws_config,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function list_entities_detection_v2_jobs(
@@ -330,7 +332,7 @@ function list_entities_detection_v2_jobs(
         "ListEntitiesDetectionV2Jobs",
         params;
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -350,14 +352,17 @@ Optional parameters can be passed as a `params::Dict{String,<:Any}`. Valid keys 
 """
 function list_icd10_cminference_jobs(; aws_config::AbstractAWSConfig=global_aws_config())
     return comprehendmedical(
-        "ListICD10CMInferenceJobs"; aws_config=aws_config, features=SERVICE_FEATURES
+        "ListICD10CMInferenceJobs"; aws_config=aws_config, feature_set=SERVICE_FEATURE_SET
     )
 end
 function list_icd10_cminference_jobs(
     params::AbstractDict{String}; aws_config::AbstractAWSConfig=global_aws_config()
 )
     return comprehendmedical(
-        "ListICD10CMInferenceJobs", params; aws_config=aws_config, features=SERVICE_FEATURES
+        "ListICD10CMInferenceJobs",
+        params;
+        aws_config=aws_config,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -377,14 +382,17 @@ Optional parameters can be passed as a `params::Dict{String,<:Any}`. Valid keys 
 """
 function list_phidetection_jobs(; aws_config::AbstractAWSConfig=global_aws_config())
     return comprehendmedical(
-        "ListPHIDetectionJobs"; aws_config=aws_config, features=SERVICE_FEATURES
+        "ListPHIDetectionJobs"; aws_config=aws_config, feature_set=SERVICE_FEATURE_SET
     )
 end
 function list_phidetection_jobs(
     params::AbstractDict{String}; aws_config::AbstractAWSConfig=global_aws_config()
 )
     return comprehendmedical(
-        "ListPHIDetectionJobs", params; aws_config=aws_config, features=SERVICE_FEATURES
+        "ListPHIDetectionJobs",
+        params;
+        aws_config=aws_config,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -404,14 +412,17 @@ Optional parameters can be passed as a `params::Dict{String,<:Any}`. Valid keys 
 """
 function list_rx_norm_inference_jobs(; aws_config::AbstractAWSConfig=global_aws_config())
     return comprehendmedical(
-        "ListRxNormInferenceJobs"; aws_config=aws_config, features=SERVICE_FEATURES
+        "ListRxNormInferenceJobs"; aws_config=aws_config, feature_set=SERVICE_FEATURE_SET
     )
 end
 function list_rx_norm_inference_jobs(
     params::AbstractDict{String}; aws_config::AbstractAWSConfig=global_aws_config()
 )
     return comprehendmedical(
-        "ListRxNormInferenceJobs", params; aws_config=aws_config, features=SERVICE_FEATURES
+        "ListRxNormInferenceJobs",
+        params;
+        aws_config=aws_config,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -456,7 +467,7 @@ function start_entities_detection_v2_job(
             "ClientRequestToken" => string(uuid4()),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function start_entities_detection_v2_job(
@@ -483,7 +494,7 @@ function start_entities_detection_v2_job(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -528,7 +539,7 @@ function start_icd10_cminference_job(
             "ClientRequestToken" => string(uuid4()),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function start_icd10_cminference_job(
@@ -555,7 +566,7 @@ function start_icd10_cminference_job(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -600,7 +611,7 @@ function start_phidetection_job(
             "ClientRequestToken" => string(uuid4()),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function start_phidetection_job(
@@ -627,7 +638,7 @@ function start_phidetection_job(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -672,7 +683,7 @@ function start_rx_norm_inference_job(
             "ClientRequestToken" => string(uuid4()),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function start_rx_norm_inference_job(
@@ -699,7 +710,7 @@ function start_rx_norm_inference_job(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -720,7 +731,7 @@ function stop_entities_detection_v2_job(
         "StopEntitiesDetectionV2Job",
         Dict{String,Any}("JobId" => JobId);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function stop_entities_detection_v2_job(
@@ -730,7 +741,7 @@ function stop_entities_detection_v2_job(
         "StopEntitiesDetectionV2Job",
         Dict{String,Any}(mergewith(_merge, Dict{String,Any}("JobId" => JobId), params));
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -751,7 +762,7 @@ function stop_icd10_cminference_job(
         "StopICD10CMInferenceJob",
         Dict{String,Any}("JobId" => JobId);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function stop_icd10_cminference_job(
@@ -761,7 +772,7 @@ function stop_icd10_cminference_job(
         "StopICD10CMInferenceJob",
         Dict{String,Any}(mergewith(_merge, Dict{String,Any}("JobId" => JobId), params));
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -780,7 +791,7 @@ function stop_phidetection_job(JobId; aws_config::AbstractAWSConfig=global_aws_c
         "StopPHIDetectionJob",
         Dict{String,Any}("JobId" => JobId);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function stop_phidetection_job(
@@ -790,7 +801,7 @@ function stop_phidetection_job(
         "StopPHIDetectionJob",
         Dict{String,Any}(mergewith(_merge, Dict{String,Any}("JobId" => JobId), params));
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -811,7 +822,7 @@ function stop_rx_norm_inference_job(
         "StopRxNormInferenceJob",
         Dict{String,Any}("JobId" => JobId);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function stop_rx_norm_inference_job(
@@ -821,6 +832,6 @@ function stop_rx_norm_inference_job(
         "StopRxNormInferenceJob",
         Dict{String,Any}(mergewith(_merge, Dict{String,Any}("JobId" => JobId), params));
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end

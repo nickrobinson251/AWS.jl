@@ -28,7 +28,7 @@ function accept_domain_transfer_from_another_aws_account(
         "AcceptDomainTransferFromAnotherAwsAccount",
         Dict{String,Any}("DomainName" => DomainName, "Password" => Password);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function accept_domain_transfer_from_another_aws_account(
@@ -47,7 +47,7 @@ function accept_domain_transfer_from_another_aws_account(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -74,7 +74,7 @@ function cancel_domain_transfer_to_another_aws_account(
         "CancelDomainTransferToAnotherAwsAccount",
         Dict{String,Any}("DomainName" => DomainName);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function cancel_domain_transfer_to_another_aws_account(
@@ -88,7 +88,7 @@ function cancel_domain_transfer_to_another_aws_account(
             mergewith(_merge, Dict{String,Any}("DomainName" => DomainName), params)
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -123,7 +123,7 @@ function check_domain_availability(
         "CheckDomainAvailability",
         Dict{String,Any}("DomainName" => DomainName);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function check_domain_availability(
@@ -137,7 +137,7 @@ function check_domain_availability(
             mergewith(_merge, Dict{String,Any}("DomainName" => DomainName), params)
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -169,7 +169,7 @@ function check_domain_transferability(
         "CheckDomainTransferability",
         Dict{String,Any}("DomainName" => DomainName);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function check_domain_transferability(
@@ -183,7 +183,7 @@ function check_domain_transferability(
             mergewith(_merge, Dict{String,Any}("DomainName" => DomainName), params)
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -206,7 +206,7 @@ function delete_tags_for_domain(
         "DeleteTagsForDomain",
         Dict{String,Any}("DomainName" => DomainName, "TagsToDelete" => TagsToDelete);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function delete_tags_for_domain(
@@ -227,7 +227,7 @@ function delete_tags_for_domain(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -248,7 +248,7 @@ function disable_domain_auto_renew(
         "DisableDomainAutoRenew",
         Dict{String,Any}("DomainName" => DomainName);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function disable_domain_auto_renew(
@@ -262,7 +262,7 @@ function disable_domain_auto_renew(
             mergewith(_merge, Dict{String,Any}("DomainName" => DomainName), params)
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -288,7 +288,7 @@ function disable_domain_transfer_lock(
         "DisableDomainTransferLock",
         Dict{String,Any}("DomainName" => DomainName);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function disable_domain_transfer_lock(
@@ -302,7 +302,7 @@ function disable_domain_transfer_lock(
             mergewith(_merge, Dict{String,Any}("DomainName" => DomainName), params)
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -328,7 +328,7 @@ function enable_domain_auto_renew(
         "EnableDomainAutoRenew",
         Dict{String,Any}("DomainName" => DomainName);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function enable_domain_auto_renew(
@@ -342,7 +342,7 @@ function enable_domain_auto_renew(
             mergewith(_merge, Dict{String,Any}("DomainName" => DomainName), params)
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -366,7 +366,7 @@ function enable_domain_transfer_lock(
         "EnableDomainTransferLock",
         Dict{String,Any}("DomainName" => DomainName);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function enable_domain_transfer_lock(
@@ -380,7 +380,7 @@ function enable_domain_transfer_lock(
             mergewith(_merge, Dict{String,Any}("DomainName" => DomainName), params)
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -402,7 +402,9 @@ function get_contact_reachability_status(;
     aws_config::AbstractAWSConfig=global_aws_config()
 )
     return route_53_domains(
-        "GetContactReachabilityStatus"; aws_config=aws_config, features=SERVICE_FEATURES
+        "GetContactReachabilityStatus";
+        aws_config=aws_config,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function get_contact_reachability_status(
@@ -412,7 +414,7 @@ function get_contact_reachability_status(
         "GetContactReachabilityStatus",
         params;
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -433,7 +435,7 @@ function get_domain_detail(DomainName; aws_config::AbstractAWSConfig=global_aws_
         "GetDomainDetail",
         Dict{String,Any}("DomainName" => DomainName);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function get_domain_detail(
@@ -447,7 +449,7 @@ function get_domain_detail(
             mergewith(_merge, Dict{String,Any}("DomainName" => DomainName), params)
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -490,7 +492,7 @@ function get_domain_suggestions(
             "SuggestionCount" => SuggestionCount,
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function get_domain_suggestions(
@@ -514,7 +516,7 @@ function get_domain_suggestions(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -536,7 +538,7 @@ function get_operation_detail(
         "GetOperationDetail",
         Dict{String,Any}("OperationId" => OperationId);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function get_operation_detail(
@@ -550,7 +552,7 @@ function get_operation_detail(
             mergewith(_merge, Dict{String,Any}("OperationId" => OperationId), params)
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -572,13 +574,15 @@ Optional parameters can be passed as a `params::Dict{String,<:Any}`. Valid keys 
 - `"MaxItems"`: Number of domains to be returned. Default: 20
 """
 function list_domains(; aws_config::AbstractAWSConfig=global_aws_config())
-    return route_53_domains("ListDomains"; aws_config=aws_config, features=SERVICE_FEATURES)
+    return route_53_domains(
+        "ListDomains"; aws_config=aws_config, feature_set=SERVICE_FEATURE_SET
+    )
 end
 function list_domains(
     params::AbstractDict{String}; aws_config::AbstractAWSConfig=global_aws_config()
 )
     return route_53_domains(
-        "ListDomains", params; aws_config=aws_config, features=SERVICE_FEATURES
+        "ListDomains", params; aws_config=aws_config, feature_set=SERVICE_FEATURE_SET
     )
 end
 
@@ -603,14 +607,14 @@ Optional parameters can be passed as a `params::Dict{String,<:Any}`. Valid keys 
 """
 function list_operations(; aws_config::AbstractAWSConfig=global_aws_config())
     return route_53_domains(
-        "ListOperations"; aws_config=aws_config, features=SERVICE_FEATURES
+        "ListOperations"; aws_config=aws_config, feature_set=SERVICE_FEATURE_SET
     )
 end
 function list_operations(
     params::AbstractDict{String}; aws_config::AbstractAWSConfig=global_aws_config()
 )
     return route_53_domains(
-        "ListOperations", params; aws_config=aws_config, features=SERVICE_FEATURES
+        "ListOperations", params; aws_config=aws_config, feature_set=SERVICE_FEATURE_SET
     )
 end
 
@@ -631,7 +635,7 @@ function list_tags_for_domain(DomainName; aws_config::AbstractAWSConfig=global_a
         "ListTagsForDomain",
         Dict{String,Any}("DomainName" => DomainName);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function list_tags_for_domain(
@@ -645,7 +649,7 @@ function list_tags_for_domain(
             mergewith(_merge, Dict{String,Any}("DomainName" => DomainName), params)
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -731,7 +735,7 @@ function register_domain(
             "TechContact" => TechContact,
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function register_domain(
@@ -759,7 +763,7 @@ function register_domain(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -785,7 +789,7 @@ function reject_domain_transfer_from_another_aws_account(
         "RejectDomainTransferFromAnotherAwsAccount",
         Dict{String,Any}("DomainName" => DomainName);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function reject_domain_transfer_from_another_aws_account(
@@ -799,7 +803,7 @@ function reject_domain_transfer_from_another_aws_account(
             mergewith(_merge, Dict{String,Any}("DomainName" => DomainName), params)
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -834,7 +838,7 @@ function renew_domain(
             "CurrentExpiryYear" => CurrentExpiryYear, "DomainName" => DomainName
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function renew_domain(
@@ -855,7 +859,7 @@ function renew_domain(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -876,7 +880,9 @@ function resend_contact_reachability_email(;
     aws_config::AbstractAWSConfig=global_aws_config()
 )
     return route_53_domains(
-        "ResendContactReachabilityEmail"; aws_config=aws_config, features=SERVICE_FEATURES
+        "ResendContactReachabilityEmail";
+        aws_config=aws_config,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function resend_contact_reachability_email(
@@ -886,7 +892,7 @@ function resend_contact_reachability_email(
         "ResendContactReachabilityEmail",
         params;
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -908,7 +914,7 @@ function retrieve_domain_auth_code(
         "RetrieveDomainAuthCode",
         Dict{String,Any}("DomainName" => DomainName);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function retrieve_domain_auth_code(
@@ -922,7 +928,7 @@ function retrieve_domain_auth_code(
             mergewith(_merge, Dict{String,Any}("DomainName" => DomainName), params)
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -1009,7 +1015,7 @@ function transfer_domain(
             "TechContact" => TechContact,
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function transfer_domain(
@@ -1037,7 +1043,7 @@ function transfer_domain(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -1074,7 +1080,7 @@ function transfer_domain_to_another_aws_account(
         "TransferDomainToAnotherAwsAccount",
         Dict{String,Any}("AccountId" => AccountId, "DomainName" => DomainName);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function transfer_domain_to_another_aws_account(
@@ -1093,7 +1099,7 @@ function transfer_domain_to_another_aws_account(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -1123,7 +1129,7 @@ function update_domain_contact(
         "UpdateDomainContact",
         Dict{String,Any}("DomainName" => DomainName);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function update_domain_contact(
@@ -1137,7 +1143,7 @@ function update_domain_contact(
             mergewith(_merge, Dict{String,Any}("DomainName" => DomainName), params)
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -1189,7 +1195,7 @@ function update_domain_contact_privacy(
         "UpdateDomainContactPrivacy",
         Dict{String,Any}("DomainName" => DomainName);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function update_domain_contact_privacy(
@@ -1203,7 +1209,7 @@ function update_domain_contact_privacy(
             mergewith(_merge, Dict{String,Any}("DomainName" => DomainName), params)
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -1233,7 +1239,7 @@ function update_domain_nameservers(
         "UpdateDomainNameservers",
         Dict{String,Any}("DomainName" => DomainName, "Nameservers" => Nameservers);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function update_domain_nameservers(
@@ -1252,7 +1258,7 @@ function update_domain_nameservers(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -1279,7 +1285,7 @@ function update_tags_for_domain(
         "UpdateTagsForDomain",
         Dict{String,Any}("DomainName" => DomainName);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function update_tags_for_domain(
@@ -1293,7 +1299,7 @@ function update_tags_for_domain(
             mergewith(_merge, Dict{String,Any}("DomainName" => DomainName), params)
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -1321,12 +1327,14 @@ Optional parameters can be passed as a `params::Dict{String,<:Any}`. Valid keys 
   time (UTC).
 """
 function view_billing(; aws_config::AbstractAWSConfig=global_aws_config())
-    return route_53_domains("ViewBilling"; aws_config=aws_config, features=SERVICE_FEATURES)
+    return route_53_domains(
+        "ViewBilling"; aws_config=aws_config, feature_set=SERVICE_FEATURE_SET
+    )
 end
 function view_billing(
     params::AbstractDict{String}; aws_config::AbstractAWSConfig=global_aws_config()
 )
     return route_53_domains(
-        "ViewBilling", params; aws_config=aws_config, features=SERVICE_FEATURES
+        "ViewBilling", params; aws_config=aws_config, feature_set=SERVICE_FEATURE_SET
     )
 end

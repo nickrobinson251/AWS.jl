@@ -33,7 +33,7 @@ function complete_attachment_upload(
             "headers" => Dict{String,Any}("X-Amz-Bearer" => X_Amz_Bearer),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function complete_attachment_upload(
@@ -58,7 +58,7 @@ function complete_attachment_upload(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -93,7 +93,7 @@ function create_participant_connection(
             "Type" => Type, "headers" => Dict{String,Any}("X-Amz-Bearer" => X_Amz_Bearer)
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function create_participant_connection(
@@ -116,7 +116,7 @@ function create_participant_connection(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -147,7 +147,7 @@ function disconnect_participant(
             "headers" => Dict{String,Any}("X-Amz-Bearer" => X_Amz_Bearer),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function disconnect_participant(
@@ -169,7 +169,7 @@ function disconnect_participant(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -196,7 +196,7 @@ function get_attachment(
             "headers" => Dict{String,Any}("X-Amz-Bearer" => X_Amz_Bearer),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function get_attachment(
@@ -219,7 +219,7 @@ function get_attachment(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -252,7 +252,7 @@ function get_transcript(X_Amz_Bearer; aws_config::AbstractAWSConfig=global_aws_c
         "/participant/transcript",
         Dict{String,Any}("headers" => Dict{String,Any}("X-Amz-Bearer" => X_Amz_Bearer));
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function get_transcript(
@@ -273,7 +273,7 @@ function get_transcript(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -310,7 +310,7 @@ function send_event(
             "headers" => Dict{String,Any}("X-Amz-Bearer" => X_Amz_Bearer),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function send_event(
@@ -334,7 +334,7 @@ function send_event(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -369,7 +369,7 @@ function send_message(
             "headers" => Dict{String,Any}("X-Amz-Bearer" => X_Amz_Bearer),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function send_message(
@@ -395,7 +395,7 @@ function send_message(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -433,7 +433,7 @@ function start_attachment_upload(
             "headers" => Dict{String,Any}("X-Amz-Bearer" => X_Amz_Bearer),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function start_attachment_upload(
@@ -462,6 +462,6 @@ function start_attachment_upload(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end

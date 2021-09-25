@@ -22,7 +22,7 @@ function associate_member_account(
         "AssociateMemberAccount",
         Dict{String,Any}("memberAccountId" => memberAccountId);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function associate_member_account(
@@ -38,7 +38,7 @@ function associate_member_account(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -68,7 +68,7 @@ function associate_s3_resources(
         "AssociateS3Resources",
         Dict{String,Any}("s3Resources" => s3Resources);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function associate_s3_resources(
@@ -82,7 +82,7 @@ function associate_s3_resources(
             mergewith(_merge, Dict{String,Any}("s3Resources" => s3Resources), params)
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -104,7 +104,7 @@ function disassociate_member_account(
         "DisassociateMemberAccount",
         Dict{String,Any}("memberAccountId" => memberAccountId);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function disassociate_member_account(
@@ -120,7 +120,7 @@ function disassociate_member_account(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -150,7 +150,7 @@ function disassociate_s3_resources(
         "DisassociateS3Resources",
         Dict{String,Any}("associatedS3Resources" => associatedS3Resources);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function disassociate_s3_resources(
@@ -168,7 +168,7 @@ function disassociate_s3_resources(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -189,13 +189,15 @@ Optional parameters can be passed as a `params::Dict{String,<:Any}`. Valid keys 
   response to continue listing data.
 """
 function list_member_accounts(; aws_config::AbstractAWSConfig=global_aws_config())
-    return macie("ListMemberAccounts"; aws_config=aws_config, features=SERVICE_FEATURES)
+    return macie(
+        "ListMemberAccounts"; aws_config=aws_config, feature_set=SERVICE_FEATURE_SET
+    )
 end
 function list_member_accounts(
     params::AbstractDict{String}; aws_config::AbstractAWSConfig=global_aws_config()
 )
     return macie(
-        "ListMemberAccounts", params; aws_config=aws_config, features=SERVICE_FEATURES
+        "ListMemberAccounts", params; aws_config=aws_config, feature_set=SERVICE_FEATURE_SET
     )
 end
 
@@ -220,13 +222,13 @@ Optional parameters can be passed as a `params::Dict{String,<:Any}`. Valid keys 
   data.
 """
 function list_s3_resources(; aws_config::AbstractAWSConfig=global_aws_config())
-    return macie("ListS3Resources"; aws_config=aws_config, features=SERVICE_FEATURES)
+    return macie("ListS3Resources"; aws_config=aws_config, feature_set=SERVICE_FEATURE_SET)
 end
 function list_s3_resources(
     params::AbstractDict{String}; aws_config::AbstractAWSConfig=global_aws_config()
 )
     return macie(
-        "ListS3Resources", params; aws_config=aws_config, features=SERVICE_FEATURES
+        "ListS3Resources", params; aws_config=aws_config, feature_set=SERVICE_FEATURE_SET
     )
 end
 
@@ -255,7 +257,7 @@ function update_s3_resources(
         "UpdateS3Resources",
         Dict{String,Any}("s3ResourcesUpdate" => s3ResourcesUpdate);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function update_s3_resources(
@@ -271,6 +273,6 @@ function update_s3_resources(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end

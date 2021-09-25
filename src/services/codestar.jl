@@ -34,7 +34,7 @@ function associate_team_member(
             "projectId" => projectId, "projectRole" => projectRole, "userArn" => userArn
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function associate_team_member(
@@ -58,7 +58,7 @@ function associate_team_member(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -91,7 +91,7 @@ function create_project(id, name; aws_config::AbstractAWSConfig=global_aws_confi
         "CreateProject",
         Dict{String,Any}("id" => id, "name" => name);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function create_project(
@@ -106,7 +106,7 @@ function create_project(
             mergewith(_merge, Dict{String,Any}("id" => id, "name" => name), params)
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -143,7 +143,7 @@ function create_user_profile(
             "userArn" => userArn,
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function create_user_profile(
@@ -167,7 +167,7 @@ function create_user_profile(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -195,7 +195,7 @@ function delete_project(id; aws_config::AbstractAWSConfig=global_aws_config())
         "DeleteProject",
         Dict{String,Any}("id" => id);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function delete_project(
@@ -205,7 +205,7 @@ function delete_project(
         "DeleteProject",
         Dict{String,Any}(mergewith(_merge, Dict{String,Any}("id" => id), params));
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -226,7 +226,7 @@ function delete_user_profile(userArn; aws_config::AbstractAWSConfig=global_aws_c
         "DeleteUserProfile",
         Dict{String,Any}("userArn" => userArn);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function delete_user_profile(
@@ -236,7 +236,7 @@ function delete_user_profile(
         "DeleteUserProfile",
         Dict{String,Any}(mergewith(_merge, Dict{String,Any}("userArn" => userArn), params));
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -255,7 +255,7 @@ function describe_project(id; aws_config::AbstractAWSConfig=global_aws_config())
         "DescribeProject",
         Dict{String,Any}("id" => id);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function describe_project(
@@ -265,7 +265,7 @@ function describe_project(
         "DescribeProject",
         Dict{String,Any}(mergewith(_merge, Dict{String,Any}("id" => id), params));
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -284,7 +284,7 @@ function describe_user_profile(userArn; aws_config::AbstractAWSConfig=global_aws
         "DescribeUserProfile",
         Dict{String,Any}("userArn" => userArn);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function describe_user_profile(
@@ -294,7 +294,7 @@ function describe_user_profile(
         "DescribeUserProfile",
         Dict{String,Any}(mergewith(_merge, Dict{String,Any}("userArn" => userArn), params));
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -321,7 +321,7 @@ function disassociate_team_member(
         "DisassociateTeamMember",
         Dict{String,Any}("projectId" => projectId, "userArn" => userArn);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function disassociate_team_member(
@@ -340,7 +340,7 @@ function disassociate_team_member(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -358,13 +358,13 @@ Optional parameters can be passed as a `params::Dict{String,<:Any}`. Valid keys 
   the results cannot be returned in one response.
 """
 function list_projects(; aws_config::AbstractAWSConfig=global_aws_config())
-    return codestar("ListProjects"; aws_config=aws_config, features=SERVICE_FEATURES)
+    return codestar("ListProjects"; aws_config=aws_config, feature_set=SERVICE_FEATURE_SET)
 end
 function list_projects(
     params::AbstractDict{String}; aws_config::AbstractAWSConfig=global_aws_config()
 )
     return codestar(
-        "ListProjects", params; aws_config=aws_config, features=SERVICE_FEATURES
+        "ListProjects", params; aws_config=aws_config, feature_set=SERVICE_FEATURE_SET
     )
 end
 
@@ -389,7 +389,7 @@ function list_resources(projectId; aws_config::AbstractAWSConfig=global_aws_conf
         "ListResources",
         Dict{String,Any}("projectId" => projectId);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function list_resources(
@@ -403,7 +403,7 @@ function list_resources(
             mergewith(_merge, Dict{String,Any}("projectId" => projectId), params)
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -426,7 +426,7 @@ function list_tags_for_project(id; aws_config::AbstractAWSConfig=global_aws_conf
         "ListTagsForProject",
         Dict{String,Any}("id" => id);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function list_tags_for_project(
@@ -436,7 +436,7 @@ function list_tags_for_project(
         "ListTagsForProject",
         Dict{String,Any}(mergewith(_merge, Dict{String,Any}("id" => id), params));
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -460,7 +460,7 @@ function list_team_members(projectId; aws_config::AbstractAWSConfig=global_aws_c
         "ListTeamMembers",
         Dict{String,Any}("projectId" => projectId);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function list_team_members(
@@ -474,7 +474,7 @@ function list_team_members(
             mergewith(_merge, Dict{String,Any}("projectId" => projectId), params)
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -491,13 +491,15 @@ Optional parameters can be passed as a `params::Dict{String,<:Any}`. Valid keys 
   be returned in one response.
 """
 function list_user_profiles(; aws_config::AbstractAWSConfig=global_aws_config())
-    return codestar("ListUserProfiles"; aws_config=aws_config, features=SERVICE_FEATURES)
+    return codestar(
+        "ListUserProfiles"; aws_config=aws_config, feature_set=SERVICE_FEATURE_SET
+    )
 end
 function list_user_profiles(
     params::AbstractDict{String}; aws_config::AbstractAWSConfig=global_aws_config()
 )
     return codestar(
-        "ListUserProfiles", params; aws_config=aws_config, features=SERVICE_FEATURES
+        "ListUserProfiles", params; aws_config=aws_config, feature_set=SERVICE_FEATURE_SET
     )
 end
 
@@ -517,7 +519,7 @@ function tag_project(id, tags; aws_config::AbstractAWSConfig=global_aws_config()
         "TagProject",
         Dict{String,Any}("id" => id, "tags" => tags);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function tag_project(
@@ -532,7 +534,7 @@ function tag_project(
             mergewith(_merge, Dict{String,Any}("id" => id, "tags" => tags), params)
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -552,7 +554,7 @@ function untag_project(id, tags; aws_config::AbstractAWSConfig=global_aws_config
         "UntagProject",
         Dict{String,Any}("id" => id, "tags" => tags);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function untag_project(
@@ -567,7 +569,7 @@ function untag_project(
             mergewith(_merge, Dict{String,Any}("id" => id, "tags" => tags), params)
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -590,7 +592,7 @@ function update_project(id; aws_config::AbstractAWSConfig=global_aws_config())
         "UpdateProject",
         Dict{String,Any}("id" => id);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function update_project(
@@ -600,7 +602,7 @@ function update_project(
         "UpdateProject",
         Dict{String,Any}(mergewith(_merge, Dict{String,Any}("id" => id), params));
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -634,7 +636,7 @@ function update_team_member(
         "UpdateTeamMember",
         Dict{String,Any}("projectId" => projectId, "userArn" => userArn);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function update_team_member(
@@ -653,7 +655,7 @@ function update_team_member(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -684,7 +686,7 @@ function update_user_profile(userArn; aws_config::AbstractAWSConfig=global_aws_c
         "UpdateUserProfile",
         Dict{String,Any}("userArn" => userArn);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function update_user_profile(
@@ -694,6 +696,6 @@ function update_user_profile(
         "UpdateUserProfile",
         Dict{String,Any}(mergewith(_merge, Dict{String,Any}("userArn" => userArn), params));
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end

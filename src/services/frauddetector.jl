@@ -24,7 +24,7 @@ function batch_create_variable(
         "BatchCreateVariable",
         Dict{String,Any}("variableEntries" => variableEntries);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function batch_create_variable(
@@ -40,7 +40,7 @@ function batch_create_variable(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -59,7 +59,7 @@ function batch_get_variable(names; aws_config::AbstractAWSConfig=global_aws_conf
         "BatchGetVariable",
         Dict{String,Any}("names" => names);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function batch_get_variable(
@@ -69,7 +69,7 @@ function batch_get_variable(
         "BatchGetVariable",
         Dict{String,Any}(mergewith(_merge, Dict{String,Any}("names" => names), params));
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -90,7 +90,7 @@ function cancel_batch_prediction_job(
         "CancelBatchPredictionJob",
         Dict{String,Any}("jobId" => jobId);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function cancel_batch_prediction_job(
@@ -100,7 +100,7 @@ function cancel_batch_prediction_job(
         "CancelBatchPredictionJob",
         Dict{String,Any}(mergewith(_merge, Dict{String,Any}("jobId" => jobId), params));
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -143,7 +143,7 @@ function create_batch_prediction_job(
             "outputPath" => outputPath,
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function create_batch_prediction_job(
@@ -173,7 +173,7 @@ function create_batch_prediction_job(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -209,7 +209,7 @@ function create_detector_version(
         "CreateDetectorVersion",
         Dict{String,Any}("detectorId" => detectorId, "rules" => rules);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function create_detector_version(
@@ -228,7 +228,7 @@ function create_detector_version(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -257,7 +257,7 @@ function create_model(
             "eventTypeName" => eventTypeName, "modelId" => modelId, "modelType" => modelType
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function create_model(
@@ -281,7 +281,7 @@ function create_model(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -319,7 +319,7 @@ function create_model_version(
             "trainingDataSource" => trainingDataSource,
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function create_model_version(
@@ -345,7 +345,7 @@ function create_model_version(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -385,7 +385,7 @@ function create_rule(
             "ruleId" => ruleId,
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function create_rule(
@@ -413,7 +413,7 @@ function create_rule(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -457,7 +457,7 @@ function create_variable(
             "name" => name,
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function create_variable(
@@ -483,7 +483,7 @@ function create_variable(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -504,7 +504,7 @@ function delete_batch_prediction_job(
         "DeleteBatchPredictionJob",
         Dict{String,Any}("jobId" => jobId);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function delete_batch_prediction_job(
@@ -514,7 +514,7 @@ function delete_batch_prediction_job(
         "DeleteBatchPredictionJob",
         Dict{String,Any}(mergewith(_merge, Dict{String,Any}("jobId" => jobId), params));
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -536,7 +536,7 @@ function delete_detector(detectorId; aws_config::AbstractAWSConfig=global_aws_co
         "DeleteDetector",
         Dict{String,Any}("detectorId" => detectorId);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function delete_detector(
@@ -550,7 +550,7 @@ function delete_detector(
             mergewith(_merge, Dict{String,Any}("detectorId" => detectorId), params)
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -576,7 +576,7 @@ function delete_detector_version(
             "detectorId" => detectorId, "detectorVersionId" => detectorVersionId
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function delete_detector_version(
@@ -597,7 +597,7 @@ function delete_detector_version(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -618,7 +618,7 @@ function delete_entity_type(name; aws_config::AbstractAWSConfig=global_aws_confi
         "DeleteEntityType",
         Dict{String,Any}("name" => name);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function delete_entity_type(
@@ -628,7 +628,7 @@ function delete_entity_type(
         "DeleteEntityType",
         Dict{String,Any}(mergewith(_merge, Dict{String,Any}("name" => name), params));
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -651,7 +651,7 @@ function delete_event(
         "DeleteEvent",
         Dict{String,Any}("eventId" => eventId, "eventTypeName" => eventTypeName);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function delete_event(
@@ -670,7 +670,7 @@ function delete_event(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -691,7 +691,7 @@ function delete_event_type(name; aws_config::AbstractAWSConfig=global_aws_config
         "DeleteEventType",
         Dict{String,Any}("name" => name);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function delete_event_type(
@@ -701,7 +701,7 @@ function delete_event_type(
         "DeleteEventType",
         Dict{String,Any}(mergewith(_merge, Dict{String,Any}("name" => name), params));
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -724,7 +724,7 @@ function delete_external_model(
         "DeleteExternalModel",
         Dict{String,Any}("modelEndpoint" => modelEndpoint);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function delete_external_model(
@@ -738,7 +738,7 @@ function delete_external_model(
             mergewith(_merge, Dict{String,Any}("modelEndpoint" => modelEndpoint), params)
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -760,7 +760,7 @@ function delete_label(name; aws_config::AbstractAWSConfig=global_aws_config())
         "DeleteLabel",
         Dict{String,Any}("name" => name);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function delete_label(
@@ -770,7 +770,7 @@ function delete_label(
         "DeleteLabel",
         Dict{String,Any}(mergewith(_merge, Dict{String,Any}("name" => name), params));
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -793,7 +793,7 @@ function delete_model(modelId, modelType; aws_config::AbstractAWSConfig=global_a
         "DeleteModel",
         Dict{String,Any}("modelId" => modelId, "modelType" => modelType);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function delete_model(
@@ -812,7 +812,7 @@ function delete_model(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -845,7 +845,7 @@ function delete_model_version(
             "modelVersionNumber" => modelVersionNumber,
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function delete_model_version(
@@ -869,7 +869,7 @@ function delete_model_version(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -890,7 +890,7 @@ function delete_outcome(name; aws_config::AbstractAWSConfig=global_aws_config())
         "DeleteOutcome",
         Dict{String,Any}("name" => name);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function delete_outcome(
@@ -900,7 +900,7 @@ function delete_outcome(
         "DeleteOutcome",
         Dict{String,Any}(mergewith(_merge, Dict{String,Any}("name" => name), params));
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -921,7 +921,7 @@ function delete_rule(rule; aws_config::AbstractAWSConfig=global_aws_config())
         "DeleteRule",
         Dict{String,Any}("rule" => rule);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function delete_rule(
@@ -931,7 +931,7 @@ function delete_rule(
         "DeleteRule",
         Dict{String,Any}(mergewith(_merge, Dict{String,Any}("rule" => rule), params));
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -954,7 +954,7 @@ function delete_variable(name; aws_config::AbstractAWSConfig=global_aws_config()
         "DeleteVariable",
         Dict{String,Any}("name" => name);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function delete_variable(
@@ -964,7 +964,7 @@ function delete_variable(
         "DeleteVariable",
         Dict{String,Any}(mergewith(_merge, Dict{String,Any}("name" => name), params));
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -987,7 +987,7 @@ function describe_detector(detectorId; aws_config::AbstractAWSConfig=global_aws_
         "DescribeDetector",
         Dict{String,Any}("detectorId" => detectorId);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function describe_detector(
@@ -1001,7 +1001,7 @@ function describe_detector(
             mergewith(_merge, Dict{String,Any}("detectorId" => detectorId), params)
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -1022,14 +1022,17 @@ Optional parameters can be passed as a `params::Dict{String,<:Any}`. Valid keys 
 """
 function describe_model_versions(; aws_config::AbstractAWSConfig=global_aws_config())
     return frauddetector(
-        "DescribeModelVersions"; aws_config=aws_config, features=SERVICE_FEATURES
+        "DescribeModelVersions"; aws_config=aws_config, feature_set=SERVICE_FEATURE_SET
     )
 end
 function describe_model_versions(
     params::AbstractDict{String}; aws_config::AbstractAWSConfig=global_aws_config()
 )
     return frauddetector(
-        "DescribeModelVersions", params; aws_config=aws_config, features=SERVICE_FEATURES
+        "DescribeModelVersions",
+        params;
+        aws_config=aws_config,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -1051,14 +1054,17 @@ Optional parameters can be passed as a `params::Dict{String,<:Any}`. Valid keys 
 """
 function get_batch_prediction_jobs(; aws_config::AbstractAWSConfig=global_aws_config())
     return frauddetector(
-        "GetBatchPredictionJobs"; aws_config=aws_config, features=SERVICE_FEATURES
+        "GetBatchPredictionJobs"; aws_config=aws_config, feature_set=SERVICE_FEATURE_SET
     )
 end
 function get_batch_prediction_jobs(
     params::AbstractDict{String}; aws_config::AbstractAWSConfig=global_aws_config()
 )
     return frauddetector(
-        "GetBatchPredictionJobs", params; aws_config=aws_config, features=SERVICE_FEATURES
+        "GetBatchPredictionJobs",
+        params;
+        aws_config=aws_config,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -1082,7 +1088,7 @@ function get_detector_version(
             "detectorId" => detectorId, "detectorVersionId" => detectorVersionId
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function get_detector_version(
@@ -1103,7 +1109,7 @@ function get_detector_version(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -1124,13 +1130,15 @@ Optional parameters can be passed as a `params::Dict{String,<:Any}`. Valid keys 
 - `"nextToken"`: The next token for the subsequent request.
 """
 function get_detectors(; aws_config::AbstractAWSConfig=global_aws_config())
-    return frauddetector("GetDetectors"; aws_config=aws_config, features=SERVICE_FEATURES)
+    return frauddetector(
+        "GetDetectors"; aws_config=aws_config, feature_set=SERVICE_FEATURE_SET
+    )
 end
 function get_detectors(
     params::AbstractDict{String}; aws_config::AbstractAWSConfig=global_aws_config()
 )
     return frauddetector(
-        "GetDetectors", params; aws_config=aws_config, features=SERVICE_FEATURES
+        "GetDetectors", params; aws_config=aws_config, feature_set=SERVICE_FEATURE_SET
     )
 end
 
@@ -1151,13 +1159,15 @@ Optional parameters can be passed as a `params::Dict{String,<:Any}`. Valid keys 
 - `"nextToken"`: The next token for the subsequent request.
 """
 function get_entity_types(; aws_config::AbstractAWSConfig=global_aws_config())
-    return frauddetector("GetEntityTypes"; aws_config=aws_config, features=SERVICE_FEATURES)
+    return frauddetector(
+        "GetEntityTypes"; aws_config=aws_config, feature_set=SERVICE_FEATURE_SET
+    )
 end
 function get_entity_types(
     params::AbstractDict{String}; aws_config::AbstractAWSConfig=global_aws_config()
 )
     return frauddetector(
-        "GetEntityTypes", params; aws_config=aws_config, features=SERVICE_FEATURES
+        "GetEntityTypes", params; aws_config=aws_config, feature_set=SERVICE_FEATURE_SET
     )
 end
 
@@ -1217,7 +1227,7 @@ function get_event_prediction(
             "eventVariables" => eventVariables,
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function get_event_prediction(
@@ -1247,7 +1257,7 @@ function get_event_prediction(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -1268,13 +1278,15 @@ Optional parameters can be passed as a `params::Dict{String,<:Any}`. Valid keys 
 - `"nextToken"`: The next token for the subsequent request.
 """
 function get_event_types(; aws_config::AbstractAWSConfig=global_aws_config())
-    return frauddetector("GetEventTypes"; aws_config=aws_config, features=SERVICE_FEATURES)
+    return frauddetector(
+        "GetEventTypes"; aws_config=aws_config, feature_set=SERVICE_FEATURE_SET
+    )
 end
 function get_event_types(
     params::AbstractDict{String}; aws_config::AbstractAWSConfig=global_aws_config()
 )
     return frauddetector(
-        "GetEventTypes", params; aws_config=aws_config, features=SERVICE_FEATURES
+        "GetEventTypes", params; aws_config=aws_config, feature_set=SERVICE_FEATURE_SET
     )
 end
 
@@ -1297,14 +1309,14 @@ Optional parameters can be passed as a `params::Dict{String,<:Any}`. Valid keys 
 """
 function get_external_models(; aws_config::AbstractAWSConfig=global_aws_config())
     return frauddetector(
-        "GetExternalModels"; aws_config=aws_config, features=SERVICE_FEATURES
+        "GetExternalModels"; aws_config=aws_config, feature_set=SERVICE_FEATURE_SET
     )
 end
 function get_external_models(
     params::AbstractDict{String}; aws_config::AbstractAWSConfig=global_aws_config()
 )
     return frauddetector(
-        "GetExternalModels", params; aws_config=aws_config, features=SERVICE_FEATURES
+        "GetExternalModels", params; aws_config=aws_config, feature_set=SERVICE_FEATURE_SET
     )
 end
 
@@ -1318,14 +1330,17 @@ been specified to be used to encrypt content in Amazon Fraud Detector.
 """
 function get_kmsencryption_key(; aws_config::AbstractAWSConfig=global_aws_config())
     return frauddetector(
-        "GetKMSEncryptionKey"; aws_config=aws_config, features=SERVICE_FEATURES
+        "GetKMSEncryptionKey"; aws_config=aws_config, feature_set=SERVICE_FEATURE_SET
     )
 end
 function get_kmsencryption_key(
     params::AbstractDict{String}; aws_config::AbstractAWSConfig=global_aws_config()
 )
     return frauddetector(
-        "GetKMSEncryptionKey", params; aws_config=aws_config, features=SERVICE_FEATURES
+        "GetKMSEncryptionKey",
+        params;
+        aws_config=aws_config,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -1346,13 +1361,15 @@ Optional parameters can be passed as a `params::Dict{String,<:Any}`. Valid keys 
 - `"nextToken"`: The next token for the subsequent request.
 """
 function get_labels(; aws_config::AbstractAWSConfig=global_aws_config())
-    return frauddetector("GetLabels"; aws_config=aws_config, features=SERVICE_FEATURES)
+    return frauddetector(
+        "GetLabels"; aws_config=aws_config, feature_set=SERVICE_FEATURE_SET
+    )
 end
 function get_labels(
     params::AbstractDict{String}; aws_config::AbstractAWSConfig=global_aws_config()
 )
     return frauddetector(
-        "GetLabels", params; aws_config=aws_config, features=SERVICE_FEATURES
+        "GetLabels", params; aws_config=aws_config, feature_set=SERVICE_FEATURE_SET
     )
 end
 
@@ -1382,7 +1399,7 @@ function get_model_version(
             "modelVersionNumber" => modelVersionNumber,
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function get_model_version(
@@ -1406,7 +1423,7 @@ function get_model_version(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -1431,13 +1448,15 @@ Optional parameters can be passed as a `params::Dict{String,<:Any}`. Valid keys 
 - `"nextToken"`: The next token for the subsequent request.
 """
 function get_models(; aws_config::AbstractAWSConfig=global_aws_config())
-    return frauddetector("GetModels"; aws_config=aws_config, features=SERVICE_FEATURES)
+    return frauddetector(
+        "GetModels"; aws_config=aws_config, feature_set=SERVICE_FEATURE_SET
+    )
 end
 function get_models(
     params::AbstractDict{String}; aws_config::AbstractAWSConfig=global_aws_config()
 )
     return frauddetector(
-        "GetModels", params; aws_config=aws_config, features=SERVICE_FEATURES
+        "GetModels", params; aws_config=aws_config, feature_set=SERVICE_FEATURE_SET
     )
 end
 
@@ -1458,13 +1477,15 @@ Optional parameters can be passed as a `params::Dict{String,<:Any}`. Valid keys 
 - `"nextToken"`: The next page token for the request.
 """
 function get_outcomes(; aws_config::AbstractAWSConfig=global_aws_config())
-    return frauddetector("GetOutcomes"; aws_config=aws_config, features=SERVICE_FEATURES)
+    return frauddetector(
+        "GetOutcomes"; aws_config=aws_config, feature_set=SERVICE_FEATURE_SET
+    )
 end
 function get_outcomes(
     params::AbstractDict{String}; aws_config::AbstractAWSConfig=global_aws_config()
 )
     return frauddetector(
-        "GetOutcomes", params; aws_config=aws_config, features=SERVICE_FEATURES
+        "GetOutcomes", params; aws_config=aws_config, feature_set=SERVICE_FEATURE_SET
     )
 end
 
@@ -1495,7 +1516,7 @@ function get_rules(detectorId; aws_config::AbstractAWSConfig=global_aws_config()
         "GetRules",
         Dict{String,Any}("detectorId" => detectorId);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function get_rules(
@@ -1509,7 +1530,7 @@ function get_rules(
             mergewith(_merge, Dict{String,Any}("detectorId" => detectorId), params)
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -1530,13 +1551,15 @@ Optional parameters can be passed as a `params::Dict{String,<:Any}`. Valid keys 
 - `"nextToken"`: The next page token of the get variable request.
 """
 function get_variables(; aws_config::AbstractAWSConfig=global_aws_config())
-    return frauddetector("GetVariables"; aws_config=aws_config, features=SERVICE_FEATURES)
+    return frauddetector(
+        "GetVariables"; aws_config=aws_config, feature_set=SERVICE_FEATURE_SET
+    )
 end
 function get_variables(
     params::AbstractDict{String}; aws_config::AbstractAWSConfig=global_aws_config()
 )
     return frauddetector(
-        "GetVariables", params; aws_config=aws_config, features=SERVICE_FEATURES
+        "GetVariables", params; aws_config=aws_config, feature_set=SERVICE_FEATURE_SET
     )
 end
 
@@ -1563,7 +1586,7 @@ function list_tags_for_resource(
         "ListTagsForResource",
         Dict{String,Any}("resourceARN" => resourceARN);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function list_tags_for_resource(
@@ -1577,7 +1600,7 @@ function list_tags_for_resource(
             mergewith(_merge, Dict{String,Any}("resourceARN" => resourceARN), params)
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -1603,7 +1626,7 @@ function put_detector(
         "PutDetector",
         Dict{String,Any}("detectorId" => detectorId, "eventTypeName" => eventTypeName);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function put_detector(
@@ -1624,7 +1647,7 @@ function put_detector(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -1650,7 +1673,7 @@ function put_entity_type(name; aws_config::AbstractAWSConfig=global_aws_config()
         "PutEntityType",
         Dict{String,Any}("name" => name);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function put_entity_type(
@@ -1660,7 +1683,7 @@ function put_entity_type(
         "PutEntityType",
         Dict{String,Any}(mergewith(_merge, Dict{String,Any}("name" => name), params));
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -1696,7 +1719,7 @@ function put_event_type(
             "entityTypes" => entityTypes, "eventVariables" => eventVariables, "name" => name
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function put_event_type(
@@ -1720,7 +1743,7 @@ function put_event_type(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -1764,7 +1787,7 @@ function put_external_model(
             "outputConfiguration" => outputConfiguration,
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function put_external_model(
@@ -1794,7 +1817,7 @@ function put_external_model(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -1816,7 +1839,7 @@ function put_kmsencryption_key(
         "PutKMSEncryptionKey",
         Dict{String,Any}("kmsEncryptionKeyArn" => kmsEncryptionKeyArn);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function put_kmsencryption_key(
@@ -1834,7 +1857,7 @@ function put_kmsencryption_key(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -1859,7 +1882,7 @@ function put_label(name; aws_config::AbstractAWSConfig=global_aws_config())
         "PutLabel",
         Dict{String,Any}("name" => name);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function put_label(
@@ -1869,7 +1892,7 @@ function put_label(
         "PutLabel",
         Dict{String,Any}(mergewith(_merge, Dict{String,Any}("name" => name), params));
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -1892,7 +1915,7 @@ function put_outcome(name; aws_config::AbstractAWSConfig=global_aws_config())
         "PutOutcome",
         Dict{String,Any}("name" => name);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function put_outcome(
@@ -1902,7 +1925,7 @@ function put_outcome(
         "PutOutcome",
         Dict{String,Any}(mergewith(_merge, Dict{String,Any}("name" => name), params));
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -1922,7 +1945,7 @@ function tag_resource(resourceARN, tags; aws_config::AbstractAWSConfig=global_aw
         "TagResource",
         Dict{String,Any}("resourceARN" => resourceARN, "tags" => tags);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function tag_resource(
@@ -1941,7 +1964,7 @@ function tag_resource(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -1963,7 +1986,7 @@ function untag_resource(
         "UntagResource",
         Dict{String,Any}("resourceARN" => resourceARN, "tagKeys" => tagKeys);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function untag_resource(
@@ -1982,7 +2005,7 @@ function untag_resource(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -2028,7 +2051,7 @@ function update_detector_version(
             "rules" => rules,
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function update_detector_version(
@@ -2054,7 +2077,7 @@ function update_detector_version(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -2085,7 +2108,7 @@ function update_detector_version_metadata(
             "detectorVersionId" => detectorVersionId,
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function update_detector_version_metadata(
@@ -2109,7 +2132,7 @@ function update_detector_version_metadata(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -2138,7 +2161,7 @@ function update_detector_version_status(
             "status" => status,
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function update_detector_version_status(
@@ -2162,7 +2185,7 @@ function update_detector_version_status(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -2185,7 +2208,7 @@ function update_model(modelId, modelType; aws_config::AbstractAWSConfig=global_a
         "UpdateModel",
         Dict{String,Any}("modelId" => modelId, "modelType" => modelType);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function update_model(
@@ -2204,7 +2227,7 @@ function update_model(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -2241,7 +2264,7 @@ function update_model_version(
             "modelType" => modelType,
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function update_model_version(
@@ -2265,7 +2288,7 @@ function update_model_version(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -2299,7 +2322,7 @@ function update_model_version_status(
             "status" => status,
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function update_model_version_status(
@@ -2325,7 +2348,7 @@ function update_model_version_status(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -2347,7 +2370,7 @@ function update_rule_metadata(
         "UpdateRuleMetadata",
         Dict{String,Any}("description" => description, "rule" => rule);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function update_rule_metadata(
@@ -2366,7 +2389,7 @@ function update_rule_metadata(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -2400,7 +2423,7 @@ function update_rule_version(
             "rule" => rule,
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function update_rule_version(
@@ -2426,7 +2449,7 @@ function update_rule_version(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -2450,7 +2473,7 @@ function update_variable(name; aws_config::AbstractAWSConfig=global_aws_config()
         "UpdateVariable",
         Dict{String,Any}("name" => name);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function update_variable(
@@ -2460,6 +2483,6 @@ function update_variable(
         "UpdateVariable",
         Dict{String,Any}(mergewith(_merge, Dict{String,Any}("name" => name), params));
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end

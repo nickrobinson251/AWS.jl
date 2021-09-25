@@ -22,7 +22,7 @@ function batch_execute_statement(
         "BatchExecuteStatement",
         Dict{String,Any}("Statements" => Statements);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function batch_execute_statement(
@@ -36,7 +36,7 @@ function batch_execute_statement(
             mergewith(_merge, Dict{String,Any}("Statements" => Statements), params)
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -118,7 +118,7 @@ function batch_get_item(RequestItems; aws_config::AbstractAWSConfig=global_aws_c
         "BatchGetItem",
         Dict{String,Any}("RequestItems" => RequestItems);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function batch_get_item(
@@ -132,7 +132,7 @@ function batch_get_item(
             mergewith(_merge, Dict{String,Any}("RequestItems" => RequestItems), params)
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -214,7 +214,7 @@ function batch_write_item(RequestItems; aws_config::AbstractAWSConfig=global_aws
         "BatchWriteItem",
         Dict{String,Any}("RequestItems" => RequestItems);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function batch_write_item(
@@ -228,7 +228,7 @@ function batch_write_item(
             mergewith(_merge, Dict{String,Any}("RequestItems" => RequestItems), params)
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -263,7 +263,7 @@ function create_backup(
         "CreateBackup",
         Dict{String,Any}("BackupName" => BackupName, "TableName" => TableName);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function create_backup(
@@ -282,7 +282,7 @@ function create_backup(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -324,7 +324,7 @@ function create_global_table(
             "GlobalTableName" => GlobalTableName, "ReplicationGroup" => ReplicationGroup
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function create_global_table(
@@ -346,7 +346,7 @@ function create_global_table(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -461,7 +461,7 @@ function create_table(
             "TableName" => TableName,
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function create_table(
@@ -485,7 +485,7 @@ function create_table(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -505,7 +505,7 @@ function delete_backup(BackupArn; aws_config::AbstractAWSConfig=global_aws_confi
         "DeleteBackup",
         Dict{String,Any}("BackupArn" => BackupArn);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function delete_backup(
@@ -519,7 +519,7 @@ function delete_backup(
             mergewith(_merge, Dict{String,Any}("BackupArn" => BackupArn), params)
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -598,7 +598,7 @@ function delete_item(Key, TableName; aws_config::AbstractAWSConfig=global_aws_co
         "DeleteItem",
         Dict{String,Any}("Key" => Key, "TableName" => TableName);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function delete_item(
@@ -615,7 +615,7 @@ function delete_item(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -644,7 +644,7 @@ function delete_table(TableName; aws_config::AbstractAWSConfig=global_aws_config
         "DeleteTable",
         Dict{String,Any}("TableName" => TableName);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function delete_table(
@@ -658,7 +658,7 @@ function delete_table(
             mergewith(_merge, Dict{String,Any}("TableName" => TableName), params)
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -678,7 +678,7 @@ function describe_backup(BackupArn; aws_config::AbstractAWSConfig=global_aws_con
         "DescribeBackup",
         Dict{String,Any}("BackupArn" => BackupArn);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function describe_backup(
@@ -692,7 +692,7 @@ function describe_backup(
             mergewith(_merge, Dict{String,Any}("BackupArn" => BackupArn), params)
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -721,7 +721,7 @@ function describe_continuous_backups(
         "DescribeContinuousBackups",
         Dict{String,Any}("TableName" => TableName);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function describe_continuous_backups(
@@ -735,7 +735,7 @@ function describe_continuous_backups(
             mergewith(_merge, Dict{String,Any}("TableName" => TableName), params)
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -759,7 +759,7 @@ function describe_contributor_insights(
         "DescribeContributorInsights",
         Dict{String,Any}("TableName" => TableName);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function describe_contributor_insights(
@@ -773,7 +773,7 @@ function describe_contributor_insights(
             mergewith(_merge, Dict{String,Any}("TableName" => TableName), params)
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -785,13 +785,15 @@ Returns the regional endpoint information.
 
 """
 function describe_endpoints(; aws_config::AbstractAWSConfig=global_aws_config())
-    return dynamodb("DescribeEndpoints"; aws_config=aws_config, features=SERVICE_FEATURES)
+    return dynamodb(
+        "DescribeEndpoints"; aws_config=aws_config, feature_set=SERVICE_FEATURE_SET
+    )
 end
 function describe_endpoints(
     params::AbstractDict{String}; aws_config::AbstractAWSConfig=global_aws_config()
 )
     return dynamodb(
-        "DescribeEndpoints", params; aws_config=aws_config, features=SERVICE_FEATURES
+        "DescribeEndpoints", params; aws_config=aws_config, feature_set=SERVICE_FEATURE_SET
     )
 end
 
@@ -810,7 +812,7 @@ function describe_export(ExportArn; aws_config::AbstractAWSConfig=global_aws_con
         "DescribeExport",
         Dict{String,Any}("ExportArn" => ExportArn);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function describe_export(
@@ -824,7 +826,7 @@ function describe_export(
             mergewith(_merge, Dict{String,Any}("ExportArn" => ExportArn), params)
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -847,7 +849,7 @@ function describe_global_table(
         "DescribeGlobalTable",
         Dict{String,Any}("GlobalTableName" => GlobalTableName);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function describe_global_table(
@@ -863,7 +865,7 @@ function describe_global_table(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -885,7 +887,7 @@ function describe_global_table_settings(
         "DescribeGlobalTableSettings",
         Dict{String,Any}("GlobalTableName" => GlobalTableName);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function describe_global_table_settings(
@@ -901,7 +903,7 @@ function describe_global_table_settings(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -922,7 +924,7 @@ function describe_kinesis_streaming_destination(
         "DescribeKinesisStreamingDestination",
         Dict{String,Any}("TableName" => TableName);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function describe_kinesis_streaming_destination(
@@ -936,7 +938,7 @@ function describe_kinesis_streaming_destination(
             mergewith(_merge, Dict{String,Any}("TableName" => TableName), params)
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -977,13 +979,15 @@ no content.
 
 """
 function describe_limits(; aws_config::AbstractAWSConfig=global_aws_config())
-    return dynamodb("DescribeLimits"; aws_config=aws_config, features=SERVICE_FEATURES)
+    return dynamodb(
+        "DescribeLimits"; aws_config=aws_config, feature_set=SERVICE_FEATURE_SET
+    )
 end
 function describe_limits(
     params::AbstractDict{String}; aws_config::AbstractAWSConfig=global_aws_config()
 )
     return dynamodb(
-        "DescribeLimits", params; aws_config=aws_config, features=SERVICE_FEATURES
+        "DescribeLimits", params; aws_config=aws_config, feature_set=SERVICE_FEATURE_SET
     )
 end
 
@@ -1007,7 +1011,7 @@ function describe_table(TableName; aws_config::AbstractAWSConfig=global_aws_conf
         "DescribeTable",
         Dict{String,Any}("TableName" => TableName);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function describe_table(
@@ -1021,7 +1025,7 @@ function describe_table(
             mergewith(_merge, Dict{String,Any}("TableName" => TableName), params)
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -1043,7 +1047,7 @@ function describe_table_replica_auto_scaling(
         "DescribeTableReplicaAutoScaling",
         Dict{String,Any}("TableName" => TableName);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function describe_table_replica_auto_scaling(
@@ -1057,7 +1061,7 @@ function describe_table_replica_auto_scaling(
             mergewith(_merge, Dict{String,Any}("TableName" => TableName), params)
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -1076,7 +1080,7 @@ function describe_time_to_live(TableName; aws_config::AbstractAWSConfig=global_a
         "DescribeTimeToLive",
         Dict{String,Any}("TableName" => TableName);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function describe_time_to_live(
@@ -1090,7 +1094,7 @@ function describe_time_to_live(
             mergewith(_merge, Dict{String,Any}("TableName" => TableName), params)
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -1113,7 +1117,7 @@ function disable_kinesis_streaming_destination(
         "DisableKinesisStreamingDestination",
         Dict{String,Any}("StreamArn" => StreamArn, "TableName" => TableName);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function disable_kinesis_streaming_destination(
@@ -1132,7 +1136,7 @@ function disable_kinesis_streaming_destination(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -1157,7 +1161,7 @@ function enable_kinesis_streaming_destination(
         "EnableKinesisStreamingDestination",
         Dict{String,Any}("StreamArn" => StreamArn, "TableName" => TableName);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function enable_kinesis_streaming_destination(
@@ -1176,7 +1180,7 @@ function enable_kinesis_streaming_destination(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -1203,7 +1207,7 @@ function execute_statement(Statement; aws_config::AbstractAWSConfig=global_aws_c
         "ExecuteStatement",
         Dict{String,Any}("Statement" => Statement);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function execute_statement(
@@ -1217,7 +1221,7 @@ function execute_statement(
             mergewith(_merge, Dict{String,Any}("Statement" => Statement), params)
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -1247,7 +1251,7 @@ function execute_transaction(
             "ClientRequestToken" => string(uuid4()),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function execute_transaction(
@@ -1268,7 +1272,7 @@ function execute_transaction(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -1316,7 +1320,7 @@ function export_table_to_point_in_time(
             "S3Bucket" => S3Bucket, "TableArn" => TableArn, "ClientToken" => string(uuid4())
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function export_table_to_point_in_time(
@@ -1339,7 +1343,7 @@ function export_table_to_point_in_time(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -1397,7 +1401,7 @@ function get_item(Key, TableName; aws_config::AbstractAWSConfig=global_aws_confi
         "GetItem",
         Dict{String,Any}("Key" => Key, "TableName" => TableName);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function get_item(
@@ -1414,7 +1418,7 @@ function get_item(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -1447,12 +1451,14 @@ Optional parameters can be passed as a `params::Dict{String,<:Any}`. Valid keys 
   TimeRangeUpperBound is exclusive.
 """
 function list_backups(; aws_config::AbstractAWSConfig=global_aws_config())
-    return dynamodb("ListBackups"; aws_config=aws_config, features=SERVICE_FEATURES)
+    return dynamodb("ListBackups"; aws_config=aws_config, feature_set=SERVICE_FEATURE_SET)
 end
 function list_backups(
     params::AbstractDict{String}; aws_config::AbstractAWSConfig=global_aws_config()
 )
-    return dynamodb("ListBackups", params; aws_config=aws_config, features=SERVICE_FEATURES)
+    return dynamodb(
+        "ListBackups", params; aws_config=aws_config, feature_set=SERVICE_FEATURE_SET
+    )
 end
 
 """
@@ -1470,14 +1476,17 @@ Optional parameters can be passed as a `params::Dict{String,<:Any}`. Valid keys 
 """
 function list_contributor_insights(; aws_config::AbstractAWSConfig=global_aws_config())
     return dynamodb(
-        "ListContributorInsights"; aws_config=aws_config, features=SERVICE_FEATURES
+        "ListContributorInsights"; aws_config=aws_config, feature_set=SERVICE_FEATURE_SET
     )
 end
 function list_contributor_insights(
     params::AbstractDict{String}; aws_config::AbstractAWSConfig=global_aws_config()
 )
     return dynamodb(
-        "ListContributorInsights", params; aws_config=aws_config, features=SERVICE_FEATURES
+        "ListContributorInsights",
+        params;
+        aws_config=aws_config,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -1496,12 +1505,14 @@ Optional parameters can be passed as a `params::Dict{String,<:Any}`. Valid keys 
 - `"TableArn"`: The Amazon Resource Name (ARN) associated with the exported table.
 """
 function list_exports(; aws_config::AbstractAWSConfig=global_aws_config())
-    return dynamodb("ListExports"; aws_config=aws_config, features=SERVICE_FEATURES)
+    return dynamodb("ListExports"; aws_config=aws_config, feature_set=SERVICE_FEATURE_SET)
 end
 function list_exports(
     params::AbstractDict{String}; aws_config::AbstractAWSConfig=global_aws_config()
 )
-    return dynamodb("ListExports", params; aws_config=aws_config, features=SERVICE_FEATURES)
+    return dynamodb(
+        "ListExports", params; aws_config=aws_config, feature_set=SERVICE_FEATURE_SET
+    )
 end
 
 """
@@ -1523,13 +1534,15 @@ Optional parameters can be passed as a `params::Dict{String,<:Any}`. Valid keys 
 - `"RegionName"`: Lists the global tables in a specific Region.
 """
 function list_global_tables(; aws_config::AbstractAWSConfig=global_aws_config())
-    return dynamodb("ListGlobalTables"; aws_config=aws_config, features=SERVICE_FEATURES)
+    return dynamodb(
+        "ListGlobalTables"; aws_config=aws_config, feature_set=SERVICE_FEATURE_SET
+    )
 end
 function list_global_tables(
     params::AbstractDict{String}; aws_config::AbstractAWSConfig=global_aws_config()
 )
     return dynamodb(
-        "ListGlobalTables", params; aws_config=aws_config, features=SERVICE_FEATURES
+        "ListGlobalTables", params; aws_config=aws_config, feature_set=SERVICE_FEATURE_SET
     )
 end
 
@@ -1549,12 +1562,14 @@ Optional parameters can be passed as a `params::Dict{String,<:Any}`. Valid keys 
   the limit is 100.
 """
 function list_tables(; aws_config::AbstractAWSConfig=global_aws_config())
-    return dynamodb("ListTables"; aws_config=aws_config, features=SERVICE_FEATURES)
+    return dynamodb("ListTables"; aws_config=aws_config, feature_set=SERVICE_FEATURE_SET)
 end
 function list_tables(
     params::AbstractDict{String}; aws_config::AbstractAWSConfig=global_aws_config()
 )
-    return dynamodb("ListTables", params; aws_config=aws_config, features=SERVICE_FEATURES)
+    return dynamodb(
+        "ListTables", params; aws_config=aws_config, feature_set=SERVICE_FEATURE_SET
+    )
 end
 
 """
@@ -1582,7 +1597,7 @@ function list_tags_of_resource(
         "ListTagsOfResource",
         Dict{String,Any}("ResourceArn" => ResourceArn);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function list_tags_of_resource(
@@ -1596,7 +1611,7 @@ function list_tags_of_resource(
             mergewith(_merge, Dict{String,Any}("ResourceArn" => ResourceArn), params)
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -1696,7 +1711,7 @@ function put_item(Item, TableName; aws_config::AbstractAWSConfig=global_aws_conf
         "PutItem",
         Dict{String,Any}("Item" => Item, "TableName" => TableName);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function put_item(
@@ -1713,7 +1728,7 @@ function put_item(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -1896,7 +1911,7 @@ function query(TableName; aws_config::AbstractAWSConfig=global_aws_config())
         "Query",
         Dict{String,Any}("TableName" => TableName);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function query(
@@ -1910,7 +1925,7 @@ function query(
             mergewith(_merge, Dict{String,Any}("TableName" => TableName), params)
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -1948,7 +1963,7 @@ function restore_table_from_backup(
         "RestoreTableFromBackup",
         Dict{String,Any}("BackupArn" => BackupArn, "TargetTableName" => TargetTableName);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function restore_table_from_backup(
@@ -1969,7 +1984,7 @@ function restore_table_from_backup(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -2019,7 +2034,7 @@ function restore_table_to_point_in_time(
         "RestoreTableToPointInTime",
         Dict{String,Any}("TargetTableName" => TargetTableName);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function restore_table_to_point_in_time(
@@ -2035,7 +2050,7 @@ function restore_table_to_point_in_time(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -2183,7 +2198,7 @@ function scan(TableName; aws_config::AbstractAWSConfig=global_aws_config())
         "Scan",
         Dict{String,Any}("TableName" => TableName);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function scan(
@@ -2197,7 +2212,7 @@ function scan(
             mergewith(_merge, Dict{String,Any}("TableName" => TableName), params)
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -2222,7 +2237,7 @@ function tag_resource(ResourceArn, Tags; aws_config::AbstractAWSConfig=global_aw
         "TagResource",
         Dict{String,Any}("ResourceArn" => ResourceArn, "Tags" => Tags);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function tag_resource(
@@ -2241,7 +2256,7 @@ function tag_resource(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -2278,7 +2293,7 @@ function transact_get_items(
         "TransactGetItems",
         Dict{String,Any}("TransactItems" => TransactItems);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function transact_get_items(
@@ -2292,7 +2307,7 @@ function transact_get_items(
             mergewith(_merge, Dict{String,Any}("TransactItems" => TransactItems), params)
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -2368,7 +2383,7 @@ function transact_write_items(
             "TransactItems" => TransactItems, "ClientRequestToken" => string(uuid4())
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function transact_write_items(
@@ -2389,7 +2404,7 @@ function transact_write_items(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -2415,7 +2430,7 @@ function untag_resource(
         "UntagResource",
         Dict{String,Any}("ResourceArn" => ResourceArn, "TagKeys" => TagKeys);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function untag_resource(
@@ -2434,7 +2449,7 @@ function untag_resource(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -2469,7 +2484,7 @@ function update_continuous_backups(
             "TableName" => TableName,
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function update_continuous_backups(
@@ -2491,7 +2506,7 @@ function update_continuous_backups(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -2519,7 +2534,7 @@ function update_contributor_insights(
             "TableName" => TableName,
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function update_contributor_insights(
@@ -2541,7 +2556,7 @@ function update_contributor_insights(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -2575,7 +2590,7 @@ function update_global_table(
             "GlobalTableName" => GlobalTableName, "ReplicaUpdates" => ReplicaUpdates
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function update_global_table(
@@ -2596,7 +2611,7 @@ function update_global_table(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -2633,7 +2648,7 @@ function update_global_table_settings(
         "UpdateGlobalTableSettings",
         Dict{String,Any}("GlobalTableName" => GlobalTableName);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function update_global_table_settings(
@@ -2649,7 +2664,7 @@ function update_global_table_settings(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -2773,7 +2788,7 @@ function update_item(Key, TableName; aws_config::AbstractAWSConfig=global_aws_co
         "UpdateItem",
         Dict{String,Any}("Key" => Key, "TableName" => TableName);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function update_item(
@@ -2790,7 +2805,7 @@ function update_item(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -2845,7 +2860,7 @@ function update_table(TableName; aws_config::AbstractAWSConfig=global_aws_config
         "UpdateTable",
         Dict{String,Any}("TableName" => TableName);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function update_table(
@@ -2859,7 +2874,7 @@ function update_table(
             mergewith(_merge, Dict{String,Any}("TableName" => TableName), params)
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -2888,7 +2903,7 @@ function update_table_replica_auto_scaling(
         "UpdateTableReplicaAutoScaling",
         Dict{String,Any}("TableName" => TableName);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function update_table_replica_auto_scaling(
@@ -2902,7 +2917,7 @@ function update_table_replica_auto_scaling(
             mergewith(_merge, Dict{String,Any}("TableName" => TableName), params)
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -2942,7 +2957,7 @@ function update_time_to_live(
             "TableName" => TableName, "TimeToLiveSpecification" => TimeToLiveSpecification
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function update_time_to_live(
@@ -2964,6 +2979,6 @@ function update_time_to_live(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end

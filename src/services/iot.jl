@@ -27,7 +27,7 @@ function accept_certificate_transfer(
         "PATCH",
         "/accept-certificate-transfer/$(certificateId)";
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function accept_certificate_transfer(
@@ -40,7 +40,7 @@ function accept_certificate_transfer(
         "/accept-certificate-transfer/$(certificateId)",
         params;
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -63,7 +63,7 @@ function add_thing_to_billing_group(; aws_config::AbstractAWSConfig=global_aws_c
         "PUT",
         "/billing-groups/addThingToBillingGroup";
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function add_thing_to_billing_group(
@@ -74,7 +74,7 @@ function add_thing_to_billing_group(
         "/billing-groups/addThingToBillingGroup",
         params;
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -101,7 +101,7 @@ function add_thing_to_thing_group(; aws_config::AbstractAWSConfig=global_aws_con
         "PUT",
         "/thing-groups/addThingToThingGroup";
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function add_thing_to_thing_group(
@@ -112,7 +112,7 @@ function add_thing_to_thing_group(
         "/thing-groups/addThingToThingGroup",
         params;
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -147,7 +147,7 @@ function associate_targets_with_job(
         "/jobs/$(jobId)/targets",
         Dict{String,Any}("targets" => targets);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function associate_targets_with_job(
@@ -161,7 +161,7 @@ function associate_targets_with_job(
         "/jobs/$(jobId)/targets",
         Dict{String,Any}(mergewith(_merge, Dict{String,Any}("targets" => targets), params));
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -186,7 +186,7 @@ function attach_policy(
         "/target-policies/$(policyName)",
         Dict{String,Any}("target" => target);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function attach_policy(
@@ -200,7 +200,7 @@ function attach_policy(
         "/target-policies/$(policyName)",
         Dict{String,Any}(mergewith(_merge, Dict{String,Any}("target" => target), params));
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -228,7 +228,7 @@ function attach_principal_policy(
             "headers" => Dict{String,Any}("x-amzn-iot-principal" => x_amzn_iot_principal)
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function attach_principal_policy(
@@ -251,7 +251,7 @@ function attach_principal_policy(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -279,7 +279,7 @@ function attach_security_profile(
         "/security-profiles/$(securityProfileName)/targets",
         Dict{String,Any}("securityProfileTargetArn" => securityProfileTargetArn);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function attach_security_profile(
@@ -299,7 +299,7 @@ function attach_security_profile(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -327,7 +327,7 @@ function attach_thing_principal(
             "headers" => Dict{String,Any}("x-amzn-principal" => x_amzn_principal)
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function attach_thing_principal(
@@ -349,7 +349,7 @@ function attach_thing_principal(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -372,7 +372,7 @@ function cancel_audit_mitigation_actions_task(
         "PUT",
         "/audit/mitigationactions/tasks/$(taskId)/cancel";
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function cancel_audit_mitigation_actions_task(
@@ -383,7 +383,7 @@ function cancel_audit_mitigation_actions_task(
         "/audit/mitigationactions/tasks/$(taskId)/cancel",
         params;
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -405,7 +405,7 @@ function cancel_audit_task(taskId; aws_config::AbstractAWSConfig=global_aws_conf
         "PUT",
         "/audit/tasks/$(taskId)/cancel";
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function cancel_audit_task(
@@ -416,7 +416,7 @@ function cancel_audit_task(
         "/audit/tasks/$(taskId)/cancel",
         params;
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -444,7 +444,7 @@ function cancel_certificate_transfer(
         "PATCH",
         "/cancel-certificate-transfer/$(certificateId)";
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function cancel_certificate_transfer(
@@ -457,7 +457,7 @@ function cancel_certificate_transfer(
         "/cancel-certificate-transfer/$(certificateId)",
         params;
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -479,7 +479,7 @@ function cancel_detect_mitigation_actions_task(
         "PUT",
         "/detect/mitigationactions/tasks/$(taskId)/cancel";
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function cancel_detect_mitigation_actions_task(
@@ -490,7 +490,7 @@ function cancel_detect_mitigation_actions_task(
         "/detect/mitigationactions/tasks/$(taskId)/cancel",
         params;
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -515,7 +515,10 @@ Optional parameters can be passed as a `params::Dict{String,<:Any}`. Valid keys 
 """
 function cancel_job(jobId; aws_config::AbstractAWSConfig=global_aws_config())
     return iot(
-        "PUT", "/jobs/$(jobId)/cancel"; aws_config=aws_config, features=SERVICE_FEATURES
+        "PUT",
+        "/jobs/$(jobId)/cancel";
+        aws_config=aws_config,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function cancel_job(
@@ -526,7 +529,7 @@ function cancel_job(
         "/jobs/$(jobId)/cancel",
         params;
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -567,7 +570,7 @@ function cancel_job_execution(
         "PUT",
         "/things/$(thingName)/jobs/$(jobId)/cancel";
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function cancel_job_execution(
@@ -581,7 +584,7 @@ function cancel_job_execution(
         "/things/$(thingName)/jobs/$(jobId)/cancel",
         params;
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -595,7 +598,10 @@ action.
 """
 function clear_default_authorizer(; aws_config::AbstractAWSConfig=global_aws_config())
     return iot(
-        "DELETE", "/default-authorizer"; aws_config=aws_config, features=SERVICE_FEATURES
+        "DELETE",
+        "/default-authorizer";
+        aws_config=aws_config,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function clear_default_authorizer(
@@ -606,7 +612,7 @@ function clear_default_authorizer(
         "/default-authorizer",
         params;
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -632,7 +638,7 @@ function confirm_topic_rule_destination(
         "GET",
         "/confirmdestination/$(confirmationToken)";
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function confirm_topic_rule_destination(
@@ -645,7 +651,7 @@ function confirm_topic_rule_destination(
         "/confirmdestination/$(confirmationToken)",
         params;
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -686,7 +692,7 @@ function create_audit_suppression(
             "resourceIdentifier" => resourceIdentifier,
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function create_audit_suppression(
@@ -711,7 +717,7 @@ function create_audit_suppression(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -747,7 +753,7 @@ function create_authorizer(
         "/authorizer/$(authorizerName)",
         Dict{String,Any}("authorizerFunctionArn" => authorizerFunctionArn);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function create_authorizer(
@@ -767,7 +773,7 @@ function create_authorizer(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -792,7 +798,7 @@ function create_billing_group(
         "POST",
         "/billing-groups/$(billingGroupName)";
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function create_billing_group(
@@ -805,7 +811,7 @@ function create_billing_group(
         "/billing-groups/$(billingGroupName)",
         params;
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -851,7 +857,7 @@ function create_certificate_from_csr(
         "/certificates",
         Dict{String,Any}("certificateSigningRequest" => certificateSigningRequest);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function create_certificate_from_csr(
@@ -870,7 +876,7 @@ function create_certificate_from_csr(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -911,7 +917,7 @@ function create_custom_metric(
             "clientRequestToken" => clientRequestToken, "metricType" => metricType
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function create_custom_metric(
@@ -934,7 +940,7 @@ function create_custom_metric(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -979,7 +985,7 @@ function create_dimension(
             "type" => type,
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function create_dimension(
@@ -1005,7 +1011,7 @@ function create_dimension(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -1044,7 +1050,7 @@ function create_domain_configuration(
         "POST",
         "/domainConfigurations/$(domainConfigurationName)";
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function create_domain_configuration(
@@ -1057,7 +1063,7 @@ function create_domain_configuration(
         "/domainConfigurations/$(domainConfigurationName)",
         params;
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -1090,7 +1096,7 @@ function create_dynamic_thing_group(
         "/dynamic-thing-groups/$(thingGroupName)",
         Dict{String,Any}("queryString" => queryString);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function create_dynamic_thing_group(
@@ -1106,7 +1112,7 @@ function create_dynamic_thing_group(
             mergewith(_merge, Dict{String,Any}("queryString" => queryString), params)
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -1151,7 +1157,7 @@ function create_fleet_metric(
             "queryString" => queryString,
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function create_fleet_metric(
@@ -1179,7 +1185,7 @@ function create_fleet_metric(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -1229,7 +1235,7 @@ function create_job(jobId, targets; aws_config::AbstractAWSConfig=global_aws_con
         "/jobs/$(jobId)",
         Dict{String,Any}("targets" => targets);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function create_job(
@@ -1243,7 +1249,7 @@ function create_job(
         "/jobs/$(jobId)",
         Dict{String,Any}(mergewith(_merge, Dict{String,Any}("targets" => targets), params));
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -1281,7 +1287,7 @@ function create_job_template(
         "/job-templates/$(jobTemplateId)",
         Dict{String,Any}("description" => description);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function create_job_template(
@@ -1297,7 +1303,7 @@ function create_job_template(
             mergewith(_merge, Dict{String,Any}("description" => description), params)
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -1317,7 +1323,10 @@ Optional parameters can be passed as a `params::Dict{String,<:Any}`. Valid keys 
 """
 function create_keys_and_certificate(; aws_config::AbstractAWSConfig=global_aws_config())
     return iot(
-        "POST", "/keys-and-certificate"; aws_config=aws_config, features=SERVICE_FEATURES
+        "POST",
+        "/keys-and-certificate";
+        aws_config=aws_config,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function create_keys_and_certificate(
@@ -1328,7 +1337,7 @@ function create_keys_and_certificate(
         "/keys-and-certificate",
         params;
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -1360,7 +1369,7 @@ function create_mitigation_action(
         "/mitigationactions/actions/$(actionName)",
         Dict{String,Any}("actionParams" => actionParams, "roleArn" => roleArn);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function create_mitigation_action(
@@ -1381,7 +1390,7 @@ function create_mitigation_action(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -1430,7 +1439,7 @@ function create_otaupdate(
         "/otaUpdates/$(otaUpdateId)",
         Dict{String,Any}("files" => files, "roleArn" => roleArn, "targets" => targets);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function create_otaupdate(
@@ -1454,7 +1463,7 @@ function create_otaupdate(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -1486,7 +1495,7 @@ function create_policy(
         "/policies/$(policyName)",
         Dict{String,Any}("policyDocument" => policyDocument);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function create_policy(
@@ -1502,7 +1511,7 @@ function create_policy(
             mergewith(_merge, Dict{String,Any}("policyDocument" => policyDocument), params)
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -1537,7 +1546,7 @@ function create_policy_version(
         "/policies/$(policyName)/version",
         Dict{String,Any}("policyDocument" => policyDocument);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function create_policy_version(
@@ -1553,7 +1562,7 @@ function create_policy_version(
             mergewith(_merge, Dict{String,Any}("policyDocument" => policyDocument), params)
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -1575,7 +1584,7 @@ function create_provisioning_claim(
         "POST",
         "/provisioning-templates/$(templateName)/provisioning-claim";
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function create_provisioning_claim(
@@ -1588,7 +1597,7 @@ function create_provisioning_claim(
         "/provisioning-templates/$(templateName)/provisioning-claim",
         params;
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -1630,7 +1639,7 @@ function create_provisioning_template(
             "templateName" => templateName,
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function create_provisioning_template(
@@ -1655,7 +1664,7 @@ function create_provisioning_template(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -1682,7 +1691,7 @@ function create_provisioning_template_version(
         "/provisioning-templates/$(templateName)/versions",
         Dict{String,Any}("templateBody" => templateBody);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function create_provisioning_template_version(
@@ -1698,7 +1707,7 @@ function create_provisioning_template_version(
             mergewith(_merge, Dict{String,Any}("templateBody" => templateBody), params)
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -1730,7 +1739,7 @@ function create_role_alias(
         "/role-aliases/$(roleAlias)",
         Dict{String,Any}("roleArn" => roleArn);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function create_role_alias(
@@ -1744,7 +1753,7 @@ function create_role_alias(
         "/role-aliases/$(roleAlias)",
         Dict{String,Any}(mergewith(_merge, Dict{String,Any}("roleArn" => roleArn), params));
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -1786,7 +1795,7 @@ function create_scheduled_audit(
         "/audit/scheduledaudits/$(scheduledAuditName)",
         Dict{String,Any}("frequency" => frequency, "targetCheckNames" => targetCheckNames);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function create_scheduled_audit(
@@ -1809,7 +1818,7 @@ function create_scheduled_audit(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -1848,7 +1857,7 @@ function create_security_profile(
         "POST",
         "/security-profiles/$(securityProfileName)";
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function create_security_profile(
@@ -1861,7 +1870,7 @@ function create_security_profile(
         "/security-profiles/$(securityProfileName)",
         params;
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -1893,7 +1902,7 @@ function create_stream(
         "/streams/$(streamId)",
         Dict{String,Any}("files" => files, "roleArn" => roleArn);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function create_stream(
@@ -1912,7 +1921,7 @@ function create_stream(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -1940,7 +1949,10 @@ Optional parameters can be passed as a `params::Dict{String,<:Any}`. Valid keys 
 """
 function create_thing(thingName; aws_config::AbstractAWSConfig=global_aws_config())
     return iot(
-        "POST", "/things/$(thingName)"; aws_config=aws_config, features=SERVICE_FEATURES
+        "POST",
+        "/things/$(thingName)";
+        aws_config=aws_config,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function create_thing(
@@ -1953,7 +1965,7 @@ function create_thing(
         "/things/$(thingName)",
         params;
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -1981,7 +1993,7 @@ function create_thing_group(
         "POST",
         "/thing-groups/$(thingGroupName)";
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function create_thing_group(
@@ -1994,7 +2006,7 @@ function create_thing_group(
         "/thing-groups/$(thingGroupName)",
         params;
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -2019,7 +2031,7 @@ function create_thing_type(thingTypeName; aws_config::AbstractAWSConfig=global_a
         "POST",
         "/thing-types/$(thingTypeName)";
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function create_thing_type(
@@ -2032,7 +2044,7 @@ function create_thing_type(
         "/thing-types/$(thingTypeName)",
         params;
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -2063,7 +2075,7 @@ function create_topic_rule(
         "/rules/$(ruleName)",
         Dict{String,Any}("topicRulePayload" => topicRulePayload);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function create_topic_rule(
@@ -2081,7 +2093,7 @@ function create_topic_rule(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -2104,7 +2116,7 @@ function create_topic_rule_destination(
         "/destinations",
         Dict{String,Any}("destinationConfiguration" => destinationConfiguration);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function create_topic_rule_destination(
@@ -2123,7 +2135,7 @@ function create_topic_rule_destination(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -2143,7 +2155,10 @@ function delete_account_audit_configuration(;
     aws_config::AbstractAWSConfig=global_aws_config()
 )
     return iot(
-        "DELETE", "/audit/configuration"; aws_config=aws_config, features=SERVICE_FEATURES
+        "DELETE",
+        "/audit/configuration";
+        aws_config=aws_config,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function delete_account_audit_configuration(
@@ -2154,7 +2169,7 @@ function delete_account_audit_configuration(
         "/audit/configuration",
         params;
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -2180,7 +2195,7 @@ function delete_audit_suppression(
             "checkName" => checkName, "resourceIdentifier" => resourceIdentifier
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function delete_audit_suppression(
@@ -2202,7 +2217,7 @@ function delete_audit_suppression(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -2223,7 +2238,7 @@ function delete_authorizer(
         "DELETE",
         "/authorizer/$(authorizerName)";
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function delete_authorizer(
@@ -2236,7 +2251,7 @@ function delete_authorizer(
         "/authorizer/$(authorizerName)",
         params;
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -2262,7 +2277,7 @@ function delete_billing_group(
         "DELETE",
         "/billing-groups/$(billingGroupName)";
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function delete_billing_group(
@@ -2275,7 +2290,7 @@ function delete_billing_group(
         "/billing-groups/$(billingGroupName)",
         params;
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -2298,7 +2313,7 @@ function delete_cacertificate(
         "DELETE",
         "/cacertificate/$(caCertificateId)";
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function delete_cacertificate(
@@ -2311,7 +2326,7 @@ function delete_cacertificate(
         "/cacertificate/$(caCertificateId)",
         params;
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -2341,7 +2356,7 @@ function delete_certificate(
         "DELETE",
         "/certificates/$(certificateId)";
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function delete_certificate(
@@ -2354,7 +2369,7 @@ function delete_certificate(
         "/certificates/$(certificateId)",
         params;
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -2377,7 +2392,7 @@ function delete_custom_metric(metricName; aws_config::AbstractAWSConfig=global_a
         "DELETE",
         "/custom-metric/$(metricName)";
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function delete_custom_metric(
@@ -2390,7 +2405,7 @@ function delete_custom_metric(
         "/custom-metric/$(metricName)",
         params;
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -2407,7 +2422,10 @@ to access the DeleteDimension action.
 """
 function delete_dimension(name; aws_config::AbstractAWSConfig=global_aws_config())
     return iot(
-        "DELETE", "/dimensions/$(name)"; aws_config=aws_config, features=SERVICE_FEATURES
+        "DELETE",
+        "/dimensions/$(name)";
+        aws_config=aws_config,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function delete_dimension(
@@ -2418,7 +2436,7 @@ function delete_dimension(
         "/dimensions/$(name)",
         params;
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -2440,7 +2458,7 @@ function delete_domain_configuration(
         "DELETE",
         "/domainConfigurations/$(domainConfigurationName)";
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function delete_domain_configuration(
@@ -2453,7 +2471,7 @@ function delete_domain_configuration(
         "/domainConfigurations/$(domainConfigurationName)",
         params;
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -2478,7 +2496,7 @@ function delete_dynamic_thing_group(
         "DELETE",
         "/dynamic-thing-groups/$(thingGroupName)";
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function delete_dynamic_thing_group(
@@ -2491,7 +2509,7 @@ function delete_dynamic_thing_group(
         "/dynamic-thing-groups/$(thingGroupName)",
         params;
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -2515,7 +2533,7 @@ function delete_fleet_metric(metricName; aws_config::AbstractAWSConfig=global_aw
         "DELETE",
         "/fleet-metric/$(metricName)";
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function delete_fleet_metric(
@@ -2528,7 +2546,7 @@ function delete_fleet_metric(
         "/fleet-metric/$(metricName)",
         params;
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -2563,13 +2581,19 @@ Optional parameters can be passed as a `params::Dict{String,<:Any}`. Valid keys 
   is in public preview.
 """
 function delete_job(jobId; aws_config::AbstractAWSConfig=global_aws_config())
-    return iot("DELETE", "/jobs/$(jobId)"; aws_config=aws_config, features=SERVICE_FEATURES)
+    return iot(
+        "DELETE", "/jobs/$(jobId)"; aws_config=aws_config, feature_set=SERVICE_FEATURE_SET
+    )
 end
 function delete_job(
     jobId, params::AbstractDict{String}; aws_config::AbstractAWSConfig=global_aws_config()
 )
     return iot(
-        "DELETE", "/jobs/$(jobId)", params; aws_config=aws_config, features=SERVICE_FEATURES
+        "DELETE",
+        "/jobs/$(jobId)",
+        params;
+        aws_config=aws_config,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -2608,7 +2632,7 @@ function delete_job_execution(
         "DELETE",
         "/things/$(thingName)/jobs/$(jobId)/executionNumber/$(executionNumber)";
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function delete_job_execution(
@@ -2623,7 +2647,7 @@ function delete_job_execution(
         "/things/$(thingName)/jobs/$(jobId)/executionNumber/$(executionNumber)",
         params;
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -2644,7 +2668,7 @@ function delete_job_template(
         "DELETE",
         "/job-templates/$(jobTemplateId)";
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function delete_job_template(
@@ -2657,7 +2681,7 @@ function delete_job_template(
         "/job-templates/$(jobTemplateId)",
         params;
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -2679,7 +2703,7 @@ function delete_mitigation_action(
         "DELETE",
         "/mitigationactions/actions/$(actionName)";
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function delete_mitigation_action(
@@ -2692,7 +2716,7 @@ function delete_mitigation_action(
         "/mitigationactions/actions/$(actionName)",
         params;
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -2719,7 +2743,7 @@ function delete_otaupdate(otaUpdateId; aws_config::AbstractAWSConfig=global_aws_
         "DELETE",
         "/otaUpdates/$(otaUpdateId)";
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function delete_otaupdate(
@@ -2732,7 +2756,7 @@ function delete_otaupdate(
         "/otaUpdates/$(otaUpdateId)",
         params;
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -2758,7 +2782,7 @@ function delete_policy(policyName; aws_config::AbstractAWSConfig=global_aws_conf
         "DELETE",
         "/policies/$(policyName)";
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function delete_policy(
@@ -2771,7 +2795,7 @@ function delete_policy(
         "/policies/$(policyName)",
         params;
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -2796,7 +2820,7 @@ function delete_policy_version(
         "DELETE",
         "/policies/$(policyName)/version/$(policyVersionId)";
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function delete_policy_version(
@@ -2810,7 +2834,7 @@ function delete_policy_version(
         "/policies/$(policyName)/version/$(policyVersionId)",
         params;
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -2832,7 +2856,7 @@ function delete_provisioning_template(
         "DELETE",
         "/provisioning-templates/$(templateName)";
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function delete_provisioning_template(
@@ -2845,7 +2869,7 @@ function delete_provisioning_template(
         "/provisioning-templates/$(templateName)",
         params;
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -2868,7 +2892,7 @@ function delete_provisioning_template_version(
         "DELETE",
         "/provisioning-templates/$(templateName)/versions/$(versionId)";
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function delete_provisioning_template_version(
@@ -2882,7 +2906,7 @@ function delete_provisioning_template_version(
         "/provisioning-templates/$(templateName)/versions/$(versionId)",
         params;
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -2896,7 +2920,10 @@ DeleteRegistrationCode action.
 """
 function delete_registration_code(; aws_config::AbstractAWSConfig=global_aws_config())
     return iot(
-        "DELETE", "/registrationcode"; aws_config=aws_config, features=SERVICE_FEATURES
+        "DELETE",
+        "/registrationcode";
+        aws_config=aws_config,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function delete_registration_code(
@@ -2907,7 +2934,7 @@ function delete_registration_code(
         "/registrationcode",
         params;
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -2926,7 +2953,7 @@ function delete_role_alias(roleAlias; aws_config::AbstractAWSConfig=global_aws_c
         "DELETE",
         "/role-aliases/$(roleAlias)";
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function delete_role_alias(
@@ -2939,7 +2966,7 @@ function delete_role_alias(
         "/role-aliases/$(roleAlias)",
         params;
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -2960,7 +2987,7 @@ function delete_scheduled_audit(
         "DELETE",
         "/audit/scheduledaudits/$(scheduledAuditName)";
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function delete_scheduled_audit(
@@ -2973,7 +3000,7 @@ function delete_scheduled_audit(
         "/audit/scheduledaudits/$(scheduledAuditName)",
         params;
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -3000,7 +3027,7 @@ function delete_security_profile(
         "DELETE",
         "/security-profiles/$(securityProfileName)";
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function delete_security_profile(
@@ -3013,7 +3040,7 @@ function delete_security_profile(
         "/security-profiles/$(securityProfileName)",
         params;
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -3029,7 +3056,10 @@ Deletes a stream. Requires permission to access the DeleteStream action.
 """
 function delete_stream(streamId; aws_config::AbstractAWSConfig=global_aws_config())
     return iot(
-        "DELETE", "/streams/$(streamId)"; aws_config=aws_config, features=SERVICE_FEATURES
+        "DELETE",
+        "/streams/$(streamId)";
+        aws_config=aws_config,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function delete_stream(
@@ -3042,7 +3072,7 @@ function delete_stream(
         "/streams/$(streamId)",
         params;
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -3065,7 +3095,10 @@ Optional parameters can be passed as a `params::Dict{String,<:Any}`. Valid keys 
 """
 function delete_thing(thingName; aws_config::AbstractAWSConfig=global_aws_config())
     return iot(
-        "DELETE", "/things/$(thingName)"; aws_config=aws_config, features=SERVICE_FEATURES
+        "DELETE",
+        "/things/$(thingName)";
+        aws_config=aws_config,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function delete_thing(
@@ -3078,7 +3111,7 @@ function delete_thing(
         "/things/$(thingName)",
         params;
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -3102,7 +3135,7 @@ function delete_thing_group(
         "DELETE",
         "/thing-groups/$(thingGroupName)";
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function delete_thing_group(
@@ -3115,7 +3148,7 @@ function delete_thing_group(
         "/thing-groups/$(thingGroupName)",
         params;
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -3138,7 +3171,7 @@ function delete_thing_type(thingTypeName; aws_config::AbstractAWSConfig=global_a
         "DELETE",
         "/thing-types/$(thingTypeName)";
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function delete_thing_type(
@@ -3151,7 +3184,7 @@ function delete_thing_type(
         "/thing-types/$(thingTypeName)",
         params;
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -3167,7 +3200,10 @@ Deletes the rule. Requires permission to access the DeleteTopicRule action.
 """
 function delete_topic_rule(ruleName; aws_config::AbstractAWSConfig=global_aws_config())
     return iot(
-        "DELETE", "/rules/$(ruleName)"; aws_config=aws_config, features=SERVICE_FEATURES
+        "DELETE",
+        "/rules/$(ruleName)";
+        aws_config=aws_config,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function delete_topic_rule(
@@ -3180,7 +3216,7 @@ function delete_topic_rule(
         "/rules/$(ruleName)",
         params;
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -3199,7 +3235,10 @@ function delete_topic_rule_destination(
     arn; aws_config::AbstractAWSConfig=global_aws_config()
 )
     return iot(
-        "DELETE", "/destinations/$(arn)"; aws_config=aws_config, features=SERVICE_FEATURES
+        "DELETE",
+        "/destinations/$(arn)";
+        aws_config=aws_config,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function delete_topic_rule_destination(
@@ -3210,7 +3249,7 @@ function delete_topic_rule_destination(
         "/destinations/$(arn)",
         params;
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -3234,7 +3273,7 @@ function delete_v2_logging_level(
         "/v2LoggingLevel",
         Dict{String,Any}("targetName" => targetName, "targetType" => targetType);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function delete_v2_logging_level(
@@ -3254,7 +3293,7 @@ function delete_v2_logging_level(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -3280,7 +3319,7 @@ function deprecate_thing_type(
         "POST",
         "/thing-types/$(thingTypeName)/deprecate";
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function deprecate_thing_type(
@@ -3293,7 +3332,7 @@ function deprecate_thing_type(
         "/thing-types/$(thingTypeName)/deprecate",
         params;
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -3310,7 +3349,10 @@ function describe_account_audit_configuration(;
     aws_config::AbstractAWSConfig=global_aws_config()
 )
     return iot(
-        "GET", "/audit/configuration"; aws_config=aws_config, features=SERVICE_FEATURES
+        "GET",
+        "/audit/configuration";
+        aws_config=aws_config,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function describe_account_audit_configuration(
@@ -3321,7 +3363,7 @@ function describe_account_audit_configuration(
         "/audit/configuration",
         params;
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -3345,7 +3387,7 @@ function describe_audit_finding(
         "GET",
         "/audit/findings/$(findingId)";
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function describe_audit_finding(
@@ -3358,7 +3400,7 @@ function describe_audit_finding(
         "/audit/findings/$(findingId)",
         params;
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -3381,7 +3423,7 @@ function describe_audit_mitigation_actions_task(
         "GET",
         "/audit/mitigationactions/tasks/$(taskId)";
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function describe_audit_mitigation_actions_task(
@@ -3392,7 +3434,7 @@ function describe_audit_mitigation_actions_task(
         "/audit/mitigationactions/tasks/$(taskId)",
         params;
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -3417,7 +3459,7 @@ function describe_audit_suppression(
             "checkName" => checkName, "resourceIdentifier" => resourceIdentifier
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function describe_audit_suppression(
@@ -3439,7 +3481,7 @@ function describe_audit_suppression(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -3456,7 +3498,10 @@ DescribeAuditTask action.
 """
 function describe_audit_task(taskId; aws_config::AbstractAWSConfig=global_aws_config())
     return iot(
-        "GET", "/audit/tasks/$(taskId)"; aws_config=aws_config, features=SERVICE_FEATURES
+        "GET",
+        "/audit/tasks/$(taskId)";
+        aws_config=aws_config,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function describe_audit_task(
@@ -3467,7 +3512,7 @@ function describe_audit_task(
         "/audit/tasks/$(taskId)",
         params;
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -3488,7 +3533,7 @@ function describe_authorizer(
         "GET",
         "/authorizer/$(authorizerName)";
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function describe_authorizer(
@@ -3501,7 +3546,7 @@ function describe_authorizer(
         "/authorizer/$(authorizerName)",
         params;
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -3523,7 +3568,7 @@ function describe_billing_group(
         "GET",
         "/billing-groups/$(billingGroupName)";
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function describe_billing_group(
@@ -3536,7 +3581,7 @@ function describe_billing_group(
         "/billing-groups/$(billingGroupName)",
         params;
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -3558,7 +3603,7 @@ function describe_cacertificate(
         "GET",
         "/cacertificate/$(caCertificateId)";
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function describe_cacertificate(
@@ -3571,7 +3616,7 @@ function describe_cacertificate(
         "/cacertificate/$(caCertificateId)",
         params;
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -3594,7 +3639,7 @@ function describe_certificate(
         "GET",
         "/certificates/$(certificateId)";
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function describe_certificate(
@@ -3607,7 +3652,7 @@ function describe_certificate(
         "/certificates/$(certificateId)",
         params;
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -3629,7 +3674,7 @@ function describe_custom_metric(
         "GET",
         "/custom-metric/$(metricName)";
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function describe_custom_metric(
@@ -3642,7 +3687,7 @@ function describe_custom_metric(
         "/custom-metric/$(metricName)",
         params;
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -3656,7 +3701,7 @@ DescribeDefaultAuthorizer action.
 """
 function describe_default_authorizer(; aws_config::AbstractAWSConfig=global_aws_config())
     return iot(
-        "GET", "/default-authorizer"; aws_config=aws_config, features=SERVICE_FEATURES
+        "GET", "/default-authorizer"; aws_config=aws_config, feature_set=SERVICE_FEATURE_SET
     )
 end
 function describe_default_authorizer(
@@ -3667,7 +3712,7 @@ function describe_default_authorizer(
         "/default-authorizer",
         params;
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -3689,7 +3734,7 @@ function describe_detect_mitigation_actions_task(
         "GET",
         "/detect/mitigationactions/tasks/$(taskId)";
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function describe_detect_mitigation_actions_task(
@@ -3700,7 +3745,7 @@ function describe_detect_mitigation_actions_task(
         "/detect/mitigationactions/tasks/$(taskId)",
         params;
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -3717,7 +3762,7 @@ Requires permission to access the DescribeDimension action.
 """
 function describe_dimension(name; aws_config::AbstractAWSConfig=global_aws_config())
     return iot(
-        "GET", "/dimensions/$(name)"; aws_config=aws_config, features=SERVICE_FEATURES
+        "GET", "/dimensions/$(name)"; aws_config=aws_config, feature_set=SERVICE_FEATURE_SET
     )
 end
 function describe_dimension(
@@ -3728,7 +3773,7 @@ function describe_dimension(
         "/dimensions/$(name)",
         params;
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -3750,7 +3795,7 @@ function describe_domain_configuration(
         "GET",
         "/domainConfigurations/$(domainConfigurationName)";
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function describe_domain_configuration(
@@ -3763,7 +3808,7 @@ function describe_domain_configuration(
         "/domainConfigurations/$(domainConfigurationName)",
         params;
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -3784,12 +3829,14 @@ Optional parameters can be passed as a `params::Dict{String,<:Any}`. Valid keys 
   widespread distrust of Symantec certificate authorities.
 """
 function describe_endpoint(; aws_config::AbstractAWSConfig=global_aws_config())
-    return iot("GET", "/endpoint"; aws_config=aws_config, features=SERVICE_FEATURES)
+    return iot("GET", "/endpoint"; aws_config=aws_config, feature_set=SERVICE_FEATURE_SET)
 end
 function describe_endpoint(
     params::AbstractDict{String}; aws_config::AbstractAWSConfig=global_aws_config()
 )
-    return iot("GET", "/endpoint", params; aws_config=aws_config, features=SERVICE_FEATURES)
+    return iot(
+        "GET", "/endpoint", params; aws_config=aws_config, feature_set=SERVICE_FEATURE_SET
+    )
 end
 
 """
@@ -3802,7 +3849,10 @@ DescribeEventConfigurations action.
 """
 function describe_event_configurations(; aws_config::AbstractAWSConfig=global_aws_config())
     return iot(
-        "GET", "/event-configurations"; aws_config=aws_config, features=SERVICE_FEATURES
+        "GET",
+        "/event-configurations";
+        aws_config=aws_config,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function describe_event_configurations(
@@ -3813,7 +3863,7 @@ function describe_event_configurations(
         "/event-configurations",
         params;
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -3835,7 +3885,7 @@ function describe_fleet_metric(
         "GET",
         "/fleet-metric/$(metricName)";
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function describe_fleet_metric(
@@ -3848,7 +3898,7 @@ function describe_fleet_metric(
         "/fleet-metric/$(metricName)",
         params;
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -3864,7 +3914,10 @@ Describes a search index. Requires permission to access the DescribeIndex action
 """
 function describe_index(indexName; aws_config::AbstractAWSConfig=global_aws_config())
     return iot(
-        "GET", "/indices/$(indexName)"; aws_config=aws_config, features=SERVICE_FEATURES
+        "GET",
+        "/indices/$(indexName)";
+        aws_config=aws_config,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function describe_index(
@@ -3877,7 +3930,7 @@ function describe_index(
         "/indices/$(indexName)",
         params;
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -3892,13 +3945,19 @@ Describes a job. Requires permission to access the DescribeJob action.
 
 """
 function describe_job(jobId; aws_config::AbstractAWSConfig=global_aws_config())
-    return iot("GET", "/jobs/$(jobId)"; aws_config=aws_config, features=SERVICE_FEATURES)
+    return iot(
+        "GET", "/jobs/$(jobId)"; aws_config=aws_config, feature_set=SERVICE_FEATURE_SET
+    )
 end
 function describe_job(
     jobId, params::AbstractDict{String}; aws_config::AbstractAWSConfig=global_aws_config()
 )
     return iot(
-        "GET", "/jobs/$(jobId)", params; aws_config=aws_config, features=SERVICE_FEATURES
+        "GET",
+        "/jobs/$(jobId)",
+        params;
+        aws_config=aws_config,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -3924,7 +3983,7 @@ function describe_job_execution(
         "GET",
         "/things/$(thingName)/jobs/$(jobId)";
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function describe_job_execution(
@@ -3938,7 +3997,7 @@ function describe_job_execution(
         "/things/$(thingName)/jobs/$(jobId)",
         params;
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -3959,7 +4018,7 @@ function describe_job_template(
         "GET",
         "/job-templates/$(jobTemplateId)";
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function describe_job_template(
@@ -3972,7 +4031,7 @@ function describe_job_template(
         "/job-templates/$(jobTemplateId)",
         params;
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -3994,7 +4053,7 @@ function describe_mitigation_action(
         "GET",
         "/mitigationactions/actions/$(actionName)";
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function describe_mitigation_action(
@@ -4007,7 +4066,7 @@ function describe_mitigation_action(
         "/mitigationactions/actions/$(actionName)",
         params;
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -4029,7 +4088,7 @@ function describe_provisioning_template(
         "GET",
         "/provisioning-templates/$(templateName)";
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function describe_provisioning_template(
@@ -4042,7 +4101,7 @@ function describe_provisioning_template(
         "/provisioning-templates/$(templateName)",
         params;
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -4065,7 +4124,7 @@ function describe_provisioning_template_version(
         "GET",
         "/provisioning-templates/$(templateName)/versions/$(versionId)";
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function describe_provisioning_template_version(
@@ -4079,7 +4138,7 @@ function describe_provisioning_template_version(
         "/provisioning-templates/$(templateName)/versions/$(versionId)",
         params;
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -4098,7 +4157,7 @@ function describe_role_alias(roleAlias; aws_config::AbstractAWSConfig=global_aws
         "GET",
         "/role-aliases/$(roleAlias)";
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function describe_role_alias(
@@ -4111,7 +4170,7 @@ function describe_role_alias(
         "/role-aliases/$(roleAlias)",
         params;
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -4133,7 +4192,7 @@ function describe_scheduled_audit(
         "GET",
         "/audit/scheduledaudits/$(scheduledAuditName)";
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function describe_scheduled_audit(
@@ -4146,7 +4205,7 @@ function describe_scheduled_audit(
         "/audit/scheduledaudits/$(scheduledAuditName)",
         params;
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -4169,7 +4228,7 @@ function describe_security_profile(
         "GET",
         "/security-profiles/$(securityProfileName)";
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function describe_security_profile(
@@ -4182,7 +4241,7 @@ function describe_security_profile(
         "/security-profiles/$(securityProfileName)",
         params;
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -4198,7 +4257,10 @@ Gets information about a stream. Requires permission to access the DescribeStrea
 """
 function describe_stream(streamId; aws_config::AbstractAWSConfig=global_aws_config())
     return iot(
-        "GET", "/streams/$(streamId)"; aws_config=aws_config, features=SERVICE_FEATURES
+        "GET",
+        "/streams/$(streamId)";
+        aws_config=aws_config,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function describe_stream(
@@ -4211,7 +4273,7 @@ function describe_stream(
         "/streams/$(streamId)",
         params;
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -4228,7 +4290,10 @@ action.
 """
 function describe_thing(thingName; aws_config::AbstractAWSConfig=global_aws_config())
     return iot(
-        "GET", "/things/$(thingName)"; aws_config=aws_config, features=SERVICE_FEATURES
+        "GET",
+        "/things/$(thingName)";
+        aws_config=aws_config,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function describe_thing(
@@ -4241,7 +4306,7 @@ function describe_thing(
         "/things/$(thingName)",
         params;
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -4262,7 +4327,7 @@ function describe_thing_group(
         "GET",
         "/thing-groups/$(thingGroupName)";
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function describe_thing_group(
@@ -4275,7 +4340,7 @@ function describe_thing_group(
         "/thing-groups/$(thingGroupName)",
         params;
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -4297,7 +4362,7 @@ function describe_thing_registration_task(
         "GET",
         "/thing-registration-tasks/$(taskId)";
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function describe_thing_registration_task(
@@ -4308,7 +4373,7 @@ function describe_thing_registration_task(
         "/thing-registration-tasks/$(taskId)",
         params;
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -4330,7 +4395,7 @@ function describe_thing_type(
         "GET",
         "/thing-types/$(thingTypeName)";
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function describe_thing_type(
@@ -4343,7 +4408,7 @@ function describe_thing_type(
         "/thing-types/$(thingTypeName)",
         params;
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -4368,7 +4433,7 @@ function detach_policy(
         "/target-policies/$(policyName)",
         Dict{String,Any}("target" => target);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function detach_policy(
@@ -4382,7 +4447,7 @@ function detach_policy(
         "/target-policies/$(policyName)",
         Dict{String,Any}(mergewith(_merge, Dict{String,Any}("target" => target), params));
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -4411,7 +4476,7 @@ function detach_principal_policy(
             "headers" => Dict{String,Any}("x-amzn-iot-principal" => x_amzn_iot_principal)
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function detach_principal_policy(
@@ -4434,7 +4499,7 @@ function detach_principal_policy(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -4461,7 +4526,7 @@ function detach_security_profile(
         "/security-profiles/$(securityProfileName)/targets",
         Dict{String,Any}("securityProfileTargetArn" => securityProfileTargetArn);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function detach_security_profile(
@@ -4481,7 +4546,7 @@ function detach_security_profile(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -4511,7 +4576,7 @@ function detach_thing_principal(
             "headers" => Dict{String,Any}("x-amzn-principal" => x_amzn_principal)
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function detach_thing_principal(
@@ -4533,7 +4598,7 @@ function detach_thing_principal(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -4552,7 +4617,7 @@ function disable_topic_rule(ruleName; aws_config::AbstractAWSConfig=global_aws_c
         "POST",
         "/rules/$(ruleName)/disable";
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function disable_topic_rule(
@@ -4565,7 +4630,7 @@ function disable_topic_rule(
         "/rules/$(ruleName)/disable",
         params;
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -4584,7 +4649,7 @@ function enable_topic_rule(ruleName; aws_config::AbstractAWSConfig=global_aws_co
         "POST",
         "/rules/$(ruleName)/enable";
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function enable_topic_rule(
@@ -4597,7 +4662,7 @@ function enable_topic_rule(
         "/rules/$(ruleName)/enable",
         params;
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -4621,7 +4686,7 @@ function get_behavior_model_training_summaries(;
         "GET",
         "/behavior-model-training/summaries";
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function get_behavior_model_training_summaries(
@@ -4632,7 +4697,7 @@ function get_behavior_model_training_summaries(
         "/behavior-model-training/summaries",
         params;
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -4669,7 +4734,7 @@ function get_buckets_aggregation(
             "queryString" => queryString,
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function get_buckets_aggregation(
@@ -4694,7 +4759,7 @@ function get_buckets_aggregation(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -4720,7 +4785,7 @@ function get_cardinality(queryString; aws_config::AbstractAWSConfig=global_aws_c
         "/indices/cardinality",
         Dict{String,Any}("queryString" => queryString);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function get_cardinality(
@@ -4735,7 +4800,7 @@ function get_cardinality(
             mergewith(_merge, Dict{String,Any}("queryString" => queryString), params)
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -4757,7 +4822,10 @@ Optional parameters can be passed as a `params::Dict{String,<:Any}`. Valid keys 
 """
 function get_effective_policies(; aws_config::AbstractAWSConfig=global_aws_config())
     return iot(
-        "POST", "/effective-policies"; aws_config=aws_config, features=SERVICE_FEATURES
+        "POST",
+        "/effective-policies";
+        aws_config=aws_config,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function get_effective_policies(
@@ -4768,7 +4836,7 @@ function get_effective_policies(
         "/effective-policies",
         params;
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -4781,13 +4849,19 @@ action.
 
 """
 function get_indexing_configuration(; aws_config::AbstractAWSConfig=global_aws_config())
-    return iot("GET", "/indexing/config"; aws_config=aws_config, features=SERVICE_FEATURES)
+    return iot(
+        "GET", "/indexing/config"; aws_config=aws_config, feature_set=SERVICE_FEATURE_SET
+    )
 end
 function get_indexing_configuration(
     params::AbstractDict{String}; aws_config::AbstractAWSConfig=global_aws_config()
 )
     return iot(
-        "GET", "/indexing/config", params; aws_config=aws_config, features=SERVICE_FEATURES
+        "GET",
+        "/indexing/config",
+        params;
+        aws_config=aws_config,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -4806,7 +4880,7 @@ function get_job_document(jobId; aws_config::AbstractAWSConfig=global_aws_config
         "GET",
         "/jobs/$(jobId)/job-document";
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function get_job_document(
@@ -4817,7 +4891,7 @@ function get_job_document(
         "/jobs/$(jobId)/job-document",
         params;
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -4830,13 +4904,19 @@ GetV2LoggingOptions instead. Requires permission to access the GetLoggingOptions
 
 """
 function get_logging_options(; aws_config::AbstractAWSConfig=global_aws_config())
-    return iot("GET", "/loggingOptions"; aws_config=aws_config, features=SERVICE_FEATURES)
+    return iot(
+        "GET", "/loggingOptions"; aws_config=aws_config, feature_set=SERVICE_FEATURE_SET
+    )
 end
 function get_logging_options(
     params::AbstractDict{String}; aws_config::AbstractAWSConfig=global_aws_config()
 )
     return iot(
-        "GET", "/loggingOptions", params; aws_config=aws_config, features=SERVICE_FEATURES
+        "GET",
+        "/loggingOptions",
+        params;
+        aws_config=aws_config,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -4855,7 +4935,7 @@ function get_otaupdate(otaUpdateId; aws_config::AbstractAWSConfig=global_aws_con
         "GET",
         "/otaUpdates/$(otaUpdateId)";
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function get_otaupdate(
@@ -4868,7 +4948,7 @@ function get_otaupdate(
         "/otaUpdates/$(otaUpdateId)",
         params;
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -4902,7 +4982,7 @@ function get_percentiles(queryString; aws_config::AbstractAWSConfig=global_aws_c
         "/indices/percentiles",
         Dict{String,Any}("queryString" => queryString);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function get_percentiles(
@@ -4917,7 +4997,7 @@ function get_percentiles(
             mergewith(_merge, Dict{String,Any}("queryString" => queryString), params)
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -4934,7 +5014,10 @@ version. Requires permission to access the GetPolicy action.
 """
 function get_policy(policyName; aws_config::AbstractAWSConfig=global_aws_config())
     return iot(
-        "GET", "/policies/$(policyName)"; aws_config=aws_config, features=SERVICE_FEATURES
+        "GET",
+        "/policies/$(policyName)";
+        aws_config=aws_config,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function get_policy(
@@ -4947,7 +5030,7 @@ function get_policy(
         "/policies/$(policyName)",
         params;
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -4970,7 +5053,7 @@ function get_policy_version(
         "GET",
         "/policies/$(policyName)/version/$(policyVersionId)";
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function get_policy_version(
@@ -4984,7 +5067,7 @@ function get_policy_version(
         "/policies/$(policyName)/version/$(policyVersionId)",
         params;
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -4997,13 +5080,19 @@ access the GetRegistrationCode action.
 
 """
 function get_registration_code(; aws_config::AbstractAWSConfig=global_aws_config())
-    return iot("GET", "/registrationcode"; aws_config=aws_config, features=SERVICE_FEATURES)
+    return iot(
+        "GET", "/registrationcode"; aws_config=aws_config, feature_set=SERVICE_FEATURE_SET
+    )
 end
 function get_registration_code(
     params::AbstractDict{String}; aws_config::AbstractAWSConfig=global_aws_config()
 )
     return iot(
-        "GET", "/registrationcode", params; aws_config=aws_config, features=SERVICE_FEATURES
+        "GET",
+        "/registrationcode",
+        params;
+        aws_config=aws_config,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -5032,7 +5121,7 @@ function get_statistics(queryString; aws_config::AbstractAWSConfig=global_aws_co
         "/indices/statistics",
         Dict{String,Any}("queryString" => queryString);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function get_statistics(
@@ -5047,7 +5136,7 @@ function get_statistics(
             mergewith(_merge, Dict{String,Any}("queryString" => queryString), params)
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -5063,7 +5152,7 @@ Gets information about the rule. Requires permission to access the GetTopicRule 
 """
 function get_topic_rule(ruleName; aws_config::AbstractAWSConfig=global_aws_config())
     return iot(
-        "GET", "/rules/$(ruleName)"; aws_config=aws_config, features=SERVICE_FEATURES
+        "GET", "/rules/$(ruleName)"; aws_config=aws_config, feature_set=SERVICE_FEATURE_SET
     )
 end
 function get_topic_rule(
@@ -5076,7 +5165,7 @@ function get_topic_rule(
         "/rules/$(ruleName)",
         params;
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -5093,7 +5182,10 @@ GetTopicRuleDestination action.
 """
 function get_topic_rule_destination(arn; aws_config::AbstractAWSConfig=global_aws_config())
     return iot(
-        "GET", "/destinations/$(arn)"; aws_config=aws_config, features=SERVICE_FEATURES
+        "GET",
+        "/destinations/$(arn)";
+        aws_config=aws_config,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function get_topic_rule_destination(
@@ -5104,7 +5196,7 @@ function get_topic_rule_destination(
         "/destinations/$(arn)",
         params;
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -5117,13 +5209,19 @@ GetV2LoggingOptions action.
 
 """
 function get_v2_logging_options(; aws_config::AbstractAWSConfig=global_aws_config())
-    return iot("GET", "/v2LoggingOptions"; aws_config=aws_config, features=SERVICE_FEATURES)
+    return iot(
+        "GET", "/v2LoggingOptions"; aws_config=aws_config, feature_set=SERVICE_FEATURE_SET
+    )
 end
 function get_v2_logging_options(
     params::AbstractDict{String}; aws_config::AbstractAWSConfig=global_aws_config()
 )
     return iot(
-        "GET", "/v2LoggingOptions", params; aws_config=aws_config, features=SERVICE_FEATURES
+        "GET",
+        "/v2LoggingOptions",
+        params;
+        aws_config=aws_config,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -5147,7 +5245,7 @@ Optional parameters can be passed as a `params::Dict{String,<:Any}`. Valid keys 
 """
 function list_active_violations(; aws_config::AbstractAWSConfig=global_aws_config())
     return iot(
-        "GET", "/active-violations"; aws_config=aws_config, features=SERVICE_FEATURES
+        "GET", "/active-violations"; aws_config=aws_config, feature_set=SERVICE_FEATURE_SET
     )
 end
 function list_active_violations(
@@ -5158,7 +5256,7 @@ function list_active_violations(
         "/active-violations",
         params;
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -5185,7 +5283,7 @@ function list_attached_policies(target; aws_config::AbstractAWSConfig=global_aws
         "POST",
         "/attached-policies/$(target)";
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function list_attached_policies(
@@ -5196,7 +5294,7 @@ function list_attached_policies(
         "/attached-policies/$(target)",
         params;
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -5225,13 +5323,19 @@ Optional parameters can be passed as a `params::Dict{String,<:Any}`. Valid keys 
   specify either the taskId or the startTime and endTime, but not both.
 """
 function list_audit_findings(; aws_config::AbstractAWSConfig=global_aws_config())
-    return iot("POST", "/audit/findings"; aws_config=aws_config, features=SERVICE_FEATURES)
+    return iot(
+        "POST", "/audit/findings"; aws_config=aws_config, feature_set=SERVICE_FEATURE_SET
+    )
 end
 function list_audit_findings(
     params::AbstractDict{String}; aws_config::AbstractAWSConfig=global_aws_config()
 )
     return iot(
-        "POST", "/audit/findings", params; aws_config=aws_config, features=SERVICE_FEATURES
+        "POST",
+        "/audit/findings",
+        params;
+        aws_config=aws_config,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -5262,7 +5366,7 @@ function list_audit_mitigation_actions_executions(
         "/audit/mitigationactions/executions",
         Dict{String,Any}("findingId" => findingId, "taskId" => taskId);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function list_audit_mitigation_actions_executions(
@@ -5282,7 +5386,7 @@ function list_audit_mitigation_actions_executions(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -5318,7 +5422,7 @@ function list_audit_mitigation_actions_tasks(
         "/audit/mitigationactions/tasks",
         Dict{String,Any}("endTime" => endTime, "startTime" => startTime);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function list_audit_mitigation_actions_tasks(
@@ -5338,7 +5442,7 @@ function list_audit_mitigation_actions_tasks(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -5360,7 +5464,10 @@ Optional parameters can be passed as a `params::Dict{String,<:Any}`. Valid keys 
 """
 function list_audit_suppressions(; aws_config::AbstractAWSConfig=global_aws_config())
     return iot(
-        "POST", "/audit/suppressions/list"; aws_config=aws_config, features=SERVICE_FEATURES
+        "POST",
+        "/audit/suppressions/list";
+        aws_config=aws_config,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function list_audit_suppressions(
@@ -5371,7 +5478,7 @@ function list_audit_suppressions(
         "/audit/suppressions/list",
         params;
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -5405,7 +5512,7 @@ function list_audit_tasks(
         "/audit/tasks",
         Dict{String,Any}("endTime" => endTime, "startTime" => startTime);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function list_audit_tasks(
@@ -5425,7 +5532,7 @@ function list_audit_tasks(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -5444,13 +5551,19 @@ Optional parameters can be passed as a `params::Dict{String,<:Any}`. Valid keys 
 - `"status"`: The status of the list authorizers request.
 """
 function list_authorizers(; aws_config::AbstractAWSConfig=global_aws_config())
-    return iot("GET", "/authorizers/"; aws_config=aws_config, features=SERVICE_FEATURES)
+    return iot(
+        "GET", "/authorizers/"; aws_config=aws_config, feature_set=SERVICE_FEATURE_SET
+    )
 end
 function list_authorizers(
     params::AbstractDict{String}; aws_config::AbstractAWSConfig=global_aws_config()
 )
     return iot(
-        "GET", "/authorizers/", params; aws_config=aws_config, features=SERVICE_FEATURES
+        "GET",
+        "/authorizers/",
+        params;
+        aws_config=aws_config,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -5470,13 +5583,19 @@ Optional parameters can be passed as a `params::Dict{String,<:Any}`. Valid keys 
   response; otherwise null to receive the first set of results.
 """
 function list_billing_groups(; aws_config::AbstractAWSConfig=global_aws_config())
-    return iot("GET", "/billing-groups"; aws_config=aws_config, features=SERVICE_FEATURES)
+    return iot(
+        "GET", "/billing-groups"; aws_config=aws_config, feature_set=SERVICE_FEATURE_SET
+    )
 end
 function list_billing_groups(
     params::AbstractDict{String}; aws_config::AbstractAWSConfig=global_aws_config()
 )
     return iot(
-        "GET", "/billing-groups", params; aws_config=aws_config, features=SERVICE_FEATURES
+        "GET",
+        "/billing-groups",
+        params;
+        aws_config=aws_config,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -5495,13 +5614,19 @@ Optional parameters can be passed as a `params::Dict{String,<:Any}`. Valid keys 
 - `"pageSize"`: The result page size.
 """
 function list_cacertificates(; aws_config::AbstractAWSConfig=global_aws_config())
-    return iot("GET", "/cacertificates"; aws_config=aws_config, features=SERVICE_FEATURES)
+    return iot(
+        "GET", "/cacertificates"; aws_config=aws_config, feature_set=SERVICE_FEATURE_SET
+    )
 end
 function list_cacertificates(
     params::AbstractDict{String}; aws_config::AbstractAWSConfig=global_aws_config()
 )
     return iot(
-        "GET", "/cacertificates", params; aws_config=aws_config, features=SERVICE_FEATURES
+        "GET",
+        "/cacertificates",
+        params;
+        aws_config=aws_config,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -5521,13 +5646,19 @@ Optional parameters can be passed as a `params::Dict{String,<:Any}`. Valid keys 
 - `"pageSize"`: The result page size.
 """
 function list_certificates(; aws_config::AbstractAWSConfig=global_aws_config())
-    return iot("GET", "/certificates"; aws_config=aws_config, features=SERVICE_FEATURES)
+    return iot(
+        "GET", "/certificates"; aws_config=aws_config, feature_set=SERVICE_FEATURE_SET
+    )
 end
 function list_certificates(
     params::AbstractDict{String}; aws_config::AbstractAWSConfig=global_aws_config()
 )
     return iot(
-        "GET", "/certificates", params; aws_config=aws_config, features=SERVICE_FEATURES
+        "GET",
+        "/certificates",
+        params;
+        aws_config=aws_config,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -5556,7 +5687,7 @@ function list_certificates_by_ca(
         "GET",
         "/certificates-by-ca/$(caCertificateId)";
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function list_certificates_by_ca(
@@ -5569,7 +5700,7 @@ function list_certificates_by_ca(
         "/certificates-by-ca/$(caCertificateId)",
         params;
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -5586,13 +5717,19 @@ Optional parameters can be passed as a `params::Dict{String,<:Any}`. Valid keys 
 - `"nextToken"`:  The token for the next set of results.
 """
 function list_custom_metrics(; aws_config::AbstractAWSConfig=global_aws_config())
-    return iot("GET", "/custom-metrics"; aws_config=aws_config, features=SERVICE_FEATURES)
+    return iot(
+        "GET", "/custom-metrics"; aws_config=aws_config, feature_set=SERVICE_FEATURE_SET
+    )
 end
 function list_custom_metrics(
     params::AbstractDict{String}; aws_config::AbstractAWSConfig=global_aws_config()
 )
     return iot(
-        "GET", "/custom-metrics", params; aws_config=aws_config, features=SERVICE_FEATURES
+        "GET",
+        "/custom-metrics",
+        params;
+        aws_config=aws_config,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -5622,7 +5759,7 @@ function list_detect_mitigation_actions_executions(;
         "GET",
         "/detect/mitigationactions/executions";
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function list_detect_mitigation_actions_executions(
@@ -5633,7 +5770,7 @@ function list_detect_mitigation_actions_executions(
         "/detect/mitigationactions/executions",
         params;
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -5663,7 +5800,7 @@ function list_detect_mitigation_actions_tasks(
         "/detect/mitigationactions/tasks",
         Dict{String,Any}("endTime" => endTime, "startTime" => startTime);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function list_detect_mitigation_actions_tasks(
@@ -5683,7 +5820,7 @@ function list_detect_mitigation_actions_tasks(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -5700,13 +5837,13 @@ Optional parameters can be passed as a `params::Dict{String,<:Any}`. Valid keys 
 - `"nextToken"`: The token for the next set of results.
 """
 function list_dimensions(; aws_config::AbstractAWSConfig=global_aws_config())
-    return iot("GET", "/dimensions"; aws_config=aws_config, features=SERVICE_FEATURES)
+    return iot("GET", "/dimensions"; aws_config=aws_config, feature_set=SERVICE_FEATURE_SET)
 end
 function list_dimensions(
     params::AbstractDict{String}; aws_config::AbstractAWSConfig=global_aws_config()
 )
     return iot(
-        "GET", "/dimensions", params; aws_config=aws_config, features=SERVICE_FEATURES
+        "GET", "/dimensions", params; aws_config=aws_config, feature_set=SERVICE_FEATURE_SET
     )
 end
 
@@ -5726,7 +5863,10 @@ Optional parameters can be passed as a `params::Dict{String,<:Any}`. Valid keys 
 """
 function list_domain_configurations(; aws_config::AbstractAWSConfig=global_aws_config())
     return iot(
-        "GET", "/domainConfigurations"; aws_config=aws_config, features=SERVICE_FEATURES
+        "GET",
+        "/domainConfigurations";
+        aws_config=aws_config,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function list_domain_configurations(
@@ -5737,7 +5877,7 @@ function list_domain_configurations(
         "/domainConfigurations",
         params;
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -5754,13 +5894,19 @@ Optional parameters can be passed as a `params::Dict{String,<:Any}`. Valid keys 
   response; otherwise null to receive the first set of results.
 """
 function list_fleet_metrics(; aws_config::AbstractAWSConfig=global_aws_config())
-    return iot("GET", "/fleet-metrics"; aws_config=aws_config, features=SERVICE_FEATURES)
+    return iot(
+        "GET", "/fleet-metrics"; aws_config=aws_config, feature_set=SERVICE_FEATURE_SET
+    )
 end
 function list_fleet_metrics(
     params::AbstractDict{String}; aws_config::AbstractAWSConfig=global_aws_config()
 )
     return iot(
-        "GET", "/fleet-metrics", params; aws_config=aws_config, features=SERVICE_FEATURES
+        "GET",
+        "/fleet-metrics",
+        params;
+        aws_config=aws_config,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -5777,12 +5923,14 @@ Optional parameters can be passed as a `params::Dict{String,<:Any}`. Valid keys 
   additional results.
 """
 function list_indices(; aws_config::AbstractAWSConfig=global_aws_config())
-    return iot("GET", "/indices"; aws_config=aws_config, features=SERVICE_FEATURES)
+    return iot("GET", "/indices"; aws_config=aws_config, feature_set=SERVICE_FEATURE_SET)
 end
 function list_indices(
     params::AbstractDict{String}; aws_config::AbstractAWSConfig=global_aws_config()
 )
-    return iot("GET", "/indices", params; aws_config=aws_config, features=SERVICE_FEATURES)
+    return iot(
+        "GET", "/indices", params; aws_config=aws_config, feature_set=SERVICE_FEATURE_SET
+    )
 end
 
 """
@@ -5805,7 +5953,10 @@ function list_job_executions_for_job(
     jobId; aws_config::AbstractAWSConfig=global_aws_config()
 )
     return iot(
-        "GET", "/jobs/$(jobId)/things"; aws_config=aws_config, features=SERVICE_FEATURES
+        "GET",
+        "/jobs/$(jobId)/things";
+        aws_config=aws_config,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function list_job_executions_for_job(
@@ -5816,7 +5967,7 @@ function list_job_executions_for_job(
         "/jobs/$(jobId)/things",
         params;
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -5846,7 +5997,10 @@ function list_job_executions_for_thing(
     thingName; aws_config::AbstractAWSConfig=global_aws_config()
 )
     return iot(
-        "GET", "/things/$(thingName)/jobs"; aws_config=aws_config, features=SERVICE_FEATURES
+        "GET",
+        "/things/$(thingName)/jobs";
+        aws_config=aws_config,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function list_job_executions_for_thing(
@@ -5859,7 +6013,7 @@ function list_job_executions_for_thing(
         "/things/$(thingName)/jobs",
         params;
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -5875,13 +6029,19 @@ Optional parameters can be passed as a `params::Dict{String,<:Any}`. Valid keys 
 - `"nextToken"`: The token to use to return the next set of results in the list.
 """
 function list_job_templates(; aws_config::AbstractAWSConfig=global_aws_config())
-    return iot("GET", "/job-templates"; aws_config=aws_config, features=SERVICE_FEATURES)
+    return iot(
+        "GET", "/job-templates"; aws_config=aws_config, feature_set=SERVICE_FEATURE_SET
+    )
 end
 function list_job_templates(
     params::AbstractDict{String}; aws_config::AbstractAWSConfig=global_aws_config()
 )
     return iot(
-        "GET", "/job-templates", params; aws_config=aws_config, features=SERVICE_FEATURES
+        "GET",
+        "/job-templates",
+        params;
+        aws_config=aws_config,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -5912,12 +6072,14 @@ Optional parameters can be passed as a `params::Dict{String,<:Any}`. Valid keys 
   group.
 """
 function list_jobs(; aws_config::AbstractAWSConfig=global_aws_config())
-    return iot("GET", "/jobs"; aws_config=aws_config, features=SERVICE_FEATURES)
+    return iot("GET", "/jobs"; aws_config=aws_config, feature_set=SERVICE_FEATURE_SET)
 end
 function list_jobs(
     params::AbstractDict{String}; aws_config::AbstractAWSConfig=global_aws_config()
 )
-    return iot("GET", "/jobs", params; aws_config=aws_config, features=SERVICE_FEATURES)
+    return iot(
+        "GET", "/jobs", params; aws_config=aws_config, feature_set=SERVICE_FEATURE_SET
+    )
 end
 
 """
@@ -5939,7 +6101,7 @@ function list_mitigation_actions(; aws_config::AbstractAWSConfig=global_aws_conf
         "GET",
         "/mitigationactions/actions";
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function list_mitigation_actions(
@@ -5950,7 +6112,7 @@ function list_mitigation_actions(
         "/mitigationactions/actions",
         params;
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -5967,13 +6129,13 @@ Optional parameters can be passed as a `params::Dict{String,<:Any}`. Valid keys 
 - `"otaUpdateStatus"`: The OTA update job status.
 """
 function list_otaupdates(; aws_config::AbstractAWSConfig=global_aws_config())
-    return iot("GET", "/otaUpdates"; aws_config=aws_config, features=SERVICE_FEATURES)
+    return iot("GET", "/otaUpdates"; aws_config=aws_config, feature_set=SERVICE_FEATURE_SET)
 end
 function list_otaupdates(
     params::AbstractDict{String}; aws_config::AbstractAWSConfig=global_aws_config()
 )
     return iot(
-        "GET", "/otaUpdates", params; aws_config=aws_config, features=SERVICE_FEATURES
+        "GET", "/otaUpdates", params; aws_config=aws_config, feature_set=SERVICE_FEATURE_SET
     )
 end
 
@@ -5993,7 +6155,10 @@ Optional parameters can be passed as a `params::Dict{String,<:Any}`. Valid keys 
 """
 function list_outgoing_certificates(; aws_config::AbstractAWSConfig=global_aws_config())
     return iot(
-        "GET", "/certificates-out-going"; aws_config=aws_config, features=SERVICE_FEATURES
+        "GET",
+        "/certificates-out-going";
+        aws_config=aws_config,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function list_outgoing_certificates(
@@ -6004,7 +6169,7 @@ function list_outgoing_certificates(
         "/certificates-out-going",
         params;
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -6022,12 +6187,14 @@ Optional parameters can be passed as a `params::Dict{String,<:Any}`. Valid keys 
 - `"pageSize"`: The result page size.
 """
 function list_policies(; aws_config::AbstractAWSConfig=global_aws_config())
-    return iot("GET", "/policies"; aws_config=aws_config, features=SERVICE_FEATURES)
+    return iot("GET", "/policies"; aws_config=aws_config, feature_set=SERVICE_FEATURE_SET)
 end
 function list_policies(
     params::AbstractDict{String}; aws_config::AbstractAWSConfig=global_aws_config()
 )
-    return iot("GET", "/policies", params; aws_config=aws_config, features=SERVICE_FEATURES)
+    return iot(
+        "GET", "/policies", params; aws_config=aws_config, feature_set=SERVICE_FEATURE_SET
+    )
 end
 
 """
@@ -6058,7 +6225,7 @@ function list_policy_principals(
             "headers" => Dict{String,Any}("x-amzn-iot-policy" => x_amzn_iot_policy)
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function list_policy_principals(
@@ -6079,7 +6246,7 @@ function list_policy_principals(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -6099,7 +6266,7 @@ function list_policy_versions(policyName; aws_config::AbstractAWSConfig=global_a
         "GET",
         "/policies/$(policyName)/version";
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function list_policy_versions(
@@ -6112,7 +6279,7 @@ function list_policy_versions(
         "/policies/$(policyName)/version",
         params;
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -6147,7 +6314,7 @@ function list_principal_policies(
             "headers" => Dict{String,Any}("x-amzn-iot-principal" => x_amzn_iot_principal)
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function list_principal_policies(
@@ -6169,7 +6336,7 @@ function list_principal_policies(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -6200,7 +6367,7 @@ function list_principal_things(
             "headers" => Dict{String,Any}("x-amzn-principal" => x_amzn_principal)
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function list_principal_things(
@@ -6221,7 +6388,7 @@ function list_principal_things(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -6247,7 +6414,7 @@ function list_provisioning_template_versions(
         "GET",
         "/provisioning-templates/$(templateName)/versions";
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function list_provisioning_template_versions(
@@ -6260,7 +6427,7 @@ function list_provisioning_template_versions(
         "/provisioning-templates/$(templateName)/versions",
         params;
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -6278,7 +6445,10 @@ Optional parameters can be passed as a `params::Dict{String,<:Any}`. Valid keys 
 """
 function list_provisioning_templates(; aws_config::AbstractAWSConfig=global_aws_config())
     return iot(
-        "GET", "/provisioning-templates"; aws_config=aws_config, features=SERVICE_FEATURES
+        "GET",
+        "/provisioning-templates";
+        aws_config=aws_config,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function list_provisioning_templates(
@@ -6289,7 +6459,7 @@ function list_provisioning_templates(
         "/provisioning-templates",
         params;
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -6307,13 +6477,19 @@ Optional parameters can be passed as a `params::Dict{String,<:Any}`. Valid keys 
 - `"pageSize"`: The maximum number of results to return at one time.
 """
 function list_role_aliases(; aws_config::AbstractAWSConfig=global_aws_config())
-    return iot("GET", "/role-aliases"; aws_config=aws_config, features=SERVICE_FEATURES)
+    return iot(
+        "GET", "/role-aliases"; aws_config=aws_config, feature_set=SERVICE_FEATURE_SET
+    )
 end
 function list_role_aliases(
     params::AbstractDict{String}; aws_config::AbstractAWSConfig=global_aws_config()
 )
     return iot(
-        "GET", "/role-aliases", params; aws_config=aws_config, features=SERVICE_FEATURES
+        "GET",
+        "/role-aliases",
+        params;
+        aws_config=aws_config,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -6331,7 +6507,10 @@ Optional parameters can be passed as a `params::Dict{String,<:Any}`. Valid keys 
 """
 function list_scheduled_audits(; aws_config::AbstractAWSConfig=global_aws_config())
     return iot(
-        "GET", "/audit/scheduledaudits"; aws_config=aws_config, features=SERVICE_FEATURES
+        "GET",
+        "/audit/scheduledaudits";
+        aws_config=aws_config,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function list_scheduled_audits(
@@ -6342,7 +6521,7 @@ function list_scheduled_audits(
         "/audit/scheduledaudits",
         params;
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -6365,7 +6544,7 @@ Optional parameters can be passed as a `params::Dict{String,<:Any}`. Valid keys 
 """
 function list_security_profiles(; aws_config::AbstractAWSConfig=global_aws_config())
     return iot(
-        "GET", "/security-profiles"; aws_config=aws_config, features=SERVICE_FEATURES
+        "GET", "/security-profiles"; aws_config=aws_config, feature_set=SERVICE_FEATURE_SET
     )
 end
 function list_security_profiles(
@@ -6376,7 +6555,7 @@ function list_security_profiles(
         "/security-profiles",
         params;
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -6405,7 +6584,7 @@ function list_security_profiles_for_target(
         "/security-profiles-for-target",
         Dict{String,Any}("securityProfileTargetArn" => securityProfileTargetArn);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function list_security_profiles_for_target(
@@ -6424,7 +6603,7 @@ function list_security_profiles_for_target(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -6442,12 +6621,14 @@ Optional parameters can be passed as a `params::Dict{String,<:Any}`. Valid keys 
 - `"nextToken"`: A token used to get the next set of results.
 """
 function list_streams(; aws_config::AbstractAWSConfig=global_aws_config())
-    return iot("GET", "/streams"; aws_config=aws_config, features=SERVICE_FEATURES)
+    return iot("GET", "/streams"; aws_config=aws_config, feature_set=SERVICE_FEATURE_SET)
 end
 function list_streams(
     params::AbstractDict{String}; aws_config::AbstractAWSConfig=global_aws_config()
 )
-    return iot("GET", "/streams", params; aws_config=aws_config, features=SERVICE_FEATURES)
+    return iot(
+        "GET", "/streams", params; aws_config=aws_config, feature_set=SERVICE_FEATURE_SET
+    )
 end
 
 """
@@ -6473,7 +6654,7 @@ function list_tags_for_resource(
         "/tags",
         Dict{String,Any}("resourceArn" => resourceArn);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function list_tags_for_resource(
@@ -6488,7 +6669,7 @@ function list_tags_for_resource(
             mergewith(_merge, Dict{String,Any}("resourceArn" => resourceArn), params)
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -6514,7 +6695,7 @@ function list_targets_for_policy(
         "POST",
         "/policy-targets/$(policyName)";
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function list_targets_for_policy(
@@ -6527,7 +6708,7 @@ function list_targets_for_policy(
         "/policy-targets/$(policyName)",
         params;
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -6553,7 +6734,7 @@ function list_targets_for_security_profile(
         "GET",
         "/security-profiles/$(securityProfileName)/targets";
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function list_targets_for_security_profile(
@@ -6566,7 +6747,7 @@ function list_targets_for_security_profile(
         "/security-profiles/$(securityProfileName)/targets",
         params;
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -6589,13 +6770,19 @@ Optional parameters can be passed as a `params::Dict{String,<:Any}`. Valid keys 
 - `"recursive"`: If true, return child groups as well.
 """
 function list_thing_groups(; aws_config::AbstractAWSConfig=global_aws_config())
-    return iot("GET", "/thing-groups"; aws_config=aws_config, features=SERVICE_FEATURES)
+    return iot(
+        "GET", "/thing-groups"; aws_config=aws_config, feature_set=SERVICE_FEATURE_SET
+    )
 end
 function list_thing_groups(
     params::AbstractDict{String}; aws_config::AbstractAWSConfig=global_aws_config()
 )
     return iot(
-        "GET", "/thing-groups", params; aws_config=aws_config, features=SERVICE_FEATURES
+        "GET",
+        "/thing-groups",
+        params;
+        aws_config=aws_config,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -6622,7 +6809,7 @@ function list_thing_groups_for_thing(
         "GET",
         "/things/$(thingName)/thing-groups";
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function list_thing_groups_for_thing(
@@ -6635,7 +6822,7 @@ function list_thing_groups_for_thing(
         "/things/$(thingName)/thing-groups",
         params;
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -6661,7 +6848,7 @@ function list_thing_principals(thingName; aws_config::AbstractAWSConfig=global_a
         "GET",
         "/things/$(thingName)/principals";
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function list_thing_principals(
@@ -6674,7 +6861,7 @@ function list_thing_principals(
         "/things/$(thingName)/principals",
         params;
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -6702,7 +6889,7 @@ function list_thing_registration_task_reports(
         "/thing-registration-tasks/$(taskId)/reports",
         Dict{String,Any}("reportType" => reportType);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function list_thing_registration_task_reports(
@@ -6718,7 +6905,7 @@ function list_thing_registration_task_reports(
             mergewith(_merge, Dict{String,Any}("reportType" => reportType), params)
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -6738,7 +6925,10 @@ Optional parameters can be passed as a `params::Dict{String,<:Any}`. Valid keys 
 """
 function list_thing_registration_tasks(; aws_config::AbstractAWSConfig=global_aws_config())
     return iot(
-        "GET", "/thing-registration-tasks"; aws_config=aws_config, features=SERVICE_FEATURES
+        "GET",
+        "/thing-registration-tasks";
+        aws_config=aws_config,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function list_thing_registration_tasks(
@@ -6749,7 +6939,7 @@ function list_thing_registration_tasks(
         "/thing-registration-tasks",
         params;
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -6767,13 +6957,19 @@ Optional parameters can be passed as a `params::Dict{String,<:Any}`. Valid keys 
 - `"thingTypeName"`: The name of the thing type.
 """
 function list_thing_types(; aws_config::AbstractAWSConfig=global_aws_config())
-    return iot("GET", "/thing-types"; aws_config=aws_config, features=SERVICE_FEATURES)
+    return iot(
+        "GET", "/thing-types"; aws_config=aws_config, feature_set=SERVICE_FEATURE_SET
+    )
 end
 function list_thing_types(
     params::AbstractDict{String}; aws_config::AbstractAWSConfig=global_aws_config()
 )
     return iot(
-        "GET", "/thing-types", params; aws_config=aws_config, features=SERVICE_FEATURES
+        "GET",
+        "/thing-types",
+        params;
+        aws_config=aws_config,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -6803,12 +6999,14 @@ Optional parameters can be passed as a `params::Dict{String,<:Any}`. Valid keys 
   attributeValue provided.
 """
 function list_things(; aws_config::AbstractAWSConfig=global_aws_config())
-    return iot("GET", "/things"; aws_config=aws_config, features=SERVICE_FEATURES)
+    return iot("GET", "/things"; aws_config=aws_config, feature_set=SERVICE_FEATURE_SET)
 end
 function list_things(
     params::AbstractDict{String}; aws_config::AbstractAWSConfig=global_aws_config()
 )
-    return iot("GET", "/things", params; aws_config=aws_config, features=SERVICE_FEATURES)
+    return iot(
+        "GET", "/things", params; aws_config=aws_config, feature_set=SERVICE_FEATURE_SET
+    )
 end
 
 """
@@ -6834,7 +7032,7 @@ function list_things_in_billing_group(
         "GET",
         "/billing-groups/$(billingGroupName)/things";
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function list_things_in_billing_group(
@@ -6847,7 +7045,7 @@ function list_things_in_billing_group(
         "/billing-groups/$(billingGroupName)/things",
         params;
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -6875,7 +7073,7 @@ function list_things_in_thing_group(
         "GET",
         "/thing-groups/$(thingGroupName)/things";
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function list_things_in_thing_group(
@@ -6888,7 +7086,7 @@ function list_things_in_thing_group(
         "/thing-groups/$(thingGroupName)/things",
         params;
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -6906,13 +7104,19 @@ Optional parameters can be passed as a `params::Dict{String,<:Any}`. Valid keys 
   response; otherwise null to receive the first set of results.
 """
 function list_topic_rule_destinations(; aws_config::AbstractAWSConfig=global_aws_config())
-    return iot("GET", "/destinations"; aws_config=aws_config, features=SERVICE_FEATURES)
+    return iot(
+        "GET", "/destinations"; aws_config=aws_config, feature_set=SERVICE_FEATURE_SET
+    )
 end
 function list_topic_rule_destinations(
     params::AbstractDict{String}; aws_config::AbstractAWSConfig=global_aws_config()
 )
     return iot(
-        "GET", "/destinations", params; aws_config=aws_config, features=SERVICE_FEATURES
+        "GET",
+        "/destinations",
+        params;
+        aws_config=aws_config,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -6932,12 +7136,14 @@ Optional parameters can be passed as a `params::Dict{String,<:Any}`. Valid keys 
 - `"topic"`: The topic.
 """
 function list_topic_rules(; aws_config::AbstractAWSConfig=global_aws_config())
-    return iot("GET", "/rules"; aws_config=aws_config, features=SERVICE_FEATURES)
+    return iot("GET", "/rules"; aws_config=aws_config, feature_set=SERVICE_FEATURE_SET)
 end
 function list_topic_rules(
     params::AbstractDict{String}; aws_config::AbstractAWSConfig=global_aws_config()
 )
-    return iot("GET", "/rules", params; aws_config=aws_config, features=SERVICE_FEATURES)
+    return iot(
+        "GET", "/rules", params; aws_config=aws_config, feature_set=SERVICE_FEATURE_SET
+    )
 end
 
 """
@@ -6955,13 +7161,19 @@ Optional parameters can be passed as a `params::Dict{String,<:Any}`. Valid keys 
   THING_Group.
 """
 function list_v2_logging_levels(; aws_config::AbstractAWSConfig=global_aws_config())
-    return iot("GET", "/v2LoggingLevel"; aws_config=aws_config, features=SERVICE_FEATURES)
+    return iot(
+        "GET", "/v2LoggingLevel"; aws_config=aws_config, feature_set=SERVICE_FEATURE_SET
+    )
 end
 function list_v2_logging_levels(
     params::AbstractDict{String}; aws_config::AbstractAWSConfig=global_aws_config()
 )
     return iot(
-        "GET", "/v2LoggingLevel", params; aws_config=aws_config, features=SERVICE_FEATURES
+        "GET",
+        "/v2LoggingLevel",
+        params;
+        aws_config=aws_config,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -6997,7 +7209,7 @@ function list_violation_events(
         "/violation-events",
         Dict{String,Any}("endTime" => endTime, "startTime" => startTime);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function list_violation_events(
@@ -7017,7 +7229,7 @@ function list_violation_events(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -7045,7 +7257,7 @@ function put_verification_state_on_violation(
         "/violations/verification-state/$(violationId)",
         Dict{String,Any}("verificationState" => verificationState);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function put_verification_state_on_violation(
@@ -7063,7 +7275,7 @@ function put_verification_state_on_violation(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -7107,7 +7319,7 @@ function register_cacertificate(
             "verificationCertificate" => verificationCertificate,
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function register_cacertificate(
@@ -7130,7 +7342,7 @@ function register_cacertificate(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -7161,7 +7373,7 @@ function register_certificate(
         "/certificate/register",
         Dict{String,Any}("certificatePem" => certificatePem);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function register_certificate(
@@ -7176,7 +7388,7 @@ function register_certificate(
             mergewith(_merge, Dict{String,Any}("certificatePem" => certificatePem), params)
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -7201,7 +7413,7 @@ function register_certificate_without_ca(
         "/certificate/register-no-ca",
         Dict{String,Any}("certificatePem" => certificatePem);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function register_certificate_without_ca(
@@ -7216,7 +7428,7 @@ function register_certificate_without_ca(
             mergewith(_merge, Dict{String,Any}("certificatePem" => certificatePem), params)
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -7244,7 +7456,7 @@ function register_thing(templateBody; aws_config::AbstractAWSConfig=global_aws_c
         "/things",
         Dict{String,Any}("templateBody" => templateBody);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function register_thing(
@@ -7259,7 +7471,7 @@ function register_thing(
             mergewith(_merge, Dict{String,Any}("templateBody" => templateBody), params)
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -7289,7 +7501,7 @@ function reject_certificate_transfer(
         "PATCH",
         "/reject-certificate-transfer/$(certificateId)";
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function reject_certificate_transfer(
@@ -7302,7 +7514,7 @@ function reject_certificate_transfer(
         "/reject-certificate-transfer/$(certificateId)",
         params;
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -7327,7 +7539,7 @@ function remove_thing_from_billing_group(;
         "PUT",
         "/billing-groups/removeThingFromBillingGroup";
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function remove_thing_from_billing_group(
@@ -7338,7 +7550,7 @@ function remove_thing_from_billing_group(
         "/billing-groups/removeThingFromBillingGroup",
         params;
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -7363,7 +7575,7 @@ function remove_thing_from_thing_group(; aws_config::AbstractAWSConfig=global_aw
         "PUT",
         "/thing-groups/removeThingFromThingGroup";
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function remove_thing_from_thing_group(
@@ -7374,7 +7586,7 @@ function remove_thing_from_thing_group(
         "/thing-groups/removeThingFromThingGroup",
         params;
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -7400,7 +7612,7 @@ function replace_topic_rule(
         "/rules/$(ruleName)",
         Dict{String,Any}("topicRulePayload" => topicRulePayload);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function replace_topic_rule(
@@ -7418,7 +7630,7 @@ function replace_topic_rule(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -7445,7 +7657,7 @@ function search_index(queryString; aws_config::AbstractAWSConfig=global_aws_conf
         "/indices/search",
         Dict{String,Any}("queryString" => queryString);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function search_index(
@@ -7460,7 +7672,7 @@ function search_index(
             mergewith(_merge, Dict{String,Any}("queryString" => queryString), params)
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -7483,7 +7695,7 @@ function set_default_authorizer(
         "/default-authorizer",
         Dict{String,Any}("authorizerName" => authorizerName);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function set_default_authorizer(
@@ -7498,7 +7710,7 @@ function set_default_authorizer(
             mergewith(_merge, Dict{String,Any}("authorizerName" => authorizerName), params)
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -7523,7 +7735,7 @@ function set_default_policy_version(
         "PATCH",
         "/policies/$(policyName)/version/$(policyVersionId)";
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function set_default_policy_version(
@@ -7537,7 +7749,7 @@ function set_default_policy_version(
         "/policies/$(policyName)/version/$(policyVersionId)",
         params;
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -7560,7 +7772,7 @@ function set_logging_options(
         "/loggingOptions",
         Dict{String,Any}("loggingOptionsPayload" => loggingOptionsPayload);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function set_logging_options(
@@ -7579,7 +7791,7 @@ function set_logging_options(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -7602,7 +7814,7 @@ function set_v2_logging_level(
         "/v2LoggingLevel",
         Dict{String,Any}("logLevel" => logLevel, "logTarget" => logTarget);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function set_v2_logging_level(
@@ -7622,7 +7834,7 @@ function set_v2_logging_level(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -7641,7 +7853,7 @@ Optional parameters can be passed as a `params::Dict{String,<:Any}`. Valid keys 
 """
 function set_v2_logging_options(; aws_config::AbstractAWSConfig=global_aws_config())
     return iot(
-        "POST", "/v2LoggingOptions"; aws_config=aws_config, features=SERVICE_FEATURES
+        "POST", "/v2LoggingOptions"; aws_config=aws_config, feature_set=SERVICE_FEATURE_SET
     )
 end
 function set_v2_logging_options(
@@ -7652,7 +7864,7 @@ function set_v2_logging_options(
         "/v2LoggingOptions",
         params;
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -7693,7 +7905,7 @@ function start_audit_mitigation_actions_task(
             "target" => target,
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function start_audit_mitigation_actions_task(
@@ -7719,7 +7931,7 @@ function start_audit_mitigation_actions_task(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -7762,7 +7974,7 @@ function start_detect_mitigation_actions_task(
             "target" => target,
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function start_detect_mitigation_actions_task(
@@ -7788,7 +8000,7 @@ function start_detect_mitigation_actions_task(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -7814,7 +8026,7 @@ function start_on_demand_audit_task(
         "/audit/tasks",
         Dict{String,Any}("targetCheckNames" => targetCheckNames);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function start_on_demand_audit_task(
@@ -7831,7 +8043,7 @@ function start_on_demand_audit_task(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -7868,7 +8080,7 @@ function start_thing_registration_task(
             "templateBody" => templateBody,
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function start_thing_registration_task(
@@ -7895,7 +8107,7 @@ function start_thing_registration_task(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -7917,7 +8129,7 @@ function stop_thing_registration_task(
         "PUT",
         "/thing-registration-tasks/$(taskId)/cancel";
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function stop_thing_registration_task(
@@ -7928,7 +8140,7 @@ function stop_thing_registration_task(
         "/thing-registration-tasks/$(taskId)/cancel",
         params;
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -7950,7 +8162,7 @@ function tag_resource(resourceArn, tags; aws_config::AbstractAWSConfig=global_aw
         "/tags",
         Dict{String,Any}("resourceArn" => resourceArn, "tags" => tags);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function tag_resource(
@@ -7970,7 +8182,7 @@ function tag_resource(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -8004,7 +8216,7 @@ function test_authorization(authInfos; aws_config::AbstractAWSConfig=global_aws_
         "/test-authorization",
         Dict{String,Any}("authInfos" => authInfos);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function test_authorization(
@@ -8019,7 +8231,7 @@ function test_authorization(
             mergewith(_merge, Dict{String,Any}("authInfos" => authInfos), params)
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -8050,7 +8262,7 @@ function test_invoke_authorizer(
         "POST",
         "/authorizer/$(authorizerName)/test";
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function test_invoke_authorizer(
@@ -8063,7 +8275,7 @@ function test_invoke_authorizer(
         "/authorizer/$(authorizerName)/test",
         params;
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -8096,7 +8308,7 @@ function transfer_certificate(
         "/transfer-certificate/$(certificateId)",
         Dict{String,Any}("targetAwsAccount" => targetAwsAccount);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function transfer_certificate(
@@ -8114,7 +8326,7 @@ function transfer_certificate(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -8138,7 +8350,7 @@ function untag_resource(
         "/untag",
         Dict{String,Any}("resourceArn" => resourceArn, "tagKeys" => tagKeys);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function untag_resource(
@@ -8158,7 +8370,7 @@ function untag_resource(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -8190,7 +8402,10 @@ function update_account_audit_configuration(;
     aws_config::AbstractAWSConfig=global_aws_config()
 )
     return iot(
-        "PATCH", "/audit/configuration"; aws_config=aws_config, features=SERVICE_FEATURES
+        "PATCH",
+        "/audit/configuration";
+        aws_config=aws_config,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function update_account_audit_configuration(
@@ -8201,7 +8416,7 @@ function update_account_audit_configuration(
         "/audit/configuration",
         params;
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -8233,7 +8448,7 @@ function update_audit_suppression(
             "checkName" => checkName, "resourceIdentifier" => resourceIdentifier
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function update_audit_suppression(
@@ -8255,7 +8470,7 @@ function update_audit_suppression(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -8282,7 +8497,7 @@ function update_authorizer(
         "PUT",
         "/authorizer/$(authorizerName)";
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function update_authorizer(
@@ -8295,7 +8510,7 @@ function update_authorizer(
         "/authorizer/$(authorizerName)",
         params;
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -8326,7 +8541,7 @@ function update_billing_group(
         "/billing-groups/$(billingGroupName)",
         Dict{String,Any}("billingGroupProperties" => billingGroupProperties);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function update_billing_group(
@@ -8346,7 +8561,7 @@ function update_billing_group(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -8376,7 +8591,7 @@ function update_cacertificate(
         "PUT",
         "/cacertificate/$(caCertificateId)";
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function update_cacertificate(
@@ -8389,7 +8604,7 @@ function update_cacertificate(
         "/cacertificate/$(caCertificateId)",
         params;
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -8421,7 +8636,7 @@ function update_certificate(
         "/certificates/$(certificateId)",
         Dict{String,Any}("newStatus" => newStatus);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function update_certificate(
@@ -8437,7 +8652,7 @@ function update_certificate(
             mergewith(_merge, Dict{String,Any}("newStatus" => newStatus), params)
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -8463,7 +8678,7 @@ function update_custom_metric(
         "/custom-metric/$(metricName)",
         Dict{String,Any}("displayName" => displayName);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function update_custom_metric(
@@ -8479,7 +8694,7 @@ function update_custom_metric(
             mergewith(_merge, Dict{String,Any}("displayName" => displayName), params)
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -8507,7 +8722,7 @@ function update_dimension(
         "/dimensions/$(name)",
         Dict{String,Any}("stringValues" => stringValues);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function update_dimension(
@@ -8523,7 +8738,7 @@ function update_dimension(
             mergewith(_merge, Dict{String,Any}("stringValues" => stringValues), params)
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -8552,7 +8767,7 @@ function update_domain_configuration(
         "PUT",
         "/domainConfigurations/$(domainConfigurationName)";
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function update_domain_configuration(
@@ -8565,7 +8780,7 @@ function update_domain_configuration(
         "/domainConfigurations/$(domainConfigurationName)",
         params;
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -8598,7 +8813,7 @@ function update_dynamic_thing_group(
         "/dynamic-thing-groups/$(thingGroupName)",
         Dict{String,Any}("thingGroupProperties" => thingGroupProperties);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function update_dynamic_thing_group(
@@ -8618,7 +8833,7 @@ function update_dynamic_thing_group(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -8635,7 +8850,10 @@ Optional parameters can be passed as a `params::Dict{String,<:Any}`. Valid keys 
 """
 function update_event_configurations(; aws_config::AbstractAWSConfig=global_aws_config())
     return iot(
-        "PATCH", "/event-configurations"; aws_config=aws_config, features=SERVICE_FEATURES
+        "PATCH",
+        "/event-configurations";
+        aws_config=aws_config,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function update_event_configurations(
@@ -8646,7 +8864,7 @@ function update_event_configurations(
         "/event-configurations",
         params;
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -8682,7 +8900,7 @@ function update_fleet_metric(
         "/fleet-metric/$(metricName)",
         Dict{String,Any}("indexName" => indexName);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function update_fleet_metric(
@@ -8698,7 +8916,7 @@ function update_fleet_metric(
             mergewith(_merge, Dict{String,Any}("indexName" => indexName), params)
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -8715,13 +8933,19 @@ Optional parameters can be passed as a `params::Dict{String,<:Any}`. Valid keys 
 - `"thingIndexingConfiguration"`: Thing indexing configuration.
 """
 function update_indexing_configuration(; aws_config::AbstractAWSConfig=global_aws_config())
-    return iot("POST", "/indexing/config"; aws_config=aws_config, features=SERVICE_FEATURES)
+    return iot(
+        "POST", "/indexing/config"; aws_config=aws_config, feature_set=SERVICE_FEATURE_SET
+    )
 end
 function update_indexing_configuration(
     params::AbstractDict{String}; aws_config::AbstractAWSConfig=global_aws_config()
 )
     return iot(
-        "POST", "/indexing/config", params; aws_config=aws_config, features=SERVICE_FEATURES
+        "POST",
+        "/indexing/config",
+        params;
+        aws_config=aws_config,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -8752,13 +8976,19 @@ Optional parameters can be passed as a `params::Dict{String,<:Any}`. Valid keys 
   will be automatically set to TIMED_OUT.
 """
 function update_job(jobId; aws_config::AbstractAWSConfig=global_aws_config())
-    return iot("PATCH", "/jobs/$(jobId)"; aws_config=aws_config, features=SERVICE_FEATURES)
+    return iot(
+        "PATCH", "/jobs/$(jobId)"; aws_config=aws_config, feature_set=SERVICE_FEATURE_SET
+    )
 end
 function update_job(
     jobId, params::AbstractDict{String}; aws_config::AbstractAWSConfig=global_aws_config()
 )
     return iot(
-        "PATCH", "/jobs/$(jobId)", params; aws_config=aws_config, features=SERVICE_FEATURES
+        "PATCH",
+        "/jobs/$(jobId)",
+        params;
+        aws_config=aws_config,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -8786,7 +9016,7 @@ function update_mitigation_action(
         "PATCH",
         "/mitigationactions/actions/$(actionName)";
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function update_mitigation_action(
@@ -8799,7 +9029,7 @@ function update_mitigation_action(
         "/mitigationactions/actions/$(actionName)",
         params;
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -8830,7 +9060,7 @@ function update_provisioning_template(
         "PATCH",
         "/provisioning-templates/$(templateName)";
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function update_provisioning_template(
@@ -8843,7 +9073,7 @@ function update_provisioning_template(
         "/provisioning-templates/$(templateName)",
         params;
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -8866,7 +9096,7 @@ function update_role_alias(roleAlias; aws_config::AbstractAWSConfig=global_aws_c
         "PUT",
         "/role-aliases/$(roleAlias)";
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function update_role_alias(
@@ -8879,7 +9109,7 @@ function update_role_alias(
         "/role-aliases/$(roleAlias)",
         params;
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -8916,7 +9146,7 @@ function update_scheduled_audit(
         "PATCH",
         "/audit/scheduledaudits/$(scheduledAuditName)";
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function update_scheduled_audit(
@@ -8929,7 +9159,7 @@ function update_scheduled_audit(
         "/audit/scheduledaudits/$(scheduledAuditName)",
         params;
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -8976,7 +9206,7 @@ function update_security_profile(
         "PATCH",
         "/security-profiles/$(securityProfileName)";
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function update_security_profile(
@@ -8989,7 +9219,7 @@ function update_security_profile(
         "/security-profiles/$(securityProfileName)",
         params;
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -9012,7 +9242,10 @@ Optional parameters can be passed as a `params::Dict{String,<:Any}`. Valid keys 
 """
 function update_stream(streamId; aws_config::AbstractAWSConfig=global_aws_config())
     return iot(
-        "PUT", "/streams/$(streamId)"; aws_config=aws_config, features=SERVICE_FEATURES
+        "PUT",
+        "/streams/$(streamId)";
+        aws_config=aws_config,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function update_stream(
@@ -9025,7 +9258,7 @@ function update_stream(
         "/streams/$(streamId)",
         params;
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -9053,7 +9286,10 @@ Optional parameters can be passed as a `params::Dict{String,<:Any}`. Valid keys 
 """
 function update_thing(thingName; aws_config::AbstractAWSConfig=global_aws_config())
     return iot(
-        "PATCH", "/things/$(thingName)"; aws_config=aws_config, features=SERVICE_FEATURES
+        "PATCH",
+        "/things/$(thingName)";
+        aws_config=aws_config,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function update_thing(
@@ -9066,7 +9302,7 @@ function update_thing(
         "/things/$(thingName)",
         params;
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -9093,7 +9329,7 @@ function update_thing_group(
         "/thing-groups/$(thingGroupName)",
         Dict{String,Any}("thingGroupProperties" => thingGroupProperties);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function update_thing_group(
@@ -9113,7 +9349,7 @@ function update_thing_group(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -9139,7 +9375,7 @@ function update_thing_groups_for_thing(; aws_config::AbstractAWSConfig=global_aw
         "PUT",
         "/thing-groups/updateThingGroupsForThing";
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function update_thing_groups_for_thing(
@@ -9150,7 +9386,7 @@ function update_thing_groups_for_thing(
         "/thing-groups/updateThingGroupsForThing",
         params;
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -9186,7 +9422,7 @@ function update_topic_rule_destination(
         "/destinations",
         Dict{String,Any}("arn" => arn, "status" => status);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function update_topic_rule_destination(
@@ -9202,7 +9438,7 @@ function update_topic_rule_destination(
             mergewith(_merge, Dict{String,Any}("arn" => arn, "status" => status), params)
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -9226,7 +9462,7 @@ function validate_security_profile_behaviors(
         "/security-profile-behaviors/validate",
         Dict{String,Any}("behaviors" => behaviors);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function validate_security_profile_behaviors(
@@ -9241,6 +9477,6 @@ function validate_security_profile_behaviors(
             mergewith(_merge, Dict{String,Any}("behaviors" => behaviors), params)
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end

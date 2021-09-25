@@ -21,7 +21,7 @@ function accept_inbound_connection(
         "PUT",
         "/2021-01-01/opensearch/cc/inboundConnection/$(ConnectionId)/accept";
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function accept_inbound_connection(
@@ -34,7 +34,7 @@ function accept_inbound_connection(
         "/2021-01-01/opensearch/cc/inboundConnection/$(ConnectionId)/accept",
         params;
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -57,7 +57,7 @@ function add_tags(ARN, TagList; aws_config::AbstractAWSConfig=global_aws_config(
         "/2021-01-01/tags",
         Dict{String,Any}("ARN" => ARN, "TagList" => TagList);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function add_tags(
@@ -73,7 +73,7 @@ function add_tags(
             mergewith(_merge, Dict{String,Any}("ARN" => ARN, "TagList" => TagList), params)
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -96,7 +96,7 @@ function associate_package(
         "POST",
         "/2021-01-01/packages/associate/$(PackageID)/$(DomainName)";
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function associate_package(
@@ -110,7 +110,7 @@ function associate_package(
         "/2021-01-01/packages/associate/$(PackageID)/$(DomainName)",
         params;
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -135,7 +135,7 @@ function cancel_service_software_update(
         "/2021-01-01/opensearch/serviceSoftwareUpdate/cancel",
         Dict{String,Any}("DomainName" => DomainName);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function cancel_service_software_update(
@@ -150,7 +150,7 @@ function cancel_service_software_update(
             mergewith(_merge, Dict{String,Any}("DomainName" => DomainName), params)
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -205,7 +205,7 @@ function create_domain(DomainName; aws_config::AbstractAWSConfig=global_aws_conf
         "/2021-01-01/opensearch/domain",
         Dict{String,Any}("DomainName" => DomainName);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function create_domain(
@@ -220,7 +220,7 @@ function create_domain(
             mergewith(_merge, Dict{String,Any}("DomainName" => DomainName), params)
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -253,7 +253,7 @@ function create_outbound_connection(
             "RemoteDomainInfo" => RemoteDomainInfo,
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function create_outbound_connection(
@@ -278,7 +278,7 @@ function create_outbound_connection(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -312,7 +312,7 @@ function create_package(
             "PackageType" => PackageType,
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function create_package(
@@ -337,7 +337,7 @@ function create_package(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -357,7 +357,7 @@ function delete_domain(DomainName; aws_config::AbstractAWSConfig=global_aws_conf
         "DELETE",
         "/2021-01-01/opensearch/domain/$(DomainName)";
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function delete_domain(
@@ -370,7 +370,7 @@ function delete_domain(
         "/2021-01-01/opensearch/domain/$(DomainName)",
         params;
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -391,7 +391,7 @@ function delete_inbound_connection(
         "DELETE",
         "/2021-01-01/opensearch/cc/inboundConnection/$(ConnectionId)";
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function delete_inbound_connection(
@@ -404,7 +404,7 @@ function delete_inbound_connection(
         "/2021-01-01/opensearch/cc/inboundConnection/$(ConnectionId)",
         params;
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -425,7 +425,7 @@ function delete_outbound_connection(
         "DELETE",
         "/2021-01-01/opensearch/cc/outboundConnection/$(ConnectionId)";
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function delete_outbound_connection(
@@ -438,7 +438,7 @@ function delete_outbound_connection(
         "/2021-01-01/opensearch/cc/outboundConnection/$(ConnectionId)",
         params;
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -458,7 +458,7 @@ function delete_package(PackageID; aws_config::AbstractAWSConfig=global_aws_conf
         "DELETE",
         "/2021-01-01/packages/$(PackageID)";
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function delete_package(
@@ -471,7 +471,7 @@ function delete_package(
         "/2021-01-01/packages/$(PackageID)",
         params;
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -491,7 +491,7 @@ function describe_domain(DomainName; aws_config::AbstractAWSConfig=global_aws_co
         "GET",
         "/2021-01-01/opensearch/domain/$(DomainName)";
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function describe_domain(
@@ -504,7 +504,7 @@ function describe_domain(
         "/2021-01-01/opensearch/domain/$(DomainName)",
         params;
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -532,7 +532,7 @@ function describe_domain_auto_tunes(
         "GET",
         "/2021-01-01/opensearch/domain/$(DomainName)/autoTunes";
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function describe_domain_auto_tunes(
@@ -545,7 +545,7 @@ function describe_domain_auto_tunes(
         "/2021-01-01/opensearch/domain/$(DomainName)/autoTunes",
         params;
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -567,7 +567,7 @@ function describe_domain_config(
         "GET",
         "/2021-01-01/opensearch/domain/$(DomainName)/config";
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function describe_domain_config(
@@ -580,7 +580,7 @@ function describe_domain_config(
         "/2021-01-01/opensearch/domain/$(DomainName)/config",
         params;
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -601,7 +601,7 @@ function describe_domains(DomainNames; aws_config::AbstractAWSConfig=global_aws_
         "/2021-01-01/opensearch/domain-info",
         Dict{String,Any}("DomainNames" => DomainNames);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function describe_domains(
@@ -616,7 +616,7 @@ function describe_domains(
             mergewith(_merge, Dict{String,Any}("DomainNames" => DomainNames), params)
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -641,7 +641,7 @@ function describe_inbound_connections(; aws_config::AbstractAWSConfig=global_aws
         "POST",
         "/2021-01-01/opensearch/cc/inboundConnection/search";
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function describe_inbound_connections(
@@ -652,7 +652,7 @@ function describe_inbound_connections(
         "/2021-01-01/opensearch/cc/inboundConnection/search",
         params;
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -681,7 +681,7 @@ function describe_instance_type_limits(
         "GET",
         "/2021-01-01/opensearch/instanceTypeLimits/$(EngineVersion)/$(InstanceType)";
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function describe_instance_type_limits(
@@ -695,7 +695,7 @@ function describe_instance_type_limits(
         "/2021-01-01/opensearch/instanceTypeLimits/$(EngineVersion)/$(InstanceType)",
         params;
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -721,7 +721,7 @@ function describe_outbound_connections(; aws_config::AbstractAWSConfig=global_aw
         "POST",
         "/2021-01-01/opensearch/cc/outboundConnection/search";
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function describe_outbound_connections(
@@ -732,7 +732,7 @@ function describe_outbound_connections(
         "/2021-01-01/opensearch/cc/outboundConnection/search",
         params;
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -755,7 +755,7 @@ function describe_packages(; aws_config::AbstractAWSConfig=global_aws_config())
         "POST",
         "/2021-01-01/packages/describe";
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function describe_packages(
@@ -766,7 +766,7 @@ function describe_packages(
         "/2021-01-01/packages/describe",
         params;
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -791,7 +791,7 @@ function describe_reserved_instance_offerings(;
         "GET",
         "/2021-01-01/opensearch/reservedInstanceOfferings";
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function describe_reserved_instance_offerings(
@@ -802,7 +802,7 @@ function describe_reserved_instance_offerings(
         "/2021-01-01/opensearch/reservedInstanceOfferings",
         params;
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -825,7 +825,7 @@ function describe_reserved_instances(; aws_config::AbstractAWSConfig=global_aws_
         "GET",
         "/2021-01-01/opensearch/reservedInstances";
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function describe_reserved_instances(
@@ -836,7 +836,7 @@ function describe_reserved_instances(
         "/2021-01-01/opensearch/reservedInstances",
         params;
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -859,7 +859,7 @@ function dissociate_package(
         "POST",
         "/2021-01-01/packages/dissociate/$(PackageID)/$(DomainName)";
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function dissociate_package(
@@ -873,7 +873,7 @@ function dissociate_package(
         "/2021-01-01/packages/dissociate/$(PackageID)/$(DomainName)",
         params;
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -894,7 +894,7 @@ function get_compatible_versions(; aws_config::AbstractAWSConfig=global_aws_conf
         "GET",
         "/2021-01-01/opensearch/compatibleVersions";
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function get_compatible_versions(
@@ -905,7 +905,7 @@ function get_compatible_versions(
         "/2021-01-01/opensearch/compatibleVersions",
         params;
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -931,7 +931,7 @@ function get_package_version_history(
         "GET",
         "/2021-01-01/packages/$(PackageID)/history";
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function get_package_version_history(
@@ -944,7 +944,7 @@ function get_package_version_history(
         "/2021-01-01/packages/$(PackageID)/history",
         params;
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -967,7 +967,7 @@ function get_upgrade_history(DomainName; aws_config::AbstractAWSConfig=global_aw
         "GET",
         "/2021-01-01/opensearch/upgradeDomain/$(DomainName)/history";
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function get_upgrade_history(
@@ -980,7 +980,7 @@ function get_upgrade_history(
         "/2021-01-01/opensearch/upgradeDomain/$(DomainName)/history",
         params;
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -1000,7 +1000,7 @@ function get_upgrade_status(DomainName; aws_config::AbstractAWSConfig=global_aws
         "GET",
         "/2021-01-01/opensearch/upgradeDomain/$(DomainName)/status";
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function get_upgrade_status(
@@ -1013,7 +1013,7 @@ function get_upgrade_status(
         "/2021-01-01/opensearch/upgradeDomain/$(DomainName)/status",
         params;
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -1030,7 +1030,7 @@ Optional parameters can be passed as a `params::Dict{String,<:Any}`. Valid keys 
 """
 function list_domain_names(; aws_config::AbstractAWSConfig=global_aws_config())
     return opensearch(
-        "GET", "/2021-01-01/domain"; aws_config=aws_config, features=SERVICE_FEATURES
+        "GET", "/2021-01-01/domain"; aws_config=aws_config, feature_set=SERVICE_FEATURE_SET
     )
 end
 function list_domain_names(
@@ -1041,7 +1041,7 @@ function list_domain_names(
         "/2021-01-01/domain",
         params;
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -1067,7 +1067,7 @@ function list_domains_for_package(
         "GET",
         "/2021-01-01/packages/$(PackageID)/domains";
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function list_domains_for_package(
@@ -1080,7 +1080,7 @@ function list_domains_for_package(
         "/2021-01-01/packages/$(PackageID)/domains",
         params;
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -1106,7 +1106,7 @@ function list_instance_type_details(
         "GET",
         "/2021-01-01/opensearch/instanceTypeDetails/$(EngineVersion)";
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function list_instance_type_details(
@@ -1119,7 +1119,7 @@ function list_instance_type_details(
         "/2021-01-01/opensearch/instanceTypeDetails/$(EngineVersion)",
         params;
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -1145,7 +1145,7 @@ function list_packages_for_domain(
         "GET",
         "/2021-01-01/domain/$(DomainName)/packages";
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function list_packages_for_domain(
@@ -1158,7 +1158,7 @@ function list_packages_for_domain(
         "/2021-01-01/domain/$(DomainName)/packages",
         params;
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -1178,7 +1178,7 @@ function list_tags(arn; aws_config::AbstractAWSConfig=global_aws_config())
         "/2021-01-01/tags/",
         Dict{String,Any}("arn" => arn);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function list_tags(
@@ -1189,7 +1189,7 @@ function list_tags(
         "/2021-01-01/tags/",
         Dict{String,Any}(mergewith(_merge, Dict{String,Any}("arn" => arn), params));
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -1210,7 +1210,7 @@ function list_versions(; aws_config::AbstractAWSConfig=global_aws_config())
         "GET",
         "/2021-01-01/opensearch/versions";
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function list_versions(
@@ -1221,7 +1221,7 @@ function list_versions(
         "/2021-01-01/opensearch/versions",
         params;
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -1253,7 +1253,7 @@ function purchase_reserved_instance_offering(
             "ReservedInstanceOfferingId" => ReservedInstanceOfferingId,
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function purchase_reserved_instance_offering(
@@ -1276,7 +1276,7 @@ function purchase_reserved_instance_offering(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -1297,7 +1297,7 @@ function reject_inbound_connection(
         "PUT",
         "/2021-01-01/opensearch/cc/inboundConnection/$(ConnectionId)/reject";
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function reject_inbound_connection(
@@ -1310,7 +1310,7 @@ function reject_inbound_connection(
         "/2021-01-01/opensearch/cc/inboundConnection/$(ConnectionId)/reject",
         params;
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -1331,7 +1331,7 @@ function remove_tags(ARN, TagKeys; aws_config::AbstractAWSConfig=global_aws_conf
         "/2021-01-01/tags-removal",
         Dict{String,Any}("ARN" => ARN, "TagKeys" => TagKeys);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function remove_tags(
@@ -1347,7 +1347,7 @@ function remove_tags(
             mergewith(_merge, Dict{String,Any}("ARN" => ARN, "TagKeys" => TagKeys), params)
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -1370,7 +1370,7 @@ function start_service_software_update(
         "/2021-01-01/opensearch/serviceSoftwareUpdate/start",
         Dict{String,Any}("DomainName" => DomainName);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function start_service_software_update(
@@ -1385,7 +1385,7 @@ function start_service_software_update(
             mergewith(_merge, Dict{String,Any}("DomainName" => DomainName), params)
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -1428,7 +1428,7 @@ function update_domain_config(DomainName; aws_config::AbstractAWSConfig=global_a
         "POST",
         "/2021-01-01/opensearch/domain/$(DomainName)/config";
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function update_domain_config(
@@ -1441,7 +1441,7 @@ function update_domain_config(
         "/2021-01-01/opensearch/domain/$(DomainName)/config",
         params;
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -1469,7 +1469,7 @@ function update_package(
         "/2021-01-01/packages/update",
         Dict{String,Any}("PackageID" => PackageID, "PackageSource" => PackageSource);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function update_package(
@@ -1491,7 +1491,7 @@ function update_package(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -1520,7 +1520,7 @@ function upgrade_domain(
         "/2021-01-01/opensearch/upgradeDomain",
         Dict{String,Any}("DomainName" => DomainName, "TargetVersion" => TargetVersion);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function upgrade_domain(
@@ -1542,6 +1542,6 @@ function upgrade_domain(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end

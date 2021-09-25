@@ -38,7 +38,7 @@ function add_custom_routing_endpoints(
             "EndpointGroupArn" => EndpointGroupArn,
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function add_custom_routing_endpoints(
@@ -60,7 +60,7 @@ function add_custom_routing_endpoints(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -84,7 +84,7 @@ function advertise_byoip_cidr(Cidr; aws_config::AbstractAWSConfig=global_aws_con
         "AdvertiseByoipCidr",
         Dict{String,Any}("Cidr" => Cidr);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function advertise_byoip_cidr(
@@ -94,7 +94,7 @@ function advertise_byoip_cidr(
         "AdvertiseByoipCidr",
         Dict{String,Any}(mergewith(_merge, Dict{String,Any}("Cidr" => Cidr), params));
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -141,7 +141,7 @@ function allow_custom_routing_traffic(
             "EndpointGroupArn" => EndpointGroupArn, "EndpointId" => EndpointId
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function allow_custom_routing_traffic(
@@ -162,7 +162,7 @@ function allow_custom_routing_traffic(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -209,7 +209,7 @@ function create_accelerator(
         "CreateAccelerator",
         Dict{String,Any}("IdempotencyToken" => IdempotencyToken, "Name" => Name);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function create_accelerator(
@@ -228,7 +228,7 @@ function create_accelerator(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -278,7 +278,7 @@ function create_custom_routing_accelerator(
         "CreateCustomRoutingAccelerator",
         Dict{String,Any}("IdempotencyToken" => IdempotencyToken, "Name" => Name);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function create_custom_routing_accelerator(
@@ -297,7 +297,7 @@ function create_custom_routing_accelerator(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -335,7 +335,7 @@ function create_custom_routing_endpoint_group(
             "ListenerArn" => ListenerArn,
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function create_custom_routing_endpoint_group(
@@ -361,7 +361,7 @@ function create_custom_routing_endpoint_group(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -397,7 +397,7 @@ function create_custom_routing_listener(
             "PortRanges" => PortRanges,
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function create_custom_routing_listener(
@@ -421,7 +421,7 @@ function create_custom_routing_listener(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -481,7 +481,7 @@ function create_endpoint_group(
             "ListenerArn" => ListenerArn,
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function create_endpoint_group(
@@ -505,7 +505,7 @@ function create_endpoint_group(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -558,7 +558,7 @@ function create_listener(
             "Protocol" => Protocol,
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function create_listener(
@@ -584,7 +584,7 @@ function create_listener(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -617,7 +617,7 @@ function delete_accelerator(
         "DeleteAccelerator",
         Dict{String,Any}("AcceleratorArn" => AcceleratorArn);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function delete_accelerator(
@@ -631,7 +631,7 @@ function delete_accelerator(
             mergewith(_merge, Dict{String,Any}("AcceleratorArn" => AcceleratorArn), params)
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -664,7 +664,7 @@ function delete_custom_routing_accelerator(
         "DeleteCustomRoutingAccelerator",
         Dict{String,Any}("AcceleratorArn" => AcceleratorArn);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function delete_custom_routing_accelerator(
@@ -678,7 +678,7 @@ function delete_custom_routing_accelerator(
             mergewith(_merge, Dict{String,Any}("AcceleratorArn" => AcceleratorArn), params)
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -699,7 +699,7 @@ function delete_custom_routing_endpoint_group(
         "DeleteCustomRoutingEndpointGroup",
         Dict{String,Any}("EndpointGroupArn" => EndpointGroupArn);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function delete_custom_routing_endpoint_group(
@@ -715,7 +715,7 @@ function delete_custom_routing_endpoint_group(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -736,7 +736,7 @@ function delete_custom_routing_listener(
         "DeleteCustomRoutingListener",
         Dict{String,Any}("ListenerArn" => ListenerArn);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function delete_custom_routing_listener(
@@ -750,7 +750,7 @@ function delete_custom_routing_listener(
             mergewith(_merge, Dict{String,Any}("ListenerArn" => ListenerArn), params)
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -771,7 +771,7 @@ function delete_endpoint_group(
         "DeleteEndpointGroup",
         Dict{String,Any}("EndpointGroupArn" => EndpointGroupArn);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function delete_endpoint_group(
@@ -787,7 +787,7 @@ function delete_endpoint_group(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -806,7 +806,7 @@ function delete_listener(ListenerArn; aws_config::AbstractAWSConfig=global_aws_c
         "DeleteListener",
         Dict{String,Any}("ListenerArn" => ListenerArn);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function delete_listener(
@@ -820,7 +820,7 @@ function delete_listener(
             mergewith(_merge, Dict{String,Any}("ListenerArn" => ListenerArn), params)
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -867,7 +867,7 @@ function deny_custom_routing_traffic(
             "EndpointGroupArn" => EndpointGroupArn, "EndpointId" => EndpointId
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function deny_custom_routing_traffic(
@@ -888,7 +888,7 @@ function deny_custom_routing_traffic(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -913,7 +913,7 @@ function deprovision_byoip_cidr(Cidr; aws_config::AbstractAWSConfig=global_aws_c
         "DeprovisionByoipCidr",
         Dict{String,Any}("Cidr" => Cidr);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function deprovision_byoip_cidr(
@@ -923,7 +923,7 @@ function deprovision_byoip_cidr(
         "DeprovisionByoipCidr",
         Dict{String,Any}(mergewith(_merge, Dict{String,Any}("Cidr" => Cidr), params));
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -944,7 +944,7 @@ function describe_accelerator(
         "DescribeAccelerator",
         Dict{String,Any}("AcceleratorArn" => AcceleratorArn);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function describe_accelerator(
@@ -958,7 +958,7 @@ function describe_accelerator(
             mergewith(_merge, Dict{String,Any}("AcceleratorArn" => AcceleratorArn), params)
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -980,7 +980,7 @@ function describe_accelerator_attributes(
         "DescribeAcceleratorAttributes",
         Dict{String,Any}("AcceleratorArn" => AcceleratorArn);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function describe_accelerator_attributes(
@@ -994,7 +994,7 @@ function describe_accelerator_attributes(
             mergewith(_merge, Dict{String,Any}("AcceleratorArn" => AcceleratorArn), params)
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -1015,7 +1015,7 @@ function describe_custom_routing_accelerator(
         "DescribeCustomRoutingAccelerator",
         Dict{String,Any}("AcceleratorArn" => AcceleratorArn);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function describe_custom_routing_accelerator(
@@ -1029,7 +1029,7 @@ function describe_custom_routing_accelerator(
             mergewith(_merge, Dict{String,Any}("AcceleratorArn" => AcceleratorArn), params)
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -1051,7 +1051,7 @@ function describe_custom_routing_accelerator_attributes(
         "DescribeCustomRoutingAcceleratorAttributes",
         Dict{String,Any}("AcceleratorArn" => AcceleratorArn);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function describe_custom_routing_accelerator_attributes(
@@ -1065,7 +1065,7 @@ function describe_custom_routing_accelerator_attributes(
             mergewith(_merge, Dict{String,Any}("AcceleratorArn" => AcceleratorArn), params)
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -1086,7 +1086,7 @@ function describe_custom_routing_endpoint_group(
         "DescribeCustomRoutingEndpointGroup",
         Dict{String,Any}("EndpointGroupArn" => EndpointGroupArn);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function describe_custom_routing_endpoint_group(
@@ -1102,7 +1102,7 @@ function describe_custom_routing_endpoint_group(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -1123,7 +1123,7 @@ function describe_custom_routing_listener(
         "DescribeCustomRoutingListener",
         Dict{String,Any}("ListenerArn" => ListenerArn);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function describe_custom_routing_listener(
@@ -1137,7 +1137,7 @@ function describe_custom_routing_listener(
             mergewith(_merge, Dict{String,Any}("ListenerArn" => ListenerArn), params)
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -1158,7 +1158,7 @@ function describe_endpoint_group(
         "DescribeEndpointGroup",
         Dict{String,Any}("EndpointGroupArn" => EndpointGroupArn);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function describe_endpoint_group(
@@ -1174,7 +1174,7 @@ function describe_endpoint_group(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -1193,7 +1193,7 @@ function describe_listener(ListenerArn; aws_config::AbstractAWSConfig=global_aws
         "DescribeListener",
         Dict{String,Any}("ListenerArn" => ListenerArn);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function describe_listener(
@@ -1207,7 +1207,7 @@ function describe_listener(
             mergewith(_merge, Dict{String,Any}("ListenerArn" => ListenerArn), params)
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -1226,14 +1226,14 @@ Optional parameters can be passed as a `params::Dict{String,<:Any}`. Valid keys 
 """
 function list_accelerators(; aws_config::AbstractAWSConfig=global_aws_config())
     return global_accelerator(
-        "ListAccelerators"; aws_config=aws_config, features=SERVICE_FEATURES
+        "ListAccelerators"; aws_config=aws_config, feature_set=SERVICE_FEATURE_SET
     )
 end
 function list_accelerators(
     params::AbstractDict{String}; aws_config::AbstractAWSConfig=global_aws_config()
 )
     return global_accelerator(
-        "ListAccelerators", params; aws_config=aws_config, features=SERVICE_FEATURES
+        "ListAccelerators", params; aws_config=aws_config, feature_set=SERVICE_FEATURE_SET
     )
 end
 
@@ -1252,14 +1252,14 @@ Optional parameters can be passed as a `params::Dict{String,<:Any}`. Valid keys 
 """
 function list_byoip_cidrs(; aws_config::AbstractAWSConfig=global_aws_config())
     return global_accelerator(
-        "ListByoipCidrs"; aws_config=aws_config, features=SERVICE_FEATURES
+        "ListByoipCidrs"; aws_config=aws_config, feature_set=SERVICE_FEATURE_SET
     )
 end
 function list_byoip_cidrs(
     params::AbstractDict{String}; aws_config::AbstractAWSConfig=global_aws_config()
 )
     return global_accelerator(
-        "ListByoipCidrs", params; aws_config=aws_config, features=SERVICE_FEATURES
+        "ListByoipCidrs", params; aws_config=aws_config, feature_set=SERVICE_FEATURE_SET
     )
 end
 
@@ -1280,7 +1280,9 @@ function list_custom_routing_accelerators(;
     aws_config::AbstractAWSConfig=global_aws_config()
 )
     return global_accelerator(
-        "ListCustomRoutingAccelerators"; aws_config=aws_config, features=SERVICE_FEATURES
+        "ListCustomRoutingAccelerators";
+        aws_config=aws_config,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function list_custom_routing_accelerators(
@@ -1290,7 +1292,7 @@ function list_custom_routing_accelerators(
         "ListCustomRoutingAccelerators",
         params;
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -1319,7 +1321,7 @@ function list_custom_routing_endpoint_groups(
         "ListCustomRoutingEndpointGroups",
         Dict{String,Any}("ListenerArn" => ListenerArn);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function list_custom_routing_endpoint_groups(
@@ -1333,7 +1335,7 @@ function list_custom_routing_endpoint_groups(
             mergewith(_merge, Dict{String,Any}("ListenerArn" => ListenerArn), params)
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -1361,7 +1363,7 @@ function list_custom_routing_listeners(
         "ListCustomRoutingListeners",
         Dict{String,Any}("AcceleratorArn" => AcceleratorArn);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function list_custom_routing_listeners(
@@ -1375,7 +1377,7 @@ function list_custom_routing_listeners(
             mergewith(_merge, Dict{String,Any}("AcceleratorArn" => AcceleratorArn), params)
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -1415,7 +1417,7 @@ function list_custom_routing_port_mappings(
         "ListCustomRoutingPortMappings",
         Dict{String,Any}("AcceleratorArn" => AcceleratorArn);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function list_custom_routing_port_mappings(
@@ -1429,7 +1431,7 @@ function list_custom_routing_port_mappings(
             mergewith(_merge, Dict{String,Any}("AcceleratorArn" => AcceleratorArn), params)
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -1464,7 +1466,7 @@ function list_custom_routing_port_mappings_by_destination(
             "DestinationAddress" => DestinationAddress, "EndpointId" => EndpointId
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function list_custom_routing_port_mappings_by_destination(
@@ -1485,7 +1487,7 @@ function list_custom_routing_port_mappings_by_destination(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -1512,7 +1514,7 @@ function list_endpoint_groups(
         "ListEndpointGroups",
         Dict{String,Any}("ListenerArn" => ListenerArn);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function list_endpoint_groups(
@@ -1526,7 +1528,7 @@ function list_endpoint_groups(
             mergewith(_merge, Dict{String,Any}("ListenerArn" => ListenerArn), params)
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -1552,7 +1554,7 @@ function list_listeners(AcceleratorArn; aws_config::AbstractAWSConfig=global_aws
         "ListListeners",
         Dict{String,Any}("AcceleratorArn" => AcceleratorArn);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function list_listeners(
@@ -1566,7 +1568,7 @@ function list_listeners(
             mergewith(_merge, Dict{String,Any}("AcceleratorArn" => AcceleratorArn), params)
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -1589,7 +1591,7 @@ function list_tags_for_resource(
         "ListTagsForResource",
         Dict{String,Any}("ResourceArn" => ResourceArn);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function list_tags_for_resource(
@@ -1603,7 +1605,7 @@ function list_tags_for_resource(
             mergewith(_merge, Dict{String,Any}("ResourceArn" => ResourceArn), params)
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -1633,7 +1635,7 @@ function provision_byoip_cidr(
             "Cidr" => Cidr, "CidrAuthorizationContext" => CidrAuthorizationContext
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function provision_byoip_cidr(
@@ -1654,7 +1656,7 @@ function provision_byoip_cidr(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -1680,7 +1682,7 @@ function remove_custom_routing_endpoints(
             "EndpointGroupArn" => EndpointGroupArn, "EndpointIds" => EndpointIds
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function remove_custom_routing_endpoints(
@@ -1701,7 +1703,7 @@ function remove_custom_routing_endpoints(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -1724,7 +1726,7 @@ function tag_resource(ResourceArn, Tags; aws_config::AbstractAWSConfig=global_aw
         "TagResource",
         Dict{String,Any}("ResourceArn" => ResourceArn, "Tags" => Tags);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function tag_resource(
@@ -1743,7 +1745,7 @@ function tag_resource(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -1769,7 +1771,7 @@ function untag_resource(
         "UntagResource",
         Dict{String,Any}("ResourceArn" => ResourceArn, "TagKeys" => TagKeys);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function untag_resource(
@@ -1788,7 +1790,7 @@ function untag_resource(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -1820,7 +1822,7 @@ function update_accelerator(
         "UpdateAccelerator",
         Dict{String,Any}("AcceleratorArn" => AcceleratorArn);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function update_accelerator(
@@ -1834,7 +1836,7 @@ function update_accelerator(
             mergewith(_merge, Dict{String,Any}("AcceleratorArn" => AcceleratorArn), params)
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -1869,7 +1871,7 @@ function update_accelerator_attributes(
         "UpdateAcceleratorAttributes",
         Dict{String,Any}("AcceleratorArn" => AcceleratorArn);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function update_accelerator_attributes(
@@ -1883,7 +1885,7 @@ function update_accelerator_attributes(
             mergewith(_merge, Dict{String,Any}("AcceleratorArn" => AcceleratorArn), params)
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -1913,7 +1915,7 @@ function update_custom_routing_accelerator(
         "UpdateCustomRoutingAccelerator",
         Dict{String,Any}("AcceleratorArn" => AcceleratorArn);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function update_custom_routing_accelerator(
@@ -1927,7 +1929,7 @@ function update_custom_routing_accelerator(
             mergewith(_merge, Dict{String,Any}("AcceleratorArn" => AcceleratorArn), params)
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -1962,7 +1964,7 @@ function update_custom_routing_accelerator_attributes(
         "UpdateCustomRoutingAcceleratorAttributes",
         Dict{String,Any}("AcceleratorArn" => AcceleratorArn);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function update_custom_routing_accelerator_attributes(
@@ -1976,7 +1978,7 @@ function update_custom_routing_accelerator_attributes(
             mergewith(_merge, Dict{String,Any}("AcceleratorArn" => AcceleratorArn), params)
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -2001,7 +2003,7 @@ function update_custom_routing_listener(
         "UpdateCustomRoutingListener",
         Dict{String,Any}("ListenerArn" => ListenerArn, "PortRanges" => PortRanges);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function update_custom_routing_listener(
@@ -2020,7 +2022,7 @@ function update_custom_routing_listener(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -2069,7 +2071,7 @@ function update_endpoint_group(
         "UpdateEndpointGroup",
         Dict{String,Any}("EndpointGroupArn" => EndpointGroupArn);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function update_endpoint_group(
@@ -2085,7 +2087,7 @@ function update_endpoint_group(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -2123,7 +2125,7 @@ function update_listener(ListenerArn; aws_config::AbstractAWSConfig=global_aws_c
         "UpdateListener",
         Dict{String,Any}("ListenerArn" => ListenerArn);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function update_listener(
@@ -2137,7 +2139,7 @@ function update_listener(
             mergewith(_merge, Dict{String,Any}("ListenerArn" => ListenerArn), params)
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -2160,7 +2162,7 @@ function withdraw_byoip_cidr(Cidr; aws_config::AbstractAWSConfig=global_aws_conf
         "WithdrawByoipCidr",
         Dict{String,Any}("Cidr" => Cidr);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function withdraw_byoip_cidr(
@@ -2170,6 +2172,6 @@ function withdraw_byoip_cidr(
         "WithdrawByoipCidr",
         Dict{String,Any}(mergewith(_merge, Dict{String,Any}("Cidr" => Cidr), params));
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end

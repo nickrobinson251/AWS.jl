@@ -46,7 +46,7 @@ function get_personalized_ranking(
             "campaignArn" => campaignArn, "inputList" => inputList, "userId" => userId
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function get_personalized_ranking(
@@ -71,7 +71,7 @@ function get_personalized_ranking(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -116,7 +116,7 @@ function get_recommendations(campaignArn; aws_config::AbstractAWSConfig=global_a
         "/recommendations",
         Dict{String,Any}("campaignArn" => campaignArn);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function get_recommendations(
@@ -131,6 +131,6 @@ function get_recommendations(
             mergewith(_merge, Dict{String,Any}("campaignArn" => campaignArn), params)
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end

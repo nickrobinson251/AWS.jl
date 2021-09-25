@@ -28,7 +28,7 @@ function add_tags(ResourceId; aws_config::AbstractAWSConfig=global_aws_config())
         "AddTags",
         Dict{String,Any}("ResourceId" => ResourceId);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function add_tags(
@@ -42,7 +42,7 @@ function add_tags(
             mergewith(_merge, Dict{String,Any}("ResourceId" => ResourceId), params)
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -107,7 +107,7 @@ function create_trail(Name, S3BucketName; aws_config::AbstractAWSConfig=global_a
         "CreateTrail",
         Dict{String,Any}("Name" => Name, "S3BucketName" => S3BucketName);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function create_trail(
@@ -126,7 +126,7 @@ function create_trail(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -149,7 +149,7 @@ function delete_trail(Name; aws_config::AbstractAWSConfig=global_aws_config())
         "DeleteTrail",
         Dict{String,Any}("Name" => Name);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function delete_trail(
@@ -159,7 +159,7 @@ function delete_trail(
         "DeleteTrail",
         Dict{String,Any}(mergewith(_merge, Dict{String,Any}("Name" => Name), params));
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -190,13 +190,15 @@ Optional parameters can be passed as a `params::Dict{String,<:Any}`. Valid keys 
   trail ARN.
 """
 function describe_trails(; aws_config::AbstractAWSConfig=global_aws_config())
-    return cloudtrail("DescribeTrails"; aws_config=aws_config, features=SERVICE_FEATURES)
+    return cloudtrail(
+        "DescribeTrails"; aws_config=aws_config, feature_set=SERVICE_FEATURE_SET
+    )
 end
 function describe_trails(
     params::AbstractDict{String}; aws_config::AbstractAWSConfig=global_aws_config()
 )
     return cloudtrail(
-        "DescribeTrails", params; aws_config=aws_config, features=SERVICE_FEATURES
+        "DescribeTrails", params; aws_config=aws_config, feature_set=SERVICE_FEATURE_SET
     )
 end
 
@@ -227,7 +229,7 @@ function get_event_selectors(TrailName; aws_config::AbstractAWSConfig=global_aws
         "GetEventSelectors",
         Dict{String,Any}("TrailName" => TrailName);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function get_event_selectors(
@@ -241,7 +243,7 @@ function get_event_selectors(
             mergewith(_merge, Dict{String,Any}("TrailName" => TrailName), params)
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -271,7 +273,7 @@ function get_insight_selectors(TrailName; aws_config::AbstractAWSConfig=global_a
         "GetInsightSelectors",
         Dict{String,Any}("TrailName" => TrailName);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function get_insight_selectors(
@@ -285,7 +287,7 @@ function get_insight_selectors(
             mergewith(_merge, Dict{String,Any}("TrailName" => TrailName), params)
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -305,7 +307,7 @@ function get_trail(Name; aws_config::AbstractAWSConfig=global_aws_config())
         "GetTrail",
         Dict{String,Any}("Name" => Name);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function get_trail(
@@ -315,7 +317,7 @@ function get_trail(
         "GetTrail",
         Dict{String,Any}(mergewith(_merge, Dict{String,Any}("Name" => Name), params));
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -340,7 +342,7 @@ function get_trail_status(Name; aws_config::AbstractAWSConfig=global_aws_config(
         "GetTrailStatus",
         Dict{String,Any}("Name" => Name);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function get_trail_status(
@@ -350,7 +352,7 @@ function get_trail_status(
         "GetTrailStatus",
         Dict{String,Any}(mergewith(_merge, Dict{String,Any}("Name" => Name), params));
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -375,13 +377,15 @@ Optional parameters can be passed as a `params::Dict{String,<:Any}`. Valid keys 
   the current public key is returned.
 """
 function list_public_keys(; aws_config::AbstractAWSConfig=global_aws_config())
-    return cloudtrail("ListPublicKeys"; aws_config=aws_config, features=SERVICE_FEATURES)
+    return cloudtrail(
+        "ListPublicKeys"; aws_config=aws_config, feature_set=SERVICE_FEATURE_SET
+    )
 end
 function list_public_keys(
     params::AbstractDict{String}; aws_config::AbstractAWSConfig=global_aws_config()
 )
     return cloudtrail(
-        "ListPublicKeys", params; aws_config=aws_config, features=SERVICE_FEATURES
+        "ListPublicKeys", params; aws_config=aws_config, feature_set=SERVICE_FEATURE_SET
     )
 end
 
@@ -405,7 +409,7 @@ function list_tags(ResourceIdList; aws_config::AbstractAWSConfig=global_aws_conf
         "ListTags",
         Dict{String,Any}("ResourceIdList" => ResourceIdList);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function list_tags(
@@ -419,7 +423,7 @@ function list_tags(
             mergewith(_merge, Dict{String,Any}("ResourceIdList" => ResourceIdList), params)
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -437,13 +441,13 @@ Optional parameters can be passed as a `params::Dict{String,<:Any}`. Valid keys 
   with a value of 'root', the call with NextToken should include those same parameters.
 """
 function list_trails(; aws_config::AbstractAWSConfig=global_aws_config())
-    return cloudtrail("ListTrails"; aws_config=aws_config, features=SERVICE_FEATURES)
+    return cloudtrail("ListTrails"; aws_config=aws_config, feature_set=SERVICE_FEATURE_SET)
 end
 function list_trails(
     params::AbstractDict{String}; aws_config::AbstractAWSConfig=global_aws_config()
 )
     return cloudtrail(
-        "ListTrails", params; aws_config=aws_config, features=SERVICE_FEATURES
+        "ListTrails", params; aws_config=aws_config, feature_set=SERVICE_FEATURE_SET
     )
 end
 
@@ -481,13 +485,15 @@ Optional parameters can be passed as a `params::Dict{String,<:Any}`. Valid keys 
   returned. If the specified start time is after the specified end time, an error is returned.
 """
 function lookup_events(; aws_config::AbstractAWSConfig=global_aws_config())
-    return cloudtrail("LookupEvents"; aws_config=aws_config, features=SERVICE_FEATURES)
+    return cloudtrail(
+        "LookupEvents"; aws_config=aws_config, feature_set=SERVICE_FEATURE_SET
+    )
 end
 function lookup_events(
     params::AbstractDict{String}; aws_config::AbstractAWSConfig=global_aws_config()
 )
     return cloudtrail(
-        "LookupEvents", params; aws_config=aws_config, features=SERVICE_FEATURES
+        "LookupEvents", params; aws_config=aws_config, feature_set=SERVICE_FEATURE_SET
     )
 end
 
@@ -545,7 +551,7 @@ function put_event_selectors(TrailName; aws_config::AbstractAWSConfig=global_aws
         "PutEventSelectors",
         Dict{String,Any}("TrailName" => TrailName);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function put_event_selectors(
@@ -559,7 +565,7 @@ function put_event_selectors(
             mergewith(_merge, Dict{String,Any}("TrailName" => TrailName), params)
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -586,7 +592,7 @@ function put_insight_selectors(
         "PutInsightSelectors",
         Dict{String,Any}("InsightSelectors" => InsightSelectors, "TrailName" => TrailName);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function put_insight_selectors(
@@ -607,7 +613,7 @@ function put_insight_selectors(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -630,7 +636,7 @@ function remove_tags(ResourceId; aws_config::AbstractAWSConfig=global_aws_config
         "RemoveTags",
         Dict{String,Any}("ResourceId" => ResourceId);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function remove_tags(
@@ -644,7 +650,7 @@ function remove_tags(
             mergewith(_merge, Dict{String,Any}("ResourceId" => ResourceId), params)
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -668,7 +674,7 @@ function start_logging(Name; aws_config::AbstractAWSConfig=global_aws_config())
         "StartLogging",
         Dict{String,Any}("Name" => Name);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function start_logging(
@@ -678,7 +684,7 @@ function start_logging(
         "StartLogging",
         Dict{String,Any}(mergewith(_merge, Dict{String,Any}("Name" => Name), params));
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -705,7 +711,7 @@ function stop_logging(Name; aws_config::AbstractAWSConfig=global_aws_config())
         "StopLogging",
         Dict{String,Any}("Name" => Name);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function stop_logging(
@@ -715,7 +721,7 @@ function stop_logging(
         "StopLogging",
         Dict{String,Any}(mergewith(_merge, Dict{String,Any}("Name" => Name), params));
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -791,7 +797,7 @@ function update_trail(Name; aws_config::AbstractAWSConfig=global_aws_config())
         "UpdateTrail",
         Dict{String,Any}("Name" => Name);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function update_trail(
@@ -801,6 +807,6 @@ function update_trail(
         "UpdateTrail",
         Dict{String,Any}(mergewith(_merge, Dict{String,Any}("Name" => Name), params));
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end

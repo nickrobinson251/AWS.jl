@@ -28,7 +28,7 @@ function assign_instance(
         "AssignInstance",
         Dict{String,Any}("InstanceId" => InstanceId, "LayerIds" => LayerIds);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function assign_instance(
@@ -47,7 +47,7 @@ function assign_instance(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -75,7 +75,7 @@ function assign_volume(VolumeId; aws_config::AbstractAWSConfig=global_aws_config
         "AssignVolume",
         Dict{String,Any}("VolumeId" => VolumeId);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function assign_volume(
@@ -89,7 +89,7 @@ function assign_volume(
             mergewith(_merge, Dict{String,Any}("VolumeId" => VolumeId), params)
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -116,7 +116,7 @@ function associate_elastic_ip(ElasticIp; aws_config::AbstractAWSConfig=global_aw
         "AssociateElasticIp",
         Dict{String,Any}("ElasticIp" => ElasticIp);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function associate_elastic_ip(
@@ -130,7 +130,7 @@ function associate_elastic_ip(
             mergewith(_merge, Dict{String,Any}("ElasticIp" => ElasticIp), params)
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -162,7 +162,7 @@ function attach_elastic_load_balancer(
             "ElasticLoadBalancerName" => ElasticLoadBalancerName, "LayerId" => LayerId
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function attach_elastic_load_balancer(
@@ -184,7 +184,7 @@ function attach_elastic_load_balancer(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -321,7 +321,7 @@ function clone_stack(
             "ServiceRoleArn" => ServiceRoleArn, "SourceStackId" => SourceStackId
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function clone_stack(
@@ -342,7 +342,7 @@ function clone_stack(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -391,7 +391,7 @@ function create_app(Name, StackId, Type; aws_config::AbstractAWSConfig=global_aw
         "CreateApp",
         Dict{String,Any}("Name" => Name, "StackId" => StackId, "Type" => Type);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function create_app(
@@ -411,7 +411,7 @@ function create_app(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -449,7 +449,7 @@ function create_deployment(
         "CreateDeployment",
         Dict{String,Any}("Command" => Command, "StackId" => StackId);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function create_deployment(
@@ -466,7 +466,7 @@ function create_deployment(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -558,7 +558,7 @@ function create_instance(
             "InstanceType" => InstanceType, "LayerIds" => LayerIds, "StackId" => StackId
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function create_instance(
@@ -582,7 +582,7 @@ function create_instance(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -654,7 +654,7 @@ function create_layer(
             "Name" => Name, "Shortname" => Shortname, "StackId" => StackId, "Type" => Type
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function create_layer(
@@ -680,7 +680,7 @@ function create_layer(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -827,7 +827,7 @@ function create_stack(
             "ServiceRoleArn" => ServiceRoleArn,
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function create_stack(
@@ -853,7 +853,7 @@ function create_stack(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -883,7 +883,7 @@ function create_user_profile(IamUserArn; aws_config::AbstractAWSConfig=global_aw
         "CreateUserProfile",
         Dict{String,Any}("IamUserArn" => IamUserArn);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function create_user_profile(
@@ -897,7 +897,7 @@ function create_user_profile(
             mergewith(_merge, Dict{String,Any}("IamUserArn" => IamUserArn), params)
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -918,7 +918,7 @@ function delete_app(AppId; aws_config::AbstractAWSConfig=global_aws_config())
         "DeleteApp",
         Dict{String,Any}("AppId" => AppId);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function delete_app(
@@ -928,7 +928,7 @@ function delete_app(
         "DeleteApp",
         Dict{String,Any}(mergewith(_merge, Dict{String,Any}("AppId" => AppId), params));
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -955,7 +955,7 @@ function delete_instance(InstanceId; aws_config::AbstractAWSConfig=global_aws_co
         "DeleteInstance",
         Dict{String,Any}("InstanceId" => InstanceId);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function delete_instance(
@@ -969,7 +969,7 @@ function delete_instance(
             mergewith(_merge, Dict{String,Any}("InstanceId" => InstanceId), params)
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -992,7 +992,7 @@ function delete_layer(LayerId; aws_config::AbstractAWSConfig=global_aws_config()
         "DeleteLayer",
         Dict{String,Any}("LayerId" => LayerId);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function delete_layer(
@@ -1002,7 +1002,7 @@ function delete_layer(
         "DeleteLayer",
         Dict{String,Any}(mergewith(_merge, Dict{String,Any}("LayerId" => LayerId), params));
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -1025,7 +1025,7 @@ function delete_stack(StackId; aws_config::AbstractAWSConfig=global_aws_config()
         "DeleteStack",
         Dict{String,Any}("StackId" => StackId);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function delete_stack(
@@ -1035,7 +1035,7 @@ function delete_stack(
         "DeleteStack",
         Dict{String,Any}(mergewith(_merge, Dict{String,Any}("StackId" => StackId), params));
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -1056,7 +1056,7 @@ function delete_user_profile(IamUserArn; aws_config::AbstractAWSConfig=global_aw
         "DeleteUserProfile",
         Dict{String,Any}("IamUserArn" => IamUserArn);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function delete_user_profile(
@@ -1070,7 +1070,7 @@ function delete_user_profile(
             mergewith(_merge, Dict{String,Any}("IamUserArn" => IamUserArn), params)
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -1095,7 +1095,7 @@ function deregister_ecs_cluster(
         "DeregisterEcsCluster",
         Dict{String,Any}("EcsClusterArn" => EcsClusterArn);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function deregister_ecs_cluster(
@@ -1109,7 +1109,7 @@ function deregister_ecs_cluster(
             mergewith(_merge, Dict{String,Any}("EcsClusterArn" => EcsClusterArn), params)
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -1132,7 +1132,7 @@ function deregister_elastic_ip(ElasticIp; aws_config::AbstractAWSConfig=global_a
         "DeregisterElasticIp",
         Dict{String,Any}("ElasticIp" => ElasticIp);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function deregister_elastic_ip(
@@ -1146,7 +1146,7 @@ function deregister_elastic_ip(
             mergewith(_merge, Dict{String,Any}("ElasticIp" => ElasticIp), params)
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -1170,7 +1170,7 @@ function deregister_instance(InstanceId; aws_config::AbstractAWSConfig=global_aw
         "DeregisterInstance",
         Dict{String,Any}("InstanceId" => InstanceId);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function deregister_instance(
@@ -1184,7 +1184,7 @@ function deregister_instance(
             mergewith(_merge, Dict{String,Any}("InstanceId" => InstanceId), params)
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -1207,7 +1207,7 @@ function deregister_rds_db_instance(
         "DeregisterRdsDbInstance",
         Dict{String,Any}("RdsDbInstanceArn" => RdsDbInstanceArn);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function deregister_rds_db_instance(
@@ -1223,7 +1223,7 @@ function deregister_rds_db_instance(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -1248,7 +1248,7 @@ function deregister_volume(VolumeId; aws_config::AbstractAWSConfig=global_aws_co
         "DeregisterVolume",
         Dict{String,Any}("VolumeId" => VolumeId);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function deregister_volume(
@@ -1262,7 +1262,7 @@ function deregister_volume(
             mergewith(_merge, Dict{String,Any}("VolumeId" => VolumeId), params)
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -1281,14 +1281,17 @@ Optional parameters can be passed as a `params::Dict{String,<:Any}`. Valid keys 
 """
 function describe_agent_versions(; aws_config::AbstractAWSConfig=global_aws_config())
     return opsworks(
-        "DescribeAgentVersions"; aws_config=aws_config, features=SERVICE_FEATURES
+        "DescribeAgentVersions"; aws_config=aws_config, feature_set=SERVICE_FEATURE_SET
     )
 end
 function describe_agent_versions(
     params::AbstractDict{String}; aws_config::AbstractAWSConfig=global_aws_config()
 )
     return opsworks(
-        "DescribeAgentVersions", params; aws_config=aws_config, features=SERVICE_FEATURES
+        "DescribeAgentVersions",
+        params;
+        aws_config=aws_config,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -1311,13 +1314,13 @@ Optional parameters can be passed as a `params::Dict{String,<:Any}`. Valid keys 
   description of the apps in the specified stack.
 """
 function describe_apps(; aws_config::AbstractAWSConfig=global_aws_config())
-    return opsworks("DescribeApps"; aws_config=aws_config, features=SERVICE_FEATURES)
+    return opsworks("DescribeApps"; aws_config=aws_config, feature_set=SERVICE_FEATURE_SET)
 end
 function describe_apps(
     params::AbstractDict{String}; aws_config::AbstractAWSConfig=global_aws_config()
 )
     return opsworks(
-        "DescribeApps", params; aws_config=aws_config, features=SERVICE_FEATURES
+        "DescribeApps", params; aws_config=aws_config, feature_set=SERVICE_FEATURE_SET
     )
 end
 
@@ -1342,13 +1345,15 @@ Optional parameters can be passed as a `params::Dict{String,<:Any}`. Valid keys 
   a description of the commands associated with the specified instance.
 """
 function describe_commands(; aws_config::AbstractAWSConfig=global_aws_config())
-    return opsworks("DescribeCommands"; aws_config=aws_config, features=SERVICE_FEATURES)
+    return opsworks(
+        "DescribeCommands"; aws_config=aws_config, feature_set=SERVICE_FEATURE_SET
+    )
 end
 function describe_commands(
     params::AbstractDict{String}; aws_config::AbstractAWSConfig=global_aws_config()
 )
     return opsworks(
-        "DescribeCommands", params; aws_config=aws_config, features=SERVICE_FEATURES
+        "DescribeCommands", params; aws_config=aws_config, feature_set=SERVICE_FEATURE_SET
     )
 end
 
@@ -1373,13 +1378,18 @@ Optional parameters can be passed as a `params::Dict{String,<:Any}`. Valid keys 
   description of the commands associated with the specified stack.
 """
 function describe_deployments(; aws_config::AbstractAWSConfig=global_aws_config())
-    return opsworks("DescribeDeployments"; aws_config=aws_config, features=SERVICE_FEATURES)
+    return opsworks(
+        "DescribeDeployments"; aws_config=aws_config, feature_set=SERVICE_FEATURE_SET
+    )
 end
 function describe_deployments(
     params::AbstractDict{String}; aws_config::AbstractAWSConfig=global_aws_config()
 )
     return opsworks(
-        "DescribeDeployments", params; aws_config=aws_config, features=SERVICE_FEATURES
+        "DescribeDeployments",
+        params;
+        aws_config=aws_config,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -1411,13 +1421,18 @@ Optional parameters can be passed as a `params::Dict{String,<:Any}`. Valid keys 
   registered with the stack.
 """
 function describe_ecs_clusters(; aws_config::AbstractAWSConfig=global_aws_config())
-    return opsworks("DescribeEcsClusters"; aws_config=aws_config, features=SERVICE_FEATURES)
+    return opsworks(
+        "DescribeEcsClusters"; aws_config=aws_config, feature_set=SERVICE_FEATURE_SET
+    )
 end
 function describe_ecs_clusters(
     params::AbstractDict{String}; aws_config::AbstractAWSConfig=global_aws_config()
 )
     return opsworks(
-        "DescribeEcsClusters", params; aws_config=aws_config, features=SERVICE_FEATURES
+        "DescribeEcsClusters",
+        params;
+        aws_config=aws_config,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -1441,13 +1456,15 @@ Optional parameters can be passed as a `params::Dict{String,<:Any}`. Valid keys 
   description of the Elastic IP addresses that are registered with the specified stack.
 """
 function describe_elastic_ips(; aws_config::AbstractAWSConfig=global_aws_config())
-    return opsworks("DescribeElasticIps"; aws_config=aws_config, features=SERVICE_FEATURES)
+    return opsworks(
+        "DescribeElasticIps"; aws_config=aws_config, feature_set=SERVICE_FEATURE_SET
+    )
 end
 function describe_elastic_ips(
     params::AbstractDict{String}; aws_config::AbstractAWSConfig=global_aws_config()
 )
     return opsworks(
-        "DescribeElasticIps", params; aws_config=aws_config, features=SERVICE_FEATURES
+        "DescribeElasticIps", params; aws_config=aws_config, feature_set=SERVICE_FEATURE_SET
     )
 end
 
@@ -1472,7 +1489,9 @@ function describe_elastic_load_balancers(;
     aws_config::AbstractAWSConfig=global_aws_config()
 )
     return opsworks(
-        "DescribeElasticLoadBalancers"; aws_config=aws_config, features=SERVICE_FEATURES
+        "DescribeElasticLoadBalancers";
+        aws_config=aws_config,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function describe_elastic_load_balancers(
@@ -1482,7 +1501,7 @@ function describe_elastic_load_balancers(
         "DescribeElasticLoadBalancers",
         params;
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -1507,13 +1526,15 @@ Optional parameters can be passed as a `params::Dict{String,<:Any}`. Valid keys 
   descriptions of the instances associated with the specified stack.
 """
 function describe_instances(; aws_config::AbstractAWSConfig=global_aws_config())
-    return opsworks("DescribeInstances"; aws_config=aws_config, features=SERVICE_FEATURES)
+    return opsworks(
+        "DescribeInstances"; aws_config=aws_config, feature_set=SERVICE_FEATURE_SET
+    )
 end
 function describe_instances(
     params::AbstractDict{String}; aws_config::AbstractAWSConfig=global_aws_config()
 )
     return opsworks(
-        "DescribeInstances", params; aws_config=aws_config, features=SERVICE_FEATURES
+        "DescribeInstances", params; aws_config=aws_config, feature_set=SERVICE_FEATURE_SET
     )
 end
 
@@ -1534,13 +1555,15 @@ Optional parameters can be passed as a `params::Dict{String,<:Any}`. Valid keys 
 - `"StackId"`: The stack ID.
 """
 function describe_layers(; aws_config::AbstractAWSConfig=global_aws_config())
-    return opsworks("DescribeLayers"; aws_config=aws_config, features=SERVICE_FEATURES)
+    return opsworks(
+        "DescribeLayers"; aws_config=aws_config, feature_set=SERVICE_FEATURE_SET
+    )
 end
 function describe_layers(
     params::AbstractDict{String}; aws_config::AbstractAWSConfig=global_aws_config()
 )
     return opsworks(
-        "DescribeLayers", params; aws_config=aws_config, features=SERVICE_FEATURES
+        "DescribeLayers", params; aws_config=aws_config, feature_set=SERVICE_FEATURE_SET
     )
 end
 
@@ -1565,7 +1588,7 @@ function describe_load_based_auto_scaling(
         "DescribeLoadBasedAutoScaling",
         Dict{String,Any}("LayerIds" => LayerIds);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function describe_load_based_auto_scaling(
@@ -1579,7 +1602,7 @@ function describe_load_based_auto_scaling(
             mergewith(_merge, Dict{String,Any}("LayerIds" => LayerIds), params)
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -1594,14 +1617,17 @@ For more information about user permissions, see Managing User Permissions.
 """
 function describe_my_user_profile(; aws_config::AbstractAWSConfig=global_aws_config())
     return opsworks(
-        "DescribeMyUserProfile"; aws_config=aws_config, features=SERVICE_FEATURES
+        "DescribeMyUserProfile"; aws_config=aws_config, feature_set=SERVICE_FEATURE_SET
     )
 end
 function describe_my_user_profile(
     params::AbstractDict{String}; aws_config::AbstractAWSConfig=global_aws_config()
 )
     return opsworks(
-        "DescribeMyUserProfile", params; aws_config=aws_config, features=SERVICE_FEATURES
+        "DescribeMyUserProfile",
+        params;
+        aws_config=aws_config,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -1614,14 +1640,17 @@ Describes the operating systems that are supported by AWS OpsWorks Stacks.
 """
 function describe_operating_systems(; aws_config::AbstractAWSConfig=global_aws_config())
     return opsworks(
-        "DescribeOperatingSystems"; aws_config=aws_config, features=SERVICE_FEATURES
+        "DescribeOperatingSystems"; aws_config=aws_config, feature_set=SERVICE_FEATURE_SET
     )
 end
 function describe_operating_systems(
     params::AbstractDict{String}; aws_config::AbstractAWSConfig=global_aws_config()
 )
     return opsworks(
-        "DescribeOperatingSystems", params; aws_config=aws_config, features=SERVICE_FEATURES
+        "DescribeOperatingSystems",
+        params;
+        aws_config=aws_config,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -1641,13 +1670,18 @@ Optional parameters can be passed as a `params::Dict{String,<:Any}`. Valid keys 
 - `"StackId"`: The stack ID.
 """
 function describe_permissions(; aws_config::AbstractAWSConfig=global_aws_config())
-    return opsworks("DescribePermissions"; aws_config=aws_config, features=SERVICE_FEATURES)
+    return opsworks(
+        "DescribePermissions"; aws_config=aws_config, feature_set=SERVICE_FEATURE_SET
+    )
 end
 function describe_permissions(
     params::AbstractDict{String}; aws_config::AbstractAWSConfig=global_aws_config()
 )
     return opsworks(
-        "DescribePermissions", params; aws_config=aws_config, features=SERVICE_FEATURES
+        "DescribePermissions",
+        params;
+        aws_config=aws_config,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -1671,13 +1705,15 @@ Optional parameters can be passed as a `params::Dict{String,<:Any}`. Valid keys 
 - `"StackId"`: The stack ID.
 """
 function describe_raid_arrays(; aws_config::AbstractAWSConfig=global_aws_config())
-    return opsworks("DescribeRaidArrays"; aws_config=aws_config, features=SERVICE_FEATURES)
+    return opsworks(
+        "DescribeRaidArrays"; aws_config=aws_config, feature_set=SERVICE_FEATURE_SET
+    )
 end
 function describe_raid_arrays(
     params::AbstractDict{String}; aws_config::AbstractAWSConfig=global_aws_config()
 )
     return opsworks(
-        "DescribeRaidArrays", params; aws_config=aws_config, features=SERVICE_FEATURES
+        "DescribeRaidArrays", params; aws_config=aws_config, feature_set=SERVICE_FEATURE_SET
     )
 end
 
@@ -1705,7 +1741,7 @@ function describe_rds_db_instances(
         "DescribeRdsDbInstances",
         Dict{String,Any}("StackId" => StackId);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function describe_rds_db_instances(
@@ -1715,7 +1751,7 @@ function describe_rds_db_instances(
         "DescribeRdsDbInstances",
         Dict{String,Any}(mergewith(_merge, Dict{String,Any}("StackId" => StackId), params));
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -1741,14 +1777,17 @@ Optional parameters can be passed as a `params::Dict{String,<:Any}`. Valid keys 
 """
 function describe_service_errors(; aws_config::AbstractAWSConfig=global_aws_config())
     return opsworks(
-        "DescribeServiceErrors"; aws_config=aws_config, features=SERVICE_FEATURES
+        "DescribeServiceErrors"; aws_config=aws_config, feature_set=SERVICE_FEATURE_SET
     )
 end
 function describe_service_errors(
     params::AbstractDict{String}; aws_config::AbstractAWSConfig=global_aws_config()
 )
     return opsworks(
-        "DescribeServiceErrors", params; aws_config=aws_config, features=SERVICE_FEATURES
+        "DescribeServiceErrors",
+        params;
+        aws_config=aws_config,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -1772,7 +1811,7 @@ function describe_stack_provisioning_parameters(
         "DescribeStackProvisioningParameters",
         Dict{String,Any}("StackId" => StackId);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function describe_stack_provisioning_parameters(
@@ -1782,7 +1821,7 @@ function describe_stack_provisioning_parameters(
         "DescribeStackProvisioningParameters",
         Dict{String,Any}(mergewith(_merge, Dict{String,Any}("StackId" => StackId), params));
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -1805,7 +1844,7 @@ function describe_stack_summary(StackId; aws_config::AbstractAWSConfig=global_aw
         "DescribeStackSummary",
         Dict{String,Any}("StackId" => StackId);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function describe_stack_summary(
@@ -1815,7 +1854,7 @@ function describe_stack_summary(
         "DescribeStackSummary",
         Dict{String,Any}(mergewith(_merge, Dict{String,Any}("StackId" => StackId), params));
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -1834,13 +1873,15 @@ Optional parameters can be passed as a `params::Dict{String,<:Any}`. Valid keys 
   this parameter, DescribeStacks returns a description of every stack.
 """
 function describe_stacks(; aws_config::AbstractAWSConfig=global_aws_config())
-    return opsworks("DescribeStacks"; aws_config=aws_config, features=SERVICE_FEATURES)
+    return opsworks(
+        "DescribeStacks"; aws_config=aws_config, feature_set=SERVICE_FEATURE_SET
+    )
 end
 function describe_stacks(
     params::AbstractDict{String}; aws_config::AbstractAWSConfig=global_aws_config()
 )
     return opsworks(
-        "DescribeStacks", params; aws_config=aws_config, features=SERVICE_FEATURES
+        "DescribeStacks", params; aws_config=aws_config, feature_set=SERVICE_FEATURE_SET
     )
 end
 
@@ -1865,7 +1906,7 @@ function describe_time_based_auto_scaling(
         "DescribeTimeBasedAutoScaling",
         Dict{String,Any}("InstanceIds" => InstanceIds);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function describe_time_based_auto_scaling(
@@ -1879,7 +1920,7 @@ function describe_time_based_auto_scaling(
             mergewith(_merge, Dict{String,Any}("InstanceIds" => InstanceIds), params)
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -1898,14 +1939,17 @@ Optional parameters can be passed as a `params::Dict{String,<:Any}`. Valid keys 
 """
 function describe_user_profiles(; aws_config::AbstractAWSConfig=global_aws_config())
     return opsworks(
-        "DescribeUserProfiles"; aws_config=aws_config, features=SERVICE_FEATURES
+        "DescribeUserProfiles"; aws_config=aws_config, feature_set=SERVICE_FEATURE_SET
     )
 end
 function describe_user_profiles(
     params::AbstractDict{String}; aws_config::AbstractAWSConfig=global_aws_config()
 )
     return opsworks(
-        "DescribeUserProfiles", params; aws_config=aws_config, features=SERVICE_FEATURES
+        "DescribeUserProfiles",
+        params;
+        aws_config=aws_config,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -1930,13 +1974,15 @@ Optional parameters can be passed as a `params::Dict{String,<:Any}`. Valid keys 
   descriptions of the specified volumes. Otherwise, it returns a description of every volume.
 """
 function describe_volumes(; aws_config::AbstractAWSConfig=global_aws_config())
-    return opsworks("DescribeVolumes"; aws_config=aws_config, features=SERVICE_FEATURES)
+    return opsworks(
+        "DescribeVolumes"; aws_config=aws_config, feature_set=SERVICE_FEATURE_SET
+    )
 end
 function describe_volumes(
     params::AbstractDict{String}; aws_config::AbstractAWSConfig=global_aws_config()
 )
     return opsworks(
-        "DescribeVolumes", params; aws_config=aws_config, features=SERVICE_FEATURES
+        "DescribeVolumes", params; aws_config=aws_config, feature_set=SERVICE_FEATURE_SET
     )
 end
 
@@ -1963,7 +2009,7 @@ function detach_elastic_load_balancer(
             "ElasticLoadBalancerName" => ElasticLoadBalancerName, "LayerId" => LayerId
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function detach_elastic_load_balancer(
@@ -1985,7 +2031,7 @@ function detach_elastic_load_balancer(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -2010,7 +2056,7 @@ function disassociate_elastic_ip(
         "DisassociateElasticIp",
         Dict{String,Any}("ElasticIp" => ElasticIp);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function disassociate_elastic_ip(
@@ -2024,7 +2070,7 @@ function disassociate_elastic_ip(
             mergewith(_merge, Dict{String,Any}("ElasticIp" => ElasticIp), params)
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -2046,7 +2092,7 @@ function get_hostname_suggestion(LayerId; aws_config::AbstractAWSConfig=global_a
         "GetHostnameSuggestion",
         Dict{String,Any}("LayerId" => LayerId);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function get_hostname_suggestion(
@@ -2056,7 +2102,7 @@ function get_hostname_suggestion(
         "GetHostnameSuggestion",
         Dict{String,Any}(mergewith(_merge, Dict{String,Any}("LayerId" => LayerId), params));
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -2082,7 +2128,7 @@ function grant_access(InstanceId; aws_config::AbstractAWSConfig=global_aws_confi
         "GrantAccess",
         Dict{String,Any}("InstanceId" => InstanceId);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function grant_access(
@@ -2096,7 +2142,7 @@ function grant_access(
             mergewith(_merge, Dict{String,Any}("InstanceId" => InstanceId), params)
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -2121,7 +2167,7 @@ function list_tags(ResourceArn; aws_config::AbstractAWSConfig=global_aws_config(
         "ListTags",
         Dict{String,Any}("ResourceArn" => ResourceArn);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function list_tags(
@@ -2135,7 +2181,7 @@ function list_tags(
             mergewith(_merge, Dict{String,Any}("ResourceArn" => ResourceArn), params)
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -2157,7 +2203,7 @@ function reboot_instance(InstanceId; aws_config::AbstractAWSConfig=global_aws_co
         "RebootInstance",
         Dict{String,Any}("InstanceId" => InstanceId);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function reboot_instance(
@@ -2171,7 +2217,7 @@ function reboot_instance(
             mergewith(_merge, Dict{String,Any}("InstanceId" => InstanceId), params)
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -2197,7 +2243,7 @@ function register_ecs_cluster(
         "RegisterEcsCluster",
         Dict{String,Any}("EcsClusterArn" => EcsClusterArn, "StackId" => StackId);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function register_ecs_cluster(
@@ -2216,7 +2262,7 @@ function register_ecs_cluster(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -2243,7 +2289,7 @@ function register_elastic_ip(
         "RegisterElasticIp",
         Dict{String,Any}("ElasticIp" => ElasticIp, "StackId" => StackId);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function register_elastic_ip(
@@ -2262,7 +2308,7 @@ function register_elastic_ip(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -2302,7 +2348,7 @@ function register_instance(StackId; aws_config::AbstractAWSConfig=global_aws_con
         "RegisterInstance",
         Dict{String,Any}("StackId" => StackId);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function register_instance(
@@ -2312,7 +2358,7 @@ function register_instance(
         "RegisterInstance",
         Dict{String,Any}(mergewith(_merge, Dict{String,Any}("StackId" => StackId), params));
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -2348,7 +2394,7 @@ function register_rds_db_instance(
             "StackId" => StackId,
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function register_rds_db_instance(
@@ -2374,7 +2420,7 @@ function register_rds_db_instance(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -2401,7 +2447,7 @@ function register_volume(StackId; aws_config::AbstractAWSConfig=global_aws_confi
         "RegisterVolume",
         Dict{String,Any}("StackId" => StackId);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function register_volume(
@@ -2411,7 +2457,7 @@ function register_volume(
         "RegisterVolume",
         Dict{String,Any}(mergewith(_merge, Dict{String,Any}("StackId" => StackId), params));
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -2448,7 +2494,7 @@ function set_load_based_auto_scaling(
         "SetLoadBasedAutoScaling",
         Dict{String,Any}("LayerId" => LayerId);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function set_load_based_auto_scaling(
@@ -2458,7 +2504,7 @@ function set_load_based_auto_scaling(
         "SetLoadBasedAutoScaling",
         Dict{String,Any}(mergewith(_merge, Dict{String,Any}("LayerId" => LayerId), params));
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -2491,7 +2537,7 @@ function set_permission(
         "SetPermission",
         Dict{String,Any}("IamUserArn" => IamUserArn, "StackId" => StackId);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function set_permission(
@@ -2510,7 +2556,7 @@ function set_permission(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -2538,7 +2584,7 @@ function set_time_based_auto_scaling(
         "SetTimeBasedAutoScaling",
         Dict{String,Any}("InstanceId" => InstanceId);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function set_time_based_auto_scaling(
@@ -2552,7 +2598,7 @@ function set_time_based_auto_scaling(
             mergewith(_merge, Dict{String,Any}("InstanceId" => InstanceId), params)
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -2574,7 +2620,7 @@ function start_instance(InstanceId; aws_config::AbstractAWSConfig=global_aws_con
         "StartInstance",
         Dict{String,Any}("InstanceId" => InstanceId);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function start_instance(
@@ -2588,7 +2634,7 @@ function start_instance(
             mergewith(_merge, Dict{String,Any}("InstanceId" => InstanceId), params)
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -2609,7 +2655,7 @@ function start_stack(StackId; aws_config::AbstractAWSConfig=global_aws_config())
         "StartStack",
         Dict{String,Any}("StackId" => StackId);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function start_stack(
@@ -2619,7 +2665,7 @@ function start_stack(
         "StartStack",
         Dict{String,Any}(mergewith(_merge, Dict{String,Any}("StackId" => StackId), params));
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -2650,7 +2696,7 @@ function stop_instance(InstanceId; aws_config::AbstractAWSConfig=global_aws_conf
         "StopInstance",
         Dict{String,Any}("InstanceId" => InstanceId);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function stop_instance(
@@ -2664,7 +2710,7 @@ function stop_instance(
             mergewith(_merge, Dict{String,Any}("InstanceId" => InstanceId), params)
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -2685,7 +2731,7 @@ function stop_stack(StackId; aws_config::AbstractAWSConfig=global_aws_config())
         "StopStack",
         Dict{String,Any}("StackId" => StackId);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function stop_stack(
@@ -2695,7 +2741,7 @@ function stop_stack(
         "StopStack",
         Dict{String,Any}(mergewith(_merge, Dict{String,Any}("StackId" => StackId), params));
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -2722,7 +2768,7 @@ function tag_resource(ResourceArn, Tags; aws_config::AbstractAWSConfig=global_aw
         "TagResource",
         Dict{String,Any}("ResourceArn" => ResourceArn, "Tags" => Tags);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function tag_resource(
@@ -2741,7 +2787,7 @@ function tag_resource(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -2765,7 +2811,7 @@ function unassign_instance(InstanceId; aws_config::AbstractAWSConfig=global_aws_
         "UnassignInstance",
         Dict{String,Any}("InstanceId" => InstanceId);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function unassign_instance(
@@ -2779,7 +2825,7 @@ function unassign_instance(
             mergewith(_merge, Dict{String,Any}("InstanceId" => InstanceId), params)
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -2802,7 +2848,7 @@ function unassign_volume(VolumeId; aws_config::AbstractAWSConfig=global_aws_conf
         "UnassignVolume",
         Dict{String,Any}("VolumeId" => VolumeId);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function unassign_volume(
@@ -2816,7 +2862,7 @@ function unassign_volume(
             mergewith(_merge, Dict{String,Any}("VolumeId" => VolumeId), params)
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -2838,7 +2884,7 @@ function untag_resource(
         "UntagResource",
         Dict{String,Any}("ResourceArn" => ResourceArn, "TagKeys" => TagKeys);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function untag_resource(
@@ -2857,7 +2903,7 @@ function untag_resource(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -2900,7 +2946,7 @@ function update_app(AppId; aws_config::AbstractAWSConfig=global_aws_config())
         "UpdateApp",
         Dict{String,Any}("AppId" => AppId);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function update_app(
@@ -2910,7 +2956,7 @@ function update_app(
         "UpdateApp",
         Dict{String,Any}(mergewith(_merge, Dict{String,Any}("AppId" => AppId), params));
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -2935,7 +2981,7 @@ function update_elastic_ip(ElasticIp; aws_config::AbstractAWSConfig=global_aws_c
         "UpdateElasticIp",
         Dict{String,Any}("ElasticIp" => ElasticIp);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function update_elastic_ip(
@@ -2949,7 +2995,7 @@ function update_elastic_ip(
             mergewith(_merge, Dict{String,Any}("ElasticIp" => ElasticIp), params)
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -3020,7 +3066,7 @@ function update_instance(InstanceId; aws_config::AbstractAWSConfig=global_aws_co
         "UpdateInstance",
         Dict{String,Any}("InstanceId" => InstanceId);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function update_instance(
@@ -3034,7 +3080,7 @@ function update_instance(
             mergewith(_merge, Dict{String,Any}("InstanceId" => InstanceId), params)
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -3092,7 +3138,7 @@ function update_layer(LayerId; aws_config::AbstractAWSConfig=global_aws_config()
         "UpdateLayer",
         Dict{String,Any}("LayerId" => LayerId);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function update_layer(
@@ -3102,7 +3148,7 @@ function update_layer(
         "UpdateLayer",
         Dict{String,Any}(mergewith(_merge, Dict{String,Any}("LayerId" => LayerId), params));
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -3119,13 +3165,18 @@ Optional parameters can be passed as a `params::Dict{String,<:Any}`. Valid keys 
 - `"SshPublicKey"`: The user's SSH public key.
 """
 function update_my_user_profile(; aws_config::AbstractAWSConfig=global_aws_config())
-    return opsworks("UpdateMyUserProfile"; aws_config=aws_config, features=SERVICE_FEATURES)
+    return opsworks(
+        "UpdateMyUserProfile"; aws_config=aws_config, feature_set=SERVICE_FEATURE_SET
+    )
 end
 function update_my_user_profile(
     params::AbstractDict{String}; aws_config::AbstractAWSConfig=global_aws_config()
 )
     return opsworks(
-        "UpdateMyUserProfile", params; aws_config=aws_config, features=SERVICE_FEATURES
+        "UpdateMyUserProfile",
+        params;
+        aws_config=aws_config,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -3152,7 +3203,7 @@ function update_rds_db_instance(
         "UpdateRdsDbInstance",
         Dict{String,Any}("RdsDbInstanceArn" => RdsDbInstanceArn);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function update_rds_db_instance(
@@ -3168,7 +3219,7 @@ function update_rds_db_instance(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -3275,7 +3326,7 @@ function update_stack(StackId; aws_config::AbstractAWSConfig=global_aws_config()
         "UpdateStack",
         Dict{String,Any}("StackId" => StackId);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function update_stack(
@@ -3285,7 +3336,7 @@ function update_stack(
         "UpdateStack",
         Dict{String,Any}(mergewith(_merge, Dict{String,Any}("StackId" => StackId), params));
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -3315,7 +3366,7 @@ function update_user_profile(IamUserArn; aws_config::AbstractAWSConfig=global_aw
         "UpdateUserProfile",
         Dict{String,Any}("IamUserArn" => IamUserArn);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function update_user_profile(
@@ -3329,7 +3380,7 @@ function update_user_profile(
             mergewith(_merge, Dict{String,Any}("IamUserArn" => IamUserArn), params)
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -3355,7 +3406,7 @@ function update_volume(VolumeId; aws_config::AbstractAWSConfig=global_aws_config
         "UpdateVolume",
         Dict{String,Any}("VolumeId" => VolumeId);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function update_volume(
@@ -3369,6 +3420,6 @@ function update_volume(
             mergewith(_merge, Dict{String,Any}("VolumeId" => VolumeId), params)
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end

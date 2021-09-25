@@ -41,7 +41,7 @@ function create_endpoint(
             "SubnetId" => SubnetId,
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function create_endpoint(
@@ -66,7 +66,7 @@ function create_endpoint(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -94,7 +94,7 @@ function delete_endpoint(
         "/S3Outposts/DeleteEndpoint",
         Dict{String,Any}("endpointId" => endpointId, "outpostId" => outpostId);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function delete_endpoint(
@@ -114,7 +114,7 @@ function delete_endpoint(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -136,7 +136,10 @@ Optional parameters can be passed as a `params::Dict{String,<:Any}`. Valid keys 
 """
 function list_endpoints(; aws_config::AbstractAWSConfig=global_aws_config())
     return s3outposts(
-        "GET", "/S3Outposts/ListEndpoints"; aws_config=aws_config, features=SERVICE_FEATURES
+        "GET",
+        "/S3Outposts/ListEndpoints";
+        aws_config=aws_config,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function list_endpoints(
@@ -147,6 +150,6 @@ function list_endpoints(
         "/S3Outposts/ListEndpoints",
         params;
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end

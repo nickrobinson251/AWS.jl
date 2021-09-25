@@ -35,7 +35,7 @@ function associate_custom_domain(
         "AssociateCustomDomain",
         Dict{String,Any}("DomainName" => DomainName, "ServiceArn" => ServiceArn);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function associate_custom_domain(
@@ -54,7 +54,7 @@ function associate_custom_domain(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -103,7 +103,7 @@ function create_auto_scaling_configuration(
         "CreateAutoScalingConfiguration",
         Dict{String,Any}("AutoScalingConfigurationName" => AutoScalingConfigurationName);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function create_auto_scaling_configuration(
@@ -123,7 +123,7 @@ function create_auto_scaling_configuration(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -156,7 +156,7 @@ function create_connection(
             "ConnectionName" => ConnectionName, "ProviderType" => ProviderType
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function create_connection(
@@ -177,7 +177,7 @@ function create_connection(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -221,7 +221,7 @@ function create_service(
             "ServiceName" => ServiceName, "SourceConfiguration" => SourceConfiguration
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function create_service(
@@ -243,7 +243,7 @@ function create_service(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -269,7 +269,7 @@ function delete_auto_scaling_configuration(
         "DeleteAutoScalingConfiguration",
         Dict{String,Any}("AutoScalingConfigurationArn" => AutoScalingConfigurationArn);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function delete_auto_scaling_configuration(
@@ -289,7 +289,7 @@ function delete_auto_scaling_configuration(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -311,7 +311,7 @@ function delete_connection(ConnectionArn; aws_config::AbstractAWSConfig=global_a
         "DeleteConnection",
         Dict{String,Any}("ConnectionArn" => ConnectionArn);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function delete_connection(
@@ -325,7 +325,7 @@ function delete_connection(
             mergewith(_merge, Dict{String,Any}("ConnectionArn" => ConnectionArn), params)
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -347,7 +347,7 @@ function delete_service(ServiceArn; aws_config::AbstractAWSConfig=global_aws_con
         "DeleteService",
         Dict{String,Any}("ServiceArn" => ServiceArn);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function delete_service(
@@ -361,7 +361,7 @@ function delete_service(
             mergewith(_merge, Dict{String,Any}("ServiceArn" => ServiceArn), params)
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -385,7 +385,7 @@ function describe_auto_scaling_configuration(
         "DescribeAutoScalingConfiguration",
         Dict{String,Any}("AutoScalingConfigurationArn" => AutoScalingConfigurationArn);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function describe_auto_scaling_configuration(
@@ -405,7 +405,7 @@ function describe_auto_scaling_configuration(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -437,7 +437,7 @@ function describe_custom_domains(
         "DescribeCustomDomains",
         Dict{String,Any}("ServiceArn" => ServiceArn);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function describe_custom_domains(
@@ -451,7 +451,7 @@ function describe_custom_domains(
             mergewith(_merge, Dict{String,Any}("ServiceArn" => ServiceArn), params)
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -471,7 +471,7 @@ function describe_service(ServiceArn; aws_config::AbstractAWSConfig=global_aws_c
         "DescribeService",
         Dict{String,Any}("ServiceArn" => ServiceArn);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function describe_service(
@@ -485,7 +485,7 @@ function describe_service(
             mergewith(_merge, Dict{String,Any}("ServiceArn" => ServiceArn), params)
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -511,7 +511,7 @@ function disassociate_custom_domain(
         "DisassociateCustomDomain",
         Dict{String,Any}("DomainName" => DomainName, "ServiceArn" => ServiceArn);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function disassociate_custom_domain(
@@ -530,7 +530,7 @@ function disassociate_custom_domain(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -563,7 +563,9 @@ function list_auto_scaling_configurations(;
     aws_config::AbstractAWSConfig=global_aws_config()
 )
     return apprunner(
-        "ListAutoScalingConfigurations"; aws_config=aws_config, features=SERVICE_FEATURES
+        "ListAutoScalingConfigurations";
+        aws_config=aws_config,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function list_auto_scaling_configurations(
@@ -573,7 +575,7 @@ function list_auto_scaling_configurations(
         "ListAutoScalingConfigurations",
         params;
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -596,13 +598,15 @@ Optional parameters can be passed as a `params::Dict{String,<:Any}`. Valid keys 
   retrieves the first result page.
 """
 function list_connections(; aws_config::AbstractAWSConfig=global_aws_config())
-    return apprunner("ListConnections"; aws_config=aws_config, features=SERVICE_FEATURES)
+    return apprunner(
+        "ListConnections"; aws_config=aws_config, feature_set=SERVICE_FEATURE_SET
+    )
 end
 function list_connections(
     params::AbstractDict{String}; aws_config::AbstractAWSConfig=global_aws_config()
 )
     return apprunner(
-        "ListConnections", params; aws_config=aws_config, features=SERVICE_FEATURES
+        "ListConnections", params; aws_config=aws_config, feature_set=SERVICE_FEATURE_SET
     )
 end
 
@@ -633,7 +637,7 @@ function list_operations(ServiceArn; aws_config::AbstractAWSConfig=global_aws_co
         "ListOperations",
         Dict{String,Any}("ServiceArn" => ServiceArn);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function list_operations(
@@ -647,7 +651,7 @@ function list_operations(
             mergewith(_merge, Dict{String,Any}("ServiceArn" => ServiceArn), params)
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -668,13 +672,13 @@ Optional parameters can be passed as a `params::Dict{String,<:Any}`. Valid keys 
   retrieves the first result page.
 """
 function list_services(; aws_config::AbstractAWSConfig=global_aws_config())
-    return apprunner("ListServices"; aws_config=aws_config, features=SERVICE_FEATURES)
+    return apprunner("ListServices"; aws_config=aws_config, feature_set=SERVICE_FEATURE_SET)
 end
 function list_services(
     params::AbstractDict{String}; aws_config::AbstractAWSConfig=global_aws_config()
 )
     return apprunner(
-        "ListServices", params; aws_config=aws_config, features=SERVICE_FEATURES
+        "ListServices", params; aws_config=aws_config, feature_set=SERVICE_FEATURE_SET
     )
 end
 
@@ -697,7 +701,7 @@ function list_tags_for_resource(
         "ListTagsForResource",
         Dict{String,Any}("ResourceArn" => ResourceArn);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function list_tags_for_resource(
@@ -711,7 +715,7 @@ function list_tags_for_resource(
             mergewith(_merge, Dict{String,Any}("ResourceArn" => ResourceArn), params)
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -734,7 +738,7 @@ function pause_service(ServiceArn; aws_config::AbstractAWSConfig=global_aws_conf
         "PauseService",
         Dict{String,Any}("ServiceArn" => ServiceArn);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function pause_service(
@@ -748,7 +752,7 @@ function pause_service(
             mergewith(_merge, Dict{String,Any}("ServiceArn" => ServiceArn), params)
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -770,7 +774,7 @@ function resume_service(ServiceArn; aws_config::AbstractAWSConfig=global_aws_con
         "ResumeService",
         Dict{String,Any}("ServiceArn" => ServiceArn);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function resume_service(
@@ -784,7 +788,7 @@ function resume_service(
             mergewith(_merge, Dict{String,Any}("ServiceArn" => ServiceArn), params)
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -810,7 +814,7 @@ function start_deployment(ServiceArn; aws_config::AbstractAWSConfig=global_aws_c
         "StartDeployment",
         Dict{String,Any}("ServiceArn" => ServiceArn);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function start_deployment(
@@ -824,7 +828,7 @@ function start_deployment(
             mergewith(_merge, Dict{String,Any}("ServiceArn" => ServiceArn), params)
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -847,7 +851,7 @@ function tag_resource(ResourceArn, Tags; aws_config::AbstractAWSConfig=global_aw
         "TagResource",
         Dict{String,Any}("ResourceArn" => ResourceArn, "Tags" => Tags);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function tag_resource(
@@ -866,7 +870,7 @@ function tag_resource(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -889,7 +893,7 @@ function untag_resource(
         "UntagResource",
         Dict{String,Any}("ResourceArn" => ResourceArn, "TagKeys" => TagKeys);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function untag_resource(
@@ -908,7 +912,7 @@ function untag_resource(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -949,7 +953,7 @@ function update_service(ServiceArn; aws_config::AbstractAWSConfig=global_aws_con
         "UpdateService",
         Dict{String,Any}("ServiceArn" => ServiceArn);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function update_service(
@@ -963,6 +967,6 @@ function update_service(
             mergewith(_merge, Dict{String,Any}("ServiceArn" => ServiceArn), params)
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end

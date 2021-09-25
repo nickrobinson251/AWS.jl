@@ -23,7 +23,7 @@ function cancel_quantum_task(
         "/quantum-task/$(quantumTaskArn)/cancel",
         Dict{String,Any}("clientToken" => clientToken);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function cancel_quantum_task(
@@ -39,7 +39,7 @@ function cancel_quantum_task(
             mergewith(_merge, Dict{String,Any}("clientToken" => clientToken), params)
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -84,7 +84,7 @@ function create_quantum_task(
             "shots" => shots,
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function create_quantum_task(
@@ -115,7 +115,7 @@ function create_quantum_task(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -131,7 +131,10 @@ Retrieves the devices available in Amazon Braket.
 """
 function get_device(deviceArn; aws_config::AbstractAWSConfig=global_aws_config())
     return braket(
-        "GET", "/device/$(deviceArn)"; aws_config=aws_config, features=SERVICE_FEATURES
+        "GET",
+        "/device/$(deviceArn)";
+        aws_config=aws_config,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function get_device(
@@ -144,7 +147,7 @@ function get_device(
         "/device/$(deviceArn)",
         params;
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -163,7 +166,7 @@ function get_quantum_task(quantumTaskArn; aws_config::AbstractAWSConfig=global_a
         "GET",
         "/quantum-task/$(quantumTaskArn)";
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function get_quantum_task(
@@ -176,7 +179,7 @@ function get_quantum_task(
         "/quantum-task/$(quantumTaskArn)",
         params;
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -194,7 +197,10 @@ function list_tags_for_resource(
     resourceArn; aws_config::AbstractAWSConfig=global_aws_config()
 )
     return braket(
-        "GET", "/tags/$(resourceArn)"; aws_config=aws_config, features=SERVICE_FEATURES
+        "GET",
+        "/tags/$(resourceArn)";
+        aws_config=aws_config,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function list_tags_for_resource(
@@ -207,7 +213,7 @@ function list_tags_for_resource(
         "/tags/$(resourceArn)",
         params;
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -232,7 +238,7 @@ function search_devices(filters; aws_config::AbstractAWSConfig=global_aws_config
         "/devices",
         Dict{String,Any}("filters" => filters);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function search_devices(
@@ -243,7 +249,7 @@ function search_devices(
         "/devices",
         Dict{String,Any}(mergewith(_merge, Dict{String,Any}("filters" => filters), params));
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -268,7 +274,7 @@ function search_quantum_tasks(filters; aws_config::AbstractAWSConfig=global_aws_
         "/quantum-tasks",
         Dict{String,Any}("filters" => filters);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function search_quantum_tasks(
@@ -279,7 +285,7 @@ function search_quantum_tasks(
         "/quantum-tasks",
         Dict{String,Any}(mergewith(_merge, Dict{String,Any}("filters" => filters), params));
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -300,7 +306,7 @@ function tag_resource(resourceArn, tags; aws_config::AbstractAWSConfig=global_aw
         "/tags/$(resourceArn)",
         Dict{String,Any}("tags" => tags);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function tag_resource(
@@ -314,7 +320,7 @@ function tag_resource(
         "/tags/$(resourceArn)",
         Dict{String,Any}(mergewith(_merge, Dict{String,Any}("tags" => tags), params));
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -337,7 +343,7 @@ function untag_resource(
         "/tags/$(resourceArn)",
         Dict{String,Any}("tagKeys" => tagKeys);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function untag_resource(
@@ -351,6 +357,6 @@ function untag_resource(
         "/tags/$(resourceArn)",
         Dict{String,Any}(mergewith(_merge, Dict{String,Any}("tagKeys" => tagKeys), params));
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end

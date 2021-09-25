@@ -34,7 +34,7 @@ function create_fhirdatastore(
             "DatastoreTypeVersion" => DatastoreTypeVersion, "ClientToken" => string(uuid4())
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function create_fhirdatastore(
@@ -55,7 +55,7 @@ function create_fhirdatastore(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -71,14 +71,17 @@ Optional parameters can be passed as a `params::Dict{String,<:Any}`. Valid keys 
 """
 function delete_fhirdatastore(; aws_config::AbstractAWSConfig=global_aws_config())
     return healthlake(
-        "DeleteFHIRDatastore"; aws_config=aws_config, features=SERVICE_FEATURES
+        "DeleteFHIRDatastore"; aws_config=aws_config, feature_set=SERVICE_FEATURE_SET
     )
 end
 function delete_fhirdatastore(
     params::AbstractDict{String}; aws_config::AbstractAWSConfig=global_aws_config()
 )
     return healthlake(
-        "DeleteFHIRDatastore", params; aws_config=aws_config, features=SERVICE_FEATURES
+        "DeleteFHIRDatastore",
+        params;
+        aws_config=aws_config,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -97,14 +100,17 @@ Optional parameters can be passed as a `params::Dict{String,<:Any}`. Valid keys 
 """
 function describe_fhirdatastore(; aws_config::AbstractAWSConfig=global_aws_config())
     return healthlake(
-        "DescribeFHIRDatastore"; aws_config=aws_config, features=SERVICE_FEATURES
+        "DescribeFHIRDatastore"; aws_config=aws_config, feature_set=SERVICE_FEATURE_SET
     )
 end
 function describe_fhirdatastore(
     params::AbstractDict{String}; aws_config::AbstractAWSConfig=global_aws_config()
 )
     return healthlake(
-        "DescribeFHIRDatastore", params; aws_config=aws_config, features=SERVICE_FEATURES
+        "DescribeFHIRDatastore",
+        params;
+        aws_config=aws_config,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -128,7 +134,7 @@ function describe_fhirexport_job(
         "DescribeFHIRExportJob",
         Dict{String,Any}("DatastoreId" => DatastoreId, "JobId" => JobId);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function describe_fhirexport_job(
@@ -147,7 +153,7 @@ function describe_fhirexport_job(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -170,7 +176,7 @@ function describe_fhirimport_job(
         "DescribeFHIRImportJob",
         Dict{String,Any}("DatastoreId" => DatastoreId, "JobId" => JobId);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function describe_fhirimport_job(
@@ -189,7 +195,7 @@ function describe_fhirimport_job(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -209,14 +215,14 @@ Optional parameters can be passed as a `params::Dict{String,<:Any}`. Valid keys 
 """
 function list_fhirdatastores(; aws_config::AbstractAWSConfig=global_aws_config())
     return healthlake(
-        "ListFHIRDatastores"; aws_config=aws_config, features=SERVICE_FEATURES
+        "ListFHIRDatastores"; aws_config=aws_config, feature_set=SERVICE_FEATURE_SET
     )
 end
 function list_fhirdatastores(
     params::AbstractDict{String}; aws_config::AbstractAWSConfig=global_aws_config()
 )
     return healthlake(
-        "ListFHIRDatastores", params; aws_config=aws_config, features=SERVICE_FEATURES
+        "ListFHIRDatastores", params; aws_config=aws_config, feature_set=SERVICE_FEATURE_SET
     )
 end
 
@@ -252,7 +258,7 @@ function list_fhirexport_jobs(
         "ListFHIRExportJobs",
         Dict{String,Any}("DatastoreId" => DatastoreId);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function list_fhirexport_jobs(
@@ -266,7 +272,7 @@ function list_fhirexport_jobs(
             mergewith(_merge, Dict{String,Any}("DatastoreId" => DatastoreId), params)
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -302,7 +308,7 @@ function list_fhirimport_jobs(
         "ListFHIRImportJobs",
         Dict{String,Any}("DatastoreId" => DatastoreId);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function list_fhirimport_jobs(
@@ -316,7 +322,7 @@ function list_fhirimport_jobs(
             mergewith(_merge, Dict{String,Any}("DatastoreId" => DatastoreId), params)
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -338,7 +344,7 @@ function list_tags_for_resource(
         "ListTagsForResource",
         Dict{String,Any}("ResourceARN" => ResourceARN);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function list_tags_for_resource(
@@ -352,7 +358,7 @@ function list_tags_for_resource(
             mergewith(_merge, Dict{String,Any}("ResourceARN" => ResourceARN), params)
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -390,7 +396,7 @@ function start_fhirexport_job(
             "OutputDataConfig" => OutputDataConfig,
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function start_fhirexport_job(
@@ -416,7 +422,7 @@ function start_fhirexport_job(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -457,7 +463,7 @@ function start_fhirimport_job(
             "JobOutputDataConfig" => JobOutputDataConfig,
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function start_fhirimport_job(
@@ -485,7 +491,7 @@ function start_fhirimport_job(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -506,7 +512,7 @@ function tag_resource(ResourceARN, Tags; aws_config::AbstractAWSConfig=global_aw
         "TagResource",
         Dict{String,Any}("ResourceARN" => ResourceARN, "Tags" => Tags);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function tag_resource(
@@ -525,7 +531,7 @@ function tag_resource(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -548,7 +554,7 @@ function untag_resource(
         "UntagResource",
         Dict{String,Any}("ResourceARN" => ResourceARN, "TagKeys" => TagKeys);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function untag_resource(
@@ -567,6 +573,6 @@ function untag_resource(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end

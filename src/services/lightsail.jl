@@ -19,7 +19,7 @@ function allocate_static_ip(staticIpName; aws_config::AbstractAWSConfig=global_a
         "AllocateStaticIp",
         Dict{String,Any}("staticIpName" => staticIpName);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function allocate_static_ip(
@@ -33,7 +33,7 @@ function allocate_static_ip(
             mergewith(_merge, Dict{String,Any}("staticIpName" => staticIpName), params)
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -72,7 +72,7 @@ function attach_certificate_to_distribution(
             "certificateName" => certificateName, "distributionName" => distributionName
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function attach_certificate_to_distribution(
@@ -94,7 +94,7 @@ function attach_certificate_to_distribution(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -123,7 +123,7 @@ function attach_disk(
             "diskName" => diskName, "diskPath" => diskPath, "instanceName" => instanceName
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function attach_disk(
@@ -147,7 +147,7 @@ function attach_disk(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -179,7 +179,7 @@ function attach_instances_to_load_balancer(
             "instanceNames" => instanceNames, "loadBalancerName" => loadBalancerName
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function attach_instances_to_load_balancer(
@@ -200,7 +200,7 @@ function attach_instances_to_load_balancer(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -232,7 +232,7 @@ function attach_load_balancer_tls_certificate(
             "certificateName" => certificateName, "loadBalancerName" => loadBalancerName
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function attach_load_balancer_tls_certificate(
@@ -254,7 +254,7 @@ function attach_load_balancer_tls_certificate(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -276,7 +276,7 @@ function attach_static_ip(
         "AttachStaticIp",
         Dict{String,Any}("instanceName" => instanceName, "staticIpName" => staticIpName);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function attach_static_ip(
@@ -297,7 +297,7 @@ function attach_static_ip(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -321,7 +321,7 @@ function close_instance_public_ports(
         "CloseInstancePublicPorts",
         Dict{String,Any}("instanceName" => instanceName, "portInfo" => portInfo);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function close_instance_public_ports(
@@ -340,7 +340,7 @@ function close_instance_public_ports(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -392,7 +392,7 @@ function copy_snapshot(
             "sourceRegion" => sourceRegion, "targetSnapshotName" => targetSnapshotName
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function copy_snapshot(
@@ -414,7 +414,7 @@ function copy_snapshot(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -451,7 +451,7 @@ function create_bucket(
         "CreateBucket",
         Dict{String,Any}("bucketName" => bucketName, "bundleId" => bundleId);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function create_bucket(
@@ -470,7 +470,7 @@ function create_bucket(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -500,7 +500,7 @@ function create_bucket_access_key(
         "CreateBucketAccessKey",
         Dict{String,Any}("bucketName" => bucketName);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function create_bucket_access_key(
@@ -514,7 +514,7 @@ function create_bucket_access_key(
             mergewith(_merge, Dict{String,Any}("bucketName" => bucketName), params)
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -551,7 +551,7 @@ function create_certificate(
         "CreateCertificate",
         Dict{String,Any}("certificateName" => certificateName, "domainName" => domainName);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function create_certificate(
@@ -572,7 +572,7 @@ function create_certificate(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -600,7 +600,7 @@ function create_cloud_formation_stack(
         "CreateCloudFormationStack",
         Dict{String,Any}("instances" => instances);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function create_cloud_formation_stack(
@@ -614,7 +614,7 @@ function create_cloud_formation_stack(
             mergewith(_merge, Dict{String,Any}("instances" => instances), params)
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -652,7 +652,7 @@ function create_contact_method(
         "CreateContactMethod",
         Dict{String,Any}("contactEndpoint" => contactEndpoint, "protocol" => protocol);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function create_contact_method(
@@ -673,7 +673,7 @@ function create_contact_method(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -739,7 +739,7 @@ function create_container_service(
         "CreateContainerService",
         Dict{String,Any}("power" => power, "scale" => scale, "serviceName" => serviceName);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function create_container_service(
@@ -761,7 +761,7 @@ function create_container_service(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -796,7 +796,7 @@ function create_container_service_deployment(
         "CreateContainerServiceDeployment",
         Dict{String,Any}("serviceName" => serviceName);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function create_container_service_deployment(
@@ -810,7 +810,7 @@ function create_container_service_deployment(
             mergewith(_merge, Dict{String,Any}("serviceName" => serviceName), params)
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -840,7 +840,7 @@ function create_container_service_registry_login(;
     return lightsail(
         "CreateContainerServiceRegistryLogin";
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function create_container_service_registry_login(
@@ -850,7 +850,7 @@ function create_container_service_registry_login(
         "CreateContainerServiceRegistryLogin",
         params;
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -888,7 +888,7 @@ function create_disk(
             "sizeInGb" => sizeInGb,
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function create_disk(
@@ -912,7 +912,7 @@ function create_disk(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -973,7 +973,7 @@ function create_disk_from_snapshot(
             "sizeInGb" => sizeInGb,
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function create_disk_from_snapshot(
@@ -997,7 +997,7 @@ function create_disk_from_snapshot(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -1048,7 +1048,7 @@ function create_disk_snapshot(
         "CreateDiskSnapshot",
         Dict{String,Any}("diskSnapshotName" => diskSnapshotName);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function create_disk_snapshot(
@@ -1064,7 +1064,7 @@ function create_disk_snapshot(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -1116,7 +1116,7 @@ function create_distribution(
             "origin" => origin,
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function create_distribution(
@@ -1142,7 +1142,7 @@ function create_distribution(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -1170,7 +1170,7 @@ function create_domain(domainName; aws_config::AbstractAWSConfig=global_aws_conf
         "CreateDomain",
         Dict{String,Any}("domainName" => domainName);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function create_domain(
@@ -1184,7 +1184,7 @@ function create_domain(
             mergewith(_merge, Dict{String,Any}("domainName" => domainName), params)
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -1212,7 +1212,7 @@ function create_domain_entry(
         "CreateDomainEntry",
         Dict{String,Any}("domainEntry" => domainEntry, "domainName" => domainName);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function create_domain_entry(
@@ -1231,7 +1231,7 @@ function create_domain_entry(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -1262,7 +1262,7 @@ function create_instance_snapshot(
             "instanceName" => instanceName, "instanceSnapshotName" => instanceSnapshotName
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function create_instance_snapshot(
@@ -1284,7 +1284,7 @@ function create_instance_snapshot(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -1345,7 +1345,7 @@ function create_instances(
             "instanceNames" => instanceNames,
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function create_instances(
@@ -1371,7 +1371,7 @@ function create_instances(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -1446,7 +1446,7 @@ function create_instances_from_snapshot(
             "instanceNames" => instanceNames,
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function create_instances_from_snapshot(
@@ -1470,7 +1470,7 @@ function create_instances_from_snapshot(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -1494,7 +1494,7 @@ function create_key_pair(keyPairName; aws_config::AbstractAWSConfig=global_aws_c
         "CreateKeyPair",
         Dict{String,Any}("keyPairName" => keyPairName);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function create_key_pair(
@@ -1508,7 +1508,7 @@ function create_key_pair(
             mergewith(_merge, Dict{String,Any}("keyPairName" => keyPairName), params)
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -1556,7 +1556,7 @@ function create_load_balancer(
             "instancePort" => instancePort, "loadBalancerName" => loadBalancerName
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function create_load_balancer(
@@ -1577,7 +1577,7 @@ function create_load_balancer(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -1624,7 +1624,7 @@ function create_load_balancer_tls_certificate(
             "loadBalancerName" => loadBalancerName,
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function create_load_balancer_tls_certificate(
@@ -1648,7 +1648,7 @@ function create_load_balancer_tls_certificate(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -1743,7 +1743,7 @@ function create_relational_database(
             "relationalDatabaseName" => relationalDatabaseName,
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function create_relational_database(
@@ -1771,7 +1771,7 @@ function create_relational_database(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -1827,7 +1827,7 @@ function create_relational_database_from_snapshot(
         "CreateRelationalDatabaseFromSnapshot",
         Dict{String,Any}("relationalDatabaseName" => relationalDatabaseName);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function create_relational_database_from_snapshot(
@@ -1845,7 +1845,7 @@ function create_relational_database_from_snapshot(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -1881,7 +1881,7 @@ function create_relational_database_snapshot(
             "relationalDatabaseSnapshotName" => relationalDatabaseSnapshotName,
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function create_relational_database_snapshot(
@@ -1903,7 +1903,7 @@ function create_relational_database_snapshot(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -1925,7 +1925,7 @@ function delete_alarm(alarmName; aws_config::AbstractAWSConfig=global_aws_config
         "DeleteAlarm",
         Dict{String,Any}("alarmName" => alarmName);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function delete_alarm(
@@ -1939,7 +1939,7 @@ function delete_alarm(
             mergewith(_merge, Dict{String,Any}("alarmName" => alarmName), params)
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -1964,7 +1964,7 @@ function delete_auto_snapshot(
         "DeleteAutoSnapshot",
         Dict{String,Any}("date" => date, "resourceName" => resourceName);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function delete_auto_snapshot(
@@ -1983,7 +1983,7 @@ function delete_auto_snapshot(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -2012,7 +2012,7 @@ function delete_bucket(bucketName; aws_config::AbstractAWSConfig=global_aws_conf
         "DeleteBucket",
         Dict{String,Any}("bucketName" => bucketName);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function delete_bucket(
@@ -2026,7 +2026,7 @@ function delete_bucket(
             mergewith(_merge, Dict{String,Any}("bucketName" => bucketName), params)
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -2052,7 +2052,7 @@ function delete_bucket_access_key(
         "DeleteBucketAccessKey",
         Dict{String,Any}("accessKeyId" => accessKeyId, "bucketName" => bucketName);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function delete_bucket_access_key(
@@ -2071,7 +2071,7 @@ function delete_bucket_access_key(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -2096,7 +2096,7 @@ function delete_certificate(
         "DeleteCertificate",
         Dict{String,Any}("certificateName" => certificateName);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function delete_certificate(
@@ -2112,7 +2112,7 @@ function delete_certificate(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -2137,7 +2137,7 @@ function delete_contact_method(protocol; aws_config::AbstractAWSConfig=global_aw
         "DeleteContactMethod",
         Dict{String,Any}("protocol" => protocol);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function delete_contact_method(
@@ -2151,7 +2151,7 @@ function delete_contact_method(
             mergewith(_merge, Dict{String,Any}("protocol" => protocol), params)
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -2179,7 +2179,7 @@ function delete_container_image(
         "DeleteContainerImage",
         Dict{String,Any}("image" => image, "serviceName" => serviceName);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function delete_container_image(
@@ -2198,7 +2198,7 @@ function delete_container_image(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -2219,7 +2219,7 @@ function delete_container_service(
         "DeleteContainerService",
         Dict{String,Any}("serviceName" => serviceName);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function delete_container_service(
@@ -2233,7 +2233,7 @@ function delete_container_service(
             mergewith(_merge, Dict{String,Any}("serviceName" => serviceName), params)
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -2260,7 +2260,7 @@ function delete_disk(diskName; aws_config::AbstractAWSConfig=global_aws_config()
         "DeleteDisk",
         Dict{String,Any}("diskName" => diskName);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function delete_disk(
@@ -2274,7 +2274,7 @@ function delete_disk(
             mergewith(_merge, Dict{String,Any}("diskName" => diskName), params)
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -2303,7 +2303,7 @@ function delete_disk_snapshot(
         "DeleteDiskSnapshot",
         Dict{String,Any}("diskSnapshotName" => diskSnapshotName);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function delete_disk_snapshot(
@@ -2319,7 +2319,7 @@ function delete_disk_snapshot(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -2335,13 +2335,15 @@ Optional parameters can be passed as a `params::Dict{String,<:Any}`. Valid keys 
   action to get a list of distribution names that you can specify.
 """
 function delete_distribution(; aws_config::AbstractAWSConfig=global_aws_config())
-    return lightsail("DeleteDistribution"; aws_config=aws_config, features=SERVICE_FEATURES)
+    return lightsail(
+        "DeleteDistribution"; aws_config=aws_config, feature_set=SERVICE_FEATURE_SET
+    )
 end
 function delete_distribution(
     params::AbstractDict{String}; aws_config::AbstractAWSConfig=global_aws_config()
 )
     return lightsail(
-        "DeleteDistribution", params; aws_config=aws_config, features=SERVICE_FEATURES
+        "DeleteDistribution", params; aws_config=aws_config, feature_set=SERVICE_FEATURE_SET
     )
 end
 
@@ -2362,7 +2364,7 @@ function delete_domain(domainName; aws_config::AbstractAWSConfig=global_aws_conf
         "DeleteDomain",
         Dict{String,Any}("domainName" => domainName);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function delete_domain(
@@ -2376,7 +2378,7 @@ function delete_domain(
             mergewith(_merge, Dict{String,Any}("domainName" => domainName), params)
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -2401,7 +2403,7 @@ function delete_domain_entry(
         "DeleteDomainEntry",
         Dict{String,Any}("domainEntry" => domainEntry, "domainName" => domainName);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function delete_domain_entry(
@@ -2420,7 +2422,7 @@ function delete_domain_entry(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -2445,7 +2447,7 @@ function delete_instance(instanceName; aws_config::AbstractAWSConfig=global_aws_
         "DeleteInstance",
         Dict{String,Any}("instanceName" => instanceName);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function delete_instance(
@@ -2459,7 +2461,7 @@ function delete_instance(
             mergewith(_merge, Dict{String,Any}("instanceName" => instanceName), params)
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -2483,7 +2485,7 @@ function delete_instance_snapshot(
         "DeleteInstanceSnapshot",
         Dict{String,Any}("instanceSnapshotName" => instanceSnapshotName);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function delete_instance_snapshot(
@@ -2501,7 +2503,7 @@ function delete_instance_snapshot(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -2522,7 +2524,7 @@ function delete_key_pair(keyPairName; aws_config::AbstractAWSConfig=global_aws_c
         "DeleteKeyPair",
         Dict{String,Any}("keyPairName" => keyPairName);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function delete_key_pair(
@@ -2536,7 +2538,7 @@ function delete_key_pair(
             mergewith(_merge, Dict{String,Any}("keyPairName" => keyPairName), params)
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -2564,7 +2566,7 @@ function delete_known_host_keys(
         "DeleteKnownHostKeys",
         Dict{String,Any}("instanceName" => instanceName);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function delete_known_host_keys(
@@ -2578,7 +2580,7 @@ function delete_known_host_keys(
             mergewith(_merge, Dict{String,Any}("instanceName" => instanceName), params)
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -2603,7 +2605,7 @@ function delete_load_balancer(
         "DeleteLoadBalancer",
         Dict{String,Any}("loadBalancerName" => loadBalancerName);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function delete_load_balancer(
@@ -2619,7 +2621,7 @@ function delete_load_balancer(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -2652,7 +2654,7 @@ function delete_load_balancer_tls_certificate(
             "certificateName" => certificateName, "loadBalancerName" => loadBalancerName
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function delete_load_balancer_tls_certificate(
@@ -2674,7 +2676,7 @@ function delete_load_balancer_tls_certificate(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -2709,7 +2711,7 @@ function delete_relational_database(
         "DeleteRelationalDatabase",
         Dict{String,Any}("relationalDatabaseName" => relationalDatabaseName);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function delete_relational_database(
@@ -2727,7 +2729,7 @@ function delete_relational_database(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -2754,7 +2756,7 @@ function delete_relational_database_snapshot(
             "relationalDatabaseSnapshotName" => relationalDatabaseSnapshotName
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function delete_relational_database_snapshot(
@@ -2774,7 +2776,7 @@ function delete_relational_database_snapshot(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -2798,7 +2800,7 @@ function detach_certificate_from_distribution(
         "DetachCertificateFromDistribution",
         Dict{String,Any}("distributionName" => distributionName);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function detach_certificate_from_distribution(
@@ -2814,7 +2816,7 @@ function detach_certificate_from_distribution(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -2838,7 +2840,7 @@ function detach_disk(diskName; aws_config::AbstractAWSConfig=global_aws_config()
         "DetachDisk",
         Dict{String,Any}("diskName" => diskName);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function detach_disk(
@@ -2852,7 +2854,7 @@ function detach_disk(
             mergewith(_merge, Dict{String,Any}("diskName" => diskName), params)
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -2881,7 +2883,7 @@ function detach_instances_from_load_balancer(
             "instanceNames" => instanceNames, "loadBalancerName" => loadBalancerName
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function detach_instances_from_load_balancer(
@@ -2902,7 +2904,7 @@ function detach_instances_from_load_balancer(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -2921,7 +2923,7 @@ function detach_static_ip(staticIpName; aws_config::AbstractAWSConfig=global_aws
         "DetachStaticIp",
         Dict{String,Any}("staticIpName" => staticIpName);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function detach_static_ip(
@@ -2935,7 +2937,7 @@ function detach_static_ip(
             mergewith(_merge, Dict{String,Any}("staticIpName" => staticIpName), params)
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -2958,7 +2960,7 @@ function disable_add_on(
         "DisableAddOn",
         Dict{String,Any}("addOnType" => addOnType, "resourceName" => resourceName);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function disable_add_on(
@@ -2977,7 +2979,7 @@ function disable_add_on(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -2990,14 +2992,17 @@ Downloads the default SSH key pair from the user's account.
 """
 function download_default_key_pair(; aws_config::AbstractAWSConfig=global_aws_config())
     return lightsail(
-        "DownloadDefaultKeyPair"; aws_config=aws_config, features=SERVICE_FEATURES
+        "DownloadDefaultKeyPair"; aws_config=aws_config, feature_set=SERVICE_FEATURE_SET
     )
 end
 function download_default_key_pair(
     params::AbstractDict{String}; aws_config::AbstractAWSConfig=global_aws_config()
 )
     return lightsail(
-        "DownloadDefaultKeyPair", params; aws_config=aws_config, features=SERVICE_FEATURES
+        "DownloadDefaultKeyPair",
+        params;
+        aws_config=aws_config,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -3020,7 +3025,7 @@ function enable_add_on(
         "EnableAddOn",
         Dict{String,Any}("addOnRequest" => addOnRequest, "resourceName" => resourceName);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function enable_add_on(
@@ -3041,7 +3046,7 @@ function enable_add_on(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -3073,7 +3078,7 @@ function export_snapshot(
         "ExportSnapshot",
         Dict{String,Any}("sourceSnapshotName" => sourceSnapshotName);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function export_snapshot(
@@ -3089,7 +3094,7 @@ function export_snapshot(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -3107,13 +3112,15 @@ Optional parameters can be passed as a `params::Dict{String,<:Any}`. Valid keys 
   subsequent request.
 """
 function get_active_names(; aws_config::AbstractAWSConfig=global_aws_config())
-    return lightsail("GetActiveNames"; aws_config=aws_config, features=SERVICE_FEATURES)
+    return lightsail(
+        "GetActiveNames"; aws_config=aws_config, feature_set=SERVICE_FEATURE_SET
+    )
 end
 function get_active_names(
     params::AbstractDict{String}; aws_config::AbstractAWSConfig=global_aws_config()
 )
     return lightsail(
-        "GetActiveNames", params; aws_config=aws_config, features=SERVICE_FEATURES
+        "GetActiveNames", params; aws_config=aws_config, feature_set=SERVICE_FEATURE_SET
     )
 end
 
@@ -3141,12 +3148,14 @@ Optional parameters can be passed as a `params::Dict{String,<:Any}`. Valid keys 
   subsequent request.
 """
 function get_alarms(; aws_config::AbstractAWSConfig=global_aws_config())
-    return lightsail("GetAlarms"; aws_config=aws_config, features=SERVICE_FEATURES)
+    return lightsail("GetAlarms"; aws_config=aws_config, feature_set=SERVICE_FEATURE_SET)
 end
 function get_alarms(
     params::AbstractDict{String}; aws_config::AbstractAWSConfig=global_aws_config()
 )
-    return lightsail("GetAlarms", params; aws_config=aws_config, features=SERVICE_FEATURES)
+    return lightsail(
+        "GetAlarms", params; aws_config=aws_config, feature_set=SERVICE_FEATURE_SET
+    )
 end
 
 """
@@ -3166,7 +3175,7 @@ function get_auto_snapshots(resourceName; aws_config::AbstractAWSConfig=global_a
         "GetAutoSnapshots",
         Dict{String,Any}("resourceName" => resourceName);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function get_auto_snapshots(
@@ -3180,7 +3189,7 @@ function get_auto_snapshots(
             mergewith(_merge, Dict{String,Any}("resourceName" => resourceName), params)
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -3206,13 +3215,15 @@ Optional parameters can be passed as a `params::Dict{String,<:Any}`. Valid keys 
   subsequent request.
 """
 function get_blueprints(; aws_config::AbstractAWSConfig=global_aws_config())
-    return lightsail("GetBlueprints"; aws_config=aws_config, features=SERVICE_FEATURES)
+    return lightsail(
+        "GetBlueprints"; aws_config=aws_config, feature_set=SERVICE_FEATURE_SET
+    )
 end
 function get_blueprints(
     params::AbstractDict{String}; aws_config::AbstractAWSConfig=global_aws_config()
 )
     return lightsail(
-        "GetBlueprints", params; aws_config=aws_config, features=SERVICE_FEATURES
+        "GetBlueprints", params; aws_config=aws_config, feature_set=SERVICE_FEATURE_SET
     )
 end
 
@@ -3236,7 +3247,7 @@ function get_bucket_access_keys(
         "GetBucketAccessKeys",
         Dict{String,Any}("bucketName" => bucketName);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function get_bucket_access_keys(
@@ -3250,7 +3261,7 @@ function get_bucket_access_keys(
             mergewith(_merge, Dict{String,Any}("bucketName" => bucketName), params)
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -3268,13 +3279,15 @@ Optional parameters can be passed as a `params::Dict{String,<:Any}`. Valid keys 
   (unavailable) bundles in the response.
 """
 function get_bucket_bundles(; aws_config::AbstractAWSConfig=global_aws_config())
-    return lightsail("GetBucketBundles"; aws_config=aws_config, features=SERVICE_FEATURES)
+    return lightsail(
+        "GetBucketBundles"; aws_config=aws_config, feature_set=SERVICE_FEATURE_SET
+    )
 end
 function get_bucket_bundles(
     params::AbstractDict{String}; aws_config::AbstractAWSConfig=global_aws_config()
 )
     return lightsail(
-        "GetBucketBundles", params; aws_config=aws_config, features=SERVICE_FEATURES
+        "GetBucketBundles", params; aws_config=aws_config, feature_set=SERVICE_FEATURE_SET
     )
 end
 
@@ -3342,7 +3355,7 @@ function get_bucket_metric_data(
             "unit" => unit,
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function get_bucket_metric_data(
@@ -3374,7 +3387,7 @@ function get_bucket_metric_data(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -3398,12 +3411,14 @@ Optional parameters can be passed as a `params::Dict{String,<:Any}`. Valid keys 
   subsequent request.
 """
 function get_buckets(; aws_config::AbstractAWSConfig=global_aws_config())
-    return lightsail("GetBuckets"; aws_config=aws_config, features=SERVICE_FEATURES)
+    return lightsail("GetBuckets"; aws_config=aws_config, feature_set=SERVICE_FEATURE_SET)
 end
 function get_buckets(
     params::AbstractDict{String}; aws_config::AbstractAWSConfig=global_aws_config()
 )
-    return lightsail("GetBuckets", params; aws_config=aws_config, features=SERVICE_FEATURES)
+    return lightsail(
+        "GetBuckets", params; aws_config=aws_config, feature_set=SERVICE_FEATURE_SET
+    )
 end
 
 """
@@ -3423,12 +3438,14 @@ Optional parameters can be passed as a `params::Dict{String,<:Any}`. Valid keys 
   subsequent request.
 """
 function get_bundles(; aws_config::AbstractAWSConfig=global_aws_config())
-    return lightsail("GetBundles"; aws_config=aws_config, features=SERVICE_FEATURES)
+    return lightsail("GetBundles"; aws_config=aws_config, feature_set=SERVICE_FEATURE_SET)
 end
 function get_bundles(
     params::AbstractDict{String}; aws_config::AbstractAWSConfig=global_aws_config()
 )
-    return lightsail("GetBundles", params; aws_config=aws_config, features=SERVICE_FEATURES)
+    return lightsail(
+        "GetBundles", params; aws_config=aws_config, feature_set=SERVICE_FEATURE_SET
+    )
 end
 
 """
@@ -3454,13 +3471,15 @@ Optional parameters can be passed as a `params::Dict{String,<:Any}`. Valid keys 
   names, Amazon Resource Names (ARNs), domain names, and tags.
 """
 function get_certificates(; aws_config::AbstractAWSConfig=global_aws_config())
-    return lightsail("GetCertificates"; aws_config=aws_config, features=SERVICE_FEATURES)
+    return lightsail(
+        "GetCertificates"; aws_config=aws_config, feature_set=SERVICE_FEATURE_SET
+    )
 end
 function get_certificates(
     params::AbstractDict{String}; aws_config::AbstractAWSConfig=global_aws_config()
 )
     return lightsail(
-        "GetCertificates", params; aws_config=aws_config, features=SERVICE_FEATURES
+        "GetCertificates", params; aws_config=aws_config, feature_set=SERVICE_FEATURE_SET
     )
 end
 
@@ -3483,7 +3502,9 @@ function get_cloud_formation_stack_records(;
     aws_config::AbstractAWSConfig=global_aws_config()
 )
     return lightsail(
-        "GetCloudFormationStackRecords"; aws_config=aws_config, features=SERVICE_FEATURES
+        "GetCloudFormationStackRecords";
+        aws_config=aws_config,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function get_cloud_formation_stack_records(
@@ -3493,7 +3514,7 @@ function get_cloud_formation_stack_records(
         "GetCloudFormationStackRecords",
         params;
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -3515,13 +3536,15 @@ Optional parameters can be passed as a `params::Dict{String,<:Any}`. Valid keys 
   contact method protocol.
 """
 function get_contact_methods(; aws_config::AbstractAWSConfig=global_aws_config())
-    return lightsail("GetContactMethods"; aws_config=aws_config, features=SERVICE_FEATURES)
+    return lightsail(
+        "GetContactMethods"; aws_config=aws_config, feature_set=SERVICE_FEATURE_SET
+    )
 end
 function get_contact_methods(
     params::AbstractDict{String}; aws_config::AbstractAWSConfig=global_aws_config()
 )
     return lightsail(
-        "GetContactMethods", params; aws_config=aws_config, features=SERVICE_FEATURES
+        "GetContactMethods", params; aws_config=aws_config, feature_set=SERVICE_FEATURE_SET
     )
 end
 
@@ -3535,14 +3558,17 @@ Lightsail Control (lightsailctl) plugin.
 """
 function get_container_apimetadata(; aws_config::AbstractAWSConfig=global_aws_config())
     return lightsail(
-        "GetContainerAPIMetadata"; aws_config=aws_config, features=SERVICE_FEATURES
+        "GetContainerAPIMetadata"; aws_config=aws_config, feature_set=SERVICE_FEATURE_SET
     )
 end
 function get_container_apimetadata(
     params::AbstractDict{String}; aws_config::AbstractAWSConfig=global_aws_config()
 )
     return lightsail(
-        "GetContainerAPIMetadata", params; aws_config=aws_config, features=SERVICE_FEATURES
+        "GetContainerAPIMetadata",
+        params;
+        aws_config=aws_config,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -3567,7 +3593,7 @@ function get_container_images(
         "GetContainerImages",
         Dict{String,Any}("serviceName" => serviceName);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function get_container_images(
@@ -3581,7 +3607,7 @@ function get_container_images(
             mergewith(_merge, Dict{String,Any}("serviceName" => serviceName), params)
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -3632,7 +3658,7 @@ function get_container_log(
         "GetContainerLog",
         Dict{String,Any}("containerName" => containerName, "serviceName" => serviceName);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function get_container_log(
@@ -3653,7 +3679,7 @@ function get_container_log(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -3679,7 +3705,7 @@ function get_container_service_deployments(
         "GetContainerServiceDeployments",
         Dict{String,Any}("serviceName" => serviceName);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function get_container_service_deployments(
@@ -3693,7 +3719,7 @@ function get_container_service_deployments(
             mergewith(_merge, Dict{String,Any}("serviceName" => serviceName), params)
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -3755,7 +3781,7 @@ function get_container_service_metric_data(
             "statistics" => statistics,
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function get_container_service_metric_data(
@@ -3785,7 +3811,7 @@ function get_container_service_metric_data(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -3800,7 +3826,7 @@ of the container service.
 """
 function get_container_service_powers(; aws_config::AbstractAWSConfig=global_aws_config())
     return lightsail(
-        "GetContainerServicePowers"; aws_config=aws_config, features=SERVICE_FEATURES
+        "GetContainerServicePowers"; aws_config=aws_config, feature_set=SERVICE_FEATURE_SET
     )
 end
 function get_container_service_powers(
@@ -3810,7 +3836,7 @@ function get_container_service_powers(
         "GetContainerServicePowers",
         params;
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -3828,14 +3854,17 @@ Optional parameters can be passed as a `params::Dict{String,<:Any}`. Valid keys 
 """
 function get_container_services(; aws_config::AbstractAWSConfig=global_aws_config())
     return lightsail(
-        "GetContainerServices"; aws_config=aws_config, features=SERVICE_FEATURES
+        "GetContainerServices"; aws_config=aws_config, feature_set=SERVICE_FEATURE_SET
     )
 end
 function get_container_services(
     params::AbstractDict{String}; aws_config::AbstractAWSConfig=global_aws_config()
 )
     return lightsail(
-        "GetContainerServices", params; aws_config=aws_config, features=SERVICE_FEATURES
+        "GetContainerServices",
+        params;
+        aws_config=aws_config,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -3854,7 +3883,7 @@ function get_disk(diskName; aws_config::AbstractAWSConfig=global_aws_config())
         "GetDisk",
         Dict{String,Any}("diskName" => diskName);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function get_disk(
@@ -3868,7 +3897,7 @@ function get_disk(
             mergewith(_merge, Dict{String,Any}("diskName" => diskName), params)
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -3889,7 +3918,7 @@ function get_disk_snapshot(
         "GetDiskSnapshot",
         Dict{String,Any}("diskSnapshotName" => diskSnapshotName);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function get_disk_snapshot(
@@ -3905,7 +3934,7 @@ function get_disk_snapshot(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -3923,13 +3952,15 @@ Optional parameters can be passed as a `params::Dict{String,<:Any}`. Valid keys 
   subsequent request.
 """
 function get_disk_snapshots(; aws_config::AbstractAWSConfig=global_aws_config())
-    return lightsail("GetDiskSnapshots"; aws_config=aws_config, features=SERVICE_FEATURES)
+    return lightsail(
+        "GetDiskSnapshots"; aws_config=aws_config, feature_set=SERVICE_FEATURE_SET
+    )
 end
 function get_disk_snapshots(
     params::AbstractDict{String}; aws_config::AbstractAWSConfig=global_aws_config()
 )
     return lightsail(
-        "GetDiskSnapshots", params; aws_config=aws_config, features=SERVICE_FEATURES
+        "GetDiskSnapshots", params; aws_config=aws_config, feature_set=SERVICE_FEATURE_SET
     )
 end
 
@@ -3947,12 +3978,14 @@ Optional parameters can be passed as a `params::Dict{String,<:Any}`. Valid keys 
   subsequent request.
 """
 function get_disks(; aws_config::AbstractAWSConfig=global_aws_config())
-    return lightsail("GetDisks"; aws_config=aws_config, features=SERVICE_FEATURES)
+    return lightsail("GetDisks"; aws_config=aws_config, feature_set=SERVICE_FEATURE_SET)
 end
 function get_disks(
     params::AbstractDict{String}; aws_config::AbstractAWSConfig=global_aws_config()
 )
-    return lightsail("GetDisks", params; aws_config=aws_config, features=SERVICE_FEATURES)
+    return lightsail(
+        "GetDisks", params; aws_config=aws_config, feature_set=SERVICE_FEATURE_SET
+    )
 end
 
 """
@@ -3966,14 +3999,17 @@ monthly cost of your dsitribution.
 """
 function get_distribution_bundles(; aws_config::AbstractAWSConfig=global_aws_config())
     return lightsail(
-        "GetDistributionBundles"; aws_config=aws_config, features=SERVICE_FEATURES
+        "GetDistributionBundles"; aws_config=aws_config, feature_set=SERVICE_FEATURE_SET
     )
 end
 function get_distribution_bundles(
     params::AbstractDict{String}; aws_config::AbstractAWSConfig=global_aws_config()
 )
     return lightsail(
-        "GetDistributionBundles", params; aws_config=aws_config, features=SERVICE_FEATURES
+        "GetDistributionBundles",
+        params;
+        aws_config=aws_config,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -3995,7 +4031,9 @@ function get_distribution_latest_cache_reset(;
     aws_config::AbstractAWSConfig=global_aws_config()
 )
     return lightsail(
-        "GetDistributionLatestCacheReset"; aws_config=aws_config, features=SERVICE_FEATURES
+        "GetDistributionLatestCacheReset";
+        aws_config=aws_config,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function get_distribution_latest_cache_reset(
@@ -4005,7 +4043,7 @@ function get_distribution_latest_cache_reset(
         "GetDistributionLatestCacheReset",
         params;
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -4090,7 +4128,7 @@ function get_distribution_metric_data(
             "unit" => unit,
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function get_distribution_metric_data(
@@ -4122,7 +4160,7 @@ function get_distribution_metric_data(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -4144,13 +4182,15 @@ Optional parameters can be passed as a `params::Dict{String,<:Any}`. Valid keys 
   subsequent request.
 """
 function get_distributions(; aws_config::AbstractAWSConfig=global_aws_config())
-    return lightsail("GetDistributions"; aws_config=aws_config, features=SERVICE_FEATURES)
+    return lightsail(
+        "GetDistributions"; aws_config=aws_config, feature_set=SERVICE_FEATURE_SET
+    )
 end
 function get_distributions(
     params::AbstractDict{String}; aws_config::AbstractAWSConfig=global_aws_config()
 )
     return lightsail(
-        "GetDistributions", params; aws_config=aws_config, features=SERVICE_FEATURES
+        "GetDistributions", params; aws_config=aws_config, feature_set=SERVICE_FEATURE_SET
     )
 end
 
@@ -4169,7 +4209,7 @@ function get_domain(domainName; aws_config::AbstractAWSConfig=global_aws_config(
         "GetDomain",
         Dict{String,Any}("domainName" => domainName);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function get_domain(
@@ -4183,7 +4223,7 @@ function get_domain(
             mergewith(_merge, Dict{String,Any}("domainName" => domainName), params)
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -4201,12 +4241,14 @@ Optional parameters can be passed as a `params::Dict{String,<:Any}`. Valid keys 
   subsequent request.
 """
 function get_domains(; aws_config::AbstractAWSConfig=global_aws_config())
-    return lightsail("GetDomains"; aws_config=aws_config, features=SERVICE_FEATURES)
+    return lightsail("GetDomains"; aws_config=aws_config, feature_set=SERVICE_FEATURE_SET)
 end
 function get_domains(
     params::AbstractDict{String}; aws_config::AbstractAWSConfig=global_aws_config()
 )
-    return lightsail("GetDomains", params; aws_config=aws_config, features=SERVICE_FEATURES)
+    return lightsail(
+        "GetDomains", params; aws_config=aws_config, feature_set=SERVICE_FEATURE_SET
+    )
 end
 
 """
@@ -4226,14 +4268,17 @@ Optional parameters can be passed as a `params::Dict{String,<:Any}`. Valid keys 
 """
 function get_export_snapshot_records(; aws_config::AbstractAWSConfig=global_aws_config())
     return lightsail(
-        "GetExportSnapshotRecords"; aws_config=aws_config, features=SERVICE_FEATURES
+        "GetExportSnapshotRecords"; aws_config=aws_config, feature_set=SERVICE_FEATURE_SET
     )
 end
 function get_export_snapshot_records(
     params::AbstractDict{String}; aws_config::AbstractAWSConfig=global_aws_config()
 )
     return lightsail(
-        "GetExportSnapshotRecords", params; aws_config=aws_config, features=SERVICE_FEATURES
+        "GetExportSnapshotRecords",
+        params;
+        aws_config=aws_config,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -4253,7 +4298,7 @@ function get_instance(instanceName; aws_config::AbstractAWSConfig=global_aws_con
         "GetInstance",
         Dict{String,Any}("instanceName" => instanceName);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function get_instance(
@@ -4267,7 +4312,7 @@ function get_instance(
             mergewith(_merge, Dict{String,Any}("instanceName" => instanceName), params)
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -4294,7 +4339,7 @@ function get_instance_access_details(
         "GetInstanceAccessDetails",
         Dict{String,Any}("instanceName" => instanceName);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function get_instance_access_details(
@@ -4308,7 +4353,7 @@ function get_instance_access_details(
             mergewith(_merge, Dict{String,Any}("instanceName" => instanceName), params)
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -4410,7 +4455,7 @@ function get_instance_metric_data(
             "unit" => unit,
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function get_instance_metric_data(
@@ -4442,7 +4487,7 @@ function get_instance_metric_data(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -4464,7 +4509,7 @@ function get_instance_port_states(
         "GetInstancePortStates",
         Dict{String,Any}("instanceName" => instanceName);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function get_instance_port_states(
@@ -4478,7 +4523,7 @@ function get_instance_port_states(
             mergewith(_merge, Dict{String,Any}("instanceName" => instanceName), params)
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -4500,7 +4545,7 @@ function get_instance_snapshot(
         "GetInstanceSnapshot",
         Dict{String,Any}("instanceSnapshotName" => instanceSnapshotName);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function get_instance_snapshot(
@@ -4518,7 +4563,7 @@ function get_instance_snapshot(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -4537,14 +4582,17 @@ Optional parameters can be passed as a `params::Dict{String,<:Any}`. Valid keys 
 """
 function get_instance_snapshots(; aws_config::AbstractAWSConfig=global_aws_config())
     return lightsail(
-        "GetInstanceSnapshots"; aws_config=aws_config, features=SERVICE_FEATURES
+        "GetInstanceSnapshots"; aws_config=aws_config, feature_set=SERVICE_FEATURE_SET
     )
 end
 function get_instance_snapshots(
     params::AbstractDict{String}; aws_config::AbstractAWSConfig=global_aws_config()
 )
     return lightsail(
-        "GetInstanceSnapshots", params; aws_config=aws_config, features=SERVICE_FEATURES
+        "GetInstanceSnapshots",
+        params;
+        aws_config=aws_config,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -4563,7 +4611,7 @@ function get_instance_state(instanceName; aws_config::AbstractAWSConfig=global_a
         "GetInstanceState",
         Dict{String,Any}("instanceName" => instanceName);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function get_instance_state(
@@ -4577,7 +4625,7 @@ function get_instance_state(
             mergewith(_merge, Dict{String,Any}("instanceName" => instanceName), params)
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -4595,13 +4643,13 @@ Optional parameters can be passed as a `params::Dict{String,<:Any}`. Valid keys 
   subsequent request.
 """
 function get_instances(; aws_config::AbstractAWSConfig=global_aws_config())
-    return lightsail("GetInstances"; aws_config=aws_config, features=SERVICE_FEATURES)
+    return lightsail("GetInstances"; aws_config=aws_config, feature_set=SERVICE_FEATURE_SET)
 end
 function get_instances(
     params::AbstractDict{String}; aws_config::AbstractAWSConfig=global_aws_config()
 )
     return lightsail(
-        "GetInstances", params; aws_config=aws_config, features=SERVICE_FEATURES
+        "GetInstances", params; aws_config=aws_config, feature_set=SERVICE_FEATURE_SET
     )
 end
 
@@ -4620,7 +4668,7 @@ function get_key_pair(keyPairName; aws_config::AbstractAWSConfig=global_aws_conf
         "GetKeyPair",
         Dict{String,Any}("keyPairName" => keyPairName);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function get_key_pair(
@@ -4634,7 +4682,7 @@ function get_key_pair(
             mergewith(_merge, Dict{String,Any}("keyPairName" => keyPairName), params)
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -4652,13 +4700,13 @@ Optional parameters can be passed as a `params::Dict{String,<:Any}`. Valid keys 
   subsequent request.
 """
 function get_key_pairs(; aws_config::AbstractAWSConfig=global_aws_config())
-    return lightsail("GetKeyPairs"; aws_config=aws_config, features=SERVICE_FEATURES)
+    return lightsail("GetKeyPairs"; aws_config=aws_config, feature_set=SERVICE_FEATURE_SET)
 end
 function get_key_pairs(
     params::AbstractDict{String}; aws_config::AbstractAWSConfig=global_aws_config()
 )
     return lightsail(
-        "GetKeyPairs", params; aws_config=aws_config, features=SERVICE_FEATURES
+        "GetKeyPairs", params; aws_config=aws_config, feature_set=SERVICE_FEATURE_SET
     )
 end
 
@@ -4679,7 +4727,7 @@ function get_load_balancer(
         "GetLoadBalancer",
         Dict{String,Any}("loadBalancerName" => loadBalancerName);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function get_load_balancer(
@@ -4695,7 +4743,7 @@ function get_load_balancer(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -4795,7 +4843,7 @@ function get_load_balancer_metric_data(
             "unit" => unit,
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function get_load_balancer_metric_data(
@@ -4827,7 +4875,7 @@ function get_load_balancer_metric_data(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -4852,7 +4900,7 @@ function get_load_balancer_tls_certificates(
         "GetLoadBalancerTlsCertificates",
         Dict{String,Any}("loadBalancerName" => loadBalancerName);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function get_load_balancer_tls_certificates(
@@ -4868,7 +4916,7 @@ function get_load_balancer_tls_certificates(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -4886,13 +4934,15 @@ Optional parameters can be passed as a `params::Dict{String,<:Any}`. Valid keys 
   subsequent request.
 """
 function get_load_balancers(; aws_config::AbstractAWSConfig=global_aws_config())
-    return lightsail("GetLoadBalancers"; aws_config=aws_config, features=SERVICE_FEATURES)
+    return lightsail(
+        "GetLoadBalancers"; aws_config=aws_config, feature_set=SERVICE_FEATURE_SET
+    )
 end
 function get_load_balancers(
     params::AbstractDict{String}; aws_config::AbstractAWSConfig=global_aws_config()
 )
     return lightsail(
-        "GetLoadBalancers", params; aws_config=aws_config, features=SERVICE_FEATURES
+        "GetLoadBalancers", params; aws_config=aws_config, feature_set=SERVICE_FEATURE_SET
     )
 end
 
@@ -4912,7 +4962,7 @@ function get_operation(operationId; aws_config::AbstractAWSConfig=global_aws_con
         "GetOperation",
         Dict{String,Any}("operationId" => operationId);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function get_operation(
@@ -4926,7 +4976,7 @@ function get_operation(
             mergewith(_merge, Dict{String,Any}("operationId" => operationId), params)
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -4946,13 +4996,15 @@ Optional parameters can be passed as a `params::Dict{String,<:Any}`. Valid keys 
   subsequent request.
 """
 function get_operations(; aws_config::AbstractAWSConfig=global_aws_config())
-    return lightsail("GetOperations"; aws_config=aws_config, features=SERVICE_FEATURES)
+    return lightsail(
+        "GetOperations"; aws_config=aws_config, feature_set=SERVICE_FEATURE_SET
+    )
 end
 function get_operations(
     params::AbstractDict{String}; aws_config::AbstractAWSConfig=global_aws_config()
 )
     return lightsail(
-        "GetOperations", params; aws_config=aws_config, features=SERVICE_FEATURES
+        "GetOperations", params; aws_config=aws_config, feature_set=SERVICE_FEATURE_SET
     )
 end
 
@@ -4979,7 +5031,7 @@ function get_operations_for_resource(
         "GetOperationsForResource",
         Dict{String,Any}("resourceName" => resourceName);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function get_operations_for_resource(
@@ -4993,7 +5045,7 @@ function get_operations_for_resource(
             mergewith(_merge, Dict{String,Any}("resourceName" => resourceName), params)
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -5014,12 +5066,14 @@ Optional parameters can be passed as a `params::Dict{String,<:Any}`. Valid keys 
   Zones are indicated with a letter (e.g., us-east-2a).
 """
 function get_regions(; aws_config::AbstractAWSConfig=global_aws_config())
-    return lightsail("GetRegions"; aws_config=aws_config, features=SERVICE_FEATURES)
+    return lightsail("GetRegions"; aws_config=aws_config, feature_set=SERVICE_FEATURE_SET)
 end
 function get_regions(
     params::AbstractDict{String}; aws_config::AbstractAWSConfig=global_aws_config()
 )
-    return lightsail("GetRegions", params; aws_config=aws_config, features=SERVICE_FEATURES)
+    return lightsail(
+        "GetRegions", params; aws_config=aws_config, feature_set=SERVICE_FEATURE_SET
+    )
 end
 
 """
@@ -5039,7 +5093,7 @@ function get_relational_database(
         "GetRelationalDatabase",
         Dict{String,Any}("relationalDatabaseName" => relationalDatabaseName);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function get_relational_database(
@@ -5057,7 +5111,7 @@ function get_relational_database(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -5080,7 +5134,9 @@ function get_relational_database_blueprints(;
     aws_config::AbstractAWSConfig=global_aws_config()
 )
     return lightsail(
-        "GetRelationalDatabaseBlueprints"; aws_config=aws_config, features=SERVICE_FEATURES
+        "GetRelationalDatabaseBlueprints";
+        aws_config=aws_config,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function get_relational_database_blueprints(
@@ -5090,7 +5146,7 @@ function get_relational_database_blueprints(
         "GetRelationalDatabaseBlueprints",
         params;
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -5113,7 +5169,9 @@ function get_relational_database_bundles(;
     aws_config::AbstractAWSConfig=global_aws_config()
 )
     return lightsail(
-        "GetRelationalDatabaseBundles"; aws_config=aws_config, features=SERVICE_FEATURES
+        "GetRelationalDatabaseBundles";
+        aws_config=aws_config,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function get_relational_database_bundles(
@@ -5123,7 +5181,7 @@ function get_relational_database_bundles(
         "GetRelationalDatabaseBundles",
         params;
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -5153,7 +5211,7 @@ function get_relational_database_events(
         "GetRelationalDatabaseEvents",
         Dict{String,Any}("relationalDatabaseName" => relationalDatabaseName);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function get_relational_database_events(
@@ -5171,7 +5229,7 @@ function get_relational_database_events(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -5215,7 +5273,7 @@ function get_relational_database_log_events(
             "relationalDatabaseName" => relationalDatabaseName,
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function get_relational_database_log_events(
@@ -5237,7 +5295,7 @@ function get_relational_database_log_events(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -5258,7 +5316,7 @@ function get_relational_database_log_streams(
         "GetRelationalDatabaseLogStreams",
         Dict{String,Any}("relationalDatabaseName" => relationalDatabaseName);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function get_relational_database_log_streams(
@@ -5276,7 +5334,7 @@ function get_relational_database_log_streams(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -5307,7 +5365,7 @@ function get_relational_database_master_user_password(
         "GetRelationalDatabaseMasterUserPassword",
         Dict{String,Any}("relationalDatabaseName" => relationalDatabaseName);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function get_relational_database_master_user_password(
@@ -5325,7 +5383,7 @@ function get_relational_database_master_user_password(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -5405,7 +5463,7 @@ function get_relational_database_metric_data(
             "unit" => unit,
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function get_relational_database_metric_data(
@@ -5437,7 +5495,7 @@ function get_relational_database_metric_data(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -5468,7 +5526,7 @@ function get_relational_database_parameters(
         "GetRelationalDatabaseParameters",
         Dict{String,Any}("relationalDatabaseName" => relationalDatabaseName);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function get_relational_database_parameters(
@@ -5486,7 +5544,7 @@ function get_relational_database_parameters(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -5510,7 +5568,7 @@ function get_relational_database_snapshot(
             "relationalDatabaseSnapshotName" => relationalDatabaseSnapshotName
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function get_relational_database_snapshot(
@@ -5530,7 +5588,7 @@ function get_relational_database_snapshot(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -5551,7 +5609,9 @@ function get_relational_database_snapshots(;
     aws_config::AbstractAWSConfig=global_aws_config()
 )
     return lightsail(
-        "GetRelationalDatabaseSnapshots"; aws_config=aws_config, features=SERVICE_FEATURES
+        "GetRelationalDatabaseSnapshots";
+        aws_config=aws_config,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function get_relational_database_snapshots(
@@ -5561,7 +5621,7 @@ function get_relational_database_snapshots(
         "GetRelationalDatabaseSnapshots",
         params;
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -5580,14 +5640,17 @@ Optional parameters can be passed as a `params::Dict{String,<:Any}`. Valid keys 
 """
 function get_relational_databases(; aws_config::AbstractAWSConfig=global_aws_config())
     return lightsail(
-        "GetRelationalDatabases"; aws_config=aws_config, features=SERVICE_FEATURES
+        "GetRelationalDatabases"; aws_config=aws_config, feature_set=SERVICE_FEATURE_SET
     )
 end
 function get_relational_databases(
     params::AbstractDict{String}; aws_config::AbstractAWSConfig=global_aws_config()
 )
     return lightsail(
-        "GetRelationalDatabases", params; aws_config=aws_config, features=SERVICE_FEATURES
+        "GetRelationalDatabases",
+        params;
+        aws_config=aws_config,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -5606,7 +5669,7 @@ function get_static_ip(staticIpName; aws_config::AbstractAWSConfig=global_aws_co
         "GetStaticIp",
         Dict{String,Any}("staticIpName" => staticIpName);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function get_static_ip(
@@ -5620,7 +5683,7 @@ function get_static_ip(
             mergewith(_merge, Dict{String,Any}("staticIpName" => staticIpName), params)
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -5638,13 +5701,13 @@ Optional parameters can be passed as a `params::Dict{String,<:Any}`. Valid keys 
   subsequent request.
 """
 function get_static_ips(; aws_config::AbstractAWSConfig=global_aws_config())
-    return lightsail("GetStaticIps"; aws_config=aws_config, features=SERVICE_FEATURES)
+    return lightsail("GetStaticIps"; aws_config=aws_config, feature_set=SERVICE_FEATURE_SET)
 end
 function get_static_ips(
     params::AbstractDict{String}; aws_config::AbstractAWSConfig=global_aws_config()
 )
     return lightsail(
-        "GetStaticIps", params; aws_config=aws_config, features=SERVICE_FEATURES
+        "GetStaticIps", params; aws_config=aws_config, feature_set=SERVICE_FEATURE_SET
     )
 end
 
@@ -5668,7 +5731,7 @@ function import_key_pair(
             "keyPairName" => keyPairName, "publicKeyBase64" => publicKeyBase64
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function import_key_pair(
@@ -5689,7 +5752,7 @@ function import_key_pair(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -5701,13 +5764,13 @@ Returns a Boolean value indicating whether your Lightsail VPC is peered.
 
 """
 function is_vpc_peered(; aws_config::AbstractAWSConfig=global_aws_config())
-    return lightsail("IsVpcPeered"; aws_config=aws_config, features=SERVICE_FEATURES)
+    return lightsail("IsVpcPeered"; aws_config=aws_config, feature_set=SERVICE_FEATURE_SET)
 end
 function is_vpc_peered(
     params::AbstractDict{String}; aws_config::AbstractAWSConfig=global_aws_config()
 )
     return lightsail(
-        "IsVpcPeered", params; aws_config=aws_config, features=SERVICE_FEATURES
+        "IsVpcPeered", params; aws_config=aws_config, feature_set=SERVICE_FEATURE_SET
     )
 end
 
@@ -5733,7 +5796,7 @@ function open_instance_public_ports(
         "OpenInstancePublicPorts",
         Dict{String,Any}("instanceName" => instanceName, "portInfo" => portInfo);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function open_instance_public_ports(
@@ -5752,7 +5815,7 @@ function open_instance_public_ports(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -5764,12 +5827,14 @@ Peers the Lightsail VPC with the user's default VPC.
 
 """
 function peer_vpc(; aws_config::AbstractAWSConfig=global_aws_config())
-    return lightsail("PeerVpc"; aws_config=aws_config, features=SERVICE_FEATURES)
+    return lightsail("PeerVpc"; aws_config=aws_config, feature_set=SERVICE_FEATURE_SET)
 end
 function peer_vpc(
     params::AbstractDict{String}; aws_config::AbstractAWSConfig=global_aws_config()
 )
-    return lightsail("PeerVpc", params; aws_config=aws_config, features=SERVICE_FEATURES)
+    return lightsail(
+        "PeerVpc", params; aws_config=aws_config, feature_set=SERVICE_FEATURE_SET
+    )
 end
 
 """
@@ -5870,7 +5935,7 @@ function put_alarm(
             "threshold" => threshold,
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function put_alarm(
@@ -5900,7 +5965,7 @@ function put_alarm(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -5930,7 +5995,7 @@ function put_instance_public_ports(
         "PutInstancePublicPorts",
         Dict{String,Any}("instanceName" => instanceName, "portInfos" => portInfos);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function put_instance_public_ports(
@@ -5949,7 +6014,7 @@ function put_instance_public_ports(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -5970,7 +6035,7 @@ function reboot_instance(instanceName; aws_config::AbstractAWSConfig=global_aws_
         "RebootInstance",
         Dict{String,Any}("instanceName" => instanceName);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function reboot_instance(
@@ -5984,7 +6049,7 @@ function reboot_instance(
             mergewith(_merge, Dict{String,Any}("instanceName" => instanceName), params)
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -6007,7 +6072,7 @@ function reboot_relational_database(
         "RebootRelationalDatabase",
         Dict{String,Any}("relationalDatabaseName" => relationalDatabaseName);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function reboot_relational_database(
@@ -6025,7 +6090,7 @@ function reboot_relational_database(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -6065,7 +6130,7 @@ function register_container_image(
             "digest" => digest, "label" => label, "serviceName" => serviceName
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function register_container_image(
@@ -6087,7 +6152,7 @@ function register_container_image(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -6106,7 +6171,7 @@ function release_static_ip(staticIpName; aws_config::AbstractAWSConfig=global_aw
         "ReleaseStaticIp",
         Dict{String,Any}("staticIpName" => staticIpName);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function release_static_ip(
@@ -6120,7 +6185,7 @@ function release_static_ip(
             mergewith(_merge, Dict{String,Any}("staticIpName" => staticIpName), params)
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -6139,14 +6204,17 @@ Optional parameters can be passed as a `params::Dict{String,<:Any}`. Valid keys 
 """
 function reset_distribution_cache(; aws_config::AbstractAWSConfig=global_aws_config())
     return lightsail(
-        "ResetDistributionCache"; aws_config=aws_config, features=SERVICE_FEATURES
+        "ResetDistributionCache"; aws_config=aws_config, feature_set=SERVICE_FEATURE_SET
     )
 end
 function reset_distribution_cache(
     params::AbstractDict{String}; aws_config::AbstractAWSConfig=global_aws_config()
 )
     return lightsail(
-        "ResetDistributionCache", params; aws_config=aws_config, features=SERVICE_FEATURES
+        "ResetDistributionCache",
+        params;
+        aws_config=aws_config,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -6176,7 +6244,7 @@ function send_contact_method_verification(
         "SendContactMethodVerification",
         Dict{String,Any}("protocol" => protocol);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function send_contact_method_verification(
@@ -6190,7 +6258,7 @@ function send_contact_method_verification(
             mergewith(_merge, Dict{String,Any}("protocol" => protocol), params)
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -6226,7 +6294,7 @@ function set_ip_address_type(
             "resourceType" => resourceType,
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function set_ip_address_type(
@@ -6250,7 +6318,7 @@ function set_ip_address_type(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -6281,7 +6349,7 @@ function set_resource_access_for_bucket(
             "access" => access, "bucketName" => bucketName, "resourceName" => resourceName
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function set_resource_access_for_bucket(
@@ -6305,7 +6373,7 @@ function set_resource_access_for_bucket(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -6330,7 +6398,7 @@ function start_instance(instanceName; aws_config::AbstractAWSConfig=global_aws_c
         "StartInstance",
         Dict{String,Any}("instanceName" => instanceName);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function start_instance(
@@ -6344,7 +6412,7 @@ function start_instance(
             mergewith(_merge, Dict{String,Any}("instanceName" => instanceName), params)
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -6368,7 +6436,7 @@ function start_relational_database(
         "StartRelationalDatabase",
         Dict{String,Any}("relationalDatabaseName" => relationalDatabaseName);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function start_relational_database(
@@ -6386,7 +6454,7 @@ function start_relational_database(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -6417,7 +6485,7 @@ function stop_instance(instanceName; aws_config::AbstractAWSConfig=global_aws_co
         "StopInstance",
         Dict{String,Any}("instanceName" => instanceName);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function stop_instance(
@@ -6431,7 +6499,7 @@ function stop_instance(
             mergewith(_merge, Dict{String,Any}("instanceName" => instanceName), params)
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -6459,7 +6527,7 @@ function stop_relational_database(
         "StopRelationalDatabase",
         Dict{String,Any}("relationalDatabaseName" => relationalDatabaseName);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function stop_relational_database(
@@ -6477,7 +6545,7 @@ function stop_relational_database(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -6506,7 +6574,7 @@ function tag_resource(resourceName, tags; aws_config::AbstractAWSConfig=global_a
         "TagResource",
         Dict{String,Any}("resourceName" => resourceName, "tags" => tags);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function tag_resource(
@@ -6525,7 +6593,7 @@ function tag_resource(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -6554,7 +6622,7 @@ function test_alarm(alarmName, state; aws_config::AbstractAWSConfig=global_aws_c
         "TestAlarm",
         Dict{String,Any}("alarmName" => alarmName, "state" => state);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function test_alarm(
@@ -6571,7 +6639,7 @@ function test_alarm(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -6583,12 +6651,14 @@ Unpeers the Lightsail VPC from the user's default VPC.
 
 """
 function unpeer_vpc(; aws_config::AbstractAWSConfig=global_aws_config())
-    return lightsail("UnpeerVpc"; aws_config=aws_config, features=SERVICE_FEATURES)
+    return lightsail("UnpeerVpc"; aws_config=aws_config, feature_set=SERVICE_FEATURE_SET)
 end
 function unpeer_vpc(
     params::AbstractDict{String}; aws_config::AbstractAWSConfig=global_aws_config()
 )
-    return lightsail("UnpeerVpc", params; aws_config=aws_config, features=SERVICE_FEATURES)
+    return lightsail(
+        "UnpeerVpc", params; aws_config=aws_config, feature_set=SERVICE_FEATURE_SET
+    )
 end
 
 """
@@ -6616,7 +6686,7 @@ function untag_resource(
         "UntagResource",
         Dict{String,Any}("resourceName" => resourceName, "tagKeys" => tagKeys);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function untag_resource(
@@ -6635,7 +6705,7 @@ function untag_resource(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -6666,7 +6736,7 @@ function update_bucket(bucketName; aws_config::AbstractAWSConfig=global_aws_conf
         "UpdateBucket",
         Dict{String,Any}("bucketName" => bucketName);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function update_bucket(
@@ -6680,7 +6750,7 @@ function update_bucket(
             mergewith(_merge, Dict{String,Any}("bucketName" => bucketName), params)
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -6714,7 +6784,7 @@ function update_bucket_bundle(
         "UpdateBucketBundle",
         Dict{String,Any}("bucketName" => bucketName, "bundleId" => bundleId);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function update_bucket_bundle(
@@ -6733,7 +6803,7 @@ function update_bucket_bundle(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -6777,7 +6847,7 @@ function update_container_service(
         "UpdateContainerService",
         Dict{String,Any}("serviceName" => serviceName);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function update_container_service(
@@ -6791,7 +6861,7 @@ function update_container_service(
             mergewith(_merge, Dict{String,Any}("serviceName" => serviceName), params)
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -6827,7 +6897,7 @@ function update_distribution(
         "UpdateDistribution",
         Dict{String,Any}("distributionName" => distributionName);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function update_distribution(
@@ -6843,7 +6913,7 @@ function update_distribution(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -6869,14 +6939,17 @@ Optional parameters can be passed as a `params::Dict{String,<:Any}`. Valid keys 
 """
 function update_distribution_bundle(; aws_config::AbstractAWSConfig=global_aws_config())
     return lightsail(
-        "UpdateDistributionBundle"; aws_config=aws_config, features=SERVICE_FEATURES
+        "UpdateDistributionBundle"; aws_config=aws_config, feature_set=SERVICE_FEATURE_SET
     )
 end
 function update_distribution_bundle(
     params::AbstractDict{String}; aws_config::AbstractAWSConfig=global_aws_config()
 )
     return lightsail(
-        "UpdateDistributionBundle", params; aws_config=aws_config, features=SERVICE_FEATURES
+        "UpdateDistributionBundle",
+        params;
+        aws_config=aws_config,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -6900,7 +6973,7 @@ function update_domain_entry(
         "UpdateDomainEntry",
         Dict{String,Any}("domainEntry" => domainEntry, "domainName" => domainName);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function update_domain_entry(
@@ -6919,7 +6992,7 @@ function update_domain_entry(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -6953,7 +7026,7 @@ function update_load_balancer_attribute(
             "loadBalancerName" => loadBalancerName,
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function update_load_balancer_attribute(
@@ -6977,7 +7050,7 @@ function update_load_balancer_attribute(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -7038,7 +7111,7 @@ function update_relational_database(
         "UpdateRelationalDatabase",
         Dict{String,Any}("relationalDatabaseName" => relationalDatabaseName);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function update_relational_database(
@@ -7056,7 +7129,7 @@ function update_relational_database(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -7088,7 +7161,7 @@ function update_relational_database_parameters(
             "parameters" => parameters, "relationalDatabaseName" => relationalDatabaseName
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function update_relational_database_parameters(
@@ -7110,6 +7183,6 @@ function update_relational_database_parameters(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end

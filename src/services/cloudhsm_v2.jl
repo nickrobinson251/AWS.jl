@@ -28,7 +28,7 @@ function copy_backup_to_region(
         "CopyBackupToRegion",
         Dict{String,Any}("BackupId" => BackupId, "DestinationRegion" => DestinationRegion);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function copy_backup_to_region(
@@ -49,7 +49,7 @@ function copy_backup_to_region(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -82,7 +82,7 @@ function create_cluster(
         "CreateCluster",
         Dict{String,Any}("HsmType" => HsmType, "SubnetIds" => SubnetIds);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function create_cluster(
@@ -101,7 +101,7 @@ function create_cluster(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -130,7 +130,7 @@ function create_hsm(
         "CreateHsm",
         Dict{String,Any}("AvailabilityZone" => AvailabilityZone, "ClusterId" => ClusterId);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function create_hsm(
@@ -151,7 +151,7 @@ function create_hsm(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -172,7 +172,7 @@ function delete_backup(BackupId; aws_config::AbstractAWSConfig=global_aws_config
         "DeleteBackup",
         Dict{String,Any}("BackupId" => BackupId);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function delete_backup(
@@ -186,7 +186,7 @@ function delete_backup(
             mergewith(_merge, Dict{String,Any}("BackupId" => BackupId), params)
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -208,7 +208,7 @@ function delete_cluster(ClusterId; aws_config::AbstractAWSConfig=global_aws_conf
         "DeleteCluster",
         Dict{String,Any}("ClusterId" => ClusterId);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function delete_cluster(
@@ -222,7 +222,7 @@ function delete_cluster(
             mergewith(_merge, Dict{String,Any}("ClusterId" => ClusterId), params)
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -251,7 +251,7 @@ function delete_hsm(ClusterId; aws_config::AbstractAWSConfig=global_aws_config()
         "DeleteHsm",
         Dict{String,Any}("ClusterId" => ClusterId);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function delete_hsm(
@@ -265,7 +265,7 @@ function delete_hsm(
             mergewith(_merge, Dict{String,Any}("ClusterId" => ClusterId), params)
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -299,13 +299,15 @@ Optional parameters can be passed as a `params::Dict{String,<:Any}`. Valid keys 
   chronological order of generation.
 """
 function describe_backups(; aws_config::AbstractAWSConfig=global_aws_config())
-    return cloudhsm_v2("DescribeBackups"; aws_config=aws_config, features=SERVICE_FEATURES)
+    return cloudhsm_v2(
+        "DescribeBackups"; aws_config=aws_config, feature_set=SERVICE_FEATURE_SET
+    )
 end
 function describe_backups(
     params::AbstractDict{String}; aws_config::AbstractAWSConfig=global_aws_config()
 )
     return cloudhsm_v2(
-        "DescribeBackups", params; aws_config=aws_config, features=SERVICE_FEATURES
+        "DescribeBackups", params; aws_config=aws_config, feature_set=SERVICE_FEATURE_SET
     )
 end
 
@@ -332,13 +334,15 @@ Optional parameters can be passed as a `params::Dict{String,<:Any}`. Valid keys 
   value to get more clusters.
 """
 function describe_clusters(; aws_config::AbstractAWSConfig=global_aws_config())
-    return cloudhsm_v2("DescribeClusters"; aws_config=aws_config, features=SERVICE_FEATURES)
+    return cloudhsm_v2(
+        "DescribeClusters"; aws_config=aws_config, feature_set=SERVICE_FEATURE_SET
+    )
 end
 function describe_clusters(
     params::AbstractDict{String}; aws_config::AbstractAWSConfig=global_aws_config()
 )
     return cloudhsm_v2(
-        "DescribeClusters", params; aws_config=aws_config, features=SERVICE_FEATURES
+        "DescribeClusters", params; aws_config=aws_config, feature_set=SERVICE_FEATURE_SET
     )
 end
 
@@ -375,7 +379,7 @@ function initialize_cluster(
             "TrustAnchor" => TrustAnchor,
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function initialize_cluster(
@@ -399,7 +403,7 @@ function initialize_cluster(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -429,7 +433,7 @@ function list_tags(ResourceId; aws_config::AbstractAWSConfig=global_aws_config()
         "ListTags",
         Dict{String,Any}("ResourceId" => ResourceId);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function list_tags(
@@ -443,7 +447,7 @@ function list_tags(
             mergewith(_merge, Dict{String,Any}("ResourceId" => ResourceId), params)
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -468,7 +472,7 @@ function modify_backup_attributes(
         "ModifyBackupAttributes",
         Dict{String,Any}("BackupId" => BackupId, "NeverExpires" => NeverExpires);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function modify_backup_attributes(
@@ -487,7 +491,7 @@ function modify_backup_attributes(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -512,7 +516,7 @@ function modify_cluster(
             "BackupRetentionPolicy" => BackupRetentionPolicy, "ClusterId" => ClusterId
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function modify_cluster(
@@ -534,7 +538,7 @@ function modify_cluster(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -555,7 +559,7 @@ function restore_backup(BackupId; aws_config::AbstractAWSConfig=global_aws_confi
         "RestoreBackup",
         Dict{String,Any}("BackupId" => BackupId);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function restore_backup(
@@ -569,7 +573,7 @@ function restore_backup(
             mergewith(_merge, Dict{String,Any}("BackupId" => BackupId), params)
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -592,7 +596,7 @@ function tag_resource(
         "TagResource",
         Dict{String,Any}("ResourceId" => ResourceId, "TagList" => TagList);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function tag_resource(
@@ -611,7 +615,7 @@ function tag_resource(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -635,7 +639,7 @@ function untag_resource(
         "UntagResource",
         Dict{String,Any}("ResourceId" => ResourceId, "TagKeyList" => TagKeyList);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function untag_resource(
@@ -654,6 +658,6 @@ function untag_resource(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end

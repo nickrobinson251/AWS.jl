@@ -24,7 +24,7 @@ function batch_acknowledge_alarm(
         "/alarms/acknowledge",
         Dict{String,Any}("acknowledgeActionRequests" => acknowledgeActionRequests);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function batch_acknowledge_alarm(
@@ -43,7 +43,7 @@ function batch_acknowledge_alarm(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -66,7 +66,7 @@ function batch_disable_alarm(
         "/alarms/disable",
         Dict{String,Any}("disableActionRequests" => disableActionRequests);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function batch_disable_alarm(
@@ -85,7 +85,7 @@ function batch_disable_alarm(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -108,7 +108,7 @@ function batch_enable_alarm(
         "/alarms/enable",
         Dict{String,Any}("enableActionRequests" => enableActionRequests);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function batch_enable_alarm(
@@ -127,7 +127,7 @@ function batch_enable_alarm(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -152,7 +152,7 @@ function batch_put_message(messages; aws_config::AbstractAWSConfig=global_aws_co
         "/inputs/messages",
         Dict{String,Any}("messages" => messages);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function batch_put_message(
@@ -167,7 +167,7 @@ function batch_put_message(
             mergewith(_merge, Dict{String,Any}("messages" => messages), params)
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -190,7 +190,7 @@ function batch_reset_alarm(
         "/alarms/reset",
         Dict{String,Any}("resetActionRequests" => resetActionRequests);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function batch_reset_alarm(
@@ -209,7 +209,7 @@ function batch_reset_alarm(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -233,7 +233,7 @@ function batch_snooze_alarm(
         "/alarms/snooze",
         Dict{String,Any}("snoozeActionRequests" => snoozeActionRequests);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function batch_snooze_alarm(
@@ -252,7 +252,7 @@ function batch_snooze_alarm(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -273,7 +273,7 @@ function batch_update_detector(detectors; aws_config::AbstractAWSConfig=global_a
         "/detectors",
         Dict{String,Any}("detectors" => detectors);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function batch_update_detector(
@@ -288,7 +288,7 @@ function batch_update_detector(
             mergewith(_merge, Dict{String,Any}("detectors" => detectors), params)
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -311,7 +311,7 @@ function describe_alarm(alarmModelName; aws_config::AbstractAWSConfig=global_aws
         "GET",
         "/alarms/$(alarmModelName)/keyValues/";
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function describe_alarm(
@@ -324,7 +324,7 @@ function describe_alarm(
         "/alarms/$(alarmModelName)/keyValues/",
         params;
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -350,7 +350,7 @@ function describe_detector(
         "GET",
         "/detectors/$(detectorModelName)/keyValues/";
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function describe_detector(
@@ -363,7 +363,7 @@ function describe_detector(
         "/detectors/$(detectorModelName)/keyValues/",
         params;
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -384,7 +384,10 @@ Optional parameters can be passed as a `params::Dict{String,<:Any}`. Valid keys 
 """
 function list_alarms(alarmModelName; aws_config::AbstractAWSConfig=global_aws_config())
     return iot_events_data(
-        "GET", "/alarms/$(alarmModelName)"; aws_config=aws_config, features=SERVICE_FEATURES
+        "GET",
+        "/alarms/$(alarmModelName)";
+        aws_config=aws_config,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function list_alarms(
@@ -397,7 +400,7 @@ function list_alarms(
         "/alarms/$(alarmModelName)",
         params;
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -425,7 +428,7 @@ function list_detectors(
         "GET",
         "/detectors/$(detectorModelName)";
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function list_detectors(
@@ -438,6 +441,6 @@ function list_detectors(
         "/detectors/$(detectorModelName)",
         params;
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end

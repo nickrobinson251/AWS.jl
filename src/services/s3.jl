@@ -51,7 +51,7 @@ function abort_multipart_upload(
         "/$(Bucket)/$(Key)",
         Dict{String,Any}("uploadId" => uploadId);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function abort_multipart_upload(
@@ -68,7 +68,7 @@ function abort_multipart_upload(
             mergewith(_merge, Dict{String,Any}("uploadId" => uploadId), params)
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -140,7 +140,7 @@ function complete_multipart_upload(
         "/$(Bucket)/$(Key)",
         Dict{String,Any}("uploadId" => uploadId);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function complete_multipart_upload(
@@ -157,7 +157,7 @@ function complete_multipart_upload(
             mergewith(_merge, Dict{String,Any}("uploadId" => uploadId), params)
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -380,7 +380,7 @@ function copy_object(
             "headers" => Dict{String,Any}("x-amz-copy-source" => x_amz_copy_source)
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function copy_object(
@@ -403,7 +403,7 @@ function copy_object(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -475,12 +475,14 @@ Optional parameters can be passed as a `params::Dict{String,<:Any}`. Valid keys 
 - `"x-amz-grant-write-acp"`: Allows grantee to write the ACL for the applicable bucket.
 """
 function create_bucket(Bucket; aws_config::AbstractAWSConfig=global_aws_config())
-    return s3("PUT", "/$(Bucket)"; aws_config=aws_config, features=SERVICE_FEATURES)
+    return s3("PUT", "/$(Bucket)"; aws_config=aws_config, feature_set=SERVICE_FEATURE_SET)
 end
 function create_bucket(
     Bucket, params::AbstractDict{String}; aws_config::AbstractAWSConfig=global_aws_config()
 )
-    return s3("PUT", "/$(Bucket)", params; aws_config=aws_config, features=SERVICE_FEATURES)
+    return s3(
+        "PUT", "/$(Bucket)", params; aws_config=aws_config, feature_set=SERVICE_FEATURE_SET
+    )
 end
 
 """
@@ -670,7 +672,7 @@ function create_multipart_upload(
         "POST",
         "/$(Bucket)/$(Key)?uploads";
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function create_multipart_upload(
@@ -684,7 +686,7 @@ function create_multipart_upload(
         "/$(Bucket)/$(Key)?uploads",
         params;
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -706,13 +708,19 @@ Optional parameters can be passed as a `params::Dict{String,<:Any}`. Valid keys 
   Denied) error.
 """
 function delete_bucket(Bucket; aws_config::AbstractAWSConfig=global_aws_config())
-    return s3("DELETE", "/$(Bucket)"; aws_config=aws_config, features=SERVICE_FEATURES)
+    return s3(
+        "DELETE", "/$(Bucket)"; aws_config=aws_config, feature_set=SERVICE_FEATURE_SET
+    )
 end
 function delete_bucket(
     Bucket, params::AbstractDict{String}; aws_config::AbstractAWSConfig=global_aws_config()
 )
     return s3(
-        "DELETE", "/$(Bucket)", params; aws_config=aws_config, features=SERVICE_FEATURES
+        "DELETE",
+        "/$(Bucket)",
+        params;
+        aws_config=aws_config,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -748,7 +756,7 @@ function delete_bucket_analytics_configuration(
         "/$(Bucket)?analytics",
         Dict{String,Any}("id" => id);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function delete_bucket_analytics_configuration(
@@ -762,7 +770,7 @@ function delete_bucket_analytics_configuration(
         "/$(Bucket)?analytics",
         Dict{String,Any}(mergewith(_merge, Dict{String,Any}("id" => id), params));
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -786,7 +794,9 @@ Optional parameters can be passed as a `params::Dict{String,<:Any}`. Valid keys 
   Denied) error.
 """
 function delete_bucket_cors(Bucket; aws_config::AbstractAWSConfig=global_aws_config())
-    return s3("DELETE", "/$(Bucket)?cors"; aws_config=aws_config, features=SERVICE_FEATURES)
+    return s3(
+        "DELETE", "/$(Bucket)?cors"; aws_config=aws_config, feature_set=SERVICE_FEATURE_SET
+    )
 end
 function delete_bucket_cors(
     Bucket, params::AbstractDict{String}; aws_config::AbstractAWSConfig=global_aws_config()
@@ -796,7 +806,7 @@ function delete_bucket_cors(
         "/$(Bucket)?cors",
         params;
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -825,7 +835,10 @@ Optional parameters can be passed as a `params::Dict{String,<:Any}`. Valid keys 
 """
 function delete_bucket_encryption(Bucket; aws_config::AbstractAWSConfig=global_aws_config())
     return s3(
-        "DELETE", "/$(Bucket)?encryption"; aws_config=aws_config, features=SERVICE_FEATURES
+        "DELETE",
+        "/$(Bucket)?encryption";
+        aws_config=aws_config,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function delete_bucket_encryption(
@@ -836,7 +849,7 @@ function delete_bucket_encryption(
         "/$(Bucket)?encryption",
         params;
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -874,7 +887,7 @@ function delete_bucket_intelligent_tiering_configuration(
         "/$(Bucket)?intelligent-tiering",
         Dict{String,Any}("id" => id);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function delete_bucket_intelligent_tiering_configuration(
@@ -888,7 +901,7 @@ function delete_bucket_intelligent_tiering_configuration(
         "/$(Bucket)?intelligent-tiering",
         Dict{String,Any}(mergewith(_merge, Dict{String,Any}("id" => id), params));
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -923,7 +936,7 @@ function delete_bucket_inventory_configuration(
         "/$(Bucket)?inventory",
         Dict{String,Any}("id" => id);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function delete_bucket_inventory_configuration(
@@ -937,7 +950,7 @@ function delete_bucket_inventory_configuration(
         "/$(Bucket)?inventory",
         Dict{String,Any}(mergewith(_merge, Dict{String,Any}("id" => id), params));
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -967,7 +980,10 @@ Optional parameters can be passed as a `params::Dict{String,<:Any}`. Valid keys 
 """
 function delete_bucket_lifecycle(Bucket; aws_config::AbstractAWSConfig=global_aws_config())
     return s3(
-        "DELETE", "/$(Bucket)?lifecycle"; aws_config=aws_config, features=SERVICE_FEATURES
+        "DELETE",
+        "/$(Bucket)?lifecycle";
+        aws_config=aws_config,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function delete_bucket_lifecycle(
@@ -978,7 +994,7 @@ function delete_bucket_lifecycle(
         "/$(Bucket)?lifecycle",
         params;
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -1016,7 +1032,7 @@ function delete_bucket_metrics_configuration(
         "/$(Bucket)?metrics",
         Dict{String,Any}("id" => id);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function delete_bucket_metrics_configuration(
@@ -1030,7 +1046,7 @@ function delete_bucket_metrics_configuration(
         "/$(Bucket)?metrics",
         Dict{String,Any}(mergewith(_merge, Dict{String,Any}("id" => id), params));
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -1061,7 +1077,7 @@ function delete_bucket_ownership_controls(
         "DELETE",
         "/$(Bucket)?ownershipControls";
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function delete_bucket_ownership_controls(
@@ -1072,7 +1088,7 @@ function delete_bucket_ownership_controls(
         "/$(Bucket)?ownershipControls",
         params;
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -1104,7 +1120,10 @@ Optional parameters can be passed as a `params::Dict{String,<:Any}`. Valid keys 
 """
 function delete_bucket_policy(Bucket; aws_config::AbstractAWSConfig=global_aws_config())
     return s3(
-        "DELETE", "/$(Bucket)?policy"; aws_config=aws_config, features=SERVICE_FEATURES
+        "DELETE",
+        "/$(Bucket)?policy";
+        aws_config=aws_config,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function delete_bucket_policy(
@@ -1115,7 +1134,7 @@ function delete_bucket_policy(
         "/$(Bucket)?policy",
         params;
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -1145,7 +1164,10 @@ function delete_bucket_replication(
     Bucket; aws_config::AbstractAWSConfig=global_aws_config()
 )
     return s3(
-        "DELETE", "/$(Bucket)?replication"; aws_config=aws_config, features=SERVICE_FEATURES
+        "DELETE",
+        "/$(Bucket)?replication";
+        aws_config=aws_config,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function delete_bucket_replication(
@@ -1156,7 +1178,7 @@ function delete_bucket_replication(
         "/$(Bucket)?replication",
         params;
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -1180,7 +1202,10 @@ Optional parameters can be passed as a `params::Dict{String,<:Any}`. Valid keys 
 """
 function delete_bucket_tagging(Bucket; aws_config::AbstractAWSConfig=global_aws_config())
     return s3(
-        "DELETE", "/$(Bucket)?tagging"; aws_config=aws_config, features=SERVICE_FEATURES
+        "DELETE",
+        "/$(Bucket)?tagging";
+        aws_config=aws_config,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function delete_bucket_tagging(
@@ -1191,7 +1216,7 @@ function delete_bucket_tagging(
         "/$(Bucket)?tagging",
         params;
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -1222,7 +1247,10 @@ Optional parameters can be passed as a `params::Dict{String,<:Any}`. Valid keys 
 """
 function delete_bucket_website(Bucket; aws_config::AbstractAWSConfig=global_aws_config())
     return s3(
-        "DELETE", "/$(Bucket)?website"; aws_config=aws_config, features=SERVICE_FEATURES
+        "DELETE",
+        "/$(Bucket)?website";
+        aws_config=aws_config,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function delete_bucket_website(
@@ -1233,7 +1261,7 @@ function delete_bucket_website(
         "/$(Bucket)?website",
         params;
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -1288,7 +1316,10 @@ Optional parameters can be passed as a `params::Dict{String,<:Any}`. Valid keys 
 """
 function delete_object(Bucket, Key; aws_config::AbstractAWSConfig=global_aws_config())
     return s3(
-        "DELETE", "/$(Bucket)/$(Key)"; aws_config=aws_config, features=SERVICE_FEATURES
+        "DELETE",
+        "/$(Bucket)/$(Key)";
+        aws_config=aws_config,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function delete_object(
@@ -1302,7 +1333,7 @@ function delete_object(
         "/$(Bucket)/$(Key)",
         params;
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -1346,7 +1377,7 @@ function delete_object_tagging(
         "DELETE",
         "/$(Bucket)/$(Key)?tagging";
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function delete_object_tagging(
@@ -1360,7 +1391,7 @@ function delete_object_tagging(
         "/$(Bucket)/$(Key)?tagging",
         params;
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -1425,7 +1456,7 @@ function delete_objects(Bucket, Delete; aws_config::AbstractAWSConfig=global_aws
         "/$(Bucket)?delete",
         Dict{String,Any}("Delete" => Delete);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function delete_objects(
@@ -1439,7 +1470,7 @@ function delete_objects(
         "/$(Bucket)?delete",
         Dict{String,Any}(mergewith(_merge, Dict{String,Any}("Delete" => Delete), params));
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -1470,7 +1501,7 @@ function delete_public_access_block(
         "DELETE",
         "/$(Bucket)?publicAccessBlock";
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function delete_public_access_block(
@@ -1481,7 +1512,7 @@ function delete_public_access_block(
         "/$(Bucket)?publicAccessBlock",
         params;
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -1517,7 +1548,10 @@ function get_bucket_accelerate_configuration(
     Bucket; aws_config::AbstractAWSConfig=global_aws_config()
 )
     return s3(
-        "GET", "/$(Bucket)?accelerate"; aws_config=aws_config, features=SERVICE_FEATURES
+        "GET",
+        "/$(Bucket)?accelerate";
+        aws_config=aws_config,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function get_bucket_accelerate_configuration(
@@ -1528,7 +1562,7 @@ function get_bucket_accelerate_configuration(
         "/$(Bucket)?accelerate",
         params;
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -1552,13 +1586,19 @@ Optional parameters can be passed as a `params::Dict{String,<:Any}`. Valid keys 
   Denied) error.
 """
 function get_bucket_acl(Bucket; aws_config::AbstractAWSConfig=global_aws_config())
-    return s3("GET", "/$(Bucket)?acl"; aws_config=aws_config, features=SERVICE_FEATURES)
+    return s3(
+        "GET", "/$(Bucket)?acl"; aws_config=aws_config, feature_set=SERVICE_FEATURE_SET
+    )
 end
 function get_bucket_acl(
     Bucket, params::AbstractDict{String}; aws_config::AbstractAWSConfig=global_aws_config()
 )
     return s3(
-        "GET", "/$(Bucket)?acl", params; aws_config=aws_config, features=SERVICE_FEATURES
+        "GET",
+        "/$(Bucket)?acl",
+        params;
+        aws_config=aws_config,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -1595,7 +1635,7 @@ function get_bucket_analytics_configuration(
         "/$(Bucket)?analytics",
         Dict{String,Any}("id" => id);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function get_bucket_analytics_configuration(
@@ -1609,7 +1649,7 @@ function get_bucket_analytics_configuration(
         "/$(Bucket)?analytics",
         Dict{String,Any}(mergewith(_merge, Dict{String,Any}("id" => id), params));
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -1633,13 +1673,19 @@ Optional parameters can be passed as a `params::Dict{String,<:Any}`. Valid keys 
   Denied) error.
 """
 function get_bucket_cors(Bucket; aws_config::AbstractAWSConfig=global_aws_config())
-    return s3("GET", "/$(Bucket)?cors"; aws_config=aws_config, features=SERVICE_FEATURES)
+    return s3(
+        "GET", "/$(Bucket)?cors"; aws_config=aws_config, feature_set=SERVICE_FEATURE_SET
+    )
 end
 function get_bucket_cors(
     Bucket, params::AbstractDict{String}; aws_config::AbstractAWSConfig=global_aws_config()
 )
     return s3(
-        "GET", "/$(Bucket)?cors", params; aws_config=aws_config, features=SERVICE_FEATURES
+        "GET",
+        "/$(Bucket)?cors",
+        params;
+        aws_config=aws_config,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -1670,7 +1716,10 @@ Optional parameters can be passed as a `params::Dict{String,<:Any}`. Valid keys 
 """
 function get_bucket_encryption(Bucket; aws_config::AbstractAWSConfig=global_aws_config())
     return s3(
-        "GET", "/$(Bucket)?encryption"; aws_config=aws_config, features=SERVICE_FEATURES
+        "GET",
+        "/$(Bucket)?encryption";
+        aws_config=aws_config,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function get_bucket_encryption(
@@ -1681,7 +1730,7 @@ function get_bucket_encryption(
         "/$(Bucket)?encryption",
         params;
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -1719,7 +1768,7 @@ function get_bucket_intelligent_tiering_configuration(
         "/$(Bucket)?intelligent-tiering",
         Dict{String,Any}("id" => id);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function get_bucket_intelligent_tiering_configuration(
@@ -1733,7 +1782,7 @@ function get_bucket_intelligent_tiering_configuration(
         "/$(Bucket)?intelligent-tiering",
         Dict{String,Any}(mergewith(_merge, Dict{String,Any}("id" => id), params));
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -1769,7 +1818,7 @@ function get_bucket_inventory_configuration(
         "/$(Bucket)?inventory",
         Dict{String,Any}("id" => id);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function get_bucket_inventory_configuration(
@@ -1783,7 +1832,7 @@ function get_bucket_inventory_configuration(
         "/$(Bucket)?inventory",
         Dict{String,Any}(mergewith(_merge, Dict{String,Any}("id" => id), params));
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -1816,7 +1865,10 @@ Optional parameters can be passed as a `params::Dict{String,<:Any}`. Valid keys 
 """
 function get_bucket_lifecycle(Bucket; aws_config::AbstractAWSConfig=global_aws_config())
     return s3(
-        "GET", "/$(Bucket)?lifecycle"; aws_config=aws_config, features=SERVICE_FEATURES
+        "GET",
+        "/$(Bucket)?lifecycle";
+        aws_config=aws_config,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function get_bucket_lifecycle(
@@ -1827,7 +1879,7 @@ function get_bucket_lifecycle(
         "/$(Bucket)?lifecycle",
         params;
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -1865,7 +1917,10 @@ function get_bucket_lifecycle_configuration(
     Bucket; aws_config::AbstractAWSConfig=global_aws_config()
 )
     return s3(
-        "GET", "/$(Bucket)?lifecycle"; aws_config=aws_config, features=SERVICE_FEATURES
+        "GET",
+        "/$(Bucket)?lifecycle";
+        aws_config=aws_config,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function get_bucket_lifecycle_configuration(
@@ -1876,7 +1931,7 @@ function get_bucket_lifecycle_configuration(
         "/$(Bucket)?lifecycle",
         params;
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -1902,7 +1957,7 @@ Optional parameters can be passed as a `params::Dict{String,<:Any}`. Valid keys 
 """
 function get_bucket_location(Bucket; aws_config::AbstractAWSConfig=global_aws_config())
     return s3(
-        "GET", "/$(Bucket)?location"; aws_config=aws_config, features=SERVICE_FEATURES
+        "GET", "/$(Bucket)?location"; aws_config=aws_config, feature_set=SERVICE_FEATURE_SET
     )
 end
 function get_bucket_location(
@@ -1913,7 +1968,7 @@ function get_bucket_location(
         "/$(Bucket)?location",
         params;
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -1935,7 +1990,9 @@ Optional parameters can be passed as a `params::Dict{String,<:Any}`. Valid keys 
   Denied) error.
 """
 function get_bucket_logging(Bucket; aws_config::AbstractAWSConfig=global_aws_config())
-    return s3("GET", "/$(Bucket)?logging"; aws_config=aws_config, features=SERVICE_FEATURES)
+    return s3(
+        "GET", "/$(Bucket)?logging"; aws_config=aws_config, feature_set=SERVICE_FEATURE_SET
+    )
 end
 function get_bucket_logging(
     Bucket, params::AbstractDict{String}; aws_config::AbstractAWSConfig=global_aws_config()
@@ -1945,7 +2002,7 @@ function get_bucket_logging(
         "/$(Bucket)?logging",
         params;
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -1982,7 +2039,7 @@ function get_bucket_metrics_configuration(
         "/$(Bucket)?metrics",
         Dict{String,Any}("id" => id);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function get_bucket_metrics_configuration(
@@ -1996,7 +2053,7 @@ function get_bucket_metrics_configuration(
         "/$(Bucket)?metrics",
         Dict{String,Any}(mergewith(_merge, Dict{String,Any}("id" => id), params));
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -2017,7 +2074,10 @@ Optional parameters can be passed as a `params::Dict{String,<:Any}`. Valid keys 
 """
 function get_bucket_notification(Bucket; aws_config::AbstractAWSConfig=global_aws_config())
     return s3(
-        "GET", "/$(Bucket)?notification"; aws_config=aws_config, features=SERVICE_FEATURES
+        "GET",
+        "/$(Bucket)?notification";
+        aws_config=aws_config,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function get_bucket_notification(
@@ -2028,7 +2088,7 @@ function get_bucket_notification(
         "/$(Bucket)?notification",
         params;
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -2058,7 +2118,10 @@ function get_bucket_notification_configuration(
     Bucket; aws_config::AbstractAWSConfig=global_aws_config()
 )
     return s3(
-        "GET", "/$(Bucket)?notification"; aws_config=aws_config, features=SERVICE_FEATURES
+        "GET",
+        "/$(Bucket)?notification";
+        aws_config=aws_config,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function get_bucket_notification_configuration(
@@ -2069,7 +2132,7 @@ function get_bucket_notification_configuration(
         "/$(Bucket)?notification",
         params;
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -2100,7 +2163,7 @@ function get_bucket_ownership_controls(
         "GET",
         "/$(Bucket)?ownershipControls";
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function get_bucket_ownership_controls(
@@ -2111,7 +2174,7 @@ function get_bucket_ownership_controls(
         "/$(Bucket)?ownershipControls",
         params;
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -2141,13 +2204,19 @@ Optional parameters can be passed as a `params::Dict{String,<:Any}`. Valid keys 
   Denied) error.
 """
 function get_bucket_policy(Bucket; aws_config::AbstractAWSConfig=global_aws_config())
-    return s3("GET", "/$(Bucket)?policy"; aws_config=aws_config, features=SERVICE_FEATURES)
+    return s3(
+        "GET", "/$(Bucket)?policy"; aws_config=aws_config, feature_set=SERVICE_FEATURE_SET
+    )
 end
 function get_bucket_policy(
     Bucket, params::AbstractDict{String}; aws_config::AbstractAWSConfig=global_aws_config()
 )
     return s3(
-        "GET", "/$(Bucket)?policy", params; aws_config=aws_config, features=SERVICE_FEATURES
+        "GET",
+        "/$(Bucket)?policy",
+        params;
+        aws_config=aws_config,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -2174,7 +2243,10 @@ Optional parameters can be passed as a `params::Dict{String,<:Any}`. Valid keys 
 """
 function get_bucket_policy_status(Bucket; aws_config::AbstractAWSConfig=global_aws_config())
     return s3(
-        "GET", "/$(Bucket)?policyStatus"; aws_config=aws_config, features=SERVICE_FEATURES
+        "GET",
+        "/$(Bucket)?policyStatus";
+        aws_config=aws_config,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function get_bucket_policy_status(
@@ -2185,7 +2257,7 @@ function get_bucket_policy_status(
         "/$(Bucket)?policyStatus",
         params;
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -2216,7 +2288,10 @@ Optional parameters can be passed as a `params::Dict{String,<:Any}`. Valid keys 
 """
 function get_bucket_replication(Bucket; aws_config::AbstractAWSConfig=global_aws_config())
     return s3(
-        "GET", "/$(Bucket)?replication"; aws_config=aws_config, features=SERVICE_FEATURES
+        "GET",
+        "/$(Bucket)?replication";
+        aws_config=aws_config,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function get_bucket_replication(
@@ -2227,7 +2302,7 @@ function get_bucket_replication(
         "/$(Bucket)?replication",
         params;
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -2252,7 +2327,10 @@ function get_bucket_request_payment(
     Bucket; aws_config::AbstractAWSConfig=global_aws_config()
 )
     return s3(
-        "GET", "/$(Bucket)?requestPayment"; aws_config=aws_config, features=SERVICE_FEATURES
+        "GET",
+        "/$(Bucket)?requestPayment";
+        aws_config=aws_config,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function get_bucket_request_payment(
@@ -2263,7 +2341,7 @@ function get_bucket_request_payment(
         "/$(Bucket)?requestPayment",
         params;
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -2288,7 +2366,9 @@ Optional parameters can be passed as a `params::Dict{String,<:Any}`. Valid keys 
   Denied) error.
 """
 function get_bucket_tagging(Bucket; aws_config::AbstractAWSConfig=global_aws_config())
-    return s3("GET", "/$(Bucket)?tagging"; aws_config=aws_config, features=SERVICE_FEATURES)
+    return s3(
+        "GET", "/$(Bucket)?tagging"; aws_config=aws_config, feature_set=SERVICE_FEATURE_SET
+    )
 end
 function get_bucket_tagging(
     Bucket, params::AbstractDict{String}; aws_config::AbstractAWSConfig=global_aws_config()
@@ -2298,7 +2378,7 @@ function get_bucket_tagging(
         "/$(Bucket)?tagging",
         params;
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -2324,7 +2404,10 @@ Optional parameters can be passed as a `params::Dict{String,<:Any}`. Valid keys 
 """
 function get_bucket_versioning(Bucket; aws_config::AbstractAWSConfig=global_aws_config())
     return s3(
-        "GET", "/$(Bucket)?versioning"; aws_config=aws_config, features=SERVICE_FEATURES
+        "GET",
+        "/$(Bucket)?versioning";
+        aws_config=aws_config,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function get_bucket_versioning(
@@ -2335,7 +2418,7 @@ function get_bucket_versioning(
         "/$(Bucket)?versioning",
         params;
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -2362,7 +2445,9 @@ Optional parameters can be passed as a `params::Dict{String,<:Any}`. Valid keys 
   Denied) error.
 """
 function get_bucket_website(Bucket; aws_config::AbstractAWSConfig=global_aws_config())
-    return s3("GET", "/$(Bucket)?website"; aws_config=aws_config, features=SERVICE_FEATURES)
+    return s3(
+        "GET", "/$(Bucket)?website"; aws_config=aws_config, feature_set=SERVICE_FEATURE_SET
+    )
 end
 function get_bucket_website(
     Bucket, params::AbstractDict{String}; aws_config::AbstractAWSConfig=global_aws_config()
@@ -2372,7 +2457,7 @@ function get_bucket_website(
         "/$(Bucket)?website",
         params;
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -2503,7 +2588,9 @@ Optional parameters can be passed as a `params::Dict{String,<:Any}`. Valid keys 
   integrity check to ensure that the encryption key was transmitted without error.
 """
 function get_object(Bucket, Key; aws_config::AbstractAWSConfig=global_aws_config())
-    return s3("GET", "/$(Bucket)/$(Key)"; aws_config=aws_config, features=SERVICE_FEATURES)
+    return s3(
+        "GET", "/$(Bucket)/$(Key)"; aws_config=aws_config, feature_set=SERVICE_FEATURE_SET
+    )
 end
 function get_object(
     Bucket,
@@ -2512,7 +2599,11 @@ function get_object(
     aws_config::AbstractAWSConfig=global_aws_config(),
 )
     return s3(
-        "GET", "/$(Bucket)/$(Key)", params; aws_config=aws_config, features=SERVICE_FEATURES
+        "GET",
+        "/$(Bucket)/$(Key)",
+        params;
+        aws_config=aws_config,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -2547,7 +2638,10 @@ Optional parameters can be passed as a `params::Dict{String,<:Any}`. Valid keys 
 """
 function get_object_acl(Bucket, Key; aws_config::AbstractAWSConfig=global_aws_config())
     return s3(
-        "GET", "/$(Bucket)/$(Key)?acl"; aws_config=aws_config, features=SERVICE_FEATURES
+        "GET",
+        "/$(Bucket)/$(Key)?acl";
+        aws_config=aws_config,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function get_object_acl(
@@ -2561,7 +2655,7 @@ function get_object_acl(
         "/$(Bucket)/$(Key)?acl",
         params;
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -2597,7 +2691,7 @@ function get_object_legal_hold(
         "GET",
         "/$(Bucket)/$(Key)?legal-hold";
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function get_object_legal_hold(
@@ -2611,7 +2705,7 @@ function get_object_legal_hold(
         "/$(Bucket)/$(Key)?legal-hold",
         params;
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -2642,7 +2736,10 @@ function get_object_lock_configuration(
     Bucket; aws_config::AbstractAWSConfig=global_aws_config()
 )
     return s3(
-        "GET", "/$(Bucket)?object-lock"; aws_config=aws_config, features=SERVICE_FEATURES
+        "GET",
+        "/$(Bucket)?object-lock";
+        aws_config=aws_config,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function get_object_lock_configuration(
@@ -2653,7 +2750,7 @@ function get_object_lock_configuration(
         "/$(Bucket)?object-lock",
         params;
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -2690,7 +2787,7 @@ function get_object_retention(
         "GET",
         "/$(Bucket)/$(Key)?retention";
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function get_object_retention(
@@ -2704,7 +2801,7 @@ function get_object_retention(
         "/$(Bucket)/$(Key)?retention",
         params;
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -2747,7 +2844,10 @@ Optional parameters can be passed as a `params::Dict{String,<:Any}`. Valid keys 
 """
 function get_object_tagging(Bucket, Key; aws_config::AbstractAWSConfig=global_aws_config())
     return s3(
-        "GET", "/$(Bucket)/$(Key)?tagging"; aws_config=aws_config, features=SERVICE_FEATURES
+        "GET",
+        "/$(Bucket)/$(Key)?tagging";
+        aws_config=aws_config,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function get_object_tagging(
@@ -2761,7 +2861,7 @@ function get_object_tagging(
         "/$(Bucket)/$(Key)?tagging",
         params;
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -2789,7 +2889,10 @@ Optional parameters can be passed as a `params::Dict{String,<:Any}`. Valid keys 
 """
 function get_object_torrent(Bucket, Key; aws_config::AbstractAWSConfig=global_aws_config())
     return s3(
-        "GET", "/$(Bucket)/$(Key)?torrent"; aws_config=aws_config, features=SERVICE_FEATURES
+        "GET",
+        "/$(Bucket)/$(Key)?torrent";
+        aws_config=aws_config,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function get_object_torrent(
@@ -2803,7 +2906,7 @@ function get_object_torrent(
         "/$(Bucket)/$(Key)?torrent",
         params;
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -2838,7 +2941,7 @@ function get_public_access_block(Bucket; aws_config::AbstractAWSConfig=global_aw
         "GET",
         "/$(Bucket)?publicAccessBlock";
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function get_public_access_block(
@@ -2849,7 +2952,7 @@ function get_public_access_block(
         "/$(Bucket)?publicAccessBlock",
         params;
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -2893,13 +2996,13 @@ Optional parameters can be passed as a `params::Dict{String,<:Any}`. Valid keys 
   Denied) error.
 """
 function head_bucket(Bucket; aws_config::AbstractAWSConfig=global_aws_config())
-    return s3("HEAD", "/$(Bucket)"; aws_config=aws_config, features=SERVICE_FEATURES)
+    return s3("HEAD", "/$(Bucket)"; aws_config=aws_config, feature_set=SERVICE_FEATURE_SET)
 end
 function head_bucket(
     Bucket, params::AbstractDict{String}; aws_config::AbstractAWSConfig=global_aws_config()
 )
     return s3(
-        "HEAD", "/$(Bucket)", params; aws_config=aws_config, features=SERVICE_FEATURES
+        "HEAD", "/$(Bucket)", params; aws_config=aws_config, feature_set=SERVICE_FEATURE_SET
     )
 end
 
@@ -2988,7 +3091,9 @@ Optional parameters can be passed as a `params::Dict{String,<:Any}`. Valid keys 
   integrity check to ensure that the encryption key was transmitted without error.
 """
 function head_object(Bucket, Key; aws_config::AbstractAWSConfig=global_aws_config())
-    return s3("HEAD", "/$(Bucket)/$(Key)"; aws_config=aws_config, features=SERVICE_FEATURES)
+    return s3(
+        "HEAD", "/$(Bucket)/$(Key)"; aws_config=aws_config, feature_set=SERVICE_FEATURE_SET
+    )
 end
 function head_object(
     Bucket,
@@ -3001,7 +3106,7 @@ function head_object(
         "/$(Bucket)/$(Key)",
         params;
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -3040,7 +3145,10 @@ function list_bucket_analytics_configurations(
     Bucket; aws_config::AbstractAWSConfig=global_aws_config()
 )
     return s3(
-        "GET", "/$(Bucket)?analytics"; aws_config=aws_config, features=SERVICE_FEATURES
+        "GET",
+        "/$(Bucket)?analytics";
+        aws_config=aws_config,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function list_bucket_analytics_configurations(
@@ -3051,7 +3159,7 @@ function list_bucket_analytics_configurations(
         "/$(Bucket)?analytics",
         params;
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -3091,7 +3199,7 @@ function list_bucket_intelligent_tiering_configurations(
         "GET",
         "/$(Bucket)?intelligent-tiering";
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function list_bucket_intelligent_tiering_configurations(
@@ -3102,7 +3210,7 @@ function list_bucket_intelligent_tiering_configurations(
         "/$(Bucket)?intelligent-tiering",
         params;
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -3143,7 +3251,10 @@ function list_bucket_inventory_configurations(
     Bucket; aws_config::AbstractAWSConfig=global_aws_config()
 )
     return s3(
-        "GET", "/$(Bucket)?inventory"; aws_config=aws_config, features=SERVICE_FEATURES
+        "GET",
+        "/$(Bucket)?inventory";
+        aws_config=aws_config,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function list_bucket_inventory_configurations(
@@ -3154,7 +3265,7 @@ function list_bucket_inventory_configurations(
         "/$(Bucket)?inventory",
         params;
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -3195,7 +3306,9 @@ Optional parameters can be passed as a `params::Dict{String,<:Any}`. Valid keys 
 function list_bucket_metrics_configurations(
     Bucket; aws_config::AbstractAWSConfig=global_aws_config()
 )
-    return s3("GET", "/$(Bucket)?metrics"; aws_config=aws_config, features=SERVICE_FEATURES)
+    return s3(
+        "GET", "/$(Bucket)?metrics"; aws_config=aws_config, feature_set=SERVICE_FEATURE_SET
+    )
 end
 function list_bucket_metrics_configurations(
     Bucket, params::AbstractDict{String}; aws_config::AbstractAWSConfig=global_aws_config()
@@ -3205,7 +3318,7 @@ function list_bucket_metrics_configurations(
         "/$(Bucket)?metrics",
         params;
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -3217,12 +3330,12 @@ Returns a list of all buckets owned by the authenticated sender of the request.
 
 """
 function list_buckets(; aws_config::AbstractAWSConfig=global_aws_config())
-    return s3("GET", "/"; aws_config=aws_config, features=SERVICE_FEATURES)
+    return s3("GET", "/"; aws_config=aws_config, feature_set=SERVICE_FEATURE_SET)
 end
 function list_buckets(
     params::AbstractDict{String}; aws_config::AbstractAWSConfig=global_aws_config()
 )
-    return s3("GET", "/", params; aws_config=aws_config, features=SERVICE_FEATURES)
+    return s3("GET", "/", params; aws_config=aws_config, feature_set=SERVICE_FEATURE_SET)
 end
 
 """
@@ -3290,7 +3403,9 @@ Optional parameters can be passed as a `params::Dict{String,<:Any}`. Valid keys 
   Denied) error.
 """
 function list_multipart_uploads(Bucket; aws_config::AbstractAWSConfig=global_aws_config())
-    return s3("GET", "/$(Bucket)?uploads"; aws_config=aws_config, features=SERVICE_FEATURES)
+    return s3(
+        "GET", "/$(Bucket)?uploads"; aws_config=aws_config, feature_set=SERVICE_FEATURE_SET
+    )
 end
 function list_multipart_uploads(
     Bucket, params::AbstractDict{String}; aws_config::AbstractAWSConfig=global_aws_config()
@@ -3300,7 +3415,7 @@ function list_multipart_uploads(
         "/$(Bucket)?uploads",
         params;
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -3347,7 +3462,7 @@ Optional parameters can be passed as a `params::Dict{String,<:Any}`. Valid keys 
 """
 function list_object_versions(Bucket; aws_config::AbstractAWSConfig=global_aws_config())
     return s3(
-        "GET", "/$(Bucket)?versions"; aws_config=aws_config, features=SERVICE_FEATURES
+        "GET", "/$(Bucket)?versions"; aws_config=aws_config, feature_set=SERVICE_FEATURE_SET
     )
 end
 function list_object_versions(
@@ -3358,7 +3473,7 @@ function list_object_versions(
         "/$(Bucket)?versions",
         params;
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -3407,12 +3522,14 @@ Optional parameters can be passed as a `params::Dict{String,<:Any}`. Valid keys 
   requests.
 """
 function list_objects(Bucket; aws_config::AbstractAWSConfig=global_aws_config())
-    return s3("GET", "/$(Bucket)"; aws_config=aws_config, features=SERVICE_FEATURES)
+    return s3("GET", "/$(Bucket)"; aws_config=aws_config, feature_set=SERVICE_FEATURE_SET)
 end
 function list_objects(
     Bucket, params::AbstractDict{String}; aws_config::AbstractAWSConfig=global_aws_config()
 )
-    return s3("GET", "/$(Bucket)", params; aws_config=aws_config, features=SERVICE_FEATURES)
+    return s3(
+        "GET", "/$(Bucket)", params; aws_config=aws_config, feature_set=SERVICE_FEATURE_SET
+    )
 end
 
 """
@@ -3472,7 +3589,10 @@ Optional parameters can be passed as a `params::Dict{String,<:Any}`. Valid keys 
 """
 function list_objects_v2(Bucket; aws_config::AbstractAWSConfig=global_aws_config())
     return s3(
-        "GET", "/$(Bucket)?list-type=2"; aws_config=aws_config, features=SERVICE_FEATURES
+        "GET",
+        "/$(Bucket)?list-type=2";
+        aws_config=aws_config,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function list_objects_v2(
@@ -3483,7 +3603,7 @@ function list_objects_v2(
         "/$(Bucket)?list-type=2",
         params;
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -3539,7 +3659,7 @@ function list_parts(
         "/$(Bucket)/$(Key)",
         Dict{String,Any}("uploadId" => uploadId);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function list_parts(
@@ -3556,7 +3676,7 @@ function list_parts(
             mergewith(_merge, Dict{String,Any}("uploadId" => uploadId), params)
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -3599,7 +3719,7 @@ function put_bucket_accelerate_configuration(
         "/$(Bucket)?accelerate",
         Dict{String,Any}("AccelerateConfiguration" => AccelerateConfiguration);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function put_bucket_accelerate_configuration(
@@ -3619,7 +3739,7 @@ function put_bucket_accelerate_configuration(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -3706,13 +3826,19 @@ Optional parameters can be passed as a `params::Dict{String,<:Any}`. Valid keys 
 - `"x-amz-grant-write-acp"`: Allows grantee to write the ACL for the applicable bucket.
 """
 function put_bucket_acl(Bucket; aws_config::AbstractAWSConfig=global_aws_config())
-    return s3("PUT", "/$(Bucket)?acl"; aws_config=aws_config, features=SERVICE_FEATURES)
+    return s3(
+        "PUT", "/$(Bucket)?acl"; aws_config=aws_config, feature_set=SERVICE_FEATURE_SET
+    )
 end
 function put_bucket_acl(
     Bucket, params::AbstractDict{String}; aws_config::AbstractAWSConfig=global_aws_config()
 )
     return s3(
-        "PUT", "/$(Bucket)?acl", params; aws_config=aws_config, features=SERVICE_FEATURES
+        "PUT",
+        "/$(Bucket)?acl",
+        params;
+        aws_config=aws_config,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -3764,7 +3890,7 @@ function put_bucket_analytics_configuration(
         "/$(Bucket)?analytics",
         Dict{String,Any}("AnalyticsConfiguration" => AnalyticsConfiguration, "id" => id);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function put_bucket_analytics_configuration(
@@ -3787,7 +3913,7 @@ function put_bucket_analytics_configuration(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -3841,7 +3967,7 @@ function put_bucket_cors(
         "/$(Bucket)?cors",
         Dict{String,Any}("CORSConfiguration" => CORSConfiguration);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function put_bucket_cors(
@@ -3859,7 +3985,7 @@ function put_bucket_cors(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -3910,7 +4036,7 @@ function put_bucket_encryption(
             "ServerSideEncryptionConfiguration" => ServerSideEncryptionConfiguration
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function put_bucket_encryption(
@@ -3932,7 +4058,7 @@ function put_bucket_encryption(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -3985,7 +4111,7 @@ function put_bucket_intelligent_tiering_configuration(
             "IntelligentTieringConfiguration" => IntelligentTieringConfiguration, "id" => id
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function put_bucket_intelligent_tiering_configuration(
@@ -4009,7 +4135,7 @@ function put_bucket_intelligent_tiering_configuration(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -4062,7 +4188,7 @@ function put_bucket_inventory_configuration(
         "/$(Bucket)?inventory",
         Dict{String,Any}("InventoryConfiguration" => InventoryConfiguration, "id" => id);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function put_bucket_inventory_configuration(
@@ -4085,7 +4211,7 @@ function put_bucket_inventory_configuration(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -4131,7 +4257,10 @@ Optional parameters can be passed as a `params::Dict{String,<:Any}`. Valid keys 
 """
 function put_bucket_lifecycle(Bucket; aws_config::AbstractAWSConfig=global_aws_config())
     return s3(
-        "PUT", "/$(Bucket)?lifecycle"; aws_config=aws_config, features=SERVICE_FEATURES
+        "PUT",
+        "/$(Bucket)?lifecycle";
+        aws_config=aws_config,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function put_bucket_lifecycle(
@@ -4142,7 +4271,7 @@ function put_bucket_lifecycle(
         "/$(Bucket)?lifecycle",
         params;
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -4195,7 +4324,10 @@ function put_bucket_lifecycle_configuration(
     Bucket; aws_config::AbstractAWSConfig=global_aws_config()
 )
     return s3(
-        "PUT", "/$(Bucket)?lifecycle"; aws_config=aws_config, features=SERVICE_FEATURES
+        "PUT",
+        "/$(Bucket)?lifecycle";
+        aws_config=aws_config,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function put_bucket_lifecycle_configuration(
@@ -4206,7 +4338,7 @@ function put_bucket_lifecycle_configuration(
         "/$(Bucket)?lifecycle",
         params;
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -4262,7 +4394,7 @@ function put_bucket_logging(
         "/$(Bucket)?logging",
         Dict{String,Any}("BucketLoggingStatus" => BucketLoggingStatus);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function put_bucket_logging(
@@ -4282,7 +4414,7 @@ function put_bucket_logging(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -4325,7 +4457,7 @@ function put_bucket_metrics_configuration(
         "/$(Bucket)?metrics",
         Dict{String,Any}("MetricsConfiguration" => MetricsConfiguration, "id" => id);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function put_bucket_metrics_configuration(
@@ -4348,7 +4480,7 @@ function put_bucket_metrics_configuration(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -4379,7 +4511,7 @@ function put_bucket_notification(
         "/$(Bucket)?notification",
         Dict{String,Any}("NotificationConfiguration" => NotificationConfiguration);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function put_bucket_notification(
@@ -4399,7 +4531,7 @@ function put_bucket_notification(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -4454,7 +4586,7 @@ function put_bucket_notification_configuration(
         "/$(Bucket)?notification",
         Dict{String,Any}("NotificationConfiguration" => NotificationConfiguration);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function put_bucket_notification_configuration(
@@ -4474,7 +4606,7 @@ function put_bucket_notification_configuration(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -4511,7 +4643,7 @@ function put_bucket_ownership_controls(
         "/$(Bucket)?ownershipControls",
         Dict{String,Any}("OwnershipControls" => OwnershipControls);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function put_bucket_ownership_controls(
@@ -4529,7 +4661,7 @@ function put_bucket_ownership_controls(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -4572,7 +4704,7 @@ function put_bucket_policy(
         "/$(Bucket)?policy",
         Dict{String,Any}("Policy" => Policy);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function put_bucket_policy(
@@ -4586,7 +4718,7 @@ function put_bucket_policy(
         "/$(Bucket)?policy",
         Dict{String,Any}(mergewith(_merge, Dict{String,Any}("Policy" => Policy), params));
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -4650,7 +4782,7 @@ function put_bucket_replication(
         "/$(Bucket)?replication",
         Dict{String,Any}("ReplicationConfiguration" => ReplicationConfiguration);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function put_bucket_replication(
@@ -4670,7 +4802,7 @@ function put_bucket_replication(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -4707,7 +4839,7 @@ function put_bucket_request_payment(
         "/$(Bucket)?requestPayment",
         Dict{String,Any}("RequestPaymentConfiguration" => RequestPaymentConfiguration);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function put_bucket_request_payment(
@@ -4729,7 +4861,7 @@ function put_bucket_request_payment(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -4784,7 +4916,7 @@ function put_bucket_tagging(
         "/$(Bucket)?tagging",
         Dict{String,Any}("Tagging" => Tagging);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function put_bucket_tagging(
@@ -4798,7 +4930,7 @@ function put_bucket_tagging(
         "/$(Bucket)?tagging",
         Dict{String,Any}(mergewith(_merge, Dict{String,Any}("Tagging" => Tagging), params));
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -4848,7 +4980,7 @@ function put_bucket_versioning(
         "/$(Bucket)?versioning",
         Dict{String,Any}("VersioningConfiguration" => VersioningConfiguration);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function put_bucket_versioning(
@@ -4868,7 +5000,7 @@ function put_bucket_versioning(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -4921,7 +5053,7 @@ function put_bucket_website(
         "/$(Bucket)?website",
         Dict{String,Any}("WebsiteConfiguration" => WebsiteConfiguration);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function put_bucket_website(
@@ -4941,7 +5073,7 @@ function put_bucket_website(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -5094,7 +5226,9 @@ Optional parameters can be passed as a `params::Dict{String,<:Any}`. Valid keys 
   Hosting Websites on Amazon S3 and How to Configure Website Page Redirects.
 """
 function put_object(Bucket, Key; aws_config::AbstractAWSConfig=global_aws_config())
-    return s3("PUT", "/$(Bucket)/$(Key)"; aws_config=aws_config, features=SERVICE_FEATURES)
+    return s3(
+        "PUT", "/$(Bucket)/$(Key)"; aws_config=aws_config, feature_set=SERVICE_FEATURE_SET
+    )
 end
 function put_object(
     Bucket,
@@ -5103,7 +5237,11 @@ function put_object(
     aws_config::AbstractAWSConfig=global_aws_config(),
 )
     return s3(
-        "PUT", "/$(Bucket)/$(Key)", params; aws_config=aws_config, features=SERVICE_FEATURES
+        "PUT",
+        "/$(Bucket)/$(Key)",
+        params;
+        aws_config=aws_config,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -5216,7 +5354,10 @@ Optional parameters can be passed as a `params::Dict{String,<:Any}`. Valid keys 
 """
 function put_object_acl(Bucket, Key; aws_config::AbstractAWSConfig=global_aws_config())
     return s3(
-        "PUT", "/$(Bucket)/$(Key)?acl"; aws_config=aws_config, features=SERVICE_FEATURES
+        "PUT",
+        "/$(Bucket)/$(Key)?acl";
+        aws_config=aws_config,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function put_object_acl(
@@ -5230,7 +5371,7 @@ function put_object_acl(
         "/$(Bucket)/$(Key)?acl",
         params;
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -5271,7 +5412,7 @@ function put_object_legal_hold(
         "PUT",
         "/$(Bucket)/$(Key)?legal-hold";
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function put_object_legal_hold(
@@ -5285,7 +5426,7 @@ function put_object_legal_hold(
         "/$(Bucket)/$(Key)?legal-hold",
         params;
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -5322,7 +5463,10 @@ function put_object_lock_configuration(
     Bucket; aws_config::AbstractAWSConfig=global_aws_config()
 )
     return s3(
-        "PUT", "/$(Bucket)?object-lock"; aws_config=aws_config, features=SERVICE_FEATURES
+        "PUT",
+        "/$(Bucket)?object-lock";
+        aws_config=aws_config,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function put_object_lock_configuration(
@@ -5333,7 +5477,7 @@ function put_object_lock_configuration(
         "/$(Bucket)?object-lock",
         params;
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -5383,7 +5527,7 @@ function put_object_retention(
         "PUT",
         "/$(Bucket)/$(Key)?retention";
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function put_object_retention(
@@ -5397,7 +5541,7 @@ function put_object_retention(
         "/$(Bucket)/$(Key)?retention",
         params;
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -5458,7 +5602,7 @@ function put_object_tagging(
         "/$(Bucket)/$(Key)?tagging",
         Dict{String,Any}("Tagging" => Tagging);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function put_object_tagging(
@@ -5473,7 +5617,7 @@ function put_object_tagging(
         "/$(Bucket)/$(Key)?tagging",
         Dict{String,Any}(mergewith(_merge, Dict{String,Any}("Tagging" => Tagging), params));
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -5522,7 +5666,7 @@ function put_public_access_block(
             "PublicAccessBlockConfiguration" => PublicAccessBlockConfiguration
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function put_public_access_block(
@@ -5544,7 +5688,7 @@ function put_public_access_block(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -5686,7 +5830,7 @@ function restore_object(Bucket, Key; aws_config::AbstractAWSConfig=global_aws_co
         "POST",
         "/$(Bucket)/$(Key)?restore";
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function restore_object(
@@ -5700,7 +5844,7 @@ function restore_object(
         "/$(Bucket)/$(Key)?restore",
         params;
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -5802,7 +5946,7 @@ function select_object_content(
             "OutputSerialization" => OutputSerialization,
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function select_object_content(
@@ -5831,7 +5975,7 @@ function select_object_content(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -5934,7 +6078,7 @@ function upload_part(
         "/$(Bucket)/$(Key)",
         Dict{String,Any}("partNumber" => partNumber, "uploadId" => uploadId);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function upload_part(
@@ -5956,7 +6100,7 @@ function upload_part(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -6108,7 +6252,7 @@ function upload_part_copy(
             "headers" => Dict{String,Any}("x-amz-copy-source" => x_amz_copy_source),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function upload_part_copy(
@@ -6135,7 +6279,7 @@ function upload_part_copy(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -6273,7 +6417,7 @@ function write_get_object_response(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function write_get_object_response(
@@ -6298,6 +6442,6 @@ function write_get_object_response(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end

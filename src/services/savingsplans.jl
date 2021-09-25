@@ -38,7 +38,7 @@ function create_savings_plan(
             "clientToken" => string(uuid4()),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function create_savings_plan(
@@ -62,7 +62,7 @@ function create_savings_plan(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -84,7 +84,7 @@ function delete_queued_savings_plan(
         "/DeleteQueuedSavingsPlan",
         Dict{String,Any}("savingsPlanId" => savingsPlanId);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function delete_queued_savings_plan(
@@ -99,7 +99,7 @@ function delete_queued_savings_plan(
             mergewith(_merge, Dict{String,Any}("savingsPlanId" => savingsPlanId), params)
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -127,7 +127,7 @@ function describe_savings_plan_rates(
         "/DescribeSavingsPlanRates",
         Dict{String,Any}("savingsPlanId" => savingsPlanId);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function describe_savings_plan_rates(
@@ -142,7 +142,7 @@ function describe_savings_plan_rates(
             mergewith(_merge, Dict{String,Any}("savingsPlanId" => savingsPlanId), params)
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -164,7 +164,10 @@ Optional parameters can be passed as a `params::Dict{String,<:Any}`. Valid keys 
 """
 function describe_savings_plans(; aws_config::AbstractAWSConfig=global_aws_config())
     return savingsplans(
-        "POST", "/DescribeSavingsPlans"; aws_config=aws_config, features=SERVICE_FEATURES
+        "POST",
+        "/DescribeSavingsPlans";
+        aws_config=aws_config,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function describe_savings_plans(
@@ -175,7 +178,7 @@ function describe_savings_plans(
         "/DescribeSavingsPlans",
         params;
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -206,7 +209,7 @@ function describe_savings_plans_offering_rates(;
         "POST",
         "/DescribeSavingsPlansOfferingRates";
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function describe_savings_plans_offering_rates(
@@ -217,7 +220,7 @@ function describe_savings_plans_offering_rates(
         "/DescribeSavingsPlansOfferingRates",
         params;
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -251,7 +254,7 @@ function describe_savings_plans_offerings(;
         "POST",
         "/DescribeSavingsPlansOfferings";
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function describe_savings_plans_offerings(
@@ -262,7 +265,7 @@ function describe_savings_plans_offerings(
         "/DescribeSavingsPlansOfferings",
         params;
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -284,7 +287,7 @@ function list_tags_for_resource(
         "/ListTagsForResource",
         Dict{String,Any}("resourceArn" => resourceArn);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function list_tags_for_resource(
@@ -299,7 +302,7 @@ function list_tags_for_resource(
             mergewith(_merge, Dict{String,Any}("resourceArn" => resourceArn), params)
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -321,7 +324,7 @@ function tag_resource(resourceArn, tags; aws_config::AbstractAWSConfig=global_aw
         "/TagResource",
         Dict{String,Any}("resourceArn" => resourceArn, "tags" => tags);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function tag_resource(
@@ -341,7 +344,7 @@ function tag_resource(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -364,7 +367,7 @@ function untag_resource(
         "/UntagResource",
         Dict{String,Any}("resourceArn" => resourceArn, "tagKeys" => tagKeys);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function untag_resource(
@@ -384,6 +387,6 @@ function untag_resource(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end

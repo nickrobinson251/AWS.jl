@@ -20,7 +20,7 @@ function activate_event_source(Name; aws_config::AbstractAWSConfig=global_aws_co
         "ActivateEventSource",
         Dict{String,Any}("Name" => Name);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function activate_event_source(
@@ -30,7 +30,7 @@ function activate_event_source(
         "ActivateEventSource",
         Dict{String,Any}(mergewith(_merge, Dict{String,Any}("Name" => Name), params));
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -49,7 +49,7 @@ function cancel_replay(ReplayName; aws_config::AbstractAWSConfig=global_aws_conf
         "CancelReplay",
         Dict{String,Any}("ReplayName" => ReplayName);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function cancel_replay(
@@ -63,7 +63,7 @@ function cancel_replay(
             mergewith(_merge, Dict{String,Any}("ReplayName" => ReplayName), params)
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -103,7 +103,7 @@ function create_api_destination(
             "Name" => Name,
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function create_api_destination(
@@ -129,7 +129,7 @@ function create_api_destination(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -161,7 +161,7 @@ function create_archive(
         "CreateArchive",
         Dict{String,Any}("ArchiveName" => ArchiveName, "EventSourceArn" => EventSourceArn);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function create_archive(
@@ -182,7 +182,7 @@ function create_archive(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -217,7 +217,7 @@ function create_connection(
             "Name" => Name,
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function create_connection(
@@ -241,7 +241,7 @@ function create_connection(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -270,7 +270,7 @@ function create_event_bus(Name; aws_config::AbstractAWSConfig=global_aws_config(
         "CreateEventBus",
         Dict{String,Any}("Name" => Name);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function create_event_bus(
@@ -280,7 +280,7 @@ function create_event_bus(
         "CreateEventBus",
         Dict{String,Any}(mergewith(_merge, Dict{String,Any}("Name" => Name), params));
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -321,7 +321,7 @@ function create_partner_event_source(
         "CreatePartnerEventSource",
         Dict{String,Any}("Account" => Account, "Name" => Name);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function create_partner_event_source(
@@ -338,7 +338,7 @@ function create_partner_event_source(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -361,7 +361,7 @@ function deactivate_event_source(Name; aws_config::AbstractAWSConfig=global_aws_
         "DeactivateEventSource",
         Dict{String,Any}("Name" => Name);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function deactivate_event_source(
@@ -371,7 +371,7 @@ function deactivate_event_source(
         "DeactivateEventSource",
         Dict{String,Any}(mergewith(_merge, Dict{String,Any}("Name" => Name), params));
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -391,7 +391,7 @@ function deauthorize_connection(Name; aws_config::AbstractAWSConfig=global_aws_c
         "DeauthorizeConnection",
         Dict{String,Any}("Name" => Name);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function deauthorize_connection(
@@ -401,7 +401,7 @@ function deauthorize_connection(
         "DeauthorizeConnection",
         Dict{String,Any}(mergewith(_merge, Dict{String,Any}("Name" => Name), params));
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -420,7 +420,7 @@ function delete_api_destination(Name; aws_config::AbstractAWSConfig=global_aws_c
         "DeleteApiDestination",
         Dict{String,Any}("Name" => Name);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function delete_api_destination(
@@ -430,7 +430,7 @@ function delete_api_destination(
         "DeleteApiDestination",
         Dict{String,Any}(mergewith(_merge, Dict{String,Any}("Name" => Name), params));
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -449,7 +449,7 @@ function delete_archive(ArchiveName; aws_config::AbstractAWSConfig=global_aws_co
         "DeleteArchive",
         Dict{String,Any}("ArchiveName" => ArchiveName);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function delete_archive(
@@ -463,7 +463,7 @@ function delete_archive(
             mergewith(_merge, Dict{String,Any}("ArchiveName" => ArchiveName), params)
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -482,7 +482,7 @@ function delete_connection(Name; aws_config::AbstractAWSConfig=global_aws_config
         "DeleteConnection",
         Dict{String,Any}("Name" => Name);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function delete_connection(
@@ -492,7 +492,7 @@ function delete_connection(
         "DeleteConnection",
         Dict{String,Any}(mergewith(_merge, Dict{String,Any}("Name" => Name), params));
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -512,7 +512,7 @@ function delete_event_bus(Name; aws_config::AbstractAWSConfig=global_aws_config(
         "DeleteEventBus",
         Dict{String,Any}("Name" => Name);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function delete_event_bus(
@@ -522,7 +522,7 @@ function delete_event_bus(
         "DeleteEventBus",
         Dict{String,Any}(mergewith(_merge, Dict{String,Any}("Name" => Name), params));
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -548,7 +548,7 @@ function delete_partner_event_source(
         "DeletePartnerEventSource",
         Dict{String,Any}("Account" => Account, "Name" => Name);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function delete_partner_event_source(
@@ -565,7 +565,7 @@ function delete_partner_event_source(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -600,7 +600,7 @@ function delete_rule(Name; aws_config::AbstractAWSConfig=global_aws_config())
         "DeleteRule",
         Dict{String,Any}("Name" => Name);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function delete_rule(
@@ -610,7 +610,7 @@ function delete_rule(
         "DeleteRule",
         Dict{String,Any}(mergewith(_merge, Dict{String,Any}("Name" => Name), params));
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -629,7 +629,7 @@ function describe_api_destination(Name; aws_config::AbstractAWSConfig=global_aws
         "DescribeApiDestination",
         Dict{String,Any}("Name" => Name);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function describe_api_destination(
@@ -639,7 +639,7 @@ function describe_api_destination(
         "DescribeApiDestination",
         Dict{String,Any}(mergewith(_merge, Dict{String,Any}("Name" => Name), params));
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -658,7 +658,7 @@ function describe_archive(ArchiveName; aws_config::AbstractAWSConfig=global_aws_
         "DescribeArchive",
         Dict{String,Any}("ArchiveName" => ArchiveName);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function describe_archive(
@@ -672,7 +672,7 @@ function describe_archive(
             mergewith(_merge, Dict{String,Any}("ArchiveName" => ArchiveName), params)
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -691,7 +691,7 @@ function describe_connection(Name; aws_config::AbstractAWSConfig=global_aws_conf
         "DescribeConnection",
         Dict{String,Any}("Name" => Name);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function describe_connection(
@@ -701,7 +701,7 @@ function describe_connection(
         "DescribeConnection",
         Dict{String,Any}(mergewith(_merge, Dict{String,Any}("Name" => Name), params));
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -722,13 +722,15 @@ Optional parameters can be passed as a `params::Dict{String,<:Any}`. Valid keys 
   default event bus is displayed.
 """
 function describe_event_bus(; aws_config::AbstractAWSConfig=global_aws_config())
-    return eventbridge("DescribeEventBus"; aws_config=aws_config, features=SERVICE_FEATURES)
+    return eventbridge(
+        "DescribeEventBus"; aws_config=aws_config, feature_set=SERVICE_FEATURE_SET
+    )
 end
 function describe_event_bus(
     params::AbstractDict{String}; aws_config::AbstractAWSConfig=global_aws_config()
 )
     return eventbridge(
-        "DescribeEventBus", params; aws_config=aws_config, features=SERVICE_FEATURES
+        "DescribeEventBus", params; aws_config=aws_config, feature_set=SERVICE_FEATURE_SET
     )
 end
 
@@ -747,7 +749,7 @@ function describe_event_source(Name; aws_config::AbstractAWSConfig=global_aws_co
         "DescribeEventSource",
         Dict{String,Any}("Name" => Name);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function describe_event_source(
@@ -757,7 +759,7 @@ function describe_event_source(
         "DescribeEventSource",
         Dict{String,Any}(mergewith(_merge, Dict{String,Any}("Name" => Name), params));
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -781,7 +783,7 @@ function describe_partner_event_source(
         "DescribePartnerEventSource",
         Dict{String,Any}("Name" => Name);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function describe_partner_event_source(
@@ -791,7 +793,7 @@ function describe_partner_event_source(
         "DescribePartnerEventSource",
         Dict{String,Any}(mergewith(_merge, Dict{String,Any}("Name" => Name), params));
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -817,7 +819,7 @@ function describe_replay(ReplayName; aws_config::AbstractAWSConfig=global_aws_co
         "DescribeReplay",
         Dict{String,Any}("ReplayName" => ReplayName);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function describe_replay(
@@ -831,7 +833,7 @@ function describe_replay(
             mergewith(_merge, Dict{String,Any}("ReplayName" => ReplayName), params)
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -855,7 +857,7 @@ function describe_rule(Name; aws_config::AbstractAWSConfig=global_aws_config())
         "DescribeRule",
         Dict{String,Any}("Name" => Name);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function describe_rule(
@@ -865,7 +867,7 @@ function describe_rule(
         "DescribeRule",
         Dict{String,Any}(mergewith(_merge, Dict{String,Any}("Name" => Name), params));
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -890,7 +892,7 @@ function disable_rule(Name; aws_config::AbstractAWSConfig=global_aws_config())
         "DisableRule",
         Dict{String,Any}("Name" => Name);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function disable_rule(
@@ -900,7 +902,7 @@ function disable_rule(
         "DisableRule",
         Dict{String,Any}(mergewith(_merge, Dict{String,Any}("Name" => Name), params));
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -925,7 +927,7 @@ function enable_rule(Name; aws_config::AbstractAWSConfig=global_aws_config())
         "EnableRule",
         Dict{String,Any}("Name" => Name);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function enable_rule(
@@ -935,7 +937,7 @@ function enable_rule(
         "EnableRule",
         Dict{String,Any}(mergewith(_merge, Dict{String,Any}("Name" => Name), params));
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -955,14 +957,17 @@ Optional parameters can be passed as a `params::Dict{String,<:Any}`. Valid keys 
 """
 function list_api_destinations(; aws_config::AbstractAWSConfig=global_aws_config())
     return eventbridge(
-        "ListApiDestinations"; aws_config=aws_config, features=SERVICE_FEATURES
+        "ListApiDestinations"; aws_config=aws_config, feature_set=SERVICE_FEATURE_SET
     )
 end
 function list_api_destinations(
     params::AbstractDict{String}; aws_config::AbstractAWSConfig=global_aws_config()
 )
     return eventbridge(
-        "ListApiDestinations", params; aws_config=aws_config, features=SERVICE_FEATURES
+        "ListApiDestinations",
+        params;
+        aws_config=aws_config,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -983,13 +988,15 @@ Optional parameters can be passed as a `params::Dict{String,<:Any}`. Valid keys 
 - `"State"`: The state of the archive.
 """
 function list_archives(; aws_config::AbstractAWSConfig=global_aws_config())
-    return eventbridge("ListArchives"; aws_config=aws_config, features=SERVICE_FEATURES)
+    return eventbridge(
+        "ListArchives"; aws_config=aws_config, feature_set=SERVICE_FEATURE_SET
+    )
 end
 function list_archives(
     params::AbstractDict{String}; aws_config::AbstractAWSConfig=global_aws_config()
 )
     return eventbridge(
-        "ListArchives", params; aws_config=aws_config, features=SERVICE_FEATURES
+        "ListArchives", params; aws_config=aws_config, feature_set=SERVICE_FEATURE_SET
     )
 end
 
@@ -1008,13 +1015,15 @@ Optional parameters can be passed as a `params::Dict{String,<:Any}`. Valid keys 
 - `"NextToken"`: The token returned by a previous call to retrieve the next set of results.
 """
 function list_connections(; aws_config::AbstractAWSConfig=global_aws_config())
-    return eventbridge("ListConnections"; aws_config=aws_config, features=SERVICE_FEATURES)
+    return eventbridge(
+        "ListConnections"; aws_config=aws_config, feature_set=SERVICE_FEATURE_SET
+    )
 end
 function list_connections(
     params::AbstractDict{String}; aws_config::AbstractAWSConfig=global_aws_config()
 )
     return eventbridge(
-        "ListConnections", params; aws_config=aws_config, features=SERVICE_FEATURES
+        "ListConnections", params; aws_config=aws_config, feature_set=SERVICE_FEATURE_SET
     )
 end
 
@@ -1035,13 +1044,15 @@ Optional parameters can be passed as a `params::Dict{String,<:Any}`. Valid keys 
 - `"NextToken"`: The token returned by a previous call to retrieve the next set of results.
 """
 function list_event_buses(; aws_config::AbstractAWSConfig=global_aws_config())
-    return eventbridge("ListEventBuses"; aws_config=aws_config, features=SERVICE_FEATURES)
+    return eventbridge(
+        "ListEventBuses"; aws_config=aws_config, feature_set=SERVICE_FEATURE_SET
+    )
 end
 function list_event_buses(
     params::AbstractDict{String}; aws_config::AbstractAWSConfig=global_aws_config()
 )
     return eventbridge(
-        "ListEventBuses", params; aws_config=aws_config, features=SERVICE_FEATURES
+        "ListEventBuses", params; aws_config=aws_config, feature_set=SERVICE_FEATURE_SET
     )
 end
 
@@ -1063,13 +1074,15 @@ Optional parameters can be passed as a `params::Dict{String,<:Any}`. Valid keys 
 - `"NextToken"`: The token returned by a previous call to retrieve the next set of results.
 """
 function list_event_sources(; aws_config::AbstractAWSConfig=global_aws_config())
-    return eventbridge("ListEventSources"; aws_config=aws_config, features=SERVICE_FEATURES)
+    return eventbridge(
+        "ListEventSources"; aws_config=aws_config, feature_set=SERVICE_FEATURE_SET
+    )
 end
 function list_event_sources(
     params::AbstractDict{String}; aws_config::AbstractAWSConfig=global_aws_config()
 )
     return eventbridge(
-        "ListEventSources", params; aws_config=aws_config, features=SERVICE_FEATURES
+        "ListEventSources", params; aws_config=aws_config, feature_set=SERVICE_FEATURE_SET
     )
 end
 
@@ -1100,7 +1113,7 @@ function list_partner_event_source_accounts(
         "ListPartnerEventSourceAccounts",
         Dict{String,Any}("EventSourceName" => EventSourceName);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function list_partner_event_source_accounts(
@@ -1116,7 +1129,7 @@ function list_partner_event_source_accounts(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -1146,7 +1159,7 @@ function list_partner_event_sources(
         "ListPartnerEventSources",
         Dict{String,Any}("NamePrefix" => NamePrefix);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function list_partner_event_sources(
@@ -1160,7 +1173,7 @@ function list_partner_event_sources(
             mergewith(_merge, Dict{String,Any}("NamePrefix" => NamePrefix), params)
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -1181,13 +1194,15 @@ Optional parameters can be passed as a `params::Dict{String,<:Any}`. Valid keys 
 - `"State"`: The state of the replay.
 """
 function list_replays(; aws_config::AbstractAWSConfig=global_aws_config())
-    return eventbridge("ListReplays"; aws_config=aws_config, features=SERVICE_FEATURES)
+    return eventbridge(
+        "ListReplays"; aws_config=aws_config, feature_set=SERVICE_FEATURE_SET
+    )
 end
 function list_replays(
     params::AbstractDict{String}; aws_config::AbstractAWSConfig=global_aws_config()
 )
     return eventbridge(
-        "ListReplays", params; aws_config=aws_config, features=SERVICE_FEATURES
+        "ListReplays", params; aws_config=aws_config, feature_set=SERVICE_FEATURE_SET
     )
 end
 
@@ -1215,7 +1230,7 @@ function list_rule_names_by_target(
         "ListRuleNamesByTarget",
         Dict{String,Any}("TargetArn" => TargetArn);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function list_rule_names_by_target(
@@ -1229,7 +1244,7 @@ function list_rule_names_by_target(
             mergewith(_merge, Dict{String,Any}("TargetArn" => TargetArn), params)
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -1250,13 +1265,13 @@ Optional parameters can be passed as a `params::Dict{String,<:Any}`. Valid keys 
 - `"NextToken"`: The token returned by a previous call to retrieve the next set of results.
 """
 function list_rules(; aws_config::AbstractAWSConfig=global_aws_config())
-    return eventbridge("ListRules"; aws_config=aws_config, features=SERVICE_FEATURES)
+    return eventbridge("ListRules"; aws_config=aws_config, feature_set=SERVICE_FEATURE_SET)
 end
 function list_rules(
     params::AbstractDict{String}; aws_config::AbstractAWSConfig=global_aws_config()
 )
     return eventbridge(
-        "ListRules", params; aws_config=aws_config, features=SERVICE_FEATURES
+        "ListRules", params; aws_config=aws_config, feature_set=SERVICE_FEATURE_SET
     )
 end
 
@@ -1278,7 +1293,7 @@ function list_tags_for_resource(
         "ListTagsForResource",
         Dict{String,Any}("ResourceARN" => ResourceARN);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function list_tags_for_resource(
@@ -1292,7 +1307,7 @@ function list_tags_for_resource(
             mergewith(_merge, Dict{String,Any}("ResourceARN" => ResourceARN), params)
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -1317,7 +1332,7 @@ function list_targets_by_rule(Rule; aws_config::AbstractAWSConfig=global_aws_con
         "ListTargetsByRule",
         Dict{String,Any}("Rule" => Rule);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function list_targets_by_rule(
@@ -1327,7 +1342,7 @@ function list_targets_by_rule(
         "ListTargetsByRule",
         Dict{String,Any}(mergewith(_merge, Dict{String,Any}("Rule" => Rule), params));
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -1348,7 +1363,7 @@ function put_events(Entries; aws_config::AbstractAWSConfig=global_aws_config())
         "PutEvents",
         Dict{String,Any}("Entries" => Entries);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function put_events(
@@ -1358,7 +1373,7 @@ function put_events(
         "PutEvents",
         Dict{String,Any}(mergewith(_merge, Dict{String,Any}("Entries" => Entries), params));
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -1378,7 +1393,7 @@ function put_partner_events(Entries; aws_config::AbstractAWSConfig=global_aws_co
         "PutPartnerEvents",
         Dict{String,Any}("Entries" => Entries);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function put_partner_events(
@@ -1388,7 +1403,7 @@ function put_partner_events(
         "PutPartnerEvents",
         Dict{String,Any}(mergewith(_merge, Dict{String,Any}("Entries" => Entries), params));
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -1439,13 +1454,15 @@ Optional parameters can be passed as a `params::Dict{String,<:Any}`. Valid keys 
   specify this StatementId when you run RemovePermission.
 """
 function put_permission(; aws_config::AbstractAWSConfig=global_aws_config())
-    return eventbridge("PutPermission"; aws_config=aws_config, features=SERVICE_FEATURES)
+    return eventbridge(
+        "PutPermission"; aws_config=aws_config, feature_set=SERVICE_FEATURE_SET
+    )
 end
 function put_permission(
     params::AbstractDict{String}; aws_config::AbstractAWSConfig=global_aws_config()
 )
     return eventbridge(
-        "PutPermission", params; aws_config=aws_config, features=SERVICE_FEATURES
+        "PutPermission", params; aws_config=aws_config, feature_set=SERVICE_FEATURE_SET
     )
 end
 
@@ -1513,7 +1530,7 @@ function put_rule(Name; aws_config::AbstractAWSConfig=global_aws_config())
         "PutRule",
         Dict{String,Any}("Name" => Name);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function put_rule(
@@ -1523,7 +1540,7 @@ function put_rule(
         "PutRule",
         Dict{String,Any}(mergewith(_merge, Dict{String,Any}("Name" => Name), params));
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -1601,7 +1618,7 @@ function put_targets(Rule, Targets; aws_config::AbstractAWSConfig=global_aws_con
         "PutTargets",
         Dict{String,Any}("Rule" => Rule, "Targets" => Targets);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function put_targets(
@@ -1618,7 +1635,7 @@ function put_targets(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -1640,13 +1657,15 @@ Optional parameters can be passed as a `params::Dict{String,<:Any}`. Valid keys 
   to put events to the default event bus.
 """
 function remove_permission(; aws_config::AbstractAWSConfig=global_aws_config())
-    return eventbridge("RemovePermission"; aws_config=aws_config, features=SERVICE_FEATURES)
+    return eventbridge(
+        "RemovePermission"; aws_config=aws_config, feature_set=SERVICE_FEATURE_SET
+    )
 end
 function remove_permission(
     params::AbstractDict{String}; aws_config::AbstractAWSConfig=global_aws_config()
 )
     return eventbridge(
-        "RemovePermission", params; aws_config=aws_config, features=SERVICE_FEATURES
+        "RemovePermission", params; aws_config=aws_config, feature_set=SERVICE_FEATURE_SET
     )
 end
 
@@ -1679,7 +1698,7 @@ function remove_targets(Ids, Rule; aws_config::AbstractAWSConfig=global_aws_conf
         "RemoveTargets",
         Dict{String,Any}("Ids" => Ids, "Rule" => Rule);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function remove_targets(
@@ -1694,7 +1713,7 @@ function remove_targets(
             mergewith(_merge, Dict{String,Any}("Ids" => Ids, "Rule" => Rule), params)
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -1743,7 +1762,7 @@ function start_replay(
             "ReplayName" => ReplayName,
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function start_replay(
@@ -1771,7 +1790,7 @@ function start_replay(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -1800,7 +1819,7 @@ function tag_resource(ResourceARN, Tags; aws_config::AbstractAWSConfig=global_aw
         "TagResource",
         Dict{String,Any}("ResourceARN" => ResourceARN, "Tags" => Tags);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function tag_resource(
@@ -1819,7 +1838,7 @@ function tag_resource(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -1848,7 +1867,7 @@ function test_event_pattern(
         "TestEventPattern",
         Dict{String,Any}("Event" => Event, "EventPattern" => EventPattern);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function test_event_pattern(
@@ -1867,7 +1886,7 @@ function test_event_pattern(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -1890,7 +1909,7 @@ function untag_resource(
         "UntagResource",
         Dict{String,Any}("ResourceARN" => ResourceARN, "TagKeys" => TagKeys);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function untag_resource(
@@ -1909,7 +1928,7 @@ function untag_resource(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -1936,7 +1955,7 @@ function update_api_destination(Name; aws_config::AbstractAWSConfig=global_aws_c
         "UpdateApiDestination",
         Dict{String,Any}("Name" => Name);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function update_api_destination(
@@ -1946,7 +1965,7 @@ function update_api_destination(
         "UpdateApiDestination",
         Dict{String,Any}(mergewith(_merge, Dict{String,Any}("Name" => Name), params));
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -1970,7 +1989,7 @@ function update_archive(ArchiveName; aws_config::AbstractAWSConfig=global_aws_co
         "UpdateArchive",
         Dict{String,Any}("ArchiveName" => ArchiveName);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function update_archive(
@@ -1984,7 +2003,7 @@ function update_archive(
             mergewith(_merge, Dict{String,Any}("ArchiveName" => ArchiveName), params)
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -2008,7 +2027,7 @@ function update_connection(Name; aws_config::AbstractAWSConfig=global_aws_config
         "UpdateConnection",
         Dict{String,Any}("Name" => Name);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function update_connection(
@@ -2018,6 +2037,6 @@ function update_connection(
         "UpdateConnection",
         Dict{String,Any}(mergewith(_merge, Dict{String,Any}("Name" => Name), params));
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end

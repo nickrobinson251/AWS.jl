@@ -26,7 +26,7 @@ function accept_resource_share_invitation(
         "/acceptresourceshareinvitation",
         Dict{String,Any}("resourceShareInvitationArn" => resourceShareInvitationArn);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function accept_resource_share_invitation(
@@ -47,7 +47,7 @@ function accept_resource_share_invitation(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -80,7 +80,7 @@ function associate_resource_share(
         "/associateresourceshare",
         Dict{String,Any}("resourceShareArn" => resourceShareArn);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function associate_resource_share(
@@ -97,7 +97,7 @@ function associate_resource_share(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -132,7 +132,7 @@ function associate_resource_share_permission(
             "permissionArn" => permissionArn, "resourceShareArn" => resourceShareArn
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function associate_resource_share_permission(
@@ -154,7 +154,7 @@ function associate_resource_share_permission(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -197,7 +197,7 @@ function create_resource_share(name; aws_config::AbstractAWSConfig=global_aws_co
         "/createresourceshare",
         Dict{String,Any}("name" => name);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function create_resource_share(
@@ -208,7 +208,7 @@ function create_resource_share(
         "/createresourceshare",
         Dict{String,Any}(mergewith(_merge, Dict{String,Any}("name" => name), params));
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -234,7 +234,7 @@ function delete_resource_share(
         "/deleteresourceshare",
         Dict{String,Any}("resourceShareArn" => resourceShareArn);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function delete_resource_share(
@@ -251,7 +251,7 @@ function delete_resource_share(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -279,7 +279,7 @@ function disassociate_resource_share(
         "/disassociateresourceshare",
         Dict{String,Any}("resourceShareArn" => resourceShareArn);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function disassociate_resource_share(
@@ -296,7 +296,7 @@ function disassociate_resource_share(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -326,7 +326,7 @@ function disassociate_resource_share_permission(
             "permissionArn" => permissionArn, "resourceShareArn" => resourceShareArn
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function disassociate_resource_share_permission(
@@ -348,7 +348,7 @@ function disassociate_resource_share_permission(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -367,7 +367,7 @@ function enable_sharing_with_aws_organization(;
         "POST",
         "/enablesharingwithawsorganization";
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function enable_sharing_with_aws_organization(
@@ -378,7 +378,7 @@ function enable_sharing_with_aws_organization(
         "/enablesharingwithawsorganization",
         params;
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -401,7 +401,7 @@ function get_permission(permissionArn; aws_config::AbstractAWSConfig=global_aws_
         "/getpermission",
         Dict{String,Any}("permissionArn" => permissionArn);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function get_permission(
@@ -416,7 +416,7 @@ function get_permission(
             mergewith(_merge, Dict{String,Any}("permissionArn" => permissionArn), params)
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -444,7 +444,7 @@ function get_resource_policies(
         "/getresourcepolicies",
         Dict{String,Any}("resourceArns" => resourceArns);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function get_resource_policies(
@@ -459,7 +459,7 @@ function get_resource_policies(
             mergewith(_merge, Dict{String,Any}("resourceArns" => resourceArns), params)
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -494,7 +494,7 @@ function get_resource_share_associations(
         "/getresourceshareassociations",
         Dict{String,Any}("associationType" => associationType);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function get_resource_share_associations(
@@ -511,7 +511,7 @@ function get_resource_share_associations(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -534,7 +534,7 @@ function get_resource_share_invitations(; aws_config::AbstractAWSConfig=global_a
         "POST",
         "/getresourceshareinvitations";
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function get_resource_share_invitations(
@@ -545,7 +545,7 @@ function get_resource_share_invitations(
         "/getresourceshareinvitations",
         params;
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -578,7 +578,7 @@ function get_resource_shares(
         "/getresourceshares",
         Dict{String,Any}("resourceOwner" => resourceOwner);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function get_resource_shares(
@@ -593,7 +593,7 @@ function get_resource_shares(
             mergewith(_merge, Dict{String,Any}("resourceOwner" => resourceOwner), params)
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -621,7 +621,7 @@ function list_pending_invitation_resources(
         "/listpendinginvitationresources",
         Dict{String,Any}("resourceShareInvitationArn" => resourceShareInvitationArn);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function list_pending_invitation_resources(
@@ -642,7 +642,7 @@ function list_pending_invitation_resources(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -661,13 +661,19 @@ Optional parameters can be passed as a `params::Dict{String,<:Any}`. Valid keys 
   to list only permissions that apply to EC2 subnets, specify ec2:Subnet.
 """
 function list_permissions(; aws_config::AbstractAWSConfig=global_aws_config())
-    return ram("POST", "/listpermissions"; aws_config=aws_config, features=SERVICE_FEATURES)
+    return ram(
+        "POST", "/listpermissions"; aws_config=aws_config, feature_set=SERVICE_FEATURE_SET
+    )
 end
 function list_permissions(
     params::AbstractDict{String}; aws_config::AbstractAWSConfig=global_aws_config()
 )
     return ram(
-        "POST", "/listpermissions", params; aws_config=aws_config, features=SERVICE_FEATURES
+        "POST",
+        "/listpermissions",
+        params;
+        aws_config=aws_config,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -706,7 +712,7 @@ function list_principals(resourceOwner; aws_config::AbstractAWSConfig=global_aws
         "/listprincipals",
         Dict{String,Any}("resourceOwner" => resourceOwner);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function list_principals(
@@ -721,7 +727,7 @@ function list_principals(
             mergewith(_merge, Dict{String,Any}("resourceOwner" => resourceOwner), params)
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -748,7 +754,7 @@ function list_resource_share_permissions(
         "/listresourcesharepermissions",
         Dict{String,Any}("resourceShareArn" => resourceShareArn);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function list_resource_share_permissions(
@@ -765,7 +771,7 @@ function list_resource_share_permissions(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -783,7 +789,7 @@ Optional parameters can be passed as a `params::Dict{String,<:Any}`. Valid keys 
 """
 function list_resource_types(; aws_config::AbstractAWSConfig=global_aws_config())
     return ram(
-        "POST", "/listresourcetypes"; aws_config=aws_config, features=SERVICE_FEATURES
+        "POST", "/listresourcetypes"; aws_config=aws_config, feature_set=SERVICE_FEATURE_SET
     )
 end
 function list_resource_types(
@@ -794,7 +800,7 @@ function list_resource_types(
         "/listresourcetypes",
         params;
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -833,7 +839,7 @@ function list_resources(resourceOwner; aws_config::AbstractAWSConfig=global_aws_
         "/listresources",
         Dict{String,Any}("resourceOwner" => resourceOwner);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function list_resources(
@@ -848,7 +854,7 @@ function list_resources(
             mergewith(_merge, Dict{String,Any}("resourceOwner" => resourceOwner), params)
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -873,7 +879,7 @@ function promote_resource_share_created_from_policy(
         "/promoteresourcesharecreatedfrompolicy",
         Dict{String,Any}("resourceShareArn" => resourceShareArn);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function promote_resource_share_created_from_policy(
@@ -890,7 +896,7 @@ function promote_resource_share_created_from_policy(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -916,7 +922,7 @@ function reject_resource_share_invitation(
         "/rejectresourceshareinvitation",
         Dict{String,Any}("resourceShareInvitationArn" => resourceShareInvitationArn);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function reject_resource_share_invitation(
@@ -937,7 +943,7 @@ function reject_resource_share_invitation(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -960,7 +966,7 @@ function tag_resource(
         "/tagresource",
         Dict{String,Any}("resourceShareArn" => resourceShareArn, "tags" => tags);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function tag_resource(
@@ -980,7 +986,7 @@ function tag_resource(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -1003,7 +1009,7 @@ function untag_resource(
         "/untagresource",
         Dict{String,Any}("resourceShareArn" => resourceShareArn, "tagKeys" => tagKeys);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function untag_resource(
@@ -1025,7 +1031,7 @@ function untag_resource(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -1054,7 +1060,7 @@ function update_resource_share(
         "/updateresourceshare",
         Dict{String,Any}("resourceShareArn" => resourceShareArn);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function update_resource_share(
@@ -1071,6 +1077,6 @@ function update_resource_share(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end

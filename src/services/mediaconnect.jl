@@ -24,7 +24,7 @@ function add_flow_media_streams(
         "/v1/flows/$(flowArn)/mediaStreams",
         Dict{String,Any}("mediaStreams" => mediaStreams);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function add_flow_media_streams(
@@ -40,7 +40,7 @@ function add_flow_media_streams(
             mergewith(_merge, Dict{String,Any}("mediaStreams" => mediaStreams), params)
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -63,7 +63,7 @@ function add_flow_outputs(
         "/v1/flows/$(flowArn)/outputs",
         Dict{String,Any}("outputs" => outputs);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function add_flow_outputs(
@@ -77,7 +77,7 @@ function add_flow_outputs(
         "/v1/flows/$(flowArn)/outputs",
         Dict{String,Any}(mergewith(_merge, Dict{String,Any}("outputs" => outputs), params));
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -100,7 +100,7 @@ function add_flow_sources(
         "/v1/flows/$(flowArn)/source",
         Dict{String,Any}("sources" => sources);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function add_flow_sources(
@@ -114,7 +114,7 @@ function add_flow_sources(
         "/v1/flows/$(flowArn)/source",
         Dict{String,Any}(mergewith(_merge, Dict{String,Any}("sources" => sources), params));
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -137,7 +137,7 @@ function add_flow_vpc_interfaces(
         "/v1/flows/$(flowArn)/vpcInterfaces",
         Dict{String,Any}("vpcInterfaces" => vpcInterfaces);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function add_flow_vpc_interfaces(
@@ -153,7 +153,7 @@ function add_flow_vpc_interfaces(
             mergewith(_merge, Dict{String,Any}("vpcInterfaces" => vpcInterfaces), params)
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -186,7 +186,7 @@ function create_flow(name; aws_config::AbstractAWSConfig=global_aws_config())
         "/v1/flows",
         Dict{String,Any}("name" => name);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function create_flow(
@@ -197,7 +197,7 @@ function create_flow(
         "/v1/flows",
         Dict{String,Any}(mergewith(_merge, Dict{String,Any}("name" => name), params));
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -213,7 +213,10 @@ Deletes a flow. Before you can delete a flow, you must stop the flow.
 """
 function delete_flow(flowArn; aws_config::AbstractAWSConfig=global_aws_config())
     return mediaconnect(
-        "DELETE", "/v1/flows/$(flowArn)"; aws_config=aws_config, features=SERVICE_FEATURES
+        "DELETE",
+        "/v1/flows/$(flowArn)";
+        aws_config=aws_config,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function delete_flow(
@@ -224,7 +227,7 @@ function delete_flow(
         "/v1/flows/$(flowArn)",
         params;
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -241,7 +244,10 @@ Zone, as well as details about the source, outputs, and entitlements.
 """
 function describe_flow(flowArn; aws_config::AbstractAWSConfig=global_aws_config())
     return mediaconnect(
-        "GET", "/v1/flows/$(flowArn)"; aws_config=aws_config, features=SERVICE_FEATURES
+        "GET",
+        "/v1/flows/$(flowArn)";
+        aws_config=aws_config,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function describe_flow(
@@ -252,7 +258,7 @@ function describe_flow(
         "/v1/flows/$(flowArn)",
         params;
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -272,7 +278,7 @@ function describe_offering(offeringArn; aws_config::AbstractAWSConfig=global_aws
         "GET",
         "/v1/offerings/$(offeringArn)";
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function describe_offering(
@@ -285,7 +291,7 @@ function describe_offering(
         "/v1/offerings/$(offeringArn)",
         params;
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -308,7 +314,7 @@ function describe_reservation(
         "GET",
         "/v1/reservations/$(reservationArn)";
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function describe_reservation(
@@ -321,7 +327,7 @@ function describe_reservation(
         "/v1/reservations/$(reservationArn)",
         params;
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -344,7 +350,7 @@ function grant_flow_entitlements(
         "/v1/flows/$(flowArn)/entitlements",
         Dict{String,Any}("entitlements" => entitlements);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function grant_flow_entitlements(
@@ -360,7 +366,7 @@ function grant_flow_entitlements(
             mergewith(_merge, Dict{String,Any}("entitlements" => entitlements), params)
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -387,14 +393,18 @@ Optional parameters can be passed as a `params::Dict{String,<:Any}`. Valid keys 
 """
 function list_entitlements(; aws_config::AbstractAWSConfig=global_aws_config())
     return mediaconnect(
-        "GET", "/v1/entitlements"; aws_config=aws_config, features=SERVICE_FEATURES
+        "GET", "/v1/entitlements"; aws_config=aws_config, feature_set=SERVICE_FEATURE_SET
     )
 end
 function list_entitlements(
     params::AbstractDict{String}; aws_config::AbstractAWSConfig=global_aws_config()
 )
     return mediaconnect(
-        "GET", "/v1/entitlements", params; aws_config=aws_config, features=SERVICE_FEATURES
+        "GET",
+        "/v1/entitlements",
+        params;
+        aws_config=aws_config,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -420,14 +430,14 @@ Optional parameters can be passed as a `params::Dict{String,<:Any}`. Valid keys 
 """
 function list_flows(; aws_config::AbstractAWSConfig=global_aws_config())
     return mediaconnect(
-        "GET", "/v1/flows"; aws_config=aws_config, features=SERVICE_FEATURES
+        "GET", "/v1/flows"; aws_config=aws_config, feature_set=SERVICE_FEATURE_SET
     )
 end
 function list_flows(
     params::AbstractDict{String}; aws_config::AbstractAWSConfig=global_aws_config()
 )
     return mediaconnect(
-        "GET", "/v1/flows", params; aws_config=aws_config, features=SERVICE_FEATURES
+        "GET", "/v1/flows", params; aws_config=aws_config, feature_set=SERVICE_FEATURE_SET
     )
 end
 
@@ -456,14 +466,18 @@ Optional parameters can be passed as a `params::Dict{String,<:Any}`. Valid keys 
 """
 function list_offerings(; aws_config::AbstractAWSConfig=global_aws_config())
     return mediaconnect(
-        "GET", "/v1/offerings"; aws_config=aws_config, features=SERVICE_FEATURES
+        "GET", "/v1/offerings"; aws_config=aws_config, feature_set=SERVICE_FEATURE_SET
     )
 end
 function list_offerings(
     params::AbstractDict{String}; aws_config::AbstractAWSConfig=global_aws_config()
 )
     return mediaconnect(
-        "GET", "/v1/offerings", params; aws_config=aws_config, features=SERVICE_FEATURES
+        "GET",
+        "/v1/offerings",
+        params;
+        aws_config=aws_config,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -490,14 +504,18 @@ Optional parameters can be passed as a `params::Dict{String,<:Any}`. Valid keys 
 """
 function list_reservations(; aws_config::AbstractAWSConfig=global_aws_config())
     return mediaconnect(
-        "GET", "/v1/reservations"; aws_config=aws_config, features=SERVICE_FEATURES
+        "GET", "/v1/reservations"; aws_config=aws_config, feature_set=SERVICE_FEATURE_SET
     )
 end
 function list_reservations(
     params::AbstractDict{String}; aws_config::AbstractAWSConfig=global_aws_config()
 )
     return mediaconnect(
-        "GET", "/v1/reservations", params; aws_config=aws_config, features=SERVICE_FEATURES
+        "GET",
+        "/v1/reservations",
+        params;
+        aws_config=aws_config,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -516,7 +534,10 @@ function list_tags_for_resource(
     resourceArn; aws_config::AbstractAWSConfig=global_aws_config()
 )
     return mediaconnect(
-        "GET", "/tags/$(resourceArn)"; aws_config=aws_config, features=SERVICE_FEATURES
+        "GET",
+        "/tags/$(resourceArn)";
+        aws_config=aws_config,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function list_tags_for_resource(
@@ -529,7 +550,7 @@ function list_tags_for_resource(
         "/tags/$(resourceArn)",
         params;
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -558,7 +579,7 @@ function purchase_offering(
         "/v1/offerings/$(offeringArn)",
         Dict{String,Any}("reservationName" => reservationName, "start" => start);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function purchase_offering(
@@ -579,7 +600,7 @@ function purchase_offering(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -602,7 +623,7 @@ function remove_flow_media_stream(
         "DELETE",
         "/v1/flows/$(flowArn)/mediaStreams/$(mediaStreamName)";
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function remove_flow_media_stream(
@@ -616,7 +637,7 @@ function remove_flow_media_stream(
         "/v1/flows/$(flowArn)/mediaStreams/$(mediaStreamName)",
         params;
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -641,7 +662,7 @@ function remove_flow_output(
         "DELETE",
         "/v1/flows/$(flowArn)/outputs/$(outputArn)";
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function remove_flow_output(
@@ -655,7 +676,7 @@ function remove_flow_output(
         "/v1/flows/$(flowArn)/outputs/$(outputArn)",
         params;
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -678,7 +699,7 @@ function remove_flow_source(
         "DELETE",
         "/v1/flows/$(flowArn)/source/$(sourceArn)";
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function remove_flow_source(
@@ -692,7 +713,7 @@ function remove_flow_source(
         "/v1/flows/$(flowArn)/source/$(sourceArn)",
         params;
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -717,7 +738,7 @@ function remove_flow_vpc_interface(
         "DELETE",
         "/v1/flows/$(flowArn)/vpcInterfaces/$(vpcInterfaceName)";
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function remove_flow_vpc_interface(
@@ -731,7 +752,7 @@ function remove_flow_vpc_interface(
         "/v1/flows/$(flowArn)/vpcInterfaces/$(vpcInterfaceName)",
         params;
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -754,7 +775,7 @@ function revoke_flow_entitlement(
         "DELETE",
         "/v1/flows/$(flowArn)/entitlements/$(entitlementArn)";
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function revoke_flow_entitlement(
@@ -768,7 +789,7 @@ function revoke_flow_entitlement(
         "/v1/flows/$(flowArn)/entitlements/$(entitlementArn)",
         params;
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -787,7 +808,7 @@ function start_flow(flowArn; aws_config::AbstractAWSConfig=global_aws_config())
         "POST",
         "/v1/flows/start/$(flowArn)";
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function start_flow(
@@ -798,7 +819,7 @@ function start_flow(
         "/v1/flows/start/$(flowArn)",
         params;
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -817,7 +838,7 @@ function stop_flow(flowArn; aws_config::AbstractAWSConfig=global_aws_config())
         "POST",
         "/v1/flows/stop/$(flowArn)";
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function stop_flow(
@@ -828,7 +849,7 @@ function stop_flow(
         "/v1/flows/stop/$(flowArn)",
         params;
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -853,7 +874,7 @@ function tag_resource(resourceArn, tags; aws_config::AbstractAWSConfig=global_aw
         "/tags/$(resourceArn)",
         Dict{String,Any}("tags" => tags);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function tag_resource(
@@ -867,7 +888,7 @@ function tag_resource(
         "/tags/$(resourceArn)",
         Dict{String,Any}(mergewith(_merge, Dict{String,Any}("tags" => tags), params));
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -891,7 +912,7 @@ function untag_resource(
         "/tags/$(resourceArn)",
         Dict{String,Any}("tagKeys" => tagKeys);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function untag_resource(
@@ -905,7 +926,7 @@ function untag_resource(
         "/tags/$(resourceArn)",
         Dict{String,Any}(mergewith(_merge, Dict{String,Any}("tagKeys" => tagKeys), params));
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -924,7 +945,10 @@ Optional parameters can be passed as a `params::Dict{String,<:Any}`. Valid keys 
 """
 function update_flow(flowArn; aws_config::AbstractAWSConfig=global_aws_config())
     return mediaconnect(
-        "PUT", "/v1/flows/$(flowArn)"; aws_config=aws_config, features=SERVICE_FEATURES
+        "PUT",
+        "/v1/flows/$(flowArn)";
+        aws_config=aws_config,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function update_flow(
@@ -935,7 +959,7 @@ function update_flow(
         "/v1/flows/$(flowArn)",
         params;
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -972,7 +996,7 @@ function update_flow_entitlement(
         "PUT",
         "/v1/flows/$(flowArn)/entitlements/$(entitlementArn)";
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function update_flow_entitlement(
@@ -986,7 +1010,7 @@ function update_flow_entitlement(
         "/v1/flows/$(flowArn)/entitlements/$(entitlementArn)",
         params;
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -1017,7 +1041,7 @@ function update_flow_media_stream(
         "PUT",
         "/v1/flows/$(flowArn)/mediaStreams/$(mediaStreamName)";
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function update_flow_media_stream(
@@ -1031,7 +1055,7 @@ function update_flow_media_stream(
         "/v1/flows/$(flowArn)/mediaStreams/$(mediaStreamName)",
         params;
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -1080,7 +1104,7 @@ function update_flow_output(
         "PUT",
         "/v1/flows/$(flowArn)/outputs/$(outputArn)";
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function update_flow_output(
@@ -1094,7 +1118,7 @@ function update_flow_output(
         "/v1/flows/$(flowArn)/outputs/$(outputArn)",
         params;
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -1144,7 +1168,7 @@ function update_flow_source(
         "PUT",
         "/v1/flows/$(flowArn)/source/$(sourceArn)";
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function update_flow_source(
@@ -1158,6 +1182,6 @@ function update_flow_source(
         "/v1/flows/$(flowArn)/source/$(sourceArn)",
         params;
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end

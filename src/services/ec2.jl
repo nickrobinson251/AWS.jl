@@ -30,7 +30,7 @@ function accept_reserved_instances_exchange_quote(
         "AcceptReservedInstancesExchangeQuote",
         Dict{String,Any}("ReservedInstanceId" => ReservedInstanceId);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function accept_reserved_instances_exchange_quote(
@@ -46,7 +46,7 @@ function accept_reserved_instances_exchange_quote(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -72,7 +72,7 @@ function accept_transit_gateway_multicast_domain_associations(;
     return ec2(
         "AcceptTransitGatewayMulticastDomainAssociations";
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function accept_transit_gateway_multicast_domain_associations(
@@ -82,7 +82,7 @@ function accept_transit_gateway_multicast_domain_associations(
         "AcceptTransitGatewayMulticastDomainAssociations",
         params;
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -109,7 +109,7 @@ function accept_transit_gateway_peering_attachment(
         "AcceptTransitGatewayPeeringAttachment",
         Dict{String,Any}("TransitGatewayAttachmentId" => TransitGatewayAttachmentId);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function accept_transit_gateway_peering_attachment(
@@ -129,7 +129,7 @@ function accept_transit_gateway_peering_attachment(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -158,7 +158,7 @@ function accept_transit_gateway_vpc_attachment(
         "AcceptTransitGatewayVpcAttachment",
         Dict{String,Any}("TransitGatewayAttachmentId" => TransitGatewayAttachmentId);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function accept_transit_gateway_vpc_attachment(
@@ -178,7 +178,7 @@ function accept_transit_gateway_vpc_attachment(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -205,7 +205,7 @@ function accept_vpc_endpoint_connections(
         "AcceptVpcEndpointConnections",
         Dict{String,Any}("ServiceId" => ServiceId, "VpcEndpointId" => VpcEndpointId);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function accept_vpc_endpoint_connections(
@@ -226,7 +226,7 @@ function accept_vpc_endpoint_connections(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -250,7 +250,7 @@ Optional parameters can be passed as a `params::Dict{String,<:Any}`. Valid keys 
 """
 function accept_vpc_peering_connection(; aws_config::AbstractAWSConfig=global_aws_config())
     return ec2(
-        "AcceptVpcPeeringConnection"; aws_config=aws_config, features=SERVICE_FEATURES
+        "AcceptVpcPeeringConnection"; aws_config=aws_config, feature_set=SERVICE_FEATURE_SET
     )
 end
 function accept_vpc_peering_connection(
@@ -260,7 +260,7 @@ function accept_vpc_peering_connection(
         "AcceptVpcPeeringConnection",
         params;
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -294,7 +294,7 @@ function advertise_byoip_cidr(Cidr; aws_config::AbstractAWSConfig=global_aws_con
         "AdvertiseByoipCidr",
         Dict{String,Any}("Cidr" => Cidr);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function advertise_byoip_cidr(
@@ -304,7 +304,7 @@ function advertise_byoip_cidr(
         "AdvertiseByoipCidr",
         Dict{String,Any}(mergewith(_merge, Dict{String,Any}("Cidr" => Cidr), params));
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -356,12 +356,14 @@ Optional parameters can be passed as a `params::Dict{String,<:Any}`. Valid keys 
   permissions, the error response is DryRunOperation. Otherwise, it is UnauthorizedOperation.
 """
 function allocate_address(; aws_config::AbstractAWSConfig=global_aws_config())
-    return ec2("AllocateAddress"; aws_config=aws_config, features=SERVICE_FEATURES)
+    return ec2("AllocateAddress"; aws_config=aws_config, feature_set=SERVICE_FEATURE_SET)
 end
 function allocate_address(
     params::AbstractDict{String}; aws_config::AbstractAWSConfig=global_aws_config()
 )
-    return ec2("AllocateAddress", params; aws_config=aws_config, features=SERVICE_FEATURES)
+    return ec2(
+        "AllocateAddress", params; aws_config=aws_config, feature_set=SERVICE_FEATURE_SET
+    )
 end
 
 """
@@ -407,7 +409,7 @@ function allocate_hosts(
         "AllocateHosts",
         Dict{String,Any}("availabilityZone" => availabilityZone, "quantity" => quantity);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function allocate_hosts(
@@ -428,7 +430,7 @@ function allocate_hosts(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -466,7 +468,7 @@ function apply_security_groups_to_client_vpn_target_network(
             "VpcId" => VpcId,
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function apply_security_groups_to_client_vpn_target_network(
@@ -490,7 +492,7 @@ function apply_security_groups_to_client_vpn_target_network(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -534,7 +536,7 @@ function assign_ipv6_addresses(
         "AssignIpv6Addresses",
         Dict{String,Any}("networkInterfaceId" => networkInterfaceId);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function assign_ipv6_addresses(
@@ -550,7 +552,7 @@ function assign_ipv6_addresses(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -603,7 +605,7 @@ function assign_private_ip_addresses(
         "AssignPrivateIpAddresses",
         Dict{String,Any}("networkInterfaceId" => networkInterfaceId);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function assign_private_ip_addresses(
@@ -619,7 +621,7 @@ function assign_private_ip_addresses(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -674,12 +676,14 @@ Optional parameters can be passed as a `params::Dict{String,<:Any}`. Valid keys 
   is associated with the primary private IP address.
 """
 function associate_address(; aws_config::AbstractAWSConfig=global_aws_config())
-    return ec2("AssociateAddress"; aws_config=aws_config, features=SERVICE_FEATURES)
+    return ec2("AssociateAddress"; aws_config=aws_config, feature_set=SERVICE_FEATURE_SET)
 end
 function associate_address(
     params::AbstractDict{String}; aws_config::AbstractAWSConfig=global_aws_config()
 )
-    return ec2("AssociateAddress", params; aws_config=aws_config, features=SERVICE_FEATURES)
+    return ec2(
+        "AssociateAddress", params; aws_config=aws_config, feature_set=SERVICE_FEATURE_SET
+    )
 end
 
 """
@@ -718,7 +722,7 @@ function associate_client_vpn_target_network(
             "ClientToken" => string(uuid4()),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function associate_client_vpn_target_network(
@@ -741,7 +745,7 @@ function associate_client_vpn_target_network(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -775,7 +779,7 @@ function associate_dhcp_options(
         "AssociateDhcpOptions",
         Dict{String,Any}("DhcpOptionsId" => DhcpOptionsId, "VpcId" => VpcId);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function associate_dhcp_options(
@@ -794,7 +798,7 @@ function associate_dhcp_options(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -831,7 +835,7 @@ function associate_enclave_certificate_iam_role(;
     return ec2(
         "AssociateEnclaveCertificateIamRole";
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function associate_enclave_certificate_iam_role(
@@ -841,7 +845,7 @@ function associate_enclave_certificate_iam_role(
         "AssociateEnclaveCertificateIamRole",
         params;
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -866,7 +870,7 @@ function associate_iam_instance_profile(
             "IamInstanceProfile" => IamInstanceProfile, "InstanceId" => InstanceId
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function associate_iam_instance_profile(
@@ -887,7 +891,7 @@ function associate_iam_instance_profile(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -921,7 +925,7 @@ function associate_instance_event_window(
             "InstanceEventWindowId" => InstanceEventWindowId,
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function associate_instance_event_window(
@@ -943,7 +947,7 @@ function associate_instance_event_window(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -976,7 +980,7 @@ function associate_route_table(
         "AssociateRouteTable",
         Dict{String,Any}("routeTableId" => routeTableId);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function associate_route_table(
@@ -990,7 +994,7 @@ function associate_route_table(
             mergewith(_merge, Dict{String,Any}("routeTableId" => routeTableId), params)
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -1014,7 +1018,7 @@ function associate_subnet_cidr_block(
         "AssociateSubnetCidrBlock",
         Dict{String,Any}("ipv6CidrBlock" => ipv6CidrBlock, "subnetId" => subnetId);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function associate_subnet_cidr_block(
@@ -1033,7 +1037,7 @@ function associate_subnet_cidr_block(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -1063,7 +1067,7 @@ function associate_transit_gateway_multicast_domain(;
     return ec2(
         "AssociateTransitGatewayMulticastDomain";
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function associate_transit_gateway_multicast_domain(
@@ -1073,7 +1077,7 @@ function associate_transit_gateway_multicast_domain(
         "AssociateTransitGatewayMulticastDomain",
         params;
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -1106,7 +1110,7 @@ function associate_transit_gateway_route_table(
             "TransitGatewayRouteTableId" => TransitGatewayRouteTableId,
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function associate_transit_gateway_route_table(
@@ -1128,7 +1132,7 @@ function associate_transit_gateway_route_table(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -1167,7 +1171,7 @@ function associate_trunk_interface(
             "ClientToken" => string(uuid4()),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function associate_trunk_interface(
@@ -1190,7 +1194,7 @@ function associate_trunk_interface(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -1229,7 +1233,7 @@ function associate_vpc_cidr_block(vpcId; aws_config::AbstractAWSConfig=global_aw
         "AssociateVpcCidrBlock",
         Dict{String,Any}("vpcId" => vpcId);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function associate_vpc_cidr_block(
@@ -1239,7 +1243,7 @@ function associate_vpc_cidr_block(
         "AssociateVpcCidrBlock",
         Dict{String,Any}(mergewith(_merge, Dict{String,Any}("vpcId" => vpcId), params));
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -1279,7 +1283,7 @@ function attach_classic_link_vpc(
             "vpcId" => vpcId,
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function attach_classic_link_vpc(
@@ -1303,7 +1307,7 @@ function attach_classic_link_vpc(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -1332,7 +1336,7 @@ function attach_internet_gateway(
         "AttachInternetGateway",
         Dict{String,Any}("internetGatewayId" => internetGatewayId, "vpcId" => vpcId);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function attach_internet_gateway(
@@ -1353,7 +1357,7 @@ function attach_internet_gateway(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -1391,7 +1395,7 @@ function attach_network_interface(
             "networkInterfaceId" => networkInterfaceId,
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function attach_network_interface(
@@ -1415,7 +1419,7 @@ function attach_network_interface(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -1457,7 +1461,7 @@ function attach_volume(
             "Device" => Device, "InstanceId" => InstanceId, "VolumeId" => VolumeId
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function attach_volume(
@@ -1479,7 +1483,7 @@ function attach_volume(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -1508,7 +1512,7 @@ function attach_vpn_gateway(
         "AttachVpnGateway",
         Dict{String,Any}("VpcId" => VpcId, "VpnGatewayId" => VpnGatewayId);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function attach_vpn_gateway(
@@ -1527,7 +1531,7 @@ function attach_vpn_gateway(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -1573,7 +1577,7 @@ function authorize_client_vpn_ingress(
             "ClientToken" => string(uuid4()),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function authorize_client_vpn_ingress(
@@ -1596,7 +1600,7 @@ function authorize_client_vpn_ingress(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -1642,7 +1646,7 @@ function authorize_security_group_egress(
         "AuthorizeSecurityGroupEgress",
         Dict{String,Any}("groupId" => groupId);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function authorize_security_group_egress(
@@ -1652,7 +1656,7 @@ function authorize_security_group_egress(
         "AuthorizeSecurityGroupEgress",
         Dict{String,Any}(mergewith(_merge, Dict{String,Any}("groupId" => groupId), params));
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -1715,7 +1719,9 @@ function authorize_security_group_ingress(;
     aws_config::AbstractAWSConfig=global_aws_config()
 )
     return ec2(
-        "AuthorizeSecurityGroupIngress"; aws_config=aws_config, features=SERVICE_FEATURES
+        "AuthorizeSecurityGroupIngress";
+        aws_config=aws_config,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function authorize_security_group_ingress(
@@ -1725,7 +1731,7 @@ function authorize_security_group_ingress(
         "AuthorizeSecurityGroupIngress",
         params;
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -1757,7 +1763,7 @@ function bundle_instance(
         "BundleInstance",
         Dict{String,Any}("InstanceId" => InstanceId, "Storage" => Storage);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function bundle_instance(
@@ -1776,7 +1782,7 @@ function bundle_instance(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -1800,7 +1806,7 @@ function cancel_bundle_task(BundleId; aws_config::AbstractAWSConfig=global_aws_c
         "CancelBundleTask",
         Dict{String,Any}("BundleId" => BundleId);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function cancel_bundle_task(
@@ -1814,7 +1820,7 @@ function cancel_bundle_task(
             mergewith(_merge, Dict{String,Any}("BundleId" => BundleId), params)
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -1845,7 +1851,7 @@ function cancel_capacity_reservation(
         "CancelCapacityReservation",
         Dict{String,Any}("CapacityReservationId" => CapacityReservationId);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function cancel_capacity_reservation(
@@ -1863,7 +1869,7 @@ function cancel_capacity_reservation(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -1894,7 +1900,7 @@ function cancel_conversion_task(
         "CancelConversionTask",
         Dict{String,Any}("conversionTaskId" => conversionTaskId);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function cancel_conversion_task(
@@ -1910,7 +1916,7 @@ function cancel_conversion_task(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -1932,7 +1938,7 @@ function cancel_export_task(exportTaskId; aws_config::AbstractAWSConfig=global_a
         "CancelExportTask",
         Dict{String,Any}("exportTaskId" => exportTaskId);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function cancel_export_task(
@@ -1946,7 +1952,7 @@ function cancel_export_task(
             mergewith(_merge, Dict{String,Any}("exportTaskId" => exportTaskId), params)
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -1965,12 +1971,14 @@ Optional parameters can be passed as a `params::Dict{String,<:Any}`. Valid keys 
 - `"ImportTaskId"`: The ID of the import image or import snapshot task to be canceled.
 """
 function cancel_import_task(; aws_config::AbstractAWSConfig=global_aws_config())
-    return ec2("CancelImportTask"; aws_config=aws_config, features=SERVICE_FEATURES)
+    return ec2("CancelImportTask"; aws_config=aws_config, feature_set=SERVICE_FEATURE_SET)
 end
 function cancel_import_task(
     params::AbstractDict{String}; aws_config::AbstractAWSConfig=global_aws_config()
 )
-    return ec2("CancelImportTask", params; aws_config=aws_config, features=SERVICE_FEATURES)
+    return ec2(
+        "CancelImportTask", params; aws_config=aws_config, feature_set=SERVICE_FEATURE_SET
+    )
 end
 
 """
@@ -1991,7 +1999,7 @@ function cancel_reserved_instances_listing(
         "CancelReservedInstancesListing",
         Dict{String,Any}("reservedInstancesListingId" => reservedInstancesListingId);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function cancel_reserved_instances_listing(
@@ -2011,7 +2019,7 @@ function cancel_reserved_instances_listing(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -2049,7 +2057,7 @@ function cancel_spot_fleet_requests(
             "terminateInstances" => terminateInstances,
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function cancel_spot_fleet_requests(
@@ -2071,7 +2079,7 @@ function cancel_spot_fleet_requests(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -2098,7 +2106,7 @@ function cancel_spot_instance_requests(
         "CancelSpotInstanceRequests",
         Dict{String,Any}("SpotInstanceRequestId" => SpotInstanceRequestId);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function cancel_spot_instance_requests(
@@ -2116,7 +2124,7 @@ function cancel_spot_instance_requests(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -2145,7 +2153,7 @@ function confirm_product_instance(
         "ConfirmProductInstance",
         Dict{String,Any}("InstanceId" => InstanceId, "ProductCode" => ProductCode);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function confirm_product_instance(
@@ -2164,7 +2172,7 @@ function confirm_product_instance(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -2197,7 +2205,7 @@ function copy_fpga_image(
             "SourceFpgaImageId" => SourceFpgaImageId, "SourceRegion" => SourceRegion
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function copy_fpga_image(
@@ -2218,7 +2226,7 @@ function copy_fpga_image(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -2288,7 +2296,7 @@ function copy_image(
             "Name" => Name, "SourceImageId" => SourceImageId, "SourceRegion" => SourceRegion
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function copy_image(
@@ -2312,7 +2320,7 @@ function copy_image(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -2396,7 +2404,7 @@ function copy_snapshot(
             "SourceRegion" => SourceRegion, "SourceSnapshotId" => SourceSnapshotId
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function copy_snapshot(
@@ -2417,7 +2425,7 @@ function copy_snapshot(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -2511,7 +2519,7 @@ function create_capacity_reservation(
             "InstanceType" => InstanceType,
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function create_capacity_reservation(
@@ -2535,7 +2543,7 @@ function create_capacity_reservation(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -2563,7 +2571,7 @@ function create_carrier_gateway(VpcId; aws_config::AbstractAWSConfig=global_aws_
         "CreateCarrierGateway",
         Dict{String,Any}("VpcId" => VpcId, "ClientToken" => string(uuid4()));
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function create_carrier_gateway(
@@ -2579,7 +2587,7 @@ function create_carrier_gateway(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -2652,7 +2660,7 @@ function create_client_vpn_endpoint(
             "ClientToken" => string(uuid4()),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function create_client_vpn_endpoint(
@@ -2679,7 +2687,7 @@ function create_client_vpn_endpoint(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -2726,7 +2734,7 @@ function create_client_vpn_route(
             "ClientToken" => string(uuid4()),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function create_client_vpn_route(
@@ -2751,7 +2759,7 @@ function create_client_vpn_route(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -2799,7 +2807,7 @@ function create_customer_gateway(
         "CreateCustomerGateway",
         Dict{String,Any}("BgpAsn" => BgpAsn, "Type" => Type);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function create_customer_gateway(
@@ -2814,7 +2822,7 @@ function create_customer_gateway(
             mergewith(_merge, Dict{String,Any}("BgpAsn" => BgpAsn, "Type" => Type), params)
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -2842,7 +2850,7 @@ function create_default_subnet(
         "CreateDefaultSubnet",
         Dict{String,Any}("AvailabilityZone" => AvailabilityZone);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function create_default_subnet(
@@ -2858,7 +2866,7 @@ function create_default_subnet(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -2883,12 +2891,14 @@ Optional parameters can be passed as a `params::Dict{String,<:Any}`. Valid keys 
   permissions, the error response is DryRunOperation. Otherwise, it is UnauthorizedOperation.
 """
 function create_default_vpc(; aws_config::AbstractAWSConfig=global_aws_config())
-    return ec2("CreateDefaultVpc"; aws_config=aws_config, features=SERVICE_FEATURES)
+    return ec2("CreateDefaultVpc"; aws_config=aws_config, feature_set=SERVICE_FEATURE_SET)
 end
 function create_default_vpc(
     params::AbstractDict{String}; aws_config::AbstractAWSConfig=global_aws_config()
 )
-    return ec2("CreateDefaultVpc", params; aws_config=aws_config, features=SERVICE_FEATURES)
+    return ec2(
+        "CreateDefaultVpc", params; aws_config=aws_config, feature_set=SERVICE_FEATURE_SET
+    )
 end
 
 """
@@ -2938,7 +2948,7 @@ function create_dhcp_options(
         "CreateDhcpOptions",
         Dict{String,Any}("dhcpConfiguration" => dhcpConfiguration);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function create_dhcp_options(
@@ -2954,7 +2964,7 @@ function create_dhcp_options(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -2986,7 +2996,7 @@ function create_egress_only_internet_gateway(
         "CreateEgressOnlyInternetGateway",
         Dict{String,Any}("VpcId" => VpcId);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function create_egress_only_internet_gateway(
@@ -2996,7 +3006,7 @@ function create_egress_only_internet_gateway(
         "CreateEgressOnlyInternetGateway",
         Dict{String,Any}(mergewith(_merge, Dict{String,Any}("VpcId" => VpcId), params));
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -3061,7 +3071,7 @@ function create_fleet(
             "TargetCapacitySpecification" => TargetCapacitySpecification, "item" => item
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function create_fleet(
@@ -3083,7 +3093,7 @@ function create_fleet(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -3163,7 +3173,7 @@ function create_flow_logs(
             "TrafficType" => TrafficType,
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function create_flow_logs(
@@ -3187,7 +3197,7 @@ function create_flow_logs(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -3224,7 +3234,7 @@ function create_fpga_image(
         "CreateFpgaImage",
         Dict{String,Any}("InputStorageLocation" => InputStorageLocation);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function create_fpga_image(
@@ -3242,7 +3252,7 @@ function create_fpga_image(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -3290,7 +3300,7 @@ function create_image(instanceId, name; aws_config::AbstractAWSConfig=global_aws
         "CreateImage",
         Dict{String,Any}("instanceId" => instanceId, "name" => name);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function create_image(
@@ -3307,7 +3317,7 @@ function create_image(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -3348,7 +3358,7 @@ Optional parameters can be passed as a `params::Dict{String,<:Any}`. Valid keys 
 """
 function create_instance_event_window(; aws_config::AbstractAWSConfig=global_aws_config())
     return ec2(
-        "CreateInstanceEventWindow"; aws_config=aws_config, features=SERVICE_FEATURES
+        "CreateInstanceEventWindow"; aws_config=aws_config, feature_set=SERVICE_FEATURE_SET
     )
 end
 function create_instance_event_window(
@@ -3358,7 +3368,7 @@ function create_instance_event_window(
         "CreateInstanceEventWindow",
         params;
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -3396,7 +3406,7 @@ function create_instance_export_task(
             "targetEnvironment" => targetEnvironment,
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function create_instance_export_task(
@@ -3420,7 +3430,7 @@ function create_instance_export_task(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -3440,13 +3450,18 @@ Optional parameters can be passed as a `params::Dict{String,<:Any}`. Valid keys 
   permissions, the error response is DryRunOperation. Otherwise, it is UnauthorizedOperation.
 """
 function create_internet_gateway(; aws_config::AbstractAWSConfig=global_aws_config())
-    return ec2("CreateInternetGateway"; aws_config=aws_config, features=SERVICE_FEATURES)
+    return ec2(
+        "CreateInternetGateway"; aws_config=aws_config, feature_set=SERVICE_FEATURE_SET
+    )
 end
 function create_internet_gateway(
     params::AbstractDict{String}; aws_config::AbstractAWSConfig=global_aws_config()
 )
     return ec2(
-        "CreateInternetGateway", params; aws_config=aws_config, features=SERVICE_FEATURES
+        "CreateInternetGateway",
+        params;
+        aws_config=aws_config,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -3480,7 +3495,7 @@ function create_key_pair(KeyName; aws_config::AbstractAWSConfig=global_aws_confi
         "CreateKeyPair",
         Dict{String,Any}("KeyName" => KeyName);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function create_key_pair(
@@ -3490,7 +3505,7 @@ function create_key_pair(
         "CreateKeyPair",
         Dict{String,Any}(mergewith(_merge, Dict{String,Any}("KeyName" => KeyName), params));
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -3530,7 +3545,7 @@ function create_launch_template(
             "LaunchTemplateName" => LaunchTemplateName,
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function create_launch_template(
@@ -3552,7 +3567,7 @@ function create_launch_template(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -3595,7 +3610,7 @@ function create_launch_template_version(
         "CreateLaunchTemplateVersion",
         Dict{String,Any}("LaunchTemplateData" => LaunchTemplateData);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function create_launch_template_version(
@@ -3611,7 +3626,7 @@ function create_launch_template_version(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -3647,7 +3662,7 @@ function create_local_gateway_route(
             "LocalGatewayVirtualInterfaceGroupId" => LocalGatewayVirtualInterfaceGroupId,
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function create_local_gateway_route(
@@ -3672,7 +3687,7 @@ function create_local_gateway_route(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -3702,7 +3717,7 @@ function create_local_gateway_route_table_vpc_association(
             "LocalGatewayRouteTableId" => LocalGatewayRouteTableId, "VpcId" => VpcId
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function create_local_gateway_route_table_vpc_association(
@@ -3723,7 +3738,7 @@ function create_local_gateway_route_table_vpc_association(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -3766,7 +3781,7 @@ function create_managed_prefix_list(
             "ClientToken" => string(uuid4()),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function create_managed_prefix_list(
@@ -3791,7 +3806,7 @@ function create_managed_prefix_list(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -3834,7 +3849,7 @@ function create_nat_gateway(SubnetId; aws_config::AbstractAWSConfig=global_aws_c
         "CreateNatGateway",
         Dict{String,Any}("SubnetId" => SubnetId, "ClientToken" => string(uuid4()));
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function create_nat_gateway(
@@ -3852,7 +3867,7 @@ function create_nat_gateway(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -3879,7 +3894,7 @@ function create_network_acl(vpcId; aws_config::AbstractAWSConfig=global_aws_conf
         "CreateNetworkAcl",
         Dict{String,Any}("vpcId" => vpcId);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function create_network_acl(
@@ -3889,7 +3904,7 @@ function create_network_acl(
         "CreateNetworkAcl",
         Dict{String,Any}(mergewith(_merge, Dict{String,Any}("vpcId" => vpcId), params));
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -3957,7 +3972,7 @@ function create_network_acl_entry(
             "ruleNumber" => ruleNumber,
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function create_network_acl_entry(
@@ -3985,7 +4000,7 @@ function create_network_acl_entry(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -4032,7 +4047,7 @@ function create_network_insights_path(
             "Source" => Source,
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function create_network_insights_path(
@@ -4058,7 +4073,7 @@ function create_network_insights_path(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -4124,7 +4139,7 @@ function create_network_interface(
         "CreateNetworkInterface",
         Dict{String,Any}("subnetId" => subnetId, "ClientToken" => string(uuid4()));
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function create_network_interface(
@@ -4142,7 +4157,7 @@ function create_network_interface(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -4175,7 +4190,7 @@ function create_network_interface_permission(
             "NetworkInterfaceId" => NetworkInterfaceId, "Permission" => Permission
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function create_network_interface_permission(
@@ -4196,7 +4211,7 @@ function create_network_interface_permission(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -4226,13 +4241,18 @@ Optional parameters can be passed as a `params::Dict{String,<:Any}`. Valid keys 
 - `"strategy"`: The placement strategy.
 """
 function create_placement_group(; aws_config::AbstractAWSConfig=global_aws_config())
-    return ec2("CreatePlacementGroup"; aws_config=aws_config, features=SERVICE_FEATURES)
+    return ec2(
+        "CreatePlacementGroup"; aws_config=aws_config, feature_set=SERVICE_FEATURE_SET
+    )
 end
 function create_placement_group(
     params::AbstractDict{String}; aws_config::AbstractAWSConfig=global_aws_config()
 )
     return ec2(
-        "CreatePlacementGroup", params; aws_config=aws_config, features=SERVICE_FEATURES
+        "CreatePlacementGroup",
+        params;
+        aws_config=aws_config,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -4267,7 +4287,7 @@ function create_replace_root_volume_task(
         "CreateReplaceRootVolumeTask",
         Dict{String,Any}("InstanceId" => InstanceId, "ClientToken" => string(uuid4()));
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function create_replace_root_volume_task(
@@ -4287,7 +4307,7 @@ function create_replace_root_volume_task(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -4339,7 +4359,7 @@ function create_reserved_instances_listing(
             "reservedInstancesId" => reservedInstancesId,
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function create_reserved_instances_listing(
@@ -4365,7 +4385,7 @@ function create_reserved_instances_listing(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -4403,7 +4423,7 @@ function create_restore_image_task(
         "CreateRestoreImageTask",
         Dict{String,Any}("Bucket" => Bucket, "ObjectKey" => ObjectKey);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function create_restore_image_task(
@@ -4422,7 +4442,7 @@ function create_restore_image_task(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -4478,7 +4498,7 @@ function create_route(routeTableId; aws_config::AbstractAWSConfig=global_aws_con
         "CreateRoute",
         Dict{String,Any}("routeTableId" => routeTableId);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function create_route(
@@ -4492,7 +4512,7 @@ function create_route(
             mergewith(_merge, Dict{String,Any}("routeTableId" => routeTableId), params)
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -4519,7 +4539,7 @@ function create_route_table(vpcId; aws_config::AbstractAWSConfig=global_aws_conf
         "CreateRouteTable",
         Dict{String,Any}("vpcId" => vpcId);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function create_route_table(
@@ -4529,7 +4549,7 @@ function create_route_table(
         "CreateRouteTable",
         Dict{String,Any}(mergewith(_merge, Dict{String,Any}("vpcId" => vpcId), params));
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -4576,7 +4596,7 @@ function create_security_group(
         "CreateSecurityGroup",
         Dict{String,Any}("GroupDescription" => GroupDescription, "GroupName" => GroupName);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function create_security_group(
@@ -4597,7 +4617,7 @@ function create_security_group(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -4653,7 +4673,7 @@ function create_snapshot(VolumeId; aws_config::AbstractAWSConfig=global_aws_conf
         "CreateSnapshot",
         Dict{String,Any}("VolumeId" => VolumeId);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function create_snapshot(
@@ -4667,7 +4687,7 @@ function create_snapshot(
             mergewith(_merge, Dict{String,Any}("VolumeId" => VolumeId), params)
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -4714,7 +4734,7 @@ function create_snapshots(
         "CreateSnapshots",
         Dict{String,Any}("InstanceSpecification" => InstanceSpecification);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function create_snapshots(
@@ -4732,7 +4752,7 @@ function create_snapshots(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -4763,7 +4783,7 @@ function create_spot_datafeed_subscription(
         "CreateSpotDatafeedSubscription",
         Dict{String,Any}("bucket" => bucket);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function create_spot_datafeed_subscription(
@@ -4773,7 +4793,7 @@ function create_spot_datafeed_subscription(
         "CreateSpotDatafeedSubscription",
         Dict{String,Any}(mergewith(_merge, Dict{String,Any}("bucket" => bucket), params));
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -4807,7 +4827,7 @@ function create_store_image_task(
         "CreateStoreImageTask",
         Dict{String,Any}("Bucket" => Bucket, "ImageId" => ImageId);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function create_store_image_task(
@@ -4824,7 +4844,7 @@ function create_store_image_task(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -4875,7 +4895,7 @@ function create_subnet(CidrBlock, VpcId; aws_config::AbstractAWSConfig=global_aw
         "CreateSubnet",
         Dict{String,Any}("CidrBlock" => CidrBlock, "VpcId" => VpcId);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function create_subnet(
@@ -4892,7 +4912,7 @@ function create_subnet(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -4930,7 +4950,7 @@ function create_subnet_cidr_reservation(
             "Cidr" => Cidr, "ReservationType" => ReservationType, "SubnetId" => SubnetId
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function create_subnet_cidr_reservation(
@@ -4954,7 +4974,7 @@ function create_subnet_cidr_reservation(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -4988,7 +5008,7 @@ function create_tags(ResourceId, Tag; aws_config::AbstractAWSConfig=global_aws_c
         "CreateTags",
         Dict{String,Any}("ResourceId" => ResourceId, "Tag" => Tag);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function create_tags(
@@ -5005,7 +5025,7 @@ function create_tags(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -5034,7 +5054,7 @@ function create_traffic_mirror_filter(; aws_config::AbstractAWSConfig=global_aws
         "CreateTrafficMirrorFilter",
         Dict{String,Any}("ClientToken" => string(uuid4()));
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function create_traffic_mirror_filter(
@@ -5046,7 +5066,7 @@ function create_traffic_mirror_filter(
             mergewith(_merge, Dict{String,Any}("ClientToken" => string(uuid4())), params)
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -5102,7 +5122,7 @@ function create_traffic_mirror_filter_rule(
             "ClientToken" => string(uuid4()),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function create_traffic_mirror_filter_rule(
@@ -5133,7 +5153,7 @@ function create_traffic_mirror_filter_rule(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -5193,7 +5213,7 @@ function create_traffic_mirror_session(
             "ClientToken" => string(uuid4()),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function create_traffic_mirror_session(
@@ -5220,7 +5240,7 @@ function create_traffic_mirror_session(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -5253,7 +5273,7 @@ function create_traffic_mirror_target(; aws_config::AbstractAWSConfig=global_aws
         "CreateTrafficMirrorTarget",
         Dict{String,Any}("ClientToken" => string(uuid4()));
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function create_traffic_mirror_target(
@@ -5265,7 +5285,7 @@ function create_traffic_mirror_target(
             mergewith(_merge, Dict{String,Any}("ClientToken" => string(uuid4())), params)
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -5298,13 +5318,18 @@ Optional parameters can be passed as a `params::Dict{String,<:Any}`. Valid keys 
 - `"TagSpecification"`: The tags to apply to the transit gateway.
 """
 function create_transit_gateway(; aws_config::AbstractAWSConfig=global_aws_config())
-    return ec2("CreateTransitGateway"; aws_config=aws_config, features=SERVICE_FEATURES)
+    return ec2(
+        "CreateTransitGateway"; aws_config=aws_config, feature_set=SERVICE_FEATURE_SET
+    )
 end
 function create_transit_gateway(
     params::AbstractDict{String}; aws_config::AbstractAWSConfig=global_aws_config()
 )
     return ec2(
-        "CreateTransitGateway", params; aws_config=aws_config, features=SERVICE_FEATURES
+        "CreateTransitGateway",
+        params;
+        aws_config=aws_config,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -5341,7 +5366,7 @@ function create_transit_gateway_connect(
             "TransportTransitGatewayAttachmentId" => TransportTransitGatewayAttachmentId,
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function create_transit_gateway_connect(
@@ -5364,7 +5389,7 @@ function create_transit_gateway_connect(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -5416,7 +5441,7 @@ function create_transit_gateway_connect_peer(
             "item" => item,
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function create_transit_gateway_connect_peer(
@@ -5440,7 +5465,7 @@ function create_transit_gateway_connect_peer(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -5470,7 +5495,7 @@ function create_transit_gateway_multicast_domain(
         "CreateTransitGatewayMulticastDomain",
         Dict{String,Any}("TransitGatewayId" => TransitGatewayId);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function create_transit_gateway_multicast_domain(
@@ -5486,7 +5511,7 @@ function create_transit_gateway_multicast_domain(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -5531,7 +5556,7 @@ function create_transit_gateway_peering_attachment(
             "TransitGatewayId" => TransitGatewayId,
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function create_transit_gateway_peering_attachment(
@@ -5557,7 +5582,7 @@ function create_transit_gateway_peering_attachment(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -5591,7 +5616,7 @@ function create_transit_gateway_prefix_list_reference(
             "TransitGatewayRouteTableId" => TransitGatewayRouteTableId,
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function create_transit_gateway_prefix_list_reference(
@@ -5613,7 +5638,7 @@ function create_transit_gateway_prefix_list_reference(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -5648,7 +5673,7 @@ function create_transit_gateway_route(
             "TransitGatewayRouteTableId" => TransitGatewayRouteTableId,
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function create_transit_gateway_route(
@@ -5670,7 +5695,7 @@ function create_transit_gateway_route(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -5697,7 +5722,7 @@ function create_transit_gateway_route_table(
         "CreateTransitGatewayRouteTable",
         Dict{String,Any}("TransitGatewayId" => TransitGatewayId);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function create_transit_gateway_route_table(
@@ -5713,7 +5738,7 @@ function create_transit_gateway_route_table(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -5754,7 +5779,7 @@ function create_transit_gateway_vpc_attachment(
             "TransitGatewayId" => TransitGatewayId, "VpcId" => VpcId, "item" => item
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function create_transit_gateway_vpc_attachment(
@@ -5776,7 +5801,7 @@ function create_transit_gateway_vpc_attachment(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -5859,7 +5884,7 @@ function create_volume(AvailabilityZone; aws_config::AbstractAWSConfig=global_aw
             "AvailabilityZone" => AvailabilityZone, "ClientToken" => string(uuid4())
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function create_volume(
@@ -5879,7 +5904,7 @@ function create_volume(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -5933,7 +5958,7 @@ function create_vpc(CidrBlock; aws_config::AbstractAWSConfig=global_aws_config()
         "CreateVpc",
         Dict{String,Any}("CidrBlock" => CidrBlock);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function create_vpc(
@@ -5947,7 +5972,7 @@ function create_vpc(
             mergewith(_merge, Dict{String,Any}("CidrBlock" => CidrBlock), params)
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -6010,7 +6035,7 @@ function create_vpc_endpoint(
         "CreateVpcEndpoint",
         Dict{String,Any}("ServiceName" => ServiceName, "VpcId" => VpcId);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function create_vpc_endpoint(
@@ -6029,7 +6054,7 @@ function create_vpc_endpoint(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -6069,7 +6094,7 @@ function create_vpc_endpoint_connection_notification(
             "ConnectionNotificationArn" => ConnectionNotificationArn, "item" => item
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function create_vpc_endpoint_connection_notification(
@@ -6090,7 +6115,7 @@ function create_vpc_endpoint_connection_notification(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -6132,7 +6157,7 @@ function create_vpc_endpoint_service_configuration(;
     return ec2(
         "CreateVpcEndpointServiceConfiguration";
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function create_vpc_endpoint_service_configuration(
@@ -6142,7 +6167,7 @@ function create_vpc_endpoint_service_configuration(
         "CreateVpcEndpointServiceConfiguration",
         params;
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -6178,7 +6203,7 @@ Optional parameters can be passed as a `params::Dict{String,<:Any}`. Valid keys 
 """
 function create_vpc_peering_connection(; aws_config::AbstractAWSConfig=global_aws_config())
     return ec2(
-        "CreateVpcPeeringConnection"; aws_config=aws_config, features=SERVICE_FEATURES
+        "CreateVpcPeeringConnection"; aws_config=aws_config, feature_set=SERVICE_FEATURE_SET
     )
 end
 function create_vpc_peering_connection(
@@ -6188,7 +6213,7 @@ function create_vpc_peering_connection(
         "CreateVpcPeeringConnection",
         params;
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -6230,7 +6255,7 @@ function create_vpn_connection(
         "CreateVpnConnection",
         Dict{String,Any}("CustomerGatewayId" => CustomerGatewayId, "Type" => Type);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function create_vpn_connection(
@@ -6249,7 +6274,7 @@ function create_vpn_connection(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -6278,7 +6303,7 @@ function create_vpn_connection_route(
             "VpnConnectionId" => VpnConnectionId,
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function create_vpn_connection_route(
@@ -6300,7 +6325,7 @@ function create_vpn_connection_route(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -6332,7 +6357,7 @@ function create_vpn_gateway(Type; aws_config::AbstractAWSConfig=global_aws_confi
         "CreateVpnGateway",
         Dict{String,Any}("Type" => Type);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function create_vpn_gateway(
@@ -6342,7 +6367,7 @@ function create_vpn_gateway(
         "CreateVpnGateway",
         Dict{String,Any}(mergewith(_merge, Dict{String,Any}("Type" => Type), params));
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -6370,7 +6395,7 @@ function delete_carrier_gateway(
         "DeleteCarrierGateway",
         Dict{String,Any}("CarrierGatewayId" => CarrierGatewayId);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function delete_carrier_gateway(
@@ -6386,7 +6411,7 @@ function delete_carrier_gateway(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -6413,7 +6438,7 @@ function delete_client_vpn_endpoint(
         "DeleteClientVpnEndpoint",
         Dict{String,Any}("ClientVpnEndpointId" => ClientVpnEndpointId);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function delete_client_vpn_endpoint(
@@ -6431,7 +6456,7 @@ function delete_client_vpn_endpoint(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -6469,7 +6494,7 @@ function delete_client_vpn_route(
             "DestinationCidrBlock" => DestinationCidrBlock,
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function delete_client_vpn_route(
@@ -6491,7 +6516,7 @@ function delete_client_vpn_route(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -6518,7 +6543,7 @@ function delete_customer_gateway(
         "DeleteCustomerGateway",
         Dict{String,Any}("CustomerGatewayId" => CustomerGatewayId);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function delete_customer_gateway(
@@ -6534,7 +6559,7 @@ function delete_customer_gateway(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -6562,7 +6587,7 @@ function delete_dhcp_options(
         "DeleteDhcpOptions",
         Dict{String,Any}("DhcpOptionsId" => DhcpOptionsId);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function delete_dhcp_options(
@@ -6576,7 +6601,7 @@ function delete_dhcp_options(
             mergewith(_merge, Dict{String,Any}("DhcpOptionsId" => DhcpOptionsId), params)
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -6602,7 +6627,7 @@ function delete_egress_only_internet_gateway(
         "DeleteEgressOnlyInternetGateway",
         Dict{String,Any}("EgressOnlyInternetGatewayId" => EgressOnlyInternetGatewayId);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function delete_egress_only_internet_gateway(
@@ -6622,7 +6647,7 @@ function delete_egress_only_internet_gateway(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -6664,7 +6689,7 @@ function delete_fleets(
         "DeleteFleets",
         Dict{String,Any}("FleetId" => FleetId, "TerminateInstances" => TerminateInstances);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function delete_fleets(
@@ -6685,7 +6710,7 @@ function delete_fleets(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -6709,7 +6734,7 @@ function delete_flow_logs(FlowLogId; aws_config::AbstractAWSConfig=global_aws_co
         "DeleteFlowLogs",
         Dict{String,Any}("FlowLogId" => FlowLogId);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function delete_flow_logs(
@@ -6723,7 +6748,7 @@ function delete_flow_logs(
             mergewith(_merge, Dict{String,Any}("FlowLogId" => FlowLogId), params)
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -6747,7 +6772,7 @@ function delete_fpga_image(FpgaImageId; aws_config::AbstractAWSConfig=global_aws
         "DeleteFpgaImage",
         Dict{String,Any}("FpgaImageId" => FpgaImageId);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function delete_fpga_image(
@@ -6761,7 +6786,7 @@ function delete_fpga_image(
             mergewith(_merge, Dict{String,Any}("FpgaImageId" => FpgaImageId), params)
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -6790,7 +6815,7 @@ function delete_instance_event_window(
         "DeleteInstanceEventWindow",
         Dict{String,Any}("InstanceEventWindowId" => InstanceEventWindowId);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function delete_instance_event_window(
@@ -6808,7 +6833,7 @@ function delete_instance_event_window(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -6835,7 +6860,7 @@ function delete_internet_gateway(
         "DeleteInternetGateway",
         Dict{String,Any}("internetGatewayId" => internetGatewayId);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function delete_internet_gateway(
@@ -6851,7 +6876,7 @@ function delete_internet_gateway(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -6870,12 +6895,14 @@ Optional parameters can be passed as a `params::Dict{String,<:Any}`. Valid keys 
   permissions, the error response is DryRunOperation. Otherwise, it is UnauthorizedOperation.
 """
 function delete_key_pair(; aws_config::AbstractAWSConfig=global_aws_config())
-    return ec2("DeleteKeyPair"; aws_config=aws_config, features=SERVICE_FEATURES)
+    return ec2("DeleteKeyPair"; aws_config=aws_config, feature_set=SERVICE_FEATURE_SET)
 end
 function delete_key_pair(
     params::AbstractDict{String}; aws_config::AbstractAWSConfig=global_aws_config()
 )
-    return ec2("DeleteKeyPair", params; aws_config=aws_config, features=SERVICE_FEATURES)
+    return ec2(
+        "DeleteKeyPair", params; aws_config=aws_config, feature_set=SERVICE_FEATURE_SET
+    )
 end
 
 """
@@ -6895,13 +6922,18 @@ Optional parameters can be passed as a `params::Dict{String,<:Any}`. Valid keys 
   launch template ID or launch template name in the request.
 """
 function delete_launch_template(; aws_config::AbstractAWSConfig=global_aws_config())
-    return ec2("DeleteLaunchTemplate"; aws_config=aws_config, features=SERVICE_FEATURES)
+    return ec2(
+        "DeleteLaunchTemplate"; aws_config=aws_config, feature_set=SERVICE_FEATURE_SET
+    )
 end
 function delete_launch_template(
     params::AbstractDict{String}; aws_config::AbstractAWSConfig=global_aws_config()
 )
     return ec2(
-        "DeleteLaunchTemplate", params; aws_config=aws_config, features=SERVICE_FEATURES
+        "DeleteLaunchTemplate",
+        params;
+        aws_config=aws_config,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -6935,7 +6967,7 @@ function delete_launch_template_versions(
         "DeleteLaunchTemplateVersions",
         Dict{String,Any}("LaunchTemplateVersion" => LaunchTemplateVersion);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function delete_launch_template_versions(
@@ -6953,7 +6985,7 @@ function delete_launch_template_versions(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -6986,7 +7018,7 @@ function delete_local_gateway_route(
             "LocalGatewayRouteTableId" => LocalGatewayRouteTableId,
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function delete_local_gateway_route(
@@ -7008,7 +7040,7 @@ function delete_local_gateway_route(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -7038,7 +7070,7 @@ function delete_local_gateway_route_table_vpc_association(
                 LocalGatewayRouteTableVpcAssociationId,
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function delete_local_gateway_route_table_vpc_association(
@@ -7059,7 +7091,7 @@ function delete_local_gateway_route_table_vpc_association(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -7086,7 +7118,7 @@ function delete_managed_prefix_list(
         "DeleteManagedPrefixList",
         Dict{String,Any}("PrefixListId" => PrefixListId);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function delete_managed_prefix_list(
@@ -7100,7 +7132,7 @@ function delete_managed_prefix_list(
             mergewith(_merge, Dict{String,Any}("PrefixListId" => PrefixListId), params)
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -7126,7 +7158,7 @@ function delete_nat_gateway(NatGatewayId; aws_config::AbstractAWSConfig=global_a
         "DeleteNatGateway",
         Dict{String,Any}("NatGatewayId" => NatGatewayId);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function delete_nat_gateway(
@@ -7140,7 +7172,7 @@ function delete_nat_gateway(
             mergewith(_merge, Dict{String,Any}("NatGatewayId" => NatGatewayId), params)
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -7165,7 +7197,7 @@ function delete_network_acl(networkAclId; aws_config::AbstractAWSConfig=global_a
         "DeleteNetworkAcl",
         Dict{String,Any}("networkAclId" => networkAclId);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function delete_network_acl(
@@ -7179,7 +7211,7 @@ function delete_network_acl(
             mergewith(_merge, Dict{String,Any}("networkAclId" => networkAclId), params)
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -7209,7 +7241,7 @@ function delete_network_acl_entry(
             "egress" => egress, "networkAclId" => networkAclId, "ruleNumber" => ruleNumber
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function delete_network_acl_entry(
@@ -7233,7 +7265,7 @@ function delete_network_acl_entry(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -7259,7 +7291,7 @@ function delete_network_insights_analysis(
         "DeleteNetworkInsightsAnalysis",
         Dict{String,Any}("NetworkInsightsAnalysisId" => NetworkInsightsAnalysisId);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function delete_network_insights_analysis(
@@ -7277,7 +7309,7 @@ function delete_network_insights_analysis(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -7303,7 +7335,7 @@ function delete_network_insights_path(
         "DeleteNetworkInsightsPath",
         Dict{String,Any}("NetworkInsightsPathId" => NetworkInsightsPathId);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function delete_network_insights_path(
@@ -7321,7 +7353,7 @@ function delete_network_insights_path(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -7348,7 +7380,7 @@ function delete_network_interface(
         "DeleteNetworkInterface",
         Dict{String,Any}("networkInterfaceId" => networkInterfaceId);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function delete_network_interface(
@@ -7364,7 +7396,7 @@ function delete_network_interface(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -7394,7 +7426,7 @@ function delete_network_interface_permission(
         "DeleteNetworkInterfacePermission",
         Dict{String,Any}("NetworkInterfacePermissionId" => NetworkInterfacePermissionId);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function delete_network_interface_permission(
@@ -7414,7 +7446,7 @@ function delete_network_interface_permission(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -7442,7 +7474,7 @@ function delete_placement_group(
         "DeletePlacementGroup",
         Dict{String,Any}("groupName" => groupName);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function delete_placement_group(
@@ -7456,7 +7488,7 @@ function delete_placement_group(
             mergewith(_merge, Dict{String,Any}("groupName" => groupName), params)
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -7482,7 +7514,7 @@ function delete_queued_reserved_instances(
         "DeleteQueuedReservedInstances",
         Dict{String,Any}("ReservedInstancesId" => ReservedInstancesId);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function delete_queued_reserved_instances(
@@ -7500,7 +7532,7 @@ function delete_queued_reserved_instances(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -7529,7 +7561,7 @@ function delete_route(routeTableId; aws_config::AbstractAWSConfig=global_aws_con
         "DeleteRoute",
         Dict{String,Any}("routeTableId" => routeTableId);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function delete_route(
@@ -7543,7 +7575,7 @@ function delete_route(
             mergewith(_merge, Dict{String,Any}("routeTableId" => routeTableId), params)
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -7568,7 +7600,7 @@ function delete_route_table(routeTableId; aws_config::AbstractAWSConfig=global_a
         "DeleteRouteTable",
         Dict{String,Any}("routeTableId" => routeTableId);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function delete_route_table(
@@ -7582,7 +7614,7 @@ function delete_route_table(
             mergewith(_merge, Dict{String,Any}("routeTableId" => routeTableId), params)
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -7604,13 +7636,18 @@ Optional parameters can be passed as a `params::Dict{String,<:Any}`. Valid keys 
   permissions, the error response is DryRunOperation. Otherwise, it is UnauthorizedOperation.
 """
 function delete_security_group(; aws_config::AbstractAWSConfig=global_aws_config())
-    return ec2("DeleteSecurityGroup"; aws_config=aws_config, features=SERVICE_FEATURES)
+    return ec2(
+        "DeleteSecurityGroup"; aws_config=aws_config, feature_set=SERVICE_FEATURE_SET
+    )
 end
 function delete_security_group(
     params::AbstractDict{String}; aws_config::AbstractAWSConfig=global_aws_config()
 )
     return ec2(
-        "DeleteSecurityGroup", params; aws_config=aws_config, features=SERVICE_FEATURES
+        "DeleteSecurityGroup",
+        params;
+        aws_config=aws_config,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -7642,7 +7679,7 @@ function delete_snapshot(SnapshotId; aws_config::AbstractAWSConfig=global_aws_co
         "DeleteSnapshot",
         Dict{String,Any}("SnapshotId" => SnapshotId);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function delete_snapshot(
@@ -7656,7 +7693,7 @@ function delete_snapshot(
             mergewith(_merge, Dict{String,Any}("SnapshotId" => SnapshotId), params)
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -7676,7 +7713,9 @@ function delete_spot_datafeed_subscription(;
     aws_config::AbstractAWSConfig=global_aws_config()
 )
     return ec2(
-        "DeleteSpotDatafeedSubscription"; aws_config=aws_config, features=SERVICE_FEATURES
+        "DeleteSpotDatafeedSubscription";
+        aws_config=aws_config,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function delete_spot_datafeed_subscription(
@@ -7686,7 +7725,7 @@ function delete_spot_datafeed_subscription(
         "DeleteSpotDatafeedSubscription",
         params;
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -7711,7 +7750,7 @@ function delete_subnet(SubnetId; aws_config::AbstractAWSConfig=global_aws_config
         "DeleteSubnet",
         Dict{String,Any}("SubnetId" => SubnetId);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function delete_subnet(
@@ -7725,7 +7764,7 @@ function delete_subnet(
             mergewith(_merge, Dict{String,Any}("SubnetId" => SubnetId), params)
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -7751,7 +7790,7 @@ function delete_subnet_cidr_reservation(
         "DeleteSubnetCidrReservation",
         Dict{String,Any}("SubnetCidrReservationId" => SubnetCidrReservationId);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function delete_subnet_cidr_reservation(
@@ -7769,7 +7808,7 @@ function delete_subnet_cidr_reservation(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -7802,7 +7841,7 @@ function delete_tags(resourceId; aws_config::AbstractAWSConfig=global_aws_config
         "DeleteTags",
         Dict{String,Any}("resourceId" => resourceId);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function delete_tags(
@@ -7816,7 +7855,7 @@ function delete_tags(
             mergewith(_merge, Dict{String,Any}("resourceId" => resourceId), params)
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -7843,7 +7882,7 @@ function delete_traffic_mirror_filter(
         "DeleteTrafficMirrorFilter",
         Dict{String,Any}("TrafficMirrorFilterId" => TrafficMirrorFilterId);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function delete_traffic_mirror_filter(
@@ -7861,7 +7900,7 @@ function delete_traffic_mirror_filter(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -7887,7 +7926,7 @@ function delete_traffic_mirror_filter_rule(
         "DeleteTrafficMirrorFilterRule",
         Dict{String,Any}("TrafficMirrorFilterRuleId" => TrafficMirrorFilterRuleId);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function delete_traffic_mirror_filter_rule(
@@ -7905,7 +7944,7 @@ function delete_traffic_mirror_filter_rule(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -7931,7 +7970,7 @@ function delete_traffic_mirror_session(
         "DeleteTrafficMirrorSession",
         Dict{String,Any}("TrafficMirrorSessionId" => TrafficMirrorSessionId);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function delete_traffic_mirror_session(
@@ -7949,7 +7988,7 @@ function delete_traffic_mirror_session(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -7976,7 +8015,7 @@ function delete_traffic_mirror_target(
         "DeleteTrafficMirrorTarget",
         Dict{String,Any}("TrafficMirrorTargetId" => TrafficMirrorTargetId);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function delete_traffic_mirror_target(
@@ -7994,7 +8033,7 @@ function delete_traffic_mirror_target(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -8020,7 +8059,7 @@ function delete_transit_gateway(
         "DeleteTransitGateway",
         Dict{String,Any}("TransitGatewayId" => TransitGatewayId);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function delete_transit_gateway(
@@ -8036,7 +8075,7 @@ function delete_transit_gateway(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -8063,7 +8102,7 @@ function delete_transit_gateway_connect(
         "DeleteTransitGatewayConnect",
         Dict{String,Any}("TransitGatewayAttachmentId" => TransitGatewayAttachmentId);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function delete_transit_gateway_connect(
@@ -8083,7 +8122,7 @@ function delete_transit_gateway_connect(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -8109,7 +8148,7 @@ function delete_transit_gateway_connect_peer(
         "DeleteTransitGatewayConnectPeer",
         Dict{String,Any}("TransitGatewayConnectPeerId" => TransitGatewayConnectPeerId);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function delete_transit_gateway_connect_peer(
@@ -8129,7 +8168,7 @@ function delete_transit_gateway_connect_peer(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -8157,7 +8196,7 @@ function delete_transit_gateway_multicast_domain(
             "TransitGatewayMulticastDomainId" => TransitGatewayMulticastDomainId
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function delete_transit_gateway_multicast_domain(
@@ -8177,7 +8216,7 @@ function delete_transit_gateway_multicast_domain(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -8203,7 +8242,7 @@ function delete_transit_gateway_peering_attachment(
         "DeleteTransitGatewayPeeringAttachment",
         Dict{String,Any}("TransitGatewayAttachmentId" => TransitGatewayAttachmentId);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function delete_transit_gateway_peering_attachment(
@@ -8223,7 +8262,7 @@ function delete_transit_gateway_peering_attachment(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -8255,7 +8294,7 @@ function delete_transit_gateway_prefix_list_reference(
             "TransitGatewayRouteTableId" => TransitGatewayRouteTableId,
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function delete_transit_gateway_prefix_list_reference(
@@ -8277,7 +8316,7 @@ function delete_transit_gateway_prefix_list_reference(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -8310,7 +8349,7 @@ function delete_transit_gateway_route(
             "TransitGatewayRouteTableId" => TransitGatewayRouteTableId,
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function delete_transit_gateway_route(
@@ -8332,7 +8371,7 @@ function delete_transit_gateway_route(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -8359,7 +8398,7 @@ function delete_transit_gateway_route_table(
         "DeleteTransitGatewayRouteTable",
         Dict{String,Any}("TransitGatewayRouteTableId" => TransitGatewayRouteTableId);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function delete_transit_gateway_route_table(
@@ -8379,7 +8418,7 @@ function delete_transit_gateway_route_table(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -8405,7 +8444,7 @@ function delete_transit_gateway_vpc_attachment(
         "DeleteTransitGatewayVpcAttachment",
         Dict{String,Any}("TransitGatewayAttachmentId" => TransitGatewayAttachmentId);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function delete_transit_gateway_vpc_attachment(
@@ -8425,7 +8464,7 @@ function delete_transit_gateway_vpc_attachment(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -8451,7 +8490,7 @@ function delete_volume(VolumeId; aws_config::AbstractAWSConfig=global_aws_config
         "DeleteVolume",
         Dict{String,Any}("VolumeId" => VolumeId);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function delete_volume(
@@ -8465,7 +8504,7 @@ function delete_volume(
             mergewith(_merge, Dict{String,Any}("VolumeId" => VolumeId), params)
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -8493,7 +8532,7 @@ function delete_vpc(VpcId; aws_config::AbstractAWSConfig=global_aws_config())
         "DeleteVpc",
         Dict{String,Any}("VpcId" => VpcId);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function delete_vpc(
@@ -8503,7 +8542,7 @@ function delete_vpc(
         "DeleteVpc",
         Dict{String,Any}(mergewith(_merge, Dict{String,Any}("VpcId" => VpcId), params));
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -8529,7 +8568,7 @@ function delete_vpc_endpoint_connection_notifications(
         "DeleteVpcEndpointConnectionNotifications",
         Dict{String,Any}("ConnectionNotificationId" => ConnectionNotificationId);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function delete_vpc_endpoint_connection_notifications(
@@ -8547,7 +8586,7 @@ function delete_vpc_endpoint_connection_notifications(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -8575,7 +8614,7 @@ function delete_vpc_endpoint_service_configurations(
         "DeleteVpcEndpointServiceConfigurations",
         Dict{String,Any}("ServiceId" => ServiceId);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function delete_vpc_endpoint_service_configurations(
@@ -8589,7 +8628,7 @@ function delete_vpc_endpoint_service_configurations(
             mergewith(_merge, Dict{String,Any}("ServiceId" => ServiceId), params)
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -8622,7 +8661,7 @@ function delete_vpc_endpoints(
         "DeleteVpcEndpoints",
         Dict{String,Any}("VpcEndpointId" => VpcEndpointId);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function delete_vpc_endpoints(
@@ -8636,7 +8675,7 @@ function delete_vpc_endpoints(
             mergewith(_merge, Dict{String,Any}("VpcEndpointId" => VpcEndpointId), params)
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -8665,7 +8704,7 @@ function delete_vpc_peering_connection(
         "DeleteVpcPeeringConnection",
         Dict{String,Any}("vpcPeeringConnectionId" => vpcPeeringConnectionId);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function delete_vpc_peering_connection(
@@ -8683,7 +8722,7 @@ function delete_vpc_peering_connection(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -8718,7 +8757,7 @@ function delete_vpn_connection(
         "DeleteVpnConnection",
         Dict{String,Any}("VpnConnectionId" => VpnConnectionId);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function delete_vpn_connection(
@@ -8734,7 +8773,7 @@ function delete_vpn_connection(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -8762,7 +8801,7 @@ function delete_vpn_connection_route(
             "VpnConnectionId" => VpnConnectionId,
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function delete_vpn_connection_route(
@@ -8784,7 +8823,7 @@ function delete_vpn_connection_route(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -8810,7 +8849,7 @@ function delete_vpn_gateway(VpnGatewayId; aws_config::AbstractAWSConfig=global_a
         "DeleteVpnGateway",
         Dict{String,Any}("VpnGatewayId" => VpnGatewayId);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function delete_vpn_gateway(
@@ -8824,7 +8863,7 @@ function delete_vpn_gateway(
             mergewith(_merge, Dict{String,Any}("VpnGatewayId" => VpnGatewayId), params)
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -8853,7 +8892,7 @@ function deprovision_byoip_cidr(Cidr; aws_config::AbstractAWSConfig=global_aws_c
         "DeprovisionByoipCidr",
         Dict{String,Any}("Cidr" => Cidr);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function deprovision_byoip_cidr(
@@ -8863,7 +8902,7 @@ function deprovision_byoip_cidr(
         "DeprovisionByoipCidr",
         Dict{String,Any}(mergewith(_merge, Dict{String,Any}("Cidr" => Cidr), params));
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -8893,7 +8932,7 @@ function deregister_image(ImageId; aws_config::AbstractAWSConfig=global_aws_conf
         "DeregisterImage",
         Dict{String,Any}("ImageId" => ImageId);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function deregister_image(
@@ -8903,7 +8942,7 @@ function deregister_image(
         "DeregisterImage",
         Dict{String,Any}(mergewith(_merge, Dict{String,Any}("ImageId" => ImageId), params));
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -8927,7 +8966,7 @@ function deregister_instance_event_notification_attributes(;
     return ec2(
         "DeregisterInstanceEventNotificationAttributes";
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function deregister_instance_event_notification_attributes(
@@ -8937,7 +8976,7 @@ function deregister_instance_event_notification_attributes(
         "DeregisterInstanceEventNotificationAttributes",
         params;
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -8963,7 +9002,7 @@ function deregister_transit_gateway_multicast_group_members(;
     return ec2(
         "DeregisterTransitGatewayMulticastGroupMembers";
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function deregister_transit_gateway_multicast_group_members(
@@ -8973,7 +9012,7 @@ function deregister_transit_gateway_multicast_group_members(
         "DeregisterTransitGatewayMulticastGroupMembers",
         params;
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -8999,7 +9038,7 @@ function deregister_transit_gateway_multicast_group_sources(;
     return ec2(
         "DeregisterTransitGatewayMulticastGroupSources";
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function deregister_transit_gateway_multicast_group_sources(
@@ -9009,7 +9048,7 @@ function deregister_transit_gateway_multicast_group_sources(
         "DeregisterTransitGatewayMulticastGroupSources",
         params;
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -9037,7 +9076,7 @@ Optional parameters can be passed as a `params::Dict{String,<:Any}`. Valid keys 
 """
 function describe_account_attributes(; aws_config::AbstractAWSConfig=global_aws_config())
     return ec2(
-        "DescribeAccountAttributes"; aws_config=aws_config, features=SERVICE_FEATURES
+        "DescribeAccountAttributes"; aws_config=aws_config, feature_set=SERVICE_FEATURE_SET
     )
 end
 function describe_account_attributes(
@@ -9047,7 +9086,7 @@ function describe_account_attributes(
         "DescribeAccountAttributes",
         params;
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -9085,13 +9124,13 @@ Optional parameters can be passed as a `params::Dict{String,<:Any}`. Valid keys 
   permissions, the error response is DryRunOperation. Otherwise, it is UnauthorizedOperation.
 """
 function describe_addresses(; aws_config::AbstractAWSConfig=global_aws_config())
-    return ec2("DescribeAddresses"; aws_config=aws_config, features=SERVICE_FEATURES)
+    return ec2("DescribeAddresses"; aws_config=aws_config, feature_set=SERVICE_FEATURE_SET)
 end
 function describe_addresses(
     params::AbstractDict{String}; aws_config::AbstractAWSConfig=global_aws_config()
 )
     return ec2(
-        "DescribeAddresses", params; aws_config=aws_config, features=SERVICE_FEATURES
+        "DescribeAddresses", params; aws_config=aws_config, feature_set=SERVICE_FEATURE_SET
     )
 end
 
@@ -9115,7 +9154,7 @@ Optional parameters can be passed as a `params::Dict{String,<:Any}`. Valid keys 
 """
 function describe_addresses_attribute(; aws_config::AbstractAWSConfig=global_aws_config())
     return ec2(
-        "DescribeAddressesAttribute"; aws_config=aws_config, features=SERVICE_FEATURES
+        "DescribeAddressesAttribute"; aws_config=aws_config, feature_set=SERVICE_FEATURE_SET
     )
 end
 function describe_addresses_attribute(
@@ -9125,7 +9164,7 @@ function describe_addresses_attribute(
         "DescribeAddressesAttribute",
         params;
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -9153,7 +9192,7 @@ Optional parameters can be passed as a `params::Dict{String,<:Any}`. Valid keys 
 """
 function describe_aggregate_id_format(; aws_config::AbstractAWSConfig=global_aws_config())
     return ec2(
-        "DescribeAggregateIdFormat"; aws_config=aws_config, features=SERVICE_FEATURES
+        "DescribeAggregateIdFormat"; aws_config=aws_config, feature_set=SERVICE_FEATURE_SET
     )
 end
 function describe_aggregate_id_format(
@@ -9163,7 +9202,7 @@ function describe_aggregate_id_format(
         "DescribeAggregateIdFormat",
         params;
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -9207,7 +9246,7 @@ Optional parameters can be passed as a `params::Dict{String,<:Any}`. Valid keys 
 """
 function describe_availability_zones(; aws_config::AbstractAWSConfig=global_aws_config())
     return ec2(
-        "DescribeAvailabilityZones"; aws_config=aws_config, features=SERVICE_FEATURES
+        "DescribeAvailabilityZones"; aws_config=aws_config, feature_set=SERVICE_FEATURE_SET
     )
 end
 function describe_availability_zones(
@@ -9217,7 +9256,7 @@ function describe_availability_zones(
         "DescribeAvailabilityZones",
         params;
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -9246,13 +9285,18 @@ Optional parameters can be passed as a `params::Dict{String,<:Any}`. Valid keys 
   permissions, the error response is DryRunOperation. Otherwise, it is UnauthorizedOperation.
 """
 function describe_bundle_tasks(; aws_config::AbstractAWSConfig=global_aws_config())
-    return ec2("DescribeBundleTasks"; aws_config=aws_config, features=SERVICE_FEATURES)
+    return ec2(
+        "DescribeBundleTasks"; aws_config=aws_config, feature_set=SERVICE_FEATURE_SET
+    )
 end
 function describe_bundle_tasks(
     params::AbstractDict{String}; aws_config::AbstractAWSConfig=global_aws_config()
 )
     return ec2(
-        "DescribeBundleTasks", params; aws_config=aws_config, features=SERVICE_FEATURES
+        "DescribeBundleTasks",
+        params;
+        aws_config=aws_config,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -9280,7 +9324,7 @@ function describe_byoip_cidrs(MaxResults; aws_config::AbstractAWSConfig=global_a
         "DescribeByoipCidrs",
         Dict{String,Any}("MaxResults" => MaxResults);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function describe_byoip_cidrs(
@@ -9294,7 +9338,7 @@ function describe_byoip_cidrs(
             mergewith(_merge, Dict{String,Any}("MaxResults" => MaxResults), params)
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -9355,7 +9399,9 @@ Optional parameters can be passed as a `params::Dict{String,<:Any}`. Valid keys 
 """
 function describe_capacity_reservations(; aws_config::AbstractAWSConfig=global_aws_config())
     return ec2(
-        "DescribeCapacityReservations"; aws_config=aws_config, features=SERVICE_FEATURES
+        "DescribeCapacityReservations";
+        aws_config=aws_config,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function describe_capacity_reservations(
@@ -9365,7 +9411,7 @@ function describe_capacity_reservations(
         "DescribeCapacityReservations",
         params;
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -9396,13 +9442,18 @@ Optional parameters can be passed as a `params::Dict{String,<:Any}`. Valid keys 
 - `"NextToken"`: The token for the next page of results.
 """
 function describe_carrier_gateways(; aws_config::AbstractAWSConfig=global_aws_config())
-    return ec2("DescribeCarrierGateways"; aws_config=aws_config, features=SERVICE_FEATURES)
+    return ec2(
+        "DescribeCarrierGateways"; aws_config=aws_config, feature_set=SERVICE_FEATURE_SET
+    )
 end
 function describe_carrier_gateways(
     params::AbstractDict{String}; aws_config::AbstractAWSConfig=global_aws_config()
 )
     return ec2(
-        "DescribeCarrierGateways", params; aws_config=aws_config, features=SERVICE_FEATURES
+        "DescribeCarrierGateways",
+        params;
+        aws_config=aws_config,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -9439,7 +9490,9 @@ function describe_classic_link_instances(;
     aws_config::AbstractAWSConfig=global_aws_config()
 )
     return ec2(
-        "DescribeClassicLinkInstances"; aws_config=aws_config, features=SERVICE_FEATURES
+        "DescribeClassicLinkInstances";
+        aws_config=aws_config,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function describe_classic_link_instances(
@@ -9449,7 +9502,7 @@ function describe_classic_link_instances(
         "DescribeClassicLinkInstances",
         params;
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -9482,7 +9535,7 @@ function describe_client_vpn_authorization_rules(
         "DescribeClientVpnAuthorizationRules",
         Dict{String,Any}("ClientVpnEndpointId" => ClientVpnEndpointId);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function describe_client_vpn_authorization_rules(
@@ -9500,7 +9553,7 @@ function describe_client_vpn_authorization_rules(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -9533,7 +9586,7 @@ function describe_client_vpn_connections(
         "DescribeClientVpnConnections",
         Dict{String,Any}("ClientVpnEndpointId" => ClientVpnEndpointId);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function describe_client_vpn_connections(
@@ -9551,7 +9604,7 @@ function describe_client_vpn_connections(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -9576,7 +9629,7 @@ Optional parameters can be passed as a `params::Dict{String,<:Any}`. Valid keys 
 """
 function describe_client_vpn_endpoints(; aws_config::AbstractAWSConfig=global_aws_config())
     return ec2(
-        "DescribeClientVpnEndpoints"; aws_config=aws_config, features=SERVICE_FEATURES
+        "DescribeClientVpnEndpoints"; aws_config=aws_config, feature_set=SERVICE_FEATURE_SET
     )
 end
 function describe_client_vpn_endpoints(
@@ -9586,7 +9639,7 @@ function describe_client_vpn_endpoints(
         "DescribeClientVpnEndpoints",
         params;
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -9619,7 +9672,7 @@ function describe_client_vpn_routes(
         "DescribeClientVpnRoutes",
         Dict{String,Any}("ClientVpnEndpointId" => ClientVpnEndpointId);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function describe_client_vpn_routes(
@@ -9637,7 +9690,7 @@ function describe_client_vpn_routes(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -9671,7 +9724,7 @@ function describe_client_vpn_target_networks(
         "DescribeClientVpnTargetNetworks",
         Dict{String,Any}("ClientVpnEndpointId" => ClientVpnEndpointId);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function describe_client_vpn_target_networks(
@@ -9689,7 +9742,7 @@ function describe_client_vpn_target_networks(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -9713,13 +9766,13 @@ Optional parameters can be passed as a `params::Dict{String,<:Any}`. Valid keys 
 - `"PoolId"`: The IDs of the address pools.
 """
 function describe_coip_pools(; aws_config::AbstractAWSConfig=global_aws_config())
-    return ec2("DescribeCoipPools"; aws_config=aws_config, features=SERVICE_FEATURES)
+    return ec2("DescribeCoipPools"; aws_config=aws_config, feature_set=SERVICE_FEATURE_SET)
 end
 function describe_coip_pools(
     params::AbstractDict{String}; aws_config::AbstractAWSConfig=global_aws_config()
 )
     return ec2(
-        "DescribeCoipPools", params; aws_config=aws_config, features=SERVICE_FEATURES
+        "DescribeCoipPools", params; aws_config=aws_config, feature_set=SERVICE_FEATURE_SET
     )
 end
 
@@ -9739,13 +9792,18 @@ Optional parameters can be passed as a `params::Dict{String,<:Any}`. Valid keys 
   permissions, the error response is DryRunOperation. Otherwise, it is UnauthorizedOperation.
 """
 function describe_conversion_tasks(; aws_config::AbstractAWSConfig=global_aws_config())
-    return ec2("DescribeConversionTasks"; aws_config=aws_config, features=SERVICE_FEATURES)
+    return ec2(
+        "DescribeConversionTasks"; aws_config=aws_config, feature_set=SERVICE_FEATURE_SET
+    )
 end
 function describe_conversion_tasks(
     params::AbstractDict{String}; aws_config::AbstractAWSConfig=global_aws_config()
 )
     return ec2(
-        "DescribeConversionTasks", params; aws_config=aws_config, features=SERVICE_FEATURES
+        "DescribeConversionTasks",
+        params;
+        aws_config=aws_config,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -9776,13 +9834,18 @@ Optional parameters can be passed as a `params::Dict{String,<:Any}`. Valid keys 
   permissions, the error response is DryRunOperation. Otherwise, it is UnauthorizedOperation.
 """
 function describe_customer_gateways(; aws_config::AbstractAWSConfig=global_aws_config())
-    return ec2("DescribeCustomerGateways"; aws_config=aws_config, features=SERVICE_FEATURES)
+    return ec2(
+        "DescribeCustomerGateways"; aws_config=aws_config, feature_set=SERVICE_FEATURE_SET
+    )
 end
 function describe_customer_gateways(
     params::AbstractDict{String}; aws_config::AbstractAWSConfig=global_aws_config()
 )
     return ec2(
-        "DescribeCustomerGateways", params; aws_config=aws_config, features=SERVICE_FEATURES
+        "DescribeCustomerGateways",
+        params;
+        aws_config=aws_config,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -9814,13 +9877,18 @@ Optional parameters can be passed as a `params::Dict{String,<:Any}`. Valid keys 
   permissions, the error response is DryRunOperation. Otherwise, it is UnauthorizedOperation.
 """
 function describe_dhcp_options(; aws_config::AbstractAWSConfig=global_aws_config())
-    return ec2("DescribeDhcpOptions"; aws_config=aws_config, features=SERVICE_FEATURES)
+    return ec2(
+        "DescribeDhcpOptions"; aws_config=aws_config, feature_set=SERVICE_FEATURE_SET
+    )
 end
 function describe_dhcp_options(
     params::AbstractDict{String}; aws_config::AbstractAWSConfig=global_aws_config()
 )
     return ec2(
-        "DescribeDhcpOptions", params; aws_config=aws_config, features=SERVICE_FEATURES
+        "DescribeDhcpOptions",
+        params;
+        aws_config=aws_config,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -9852,7 +9920,7 @@ function describe_egress_only_internet_gateways(;
     return ec2(
         "DescribeEgressOnlyInternetGateways";
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function describe_egress_only_internet_gateways(
@@ -9862,7 +9930,7 @@ function describe_egress_only_internet_gateways(
         "DescribeEgressOnlyInternetGateways",
         params;
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -9891,13 +9959,18 @@ Optional parameters can be passed as a `params::Dict{String,<:Any}`. Valid keys 
 - `"NextToken"`: The token to request the next page of results.
 """
 function describe_elastic_gpus(; aws_config::AbstractAWSConfig=global_aws_config())
-    return ec2("DescribeElasticGpus"; aws_config=aws_config, features=SERVICE_FEATURES)
+    return ec2(
+        "DescribeElasticGpus"; aws_config=aws_config, feature_set=SERVICE_FEATURE_SET
+    )
 end
 function describe_elastic_gpus(
     params::AbstractDict{String}; aws_config::AbstractAWSConfig=global_aws_config()
 )
     return ec2(
-        "DescribeElasticGpus", params; aws_config=aws_config, features=SERVICE_FEATURES
+        "DescribeElasticGpus",
+        params;
+        aws_config=aws_config,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -9919,13 +9992,18 @@ Optional parameters can be passed as a `params::Dict{String,<:Any}`. Valid keys 
 - `"NextToken"`: A token that indicates the next page of results.
 """
 function describe_export_image_tasks(; aws_config::AbstractAWSConfig=global_aws_config())
-    return ec2("DescribeExportImageTasks"; aws_config=aws_config, features=SERVICE_FEATURES)
+    return ec2(
+        "DescribeExportImageTasks"; aws_config=aws_config, feature_set=SERVICE_FEATURE_SET
+    )
 end
 function describe_export_image_tasks(
     params::AbstractDict{String}; aws_config::AbstractAWSConfig=global_aws_config()
 )
     return ec2(
-        "DescribeExportImageTasks", params; aws_config=aws_config, features=SERVICE_FEATURES
+        "DescribeExportImageTasks",
+        params;
+        aws_config=aws_config,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -9941,13 +10019,18 @@ Optional parameters can be passed as a `params::Dict{String,<:Any}`. Valid keys 
 - `"exportTaskId"`: The export task IDs.
 """
 function describe_export_tasks(; aws_config::AbstractAWSConfig=global_aws_config())
-    return ec2("DescribeExportTasks"; aws_config=aws_config, features=SERVICE_FEATURES)
+    return ec2(
+        "DescribeExportTasks"; aws_config=aws_config, feature_set=SERVICE_FEATURE_SET
+    )
 end
 function describe_export_tasks(
     params::AbstractDict{String}; aws_config::AbstractAWSConfig=global_aws_config()
 )
     return ec2(
-        "DescribeExportTasks", params; aws_config=aws_config, features=SERVICE_FEATURES
+        "DescribeExportTasks",
+        params;
+        aws_config=aws_config,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -9975,7 +10058,9 @@ function describe_fast_snapshot_restores(;
     aws_config::AbstractAWSConfig=global_aws_config()
 )
     return ec2(
-        "DescribeFastSnapshotRestores"; aws_config=aws_config, features=SERVICE_FEATURES
+        "DescribeFastSnapshotRestores";
+        aws_config=aws_config,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function describe_fast_snapshot_restores(
@@ -9985,7 +10070,7 @@ function describe_fast_snapshot_restores(
         "DescribeFastSnapshotRestores",
         params;
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -10022,7 +10107,7 @@ function describe_fleet_history(
         "DescribeFleetHistory",
         Dict{String,Any}("FleetId" => FleetId, "StartTime" => StartTime);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function describe_fleet_history(
@@ -10041,7 +10126,7 @@ function describe_fleet_history(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -10073,7 +10158,7 @@ function describe_fleet_instances(
         "DescribeFleetInstances",
         Dict{String,Any}("FleetId" => FleetId);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function describe_fleet_instances(
@@ -10083,7 +10168,7 @@ function describe_fleet_instances(
         "DescribeFleetInstances",
         Dict{String,Any}(mergewith(_merge, Dict{String,Any}("FleetId" => FleetId), params));
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -10114,12 +10199,14 @@ Optional parameters can be passed as a `params::Dict{String,<:Any}`. Valid keys 
 - `"NextToken"`: The token for the next set of results.
 """
 function describe_fleets(; aws_config::AbstractAWSConfig=global_aws_config())
-    return ec2("DescribeFleets"; aws_config=aws_config, features=SERVICE_FEATURES)
+    return ec2("DescribeFleets"; aws_config=aws_config, feature_set=SERVICE_FEATURE_SET)
 end
 function describe_fleets(
     params::AbstractDict{String}; aws_config::AbstractAWSConfig=global_aws_config()
 )
-    return ec2("DescribeFleets", params; aws_config=aws_config, features=SERVICE_FEATURES)
+    return ec2(
+        "DescribeFleets", params; aws_config=aws_config, feature_set=SERVICE_FEATURE_SET
+    )
 end
 
 """
@@ -10152,12 +10239,14 @@ Optional parameters can be passed as a `params::Dict{String,<:Any}`. Valid keys 
 - `"NextToken"`: The token for the next page of results.
 """
 function describe_flow_logs(; aws_config::AbstractAWSConfig=global_aws_config())
-    return ec2("DescribeFlowLogs"; aws_config=aws_config, features=SERVICE_FEATURES)
+    return ec2("DescribeFlowLogs"; aws_config=aws_config, feature_set=SERVICE_FEATURE_SET)
 end
 function describe_flow_logs(
     params::AbstractDict{String}; aws_config::AbstractAWSConfig=global_aws_config()
 )
-    return ec2("DescribeFlowLogs", params; aws_config=aws_config, features=SERVICE_FEATURES)
+    return ec2(
+        "DescribeFlowLogs", params; aws_config=aws_config, feature_set=SERVICE_FEATURE_SET
+    )
 end
 
 """
@@ -10183,7 +10272,7 @@ function describe_fpga_image_attribute(
         "DescribeFpgaImageAttribute",
         Dict{String,Any}("Attribute" => Attribute, "FpgaImageId" => FpgaImageId);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function describe_fpga_image_attribute(
@@ -10202,7 +10291,7 @@ function describe_fpga_image_attribute(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -10238,13 +10327,13 @@ Optional parameters can be passed as a `params::Dict{String,<:Any}`. Valid keys 
   of the request), or an AWS owner alias (valid values are amazon | aws-marketplace).
 """
 function describe_fpga_images(; aws_config::AbstractAWSConfig=global_aws_config())
-    return ec2("DescribeFpgaImages"; aws_config=aws_config, features=SERVICE_FEATURES)
+    return ec2("DescribeFpgaImages"; aws_config=aws_config, feature_set=SERVICE_FEATURE_SET)
 end
 function describe_fpga_images(
     params::AbstractDict{String}; aws_config::AbstractAWSConfig=global_aws_config()
 )
     return ec2(
-        "DescribeFpgaImages", params; aws_config=aws_config, features=SERVICE_FEATURES
+        "DescribeFpgaImages", params; aws_config=aws_config, feature_set=SERVICE_FEATURE_SET
     )
 end
 
@@ -10283,7 +10372,9 @@ function describe_host_reservation_offerings(;
     aws_config::AbstractAWSConfig=global_aws_config()
 )
     return ec2(
-        "DescribeHostReservationOfferings"; aws_config=aws_config, features=SERVICE_FEATURES
+        "DescribeHostReservationOfferings";
+        aws_config=aws_config,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function describe_host_reservation_offerings(
@@ -10293,7 +10384,7 @@ function describe_host_reservation_offerings(
         "DescribeHostReservationOfferings",
         params;
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -10322,13 +10413,18 @@ Optional parameters can be passed as a `params::Dict{String,<:Any}`. Valid keys 
 - `"NextToken"`: The token to use to retrieve the next page of results.
 """
 function describe_host_reservations(; aws_config::AbstractAWSConfig=global_aws_config())
-    return ec2("DescribeHostReservations"; aws_config=aws_config, features=SERVICE_FEATURES)
+    return ec2(
+        "DescribeHostReservations"; aws_config=aws_config, feature_set=SERVICE_FEATURE_SET
+    )
 end
 function describe_host_reservations(
     params::AbstractDict{String}; aws_config::AbstractAWSConfig=global_aws_config()
 )
     return ec2(
-        "DescribeHostReservations", params; aws_config=aws_config, features=SERVICE_FEATURES
+        "DescribeHostReservations",
+        params;
+        aws_config=aws_config,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -10362,12 +10458,14 @@ Optional parameters can be passed as a `params::Dict{String,<:Any}`. Valid keys 
 - `"nextToken"`: The token to use to retrieve the next page of results.
 """
 function describe_hosts(; aws_config::AbstractAWSConfig=global_aws_config())
-    return ec2("DescribeHosts"; aws_config=aws_config, features=SERVICE_FEATURES)
+    return ec2("DescribeHosts"; aws_config=aws_config, feature_set=SERVICE_FEATURE_SET)
 end
 function describe_hosts(
     params::AbstractDict{String}; aws_config::AbstractAWSConfig=global_aws_config()
 )
-    return ec2("DescribeHosts", params; aws_config=aws_config, features=SERVICE_FEATURES)
+    return ec2(
+        "DescribeHosts", params; aws_config=aws_config, feature_set=SERVICE_FEATURE_SET
+    )
 end
 
 """
@@ -10391,7 +10489,7 @@ function describe_iam_instance_profile_associations(;
     return ec2(
         "DescribeIamInstanceProfileAssociations";
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function describe_iam_instance_profile_associations(
@@ -10401,7 +10499,7 @@ function describe_iam_instance_profile_associations(
         "DescribeIamInstanceProfileAssociations",
         params;
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -10437,12 +10535,14 @@ Optional parameters can be passed as a `params::Dict{String,<:Any}`. Valid keys 
   vpc-peering-connection | vpn-connection | vpn-gateway
 """
 function describe_id_format(; aws_config::AbstractAWSConfig=global_aws_config())
-    return ec2("DescribeIdFormat"; aws_config=aws_config, features=SERVICE_FEATURES)
+    return ec2("DescribeIdFormat"; aws_config=aws_config, feature_set=SERVICE_FEATURE_SET)
 end
 function describe_id_format(
     params::AbstractDict{String}; aws_config::AbstractAWSConfig=global_aws_config()
 )
-    return ec2("DescribeIdFormat", params; aws_config=aws_config, features=SERVICE_FEATURES)
+    return ec2(
+        "DescribeIdFormat", params; aws_config=aws_config, feature_set=SERVICE_FEATURE_SET
+    )
 end
 
 """
@@ -10485,7 +10585,7 @@ function describe_identity_id_format(
         "DescribeIdentityIdFormat",
         Dict{String,Any}("principalArn" => principalArn);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function describe_identity_id_format(
@@ -10499,7 +10599,7 @@ function describe_identity_id_format(
             mergewith(_merge, Dict{String,Any}("principalArn" => principalArn), params)
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -10529,7 +10629,7 @@ function describe_image_attribute(
         "DescribeImageAttribute",
         Dict{String,Any}("Attribute" => Attribute, "ImageId" => ImageId);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function describe_image_attribute(
@@ -10548,7 +10648,7 @@ function describe_image_attribute(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -10616,12 +10716,14 @@ Optional parameters can be passed as a `params::Dict{String,<:Any}`. Valid keys 
   permissions, the error response is DryRunOperation. Otherwise, it is UnauthorizedOperation.
 """
 function describe_images(; aws_config::AbstractAWSConfig=global_aws_config())
-    return ec2("DescribeImages"; aws_config=aws_config, features=SERVICE_FEATURES)
+    return ec2("DescribeImages"; aws_config=aws_config, feature_set=SERVICE_FEATURE_SET)
 end
 function describe_images(
     params::AbstractDict{String}; aws_config::AbstractAWSConfig=global_aws_config()
 )
-    return ec2("DescribeImages", params; aws_config=aws_config, features=SERVICE_FEATURES)
+    return ec2(
+        "DescribeImages", params; aws_config=aws_config, feature_set=SERVICE_FEATURE_SET
+    )
 end
 
 """
@@ -10643,13 +10745,18 @@ Optional parameters can be passed as a `params::Dict{String,<:Any}`. Valid keys 
 - `"NextToken"`: A token that indicates the next page of results.
 """
 function describe_import_image_tasks(; aws_config::AbstractAWSConfig=global_aws_config())
-    return ec2("DescribeImportImageTasks"; aws_config=aws_config, features=SERVICE_FEATURES)
+    return ec2(
+        "DescribeImportImageTasks"; aws_config=aws_config, feature_set=SERVICE_FEATURE_SET
+    )
 end
 function describe_import_image_tasks(
     params::AbstractDict{String}; aws_config::AbstractAWSConfig=global_aws_config()
 )
     return ec2(
-        "DescribeImportImageTasks", params; aws_config=aws_config, features=SERVICE_FEATURES
+        "DescribeImportImageTasks",
+        params;
+        aws_config=aws_config,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -10672,7 +10779,9 @@ Optional parameters can be passed as a `params::Dict{String,<:Any}`. Valid keys 
 """
 function describe_import_snapshot_tasks(; aws_config::AbstractAWSConfig=global_aws_config())
     return ec2(
-        "DescribeImportSnapshotTasks"; aws_config=aws_config, features=SERVICE_FEATURES
+        "DescribeImportSnapshotTasks";
+        aws_config=aws_config,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function describe_import_snapshot_tasks(
@@ -10682,7 +10791,7 @@ function describe_import_snapshot_tasks(
         "DescribeImportSnapshotTasks",
         params;
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -10714,7 +10823,7 @@ function describe_instance_attribute(
         "DescribeInstanceAttribute",
         Dict{String,Any}("attribute" => attribute, "instanceId" => instanceId);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function describe_instance_attribute(
@@ -10733,7 +10842,7 @@ function describe_instance_attribute(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -10776,7 +10885,7 @@ function describe_instance_credit_specifications(;
     return ec2(
         "DescribeInstanceCreditSpecifications";
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function describe_instance_credit_specifications(
@@ -10786,7 +10895,7 @@ function describe_instance_credit_specifications(
         "DescribeInstanceCreditSpecifications",
         params;
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -10809,7 +10918,7 @@ function describe_instance_event_notification_attributes(;
     return ec2(
         "DescribeInstanceEventNotificationAttributes";
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function describe_instance_event_notification_attributes(
@@ -10819,7 +10928,7 @@ function describe_instance_event_notification_attributes(
         "DescribeInstanceEventNotificationAttributes",
         params;
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -10865,7 +10974,9 @@ function describe_instance_event_windows(;
     aws_config::AbstractAWSConfig=global_aws_config()
 )
     return ec2(
-        "DescribeInstanceEventWindows"; aws_config=aws_config, features=SERVICE_FEATURES
+        "DescribeInstanceEventWindows";
+        aws_config=aws_config,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function describe_instance_event_windows(
@@ -10875,7 +10986,7 @@ function describe_instance_event_windows(
         "DescribeInstanceEventWindows",
         params;
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -10931,13 +11042,18 @@ Optional parameters can be passed as a `params::Dict{String,<:Any}`. Valid keys 
   false, includes the health status for running instances only. Default: false
 """
 function describe_instance_status(; aws_config::AbstractAWSConfig=global_aws_config())
-    return ec2("DescribeInstanceStatus"; aws_config=aws_config, features=SERVICE_FEATURES)
+    return ec2(
+        "DescribeInstanceStatus"; aws_config=aws_config, feature_set=SERVICE_FEATURE_SET
+    )
 end
 function describe_instance_status(
     params::AbstractDict{String}; aws_config::AbstractAWSConfig=global_aws_config()
 )
     return ec2(
-        "DescribeInstanceStatus", params; aws_config=aws_config, features=SERVICE_FEATURES
+        "DescribeInstanceStatus",
+        params;
+        aws_config=aws_config,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -10967,7 +11083,9 @@ function describe_instance_type_offerings(;
     aws_config::AbstractAWSConfig=global_aws_config()
 )
     return ec2(
-        "DescribeInstanceTypeOfferings"; aws_config=aws_config, features=SERVICE_FEATURES
+        "DescribeInstanceTypeOfferings";
+        aws_config=aws_config,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function describe_instance_type_offerings(
@@ -10977,7 +11095,7 @@ function describe_instance_type_offerings(
         "DescribeInstanceTypeOfferings",
         params;
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -11056,13 +11174,18 @@ Optional parameters can be passed as a `params::Dict{String,<:Any}`. Valid keys 
 - `"NextToken"`: The token to retrieve the next page of results.
 """
 function describe_instance_types(; aws_config::AbstractAWSConfig=global_aws_config())
-    return ec2("DescribeInstanceTypes"; aws_config=aws_config, features=SERVICE_FEATURES)
+    return ec2(
+        "DescribeInstanceTypes"; aws_config=aws_config, feature_set=SERVICE_FEATURE_SET
+    )
 end
 function describe_instance_types(
     params::AbstractDict{String}; aws_config::AbstractAWSConfig=global_aws_config()
 )
     return ec2(
-        "DescribeInstanceTypes", params; aws_config=aws_config, features=SERVICE_FEATURES
+        "DescribeInstanceTypes",
+        params;
+        aws_config=aws_config,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -11210,13 +11333,13 @@ Optional parameters can be passed as a `params::Dict{String,<:Any}`. Valid keys 
 - `"nextToken"`: The token to request the next page of results.
 """
 function describe_instances(; aws_config::AbstractAWSConfig=global_aws_config())
-    return ec2("DescribeInstances"; aws_config=aws_config, features=SERVICE_FEATURES)
+    return ec2("DescribeInstances"; aws_config=aws_config, feature_set=SERVICE_FEATURE_SET)
 end
 function describe_instances(
     params::AbstractDict{String}; aws_config::AbstractAWSConfig=global_aws_config()
 )
     return ec2(
-        "DescribeInstances", params; aws_config=aws_config, features=SERVICE_FEATURES
+        "DescribeInstances", params; aws_config=aws_config, feature_set=SERVICE_FEATURE_SET
     )
 end
 
@@ -11248,13 +11371,18 @@ Optional parameters can be passed as a `params::Dict{String,<:Any}`. Valid keys 
   internet gateways.
 """
 function describe_internet_gateways(; aws_config::AbstractAWSConfig=global_aws_config())
-    return ec2("DescribeInternetGateways"; aws_config=aws_config, features=SERVICE_FEATURES)
+    return ec2(
+        "DescribeInternetGateways"; aws_config=aws_config, feature_set=SERVICE_FEATURE_SET
+    )
 end
 function describe_internet_gateways(
     params::AbstractDict{String}; aws_config::AbstractAWSConfig=global_aws_config()
 )
     return ec2(
-        "DescribeInternetGateways", params; aws_config=aws_config, features=SERVICE_FEATURES
+        "DescribeInternetGateways",
+        params;
+        aws_config=aws_config,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -11281,13 +11409,13 @@ Optional parameters can be passed as a `params::Dict{String,<:Any}`. Valid keys 
 - `"PoolId"`: The IDs of the IPv6 address pools.
 """
 function describe_ipv6_pools(; aws_config::AbstractAWSConfig=global_aws_config())
-    return ec2("DescribeIpv6Pools"; aws_config=aws_config, features=SERVICE_FEATURES)
+    return ec2("DescribeIpv6Pools"; aws_config=aws_config, feature_set=SERVICE_FEATURE_SET)
 end
 function describe_ipv6_pools(
     params::AbstractDict{String}; aws_config::AbstractAWSConfig=global_aws_config()
 )
     return ec2(
-        "DescribeIpv6Pools", params; aws_config=aws_config, features=SERVICE_FEATURES
+        "DescribeIpv6Pools", params; aws_config=aws_config, feature_set=SERVICE_FEATURE_SET
     )
 end
 
@@ -11315,12 +11443,14 @@ Optional parameters can be passed as a `params::Dict{String,<:Any}`. Valid keys 
   permissions, the error response is DryRunOperation. Otherwise, it is UnauthorizedOperation.
 """
 function describe_key_pairs(; aws_config::AbstractAWSConfig=global_aws_config())
-    return ec2("DescribeKeyPairs"; aws_config=aws_config, features=SERVICE_FEATURES)
+    return ec2("DescribeKeyPairs"; aws_config=aws_config, feature_set=SERVICE_FEATURE_SET)
 end
 function describe_key_pairs(
     params::AbstractDict{String}; aws_config::AbstractAWSConfig=global_aws_config()
 )
-    return ec2("DescribeKeyPairs", params; aws_config=aws_config, features=SERVICE_FEATURES)
+    return ec2(
+        "DescribeKeyPairs", params; aws_config=aws_config, feature_set=SERVICE_FEATURE_SET
+    )
 end
 
 """
@@ -11369,7 +11499,9 @@ function describe_launch_template_versions(;
     aws_config::AbstractAWSConfig=global_aws_config()
 )
     return ec2(
-        "DescribeLaunchTemplateVersions"; aws_config=aws_config, features=SERVICE_FEATURES
+        "DescribeLaunchTemplateVersions";
+        aws_config=aws_config,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function describe_launch_template_versions(
@@ -11379,7 +11511,7 @@ function describe_launch_template_versions(
         "DescribeLaunchTemplateVersions",
         params;
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -11410,13 +11542,18 @@ Optional parameters can be passed as a `params::Dict{String,<:Any}`. Valid keys 
 - `"NextToken"`: The token to request the next page of results.
 """
 function describe_launch_templates(; aws_config::AbstractAWSConfig=global_aws_config())
-    return ec2("DescribeLaunchTemplates"; aws_config=aws_config, features=SERVICE_FEATURES)
+    return ec2(
+        "DescribeLaunchTemplates"; aws_config=aws_config, feature_set=SERVICE_FEATURE_SET
+    )
 end
 function describe_launch_templates(
     params::AbstractDict{String}; aws_config::AbstractAWSConfig=global_aws_config()
 )
     return ec2(
-        "DescribeLaunchTemplates", params; aws_config=aws_config, features=SERVICE_FEATURES
+        "DescribeLaunchTemplates",
+        params;
+        aws_config=aws_config,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -11447,7 +11584,7 @@ function describe_local_gateway_route_table_virtual_interface_group_associations
     return ec2(
         "DescribeLocalGatewayRouteTableVirtualInterfaceGroupAssociations";
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function describe_local_gateway_route_table_virtual_interface_group_associations(
@@ -11457,7 +11594,7 @@ function describe_local_gateway_route_table_virtual_interface_group_associations
         "DescribeLocalGatewayRouteTableVirtualInterfaceGroupAssociations",
         params;
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -11487,7 +11624,7 @@ function describe_local_gateway_route_table_vpc_associations(;
     return ec2(
         "DescribeLocalGatewayRouteTableVpcAssociations";
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function describe_local_gateway_route_table_vpc_associations(
@@ -11497,7 +11634,7 @@ function describe_local_gateway_route_table_vpc_associations(
         "DescribeLocalGatewayRouteTableVpcAssociations",
         params;
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -11526,7 +11663,9 @@ function describe_local_gateway_route_tables(;
     aws_config::AbstractAWSConfig=global_aws_config()
 )
     return ec2(
-        "DescribeLocalGatewayRouteTables"; aws_config=aws_config, features=SERVICE_FEATURES
+        "DescribeLocalGatewayRouteTables";
+        aws_config=aws_config,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function describe_local_gateway_route_tables(
@@ -11536,7 +11675,7 @@ function describe_local_gateway_route_tables(
         "DescribeLocalGatewayRouteTables",
         params;
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -11565,7 +11704,7 @@ function describe_local_gateway_virtual_interface_groups(;
     return ec2(
         "DescribeLocalGatewayVirtualInterfaceGroups";
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function describe_local_gateway_virtual_interface_groups(
@@ -11575,7 +11714,7 @@ function describe_local_gateway_virtual_interface_groups(
         "DescribeLocalGatewayVirtualInterfaceGroups",
         params;
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -11602,7 +11741,7 @@ function describe_local_gateway_virtual_interfaces(;
     return ec2(
         "DescribeLocalGatewayVirtualInterfaces";
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function describe_local_gateway_virtual_interfaces(
@@ -11612,7 +11751,7 @@ function describe_local_gateway_virtual_interfaces(
         "DescribeLocalGatewayVirtualInterfaces",
         params;
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -11640,13 +11779,18 @@ Optional parameters can be passed as a `params::Dict{String,<:Any}`. Valid keys 
 - `"NextToken"`: The token for the next page of results.
 """
 function describe_local_gateways(; aws_config::AbstractAWSConfig=global_aws_config())
-    return ec2("DescribeLocalGateways"; aws_config=aws_config, features=SERVICE_FEATURES)
+    return ec2(
+        "DescribeLocalGateways"; aws_config=aws_config, feature_set=SERVICE_FEATURE_SET
+    )
 end
 function describe_local_gateways(
     params::AbstractDict{String}; aws_config::AbstractAWSConfig=global_aws_config()
 )
     return ec2(
-        "DescribeLocalGateways", params; aws_config=aws_config, features=SERVICE_FEATURES
+        "DescribeLocalGateways",
+        params;
+        aws_config=aws_config,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -11672,7 +11816,7 @@ Optional parameters can be passed as a `params::Dict{String,<:Any}`. Valid keys 
 """
 function describe_managed_prefix_lists(; aws_config::AbstractAWSConfig=global_aws_config())
     return ec2(
-        "DescribeManagedPrefixLists"; aws_config=aws_config, features=SERVICE_FEATURES
+        "DescribeManagedPrefixLists"; aws_config=aws_config, feature_set=SERVICE_FEATURE_SET
     )
 end
 function describe_managed_prefix_lists(
@@ -11682,7 +11826,7 @@ function describe_managed_prefix_lists(
         "DescribeManagedPrefixLists",
         params;
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -11710,13 +11854,18 @@ Optional parameters can be passed as a `params::Dict{String,<:Any}`. Valid keys 
 - `"publicIp"`: One or more Elastic IP addresses.
 """
 function describe_moving_addresses(; aws_config::AbstractAWSConfig=global_aws_config())
-    return ec2("DescribeMovingAddresses"; aws_config=aws_config, features=SERVICE_FEATURES)
+    return ec2(
+        "DescribeMovingAddresses"; aws_config=aws_config, feature_set=SERVICE_FEATURE_SET
+    )
 end
 function describe_moving_addresses(
     params::AbstractDict{String}; aws_config::AbstractAWSConfig=global_aws_config()
 )
     return ec2(
-        "DescribeMovingAddresses", params; aws_config=aws_config, features=SERVICE_FEATURES
+        "DescribeMovingAddresses",
+        params;
+        aws_config=aws_config,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -11746,13 +11895,18 @@ Optional parameters can be passed as a `params::Dict{String,<:Any}`. Valid keys 
 - `"NextToken"`: The token for the next page of results.
 """
 function describe_nat_gateways(; aws_config::AbstractAWSConfig=global_aws_config())
-    return ec2("DescribeNatGateways"; aws_config=aws_config, features=SERVICE_FEATURES)
+    return ec2(
+        "DescribeNatGateways"; aws_config=aws_config, feature_set=SERVICE_FEATURE_SET
+    )
 end
 function describe_nat_gateways(
     params::AbstractDict{String}; aws_config::AbstractAWSConfig=global_aws_config()
 )
     return ec2(
-        "DescribeNatGateways", params; aws_config=aws_config, features=SERVICE_FEATURES
+        "DescribeNatGateways",
+        params;
+        aws_config=aws_config,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -11793,13 +11947,18 @@ Optional parameters can be passed as a `params::Dict{String,<:Any}`. Valid keys 
   permissions, the error response is DryRunOperation. Otherwise, it is UnauthorizedOperation.
 """
 function describe_network_acls(; aws_config::AbstractAWSConfig=global_aws_config())
-    return ec2("DescribeNetworkAcls"; aws_config=aws_config, features=SERVICE_FEATURES)
+    return ec2(
+        "DescribeNetworkAcls"; aws_config=aws_config, feature_set=SERVICE_FEATURE_SET
+    )
 end
 function describe_network_acls(
     params::AbstractDict{String}; aws_config::AbstractAWSConfig=global_aws_config()
 )
     return ec2(
-        "DescribeNetworkAcls", params; aws_config=aws_config, features=SERVICE_FEATURES
+        "DescribeNetworkAcls",
+        params;
+        aws_config=aws_config,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -11831,7 +11990,9 @@ function describe_network_insights_analyses(;
     aws_config::AbstractAWSConfig=global_aws_config()
 )
     return ec2(
-        "DescribeNetworkInsightsAnalyses"; aws_config=aws_config, features=SERVICE_FEATURES
+        "DescribeNetworkInsightsAnalyses";
+        aws_config=aws_config,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function describe_network_insights_analyses(
@@ -11841,7 +12002,7 @@ function describe_network_insights_analyses(
         "DescribeNetworkInsightsAnalyses",
         params;
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -11868,7 +12029,9 @@ function describe_network_insights_paths(;
     aws_config::AbstractAWSConfig=global_aws_config()
 )
     return ec2(
-        "DescribeNetworkInsightsPaths"; aws_config=aws_config, features=SERVICE_FEATURES
+        "DescribeNetworkInsightsPaths";
+        aws_config=aws_config,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function describe_network_insights_paths(
@@ -11878,7 +12041,7 @@ function describe_network_insights_paths(
         "DescribeNetworkInsightsPaths",
         params;
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -11905,7 +12068,7 @@ function describe_network_interface_attribute(
         "DescribeNetworkInterfaceAttribute",
         Dict{String,Any}("networkInterfaceId" => networkInterfaceId);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function describe_network_interface_attribute(
@@ -11921,7 +12084,7 @@ function describe_network_interface_attribute(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -11952,7 +12115,7 @@ function describe_network_interface_permissions(;
     return ec2(
         "DescribeNetworkInterfacePermissions";
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function describe_network_interface_permissions(
@@ -11962,7 +12125,7 @@ function describe_network_interface_permissions(
         "DescribeNetworkInterfacePermissions",
         params;
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -12032,7 +12195,7 @@ Optional parameters can be passed as a `params::Dict{String,<:Any}`. Valid keys 
 """
 function describe_network_interfaces(; aws_config::AbstractAWSConfig=global_aws_config())
     return ec2(
-        "DescribeNetworkInterfaces"; aws_config=aws_config, features=SERVICE_FEATURES
+        "DescribeNetworkInterfaces"; aws_config=aws_config, feature_set=SERVICE_FEATURE_SET
     )
 end
 function describe_network_interfaces(
@@ -12042,7 +12205,7 @@ function describe_network_interfaces(
         "DescribeNetworkInterfaces",
         params;
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -12071,13 +12234,18 @@ Optional parameters can be passed as a `params::Dict{String,<:Any}`. Valid keys 
   groups, or only those otherwise specified.
 """
 function describe_placement_groups(; aws_config::AbstractAWSConfig=global_aws_config())
-    return ec2("DescribePlacementGroups"; aws_config=aws_config, features=SERVICE_FEATURES)
+    return ec2(
+        "DescribePlacementGroups"; aws_config=aws_config, feature_set=SERVICE_FEATURE_SET
+    )
 end
 function describe_placement_groups(
     params::AbstractDict{String}; aws_config::AbstractAWSConfig=global_aws_config()
 )
     return ec2(
-        "DescribePlacementGroups", params; aws_config=aws_config, features=SERVICE_FEATURES
+        "DescribePlacementGroups",
+        params;
+        aws_config=aws_config,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -12102,13 +12270,18 @@ Optional parameters can be passed as a `params::Dict{String,<:Any}`. Valid keys 
 - `"PrefixListId"`: One or more prefix list IDs.
 """
 function describe_prefix_lists(; aws_config::AbstractAWSConfig=global_aws_config())
-    return ec2("DescribePrefixLists"; aws_config=aws_config, features=SERVICE_FEATURES)
+    return ec2(
+        "DescribePrefixLists"; aws_config=aws_config, feature_set=SERVICE_FEATURE_SET
+    )
 end
 function describe_prefix_lists(
     params::AbstractDict{String}; aws_config::AbstractAWSConfig=global_aws_config()
 )
     return ec2(
-        "DescribePrefixLists", params; aws_config=aws_config, features=SERVICE_FEATURES
+        "DescribePrefixLists",
+        params;
+        aws_config=aws_config,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -12147,7 +12320,7 @@ Optional parameters can be passed as a `params::Dict{String,<:Any}`. Valid keys 
 """
 function describe_principal_id_format(; aws_config::AbstractAWSConfig=global_aws_config())
     return ec2(
-        "DescribePrincipalIdFormat"; aws_config=aws_config, features=SERVICE_FEATURES
+        "DescribePrincipalIdFormat"; aws_config=aws_config, feature_set=SERVICE_FEATURE_SET
     )
 end
 function describe_principal_id_format(
@@ -12157,7 +12330,7 @@ function describe_principal_id_format(
         "DescribePrincipalIdFormat",
         params;
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -12181,13 +12354,18 @@ Optional parameters can be passed as a `params::Dict{String,<:Any}`. Valid keys 
 - `"PoolId"`: The IDs of the address pools.
 """
 function describe_public_ipv4_pools(; aws_config::AbstractAWSConfig=global_aws_config())
-    return ec2("DescribePublicIpv4Pools"; aws_config=aws_config, features=SERVICE_FEATURES)
+    return ec2(
+        "DescribePublicIpv4Pools"; aws_config=aws_config, feature_set=SERVICE_FEATURE_SET
+    )
 end
 function describe_public_ipv4_pools(
     params::AbstractDict{String}; aws_config::AbstractAWSConfig=global_aws_config()
 )
     return ec2(
-        "DescribePublicIpv4Pools", params; aws_config=aws_config, features=SERVICE_FEATURES
+        "DescribePublicIpv4Pools",
+        params;
+        aws_config=aws_config,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -12215,12 +12393,14 @@ Optional parameters can be passed as a `params::Dict{String,<:Any}`. Valid keys 
   permissions, the error response is DryRunOperation. Otherwise, it is UnauthorizedOperation.
 """
 function describe_regions(; aws_config::AbstractAWSConfig=global_aws_config())
-    return ec2("DescribeRegions"; aws_config=aws_config, features=SERVICE_FEATURES)
+    return ec2("DescribeRegions"; aws_config=aws_config, feature_set=SERVICE_FEATURE_SET)
 end
 function describe_regions(
     params::AbstractDict{String}; aws_config::AbstractAWSConfig=global_aws_config()
 )
-    return ec2("DescribeRegions", params; aws_config=aws_config, features=SERVICE_FEATURES)
+    return ec2(
+        "DescribeRegions", params; aws_config=aws_config, feature_set=SERVICE_FEATURE_SET
+    )
 end
 
 """
@@ -12246,7 +12426,9 @@ function describe_replace_root_volume_tasks(;
     aws_config::AbstractAWSConfig=global_aws_config()
 )
     return ec2(
-        "DescribeReplaceRootVolumeTasks"; aws_config=aws_config, features=SERVICE_FEATURES
+        "DescribeReplaceRootVolumeTasks";
+        aws_config=aws_config,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function describe_replace_root_volume_tasks(
@@ -12256,7 +12438,7 @@ function describe_replace_root_volume_tasks(
         "DescribeReplaceRootVolumeTasks",
         params;
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -12305,7 +12487,7 @@ Optional parameters can be passed as a `params::Dict{String,<:Any}`. Valid keys 
 """
 function describe_reserved_instances(; aws_config::AbstractAWSConfig=global_aws_config())
     return ec2(
-        "DescribeReservedInstances"; aws_config=aws_config, features=SERVICE_FEATURES
+        "DescribeReservedInstances"; aws_config=aws_config, feature_set=SERVICE_FEATURE_SET
     )
 end
 function describe_reserved_instances(
@@ -12315,7 +12497,7 @@ function describe_reserved_instances(
         "DescribeReservedInstances",
         params;
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -12352,7 +12534,7 @@ function describe_reserved_instances_listings(;
     return ec2(
         "DescribeReservedInstancesListings";
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function describe_reserved_instances_listings(
@@ -12362,7 +12544,7 @@ function describe_reserved_instances_listings(
         "DescribeReservedInstancesListings",
         params;
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -12402,7 +12584,7 @@ function describe_reserved_instances_modifications(;
     return ec2(
         "DescribeReservedInstancesModifications";
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function describe_reserved_instances_modifications(
@@ -12412,7 +12594,7 @@ function describe_reserved_instances_modifications(
         "DescribeReservedInstancesModifications",
         params;
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -12485,7 +12667,7 @@ function describe_reserved_instances_offerings(;
     return ec2(
         "DescribeReservedInstancesOfferings";
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function describe_reserved_instances_offerings(
@@ -12495,7 +12677,7 @@ function describe_reserved_instances_offerings(
         "DescribeReservedInstancesOfferings",
         params;
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -12549,13 +12731,18 @@ Optional parameters can be passed as a `params::Dict{String,<:Any}`. Valid keys 
   permissions, the error response is DryRunOperation. Otherwise, it is UnauthorizedOperation.
 """
 function describe_route_tables(; aws_config::AbstractAWSConfig=global_aws_config())
-    return ec2("DescribeRouteTables"; aws_config=aws_config, features=SERVICE_FEATURES)
+    return ec2(
+        "DescribeRouteTables"; aws_config=aws_config, feature_set=SERVICE_FEATURE_SET
+    )
 end
 function describe_route_tables(
     params::AbstractDict{String}; aws_config::AbstractAWSConfig=global_aws_config()
 )
     return ec2(
-        "DescribeRouteTables", params; aws_config=aws_config, features=SERVICE_FEATURES
+        "DescribeRouteTables",
+        params;
+        aws_config=aws_config,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -12603,7 +12790,7 @@ function describe_scheduled_instance_availability(
             "FirstSlotStartTimeRange" => FirstSlotStartTimeRange, "Recurrence" => Recurrence
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function describe_scheduled_instance_availability(
@@ -12625,7 +12812,7 @@ function describe_scheduled_instance_availability(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -12653,7 +12840,7 @@ Optional parameters can be passed as a `params::Dict{String,<:Any}`. Valid keys 
 """
 function describe_scheduled_instances(; aws_config::AbstractAWSConfig=global_aws_config())
     return ec2(
-        "DescribeScheduledInstances"; aws_config=aws_config, features=SERVICE_FEATURES
+        "DescribeScheduledInstances"; aws_config=aws_config, feature_set=SERVICE_FEATURE_SET
     )
 end
 function describe_scheduled_instances(
@@ -12663,7 +12850,7 @@ function describe_scheduled_instances(
         "DescribeScheduledInstances",
         params;
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -12691,7 +12878,7 @@ function describe_security_group_references(
         "DescribeSecurityGroupReferences",
         Dict{String,Any}("item" => item);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function describe_security_group_references(
@@ -12701,7 +12888,7 @@ function describe_security_group_references(
         "DescribeSecurityGroupReferences",
         Dict{String,Any}(mergewith(_merge, Dict{String,Any}("item" => item), params));
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -12730,7 +12917,7 @@ Optional parameters can be passed as a `params::Dict{String,<:Any}`. Valid keys 
 """
 function describe_security_group_rules(; aws_config::AbstractAWSConfig=global_aws_config())
     return ec2(
-        "DescribeSecurityGroupRules"; aws_config=aws_config, features=SERVICE_FEATURES
+        "DescribeSecurityGroupRules"; aws_config=aws_config, feature_set=SERVICE_FEATURE_SET
     )
 end
 function describe_security_group_rules(
@@ -12740,7 +12927,7 @@ function describe_security_group_rules(
         "DescribeSecurityGroupRules",
         params;
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -12806,13 +12993,18 @@ Optional parameters can be passed as a `params::Dict{String,<:Any}`. Valid keys 
   permissions, the error response is DryRunOperation. Otherwise, it is UnauthorizedOperation.
 """
 function describe_security_groups(; aws_config::AbstractAWSConfig=global_aws_config())
-    return ec2("DescribeSecurityGroups"; aws_config=aws_config, features=SERVICE_FEATURES)
+    return ec2(
+        "DescribeSecurityGroups"; aws_config=aws_config, feature_set=SERVICE_FEATURE_SET
+    )
 end
 function describe_security_groups(
     params::AbstractDict{String}; aws_config::AbstractAWSConfig=global_aws_config()
 )
     return ec2(
-        "DescribeSecurityGroups", params; aws_config=aws_config, features=SERVICE_FEATURES
+        "DescribeSecurityGroups",
+        params;
+        aws_config=aws_config,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -12841,7 +13033,7 @@ function describe_snapshot_attribute(
         "DescribeSnapshotAttribute",
         Dict{String,Any}("Attribute" => Attribute, "SnapshotId" => SnapshotId);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function describe_snapshot_attribute(
@@ -12860,7 +13052,7 @@ function describe_snapshot_attribute(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -12940,13 +13132,13 @@ Optional parameters can be passed as a `params::Dict{String,<:Any}`. Valid keys 
   permissions, the error response is DryRunOperation. Otherwise, it is UnauthorizedOperation.
 """
 function describe_snapshots(; aws_config::AbstractAWSConfig=global_aws_config())
-    return ec2("DescribeSnapshots"; aws_config=aws_config, features=SERVICE_FEATURES)
+    return ec2("DescribeSnapshots"; aws_config=aws_config, feature_set=SERVICE_FEATURE_SET)
 end
 function describe_snapshots(
     params::AbstractDict{String}; aws_config::AbstractAWSConfig=global_aws_config()
 )
     return ec2(
-        "DescribeSnapshots", params; aws_config=aws_config, features=SERVICE_FEATURES
+        "DescribeSnapshots", params; aws_config=aws_config, feature_set=SERVICE_FEATURE_SET
     )
 end
 
@@ -12967,7 +13159,9 @@ function describe_spot_datafeed_subscription(;
     aws_config::AbstractAWSConfig=global_aws_config()
 )
     return ec2(
-        "DescribeSpotDatafeedSubscription"; aws_config=aws_config, features=SERVICE_FEATURES
+        "DescribeSpotDatafeedSubscription";
+        aws_config=aws_config,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function describe_spot_datafeed_subscription(
@@ -12977,7 +13171,7 @@ function describe_spot_datafeed_subscription(
         "DescribeSpotDatafeedSubscription",
         params;
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -13007,7 +13201,7 @@ function describe_spot_fleet_instances(
         "DescribeSpotFleetInstances",
         Dict{String,Any}("spotFleetRequestId" => spotFleetRequestId);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function describe_spot_fleet_instances(
@@ -13023,7 +13217,7 @@ function describe_spot_fleet_instances(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -13061,7 +13255,7 @@ function describe_spot_fleet_request_history(
             "spotFleetRequestId" => spotFleetRequestId, "startTime" => startTime
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function describe_spot_fleet_request_history(
@@ -13082,7 +13276,7 @@ function describe_spot_fleet_request_history(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -13106,7 +13300,7 @@ Optional parameters can be passed as a `params::Dict{String,<:Any}`. Valid keys 
 """
 function describe_spot_fleet_requests(; aws_config::AbstractAWSConfig=global_aws_config())
     return ec2(
-        "DescribeSpotFleetRequests"; aws_config=aws_config, features=SERVICE_FEATURES
+        "DescribeSpotFleetRequests"; aws_config=aws_config, feature_set=SERVICE_FEATURE_SET
     )
 end
 function describe_spot_fleet_requests(
@@ -13116,7 +13310,7 @@ function describe_spot_fleet_requests(
         "DescribeSpotFleetRequests",
         params;
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -13196,7 +13390,9 @@ function describe_spot_instance_requests(;
     aws_config::AbstractAWSConfig=global_aws_config()
 )
     return ec2(
-        "DescribeSpotInstanceRequests"; aws_config=aws_config, features=SERVICE_FEATURES
+        "DescribeSpotInstanceRequests";
+        aws_config=aws_config,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function describe_spot_instance_requests(
@@ -13206,7 +13402,7 @@ function describe_spot_instance_requests(
         "DescribeSpotInstanceRequests",
         params;
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -13247,13 +13443,18 @@ Optional parameters can be passed as a `params::Dict{String,<:Any}`. Valid keys 
   the price history data, in UTC format (for example, YYYY-MM-DDTHH:MM:SSZ).
 """
 function describe_spot_price_history(; aws_config::AbstractAWSConfig=global_aws_config())
-    return ec2("DescribeSpotPriceHistory"; aws_config=aws_config, features=SERVICE_FEATURES)
+    return ec2(
+        "DescribeSpotPriceHistory"; aws_config=aws_config, feature_set=SERVICE_FEATURE_SET
+    )
 end
 function describe_spot_price_history(
     params::AbstractDict{String}; aws_config::AbstractAWSConfig=global_aws_config()
 )
     return ec2(
-        "DescribeSpotPriceHistory", params; aws_config=aws_config, features=SERVICE_FEATURES
+        "DescribeSpotPriceHistory",
+        params;
+        aws_config=aws_config,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -13285,7 +13486,7 @@ function describe_stale_security_groups(
         "DescribeStaleSecurityGroups",
         Dict{String,Any}("VpcId" => VpcId);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function describe_stale_security_groups(
@@ -13295,7 +13496,7 @@ function describe_stale_security_groups(
         "DescribeStaleSecurityGroups",
         Dict{String,Any}(mergewith(_merge, Dict{String,Any}("VpcId" => VpcId), params));
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -13330,13 +13531,18 @@ Optional parameters can be passed as a `params::Dict{String,<:Any}`. Valid keys 
 - `"NextToken"`: The token for the next page of results.
 """
 function describe_store_image_tasks(; aws_config::AbstractAWSConfig=global_aws_config())
-    return ec2("DescribeStoreImageTasks"; aws_config=aws_config, features=SERVICE_FEATURES)
+    return ec2(
+        "DescribeStoreImageTasks"; aws_config=aws_config, feature_set=SERVICE_FEATURE_SET
+    )
 end
 function describe_store_image_tasks(
     params::AbstractDict{String}; aws_config::AbstractAWSConfig=global_aws_config()
 )
     return ec2(
-        "DescribeStoreImageTasks", params; aws_config=aws_config, features=SERVICE_FEATURES
+        "DescribeStoreImageTasks",
+        params;
+        aws_config=aws_config,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -13380,12 +13586,14 @@ Optional parameters can be passed as a `params::Dict{String,<:Any}`. Valid keys 
   permissions, the error response is DryRunOperation. Otherwise, it is UnauthorizedOperation.
 """
 function describe_subnets(; aws_config::AbstractAWSConfig=global_aws_config())
-    return ec2("DescribeSubnets"; aws_config=aws_config, features=SERVICE_FEATURES)
+    return ec2("DescribeSubnets"; aws_config=aws_config, feature_set=SERVICE_FEATURE_SET)
 end
 function describe_subnets(
     params::AbstractDict{String}; aws_config::AbstractAWSConfig=global_aws_config()
 )
-    return ec2("DescribeSubnets", params; aws_config=aws_config, features=SERVICE_FEATURES)
+    return ec2(
+        "DescribeSubnets", params; aws_config=aws_config, feature_set=SERVICE_FEATURE_SET
+    )
 end
 
 """
@@ -13415,12 +13623,14 @@ Optional parameters can be passed as a `params::Dict{String,<:Any}`. Valid keys 
 - `"nextToken"`: The token to retrieve the next page of results.
 """
 function describe_tags(; aws_config::AbstractAWSConfig=global_aws_config())
-    return ec2("DescribeTags"; aws_config=aws_config, features=SERVICE_FEATURES)
+    return ec2("DescribeTags"; aws_config=aws_config, feature_set=SERVICE_FEATURE_SET)
 end
 function describe_tags(
     params::AbstractDict{String}; aws_config::AbstractAWSConfig=global_aws_config()
 )
-    return ec2("DescribeTags", params; aws_config=aws_config, features=SERVICE_FEATURES)
+    return ec2(
+        "DescribeTags", params; aws_config=aws_config, feature_set=SERVICE_FEATURE_SET
+    )
 end
 
 """
@@ -13446,7 +13656,9 @@ function describe_traffic_mirror_filters(;
     aws_config::AbstractAWSConfig=global_aws_config()
 )
     return ec2(
-        "DescribeTrafficMirrorFilters"; aws_config=aws_config, features=SERVICE_FEATURES
+        "DescribeTrafficMirrorFilters";
+        aws_config=aws_config,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function describe_traffic_mirror_filters(
@@ -13456,7 +13668,7 @@ function describe_traffic_mirror_filters(
         "DescribeTrafficMirrorFilters",
         params;
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -13489,7 +13701,9 @@ function describe_traffic_mirror_sessions(;
     aws_config::AbstractAWSConfig=global_aws_config()
 )
     return ec2(
-        "DescribeTrafficMirrorSessions"; aws_config=aws_config, features=SERVICE_FEATURES
+        "DescribeTrafficMirrorSessions";
+        aws_config=aws_config,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function describe_traffic_mirror_sessions(
@@ -13499,7 +13713,7 @@ function describe_traffic_mirror_sessions(
         "DescribeTrafficMirrorSessions",
         params;
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -13529,7 +13743,9 @@ function describe_traffic_mirror_targets(;
     aws_config::AbstractAWSConfig=global_aws_config()
 )
     return ec2(
-        "DescribeTrafficMirrorTargets"; aws_config=aws_config, features=SERVICE_FEATURES
+        "DescribeTrafficMirrorTargets";
+        aws_config=aws_config,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function describe_traffic_mirror_targets(
@@ -13539,7 +13755,7 @@ function describe_traffic_mirror_targets(
         "DescribeTrafficMirrorTargets",
         params;
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -13578,7 +13794,7 @@ function describe_transit_gateway_attachments(;
     return ec2(
         "DescribeTransitGatewayAttachments";
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function describe_transit_gateway_attachments(
@@ -13588,7 +13804,7 @@ function describe_transit_gateway_attachments(
         "DescribeTransitGatewayAttachments",
         params;
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -13617,7 +13833,7 @@ function describe_transit_gateway_connect_peers(;
     return ec2(
         "DescribeTransitGatewayConnectPeers";
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function describe_transit_gateway_connect_peers(
@@ -13627,7 +13843,7 @@ function describe_transit_gateway_connect_peers(
         "DescribeTransitGatewayConnectPeers",
         params;
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -13658,7 +13874,9 @@ function describe_transit_gateway_connects(;
     aws_config::AbstractAWSConfig=global_aws_config()
 )
     return ec2(
-        "DescribeTransitGatewayConnects"; aws_config=aws_config, features=SERVICE_FEATURES
+        "DescribeTransitGatewayConnects";
+        aws_config=aws_config,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function describe_transit_gateway_connects(
@@ -13668,7 +13886,7 @@ function describe_transit_gateway_connects(
         "DescribeTransitGatewayConnects",
         params;
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -13698,7 +13916,7 @@ function describe_transit_gateway_multicast_domains(;
     return ec2(
         "DescribeTransitGatewayMulticastDomains";
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function describe_transit_gateway_multicast_domains(
@@ -13708,7 +13926,7 @@ function describe_transit_gateway_multicast_domains(
         "DescribeTransitGatewayMulticastDomains",
         params;
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -13748,7 +13966,7 @@ function describe_transit_gateway_peering_attachments(;
     return ec2(
         "DescribeTransitGatewayPeeringAttachments";
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function describe_transit_gateway_peering_attachments(
@@ -13758,7 +13976,7 @@ function describe_transit_gateway_peering_attachments(
         "DescribeTransitGatewayPeeringAttachments",
         params;
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -13792,7 +14010,7 @@ function describe_transit_gateway_route_tables(;
     return ec2(
         "DescribeTransitGatewayRouteTables";
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function describe_transit_gateway_route_tables(
@@ -13802,7 +14020,7 @@ function describe_transit_gateway_route_tables(
         "DescribeTransitGatewayRouteTables",
         params;
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -13834,7 +14052,7 @@ function describe_transit_gateway_vpc_attachments(;
     return ec2(
         "DescribeTransitGatewayVpcAttachments";
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function describe_transit_gateway_vpc_attachments(
@@ -13844,7 +14062,7 @@ function describe_transit_gateway_vpc_attachments(
         "DescribeTransitGatewayVpcAttachments",
         params;
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -13881,13 +14099,18 @@ Optional parameters can be passed as a `params::Dict{String,<:Any}`. Valid keys 
 - `"TransitGatewayIds"`: The IDs of the transit gateways.
 """
 function describe_transit_gateways(; aws_config::AbstractAWSConfig=global_aws_config())
-    return ec2("DescribeTransitGateways"; aws_config=aws_config, features=SERVICE_FEATURES)
+    return ec2(
+        "DescribeTransitGateways"; aws_config=aws_config, feature_set=SERVICE_FEATURE_SET
+    )
 end
 function describe_transit_gateways(
     params::AbstractDict{String}; aws_config::AbstractAWSConfig=global_aws_config()
 )
     return ec2(
-        "DescribeTransitGateways", params; aws_config=aws_config, features=SERVICE_FEATURES
+        "DescribeTransitGateways",
+        params;
+        aws_config=aws_config,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -13917,7 +14140,7 @@ function describe_trunk_interface_associations(;
     return ec2(
         "DescribeTrunkInterfaceAssociations";
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function describe_trunk_interface_associations(
@@ -13927,7 +14150,7 @@ function describe_trunk_interface_associations(
         "DescribeTrunkInterfaceAssociations",
         params;
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -13956,7 +14179,7 @@ function describe_volume_attribute(
         "DescribeVolumeAttribute",
         Dict{String,Any}("Attribute" => Attribute, "VolumeId" => VolumeId);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function describe_volume_attribute(
@@ -13975,7 +14198,7 @@ function describe_volume_attribute(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -14041,13 +14264,18 @@ Optional parameters can be passed as a `params::Dict{String,<:Any}`. Valid keys 
   permissions, the error response is DryRunOperation. Otherwise, it is UnauthorizedOperation.
 """
 function describe_volume_status(; aws_config::AbstractAWSConfig=global_aws_config())
-    return ec2("DescribeVolumeStatus"; aws_config=aws_config, features=SERVICE_FEATURES)
+    return ec2(
+        "DescribeVolumeStatus"; aws_config=aws_config, feature_set=SERVICE_FEATURE_SET
+    )
 end
 function describe_volume_status(
     params::AbstractDict{String}; aws_config::AbstractAWSConfig=global_aws_config()
 )
     return ec2(
-        "DescribeVolumeStatus", params; aws_config=aws_config, features=SERVICE_FEATURES
+        "DescribeVolumeStatus",
+        params;
+        aws_config=aws_config,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -14103,12 +14331,14 @@ Optional parameters can be passed as a `params::Dict{String,<:Any}`. Valid keys 
   value. This value is null when there are no more results to return.
 """
 function describe_volumes(; aws_config::AbstractAWSConfig=global_aws_config())
-    return ec2("DescribeVolumes"; aws_config=aws_config, features=SERVICE_FEATURES)
+    return ec2("DescribeVolumes"; aws_config=aws_config, feature_set=SERVICE_FEATURE_SET)
 end
 function describe_volumes(
     params::AbstractDict{String}; aws_config::AbstractAWSConfig=global_aws_config()
 )
-    return ec2("DescribeVolumes", params; aws_config=aws_config, features=SERVICE_FEATURES)
+    return ec2(
+        "DescribeVolumes", params; aws_config=aws_config, feature_set=SERVICE_FEATURE_SET
+    )
 end
 
 """
@@ -14145,7 +14375,9 @@ Optional parameters can be passed as a `params::Dict{String,<:Any}`. Valid keys 
 """
 function describe_volumes_modifications(; aws_config::AbstractAWSConfig=global_aws_config())
     return ec2(
-        "DescribeVolumesModifications"; aws_config=aws_config, features=SERVICE_FEATURES
+        "DescribeVolumesModifications";
+        aws_config=aws_config,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function describe_volumes_modifications(
@@ -14155,7 +14387,7 @@ function describe_volumes_modifications(
         "DescribeVolumesModifications",
         params;
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -14183,7 +14415,7 @@ function describe_vpc_attribute(
         "DescribeVpcAttribute",
         Dict{String,Any}("Attribute" => Attribute, "VpcId" => VpcId);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function describe_vpc_attribute(
@@ -14200,7 +14432,7 @@ function describe_vpc_attribute(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -14225,13 +14457,18 @@ Optional parameters can be passed as a `params::Dict{String,<:Any}`. Valid keys 
   permissions, the error response is DryRunOperation. Otherwise, it is UnauthorizedOperation.
 """
 function describe_vpc_classic_link(; aws_config::AbstractAWSConfig=global_aws_config())
-    return ec2("DescribeVpcClassicLink"; aws_config=aws_config, features=SERVICE_FEATURES)
+    return ec2(
+        "DescribeVpcClassicLink"; aws_config=aws_config, feature_set=SERVICE_FEATURE_SET
+    )
 end
 function describe_vpc_classic_link(
     params::AbstractDict{String}; aws_config::AbstractAWSConfig=global_aws_config()
 )
     return ec2(
-        "DescribeVpcClassicLink", params; aws_config=aws_config, features=SERVICE_FEATURES
+        "DescribeVpcClassicLink",
+        params;
+        aws_config=aws_config,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -14257,7 +14494,9 @@ function describe_vpc_classic_link_dns_support(;
     aws_config::AbstractAWSConfig=global_aws_config()
 )
     return ec2(
-        "DescribeVpcClassicLinkDnsSupport"; aws_config=aws_config, features=SERVICE_FEATURES
+        "DescribeVpcClassicLinkDnsSupport";
+        aws_config=aws_config,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function describe_vpc_classic_link_dns_support(
@@ -14267,7 +14506,7 @@ function describe_vpc_classic_link_dns_support(
         "DescribeVpcClassicLinkDnsSupport",
         params;
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -14298,7 +14537,7 @@ function describe_vpc_endpoint_connection_notifications(;
     return ec2(
         "DescribeVpcEndpointConnectionNotifications";
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function describe_vpc_endpoint_connection_notifications(
@@ -14308,7 +14547,7 @@ function describe_vpc_endpoint_connection_notifications(
         "DescribeVpcEndpointConnectionNotifications",
         params;
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -14338,7 +14577,9 @@ function describe_vpc_endpoint_connections(;
     aws_config::AbstractAWSConfig=global_aws_config()
 )
     return ec2(
-        "DescribeVpcEndpointConnections"; aws_config=aws_config, features=SERVICE_FEATURES
+        "DescribeVpcEndpointConnections";
+        aws_config=aws_config,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function describe_vpc_endpoint_connections(
@@ -14348,7 +14589,7 @@ function describe_vpc_endpoint_connections(
         "DescribeVpcEndpointConnections",
         params;
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -14384,7 +14625,7 @@ function describe_vpc_endpoint_service_configurations(;
     return ec2(
         "DescribeVpcEndpointServiceConfigurations";
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function describe_vpc_endpoint_service_configurations(
@@ -14394,7 +14635,7 @@ function describe_vpc_endpoint_service_configurations(
         "DescribeVpcEndpointServiceConfigurations",
         params;
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -14429,7 +14670,7 @@ function describe_vpc_endpoint_service_permissions(
         "DescribeVpcEndpointServicePermissions",
         Dict{String,Any}("ServiceId" => ServiceId);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function describe_vpc_endpoint_service_permissions(
@@ -14443,7 +14684,7 @@ function describe_vpc_endpoint_service_permissions(
             mergewith(_merge, Dict{String,Any}("ServiceId" => ServiceId), params)
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -14479,7 +14720,9 @@ Optional parameters can be passed as a `params::Dict{String,<:Any}`. Valid keys 
 """
 function describe_vpc_endpoint_services(; aws_config::AbstractAWSConfig=global_aws_config())
     return ec2(
-        "DescribeVpcEndpointServices"; aws_config=aws_config, features=SERVICE_FEATURES
+        "DescribeVpcEndpointServices";
+        aws_config=aws_config,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function describe_vpc_endpoint_services(
@@ -14489,7 +14732,7 @@ function describe_vpc_endpoint_services(
         "DescribeVpcEndpointServices",
         params;
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -14522,13 +14765,18 @@ Optional parameters can be passed as a `params::Dict{String,<:Any}`. Valid keys 
 - `"VpcEndpointId"`: One or more endpoint IDs.
 """
 function describe_vpc_endpoints(; aws_config::AbstractAWSConfig=global_aws_config())
-    return ec2("DescribeVpcEndpoints"; aws_config=aws_config, features=SERVICE_FEATURES)
+    return ec2(
+        "DescribeVpcEndpoints"; aws_config=aws_config, feature_set=SERVICE_FEATURE_SET
+    )
 end
 function describe_vpc_endpoints(
     params::AbstractDict{String}; aws_config::AbstractAWSConfig=global_aws_config()
 )
     return ec2(
-        "DescribeVpcEndpoints", params; aws_config=aws_config, features=SERVICE_FEATURES
+        "DescribeVpcEndpoints",
+        params;
+        aws_config=aws_config,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -14570,7 +14818,9 @@ function describe_vpc_peering_connections(;
     aws_config::AbstractAWSConfig=global_aws_config()
 )
     return ec2(
-        "DescribeVpcPeeringConnections"; aws_config=aws_config, features=SERVICE_FEATURES
+        "DescribeVpcPeeringConnections";
+        aws_config=aws_config,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function describe_vpc_peering_connections(
@@ -14580,7 +14830,7 @@ function describe_vpc_peering_connections(
         "DescribeVpcPeeringConnections",
         params;
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -14621,12 +14871,14 @@ Optional parameters can be passed as a `params::Dict{String,<:Any}`. Valid keys 
   permissions, the error response is DryRunOperation. Otherwise, it is UnauthorizedOperation.
 """
 function describe_vpcs(; aws_config::AbstractAWSConfig=global_aws_config())
-    return ec2("DescribeVpcs"; aws_config=aws_config, features=SERVICE_FEATURES)
+    return ec2("DescribeVpcs"; aws_config=aws_config, feature_set=SERVICE_FEATURE_SET)
 end
 function describe_vpcs(
     params::AbstractDict{String}; aws_config::AbstractAWSConfig=global_aws_config()
 )
-    return ec2("DescribeVpcs", params; aws_config=aws_config, features=SERVICE_FEATURES)
+    return ec2(
+        "DescribeVpcs", params; aws_config=aws_config, feature_set=SERVICE_FEATURE_SET
+    )
 end
 
 """
@@ -14662,13 +14914,18 @@ Optional parameters can be passed as a `params::Dict{String,<:Any}`. Valid keys 
   permissions, the error response is DryRunOperation. Otherwise, it is UnauthorizedOperation.
 """
 function describe_vpn_connections(; aws_config::AbstractAWSConfig=global_aws_config())
-    return ec2("DescribeVpnConnections"; aws_config=aws_config, features=SERVICE_FEATURES)
+    return ec2(
+        "DescribeVpnConnections"; aws_config=aws_config, feature_set=SERVICE_FEATURE_SET
+    )
 end
 function describe_vpn_connections(
     params::AbstractDict{String}; aws_config::AbstractAWSConfig=global_aws_config()
 )
     return ec2(
-        "DescribeVpnConnections", params; aws_config=aws_config, features=SERVICE_FEATURES
+        "DescribeVpnConnections",
+        params;
+        aws_config=aws_config,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -14701,13 +14958,18 @@ Optional parameters can be passed as a `params::Dict{String,<:Any}`. Valid keys 
   permissions, the error response is DryRunOperation. Otherwise, it is UnauthorizedOperation.
 """
 function describe_vpn_gateways(; aws_config::AbstractAWSConfig=global_aws_config())
-    return ec2("DescribeVpnGateways"; aws_config=aws_config, features=SERVICE_FEATURES)
+    return ec2(
+        "DescribeVpnGateways"; aws_config=aws_config, feature_set=SERVICE_FEATURE_SET
+    )
 end
 function describe_vpn_gateways(
     params::AbstractDict{String}; aws_config::AbstractAWSConfig=global_aws_config()
 )
     return ec2(
-        "DescribeVpnGateways", params; aws_config=aws_config, features=SERVICE_FEATURES
+        "DescribeVpnGateways",
+        params;
+        aws_config=aws_config,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -14736,7 +14998,7 @@ function detach_classic_link_vpc(
         "DetachClassicLinkVpc",
         Dict{String,Any}("instanceId" => instanceId, "vpcId" => vpcId);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function detach_classic_link_vpc(
@@ -14755,7 +15017,7 @@ function detach_classic_link_vpc(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -14784,7 +15046,7 @@ function detach_internet_gateway(
         "DetachInternetGateway",
         Dict{String,Any}("internetGatewayId" => internetGatewayId, "vpcId" => vpcId);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function detach_internet_gateway(
@@ -14805,7 +15067,7 @@ function detach_internet_gateway(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -14839,7 +15101,7 @@ function detach_network_interface(
         "DetachNetworkInterface",
         Dict{String,Any}("attachmentId" => attachmentId);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function detach_network_interface(
@@ -14853,7 +15115,7 @@ function detach_network_interface(
             mergewith(_merge, Dict{String,Any}("attachmentId" => attachmentId), params)
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -14895,7 +15157,7 @@ function detach_volume(VolumeId; aws_config::AbstractAWSConfig=global_aws_config
         "DetachVolume",
         Dict{String,Any}("VolumeId" => VolumeId);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function detach_volume(
@@ -14909,7 +15171,7 @@ function detach_volume(
             mergewith(_merge, Dict{String,Any}("VolumeId" => VolumeId), params)
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -14941,7 +15203,7 @@ function detach_vpn_gateway(
         "DetachVpnGateway",
         Dict{String,Any}("VpcId" => VpcId, "VpnGatewayId" => VpnGatewayId);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function detach_vpn_gateway(
@@ -14960,7 +15222,7 @@ function detach_vpn_gateway(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -14984,7 +15246,9 @@ function disable_ebs_encryption_by_default(;
     aws_config::AbstractAWSConfig=global_aws_config()
 )
     return ec2(
-        "DisableEbsEncryptionByDefault"; aws_config=aws_config, features=SERVICE_FEATURES
+        "DisableEbsEncryptionByDefault";
+        aws_config=aws_config,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function disable_ebs_encryption_by_default(
@@ -14994,7 +15258,7 @@ function disable_ebs_encryption_by_default(
         "DisableEbsEncryptionByDefault",
         params;
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -15025,7 +15289,7 @@ function disable_fast_snapshot_restores(
             "AvailabilityZone" => AvailabilityZone, "SourceSnapshotId" => SourceSnapshotId
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function disable_fast_snapshot_restores(
@@ -15047,7 +15311,7 @@ function disable_fast_snapshot_restores(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -15074,7 +15338,7 @@ function disable_image_deprecation(
         "DisableImageDeprecation",
         Dict{String,Any}("ImageId" => ImageId);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function disable_image_deprecation(
@@ -15084,7 +15348,7 @@ function disable_image_deprecation(
         "DisableImageDeprecation",
         Dict{String,Any}(mergewith(_merge, Dict{String,Any}("ImageId" => ImageId), params));
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -15104,7 +15368,7 @@ Optional parameters can be passed as a `params::Dict{String,<:Any}`. Valid keys 
 """
 function disable_serial_console_access(; aws_config::AbstractAWSConfig=global_aws_config())
     return ec2(
-        "DisableSerialConsoleAccess"; aws_config=aws_config, features=SERVICE_FEATURES
+        "DisableSerialConsoleAccess"; aws_config=aws_config, feature_set=SERVICE_FEATURE_SET
     )
 end
 function disable_serial_console_access(
@@ -15114,7 +15378,7 @@ function disable_serial_console_access(
         "DisableSerialConsoleAccess",
         params;
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -15147,7 +15411,7 @@ function disable_transit_gateway_route_table_propagation(
             "TransitGatewayRouteTableId" => TransitGatewayRouteTableId,
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function disable_transit_gateway_route_table_propagation(
@@ -15169,7 +15433,7 @@ function disable_transit_gateway_route_table_propagation(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -15197,7 +15461,7 @@ function disable_vgw_route_propagation(
         "DisableVgwRoutePropagation",
         Dict{String,Any}("GatewayId" => GatewayId, "RouteTableId" => RouteTableId);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function disable_vgw_route_propagation(
@@ -15216,7 +15480,7 @@ function disable_vgw_route_propagation(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -15241,7 +15505,7 @@ function disable_vpc_classic_link(vpcId; aws_config::AbstractAWSConfig=global_aw
         "DisableVpcClassicLink",
         Dict{String,Any}("vpcId" => vpcId);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function disable_vpc_classic_link(
@@ -15251,7 +15515,7 @@ function disable_vpc_classic_link(
         "DisableVpcClassicLink",
         Dict{String,Any}(mergewith(_merge, Dict{String,Any}("vpcId" => vpcId), params));
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -15272,7 +15536,9 @@ function disable_vpc_classic_link_dns_support(;
     aws_config::AbstractAWSConfig=global_aws_config()
 )
     return ec2(
-        "DisableVpcClassicLinkDnsSupport"; aws_config=aws_config, features=SERVICE_FEATURES
+        "DisableVpcClassicLinkDnsSupport";
+        aws_config=aws_config,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function disable_vpc_classic_link_dns_support(
@@ -15282,7 +15548,7 @@ function disable_vpc_classic_link_dns_support(
         "DisableVpcClassicLinkDnsSupport",
         params;
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -15305,13 +15571,18 @@ Optional parameters can be passed as a `params::Dict{String,<:Any}`. Valid keys 
   permissions, the error response is DryRunOperation. Otherwise, it is UnauthorizedOperation.
 """
 function disassociate_address(; aws_config::AbstractAWSConfig=global_aws_config())
-    return ec2("DisassociateAddress"; aws_config=aws_config, features=SERVICE_FEATURES)
+    return ec2(
+        "DisassociateAddress"; aws_config=aws_config, feature_set=SERVICE_FEATURE_SET
+    )
 end
 function disassociate_address(
     params::AbstractDict{String}; aws_config::AbstractAWSConfig=global_aws_config()
 )
     return ec2(
-        "DisassociateAddress", params; aws_config=aws_config, features=SERVICE_FEATURES
+        "DisassociateAddress",
+        params;
+        aws_config=aws_config,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -15345,7 +15616,7 @@ function disassociate_client_vpn_target_network(
             "AssociationId" => AssociationId, "ClientVpnEndpointId" => ClientVpnEndpointId
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function disassociate_client_vpn_target_network(
@@ -15367,7 +15638,7 @@ function disassociate_client_vpn_target_network(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -15396,7 +15667,7 @@ function disassociate_enclave_certificate_iam_role(;
     return ec2(
         "DisassociateEnclaveCertificateIamRole";
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function disassociate_enclave_certificate_iam_role(
@@ -15406,7 +15677,7 @@ function disassociate_enclave_certificate_iam_role(
         "DisassociateEnclaveCertificateIamRole",
         params;
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -15428,7 +15699,7 @@ function disassociate_iam_instance_profile(
         "DisassociateIamInstanceProfile",
         Dict{String,Any}("AssociationId" => AssociationId);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function disassociate_iam_instance_profile(
@@ -15442,7 +15713,7 @@ function disassociate_iam_instance_profile(
             mergewith(_merge, Dict{String,Any}("AssociationId" => AssociationId), params)
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -15475,7 +15746,7 @@ function disassociate_instance_event_window(
             "InstanceEventWindowId" => InstanceEventWindowId,
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function disassociate_instance_event_window(
@@ -15497,7 +15768,7 @@ function disassociate_instance_event_window(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -15527,7 +15798,7 @@ function disassociate_route_table(
         "DisassociateRouteTable",
         Dict{String,Any}("associationId" => associationId);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function disassociate_route_table(
@@ -15541,7 +15812,7 @@ function disassociate_route_table(
             mergewith(_merge, Dict{String,Any}("associationId" => associationId), params)
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -15564,7 +15835,7 @@ function disassociate_subnet_cidr_block(
         "DisassociateSubnetCidrBlock",
         Dict{String,Any}("associationId" => associationId);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function disassociate_subnet_cidr_block(
@@ -15578,7 +15849,7 @@ function disassociate_subnet_cidr_block(
             mergewith(_merge, Dict{String,Any}("associationId" => associationId), params)
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -15603,7 +15874,7 @@ function disassociate_transit_gateway_multicast_domain(;
     return ec2(
         "DisassociateTransitGatewayMulticastDomain";
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function disassociate_transit_gateway_multicast_domain(
@@ -15613,7 +15884,7 @@ function disassociate_transit_gateway_multicast_domain(
         "DisassociateTransitGatewayMulticastDomain",
         params;
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -15645,7 +15916,7 @@ function disassociate_transit_gateway_route_table(
             "TransitGatewayRouteTableId" => TransitGatewayRouteTableId,
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function disassociate_transit_gateway_route_table(
@@ -15667,7 +15938,7 @@ function disassociate_transit_gateway_route_table(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -15699,7 +15970,7 @@ function disassociate_trunk_interface(
             "AssociationId" => AssociationId, "ClientToken" => string(uuid4())
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function disassociate_trunk_interface(
@@ -15719,7 +15990,7 @@ function disassociate_trunk_interface(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -15744,7 +16015,7 @@ function disassociate_vpc_cidr_block(
         "DisassociateVpcCidrBlock",
         Dict{String,Any}("associationId" => associationId);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function disassociate_vpc_cidr_block(
@@ -15758,7 +16029,7 @@ function disassociate_vpc_cidr_block(
             mergewith(_merge, Dict{String,Any}("associationId" => associationId), params)
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -15786,7 +16057,9 @@ function enable_ebs_encryption_by_default(;
     aws_config::AbstractAWSConfig=global_aws_config()
 )
     return ec2(
-        "EnableEbsEncryptionByDefault"; aws_config=aws_config, features=SERVICE_FEATURES
+        "EnableEbsEncryptionByDefault";
+        aws_config=aws_config,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function enable_ebs_encryption_by_default(
@@ -15796,7 +16069,7 @@ function enable_ebs_encryption_by_default(
         "EnableEbsEncryptionByDefault",
         params;
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -15832,7 +16105,7 @@ function enable_fast_snapshot_restores(
             "AvailabilityZone" => AvailabilityZone, "SourceSnapshotId" => SourceSnapshotId
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function enable_fast_snapshot_restores(
@@ -15854,7 +16127,7 @@ function enable_fast_snapshot_restores(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -15885,7 +16158,7 @@ function enable_image_deprecation(
         "EnableImageDeprecation",
         Dict{String,Any}("DeprecateAt" => DeprecateAt, "ImageId" => ImageId);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function enable_image_deprecation(
@@ -15904,7 +16177,7 @@ function enable_image_deprecation(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -15924,7 +16197,7 @@ Optional parameters can be passed as a `params::Dict{String,<:Any}`. Valid keys 
 """
 function enable_serial_console_access(; aws_config::AbstractAWSConfig=global_aws_config())
     return ec2(
-        "EnableSerialConsoleAccess"; aws_config=aws_config, features=SERVICE_FEATURES
+        "EnableSerialConsoleAccess"; aws_config=aws_config, feature_set=SERVICE_FEATURE_SET
     )
 end
 function enable_serial_console_access(
@@ -15934,7 +16207,7 @@ function enable_serial_console_access(
         "EnableSerialConsoleAccess",
         params;
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -15967,7 +16240,7 @@ function enable_transit_gateway_route_table_propagation(
             "TransitGatewayRouteTableId" => TransitGatewayRouteTableId,
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function enable_transit_gateway_route_table_propagation(
@@ -15989,7 +16262,7 @@ function enable_transit_gateway_route_table_propagation(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -16020,7 +16293,7 @@ function enable_vgw_route_propagation(
         "EnableVgwRoutePropagation",
         Dict{String,Any}("GatewayId" => GatewayId, "RouteTableId" => RouteTableId);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function enable_vgw_route_propagation(
@@ -16039,7 +16312,7 @@ function enable_vgw_route_propagation(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -16064,7 +16337,7 @@ function enable_volume_io(volumeId; aws_config::AbstractAWSConfig=global_aws_con
         "EnableVolumeIO",
         Dict{String,Any}("volumeId" => volumeId);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function enable_volume_io(
@@ -16078,7 +16351,7 @@ function enable_volume_io(
             mergewith(_merge, Dict{String,Any}("volumeId" => volumeId), params)
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -16107,7 +16380,7 @@ function enable_vpc_classic_link(vpcId; aws_config::AbstractAWSConfig=global_aws
         "EnableVpcClassicLink",
         Dict{String,Any}("vpcId" => vpcId);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function enable_vpc_classic_link(
@@ -16117,7 +16390,7 @@ function enable_vpc_classic_link(
         "EnableVpcClassicLink",
         Dict{String,Any}(mergewith(_merge, Dict{String,Any}("vpcId" => vpcId), params));
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -16140,7 +16413,9 @@ function enable_vpc_classic_link_dns_support(;
     aws_config::AbstractAWSConfig=global_aws_config()
 )
     return ec2(
-        "EnableVpcClassicLinkDnsSupport"; aws_config=aws_config, features=SERVICE_FEATURES
+        "EnableVpcClassicLinkDnsSupport";
+        aws_config=aws_config,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function enable_vpc_classic_link_dns_support(
@@ -16150,7 +16425,7 @@ function enable_vpc_classic_link_dns_support(
         "EnableVpcClassicLinkDnsSupport",
         params;
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -16176,7 +16451,7 @@ function export_client_vpn_client_certificate_revocation_list(
         "ExportClientVpnClientCertificateRevocationList",
         Dict{String,Any}("ClientVpnEndpointId" => ClientVpnEndpointId);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function export_client_vpn_client_certificate_revocation_list(
@@ -16194,7 +16469,7 @@ function export_client_vpn_client_certificate_revocation_list(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -16223,7 +16498,7 @@ function export_client_vpn_client_configuration(
         "ExportClientVpnClientConfiguration",
         Dict{String,Any}("ClientVpnEndpointId" => ClientVpnEndpointId);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function export_client_vpn_client_configuration(
@@ -16241,7 +16516,7 @@ function export_client_vpn_client_configuration(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -16287,7 +16562,7 @@ function export_image(
             "ClientToken" => string(uuid4()),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function export_image(
@@ -16312,7 +16587,7 @@ function export_image(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -16357,7 +16632,7 @@ function export_transit_gateway_routes(
             "TransitGatewayRouteTableId" => TransitGatewayRouteTableId,
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function export_transit_gateway_routes(
@@ -16379,7 +16654,7 @@ function export_transit_gateway_routes(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -16406,7 +16681,7 @@ function get_associated_enclave_certificate_iam_roles(;
     return ec2(
         "GetAssociatedEnclaveCertificateIamRoles";
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function get_associated_enclave_certificate_iam_roles(
@@ -16416,7 +16691,7 @@ function get_associated_enclave_certificate_iam_roles(
         "GetAssociatedEnclaveCertificateIamRoles",
         params;
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -16445,7 +16720,7 @@ function get_associated_ipv6_pool_cidrs(
         "GetAssociatedIpv6PoolCidrs",
         Dict{String,Any}("PoolId" => PoolId);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function get_associated_ipv6_pool_cidrs(
@@ -16455,7 +16730,7 @@ function get_associated_ipv6_pool_cidrs(
         "GetAssociatedIpv6PoolCidrs",
         Dict{String,Any}(mergewith(_merge, Dict{String,Any}("PoolId" => PoolId), params));
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -16489,7 +16764,7 @@ function get_capacity_reservation_usage(
         "GetCapacityReservationUsage",
         Dict{String,Any}("CapacityReservationId" => CapacityReservationId);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function get_capacity_reservation_usage(
@@ -16507,7 +16782,7 @@ function get_capacity_reservation_usage(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -16537,7 +16812,7 @@ function get_coip_pool_usage(PoolId; aws_config::AbstractAWSConfig=global_aws_co
         "GetCoipPoolUsage",
         Dict{String,Any}("PoolId" => PoolId);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function get_coip_pool_usage(
@@ -16547,7 +16822,7 @@ function get_coip_pool_usage(
         "GetCoipPoolUsage",
         Dict{String,Any}(mergewith(_merge, Dict{String,Any}("PoolId" => PoolId), params));
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -16582,7 +16857,7 @@ function get_console_output(InstanceId; aws_config::AbstractAWSConfig=global_aws
         "GetConsoleOutput",
         Dict{String,Any}("InstanceId" => InstanceId);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function get_console_output(
@@ -16596,7 +16871,7 @@ function get_console_output(
             mergewith(_merge, Dict{String,Any}("InstanceId" => InstanceId), params)
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -16625,7 +16900,7 @@ function get_console_screenshot(
         "GetConsoleScreenshot",
         Dict{String,Any}("InstanceId" => InstanceId);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function get_console_screenshot(
@@ -16639,7 +16914,7 @@ function get_console_screenshot(
             mergewith(_merge, Dict{String,Any}("InstanceId" => InstanceId), params)
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -16667,7 +16942,7 @@ function get_default_credit_specification(
         "GetDefaultCreditSpecification",
         Dict{String,Any}("InstanceFamily" => InstanceFamily);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function get_default_credit_specification(
@@ -16681,7 +16956,7 @@ function get_default_credit_specification(
             mergewith(_merge, Dict{String,Any}("InstanceFamily" => InstanceFamily), params)
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -16701,13 +16976,18 @@ Optional parameters can be passed as a `params::Dict{String,<:Any}`. Valid keys 
   permissions, the error response is DryRunOperation. Otherwise, it is UnauthorizedOperation.
 """
 function get_ebs_default_kms_key_id(; aws_config::AbstractAWSConfig=global_aws_config())
-    return ec2("GetEbsDefaultKmsKeyId"; aws_config=aws_config, features=SERVICE_FEATURES)
+    return ec2(
+        "GetEbsDefaultKmsKeyId"; aws_config=aws_config, feature_set=SERVICE_FEATURE_SET
+    )
 end
 function get_ebs_default_kms_key_id(
     params::AbstractDict{String}; aws_config::AbstractAWSConfig=global_aws_config()
 )
     return ec2(
-        "GetEbsDefaultKmsKeyId", params; aws_config=aws_config, features=SERVICE_FEATURES
+        "GetEbsDefaultKmsKeyId",
+        params;
+        aws_config=aws_config,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -16727,7 +17007,7 @@ Optional parameters can be passed as a `params::Dict{String,<:Any}`. Valid keys 
 """
 function get_ebs_encryption_by_default(; aws_config::AbstractAWSConfig=global_aws_config())
     return ec2(
-        "GetEbsEncryptionByDefault"; aws_config=aws_config, features=SERVICE_FEATURES
+        "GetEbsEncryptionByDefault"; aws_config=aws_config, feature_set=SERVICE_FEATURE_SET
     )
 end
 function get_ebs_encryption_by_default(
@@ -16737,7 +17017,7 @@ function get_ebs_encryption_by_default(
         "GetEbsEncryptionByDefault",
         params;
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -16779,7 +17059,7 @@ function get_flow_logs_integration_template(
             "IntegrateService" => IntegrateService,
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function get_flow_logs_integration_template(
@@ -16803,7 +17083,7 @@ function get_flow_logs_integration_template(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -16834,7 +17114,7 @@ function get_groups_for_capacity_reservation(
         "GetGroupsForCapacityReservation",
         Dict{String,Any}("CapacityReservationId" => CapacityReservationId);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function get_groups_for_capacity_reservation(
@@ -16852,7 +17132,7 @@ function get_groups_for_capacity_reservation(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -16880,7 +17160,7 @@ function get_host_reservation_purchase_preview(
         "GetHostReservationPurchasePreview",
         Dict{String,Any}("OfferingId" => OfferingId, "item" => item);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function get_host_reservation_purchase_preview(
@@ -16897,7 +17177,7 @@ function get_host_reservation_purchase_preview(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -16928,7 +17208,7 @@ function get_launch_template_data(
         "GetLaunchTemplateData",
         Dict{String,Any}("InstanceId" => InstanceId);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function get_launch_template_data(
@@ -16942,7 +17222,7 @@ function get_launch_template_data(
             mergewith(_merge, Dict{String,Any}("InstanceId" => InstanceId), params)
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -16972,7 +17252,7 @@ function get_managed_prefix_list_associations(
         "GetManagedPrefixListAssociations",
         Dict{String,Any}("PrefixListId" => PrefixListId);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function get_managed_prefix_list_associations(
@@ -16986,7 +17266,7 @@ function get_managed_prefix_list_associations(
             mergewith(_merge, Dict{String,Any}("PrefixListId" => PrefixListId), params)
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -17017,7 +17297,7 @@ function get_managed_prefix_list_entries(
         "GetManagedPrefixListEntries",
         Dict{String,Any}("PrefixListId" => PrefixListId);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function get_managed_prefix_list_entries(
@@ -17031,7 +17311,7 @@ function get_managed_prefix_list_entries(
             mergewith(_merge, Dict{String,Any}("PrefixListId" => PrefixListId), params)
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -17065,7 +17345,7 @@ function get_password_data(InstanceId; aws_config::AbstractAWSConfig=global_aws_
         "GetPasswordData",
         Dict{String,Any}("InstanceId" => InstanceId);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function get_password_data(
@@ -17079,7 +17359,7 @@ function get_password_data(
             mergewith(_merge, Dict{String,Any}("InstanceId" => InstanceId), params)
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -17110,7 +17390,7 @@ function get_reserved_instances_exchange_quote(
         "GetReservedInstancesExchangeQuote",
         Dict{String,Any}("ReservedInstanceId" => ReservedInstanceId);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function get_reserved_instances_exchange_quote(
@@ -17126,7 +17406,7 @@ function get_reserved_instances_exchange_quote(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -17149,7 +17429,9 @@ function get_serial_console_access_status(;
     aws_config::AbstractAWSConfig=global_aws_config()
 )
     return ec2(
-        "GetSerialConsoleAccessStatus"; aws_config=aws_config, features=SERVICE_FEATURES
+        "GetSerialConsoleAccessStatus";
+        aws_config=aws_config,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function get_serial_console_access_status(
@@ -17159,7 +17441,7 @@ function get_serial_console_access_status(
         "GetSerialConsoleAccessStatus",
         params;
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -17195,7 +17477,7 @@ function get_subnet_cidr_reservations(
         "GetSubnetCidrReservations",
         Dict{String,Any}("SubnetId" => SubnetId);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function get_subnet_cidr_reservations(
@@ -17209,7 +17491,7 @@ function get_subnet_cidr_reservations(
             mergewith(_merge, Dict{String,Any}("SubnetId" => SubnetId), params)
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -17240,7 +17522,7 @@ function get_transit_gateway_attachment_propagations(
         "GetTransitGatewayAttachmentPropagations",
         Dict{String,Any}("TransitGatewayAttachmentId" => TransitGatewayAttachmentId);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function get_transit_gateway_attachment_propagations(
@@ -17260,7 +17542,7 @@ function get_transit_gateway_attachment_propagations(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -17291,7 +17573,7 @@ function get_transit_gateway_multicast_domain_associations(;
     return ec2(
         "GetTransitGatewayMulticastDomainAssociations";
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function get_transit_gateway_multicast_domain_associations(
@@ -17301,7 +17583,7 @@ function get_transit_gateway_multicast_domain_associations(
         "GetTransitGatewayMulticastDomainAssociations",
         params;
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -17338,7 +17620,7 @@ function get_transit_gateway_prefix_list_references(
         "GetTransitGatewayPrefixListReferences",
         Dict{String,Any}("TransitGatewayRouteTableId" => TransitGatewayRouteTableId);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function get_transit_gateway_prefix_list_references(
@@ -17358,7 +17640,7 @@ function get_transit_gateway_prefix_list_references(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -17391,7 +17673,7 @@ function get_transit_gateway_route_table_associations(
         "GetTransitGatewayRouteTableAssociations",
         Dict{String,Any}("TransitGatewayRouteTableId" => TransitGatewayRouteTableId);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function get_transit_gateway_route_table_associations(
@@ -17411,7 +17693,7 @@ function get_transit_gateway_route_table_associations(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -17445,7 +17727,7 @@ function get_transit_gateway_route_table_propagations(
         "GetTransitGatewayRouteTablePropagations",
         Dict{String,Any}("TransitGatewayRouteTableId" => TransitGatewayRouteTableId);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function get_transit_gateway_route_table_propagations(
@@ -17465,7 +17747,7 @@ function get_transit_gateway_route_table_propagations(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -17503,7 +17785,7 @@ function get_vpn_connection_device_sample_configuration(
             "VpnConnectionId" => VpnConnectionId,
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function get_vpn_connection_device_sample_configuration(
@@ -17525,7 +17807,7 @@ function get_vpn_connection_device_sample_configuration(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -17558,7 +17840,9 @@ function get_vpn_connection_device_types(;
     aws_config::AbstractAWSConfig=global_aws_config()
 )
     return ec2(
-        "GetVpnConnectionDeviceTypes"; aws_config=aws_config, features=SERVICE_FEATURES
+        "GetVpnConnectionDeviceTypes";
+        aws_config=aws_config,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function get_vpn_connection_device_types(
@@ -17568,7 +17852,7 @@ function get_vpn_connection_device_types(
         "GetVpnConnectionDeviceTypes",
         params;
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -17606,7 +17890,7 @@ function import_client_vpn_client_certificate_revocation_list(
             "ClientVpnEndpointId" => ClientVpnEndpointId,
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function import_client_vpn_client_certificate_revocation_list(
@@ -17628,7 +17912,7 @@ function import_client_vpn_client_certificate_revocation_list(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -17690,12 +17974,14 @@ Optional parameters can be passed as a `params::Dict{String,<:Any}`. Valid keys 
   information fields in the Amazon Elastic Compute Cloud User Guide.
 """
 function import_image(; aws_config::AbstractAWSConfig=global_aws_config())
-    return ec2("ImportImage"; aws_config=aws_config, features=SERVICE_FEATURES)
+    return ec2("ImportImage"; aws_config=aws_config, feature_set=SERVICE_FEATURE_SET)
 end
 function import_image(
     params::AbstractDict{String}; aws_config::AbstractAWSConfig=global_aws_config()
 )
-    return ec2("ImportImage", params; aws_config=aws_config, features=SERVICE_FEATURES)
+    return ec2(
+        "ImportImage", params; aws_config=aws_config, feature_set=SERVICE_FEATURE_SET
+    )
 end
 
 """
@@ -17726,7 +18012,7 @@ function import_instance(platform; aws_config::AbstractAWSConfig=global_aws_conf
         "ImportInstance",
         Dict{String,Any}("platform" => platform);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function import_instance(
@@ -17740,7 +18026,7 @@ function import_instance(
             mergewith(_merge, Dict{String,Any}("platform" => platform), params)
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -17775,7 +18061,7 @@ function import_key_pair(
         "ImportKeyPair",
         Dict{String,Any}("keyName" => keyName, "publicKeyMaterial" => publicKeyMaterial);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function import_key_pair(
@@ -17796,7 +18082,7 @@ function import_key_pair(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -17842,12 +18128,14 @@ Optional parameters can be passed as a `params::Dict{String,<:Any}`. Valid keys 
 - `"TagSpecification"`: The tags to apply to the import snapshot task during creation.
 """
 function import_snapshot(; aws_config::AbstractAWSConfig=global_aws_config())
-    return ec2("ImportSnapshot"; aws_config=aws_config, features=SERVICE_FEATURES)
+    return ec2("ImportSnapshot"; aws_config=aws_config, feature_set=SERVICE_FEATURE_SET)
 end
 function import_snapshot(
     params::AbstractDict{String}; aws_config::AbstractAWSConfig=global_aws_config()
 )
-    return ec2("ImportSnapshot", params; aws_config=aws_config, features=SERVICE_FEATURES)
+    return ec2(
+        "ImportSnapshot", params; aws_config=aws_config, feature_set=SERVICE_FEATURE_SET
+    )
 end
 
 """
@@ -17883,7 +18171,7 @@ function import_volume(
             "availabilityZone" => availabilityZone, "image" => image, "volume" => volume
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function import_volume(
@@ -17907,7 +18195,7 @@ function import_volume(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -17935,7 +18223,7 @@ function modify_address_attribute(
         "ModifyAddressAttribute",
         Dict{String,Any}("AllocationId" => AllocationId);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function modify_address_attribute(
@@ -17949,7 +18237,7 @@ function modify_address_attribute(
             mergewith(_merge, Dict{String,Any}("AllocationId" => AllocationId), params)
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -17980,7 +18268,7 @@ function modify_availability_zone_group(
         "ModifyAvailabilityZoneGroup",
         Dict{String,Any}("GroupName" => GroupName, "OptInStatus" => OptInStatus);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function modify_availability_zone_group(
@@ -17999,7 +18287,7 @@ function modify_availability_zone_group(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -18044,7 +18332,7 @@ function modify_capacity_reservation(
         "ModifyCapacityReservation",
         Dict{String,Any}("CapacityReservationId" => CapacityReservationId);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function modify_capacity_reservation(
@@ -18062,7 +18350,7 @@ function modify_capacity_reservation(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -18111,7 +18399,7 @@ function modify_client_vpn_endpoint(
         "ModifyClientVpnEndpoint",
         Dict{String,Any}("ClientVpnEndpointId" => ClientVpnEndpointId);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function modify_client_vpn_endpoint(
@@ -18129,7 +18417,7 @@ function modify_client_vpn_endpoint(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -18166,7 +18454,7 @@ function modify_default_credit_specification(
         "ModifyDefaultCreditSpecification",
         Dict{String,Any}("CpuCredits" => CpuCredits, "InstanceFamily" => InstanceFamily);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function modify_default_credit_specification(
@@ -18187,7 +18475,7 @@ function modify_default_credit_specification(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -18231,7 +18519,7 @@ function modify_ebs_default_kms_key_id(
         "ModifyEbsDefaultKmsKeyId",
         Dict{String,Any}("KmsKeyId" => KmsKeyId);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function modify_ebs_default_kms_key_id(
@@ -18245,7 +18533,7 @@ function modify_ebs_default_kms_key_id(
             mergewith(_merge, Dict{String,Any}("KmsKeyId" => KmsKeyId), params)
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -18294,7 +18582,7 @@ function modify_fleet(FleetId; aws_config::AbstractAWSConfig=global_aws_config()
         "ModifyFleet",
         Dict{String,Any}("FleetId" => FleetId);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function modify_fleet(
@@ -18304,7 +18592,7 @@ function modify_fleet(
         "ModifyFleet",
         Dict{String,Any}(mergewith(_merge, Dict{String,Any}("FleetId" => FleetId), params));
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -18341,7 +18629,7 @@ function modify_fpga_image_attribute(
         "ModifyFpgaImageAttribute",
         Dict{String,Any}("FpgaImageId" => FpgaImageId);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function modify_fpga_image_attribute(
@@ -18355,7 +18643,7 @@ function modify_fpga_image_attribute(
             mergewith(_merge, Dict{String,Any}("FpgaImageId" => FpgaImageId), params)
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -18396,7 +18684,7 @@ function modify_hosts(hostId; aws_config::AbstractAWSConfig=global_aws_config())
         "ModifyHosts",
         Dict{String,Any}("hostId" => hostId);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function modify_hosts(
@@ -18406,7 +18694,7 @@ function modify_hosts(
         "ModifyHosts",
         Dict{String,Any}(mergewith(_merge, Dict{String,Any}("hostId" => hostId), params));
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -18451,7 +18739,7 @@ function modify_id_format(
         "ModifyIdFormat",
         Dict{String,Any}("Resource" => Resource, "UseLongIds" => UseLongIds);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function modify_id_format(
@@ -18470,7 +18758,7 @@ function modify_id_format(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -18521,7 +18809,7 @@ function modify_identity_id_format(
             "useLongIds" => useLongIds,
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function modify_identity_id_format(
@@ -18545,7 +18833,7 @@ function modify_identity_id_format(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -18587,7 +18875,7 @@ function modify_image_attribute(ImageId; aws_config::AbstractAWSConfig=global_aw
         "ModifyImageAttribute",
         Dict{String,Any}("ImageId" => ImageId);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function modify_image_attribute(
@@ -18597,7 +18885,7 @@ function modify_image_attribute(
         "ModifyImageAttribute",
         Dict{String,Any}(mergewith(_merge, Dict{String,Any}("ImageId" => ImageId), params));
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -18675,7 +18963,7 @@ function modify_instance_attribute(
         "ModifyInstanceAttribute",
         Dict{String,Any}("instanceId" => instanceId);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function modify_instance_attribute(
@@ -18689,7 +18977,7 @@ function modify_instance_attribute(
             mergewith(_merge, Dict{String,Any}("instanceId" => instanceId), params)
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -18724,7 +19012,7 @@ function modify_instance_capacity_reservation_attributes(
             "InstanceId" => InstanceId,
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function modify_instance_capacity_reservation_attributes(
@@ -18746,7 +19034,7 @@ function modify_instance_capacity_reservation_attributes(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -18776,7 +19064,7 @@ function modify_instance_credit_specification(
         "ModifyInstanceCreditSpecification",
         Dict{String,Any}("InstanceCreditSpecification" => InstanceCreditSpecification);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function modify_instance_credit_specification(
@@ -18796,7 +19084,7 @@ function modify_instance_credit_specification(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -18831,7 +19119,7 @@ function modify_instance_event_start_time(
             "NotBefore" => NotBefore,
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function modify_instance_event_start_time(
@@ -18855,7 +19143,7 @@ function modify_instance_event_start_time(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -18896,7 +19184,7 @@ function modify_instance_event_window(
         "ModifyInstanceEventWindow",
         Dict{String,Any}("InstanceEventWindowId" => InstanceEventWindowId);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function modify_instance_event_window(
@@ -18914,7 +19202,7 @@ function modify_instance_event_window(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -18964,7 +19252,7 @@ function modify_instance_metadata_options(
         "ModifyInstanceMetadataOptions",
         Dict{String,Any}("InstanceId" => InstanceId);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function modify_instance_metadata_options(
@@ -18978,7 +19266,7 @@ function modify_instance_metadata_options(
             mergewith(_merge, Dict{String,Any}("InstanceId" => InstanceId), params)
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -18991,12 +19279,11 @@ Modify the affinity between an instance and a Dedicated Host. When affinity is s
 and the instance is not associated with a specific Dedicated Host, the next time the
 instance is launched, it is automatically associated with the host on which it lands. If
 the instance is restarted or rebooted, this relationship persists.   Change the Dedicated
-Host with which an instance is associated.   Change the instance tenancy of an instance
-from host to dedicated, or from dedicated to host.   Move an instance to or from a
-placement group.   At least one attribute for affinity, host ID, tenancy, or placement
-group name must be specified in the request. Affinity and tenancy can be modified in the
-same request. To modify the host ID, tenancy, placement group, or partition for an
-instance, the instance must be in the stopped state.
+Host with which an instance is associated.   Change the instance tenancy of an instance.
+Move an instance to or from a placement group.   At least one attribute for affinity, host
+ID, tenancy, or placement group name must be specified in the request. Affinity and tenancy
+can be modified in the same request. To modify the host ID, tenancy, placement group, or
+partition for an instance, the instance must be in the stopped state.
 
 # Arguments
 - `instance_id`: The ID of the instance that you are modifying.
@@ -19012,8 +19299,8 @@ Optional parameters can be passed as a `params::Dict{String,<:Any}`. Valid keys 
 - `"PartitionNumber"`: Reserved for future use.
 - `"affinity"`: The affinity setting for the instance.
 - `"hostId"`: The ID of the Dedicated Host with which to associate the instance.
-- `"tenancy"`: The tenancy for the instance. For T3 instances, you can't change the tenancy
-  from dedicated to host, or from host to dedicated. Attempting to make one of these
+- `"tenancy"`: The tenancy for the instance.  For T3 instances, you can't change the
+  tenancy from dedicated to host, or from host to dedicated. Attempting to make one of these
   unsupported tenancy changes results in the InvalidTenancy error code.
 """
 function modify_instance_placement(
@@ -19023,7 +19310,7 @@ function modify_instance_placement(
         "ModifyInstancePlacement",
         Dict{String,Any}("instanceId" => instanceId);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function modify_instance_placement(
@@ -19037,7 +19324,7 @@ function modify_instance_placement(
             mergewith(_merge, Dict{String,Any}("instanceId" => instanceId), params)
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -19065,13 +19352,18 @@ Optional parameters can be passed as a `params::Dict{String,<:Any}`. Valid keys 
   version.
 """
 function modify_launch_template(; aws_config::AbstractAWSConfig=global_aws_config())
-    return ec2("ModifyLaunchTemplate"; aws_config=aws_config, features=SERVICE_FEATURES)
+    return ec2(
+        "ModifyLaunchTemplate"; aws_config=aws_config, feature_set=SERVICE_FEATURE_SET
+    )
 end
 function modify_launch_template(
     params::AbstractDict{String}; aws_config::AbstractAWSConfig=global_aws_config()
 )
     return ec2(
-        "ModifyLaunchTemplate", params; aws_config=aws_config, features=SERVICE_FEATURES
+        "ModifyLaunchTemplate",
+        params;
+        aws_config=aws_config,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -19109,7 +19401,7 @@ function modify_managed_prefix_list(
         "ModifyManagedPrefixList",
         Dict{String,Any}("PrefixListId" => PrefixListId);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function modify_managed_prefix_list(
@@ -19123,7 +19415,7 @@ function modify_managed_prefix_list(
             mergewith(_merge, Dict{String,Any}("PrefixListId" => PrefixListId), params)
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -19163,7 +19455,7 @@ function modify_network_interface_attribute(
         "ModifyNetworkInterfaceAttribute",
         Dict{String,Any}("networkInterfaceId" => networkInterfaceId);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function modify_network_interface_attribute(
@@ -19179,7 +19471,7 @@ function modify_network_interface_attribute(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -19215,7 +19507,7 @@ function modify_reserved_instances(
             "ReservedInstancesId" => ReservedInstancesId,
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function modify_reserved_instances(
@@ -19238,7 +19530,7 @@ function modify_reserved_instances(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -19265,7 +19557,7 @@ function modify_security_group_rules(
         "ModifySecurityGroupRules",
         Dict{String,Any}("GroupId" => GroupId, "SecurityGroupRule" => SecurityGroupRule);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function modify_security_group_rules(
@@ -19286,7 +19578,7 @@ function modify_security_group_rules(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -19326,7 +19618,7 @@ function modify_snapshot_attribute(
         "ModifySnapshotAttribute",
         Dict{String,Any}("SnapshotId" => SnapshotId);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function modify_snapshot_attribute(
@@ -19340,7 +19632,7 @@ function modify_snapshot_attribute(
             mergewith(_merge, Dict{String,Any}("SnapshotId" => SnapshotId), params)
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -19392,7 +19684,7 @@ function modify_spot_fleet_request(
         "ModifySpotFleetRequest",
         Dict{String,Any}("spotFleetRequestId" => spotFleetRequestId);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function modify_spot_fleet_request(
@@ -19408,7 +19700,7 @@ function modify_spot_fleet_request(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -19445,7 +19737,7 @@ function modify_subnet_attribute(
         "ModifySubnetAttribute",
         Dict{String,Any}("subnetId" => subnetId);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function modify_subnet_attribute(
@@ -19459,7 +19751,7 @@ function modify_subnet_attribute(
             mergewith(_merge, Dict{String,Any}("subnetId" => subnetId), params)
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -19495,7 +19787,7 @@ function modify_traffic_mirror_filter_network_services(
         "ModifyTrafficMirrorFilterNetworkServices",
         Dict{String,Any}("TrafficMirrorFilterId" => TrafficMirrorFilterId);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function modify_traffic_mirror_filter_network_services(
@@ -19513,7 +19805,7 @@ function modify_traffic_mirror_filter_network_services(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -19555,7 +19847,7 @@ function modify_traffic_mirror_filter_rule(
         "ModifyTrafficMirrorFilterRule",
         Dict{String,Any}("TrafficMirrorFilterRuleId" => TrafficMirrorFilterRuleId);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function modify_traffic_mirror_filter_rule(
@@ -19573,7 +19865,7 @@ function modify_traffic_mirror_filter_rule(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -19615,7 +19907,7 @@ function modify_traffic_mirror_session(
         "ModifyTrafficMirrorSession",
         Dict{String,Any}("TrafficMirrorSessionId" => TrafficMirrorSessionId);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function modify_traffic_mirror_session(
@@ -19633,7 +19925,7 @@ function modify_traffic_mirror_session(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -19663,7 +19955,7 @@ function modify_transit_gateway(
         "ModifyTransitGateway",
         Dict{String,Any}("TransitGatewayId" => TransitGatewayId);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function modify_transit_gateway(
@@ -19679,7 +19971,7 @@ function modify_transit_gateway(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -19713,7 +20005,7 @@ function modify_transit_gateway_prefix_list_reference(
             "TransitGatewayRouteTableId" => TransitGatewayRouteTableId,
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function modify_transit_gateway_prefix_list_reference(
@@ -19735,7 +20027,7 @@ function modify_transit_gateway_prefix_list_reference(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -19765,7 +20057,7 @@ function modify_transit_gateway_vpc_attachment(
         "ModifyTransitGatewayVpcAttachment",
         Dict{String,Any}("TransitGatewayAttachmentId" => TransitGatewayAttachmentId);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function modify_transit_gateway_vpc_attachment(
@@ -19785,7 +20077,7 @@ function modify_transit_gateway_vpc_attachment(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -19844,7 +20136,7 @@ function modify_volume(VolumeId; aws_config::AbstractAWSConfig=global_aws_config
         "ModifyVolume",
         Dict{String,Any}("VolumeId" => VolumeId);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function modify_volume(
@@ -19858,7 +20150,7 @@ function modify_volume(
             mergewith(_merge, Dict{String,Any}("VolumeId" => VolumeId), params)
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -19890,7 +20182,7 @@ function modify_volume_attribute(
         "ModifyVolumeAttribute",
         Dict{String,Any}("VolumeId" => VolumeId);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function modify_volume_attribute(
@@ -19904,7 +20196,7 @@ function modify_volume_attribute(
             mergewith(_merge, Dict{String,Any}("VolumeId" => VolumeId), params)
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -19936,7 +20228,7 @@ function modify_vpc_attribute(vpcId; aws_config::AbstractAWSConfig=global_aws_co
         "ModifyVpcAttribute",
         Dict{String,Any}("vpcId" => vpcId);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function modify_vpc_attribute(
@@ -19946,7 +20238,7 @@ function modify_vpc_attribute(
         "ModifyVpcAttribute",
         Dict{String,Any}(mergewith(_merge, Dict{String,Any}("vpcId" => vpcId), params));
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -19993,7 +20285,7 @@ function modify_vpc_endpoint(
         "ModifyVpcEndpoint",
         Dict{String,Any}("VpcEndpointId" => VpcEndpointId);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function modify_vpc_endpoint(
@@ -20007,7 +20299,7 @@ function modify_vpc_endpoint(
             mergewith(_merge, Dict{String,Any}("VpcEndpointId" => VpcEndpointId), params)
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -20037,7 +20329,7 @@ function modify_vpc_endpoint_connection_notification(
         "ModifyVpcEndpointConnectionNotification",
         Dict{String,Any}("ConnectionNotificationId" => ConnectionNotificationId);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function modify_vpc_endpoint_connection_notification(
@@ -20055,7 +20347,7 @@ function modify_vpc_endpoint_connection_notification(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -20100,7 +20392,7 @@ function modify_vpc_endpoint_service_configuration(
         "ModifyVpcEndpointServiceConfiguration",
         Dict{String,Any}("ServiceId" => ServiceId);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function modify_vpc_endpoint_service_configuration(
@@ -20114,7 +20406,7 @@ function modify_vpc_endpoint_service_configuration(
             mergewith(_merge, Dict{String,Any}("ServiceId" => ServiceId), params)
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -20149,7 +20441,7 @@ function modify_vpc_endpoint_service_permissions(
         "ModifyVpcEndpointServicePermissions",
         Dict{String,Any}("ServiceId" => ServiceId);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function modify_vpc_endpoint_service_permissions(
@@ -20163,7 +20455,7 @@ function modify_vpc_endpoint_service_permissions(
             mergewith(_merge, Dict{String,Any}("ServiceId" => ServiceId), params)
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -20208,7 +20500,7 @@ function modify_vpc_peering_connection_options(
         "ModifyVpcPeeringConnectionOptions",
         Dict{String,Any}("VpcPeeringConnectionId" => VpcPeeringConnectionId);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function modify_vpc_peering_connection_options(
@@ -20226,7 +20518,7 @@ function modify_vpc_peering_connection_options(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -20258,7 +20550,7 @@ function modify_vpc_tenancy(
         "ModifyVpcTenancy",
         Dict{String,Any}("InstanceTenancy" => InstanceTenancy, "VpcId" => VpcId);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function modify_vpc_tenancy(
@@ -20277,7 +20569,7 @@ function modify_vpc_tenancy(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -20327,7 +20619,7 @@ function modify_vpn_connection(
         "ModifyVpnConnection",
         Dict{String,Any}("VpnConnectionId" => VpnConnectionId);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function modify_vpn_connection(
@@ -20343,7 +20635,7 @@ function modify_vpn_connection(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -20380,7 +20672,7 @@ function modify_vpn_connection_options(
         "ModifyVpnConnectionOptions",
         Dict{String,Any}("VpnConnectionId" => VpnConnectionId);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function modify_vpn_connection_options(
@@ -20396,7 +20688,7 @@ function modify_vpn_connection_options(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -20428,7 +20720,7 @@ function modify_vpn_tunnel_certificate(
             "VpnTunnelOutsideIpAddress" => VpnTunnelOutsideIpAddress,
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function modify_vpn_tunnel_certificate(
@@ -20450,7 +20742,7 @@ function modify_vpn_tunnel_certificate(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -20488,7 +20780,7 @@ function modify_vpn_tunnel_options(
             "VpnTunnelOutsideIpAddress" => VpnTunnelOutsideIpAddress,
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function modify_vpn_tunnel_options(
@@ -20512,7 +20804,7 @@ function modify_vpn_tunnel_options(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -20538,7 +20830,7 @@ function monitor_instances(InstanceId; aws_config::AbstractAWSConfig=global_aws_
         "MonitorInstances",
         Dict{String,Any}("InstanceId" => InstanceId);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function monitor_instances(
@@ -20552,7 +20844,7 @@ function monitor_instances(
             mergewith(_merge, Dict{String,Any}("InstanceId" => InstanceId), params)
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -20581,7 +20873,7 @@ function move_address_to_vpc(publicIp; aws_config::AbstractAWSConfig=global_aws_
         "MoveAddressToVpc",
         Dict{String,Any}("publicIp" => publicIp);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function move_address_to_vpc(
@@ -20595,7 +20887,7 @@ function move_address_to_vpc(
             mergewith(_merge, Dict{String,Any}("publicIp" => publicIp), params)
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -20641,7 +20933,7 @@ function provision_byoip_cidr(Cidr; aws_config::AbstractAWSConfig=global_aws_con
         "ProvisionByoipCidr",
         Dict{String,Any}("Cidr" => Cidr);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function provision_byoip_cidr(
@@ -20651,7 +20943,7 @@ function provision_byoip_cidr(
         "ProvisionByoipCidr",
         Dict{String,Any}(mergewith(_merge, Dict{String,Any}("Cidr" => Cidr), params));
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -20690,7 +20982,7 @@ function purchase_host_reservation(
         "PurchaseHostReservation",
         Dict{String,Any}("OfferingId" => OfferingId, "item" => item);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function purchase_host_reservation(
@@ -20707,7 +20999,7 @@ function purchase_host_reservation(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -20750,7 +21042,7 @@ function purchase_reserved_instances_offering(
             "ReservedInstancesOfferingId" => ReservedInstancesOfferingId,
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function purchase_reserved_instances_offering(
@@ -20772,7 +21064,7 @@ function purchase_reserved_instances_offering(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -20807,7 +21099,7 @@ function purchase_scheduled_instances(
             "PurchaseRequest" => PurchaseRequest, "ClientToken" => string(uuid4())
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function purchase_scheduled_instances(
@@ -20827,7 +21119,7 @@ function purchase_scheduled_instances(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -20856,7 +21148,7 @@ function reboot_instances(InstanceId; aws_config::AbstractAWSConfig=global_aws_c
         "RebootInstances",
         Dict{String,Any}("InstanceId" => InstanceId);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function reboot_instances(
@@ -20870,7 +21162,7 @@ function reboot_instances(
             mergewith(_merge, Dict{String,Any}("InstanceId" => InstanceId), params)
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -20954,7 +21246,7 @@ function register_image(name; aws_config::AbstractAWSConfig=global_aws_config())
         "RegisterImage",
         Dict{String,Any}("name" => name);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function register_image(
@@ -20964,7 +21256,7 @@ function register_image(
         "RegisterImage",
         Dict{String,Any}(mergewith(_merge, Dict{String,Any}("name" => name), params));
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -20988,7 +21280,7 @@ function register_instance_event_notification_attributes(;
     return ec2(
         "RegisterInstanceEventNotificationAttributes";
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function register_instance_event_notification_attributes(
@@ -20998,7 +21290,7 @@ function register_instance_event_notification_attributes(
         "RegisterInstanceEventNotificationAttributes",
         params;
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -21028,7 +21320,7 @@ function register_transit_gateway_multicast_group_members(;
     return ec2(
         "RegisterTransitGatewayMulticastGroupMembers";
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function register_transit_gateway_multicast_group_members(
@@ -21038,7 +21330,7 @@ function register_transit_gateway_multicast_group_members(
         "RegisterTransitGatewayMulticastGroupMembers",
         params;
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -21069,7 +21361,7 @@ function register_transit_gateway_multicast_group_sources(;
     return ec2(
         "RegisterTransitGatewayMulticastGroupSources";
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function register_transit_gateway_multicast_group_sources(
@@ -21079,7 +21371,7 @@ function register_transit_gateway_multicast_group_sources(
         "RegisterTransitGatewayMulticastGroupSources",
         params;
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -21106,7 +21398,7 @@ function reject_transit_gateway_multicast_domain_associations(;
     return ec2(
         "RejectTransitGatewayMulticastDomainAssociations";
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function reject_transit_gateway_multicast_domain_associations(
@@ -21116,7 +21408,7 @@ function reject_transit_gateway_multicast_domain_associations(
         "RejectTransitGatewayMulticastDomainAssociations",
         params;
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -21142,7 +21434,7 @@ function reject_transit_gateway_peering_attachment(
         "RejectTransitGatewayPeeringAttachment",
         Dict{String,Any}("TransitGatewayAttachmentId" => TransitGatewayAttachmentId);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function reject_transit_gateway_peering_attachment(
@@ -21162,7 +21454,7 @@ function reject_transit_gateway_peering_attachment(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -21191,7 +21483,7 @@ function reject_transit_gateway_vpc_attachment(
         "RejectTransitGatewayVpcAttachment",
         Dict{String,Any}("TransitGatewayAttachmentId" => TransitGatewayAttachmentId);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function reject_transit_gateway_vpc_attachment(
@@ -21211,7 +21503,7 @@ function reject_transit_gateway_vpc_attachment(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -21238,7 +21530,7 @@ function reject_vpc_endpoint_connections(
         "RejectVpcEndpointConnections",
         Dict{String,Any}("ServiceId" => ServiceId, "VpcEndpointId" => VpcEndpointId);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function reject_vpc_endpoint_connections(
@@ -21259,7 +21551,7 @@ function reject_vpc_endpoint_connections(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -21289,7 +21581,7 @@ function reject_vpc_peering_connection(
         "RejectVpcPeeringConnection",
         Dict{String,Any}("vpcPeeringConnectionId" => vpcPeeringConnectionId);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function reject_vpc_peering_connection(
@@ -21307,7 +21599,7 @@ function reject_vpc_peering_connection(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -21342,12 +21634,14 @@ Optional parameters can be passed as a `params::Dict{String,<:Any}`. Valid keys 
   permissions, the error response is DryRunOperation. Otherwise, it is UnauthorizedOperation.
 """
 function release_address(; aws_config::AbstractAWSConfig=global_aws_config())
-    return ec2("ReleaseAddress"; aws_config=aws_config, features=SERVICE_FEATURES)
+    return ec2("ReleaseAddress"; aws_config=aws_config, feature_set=SERVICE_FEATURE_SET)
 end
 function release_address(
     params::AbstractDict{String}; aws_config::AbstractAWSConfig=global_aws_config()
 )
-    return ec2("ReleaseAddress", params; aws_config=aws_config, features=SERVICE_FEATURES)
+    return ec2(
+        "ReleaseAddress", params; aws_config=aws_config, feature_set=SERVICE_FEATURE_SET
+    )
 end
 
 """
@@ -21372,7 +21666,7 @@ function release_hosts(hostId; aws_config::AbstractAWSConfig=global_aws_config()
         "ReleaseHosts",
         Dict{String,Any}("hostId" => hostId);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function release_hosts(
@@ -21382,7 +21676,7 @@ function release_hosts(
         "ReleaseHosts",
         Dict{String,Any}(mergewith(_merge, Dict{String,Any}("hostId" => hostId), params));
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -21409,7 +21703,7 @@ function replace_iam_instance_profile_association(
             "AssociationId" => AssociationId, "IamInstanceProfile" => IamInstanceProfile
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function replace_iam_instance_profile_association(
@@ -21431,7 +21725,7 @@ function replace_iam_instance_profile_association(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -21462,7 +21756,7 @@ function replace_network_acl_association(
         "ReplaceNetworkAclAssociation",
         Dict{String,Any}("associationId" => associationId, "networkAclId" => networkAclId);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function replace_network_acl_association(
@@ -21483,7 +21777,7 @@ function replace_network_acl_association(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -21539,7 +21833,7 @@ function replace_network_acl_entry(
             "ruleNumber" => ruleNumber,
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function replace_network_acl_entry(
@@ -21567,7 +21861,7 @@ function replace_network_acl_entry(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -21612,7 +21906,7 @@ function replace_route(routeTableId; aws_config::AbstractAWSConfig=global_aws_co
         "ReplaceRoute",
         Dict{String,Any}("routeTableId" => routeTableId);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function replace_route(
@@ -21626,7 +21920,7 @@ function replace_route(
             mergewith(_merge, Dict{String,Any}("routeTableId" => routeTableId), params)
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -21658,7 +21952,7 @@ function replace_route_table_association(
         "ReplaceRouteTableAssociation",
         Dict{String,Any}("associationId" => associationId, "routeTableId" => routeTableId);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function replace_route_table_association(
@@ -21679,7 +21973,7 @@ function replace_route_table_association(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -21714,7 +22008,7 @@ function replace_transit_gateway_route(
             "TransitGatewayRouteTableId" => TransitGatewayRouteTableId,
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function replace_transit_gateway_route(
@@ -21736,7 +22030,7 @@ function replace_transit_gateway_route(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -21782,7 +22076,7 @@ function report_instance_status(
             "instanceId" => instanceId, "reasonCode" => reasonCode, "status" => status
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function report_instance_status(
@@ -21806,7 +22100,7 @@ function report_instance_status(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -21845,7 +22139,7 @@ function request_spot_fleet(
         "RequestSpotFleet",
         Dict{String,Any}("spotFleetRequestConfig" => spotFleetRequestConfig);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function request_spot_fleet(
@@ -21863,7 +22157,7 @@ function request_spot_fleet(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -21924,13 +22218,18 @@ Optional parameters can be passed as a `params::Dict{String,<:Any}`. Valid keys 
   the date the request was created.
 """
 function request_spot_instances(; aws_config::AbstractAWSConfig=global_aws_config())
-    return ec2("RequestSpotInstances"; aws_config=aws_config, features=SERVICE_FEATURES)
+    return ec2(
+        "RequestSpotInstances"; aws_config=aws_config, feature_set=SERVICE_FEATURE_SET
+    )
 end
 function request_spot_instances(
     params::AbstractDict{String}; aws_config::AbstractAWSConfig=global_aws_config()
 )
     return ec2(
-        "RequestSpotInstances", params; aws_config=aws_config, features=SERVICE_FEATURES
+        "RequestSpotInstances",
+        params;
+        aws_config=aws_config,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -21958,7 +22257,7 @@ function reset_address_attribute(
         "ResetAddressAttribute",
         Dict{String,Any}("AllocationId" => AllocationId, "Attribute" => Attribute);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function reset_address_attribute(
@@ -21977,7 +22276,7 @@ function reset_address_attribute(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -21998,13 +22297,18 @@ Optional parameters can be passed as a `params::Dict{String,<:Any}`. Valid keys 
   permissions, the error response is DryRunOperation. Otherwise, it is UnauthorizedOperation.
 """
 function reset_ebs_default_kms_key_id(; aws_config::AbstractAWSConfig=global_aws_config())
-    return ec2("ResetEbsDefaultKmsKeyId"; aws_config=aws_config, features=SERVICE_FEATURES)
+    return ec2(
+        "ResetEbsDefaultKmsKeyId"; aws_config=aws_config, feature_set=SERVICE_FEATURE_SET
+    )
 end
 function reset_ebs_default_kms_key_id(
     params::AbstractDict{String}; aws_config::AbstractAWSConfig=global_aws_config()
 )
     return ec2(
-        "ResetEbsDefaultKmsKeyId", params; aws_config=aws_config, features=SERVICE_FEATURES
+        "ResetEbsDefaultKmsKeyId",
+        params;
+        aws_config=aws_config,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -22032,7 +22336,7 @@ function reset_fpga_image_attribute(
         "ResetFpgaImageAttribute",
         Dict{String,Any}("FpgaImageId" => FpgaImageId);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function reset_fpga_image_attribute(
@@ -22046,7 +22350,7 @@ function reset_fpga_image_attribute(
             mergewith(_merge, Dict{String,Any}("FpgaImageId" => FpgaImageId), params)
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -22074,7 +22378,7 @@ function reset_image_attribute(
         "ResetImageAttribute",
         Dict{String,Any}("Attribute" => Attribute, "ImageId" => ImageId);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function reset_image_attribute(
@@ -22093,7 +22397,7 @@ function reset_image_attribute(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -22126,7 +22430,7 @@ function reset_instance_attribute(
         "ResetInstanceAttribute",
         Dict{String,Any}("attribute" => attribute, "instanceId" => instanceId);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function reset_instance_attribute(
@@ -22145,7 +22449,7 @@ function reset_instance_attribute(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -22172,7 +22476,7 @@ function reset_network_interface_attribute(
         "ResetNetworkInterfaceAttribute",
         Dict{String,Any}("networkInterfaceId" => networkInterfaceId);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function reset_network_interface_attribute(
@@ -22188,7 +22492,7 @@ function reset_network_interface_attribute(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -22217,7 +22521,7 @@ function reset_snapshot_attribute(
         "ResetSnapshotAttribute",
         Dict{String,Any}("Attribute" => Attribute, "SnapshotId" => SnapshotId);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function reset_snapshot_attribute(
@@ -22236,7 +22540,7 @@ function reset_snapshot_attribute(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -22265,7 +22569,7 @@ function restore_address_to_classic(
         "RestoreAddressToClassic",
         Dict{String,Any}("publicIp" => publicIp);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function restore_address_to_classic(
@@ -22279,7 +22583,7 @@ function restore_address_to_classic(
             mergewith(_merge, Dict{String,Any}("publicIp" => publicIp), params)
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -22315,7 +22619,7 @@ function restore_managed_prefix_list_version(
             "PreviousVersion" => PreviousVersion,
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function restore_managed_prefix_list_version(
@@ -22339,7 +22643,7 @@ function restore_managed_prefix_list_version(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -22375,7 +22679,7 @@ function revoke_client_vpn_ingress(
             "TargetNetworkCidr" => TargetNetworkCidr,
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function revoke_client_vpn_ingress(
@@ -22397,7 +22701,7 @@ function revoke_client_vpn_ingress(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -22447,7 +22751,7 @@ function revoke_security_group_egress(
         "RevokeSecurityGroupEgress",
         Dict{String,Any}("groupId" => groupId);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function revoke_security_group_egress(
@@ -22457,7 +22761,7 @@ function revoke_security_group_egress(
         "RevokeSecurityGroupEgress",
         Dict{String,Any}(mergewith(_merge, Dict{String,Any}("groupId" => groupId), params));
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -22513,7 +22817,7 @@ Optional parameters can be passed as a `params::Dict{String,<:Any}`. Valid keys 
 """
 function revoke_security_group_ingress(; aws_config::AbstractAWSConfig=global_aws_config())
     return ec2(
-        "RevokeSecurityGroupIngress"; aws_config=aws_config, features=SERVICE_FEATURES
+        "RevokeSecurityGroupIngress"; aws_config=aws_config, feature_set=SERVICE_FEATURE_SET
     )
 end
 function revoke_security_group_ingress(
@@ -22523,7 +22827,7 @@ function revoke_security_group_ingress(
         "RevokeSecurityGroupIngress",
         params;
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -22696,7 +23000,7 @@ function run_instances(
             "MaxCount" => MaxCount, "MinCount" => MinCount, "clientToken" => string(uuid4())
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function run_instances(
@@ -22719,7 +23023,7 @@ function run_instances(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -22761,7 +23065,7 @@ function run_scheduled_instances(
             "ClientToken" => string(uuid4()),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function run_scheduled_instances(
@@ -22784,7 +23088,7 @@ function run_scheduled_instances(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -22816,7 +23120,7 @@ function search_local_gateway_routes(
             "Filter" => Filter, "LocalGatewayRouteTableId" => LocalGatewayRouteTableId
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function search_local_gateway_routes(
@@ -22838,7 +23142,7 @@ function search_local_gateway_routes(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -22873,7 +23177,7 @@ function search_transit_gateway_multicast_groups(;
     return ec2(
         "SearchTransitGatewayMulticastGroups";
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function search_transit_gateway_multicast_groups(
@@ -22883,7 +23187,7 @@ function search_transit_gateway_multicast_groups(
         "SearchTransitGatewayMulticastGroups",
         params;
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -22925,7 +23229,7 @@ function search_transit_gateway_routes(
             "Filter" => Filter, "TransitGatewayRouteTableId" => TransitGatewayRouteTableId
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function search_transit_gateway_routes(
@@ -22947,7 +23251,7 @@ function search_transit_gateway_routes(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -22983,7 +23287,7 @@ function send_diagnostic_interrupt(
         "SendDiagnosticInterrupt",
         Dict{String,Any}("InstanceId" => InstanceId);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function send_diagnostic_interrupt(
@@ -22997,7 +23301,7 @@ function send_diagnostic_interrupt(
             mergewith(_merge, Dict{String,Any}("InstanceId" => InstanceId), params)
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -23035,7 +23339,7 @@ function start_instances(InstanceId; aws_config::AbstractAWSConfig=global_aws_co
         "StartInstances",
         Dict{String,Any}("InstanceId" => InstanceId);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function start_instances(
@@ -23049,7 +23353,7 @@ function start_instances(
             mergewith(_merge, Dict{String,Any}("InstanceId" => InstanceId), params)
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -23083,7 +23387,7 @@ function start_network_insights_analysis(
             "ClientToken" => ClientToken, "NetworkInsightsPathId" => NetworkInsightsPathId
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function start_network_insights_analysis(
@@ -23105,7 +23409,7 @@ function start_network_insights_analysis(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -23135,7 +23439,7 @@ function start_vpc_endpoint_service_private_dns_verification(
         "StartVpcEndpointServicePrivateDnsVerification",
         Dict{String,Any}("ServiceId" => ServiceId);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function start_vpc_endpoint_service_private_dns_verification(
@@ -23149,7 +23453,7 @@ function start_vpc_endpoint_service_private_dns_verification(
             mergewith(_merge, Dict{String,Any}("ServiceId" => ServiceId), params)
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -23203,7 +23507,7 @@ function stop_instances(InstanceId; aws_config::AbstractAWSConfig=global_aws_con
         "StopInstances",
         Dict{String,Any}("InstanceId" => InstanceId);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function stop_instances(
@@ -23217,7 +23521,7 @@ function stop_instances(
             mergewith(_merge, Dict{String,Any}("InstanceId" => InstanceId), params)
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -23249,7 +23553,7 @@ function terminate_client_vpn_connections(
         "TerminateClientVpnConnections",
         Dict{String,Any}("ClientVpnEndpointId" => ClientVpnEndpointId);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function terminate_client_vpn_connections(
@@ -23267,7 +23571,7 @@ function terminate_client_vpn_connections(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -23318,7 +23622,7 @@ function terminate_instances(InstanceId; aws_config::AbstractAWSConfig=global_aw
         "TerminateInstances",
         Dict{String,Any}("InstanceId" => InstanceId);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function terminate_instances(
@@ -23332,7 +23636,7 @@ function terminate_instances(
             mergewith(_merge, Dict{String,Any}("InstanceId" => InstanceId), params)
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -23358,7 +23662,7 @@ function unassign_ipv6_addresses(
         "UnassignIpv6Addresses",
         Dict{String,Any}("networkInterfaceId" => networkInterfaceId);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function unassign_ipv6_addresses(
@@ -23374,7 +23678,7 @@ function unassign_ipv6_addresses(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -23401,7 +23705,7 @@ function unassign_private_ip_addresses(
         "UnassignPrivateIpAddresses",
         Dict{String,Any}("networkInterfaceId" => networkInterfaceId);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function unassign_private_ip_addresses(
@@ -23417,7 +23721,7 @@ function unassign_private_ip_addresses(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -23442,7 +23746,7 @@ function unmonitor_instances(InstanceId; aws_config::AbstractAWSConfig=global_aw
         "UnmonitorInstances",
         Dict{String,Any}("InstanceId" => InstanceId);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function unmonitor_instances(
@@ -23456,7 +23760,7 @@ function unmonitor_instances(
             mergewith(_merge, Dict{String,Any}("InstanceId" => InstanceId), params)
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -23490,7 +23794,7 @@ function update_security_group_rule_descriptions_egress(;
     return ec2(
         "UpdateSecurityGroupRuleDescriptionsEgress";
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function update_security_group_rule_descriptions_egress(
@@ -23500,7 +23804,7 @@ function update_security_group_rule_descriptions_egress(
         "UpdateSecurityGroupRuleDescriptionsEgress",
         params;
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -23534,7 +23838,7 @@ function update_security_group_rule_descriptions_ingress(;
     return ec2(
         "UpdateSecurityGroupRuleDescriptionsIngress";
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function update_security_group_rule_descriptions_ingress(
@@ -23544,7 +23848,7 @@ function update_security_group_rule_descriptions_ingress(
         "UpdateSecurityGroupRuleDescriptionsIngress",
         params;
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -23571,7 +23875,7 @@ function withdraw_byoip_cidr(Cidr; aws_config::AbstractAWSConfig=global_aws_conf
         "WithdrawByoipCidr",
         Dict{String,Any}("Cidr" => Cidr);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function withdraw_byoip_cidr(
@@ -23581,6 +23885,6 @@ function withdraw_byoip_cidr(
         "WithdrawByoipCidr",
         Dict{String,Any}(mergewith(_merge, Dict{String,Any}("Cidr" => Cidr), params));
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end

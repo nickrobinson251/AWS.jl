@@ -26,13 +26,15 @@ Optional parameters can be passed as a `params::Dict{String,<:Any}`. Valid keys 
   retrieve a list of all services, leave this blank.
 """
 function describe_services(; aws_config::AbstractAWSConfig=global_aws_config())
-    return pricing("DescribeServices"; aws_config=aws_config, features=SERVICE_FEATURES)
+    return pricing(
+        "DescribeServices"; aws_config=aws_config, feature_set=SERVICE_FEATURE_SET
+    )
 end
 function describe_services(
     params::AbstractDict{String}; aws_config::AbstractAWSConfig=global_aws_config()
 )
     return pricing(
-        "DescribeServices", params; aws_config=aws_config, features=SERVICE_FEATURES
+        "DescribeServices", params; aws_config=aws_config, feature_set=SERVICE_FEATURE_SET
     )
 end
 
@@ -63,7 +65,7 @@ function get_attribute_values(
         "GetAttributeValues",
         Dict{String,Any}("AttributeName" => AttributeName, "ServiceCode" => ServiceCode);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function get_attribute_values(
@@ -84,7 +86,7 @@ function get_attribute_values(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -106,10 +108,12 @@ Optional parameters can be passed as a `params::Dict{String,<:Any}`. Valid keys 
 - `"ServiceCode"`: The code for the service whose products you want to retrieve.
 """
 function get_products(; aws_config::AbstractAWSConfig=global_aws_config())
-    return pricing("GetProducts"; aws_config=aws_config, features=SERVICE_FEATURES)
+    return pricing("GetProducts"; aws_config=aws_config, feature_set=SERVICE_FEATURE_SET)
 end
 function get_products(
     params::AbstractDict{String}; aws_config::AbstractAWSConfig=global_aws_config()
 )
-    return pricing("GetProducts", params; aws_config=aws_config, features=SERVICE_FEATURES)
+    return pricing(
+        "GetProducts", params; aws_config=aws_config, feature_set=SERVICE_FEATURE_SET
+    )
 end

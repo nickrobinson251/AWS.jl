@@ -33,7 +33,7 @@ function batch_associate_client_device_with_core_device(
         "POST",
         "/greengrass/v2/coreDevices/$(coreDeviceThingName)/associateClientDevices";
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function batch_associate_client_device_with_core_device(
@@ -46,7 +46,7 @@ function batch_associate_client_device_with_core_device(
         "/greengrass/v2/coreDevices/$(coreDeviceThingName)/associateClientDevices",
         params;
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -73,7 +73,7 @@ function batch_disassociate_client_device_from_core_device(
         "POST",
         "/greengrass/v2/coreDevices/$(coreDeviceThingName)/disassociateClientDevices";
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function batch_disassociate_client_device_from_core_device(
@@ -86,7 +86,7 @@ function batch_disassociate_client_device_from_core_device(
         "/greengrass/v2/coreDevices/$(coreDeviceThingName)/disassociateClientDevices",
         params;
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -107,7 +107,7 @@ function cancel_deployment(deploymentId; aws_config::AbstractAWSConfig=global_aw
         "POST",
         "/greengrass/v2/deployments/$(deploymentId)/cancel";
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function cancel_deployment(
@@ -120,7 +120,7 @@ function cancel_deployment(
         "/greengrass/v2/deployments/$(deploymentId)/cancel",
         params;
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -167,7 +167,7 @@ function create_component_version(; aws_config::AbstractAWSConfig=global_aws_con
         "/greengrass/v2/createComponentVersion",
         Dict{String,Any}("clientToken" => string(uuid4()));
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function create_component_version(
@@ -180,7 +180,7 @@ function create_component_version(
             mergewith(_merge, Dict{String,Any}("clientToken" => string(uuid4())), params)
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -228,7 +228,7 @@ function create_deployment(targetArn; aws_config::AbstractAWSConfig=global_aws_c
         "/greengrass/v2/deployments",
         Dict{String,Any}("targetArn" => targetArn, "clientToken" => string(uuid4()));
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function create_deployment(
@@ -249,7 +249,7 @@ function create_deployment(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -271,7 +271,7 @@ function delete_component(arn; aws_config::AbstractAWSConfig=global_aws_config()
         "DELETE",
         "/greengrass/v2/components/$(arn)";
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function delete_component(
@@ -282,7 +282,7 @@ function delete_component(
         "/greengrass/v2/components/$(arn)",
         params;
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -306,7 +306,7 @@ function delete_core_device(
         "DELETE",
         "/greengrass/v2/coreDevices/$(coreDeviceThingName)";
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function delete_core_device(
@@ -319,7 +319,7 @@ function delete_core_device(
         "/greengrass/v2/coreDevices/$(coreDeviceThingName)",
         params;
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -338,7 +338,7 @@ function describe_component(arn; aws_config::AbstractAWSConfig=global_aws_config
         "GET",
         "/greengrass/v2/components/$(arn)/metadata";
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function describe_component(
@@ -349,7 +349,7 @@ function describe_component(
         "/greengrass/v2/components/$(arn)/metadata",
         params;
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -372,7 +372,7 @@ function get_component(arn; aws_config::AbstractAWSConfig=global_aws_config())
         "GET",
         "/greengrass/v2/components/$(arn)";
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function get_component(
@@ -383,7 +383,7 @@ function get_component(
         "/greengrass/v2/components/$(arn)",
         params;
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -409,7 +409,7 @@ function get_component_version_artifact(
         "GET",
         "/greengrass/v2/components/$(arn)/artifacts/$(artifactName)";
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function get_component_version_artifact(
@@ -423,7 +423,7 @@ function get_component_version_artifact(
         "/greengrass/v2/components/$(arn)/artifacts/$(artifactName)",
         params;
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -445,7 +445,7 @@ function get_core_device(
         "GET",
         "/greengrass/v2/coreDevices/$(coreDeviceThingName)";
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function get_core_device(
@@ -458,7 +458,7 @@ function get_core_device(
         "/greengrass/v2/coreDevices/$(coreDeviceThingName)",
         params;
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -477,7 +477,7 @@ function get_deployment(deploymentId; aws_config::AbstractAWSConfig=global_aws_c
         "GET",
         "/greengrass/v2/deployments/$(deploymentId)";
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function get_deployment(
@@ -490,7 +490,7 @@ function get_deployment(
         "/greengrass/v2/deployments/$(deploymentId)",
         params;
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -516,7 +516,7 @@ function list_client_devices_associated_with_core_device(
         "GET",
         "/greengrass/v2/coreDevices/$(coreDeviceThingName)/associatedClientDevices";
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function list_client_devices_associated_with_core_device(
@@ -529,7 +529,7 @@ function list_client_devices_associated_with_core_device(
         "/greengrass/v2/coreDevices/$(coreDeviceThingName)/associatedClientDevices",
         params;
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -553,7 +553,7 @@ function list_component_versions(arn; aws_config::AbstractAWSConfig=global_aws_c
         "GET",
         "/greengrass/v2/components/$(arn)/versions";
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function list_component_versions(
@@ -564,7 +564,7 @@ function list_component_versions(
         "/greengrass/v2/components/$(arn)/versions",
         params;
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -583,7 +583,10 @@ Optional parameters can be passed as a `params::Dict{String,<:Any}`. Valid keys 
 """
 function list_components(; aws_config::AbstractAWSConfig=global_aws_config())
     return greengrassv2(
-        "GET", "/greengrass/v2/components"; aws_config=aws_config, features=SERVICE_FEATURES
+        "GET",
+        "/greengrass/v2/components";
+        aws_config=aws_config,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function list_components(
@@ -594,7 +597,7 @@ function list_components(
         "/greengrass/v2/components",
         params;
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -621,7 +624,7 @@ function list_core_devices(; aws_config::AbstractAWSConfig=global_aws_config())
         "GET",
         "/greengrass/v2/coreDevices";
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function list_core_devices(
@@ -632,7 +635,7 @@ function list_core_devices(
         "/greengrass/v2/coreDevices",
         params;
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -656,7 +659,7 @@ function list_deployments(; aws_config::AbstractAWSConfig=global_aws_config())
         "GET",
         "/greengrass/v2/deployments";
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function list_deployments(
@@ -667,7 +670,7 @@ function list_deployments(
         "/greengrass/v2/deployments",
         params;
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -694,7 +697,7 @@ function list_effective_deployments(
         "GET",
         "/greengrass/v2/coreDevices/$(coreDeviceThingName)/effectiveDeployments";
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function list_effective_deployments(
@@ -707,7 +710,7 @@ function list_effective_deployments(
         "/greengrass/v2/coreDevices/$(coreDeviceThingName)/effectiveDeployments",
         params;
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -733,7 +736,7 @@ function list_installed_components(
         "GET",
         "/greengrass/v2/coreDevices/$(coreDeviceThingName)/installedComponents";
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function list_installed_components(
@@ -746,7 +749,7 @@ function list_installed_components(
         "/greengrass/v2/coreDevices/$(coreDeviceThingName)/installedComponents",
         params;
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -764,7 +767,10 @@ function list_tags_for_resource(
     resourceArn; aws_config::AbstractAWSConfig=global_aws_config()
 )
     return greengrassv2(
-        "GET", "/tags/$(resourceArn)"; aws_config=aws_config, features=SERVICE_FEATURES
+        "GET",
+        "/tags/$(resourceArn)";
+        aws_config=aws_config,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function list_tags_for_resource(
@@ -777,7 +783,7 @@ function list_tags_for_resource(
         "/tags/$(resourceArn)",
         params;
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -813,7 +819,7 @@ function resolve_component_candidates(
             "componentCandidates" => componentCandidates, "platform" => platform
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function resolve_component_candidates(
@@ -835,7 +841,7 @@ function resolve_component_candidates(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -858,7 +864,7 @@ function tag_resource(resourceArn, tags; aws_config::AbstractAWSConfig=global_aw
         "/tags/$(resourceArn)",
         Dict{String,Any}("tags" => tags);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function tag_resource(
@@ -872,7 +878,7 @@ function tag_resource(
         "/tags/$(resourceArn)",
         Dict{String,Any}(mergewith(_merge, Dict{String,Any}("tags" => tags), params));
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -895,7 +901,7 @@ function untag_resource(
         "/tags/$(resourceArn)",
         Dict{String,Any}("tagKeys" => tagKeys);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function untag_resource(
@@ -909,6 +915,6 @@ function untag_resource(
         "/tags/$(resourceArn)",
         Dict{String,Any}(mergewith(_merge, Dict{String,Any}("tagKeys" => tagKeys), params));
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end

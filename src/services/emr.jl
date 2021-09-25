@@ -23,7 +23,7 @@ function add_instance_fleet(
         "AddInstanceFleet",
         Dict{String,Any}("ClusterId" => ClusterId, "InstanceFleet" => InstanceFleet);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function add_instance_fleet(
@@ -44,7 +44,7 @@ function add_instance_fleet(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -66,7 +66,7 @@ function add_instance_groups(
         "AddInstanceGroups",
         Dict{String,Any}("InstanceGroups" => InstanceGroups, "JobFlowId" => JobFlowId);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function add_instance_groups(
@@ -87,7 +87,7 @@ function add_instance_groups(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -123,7 +123,7 @@ function add_job_flow_steps(
         "AddJobFlowSteps",
         Dict{String,Any}("JobFlowId" => JobFlowId, "Steps" => Steps);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function add_job_flow_steps(
@@ -140,7 +140,7 @@ function add_job_flow_steps(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -165,7 +165,7 @@ function add_tags(ResourceId, Tags; aws_config::AbstractAWSConfig=global_aws_con
         "AddTags",
         Dict{String,Any}("ResourceId" => ResourceId, "Tags" => Tags);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function add_tags(
@@ -182,7 +182,7 @@ function add_tags(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -213,7 +213,7 @@ function cancel_steps(ClusterId, StepIds; aws_config::AbstractAWSConfig=global_a
         "CancelSteps",
         Dict{String,Any}("ClusterId" => ClusterId, "StepIds" => StepIds);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function cancel_steps(
@@ -232,7 +232,7 @@ function cancel_steps(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -257,7 +257,7 @@ function create_security_configuration(
         "CreateSecurityConfiguration",
         Dict{String,Any}("Name" => Name, "SecurityConfiguration" => SecurityConfiguration);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function create_security_configuration(
@@ -278,7 +278,7 @@ function create_security_configuration(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -352,7 +352,7 @@ function create_studio(
             "WorkspaceSecurityGroupId" => WorkspaceSecurityGroupId,
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function create_studio(
@@ -386,7 +386,7 @@ function create_studio(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -433,7 +433,7 @@ function create_studio_session_mapping(
             "StudioId" => StudioId,
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function create_studio_session_mapping(
@@ -457,7 +457,7 @@ function create_studio_session_mapping(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -478,7 +478,7 @@ function delete_security_configuration(
         "DeleteSecurityConfiguration",
         Dict{String,Any}("Name" => Name);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function delete_security_configuration(
@@ -488,7 +488,7 @@ function delete_security_configuration(
         "DeleteSecurityConfiguration",
         Dict{String,Any}(mergewith(_merge, Dict{String,Any}("Name" => Name), params));
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -507,7 +507,7 @@ function delete_studio(StudioId; aws_config::AbstractAWSConfig=global_aws_config
         "DeleteStudio",
         Dict{String,Any}("StudioId" => StudioId);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function delete_studio(
@@ -521,7 +521,7 @@ function delete_studio(
             mergewith(_merge, Dict{String,Any}("StudioId" => StudioId), params)
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -553,7 +553,7 @@ function delete_studio_session_mapping(
         "DeleteStudioSessionMapping",
         Dict{String,Any}("IdentityType" => IdentityType, "StudioId" => StudioId);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function delete_studio_session_mapping(
@@ -572,7 +572,7 @@ function delete_studio_session_mapping(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -592,7 +592,7 @@ function describe_cluster(ClusterId; aws_config::AbstractAWSConfig=global_aws_co
         "DescribeCluster",
         Dict{String,Any}("ClusterId" => ClusterId);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function describe_cluster(
@@ -606,7 +606,7 @@ function describe_cluster(
             mergewith(_merge, Dict{String,Any}("ClusterId" => ClusterId), params)
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -633,12 +633,14 @@ Optional parameters can be passed as a `params::Dict{String,<:Any}`. Valid keys 
 - `"JobFlowStates"`: Return only job flows whose state is contained in this list.
 """
 function describe_job_flows(; aws_config::AbstractAWSConfig=global_aws_config())
-    return emr("DescribeJobFlows"; aws_config=aws_config, features=SERVICE_FEATURES)
+    return emr("DescribeJobFlows"; aws_config=aws_config, feature_set=SERVICE_FEATURE_SET)
 end
 function describe_job_flows(
     params::AbstractDict{String}; aws_config::AbstractAWSConfig=global_aws_config()
 )
-    return emr("DescribeJobFlows", params; aws_config=aws_config, features=SERVICE_FEATURES)
+    return emr(
+        "DescribeJobFlows", params; aws_config=aws_config, feature_set=SERVICE_FEATURE_SET
+    )
 end
 
 """
@@ -658,7 +660,7 @@ function describe_notebook_execution(
         "DescribeNotebookExecution",
         Dict{String,Any}("NotebookExecutionId" => NotebookExecutionId);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function describe_notebook_execution(
@@ -676,7 +678,7 @@ function describe_notebook_execution(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -695,13 +697,18 @@ Optional parameters can be passed as a `params::Dict{String,<:Any}`. Valid keys 
 - `"ReleaseLabel"`: The target release label to be described.
 """
 function describe_release_label(; aws_config::AbstractAWSConfig=global_aws_config())
-    return emr("DescribeReleaseLabel"; aws_config=aws_config, features=SERVICE_FEATURES)
+    return emr(
+        "DescribeReleaseLabel"; aws_config=aws_config, feature_set=SERVICE_FEATURE_SET
+    )
 end
 function describe_release_label(
     params::AbstractDict{String}; aws_config::AbstractAWSConfig=global_aws_config()
 )
     return emr(
-        "DescribeReleaseLabel", params; aws_config=aws_config, features=SERVICE_FEATURES
+        "DescribeReleaseLabel",
+        params;
+        aws_config=aws_config,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -722,7 +729,7 @@ function describe_security_configuration(
         "DescribeSecurityConfiguration",
         Dict{String,Any}("Name" => Name);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function describe_security_configuration(
@@ -732,7 +739,7 @@ function describe_security_configuration(
         "DescribeSecurityConfiguration",
         Dict{String,Any}(mergewith(_merge, Dict{String,Any}("Name" => Name), params));
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -752,7 +759,7 @@ function describe_step(ClusterId, StepId; aws_config::AbstractAWSConfig=global_a
         "DescribeStep",
         Dict{String,Any}("ClusterId" => ClusterId, "StepId" => StepId);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function describe_step(
@@ -771,7 +778,7 @@ function describe_step(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -791,7 +798,7 @@ function describe_studio(StudioId; aws_config::AbstractAWSConfig=global_aws_conf
         "DescribeStudio",
         Dict{String,Any}("StudioId" => StudioId);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function describe_studio(
@@ -805,7 +812,7 @@ function describe_studio(
             mergewith(_merge, Dict{String,Any}("StudioId" => StudioId), params)
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -827,7 +834,7 @@ function get_auto_termination_policy(
         "GetAutoTerminationPolicy",
         Dict{String,Any}("ClusterId" => ClusterId);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function get_auto_termination_policy(
@@ -841,7 +848,7 @@ function get_auto_termination_policy(
             mergewith(_merge, Dict{String,Any}("ClusterId" => ClusterId), params)
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -860,7 +867,7 @@ function get_block_public_access_configuration(;
     return emr(
         "GetBlockPublicAccessConfiguration";
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function get_block_public_access_configuration(
@@ -870,7 +877,7 @@ function get_block_public_access_configuration(
         "GetBlockPublicAccessConfiguration",
         params;
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -892,7 +899,7 @@ function get_managed_scaling_policy(
         "GetManagedScalingPolicy",
         Dict{String,Any}("ClusterId" => ClusterId);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function get_managed_scaling_policy(
@@ -906,7 +913,7 @@ function get_managed_scaling_policy(
             mergewith(_merge, Dict{String,Any}("ClusterId" => ClusterId), params)
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -936,7 +943,7 @@ function get_studio_session_mapping(
         "GetStudioSessionMapping",
         Dict{String,Any}("IdentityType" => IdentityType, "StudioId" => StudioId);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function get_studio_session_mapping(
@@ -955,7 +962,7 @@ function get_studio_session_mapping(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -979,7 +986,7 @@ function list_bootstrap_actions(
         "ListBootstrapActions",
         Dict{String,Any}("ClusterId" => ClusterId);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function list_bootstrap_actions(
@@ -993,7 +1000,7 @@ function list_bootstrap_actions(
             mergewith(_merge, Dict{String,Any}("ClusterId" => ClusterId), params)
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -1017,12 +1024,14 @@ Optional parameters can be passed as a `params::Dict{String,<:Any}`. Valid keys 
 - `"Marker"`: The pagination token that indicates the next set of results to retrieve.
 """
 function list_clusters(; aws_config::AbstractAWSConfig=global_aws_config())
-    return emr("ListClusters"; aws_config=aws_config, features=SERVICE_FEATURES)
+    return emr("ListClusters"; aws_config=aws_config, feature_set=SERVICE_FEATURE_SET)
 end
 function list_clusters(
     params::AbstractDict{String}; aws_config::AbstractAWSConfig=global_aws_config()
 )
-    return emr("ListClusters", params; aws_config=aws_config, features=SERVICE_FEATURES)
+    return emr(
+        "ListClusters", params; aws_config=aws_config, feature_set=SERVICE_FEATURE_SET
+    )
 end
 
 """
@@ -1045,7 +1054,7 @@ function list_instance_fleets(ClusterId; aws_config::AbstractAWSConfig=global_aw
         "ListInstanceFleets",
         Dict{String,Any}("ClusterId" => ClusterId);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function list_instance_fleets(
@@ -1059,7 +1068,7 @@ function list_instance_fleets(
             mergewith(_merge, Dict{String,Any}("ClusterId" => ClusterId), params)
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -1081,7 +1090,7 @@ function list_instance_groups(ClusterId; aws_config::AbstractAWSConfig=global_aw
         "ListInstanceGroups",
         Dict{String,Any}("ClusterId" => ClusterId);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function list_instance_groups(
@@ -1095,7 +1104,7 @@ function list_instance_groups(
             mergewith(_merge, Dict{String,Any}("ClusterId" => ClusterId), params)
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -1126,7 +1135,7 @@ function list_instances(ClusterId; aws_config::AbstractAWSConfig=global_aws_conf
         "ListInstances",
         Dict{String,Any}("ClusterId" => ClusterId);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function list_instances(
@@ -1140,7 +1149,7 @@ function list_instances(
             mergewith(_merge, Dict{String,Any}("ClusterId" => ClusterId), params)
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -1175,13 +1184,18 @@ Optional parameters can be passed as a `params::Dict{String,<:Any}`. Valid keys 
   current timestamp.
 """
 function list_notebook_executions(; aws_config::AbstractAWSConfig=global_aws_config())
-    return emr("ListNotebookExecutions"; aws_config=aws_config, features=SERVICE_FEATURES)
+    return emr(
+        "ListNotebookExecutions"; aws_config=aws_config, feature_set=SERVICE_FEATURE_SET
+    )
 end
 function list_notebook_executions(
     params::AbstractDict{String}; aws_config::AbstractAWSConfig=global_aws_config()
 )
     return emr(
-        "ListNotebookExecutions", params; aws_config=aws_config, features=SERVICE_FEATURES
+        "ListNotebookExecutions",
+        params;
+        aws_config=aws_config,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -1206,13 +1220,13 @@ Optional parameters can be passed as a `params::Dict{String,<:Any}`. Valid keys 
   expired or tampered with.
 """
 function list_release_labels(; aws_config::AbstractAWSConfig=global_aws_config())
-    return emr("ListReleaseLabels"; aws_config=aws_config, features=SERVICE_FEATURES)
+    return emr("ListReleaseLabels"; aws_config=aws_config, feature_set=SERVICE_FEATURE_SET)
 end
 function list_release_labels(
     params::AbstractDict{String}; aws_config::AbstractAWSConfig=global_aws_config()
 )
     return emr(
-        "ListReleaseLabels", params; aws_config=aws_config, features=SERVICE_FEATURES
+        "ListReleaseLabels", params; aws_config=aws_config, feature_set=SERVICE_FEATURE_SET
     )
 end
 
@@ -1231,7 +1245,7 @@ Optional parameters can be passed as a `params::Dict{String,<:Any}`. Valid keys 
 """
 function list_security_configurations(; aws_config::AbstractAWSConfig=global_aws_config())
     return emr(
-        "ListSecurityConfigurations"; aws_config=aws_config, features=SERVICE_FEATURES
+        "ListSecurityConfigurations"; aws_config=aws_config, feature_set=SERVICE_FEATURE_SET
     )
 end
 function list_security_configurations(
@@ -1241,7 +1255,7 @@ function list_security_configurations(
         "ListSecurityConfigurations",
         params;
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -1273,7 +1287,7 @@ function list_steps(ClusterId; aws_config::AbstractAWSConfig=global_aws_config()
         "ListSteps",
         Dict{String,Any}("ClusterId" => ClusterId);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function list_steps(
@@ -1287,7 +1301,7 @@ function list_steps(
             mergewith(_merge, Dict{String,Any}("ClusterId" => ClusterId), params)
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -1307,7 +1321,7 @@ Optional parameters can be passed as a `params::Dict{String,<:Any}`. Valid keys 
 """
 function list_studio_session_mappings(; aws_config::AbstractAWSConfig=global_aws_config())
     return emr(
-        "ListStudioSessionMappings"; aws_config=aws_config, features=SERVICE_FEATURES
+        "ListStudioSessionMappings"; aws_config=aws_config, feature_set=SERVICE_FEATURE_SET
     )
 end
 function list_studio_session_mappings(
@@ -1317,7 +1331,7 @@ function list_studio_session_mappings(
         "ListStudioSessionMappings",
         params;
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -1333,12 +1347,14 @@ Optional parameters can be passed as a `params::Dict{String,<:Any}`. Valid keys 
 - `"Marker"`: The pagination token that indicates the set of results to retrieve.
 """
 function list_studios(; aws_config::AbstractAWSConfig=global_aws_config())
-    return emr("ListStudios"; aws_config=aws_config, features=SERVICE_FEATURES)
+    return emr("ListStudios"; aws_config=aws_config, feature_set=SERVICE_FEATURE_SET)
 end
 function list_studios(
     params::AbstractDict{String}; aws_config::AbstractAWSConfig=global_aws_config()
 )
-    return emr("ListStudios", params; aws_config=aws_config, features=SERVICE_FEATURES)
+    return emr(
+        "ListStudios", params; aws_config=aws_config, feature_set=SERVICE_FEATURE_SET
+    )
 end
 
 """
@@ -1363,7 +1379,7 @@ function modify_cluster(ClusterId; aws_config::AbstractAWSConfig=global_aws_conf
         "ModifyCluster",
         Dict{String,Any}("ClusterId" => ClusterId);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function modify_cluster(
@@ -1377,7 +1393,7 @@ function modify_cluster(
             mergewith(_merge, Dict{String,Any}("ClusterId" => ClusterId), params)
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -1402,7 +1418,7 @@ function modify_instance_fleet(
         "ModifyInstanceFleet",
         Dict{String,Any}("ClusterId" => ClusterId, "InstanceFleet" => InstanceFleet);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function modify_instance_fleet(
@@ -1423,7 +1439,7 @@ function modify_instance_fleet(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -1441,13 +1457,18 @@ Optional parameters can be passed as a `params::Dict{String,<:Any}`. Valid keys 
 - `"InstanceGroups"`: Instance groups to change.
 """
 function modify_instance_groups(; aws_config::AbstractAWSConfig=global_aws_config())
-    return emr("ModifyInstanceGroups"; aws_config=aws_config, features=SERVICE_FEATURES)
+    return emr(
+        "ModifyInstanceGroups"; aws_config=aws_config, feature_set=SERVICE_FEATURE_SET
+    )
 end
 function modify_instance_groups(
     params::AbstractDict{String}; aws_config::AbstractAWSConfig=global_aws_config()
 )
     return emr(
-        "ModifyInstanceGroups", params; aws_config=aws_config, features=SERVICE_FEATURES
+        "ModifyInstanceGroups",
+        params;
+        aws_config=aws_config,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -1482,7 +1503,7 @@ function put_auto_scaling_policy(
             "InstanceGroupId" => InstanceGroupId,
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function put_auto_scaling_policy(
@@ -1506,7 +1527,7 @@ function put_auto_scaling_policy(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -1534,7 +1555,7 @@ function put_auto_termination_policy(
         "PutAutoTerminationPolicy",
         Dict{String,Any}("ClusterId" => ClusterId);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function put_auto_termination_policy(
@@ -1548,7 +1569,7 @@ function put_auto_termination_policy(
             mergewith(_merge, Dict{String,Any}("ClusterId" => ClusterId), params)
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -1585,7 +1606,7 @@ function put_block_public_access_configuration(
             "BlockPublicAccessConfiguration" => BlockPublicAccessConfiguration
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function put_block_public_access_configuration(
@@ -1605,7 +1626,7 @@ function put_block_public_access_configuration(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -1633,7 +1654,7 @@ function put_managed_scaling_policy(
             "ClusterId" => ClusterId, "ManagedScalingPolicy" => ManagedScalingPolicy
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function put_managed_scaling_policy(
@@ -1654,7 +1675,7 @@ function put_managed_scaling_policy(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -1678,7 +1699,7 @@ function remove_auto_scaling_policy(
         "RemoveAutoScalingPolicy",
         Dict{String,Any}("ClusterId" => ClusterId, "InstanceGroupId" => InstanceGroupId);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function remove_auto_scaling_policy(
@@ -1699,7 +1720,7 @@ function remove_auto_scaling_policy(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -1721,7 +1742,7 @@ function remove_auto_termination_policy(
         "RemoveAutoTerminationPolicy",
         Dict{String,Any}("ClusterId" => ClusterId);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function remove_auto_termination_policy(
@@ -1735,7 +1756,7 @@ function remove_auto_termination_policy(
             mergewith(_merge, Dict{String,Any}("ClusterId" => ClusterId), params)
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -1757,7 +1778,7 @@ function remove_managed_scaling_policy(
         "RemoveManagedScalingPolicy",
         Dict{String,Any}("ClusterId" => ClusterId);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function remove_managed_scaling_policy(
@@ -1771,7 +1792,7 @@ function remove_managed_scaling_policy(
             mergewith(_merge, Dict{String,Any}("ClusterId" => ClusterId), params)
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -1795,7 +1816,7 @@ function remove_tags(ResourceId, TagKeys; aws_config::AbstractAWSConfig=global_a
         "RemoveTags",
         Dict{String,Any}("ResourceId" => ResourceId, "TagKeys" => TagKeys);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function remove_tags(
@@ -1814,7 +1835,7 @@ function remove_tags(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -1950,7 +1971,7 @@ function run_job_flow(Instances, Name; aws_config::AbstractAWSConfig=global_aws_
         "RunJobFlow",
         Dict{String,Any}("Instances" => Instances, "Name" => Name);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function run_job_flow(
@@ -1967,7 +1988,7 @@ function run_job_flow(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -2004,7 +2025,7 @@ function set_termination_protection(
             "JobFlowIds" => JobFlowIds, "TerminationProtected" => TerminationProtected
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function set_termination_protection(
@@ -2026,7 +2047,7 @@ function set_termination_protection(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -2060,7 +2081,7 @@ function set_visible_to_all_users(
             "JobFlowIds" => JobFlowIds, "VisibleToAllUsers" => VisibleToAllUsers
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function set_visible_to_all_users(
@@ -2081,7 +2102,7 @@ function set_visible_to_all_users(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -2133,7 +2154,7 @@ function start_notebook_execution(
             "ServiceRole" => ServiceRole,
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function start_notebook_execution(
@@ -2159,7 +2180,7 @@ function start_notebook_execution(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -2180,7 +2201,7 @@ function stop_notebook_execution(
         "StopNotebookExecution",
         Dict{String,Any}("NotebookExecutionId" => NotebookExecutionId);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function stop_notebook_execution(
@@ -2198,7 +2219,7 @@ function stop_notebook_execution(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -2223,7 +2244,7 @@ function terminate_job_flows(JobFlowIds; aws_config::AbstractAWSConfig=global_aw
         "TerminateJobFlows",
         Dict{String,Any}("JobFlowIds" => JobFlowIds);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function terminate_job_flows(
@@ -2237,7 +2258,7 @@ function terminate_job_flows(
             mergewith(_merge, Dict{String,Any}("JobFlowIds" => JobFlowIds), params)
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -2267,7 +2288,7 @@ function update_studio(StudioId; aws_config::AbstractAWSConfig=global_aws_config
         "UpdateStudio",
         Dict{String,Any}("StudioId" => StudioId);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function update_studio(
@@ -2281,7 +2302,7 @@ function update_studio(
             mergewith(_merge, Dict{String,Any}("StudioId" => StudioId), params)
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -2321,7 +2342,7 @@ function update_studio_session_mapping(
             "StudioId" => StudioId,
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function update_studio_session_mapping(
@@ -2345,6 +2366,6 @@ function update_studio_session_mapping(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end

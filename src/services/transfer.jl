@@ -82,7 +82,7 @@ function create_access(
             "ExternalId" => ExternalId, "Role" => Role, "ServerId" => ServerId
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function create_access(
@@ -104,7 +104,7 @@ function create_access(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -195,13 +195,13 @@ Optional parameters can be passed as a `params::Dict{String,<:Any}`. Valid keys 
   execution role used for executing the workflow.
 """
 function create_server(; aws_config::AbstractAWSConfig=global_aws_config())
-    return transfer("CreateServer"; aws_config=aws_config, features=SERVICE_FEATURES)
+    return transfer("CreateServer"; aws_config=aws_config, feature_set=SERVICE_FEATURE_SET)
 end
 function create_server(
     params::AbstractDict{String}; aws_config::AbstractAWSConfig=global_aws_config()
 )
     return transfer(
-        "CreateServer", params; aws_config=aws_config, features=SERVICE_FEATURES
+        "CreateServer", params; aws_config=aws_config, feature_set=SERVICE_FEATURE_SET
     )
 end
 
@@ -285,7 +285,7 @@ function create_user(
         "CreateUser",
         Dict{String,Any}("Role" => Role, "ServerId" => ServerId, "UserName" => UserName);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function create_user(
@@ -307,7 +307,7 @@ function create_user(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -340,7 +340,7 @@ function create_workflow(Steps; aws_config::AbstractAWSConfig=global_aws_config(
         "CreateWorkflow",
         Dict{String,Any}("Steps" => Steps);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function create_workflow(
@@ -350,7 +350,7 @@ function create_workflow(
         "CreateWorkflow",
         Dict{String,Any}(mergewith(_merge, Dict{String,Any}("Steps" => Steps), params));
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -380,7 +380,7 @@ function delete_access(
         "DeleteAccess",
         Dict{String,Any}("ExternalId" => ExternalId, "ServerId" => ServerId);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function delete_access(
@@ -399,7 +399,7 @@ function delete_access(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -419,7 +419,7 @@ function delete_server(ServerId; aws_config::AbstractAWSConfig=global_aws_config
         "DeleteServer",
         Dict{String,Any}("ServerId" => ServerId);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function delete_server(
@@ -433,7 +433,7 @@ function delete_server(
             mergewith(_merge, Dict{String,Any}("ServerId" => ServerId), params)
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -461,7 +461,7 @@ function delete_ssh_public_key(
             "UserName" => UserName,
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function delete_ssh_public_key(
@@ -485,7 +485,7 @@ function delete_ssh_public_key(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -508,7 +508,7 @@ function delete_user(ServerId, UserName; aws_config::AbstractAWSConfig=global_aw
         "DeleteUser",
         Dict{String,Any}("ServerId" => ServerId, "UserName" => UserName);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function delete_user(
@@ -527,7 +527,7 @@ function delete_user(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -546,7 +546,7 @@ function delete_workflow(WorkflowId; aws_config::AbstractAWSConfig=global_aws_co
         "DeleteWorkflow",
         Dict{String,Any}("WorkflowId" => WorkflowId);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function delete_workflow(
@@ -560,7 +560,7 @@ function delete_workflow(
             mergewith(_merge, Dict{String,Any}("WorkflowId" => WorkflowId), params)
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -594,7 +594,7 @@ function describe_access(
         "DescribeAccess",
         Dict{String,Any}("ExternalId" => ExternalId, "ServerId" => ServerId);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function describe_access(
@@ -613,7 +613,7 @@ function describe_access(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -636,7 +636,7 @@ function describe_execution(
         "DescribeExecution",
         Dict{String,Any}("ExecutionId" => ExecutionId, "WorkflowId" => WorkflowId);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function describe_execution(
@@ -655,7 +655,7 @@ function describe_execution(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -679,7 +679,7 @@ function describe_security_policy(
         "DescribeSecurityPolicy",
         Dict{String,Any}("SecurityPolicyName" => SecurityPolicyName);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function describe_security_policy(
@@ -695,7 +695,7 @@ function describe_security_policy(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -716,7 +716,7 @@ function describe_server(ServerId; aws_config::AbstractAWSConfig=global_aws_conf
         "DescribeServer",
         Dict{String,Any}("ServerId" => ServerId);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function describe_server(
@@ -730,7 +730,7 @@ function describe_server(
             mergewith(_merge, Dict{String,Any}("ServerId" => ServerId), params)
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -756,7 +756,7 @@ function describe_user(
         "DescribeUser",
         Dict{String,Any}("ServerId" => ServerId, "UserName" => UserName);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function describe_user(
@@ -775,7 +775,7 @@ function describe_user(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -794,7 +794,7 @@ function describe_workflow(WorkflowId; aws_config::AbstractAWSConfig=global_aws_
         "DescribeWorkflow",
         Dict{String,Any}("WorkflowId" => WorkflowId);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function describe_workflow(
@@ -808,7 +808,7 @@ function describe_workflow(
             mergewith(_merge, Dict{String,Any}("WorkflowId" => WorkflowId), params)
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -837,7 +837,7 @@ function import_ssh_public_key(
             "UserName" => UserName,
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function import_ssh_public_key(
@@ -861,7 +861,7 @@ function import_ssh_public_key(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -887,7 +887,7 @@ function list_accesses(ServerId; aws_config::AbstractAWSConfig=global_aws_config
         "ListAccesses",
         Dict{String,Any}("ServerId" => ServerId);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function list_accesses(
@@ -901,7 +901,7 @@ function list_accesses(
             mergewith(_merge, Dict{String,Any}("ServerId" => ServerId), params)
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -933,7 +933,7 @@ function list_executions(WorkflowId; aws_config::AbstractAWSConfig=global_aws_co
         "ListExecutions",
         Dict{String,Any}("WorkflowId" => WorkflowId);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function list_executions(
@@ -947,7 +947,7 @@ function list_executions(
             mergewith(_merge, Dict{String,Any}("WorkflowId" => WorkflowId), params)
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -968,14 +968,17 @@ Optional parameters can be passed as a `params::Dict{String,<:Any}`. Valid keys 
 """
 function list_security_policies(; aws_config::AbstractAWSConfig=global_aws_config())
     return transfer(
-        "ListSecurityPolicies"; aws_config=aws_config, features=SERVICE_FEATURES
+        "ListSecurityPolicies"; aws_config=aws_config, feature_set=SERVICE_FEATURE_SET
     )
 end
 function list_security_policies(
     params::AbstractDict{String}; aws_config::AbstractAWSConfig=global_aws_config()
 )
     return transfer(
-        "ListSecurityPolicies", params; aws_config=aws_config, features=SERVICE_FEATURES
+        "ListSecurityPolicies",
+        params;
+        aws_config=aws_config,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -995,12 +998,14 @@ Optional parameters can be passed as a `params::Dict{String,<:Any}`. Valid keys 
   a subsequent command to continue listing additional servers.
 """
 function list_servers(; aws_config::AbstractAWSConfig=global_aws_config())
-    return transfer("ListServers"; aws_config=aws_config, features=SERVICE_FEATURES)
+    return transfer("ListServers"; aws_config=aws_config, feature_set=SERVICE_FEATURE_SET)
 end
 function list_servers(
     params::AbstractDict{String}; aws_config::AbstractAWSConfig=global_aws_config()
 )
-    return transfer("ListServers", params; aws_config=aws_config, features=SERVICE_FEATURES)
+    return transfer(
+        "ListServers", params; aws_config=aws_config, feature_set=SERVICE_FEATURE_SET
+    )
 end
 
 """
@@ -1028,7 +1033,7 @@ function list_tags_for_resource(Arn; aws_config::AbstractAWSConfig=global_aws_co
         "ListTagsForResource",
         Dict{String,Any}("Arn" => Arn);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function list_tags_for_resource(
@@ -1038,7 +1043,7 @@ function list_tags_for_resource(
         "ListTagsForResource",
         Dict{String,Any}(mergewith(_merge, Dict{String,Any}("Arn" => Arn), params));
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -1066,7 +1071,7 @@ function list_users(ServerId; aws_config::AbstractAWSConfig=global_aws_config())
         "ListUsers",
         Dict{String,Any}("ServerId" => ServerId);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function list_users(
@@ -1080,7 +1085,7 @@ function list_users(
             mergewith(_merge, Dict{String,Any}("ServerId" => ServerId), params)
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -1098,13 +1103,13 @@ Optional parameters can be passed as a `params::Dict{String,<:Any}`. Valid keys 
   workflows.
 """
 function list_workflows(; aws_config::AbstractAWSConfig=global_aws_config())
-    return transfer("ListWorkflows"; aws_config=aws_config, features=SERVICE_FEATURES)
+    return transfer("ListWorkflows"; aws_config=aws_config, feature_set=SERVICE_FEATURE_SET)
 end
 function list_workflows(
     params::AbstractDict{String}; aws_config::AbstractAWSConfig=global_aws_config()
 )
     return transfer(
-        "ListWorkflows", params; aws_config=aws_config, features=SERVICE_FEATURES
+        "ListWorkflows", params; aws_config=aws_config, feature_set=SERVICE_FEATURE_SET
     )
 end
 
@@ -1140,7 +1145,7 @@ function send_workflow_step_state(
             "WorkflowId" => WorkflowId,
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function send_workflow_step_state(
@@ -1166,7 +1171,7 @@ function send_workflow_step_state(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -1189,7 +1194,7 @@ function start_server(ServerId; aws_config::AbstractAWSConfig=global_aws_config(
         "StartServer",
         Dict{String,Any}("ServerId" => ServerId);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function start_server(
@@ -1203,7 +1208,7 @@ function start_server(
             mergewith(_merge, Dict{String,Any}("ServerId" => ServerId), params)
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -1229,7 +1234,7 @@ function stop_server(ServerId; aws_config::AbstractAWSConfig=global_aws_config()
         "StopServer",
         Dict{String,Any}("ServerId" => ServerId);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function stop_server(
@@ -1243,7 +1248,7 @@ function stop_server(
             mergewith(_merge, Dict{String,Any}("ServerId" => ServerId), params)
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -1267,7 +1272,7 @@ function tag_resource(Arn, Tags; aws_config::AbstractAWSConfig=global_aws_config
         "TagResource",
         Dict{String,Any}("Arn" => Arn, "Tags" => Tags);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function tag_resource(
@@ -1282,7 +1287,7 @@ function tag_resource(
             mergewith(_merge, Dict{String,Any}("Arn" => Arn, "Tags" => Tags), params)
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -1326,7 +1331,7 @@ function test_identity_provider(
         "TestIdentityProvider",
         Dict{String,Any}("ServerId" => ServerId, "UserName" => UserName);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function test_identity_provider(
@@ -1345,7 +1350,7 @@ function test_identity_provider(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -1370,7 +1375,7 @@ function untag_resource(Arn, TagKeys; aws_config::AbstractAWSConfig=global_aws_c
         "UntagResource",
         Dict{String,Any}("Arn" => Arn, "TagKeys" => TagKeys);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function untag_resource(
@@ -1385,7 +1390,7 @@ function untag_resource(
             mergewith(_merge, Dict{String,Any}("Arn" => Arn, "TagKeys" => TagKeys), params)
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -1461,7 +1466,7 @@ function update_access(
         "UpdateAccess",
         Dict{String,Any}("ExternalId" => ExternalId, "ServerId" => ServerId);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function update_access(
@@ -1480,7 +1485,7 @@ function update_access(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -1564,7 +1569,7 @@ function update_server(ServerId; aws_config::AbstractAWSConfig=global_aws_config
         "UpdateServer",
         Dict{String,Any}("ServerId" => ServerId);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function update_server(
@@ -1578,7 +1583,7 @@ function update_server(
             mergewith(_merge, Dict{String,Any}("ServerId" => ServerId), params)
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -1654,7 +1659,7 @@ function update_user(ServerId, UserName; aws_config::AbstractAWSConfig=global_aw
         "UpdateUser",
         Dict{String,Any}("ServerId" => ServerId, "UserName" => UserName);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function update_user(
@@ -1673,6 +1678,6 @@ function update_user(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end

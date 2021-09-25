@@ -28,7 +28,7 @@ function create_call_analytics_category(
         "CreateCallAnalyticsCategory",
         Dict{String,Any}("CategoryName" => CategoryName, "Rules" => Rules);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function create_call_analytics_category(
@@ -47,7 +47,7 @@ function create_call_analytics_category(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -92,7 +92,7 @@ function create_language_model(
             "ModelName" => ModelName,
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function create_language_model(
@@ -118,7 +118,7 @@ function create_language_model(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -166,7 +166,7 @@ function create_medical_vocabulary(
             "VocabularyName" => VocabularyName,
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function create_medical_vocabulary(
@@ -190,7 +190,7 @@ function create_medical_vocabulary(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -228,7 +228,7 @@ function create_vocabulary(
             "LanguageCode" => LanguageCode, "VocabularyName" => VocabularyName
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function create_vocabulary(
@@ -249,7 +249,7 @@ function create_vocabulary(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -291,7 +291,7 @@ function create_vocabulary_filter(
             "LanguageCode" => LanguageCode, "VocabularyFilterName" => VocabularyFilterName
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function create_vocabulary_filter(
@@ -313,7 +313,7 @@ function create_vocabulary_filter(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -335,7 +335,7 @@ function delete_call_analytics_category(
         "DeleteCallAnalyticsCategory",
         Dict{String,Any}("CategoryName" => CategoryName);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function delete_call_analytics_category(
@@ -349,7 +349,7 @@ function delete_call_analytics_category(
             mergewith(_merge, Dict{String,Any}("CategoryName" => CategoryName), params)
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -370,7 +370,7 @@ function delete_call_analytics_job(
         "DeleteCallAnalyticsJob",
         Dict{String,Any}("CallAnalyticsJobName" => CallAnalyticsJobName);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function delete_call_analytics_job(
@@ -388,7 +388,7 @@ function delete_call_analytics_job(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -407,7 +407,7 @@ function delete_language_model(ModelName; aws_config::AbstractAWSConfig=global_a
         "DeleteLanguageModel",
         Dict{String,Any}("ModelName" => ModelName);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function delete_language_model(
@@ -421,7 +421,7 @@ function delete_language_model(
             mergewith(_merge, Dict{String,Any}("ModelName" => ModelName), params)
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -444,7 +444,7 @@ function delete_medical_transcription_job(
         "DeleteMedicalTranscriptionJob",
         Dict{String,Any}("MedicalTranscriptionJobName" => MedicalTranscriptionJobName);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function delete_medical_transcription_job(
@@ -464,7 +464,7 @@ function delete_medical_transcription_job(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -485,7 +485,7 @@ function delete_medical_vocabulary(
         "DeleteMedicalVocabulary",
         Dict{String,Any}("VocabularyName" => VocabularyName);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function delete_medical_vocabulary(
@@ -499,7 +499,7 @@ function delete_medical_vocabulary(
             mergewith(_merge, Dict{String,Any}("VocabularyName" => VocabularyName), params)
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -521,7 +521,7 @@ function delete_transcription_job(
         "DeleteTranscriptionJob",
         Dict{String,Any}("TranscriptionJobName" => TranscriptionJobName);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function delete_transcription_job(
@@ -539,7 +539,7 @@ function delete_transcription_job(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -560,7 +560,7 @@ function delete_vocabulary(
         "DeleteVocabulary",
         Dict{String,Any}("VocabularyName" => VocabularyName);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function delete_vocabulary(
@@ -574,7 +574,7 @@ function delete_vocabulary(
             mergewith(_merge, Dict{String,Any}("VocabularyName" => VocabularyName), params)
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -595,7 +595,7 @@ function delete_vocabulary_filter(
         "DeleteVocabularyFilter",
         Dict{String,Any}("VocabularyFilterName" => VocabularyFilterName);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function delete_vocabulary_filter(
@@ -613,7 +613,7 @@ function delete_vocabulary_filter(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -639,7 +639,7 @@ function describe_language_model(
         "DescribeLanguageModel",
         Dict{String,Any}("ModelName" => ModelName);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function describe_language_model(
@@ -653,7 +653,7 @@ function describe_language_model(
             mergewith(_merge, Dict{String,Any}("ModelName" => ModelName), params)
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -675,7 +675,7 @@ function get_call_analytics_category(
         "GetCallAnalyticsCategory",
         Dict{String,Any}("CategoryName" => CategoryName);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function get_call_analytics_category(
@@ -689,7 +689,7 @@ function get_call_analytics_category(
             mergewith(_merge, Dict{String,Any}("CategoryName" => CategoryName), params)
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -715,7 +715,7 @@ function get_call_analytics_job(
         "GetCallAnalyticsJob",
         Dict{String,Any}("CallAnalyticsJobName" => CallAnalyticsJobName);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function get_call_analytics_job(
@@ -733,7 +733,7 @@ function get_call_analytics_job(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -756,7 +756,7 @@ function get_medical_transcription_job(
         "GetMedicalTranscriptionJob",
         Dict{String,Any}("MedicalTranscriptionJobName" => MedicalTranscriptionJobName);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function get_medical_transcription_job(
@@ -776,7 +776,7 @@ function get_medical_transcription_job(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -798,7 +798,7 @@ function get_medical_vocabulary(
         "GetMedicalVocabulary",
         Dict{String,Any}("VocabularyName" => VocabularyName);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function get_medical_vocabulary(
@@ -812,7 +812,7 @@ function get_medical_vocabulary(
             mergewith(_merge, Dict{String,Any}("VocabularyName" => VocabularyName), params)
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -836,7 +836,7 @@ function get_transcription_job(
         "GetTranscriptionJob",
         Dict{String,Any}("TranscriptionJobName" => TranscriptionJobName);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function get_transcription_job(
@@ -854,7 +854,7 @@ function get_transcription_job(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -874,7 +874,7 @@ function get_vocabulary(VocabularyName; aws_config::AbstractAWSConfig=global_aws
         "GetVocabulary",
         Dict{String,Any}("VocabularyName" => VocabularyName);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function get_vocabulary(
@@ -888,7 +888,7 @@ function get_vocabulary(
             mergewith(_merge, Dict{String,Any}("VocabularyName" => VocabularyName), params)
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -910,7 +910,7 @@ function get_vocabulary_filter(
         "GetVocabularyFilter",
         Dict{String,Any}("VocabularyFilterName" => VocabularyFilterName);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function get_vocabulary_filter(
@@ -928,7 +928,7 @@ function get_vocabulary_filter(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -950,7 +950,9 @@ Optional parameters can be passed as a `params::Dict{String,<:Any}`. Valid keys 
 """
 function list_call_analytics_categories(; aws_config::AbstractAWSConfig=global_aws_config())
     return transcribe(
-        "ListCallAnalyticsCategories"; aws_config=aws_config, features=SERVICE_FEATURES
+        "ListCallAnalyticsCategories";
+        aws_config=aws_config,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function list_call_analytics_categories(
@@ -960,7 +962,7 @@ function list_call_analytics_categories(
         "ListCallAnalyticsCategories",
         params;
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -985,14 +987,17 @@ Optional parameters can be passed as a `params::Dict{String,<:Any}`. Valid keys 
 """
 function list_call_analytics_jobs(; aws_config::AbstractAWSConfig=global_aws_config())
     return transcribe(
-        "ListCallAnalyticsJobs"; aws_config=aws_config, features=SERVICE_FEATURES
+        "ListCallAnalyticsJobs"; aws_config=aws_config, feature_set=SERVICE_FEATURE_SET
     )
 end
 function list_call_analytics_jobs(
     params::AbstractDict{String}; aws_config::AbstractAWSConfig=global_aws_config()
 )
     return transcribe(
-        "ListCallAnalyticsJobs", params; aws_config=aws_config, features=SERVICE_FEATURES
+        "ListCallAnalyticsJobs",
+        params;
+        aws_config=aws_config,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -1020,14 +1025,14 @@ Optional parameters can be passed as a `params::Dict{String,<:Any}`. Valid keys 
 """
 function list_language_models(; aws_config::AbstractAWSConfig=global_aws_config())
     return transcribe(
-        "ListLanguageModels"; aws_config=aws_config, features=SERVICE_FEATURES
+        "ListLanguageModels"; aws_config=aws_config, feature_set=SERVICE_FEATURE_SET
     )
 end
 function list_language_models(
     params::AbstractDict{String}; aws_config::AbstractAWSConfig=global_aws_config()
 )
     return transcribe(
-        "ListLanguageModels", params; aws_config=aws_config, features=SERVICE_FEATURES
+        "ListLanguageModels", params; aws_config=aws_config, feature_set=SERVICE_FEATURE_SET
     )
 end
 
@@ -1056,7 +1061,9 @@ function list_medical_transcription_jobs(;
     aws_config::AbstractAWSConfig=global_aws_config()
 )
     return transcribe(
-        "ListMedicalTranscriptionJobs"; aws_config=aws_config, features=SERVICE_FEATURES
+        "ListMedicalTranscriptionJobs";
+        aws_config=aws_config,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function list_medical_transcription_jobs(
@@ -1066,7 +1073,7 @@ function list_medical_transcription_jobs(
         "ListMedicalTranscriptionJobs",
         params;
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -1093,14 +1100,17 @@ Optional parameters can be passed as a `params::Dict{String,<:Any}`. Valid keys 
 """
 function list_medical_vocabularies(; aws_config::AbstractAWSConfig=global_aws_config())
     return transcribe(
-        "ListMedicalVocabularies"; aws_config=aws_config, features=SERVICE_FEATURES
+        "ListMedicalVocabularies"; aws_config=aws_config, feature_set=SERVICE_FEATURE_SET
     )
 end
 function list_medical_vocabularies(
     params::AbstractDict{String}; aws_config::AbstractAWSConfig=global_aws_config()
 )
     return transcribe(
-        "ListMedicalVocabularies", params; aws_config=aws_config, features=SERVICE_FEATURES
+        "ListMedicalVocabularies",
+        params;
+        aws_config=aws_config,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -1121,7 +1131,7 @@ function list_tags_for_resource(
         "ListTagsForResource",
         Dict{String,Any}("ResourceArn" => ResourceArn);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function list_tags_for_resource(
@@ -1135,7 +1145,7 @@ function list_tags_for_resource(
             mergewith(_merge, Dict{String,Any}("ResourceArn" => ResourceArn), params)
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -1160,14 +1170,17 @@ Optional parameters can be passed as a `params::Dict{String,<:Any}`. Valid keys 
 """
 function list_transcription_jobs(; aws_config::AbstractAWSConfig=global_aws_config())
     return transcribe(
-        "ListTranscriptionJobs"; aws_config=aws_config, features=SERVICE_FEATURES
+        "ListTranscriptionJobs"; aws_config=aws_config, feature_set=SERVICE_FEATURE_SET
     )
 end
 function list_transcription_jobs(
     params::AbstractDict{String}; aws_config::AbstractAWSConfig=global_aws_config()
 )
     return transcribe(
-        "ListTranscriptionJobs", params; aws_config=aws_config, features=SERVICE_FEATURES
+        "ListTranscriptionJobs",
+        params;
+        aws_config=aws_config,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -1193,13 +1206,15 @@ Optional parameters can be passed as a `params::Dict{String,<:Any}`. Valid keys 
   equal to the specified state.
 """
 function list_vocabularies(; aws_config::AbstractAWSConfig=global_aws_config())
-    return transcribe("ListVocabularies"; aws_config=aws_config, features=SERVICE_FEATURES)
+    return transcribe(
+        "ListVocabularies"; aws_config=aws_config, feature_set=SERVICE_FEATURE_SET
+    )
 end
 function list_vocabularies(
     params::AbstractDict{String}; aws_config::AbstractAWSConfig=global_aws_config()
 )
     return transcribe(
-        "ListVocabularies", params; aws_config=aws_config, features=SERVICE_FEATURES
+        "ListVocabularies", params; aws_config=aws_config, feature_set=SERVICE_FEATURE_SET
     )
 end
 
@@ -1221,14 +1236,17 @@ Optional parameters can be passed as a `params::Dict{String,<:Any}`. Valid keys 
 """
 function list_vocabulary_filters(; aws_config::AbstractAWSConfig=global_aws_config())
     return transcribe(
-        "ListVocabularyFilters"; aws_config=aws_config, features=SERVICE_FEATURES
+        "ListVocabularyFilters"; aws_config=aws_config, feature_set=SERVICE_FEATURE_SET
     )
 end
 function list_vocabulary_filters(
     params::AbstractDict{String}; aws_config::AbstractAWSConfig=global_aws_config()
 )
     return transcribe(
-        "ListVocabularyFilters", params; aws_config=aws_config, features=SERVICE_FEATURES
+        "ListVocabularyFilters",
+        params;
+        aws_config=aws_config,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -1302,7 +1320,7 @@ function start_call_analytics_job(
             "Media" => Media,
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function start_call_analytics_job(
@@ -1326,7 +1344,7 @@ function start_call_analytics_job(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -1421,7 +1439,7 @@ function start_medical_transcription_job(
             "Type" => Type,
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function start_medical_transcription_job(
@@ -1451,7 +1469,7 @@ function start_medical_transcription_job(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -1545,7 +1563,7 @@ function start_transcription_job(
         "StartTranscriptionJob",
         Dict{String,Any}("Media" => Media, "TranscriptionJobName" => TranscriptionJobName);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function start_transcription_job(
@@ -1566,7 +1584,7 @@ function start_transcription_job(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -1587,7 +1605,7 @@ function tag_resource(ResourceArn, Tags; aws_config::AbstractAWSConfig=global_aw
         "TagResource",
         Dict{String,Any}("ResourceArn" => ResourceArn, "Tags" => Tags);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function tag_resource(
@@ -1606,7 +1624,7 @@ function tag_resource(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -1630,7 +1648,7 @@ function untag_resource(
         "UntagResource",
         Dict{String,Any}("ResourceArn" => ResourceArn, "TagKeys" => TagKeys);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function untag_resource(
@@ -1649,7 +1667,7 @@ function untag_resource(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -1676,7 +1694,7 @@ function update_call_analytics_category(
         "UpdateCallAnalyticsCategory",
         Dict{String,Any}("CategoryName" => CategoryName, "Rules" => Rules);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function update_call_analytics_category(
@@ -1695,7 +1713,7 @@ function update_call_analytics_category(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -1734,7 +1752,7 @@ function update_medical_vocabulary(
             "LanguageCode" => LanguageCode, "VocabularyName" => VocabularyName
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function update_medical_vocabulary(
@@ -1755,7 +1773,7 @@ function update_medical_vocabulary(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -1791,7 +1809,7 @@ function update_vocabulary(
             "LanguageCode" => LanguageCode, "VocabularyName" => VocabularyName
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function update_vocabulary(
@@ -1812,7 +1830,7 @@ function update_vocabulary(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -1846,7 +1864,7 @@ function update_vocabulary_filter(
         "UpdateVocabularyFilter",
         Dict{String,Any}("VocabularyFilterName" => VocabularyFilterName);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function update_vocabulary_filter(
@@ -1864,6 +1882,6 @@ function update_vocabulary_filter(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end

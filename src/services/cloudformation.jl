@@ -47,13 +47,15 @@ Optional parameters can be passed as a `params::Dict{String,<:Any}`. Valid keys 
   one is available.
 """
 function activate_type(; aws_config::AbstractAWSConfig=global_aws_config())
-    return cloudformation("ActivateType"; aws_config=aws_config, features=SERVICE_FEATURES)
+    return cloudformation(
+        "ActivateType"; aws_config=aws_config, feature_set=SERVICE_FEATURE_SET
+    )
 end
 function activate_type(
     params::AbstractDict{String}; aws_config::AbstractAWSConfig=global_aws_config()
 )
     return cloudformation(
-        "ActivateType", params; aws_config=aws_config, features=SERVICE_FEATURES
+        "ActivateType", params; aws_config=aws_config, feature_set=SERVICE_FEATURE_SET
     )
 end
 
@@ -77,7 +79,7 @@ function batch_describe_type_configurations(
         "BatchDescribeTypeConfigurations",
         Dict{String,Any}("TypeConfigurationIdentifiers" => TypeConfigurationIdentifiers);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function batch_describe_type_configurations(
@@ -97,7 +99,7 @@ function batch_describe_type_configurations(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -124,7 +126,7 @@ function cancel_update_stack(StackName; aws_config::AbstractAWSConfig=global_aws
         "CancelUpdateStack",
         Dict{String,Any}("StackName" => StackName);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function cancel_update_stack(
@@ -138,7 +140,7 @@ function cancel_update_stack(
             mergewith(_merge, Dict{String,Any}("StackName" => StackName), params)
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -208,7 +210,7 @@ function continue_update_rollback(
         "ContinueUpdateRollback",
         Dict{String,Any}("StackName" => StackName);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function continue_update_rollback(
@@ -222,7 +224,7 @@ function continue_update_rollback(
             mergewith(_merge, Dict{String,Any}("StackName" => StackName), params)
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -348,7 +350,7 @@ function create_change_set(
         "CreateChangeSet",
         Dict{String,Any}("ChangeSetName" => ChangeSetName, "StackName" => StackName);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function create_change_set(
@@ -369,7 +371,7 @@ function create_change_set(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -496,7 +498,7 @@ function create_stack(StackName; aws_config::AbstractAWSConfig=global_aws_config
         "CreateStack",
         Dict{String,Any}("StackName" => StackName);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function create_stack(
@@ -510,7 +512,7 @@ function create_stack(
             mergewith(_merge, Dict{String,Any}("StackName" => StackName), params)
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -580,7 +582,7 @@ function create_stack_instances(
             "OperationId" => string(uuid4()),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function create_stack_instances(
@@ -603,7 +605,7 @@ function create_stack_instances(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -709,7 +711,7 @@ function create_stack_set(StackSetName; aws_config::AbstractAWSConfig=global_aws
             "StackSetName" => StackSetName, "ClientRequestToken" => string(uuid4())
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function create_stack_set(
@@ -729,7 +731,7 @@ function create_stack_set(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -755,14 +757,14 @@ Optional parameters can be passed as a `params::Dict{String,<:Any}`. Valid keys 
 """
 function deactivate_type(; aws_config::AbstractAWSConfig=global_aws_config())
     return cloudformation(
-        "DeactivateType"; aws_config=aws_config, features=SERVICE_FEATURES
+        "DeactivateType"; aws_config=aws_config, feature_set=SERVICE_FEATURE_SET
     )
 end
 function deactivate_type(
     params::AbstractDict{String}; aws_config::AbstractAWSConfig=global_aws_config()
 )
     return cloudformation(
-        "DeactivateType", params; aws_config=aws_config, features=SERVICE_FEATURES
+        "DeactivateType", params; aws_config=aws_config, feature_set=SERVICE_FEATURE_SET
     )
 end
 
@@ -791,7 +793,7 @@ function delete_change_set(ChangeSetName; aws_config::AbstractAWSConfig=global_a
         "DeleteChangeSet",
         Dict{String,Any}("ChangeSetName" => ChangeSetName);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function delete_change_set(
@@ -805,7 +807,7 @@ function delete_change_set(
             mergewith(_merge, Dict{String,Any}("ChangeSetName" => ChangeSetName), params)
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -851,7 +853,7 @@ function delete_stack(StackName; aws_config::AbstractAWSConfig=global_aws_config
         "DeleteStack",
         Dict{String,Any}("StackName" => StackName);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function delete_stack(
@@ -865,7 +867,7 @@ function delete_stack(
             mergewith(_merge, Dict{String,Any}("StackName" => StackName), params)
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -920,7 +922,7 @@ function delete_stack_instances(
             "OperationId" => string(uuid4()),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function delete_stack_instances(
@@ -945,7 +947,7 @@ function delete_stack_instances(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -976,7 +978,7 @@ function delete_stack_set(StackSetName; aws_config::AbstractAWSConfig=global_aws
         "DeleteStackSet",
         Dict{String,Any}("StackSetName" => StackSetName);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function delete_stack_set(
@@ -990,7 +992,7 @@ function delete_stack_set(
             mergewith(_merge, Dict{String,Any}("StackSetName" => StackSetName), params)
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -1023,14 +1025,14 @@ Optional parameters can be passed as a `params::Dict{String,<:Any}`. Valid keys 
 """
 function deregister_type(; aws_config::AbstractAWSConfig=global_aws_config())
     return cloudformation(
-        "DeregisterType"; aws_config=aws_config, features=SERVICE_FEATURES
+        "DeregisterType"; aws_config=aws_config, feature_set=SERVICE_FEATURE_SET
     )
 end
 function deregister_type(
     params::AbstractDict{String}; aws_config::AbstractAWSConfig=global_aws_config()
 )
     return cloudformation(
-        "DeregisterType", params; aws_config=aws_config, features=SERVICE_FEATURES
+        "DeregisterType", params; aws_config=aws_config, feature_set=SERVICE_FEATURE_SET
     )
 end
 
@@ -1048,14 +1050,17 @@ Optional parameters can be passed as a `params::Dict{String,<:Any}`. Valid keys 
 """
 function describe_account_limits(; aws_config::AbstractAWSConfig=global_aws_config())
     return cloudformation(
-        "DescribeAccountLimits"; aws_config=aws_config, features=SERVICE_FEATURES
+        "DescribeAccountLimits"; aws_config=aws_config, feature_set=SERVICE_FEATURE_SET
     )
 end
 function describe_account_limits(
     params::AbstractDict{String}; aws_config::AbstractAWSConfig=global_aws_config()
 )
     return cloudformation(
-        "DescribeAccountLimits", params; aws_config=aws_config, features=SERVICE_FEATURES
+        "DescribeAccountLimits",
+        params;
+        aws_config=aws_config,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -1085,7 +1090,7 @@ function describe_change_set(
         "DescribeChangeSet",
         Dict{String,Any}("ChangeSetName" => ChangeSetName);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function describe_change_set(
@@ -1099,7 +1104,7 @@ function describe_change_set(
             mergewith(_merge, Dict{String,Any}("ChangeSetName" => ChangeSetName), params)
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -1121,14 +1126,14 @@ Optional parameters can be passed as a `params::Dict{String,<:Any}`. Valid keys 
 """
 function describe_publisher(; aws_config::AbstractAWSConfig=global_aws_config())
     return cloudformation(
-        "DescribePublisher"; aws_config=aws_config, features=SERVICE_FEATURES
+        "DescribePublisher"; aws_config=aws_config, feature_set=SERVICE_FEATURE_SET
     )
 end
 function describe_publisher(
     params::AbstractDict{String}; aws_config::AbstractAWSConfig=global_aws_config()
 )
     return cloudformation(
-        "DescribePublisher", params; aws_config=aws_config, features=SERVICE_FEATURES
+        "DescribePublisher", params; aws_config=aws_config, feature_set=SERVICE_FEATURE_SET
     )
 end
 
@@ -1161,7 +1166,7 @@ function describe_stack_drift_detection_status(
         "DescribeStackDriftDetectionStatus",
         Dict{String,Any}("StackDriftDetectionId" => StackDriftDetectionId);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function describe_stack_drift_detection_status(
@@ -1179,7 +1184,7 @@ function describe_stack_drift_detection_status(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -1202,14 +1207,17 @@ Optional parameters can be passed as a `params::Dict{String,<:Any}`. Valid keys 
 """
 function describe_stack_events(; aws_config::AbstractAWSConfig=global_aws_config())
     return cloudformation(
-        "DescribeStackEvents"; aws_config=aws_config, features=SERVICE_FEATURES
+        "DescribeStackEvents"; aws_config=aws_config, feature_set=SERVICE_FEATURE_SET
     )
 end
 function describe_stack_events(
     params::AbstractDict{String}; aws_config::AbstractAWSConfig=global_aws_config()
 )
     return cloudformation(
-        "DescribeStackEvents", params; aws_config=aws_config, features=SERVICE_FEATURES
+        "DescribeStackEvents",
+        params;
+        aws_config=aws_config,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -1253,7 +1261,7 @@ function describe_stack_instance(
             "StackSetName" => StackSetName,
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function describe_stack_instance(
@@ -1277,7 +1285,7 @@ function describe_stack_instance(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -1307,7 +1315,7 @@ function describe_stack_resource(
             "LogicalResourceId" => LogicalResourceId, "StackName" => StackName
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function describe_stack_resource(
@@ -1328,7 +1336,7 @@ function describe_stack_resource(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -1369,7 +1377,7 @@ function describe_stack_resource_drifts(
         "DescribeStackResourceDrifts",
         Dict{String,Any}("StackName" => StackName);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function describe_stack_resource_drifts(
@@ -1383,7 +1391,7 @@ function describe_stack_resource_drifts(
             mergewith(_merge, Dict{String,Any}("StackName" => StackName), params)
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -1421,14 +1429,17 @@ Optional parameters can be passed as a `params::Dict{String,<:Any}`. Valid keys 
 """
 function describe_stack_resources(; aws_config::AbstractAWSConfig=global_aws_config())
     return cloudformation(
-        "DescribeStackResources"; aws_config=aws_config, features=SERVICE_FEATURES
+        "DescribeStackResources"; aws_config=aws_config, feature_set=SERVICE_FEATURE_SET
     )
 end
 function describe_stack_resources(
     params::AbstractDict{String}; aws_config::AbstractAWSConfig=global_aws_config()
 )
     return cloudformation(
-        "DescribeStackResources", params; aws_config=aws_config, features=SERVICE_FEATURES
+        "DescribeStackResources",
+        params;
+        aws_config=aws_config,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -1457,7 +1468,7 @@ function describe_stack_set(StackSetName; aws_config::AbstractAWSConfig=global_a
         "DescribeStackSet",
         Dict{String,Any}("StackSetName" => StackSetName);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function describe_stack_set(
@@ -1471,7 +1482,7 @@ function describe_stack_set(
             mergewith(_merge, Dict{String,Any}("StackSetName" => StackSetName), params)
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -1504,7 +1515,7 @@ function describe_stack_set_operation(
         "DescribeStackSetOperation",
         Dict{String,Any}("OperationId" => OperationId, "StackSetName" => StackSetName);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function describe_stack_set_operation(
@@ -1525,7 +1536,7 @@ function describe_stack_set_operation(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -1547,14 +1558,14 @@ Optional parameters can be passed as a `params::Dict{String,<:Any}`. Valid keys 
 """
 function describe_stacks(; aws_config::AbstractAWSConfig=global_aws_config())
     return cloudformation(
-        "DescribeStacks"; aws_config=aws_config, features=SERVICE_FEATURES
+        "DescribeStacks"; aws_config=aws_config, feature_set=SERVICE_FEATURE_SET
     )
 end
 function describe_stacks(
     params::AbstractDict{String}; aws_config::AbstractAWSConfig=global_aws_config()
 )
     return cloudformation(
-        "DescribeStacks", params; aws_config=aws_config, features=SERVICE_FEATURES
+        "DescribeStacks", params; aws_config=aws_config, feature_set=SERVICE_FEATURE_SET
     )
 end
 
@@ -1584,13 +1595,15 @@ Optional parameters can be passed as a `params::Dict{String,<:Any}`. Valid keys 
   version.
 """
 function describe_type(; aws_config::AbstractAWSConfig=global_aws_config())
-    return cloudformation("DescribeType"; aws_config=aws_config, features=SERVICE_FEATURES)
+    return cloudformation(
+        "DescribeType"; aws_config=aws_config, feature_set=SERVICE_FEATURE_SET
+    )
 end
 function describe_type(
     params::AbstractDict{String}; aws_config::AbstractAWSConfig=global_aws_config()
 )
     return cloudformation(
-        "DescribeType", params; aws_config=aws_config, features=SERVICE_FEATURES
+        "DescribeType", params; aws_config=aws_config, feature_set=SERVICE_FEATURE_SET
     )
 end
 
@@ -1617,7 +1630,7 @@ function describe_type_registration(
         "DescribeTypeRegistration",
         Dict{String,Any}("RegistrationToken" => RegistrationToken);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function describe_type_registration(
@@ -1633,7 +1646,7 @@ function describe_type_registration(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -1671,7 +1684,7 @@ function detect_stack_drift(StackName; aws_config::AbstractAWSConfig=global_aws_
         "DetectStackDrift",
         Dict{String,Any}("StackName" => StackName);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function detect_stack_drift(
@@ -1685,7 +1698,7 @@ function detect_stack_drift(
             mergewith(_merge, Dict{String,Any}("StackName" => StackName), params)
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -1719,7 +1732,7 @@ function detect_stack_resource_drift(
             "LogicalResourceId" => LogicalResourceId, "StackName" => StackName
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function detect_stack_resource_drift(
@@ -1740,7 +1753,7 @@ function detect_stack_resource_drift(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -1791,7 +1804,7 @@ function detect_stack_set_drift(
         "DetectStackSetDrift",
         Dict{String,Any}("StackSetName" => StackSetName, "OperationId" => string(uuid4()));
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function detect_stack_set_drift(
@@ -1811,7 +1824,7 @@ function detect_stack_set_drift(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -1837,14 +1850,17 @@ Optional parameters can be passed as a `params::Dict{String,<:Any}`. Valid keys 
 """
 function estimate_template_cost(; aws_config::AbstractAWSConfig=global_aws_config())
     return cloudformation(
-        "EstimateTemplateCost"; aws_config=aws_config, features=SERVICE_FEATURES
+        "EstimateTemplateCost"; aws_config=aws_config, feature_set=SERVICE_FEATURE_SET
     )
 end
 function estimate_template_cost(
     params::AbstractDict{String}; aws_config::AbstractAWSConfig=global_aws_config()
 )
     return cloudformation(
-        "EstimateTemplateCost", params; aws_config=aws_config, features=SERVICE_FEATURES
+        "EstimateTemplateCost",
+        params;
+        aws_config=aws_config,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -1883,7 +1899,7 @@ function execute_change_set(
         "ExecuteChangeSet",
         Dict{String,Any}("ChangeSetName" => ChangeSetName);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function execute_change_set(
@@ -1897,7 +1913,7 @@ function execute_change_set(
             mergewith(_merge, Dict{String,Any}("ChangeSetName" => ChangeSetName), params)
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -1918,7 +1934,7 @@ function get_stack_policy(StackName; aws_config::AbstractAWSConfig=global_aws_co
         "GetStackPolicy",
         Dict{String,Any}("StackName" => StackName);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function get_stack_policy(
@@ -1932,7 +1948,7 @@ function get_stack_policy(
             mergewith(_merge, Dict{String,Any}("StackName" => StackName), params)
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -1961,13 +1977,15 @@ Optional parameters can be passed as a `params::Dict{String,<:Any}`. Valid keys 
   default, CloudFormation specifies Processed.
 """
 function get_template(; aws_config::AbstractAWSConfig=global_aws_config())
-    return cloudformation("GetTemplate"; aws_config=aws_config, features=SERVICE_FEATURES)
+    return cloudformation(
+        "GetTemplate"; aws_config=aws_config, feature_set=SERVICE_FEATURE_SET
+    )
 end
 function get_template(
     params::AbstractDict{String}; aws_config::AbstractAWSConfig=global_aws_config()
 )
     return cloudformation(
-        "GetTemplate", params; aws_config=aws_config, features=SERVICE_FEATURES
+        "GetTemplate", params; aws_config=aws_config, feature_set=SERVICE_FEATURE_SET
     )
 end
 
@@ -2013,14 +2031,14 @@ Optional parameters can be passed as a `params::Dict{String,<:Any}`. Valid keys 
 """
 function get_template_summary(; aws_config::AbstractAWSConfig=global_aws_config())
     return cloudformation(
-        "GetTemplateSummary"; aws_config=aws_config, features=SERVICE_FEATURES
+        "GetTemplateSummary"; aws_config=aws_config, feature_set=SERVICE_FEATURE_SET
     )
 end
 function get_template_summary(
     params::AbstractDict{String}; aws_config::AbstractAWSConfig=global_aws_config()
 )
     return cloudformation(
-        "GetTemplateSummary", params; aws_config=aws_config, features=SERVICE_FEATURES
+        "GetTemplateSummary", params; aws_config=aws_config, feature_set=SERVICE_FEATURE_SET
     )
 end
 
@@ -2058,7 +2076,7 @@ function import_stacks_to_stack_set(
             "OperationId" => string(uuid4()),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function import_stacks_to_stack_set(
@@ -2081,7 +2099,7 @@ function import_stacks_to_stack_set(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -2106,7 +2124,7 @@ function list_change_sets(StackName; aws_config::AbstractAWSConfig=global_aws_co
         "ListChangeSets",
         Dict{String,Any}("StackName" => StackName);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function list_change_sets(
@@ -2120,7 +2138,7 @@ function list_change_sets(
             mergewith(_merge, Dict{String,Any}("StackName" => StackName), params)
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -2139,13 +2157,15 @@ Optional parameters can be passed as a `params::Dict{String,<:Any}`. Valid keys 
   next page of exported output values that you asked to retrieve.
 """
 function list_exports(; aws_config::AbstractAWSConfig=global_aws_config())
-    return cloudformation("ListExports"; aws_config=aws_config, features=SERVICE_FEATURES)
+    return cloudformation(
+        "ListExports"; aws_config=aws_config, feature_set=SERVICE_FEATURE_SET
+    )
 end
 function list_exports(
     params::AbstractDict{String}; aws_config::AbstractAWSConfig=global_aws_config()
 )
     return cloudformation(
-        "ListExports", params; aws_config=aws_config, features=SERVICE_FEATURES
+        "ListExports", params; aws_config=aws_config, feature_set=SERVICE_FEATURE_SET
     )
 end
 
@@ -2172,7 +2192,7 @@ function list_imports(ExportName; aws_config::AbstractAWSConfig=global_aws_confi
         "ListImports",
         Dict{String,Any}("ExportName" => ExportName);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function list_imports(
@@ -2186,7 +2206,7 @@ function list_imports(
             mergewith(_merge, Dict{String,Any}("ExportName" => ExportName), params)
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -2232,7 +2252,7 @@ function list_stack_instances(
         "ListStackInstances",
         Dict{String,Any}("StackSetName" => StackSetName);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function list_stack_instances(
@@ -2246,7 +2266,7 @@ function list_stack_instances(
             mergewith(_merge, Dict{String,Any}("StackSetName" => StackSetName), params)
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -2274,7 +2294,7 @@ function list_stack_resources(StackName; aws_config::AbstractAWSConfig=global_aw
         "ListStackResources",
         Dict{String,Any}("StackName" => StackName);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function list_stack_resources(
@@ -2288,7 +2308,7 @@ function list_stack_resources(
             mergewith(_merge, Dict{String,Any}("StackName" => StackName), params)
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -2329,7 +2349,7 @@ function list_stack_set_operation_results(
         "ListStackSetOperationResults",
         Dict{String,Any}("OperationId" => OperationId, "StackSetName" => StackSetName);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function list_stack_set_operation_results(
@@ -2350,7 +2370,7 @@ function list_stack_set_operation_results(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -2390,7 +2410,7 @@ function list_stack_set_operations(
         "ListStackSetOperations",
         Dict{String,Any}("StackSetName" => StackSetName);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function list_stack_set_operations(
@@ -2404,7 +2424,7 @@ function list_stack_set_operations(
             mergewith(_merge, Dict{String,Any}("StackSetName" => StackSetName), params)
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -2443,13 +2463,15 @@ Optional parameters can be passed as a `params::Dict{String,<:Any}`. Valid keys 
 - `"Status"`: The status of the stack sets that you want to get summary information about.
 """
 function list_stack_sets(; aws_config::AbstractAWSConfig=global_aws_config())
-    return cloudformation("ListStackSets"; aws_config=aws_config, features=SERVICE_FEATURES)
+    return cloudformation(
+        "ListStackSets"; aws_config=aws_config, feature_set=SERVICE_FEATURE_SET
+    )
 end
 function list_stack_sets(
     params::AbstractDict{String}; aws_config::AbstractAWSConfig=global_aws_config()
 )
     return cloudformation(
-        "ListStackSets", params; aws_config=aws_config, features=SERVICE_FEATURES
+        "ListStackSets", params; aws_config=aws_config, feature_set=SERVICE_FEATURE_SET
     )
 end
 
@@ -2470,13 +2492,15 @@ Optional parameters can be passed as a `params::Dict{String,<:Any}`. Valid keys 
   status codes, see the StackStatus parameter of the Stack data type.
 """
 function list_stacks(; aws_config::AbstractAWSConfig=global_aws_config())
-    return cloudformation("ListStacks"; aws_config=aws_config, features=SERVICE_FEATURES)
+    return cloudformation(
+        "ListStacks"; aws_config=aws_config, feature_set=SERVICE_FEATURE_SET
+    )
 end
 function list_stacks(
     params::AbstractDict{String}; aws_config::AbstractAWSConfig=global_aws_config()
 )
     return cloudformation(
-        "ListStacks", params; aws_config=aws_config, features=SERVICE_FEATURES
+        "ListStacks", params; aws_config=aws_config, feature_set=SERVICE_FEATURE_SET
     )
 end
 
@@ -2507,14 +2531,17 @@ Optional parameters can be passed as a `params::Dict{String,<:Any}`. Valid keys 
 """
 function list_type_registrations(; aws_config::AbstractAWSConfig=global_aws_config())
     return cloudformation(
-        "ListTypeRegistrations"; aws_config=aws_config, features=SERVICE_FEATURES
+        "ListTypeRegistrations"; aws_config=aws_config, feature_set=SERVICE_FEATURE_SET
     )
 end
 function list_type_registrations(
     params::AbstractDict{String}; aws_config::AbstractAWSConfig=global_aws_config()
 )
     return cloudformation(
-        "ListTypeRegistrations", params; aws_config=aws_config, features=SERVICE_FEATURES
+        "ListTypeRegistrations",
+        params;
+        aws_config=aws_config,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -2550,14 +2577,14 @@ Optional parameters can be passed as a `params::Dict{String,<:Any}`. Valid keys 
 """
 function list_type_versions(; aws_config::AbstractAWSConfig=global_aws_config())
     return cloudformation(
-        "ListTypeVersions"; aws_config=aws_config, features=SERVICE_FEATURES
+        "ListTypeVersions"; aws_config=aws_config, feature_set=SERVICE_FEATURE_SET
     )
 end
 function list_type_versions(
     params::AbstractDict{String}; aws_config::AbstractAWSConfig=global_aws_config()
 )
     return cloudformation(
-        "ListTypeVersions", params; aws_config=aws_config, features=SERVICE_FEATURES
+        "ListTypeVersions", params; aws_config=aws_config, feature_set=SERVICE_FEATURE_SET
     )
 end
 
@@ -2602,13 +2629,15 @@ Optional parameters can be passed as a `params::Dict{String,<:Any}`. Valid keys 
   third-party publishers.   The default is PRIVATE.
 """
 function list_types(; aws_config::AbstractAWSConfig=global_aws_config())
-    return cloudformation("ListTypes"; aws_config=aws_config, features=SERVICE_FEATURES)
+    return cloudformation(
+        "ListTypes"; aws_config=aws_config, feature_set=SERVICE_FEATURE_SET
+    )
 end
 function list_types(
     params::AbstractDict{String}; aws_config::AbstractAWSConfig=global_aws_config()
 )
     return cloudformation(
-        "ListTypes", params; aws_config=aws_config, features=SERVICE_FEATURES
+        "ListTypes", params; aws_config=aws_config, feature_set=SERVICE_FEATURE_SET
     )
 end
 
@@ -2638,13 +2667,15 @@ Optional parameters can be passed as a `params::Dict{String,<:Any}`. Valid keys 
   and Type.
 """
 function publish_type(; aws_config::AbstractAWSConfig=global_aws_config())
-    return cloudformation("PublishType"; aws_config=aws_config, features=SERVICE_FEATURES)
+    return cloudformation(
+        "PublishType"; aws_config=aws_config, feature_set=SERVICE_FEATURE_SET
+    )
 end
 function publish_type(
     params::AbstractDict{String}; aws_config::AbstractAWSConfig=global_aws_config()
 )
     return cloudformation(
-        "PublishType", params; aws_config=aws_config, features=SERVICE_FEATURES
+        "PublishType", params; aws_config=aws_config, feature_set=SERVICE_FEATURE_SET
     )
 end
 
@@ -2676,7 +2707,7 @@ function record_handler_progress(
             "BearerToken" => BearerToken, "OperationStatus" => OperationStatus
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function record_handler_progress(
@@ -2697,7 +2728,7 @@ function record_handler_progress(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -2724,14 +2755,14 @@ Optional parameters can be passed as a `params::Dict{String,<:Any}`. Valid keys 
 """
 function register_publisher(; aws_config::AbstractAWSConfig=global_aws_config())
     return cloudformation(
-        "RegisterPublisher"; aws_config=aws_config, features=SERVICE_FEATURES
+        "RegisterPublisher"; aws_config=aws_config, feature_set=SERVICE_FEATURE_SET
     )
 end
 function register_publisher(
     params::AbstractDict{String}; aws_config::AbstractAWSConfig=global_aws_config()
 )
     return cloudformation(
-        "RegisterPublisher", params; aws_config=aws_config, features=SERVICE_FEATURES
+        "RegisterPublisher", params; aws_config=aws_config, feature_set=SERVICE_FEATURE_SET
     )
 end
 
@@ -2797,7 +2828,7 @@ function register_type(
             "SchemaHandlerPackage" => SchemaHandlerPackage, "TypeName" => TypeName
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function register_type(
@@ -2818,7 +2849,7 @@ function register_type(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -2848,7 +2879,7 @@ function rollback_stack(StackName; aws_config::AbstractAWSConfig=global_aws_conf
         "RollbackStack",
         Dict{String,Any}("StackName" => StackName);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function rollback_stack(
@@ -2862,7 +2893,7 @@ function rollback_stack(
             mergewith(_merge, Dict{String,Any}("StackName" => StackName), params)
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -2889,7 +2920,7 @@ function set_stack_policy(StackName; aws_config::AbstractAWSConfig=global_aws_co
         "SetStackPolicy",
         Dict{String,Any}("StackName" => StackName);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function set_stack_policy(
@@ -2903,7 +2934,7 @@ function set_stack_policy(
             mergewith(_merge, Dict{String,Any}("StackName" => StackName), params)
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -2949,7 +2980,7 @@ function set_type_configuration(
         "SetTypeConfiguration",
         Dict{String,Any}("Configuration" => Configuration);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function set_type_configuration(
@@ -2963,7 +2994,7 @@ function set_type_configuration(
             mergewith(_merge, Dict{String,Any}("Configuration" => Configuration), params)
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -2988,14 +3019,17 @@ Optional parameters can be passed as a `params::Dict{String,<:Any}`. Valid keys 
 """
 function set_type_default_version(; aws_config::AbstractAWSConfig=global_aws_config())
     return cloudformation(
-        "SetTypeDefaultVersion"; aws_config=aws_config, features=SERVICE_FEATURES
+        "SetTypeDefaultVersion"; aws_config=aws_config, feature_set=SERVICE_FEATURE_SET
     )
 end
 function set_type_default_version(
     params::AbstractDict{String}; aws_config::AbstractAWSConfig=global_aws_config()
 )
     return cloudformation(
-        "SetTypeDefaultVersion", params; aws_config=aws_config, features=SERVICE_FEATURES
+        "SetTypeDefaultVersion",
+        params;
+        aws_config=aws_config,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -3038,7 +3072,7 @@ function signal_resource(
             "UniqueId" => UniqueId,
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function signal_resource(
@@ -3064,7 +3098,7 @@ function signal_resource(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -3097,7 +3131,7 @@ function stop_stack_set_operation(
         "StopStackSetOperation",
         Dict{String,Any}("OperationId" => OperationId, "StackSetName" => StackSetName);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function stop_stack_set_operation(
@@ -3118,7 +3152,7 @@ function stop_stack_set_operation(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -3159,13 +3193,15 @@ Optional parameters can be passed as a `params::Dict{String,<:Any}`. Valid keys 
   the default version of the extension in this account and region for testing.
 """
 function test_type(; aws_config::AbstractAWSConfig=global_aws_config())
-    return cloudformation("TestType"; aws_config=aws_config, features=SERVICE_FEATURES)
+    return cloudformation(
+        "TestType"; aws_config=aws_config, feature_set=SERVICE_FEATURE_SET
+    )
 end
 function test_type(
     params::AbstractDict{String}; aws_config::AbstractAWSConfig=global_aws_config()
 )
     return cloudformation(
-        "TestType", params; aws_config=aws_config, features=SERVICE_FEATURES
+        "TestType", params; aws_config=aws_config, feature_set=SERVICE_FEATURE_SET
     )
 end
 
@@ -3295,7 +3331,7 @@ function update_stack(StackName; aws_config::AbstractAWSConfig=global_aws_config
         "UpdateStack",
         Dict{String,Any}("StackName" => StackName);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function update_stack(
@@ -3309,7 +3345,7 @@ function update_stack(
             mergewith(_merge, Dict{String,Any}("StackName" => StackName), params)
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -3394,7 +3430,7 @@ function update_stack_instances(
             "OperationId" => string(uuid4()),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function update_stack_instances(
@@ -3417,7 +3453,7 @@ function update_stack_instances(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -3570,7 +3606,7 @@ function update_stack_set(StackSetName; aws_config::AbstractAWSConfig=global_aws
         "UpdateStackSet",
         Dict{String,Any}("StackSetName" => StackSetName, "OperationId" => string(uuid4()));
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function update_stack_set(
@@ -3590,7 +3626,7 @@ function update_stack_set(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -3623,7 +3659,7 @@ function update_termination_protection(
             "StackName" => StackName,
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function update_termination_protection(
@@ -3645,7 +3681,7 @@ function update_termination_protection(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -3671,13 +3707,13 @@ Optional parameters can be passed as a `params::Dict{String,<:Any}`. Valid keys 
 """
 function validate_template(; aws_config::AbstractAWSConfig=global_aws_config())
     return cloudformation(
-        "ValidateTemplate"; aws_config=aws_config, features=SERVICE_FEATURES
+        "ValidateTemplate"; aws_config=aws_config, feature_set=SERVICE_FEATURE_SET
     )
 end
 function validate_template(
     params::AbstractDict{String}; aws_config::AbstractAWSConfig=global_aws_config()
 )
     return cloudformation(
-        "ValidateTemplate", params; aws_config=aws_config, features=SERVICE_FEATURES
+        "ValidateTemplate", params; aws_config=aws_config, feature_set=SERVICE_FEATURE_SET
     )
 end

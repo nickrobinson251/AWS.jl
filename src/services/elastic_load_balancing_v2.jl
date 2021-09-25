@@ -27,7 +27,7 @@ function add_listener_certificates(
         "AddListenerCertificates",
         Dict{String,Any}("Certificates" => Certificates, "ListenerArn" => ListenerArn);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function add_listener_certificates(
@@ -48,7 +48,7 @@ function add_listener_certificates(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -71,7 +71,7 @@ function add_tags(ResourceArns, Tags; aws_config::AbstractAWSConfig=global_aws_c
         "AddTags",
         Dict{String,Any}("ResourceArns" => ResourceArns, "Tags" => Tags);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function add_tags(
@@ -90,7 +90,7 @@ function add_tags(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -139,7 +139,7 @@ function create_listener(
             "DefaultActions" => DefaultActions, "LoadBalancerArn" => LoadBalancerArn
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function create_listener(
@@ -160,7 +160,7 @@ function create_listener(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -223,7 +223,7 @@ function create_load_balancer(Name; aws_config::AbstractAWSConfig=global_aws_con
         "CreateLoadBalancer",
         Dict{String,Any}("Name" => Name);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function create_load_balancer(
@@ -233,7 +233,7 @@ function create_load_balancer(
         "CreateLoadBalancer",
         Dict{String,Any}(mergewith(_merge, Dict{String,Any}("Name" => Name), params));
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -275,7 +275,7 @@ function create_rule(
             "Priority" => Priority,
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function create_rule(
@@ -301,7 +301,7 @@ function create_rule(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -387,7 +387,7 @@ function create_target_group(Name; aws_config::AbstractAWSConfig=global_aws_conf
         "CreateTargetGroup",
         Dict{String,Any}("Name" => Name);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function create_target_group(
@@ -397,7 +397,7 @@ function create_target_group(
         "CreateTargetGroup",
         Dict{String,Any}(mergewith(_merge, Dict{String,Any}("Name" => Name), params));
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -417,7 +417,7 @@ function delete_listener(ListenerArn; aws_config::AbstractAWSConfig=global_aws_c
         "DeleteListener",
         Dict{String,Any}("ListenerArn" => ListenerArn);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function delete_listener(
@@ -431,7 +431,7 @@ function delete_listener(
             mergewith(_merge, Dict{String,Any}("ListenerArn" => ListenerArn), params)
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -458,7 +458,7 @@ function delete_load_balancer(
         "DeleteLoadBalancer",
         Dict{String,Any}("LoadBalancerArn" => LoadBalancerArn);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function delete_load_balancer(
@@ -474,7 +474,7 @@ function delete_load_balancer(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -493,7 +493,7 @@ function delete_rule(RuleArn; aws_config::AbstractAWSConfig=global_aws_config())
         "DeleteRule",
         Dict{String,Any}("RuleArn" => RuleArn);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function delete_rule(
@@ -503,7 +503,7 @@ function delete_rule(
         "DeleteRule",
         Dict{String,Any}(mergewith(_merge, Dict{String,Any}("RuleArn" => RuleArn), params));
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -527,7 +527,7 @@ function delete_target_group(
         "DeleteTargetGroup",
         Dict{String,Any}("TargetGroupArn" => TargetGroupArn);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function delete_target_group(
@@ -541,7 +541,7 @@ function delete_target_group(
             mergewith(_merge, Dict{String,Any}("TargetGroupArn" => TargetGroupArn), params)
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -565,7 +565,7 @@ function deregister_targets(
         "DeregisterTargets",
         Dict{String,Any}("TargetGroupArn" => TargetGroupArn, "Targets" => Targets);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function deregister_targets(
@@ -584,7 +584,7 @@ function deregister_targets(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -605,14 +605,17 @@ Optional parameters can be passed as a `params::Dict{String,<:Any}`. Valid keys 
 """
 function describe_account_limits(; aws_config::AbstractAWSConfig=global_aws_config())
     return elastic_load_balancing_v2(
-        "DescribeAccountLimits"; aws_config=aws_config, features=SERVICE_FEATURES
+        "DescribeAccountLimits"; aws_config=aws_config, feature_set=SERVICE_FEATURE_SET
     )
 end
 function describe_account_limits(
     params::AbstractDict{String}; aws_config::AbstractAWSConfig=global_aws_config()
 )
     return elastic_load_balancing_v2(
-        "DescribeAccountLimits", params; aws_config=aws_config, features=SERVICE_FEATURES
+        "DescribeAccountLimits",
+        params;
+        aws_config=aws_config,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -642,7 +645,7 @@ function describe_listener_certificates(
         "DescribeListenerCertificates",
         Dict{String,Any}("ListenerArn" => ListenerArn);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function describe_listener_certificates(
@@ -656,7 +659,7 @@ function describe_listener_certificates(
             mergewith(_merge, Dict{String,Any}("ListenerArn" => ListenerArn), params)
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -678,14 +681,14 @@ Optional parameters can be passed as a `params::Dict{String,<:Any}`. Valid keys 
 """
 function describe_listeners(; aws_config::AbstractAWSConfig=global_aws_config())
     return elastic_load_balancing_v2(
-        "DescribeListeners"; aws_config=aws_config, features=SERVICE_FEATURES
+        "DescribeListeners"; aws_config=aws_config, feature_set=SERVICE_FEATURE_SET
     )
 end
 function describe_listeners(
     params::AbstractDict{String}; aws_config::AbstractAWSConfig=global_aws_config()
 )
     return elastic_load_balancing_v2(
-        "DescribeListeners", params; aws_config=aws_config, features=SERVICE_FEATURES
+        "DescribeListeners", params; aws_config=aws_config, feature_set=SERVICE_FEATURE_SET
     )
 end
 
@@ -710,7 +713,7 @@ function describe_load_balancer_attributes(
         "DescribeLoadBalancerAttributes",
         Dict{String,Any}("LoadBalancerArn" => LoadBalancerArn);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function describe_load_balancer_attributes(
@@ -726,7 +729,7 @@ function describe_load_balancer_attributes(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -747,14 +750,17 @@ Optional parameters can be passed as a `params::Dict{String,<:Any}`. Valid keys 
 """
 function describe_load_balancers(; aws_config::AbstractAWSConfig=global_aws_config())
     return elastic_load_balancing_v2(
-        "DescribeLoadBalancers"; aws_config=aws_config, features=SERVICE_FEATURES
+        "DescribeLoadBalancers"; aws_config=aws_config, feature_set=SERVICE_FEATURE_SET
     )
 end
 function describe_load_balancers(
     params::AbstractDict{String}; aws_config::AbstractAWSConfig=global_aws_config()
 )
     return elastic_load_balancing_v2(
-        "DescribeLoadBalancers", params; aws_config=aws_config, features=SERVICE_FEATURES
+        "DescribeLoadBalancers",
+        params;
+        aws_config=aws_config,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -775,14 +781,14 @@ Optional parameters can be passed as a `params::Dict{String,<:Any}`. Valid keys 
 """
 function describe_rules(; aws_config::AbstractAWSConfig=global_aws_config())
     return elastic_load_balancing_v2(
-        "DescribeRules"; aws_config=aws_config, features=SERVICE_FEATURES
+        "DescribeRules"; aws_config=aws_config, feature_set=SERVICE_FEATURE_SET
     )
 end
 function describe_rules(
     params::AbstractDict{String}; aws_config::AbstractAWSConfig=global_aws_config()
 )
     return elastic_load_balancing_v2(
-        "DescribeRules", params; aws_config=aws_config, features=SERVICE_FEATURES
+        "DescribeRules", params; aws_config=aws_config, feature_set=SERVICE_FEATURE_SET
     )
 end
 
@@ -803,14 +809,17 @@ Optional parameters can be passed as a `params::Dict{String,<:Any}`. Valid keys 
 """
 function describe_sslpolicies(; aws_config::AbstractAWSConfig=global_aws_config())
     return elastic_load_balancing_v2(
-        "DescribeSSLPolicies"; aws_config=aws_config, features=SERVICE_FEATURES
+        "DescribeSSLPolicies"; aws_config=aws_config, feature_set=SERVICE_FEATURE_SET
     )
 end
 function describe_sslpolicies(
     params::AbstractDict{String}; aws_config::AbstractAWSConfig=global_aws_config()
 )
     return elastic_load_balancing_v2(
-        "DescribeSSLPolicies", params; aws_config=aws_config, features=SERVICE_FEATURES
+        "DescribeSSLPolicies",
+        params;
+        aws_config=aws_config,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -832,7 +841,7 @@ function describe_tags(ResourceArns; aws_config::AbstractAWSConfig=global_aws_co
         "DescribeTags",
         Dict{String,Any}("ResourceArns" => ResourceArns);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function describe_tags(
@@ -846,7 +855,7 @@ function describe_tags(
             mergewith(_merge, Dict{String,Any}("ResourceArns" => ResourceArns), params)
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -870,7 +879,7 @@ function describe_target_group_attributes(
         "DescribeTargetGroupAttributes",
         Dict{String,Any}("TargetGroupArn" => TargetGroupArn);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function describe_target_group_attributes(
@@ -884,7 +893,7 @@ function describe_target_group_attributes(
             mergewith(_merge, Dict{String,Any}("TargetGroupArn" => TargetGroupArn), params)
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -908,14 +917,17 @@ Optional parameters can be passed as a `params::Dict{String,<:Any}`. Valid keys 
 """
 function describe_target_groups(; aws_config::AbstractAWSConfig=global_aws_config())
     return elastic_load_balancing_v2(
-        "DescribeTargetGroups"; aws_config=aws_config, features=SERVICE_FEATURES
+        "DescribeTargetGroups"; aws_config=aws_config, feature_set=SERVICE_FEATURE_SET
     )
 end
 function describe_target_groups(
     params::AbstractDict{String}; aws_config::AbstractAWSConfig=global_aws_config()
 )
     return elastic_load_balancing_v2(
-        "DescribeTargetGroups", params; aws_config=aws_config, features=SERVICE_FEATURES
+        "DescribeTargetGroups",
+        params;
+        aws_config=aws_config,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -939,7 +951,7 @@ function describe_target_health(
         "DescribeTargetHealth",
         Dict{String,Any}("TargetGroupArn" => TargetGroupArn);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function describe_target_health(
@@ -953,7 +965,7 @@ function describe_target_health(
             mergewith(_merge, Dict{String,Any}("TargetGroupArn" => TargetGroupArn), params)
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -997,7 +1009,7 @@ function modify_listener(ListenerArn; aws_config::AbstractAWSConfig=global_aws_c
         "ModifyListener",
         Dict{String,Any}("ListenerArn" => ListenerArn);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function modify_listener(
@@ -1011,7 +1023,7 @@ function modify_listener(
             mergewith(_merge, Dict{String,Any}("ListenerArn" => ListenerArn), params)
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -1036,7 +1048,7 @@ function modify_load_balancer_attributes(
         "ModifyLoadBalancerAttributes",
         Dict{String,Any}("Attributes" => Attributes, "LoadBalancerArn" => LoadBalancerArn);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function modify_load_balancer_attributes(
@@ -1057,7 +1069,7 @@ function modify_load_balancer_attributes(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -1083,7 +1095,7 @@ function modify_rule(RuleArn; aws_config::AbstractAWSConfig=global_aws_config())
         "ModifyRule",
         Dict{String,Any}("RuleArn" => RuleArn);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function modify_rule(
@@ -1093,7 +1105,7 @@ function modify_rule(
         "ModifyRule",
         Dict{String,Any}(mergewith(_merge, Dict{String,Any}("RuleArn" => RuleArn), params));
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -1145,7 +1157,7 @@ function modify_target_group(
         "ModifyTargetGroup",
         Dict{String,Any}("TargetGroupArn" => TargetGroupArn);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function modify_target_group(
@@ -1159,7 +1171,7 @@ function modify_target_group(
             mergewith(_merge, Dict{String,Any}("TargetGroupArn" => TargetGroupArn), params)
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -1181,7 +1193,7 @@ function modify_target_group_attributes(
         "ModifyTargetGroupAttributes",
         Dict{String,Any}("Attributes" => Attributes, "TargetGroupArn" => TargetGroupArn);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function modify_target_group_attributes(
@@ -1202,7 +1214,7 @@ function modify_target_group_attributes(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -1231,7 +1243,7 @@ function register_targets(
         "RegisterTargets",
         Dict{String,Any}("TargetGroupArn" => TargetGroupArn, "Targets" => Targets);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function register_targets(
@@ -1250,7 +1262,7 @@ function register_targets(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -1274,7 +1286,7 @@ function remove_listener_certificates(
         "RemoveListenerCertificates",
         Dict{String,Any}("Certificates" => Certificates, "ListenerArn" => ListenerArn);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function remove_listener_certificates(
@@ -1295,7 +1307,7 @@ function remove_listener_certificates(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -1319,7 +1331,7 @@ function remove_tags(
         "RemoveTags",
         Dict{String,Any}("ResourceArns" => ResourceArns, "TagKeys" => TagKeys);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function remove_tags(
@@ -1338,7 +1350,7 @@ function remove_tags(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -1365,7 +1377,7 @@ function set_ip_address_type(
             "IpAddressType" => IpAddressType, "LoadBalancerArn" => LoadBalancerArn
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function set_ip_address_type(
@@ -1386,7 +1398,7 @@ function set_ip_address_type(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -1409,7 +1421,7 @@ function set_rule_priorities(
         "SetRulePriorities",
         Dict{String,Any}("RulePriorities" => RulePriorities);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function set_rule_priorities(
@@ -1423,7 +1435,7 @@ function set_rule_priorities(
             mergewith(_merge, Dict{String,Any}("RulePriorities" => RulePriorities), params)
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -1449,7 +1461,7 @@ function set_security_groups(
             "LoadBalancerArn" => LoadBalancerArn, "SecurityGroups" => SecurityGroups
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function set_security_groups(
@@ -1470,7 +1482,7 @@ function set_security_groups(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -1515,7 +1527,7 @@ function set_subnets(LoadBalancerArn; aws_config::AbstractAWSConfig=global_aws_c
         "SetSubnets",
         Dict{String,Any}("LoadBalancerArn" => LoadBalancerArn);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function set_subnets(
@@ -1531,6 +1543,6 @@ function set_subnets(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end

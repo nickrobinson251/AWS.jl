@@ -23,7 +23,7 @@ function delete_lexicon(LexiconName; aws_config::AbstractAWSConfig=global_aws_co
         "DELETE",
         "/v1/lexicons/$(LexiconName)";
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function delete_lexicon(
@@ -36,7 +36,7 @@ function delete_lexicon(
         "/v1/lexicons/$(LexiconName)",
         params;
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -71,13 +71,15 @@ Optional parameters can be passed as a `params::Dict{String,<:Any}`. Valid keys 
   operation. If present, this indicates where to continue the listing.
 """
 function describe_voices(; aws_config::AbstractAWSConfig=global_aws_config())
-    return polly("GET", "/v1/voices"; aws_config=aws_config, features=SERVICE_FEATURES)
+    return polly(
+        "GET", "/v1/voices"; aws_config=aws_config, feature_set=SERVICE_FEATURE_SET
+    )
 end
 function describe_voices(
     params::AbstractDict{String}; aws_config::AbstractAWSConfig=global_aws_config()
 )
     return polly(
-        "GET", "/v1/voices", params; aws_config=aws_config, features=SERVICE_FEATURES
+        "GET", "/v1/voices", params; aws_config=aws_config, feature_set=SERVICE_FEATURE_SET
     )
 end
 
@@ -97,7 +99,7 @@ function get_lexicon(LexiconName; aws_config::AbstractAWSConfig=global_aws_confi
         "GET",
         "/v1/lexicons/$(LexiconName)";
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function get_lexicon(
@@ -110,7 +112,7 @@ function get_lexicon(
         "/v1/lexicons/$(LexiconName)",
         params;
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -133,7 +135,7 @@ function get_speech_synthesis_task(
         "GET",
         "/v1/synthesisTasks/$(TaskId)";
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function get_speech_synthesis_task(
@@ -144,7 +146,7 @@ function get_speech_synthesis_task(
         "/v1/synthesisTasks/$(TaskId)",
         params;
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -161,13 +163,19 @@ Optional parameters can be passed as a `params::Dict{String,<:Any}`. Valid keys 
   If present, indicates where to continue the list of lexicons.
 """
 function list_lexicons(; aws_config::AbstractAWSConfig=global_aws_config())
-    return polly("GET", "/v1/lexicons"; aws_config=aws_config, features=SERVICE_FEATURES)
+    return polly(
+        "GET", "/v1/lexicons"; aws_config=aws_config, feature_set=SERVICE_FEATURE_SET
+    )
 end
 function list_lexicons(
     params::AbstractDict{String}; aws_config::AbstractAWSConfig=global_aws_config()
 )
     return polly(
-        "GET", "/v1/lexicons", params; aws_config=aws_config, features=SERVICE_FEATURES
+        "GET",
+        "/v1/lexicons",
+        params;
+        aws_config=aws_config,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -188,7 +196,7 @@ Optional parameters can be passed as a `params::Dict{String,<:Any}`. Valid keys 
 """
 function list_speech_synthesis_tasks(; aws_config::AbstractAWSConfig=global_aws_config())
     return polly(
-        "GET", "/v1/synthesisTasks"; aws_config=aws_config, features=SERVICE_FEATURES
+        "GET", "/v1/synthesisTasks"; aws_config=aws_config, feature_set=SERVICE_FEATURE_SET
     )
 end
 function list_speech_synthesis_tasks(
@@ -199,7 +207,7 @@ function list_speech_synthesis_tasks(
         "/v1/synthesisTasks",
         params;
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -227,7 +235,7 @@ function put_lexicon(
         "/v1/lexicons/$(LexiconName)",
         Dict{String,Any}("Content" => Content);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function put_lexicon(
@@ -241,7 +249,7 @@ function put_lexicon(
         "/v1/lexicons/$(LexiconName)",
         Dict{String,Any}(mergewith(_merge, Dict{String,Any}("Content" => Content), params));
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -309,7 +317,7 @@ function start_speech_synthesis_task(
             "VoiceId" => VoiceId,
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function start_speech_synthesis_task(
@@ -336,7 +344,7 @@ function start_speech_synthesis_task(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -398,7 +406,7 @@ function synthesize_speech(
             "OutputFormat" => OutputFormat, "Text" => Text, "VoiceId" => VoiceId
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function synthesize_speech(
@@ -421,6 +429,6 @@ function synthesize_speech(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end

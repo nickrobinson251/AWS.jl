@@ -23,7 +23,7 @@ function add_tags_to_on_premises_instances(
         "AddTagsToOnPremisesInstances",
         Dict{String,Any}("instanceNames" => instanceNames, "tags" => tags);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function add_tags_to_on_premises_instances(
@@ -42,7 +42,7 @@ function add_tags_to_on_premises_instances(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -68,7 +68,7 @@ function batch_get_application_revisions(
         "BatchGetApplicationRevisions",
         Dict{String,Any}("applicationName" => applicationName, "revisions" => revisions);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function batch_get_application_revisions(
@@ -89,7 +89,7 @@ function batch_get_application_revisions(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -112,7 +112,7 @@ function batch_get_applications(
         "BatchGetApplications",
         Dict{String,Any}("applicationNames" => applicationNames);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function batch_get_applications(
@@ -128,7 +128,7 @@ function batch_get_applications(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -154,7 +154,7 @@ function batch_get_deployment_groups(
             "deploymentGroupNames" => deploymentGroupNames,
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function batch_get_deployment_groups(
@@ -176,7 +176,7 @@ function batch_get_deployment_groups(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -202,7 +202,7 @@ function batch_get_deployment_instances(
         "BatchGetDeploymentInstances",
         Dict{String,Any}("deploymentId" => deploymentId, "instanceIds" => instanceIds);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function batch_get_deployment_instances(
@@ -223,7 +223,7 @@ function batch_get_deployment_instances(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -257,7 +257,7 @@ Optional parameters can be passed as a `params::Dict{String,<:Any}`. Valid keys 
 """
 function batch_get_deployment_targets(; aws_config::AbstractAWSConfig=global_aws_config())
     return codedeploy(
-        "BatchGetDeploymentTargets"; aws_config=aws_config, features=SERVICE_FEATURES
+        "BatchGetDeploymentTargets"; aws_config=aws_config, feature_set=SERVICE_FEATURE_SET
     )
 end
 function batch_get_deployment_targets(
@@ -267,7 +267,7 @@ function batch_get_deployment_targets(
         "BatchGetDeploymentTargets",
         params;
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -290,7 +290,7 @@ function batch_get_deployments(
         "BatchGetDeployments",
         Dict{String,Any}("deploymentIds" => deploymentIds);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function batch_get_deployments(
@@ -304,7 +304,7 @@ function batch_get_deployments(
             mergewith(_merge, Dict{String,Any}("deploymentIds" => deploymentIds), params)
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -327,7 +327,7 @@ function batch_get_on_premises_instances(
         "BatchGetOnPremisesInstances",
         Dict{String,Any}("instanceNames" => instanceNames);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function batch_get_on_premises_instances(
@@ -341,7 +341,7 @@ function batch_get_on_premises_instances(
             mergewith(_merge, Dict{String,Any}("instanceNames" => instanceNames), params)
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -365,14 +365,14 @@ Optional parameters can be passed as a `params::Dict{String,<:Any}`. Valid keys 
 """
 function continue_deployment(; aws_config::AbstractAWSConfig=global_aws_config())
     return codedeploy(
-        "ContinueDeployment"; aws_config=aws_config, features=SERVICE_FEATURES
+        "ContinueDeployment"; aws_config=aws_config, feature_set=SERVICE_FEATURE_SET
     )
 end
 function continue_deployment(
     params::AbstractDict{String}; aws_config::AbstractAWSConfig=global_aws_config()
 )
     return codedeploy(
-        "ContinueDeployment", params; aws_config=aws_config, features=SERVICE_FEATURES
+        "ContinueDeployment", params; aws_config=aws_config, feature_set=SERVICE_FEATURE_SET
     )
 end
 
@@ -401,7 +401,7 @@ function create_application(
         "CreateApplication",
         Dict{String,Any}("applicationName" => applicationName);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function create_application(
@@ -417,7 +417,7 @@ function create_application(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -478,7 +478,7 @@ function create_deployment(
         "CreateDeployment",
         Dict{String,Any}("applicationName" => applicationName);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function create_deployment(
@@ -494,7 +494,7 @@ function create_deployment(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -531,7 +531,7 @@ function create_deployment_config(
         "CreateDeploymentConfig",
         Dict{String,Any}("deploymentConfigName" => deploymentConfigName);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function create_deployment_config(
@@ -549,7 +549,7 @@ function create_deployment_config(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -627,7 +627,7 @@ function create_deployment_group(
             "serviceRoleArn" => serviceRoleArn,
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function create_deployment_group(
@@ -651,7 +651,7 @@ function create_deployment_group(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -673,7 +673,7 @@ function delete_application(
         "DeleteApplication",
         Dict{String,Any}("applicationName" => applicationName);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function delete_application(
@@ -689,7 +689,7 @@ function delete_application(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -712,7 +712,7 @@ function delete_deployment_config(
         "DeleteDeploymentConfig",
         Dict{String,Any}("deploymentConfigName" => deploymentConfigName);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function delete_deployment_config(
@@ -730,7 +730,7 @@ function delete_deployment_config(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -756,7 +756,7 @@ function delete_deployment_group(
             "deploymentGroupName" => deploymentGroupName,
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function delete_deployment_group(
@@ -778,7 +778,7 @@ function delete_deployment_group(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -794,14 +794,17 @@ Optional parameters can be passed as a `params::Dict{String,<:Any}`. Valid keys 
 """
 function delete_git_hub_account_token(; aws_config::AbstractAWSConfig=global_aws_config())
     return codedeploy(
-        "DeleteGitHubAccountToken"; aws_config=aws_config, features=SERVICE_FEATURES
+        "DeleteGitHubAccountToken"; aws_config=aws_config, feature_set=SERVICE_FEATURE_SET
     )
 end
 function delete_git_hub_account_token(
     params::AbstractDict{String}; aws_config::AbstractAWSConfig=global_aws_config()
 )
     return codedeploy(
-        "DeleteGitHubAccountToken", params; aws_config=aws_config, features=SERVICE_FEATURES
+        "DeleteGitHubAccountToken",
+        params;
+        aws_config=aws_config,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -820,7 +823,9 @@ function delete_resources_by_external_id(;
     aws_config::AbstractAWSConfig=global_aws_config()
 )
     return codedeploy(
-        "DeleteResourcesByExternalId"; aws_config=aws_config, features=SERVICE_FEATURES
+        "DeleteResourcesByExternalId";
+        aws_config=aws_config,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function delete_resources_by_external_id(
@@ -830,7 +835,7 @@ function delete_resources_by_external_id(
         "DeleteResourcesByExternalId",
         params;
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -851,7 +856,7 @@ function deregister_on_premises_instance(
         "DeregisterOnPremisesInstance",
         Dict{String,Any}("instanceName" => instanceName);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function deregister_on_premises_instance(
@@ -865,7 +870,7 @@ function deregister_on_premises_instance(
             mergewith(_merge, Dict{String,Any}("instanceName" => instanceName), params)
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -885,7 +890,7 @@ function get_application(applicationName; aws_config::AbstractAWSConfig=global_a
         "GetApplication",
         Dict{String,Any}("applicationName" => applicationName);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function get_application(
@@ -901,7 +906,7 @@ function get_application(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -924,7 +929,7 @@ function get_application_revision(
         "GetApplicationRevision",
         Dict{String,Any}("applicationName" => applicationName, "revision" => revision);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function get_application_revision(
@@ -945,7 +950,7 @@ function get_application_revision(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -967,7 +972,7 @@ function get_deployment(deploymentId; aws_config::AbstractAWSConfig=global_aws_c
         "GetDeployment",
         Dict{String,Any}("deploymentId" => deploymentId);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function get_deployment(
@@ -981,7 +986,7 @@ function get_deployment(
             mergewith(_merge, Dict{String,Any}("deploymentId" => deploymentId), params)
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -1003,7 +1008,7 @@ function get_deployment_config(
         "GetDeploymentConfig",
         Dict{String,Any}("deploymentConfigName" => deploymentConfigName);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function get_deployment_config(
@@ -1021,7 +1026,7 @@ function get_deployment_config(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -1047,7 +1052,7 @@ function get_deployment_group(
             "deploymentGroupName" => deploymentGroupName,
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function get_deployment_group(
@@ -1069,7 +1074,7 @@ function get_deployment_group(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -1091,7 +1096,7 @@ function get_deployment_instance(
         "GetDeploymentInstance",
         Dict{String,Any}("deploymentId" => deploymentId, "instanceId" => instanceId);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function get_deployment_instance(
@@ -1112,7 +1117,7 @@ function get_deployment_instance(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -1129,14 +1134,17 @@ Optional parameters can be passed as a `params::Dict{String,<:Any}`. Valid keys 
 """
 function get_deployment_target(; aws_config::AbstractAWSConfig=global_aws_config())
     return codedeploy(
-        "GetDeploymentTarget"; aws_config=aws_config, features=SERVICE_FEATURES
+        "GetDeploymentTarget"; aws_config=aws_config, feature_set=SERVICE_FEATURE_SET
     )
 end
 function get_deployment_target(
     params::AbstractDict{String}; aws_config::AbstractAWSConfig=global_aws_config()
 )
     return codedeploy(
-        "GetDeploymentTarget", params; aws_config=aws_config, features=SERVICE_FEATURES
+        "GetDeploymentTarget",
+        params;
+        aws_config=aws_config,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -1157,7 +1165,7 @@ function get_on_premises_instance(
         "GetOnPremisesInstance",
         Dict{String,Any}("instanceName" => instanceName);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function get_on_premises_instance(
@@ -1171,7 +1179,7 @@ function get_on_premises_instance(
             mergewith(_merge, Dict{String,Any}("instanceName" => instanceName), params)
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -1213,7 +1221,7 @@ function list_application_revisions(
         "ListApplicationRevisions",
         Dict{String,Any}("applicationName" => applicationName);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function list_application_revisions(
@@ -1229,7 +1237,7 @@ function list_application_revisions(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -1245,13 +1253,15 @@ Optional parameters can be passed as a `params::Dict{String,<:Any}`. Valid keys 
   used to return the next set of applications in the list.
 """
 function list_applications(; aws_config::AbstractAWSConfig=global_aws_config())
-    return codedeploy("ListApplications"; aws_config=aws_config, features=SERVICE_FEATURES)
+    return codedeploy(
+        "ListApplications"; aws_config=aws_config, feature_set=SERVICE_FEATURE_SET
+    )
 end
 function list_applications(
     params::AbstractDict{String}; aws_config::AbstractAWSConfig=global_aws_config()
 )
     return codedeploy(
-        "ListApplications", params; aws_config=aws_config, features=SERVICE_FEATURES
+        "ListApplications", params; aws_config=aws_config, feature_set=SERVICE_FEATURE_SET
     )
 end
 
@@ -1268,14 +1278,17 @@ Optional parameters can be passed as a `params::Dict{String,<:Any}`. Valid keys 
 """
 function list_deployment_configs(; aws_config::AbstractAWSConfig=global_aws_config())
     return codedeploy(
-        "ListDeploymentConfigs"; aws_config=aws_config, features=SERVICE_FEATURES
+        "ListDeploymentConfigs"; aws_config=aws_config, feature_set=SERVICE_FEATURE_SET
     )
 end
 function list_deployment_configs(
     params::AbstractDict{String}; aws_config::AbstractAWSConfig=global_aws_config()
 )
     return codedeploy(
-        "ListDeploymentConfigs", params; aws_config=aws_config, features=SERVICE_FEATURES
+        "ListDeploymentConfigs",
+        params;
+        aws_config=aws_config,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -1301,7 +1314,7 @@ function list_deployment_groups(
         "ListDeploymentGroups",
         Dict{String,Any}("applicationName" => applicationName);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function list_deployment_groups(
@@ -1317,7 +1330,7 @@ function list_deployment_groups(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -1354,7 +1367,7 @@ function list_deployment_instances(
         "ListDeploymentInstances",
         Dict{String,Any}("deploymentId" => deploymentId);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function list_deployment_instances(
@@ -1368,7 +1381,7 @@ function list_deployment_instances(
             mergewith(_merge, Dict{String,Any}("deploymentId" => deploymentId), params)
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -1390,14 +1403,17 @@ Optional parameters can be passed as a `params::Dict{String,<:Any}`. Valid keys 
 """
 function list_deployment_targets(; aws_config::AbstractAWSConfig=global_aws_config())
     return codedeploy(
-        "ListDeploymentTargets"; aws_config=aws_config, features=SERVICE_FEATURES
+        "ListDeploymentTargets"; aws_config=aws_config, feature_set=SERVICE_FEATURE_SET
     )
 end
 function list_deployment_targets(
     params::AbstractDict{String}; aws_config::AbstractAWSConfig=global_aws_config()
 )
     return codedeploy(
-        "ListDeploymentTargets", params; aws_config=aws_config, features=SERVICE_FEATURES
+        "ListDeploymentTargets",
+        params;
+        aws_config=aws_config,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -1430,13 +1446,15 @@ Optional parameters can be passed as a `params::Dict{String,<:Any}`. Valid keys 
   used to return the next set of deployments in the list.
 """
 function list_deployments(; aws_config::AbstractAWSConfig=global_aws_config())
-    return codedeploy("ListDeployments"; aws_config=aws_config, features=SERVICE_FEATURES)
+    return codedeploy(
+        "ListDeployments"; aws_config=aws_config, feature_set=SERVICE_FEATURE_SET
+    )
 end
 function list_deployments(
     params::AbstractDict{String}; aws_config::AbstractAWSConfig=global_aws_config()
 )
     return codedeploy(
-        "ListDeployments", params; aws_config=aws_config, features=SERVICE_FEATURES
+        "ListDeployments", params; aws_config=aws_config, feature_set=SERVICE_FEATURE_SET
     )
 end
 
@@ -1455,7 +1473,9 @@ function list_git_hub_account_token_names(;
     aws_config::AbstractAWSConfig=global_aws_config()
 )
     return codedeploy(
-        "ListGitHubAccountTokenNames"; aws_config=aws_config, features=SERVICE_FEATURES
+        "ListGitHubAccountTokenNames";
+        aws_config=aws_config,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function list_git_hub_account_token_names(
@@ -1465,7 +1485,7 @@ function list_git_hub_account_token_names(
         "ListGitHubAccountTokenNames",
         params;
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -1490,14 +1510,17 @@ Optional parameters can be passed as a `params::Dict{String,<:Any}`. Valid keys 
 """
 function list_on_premises_instances(; aws_config::AbstractAWSConfig=global_aws_config())
     return codedeploy(
-        "ListOnPremisesInstances"; aws_config=aws_config, features=SERVICE_FEATURES
+        "ListOnPremisesInstances"; aws_config=aws_config, feature_set=SERVICE_FEATURE_SET
     )
 end
 function list_on_premises_instances(
     params::AbstractDict{String}; aws_config::AbstractAWSConfig=global_aws_config()
 )
     return codedeploy(
-        "ListOnPremisesInstances", params; aws_config=aws_config, features=SERVICE_FEATURES
+        "ListOnPremisesInstances",
+        params;
+        aws_config=aws_config,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -1524,7 +1547,7 @@ function list_tags_for_resource(
         "ListTagsForResource",
         Dict{String,Any}("ResourceArn" => ResourceArn);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function list_tags_for_resource(
@@ -1538,7 +1561,7 @@ function list_tags_for_resource(
             mergewith(_merge, Dict{String,Any}("ResourceArn" => ResourceArn), params)
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -1569,7 +1592,7 @@ function put_lifecycle_event_hook_execution_status(;
     return codedeploy(
         "PutLifecycleEventHookExecutionStatus";
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function put_lifecycle_event_hook_execution_status(
@@ -1579,7 +1602,7 @@ function put_lifecycle_event_hook_execution_status(
         "PutLifecycleEventHookExecutionStatus",
         params;
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -1606,7 +1629,7 @@ function register_application_revision(
         "RegisterApplicationRevision",
         Dict{String,Any}("applicationName" => applicationName, "revision" => revision);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function register_application_revision(
@@ -1627,7 +1650,7 @@ function register_application_revision(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -1653,7 +1676,7 @@ function register_on_premises_instance(
         "RegisterOnPremisesInstance",
         Dict{String,Any}("instanceName" => instanceName);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function register_on_premises_instance(
@@ -1667,7 +1690,7 @@ function register_on_premises_instance(
             mergewith(_merge, Dict{String,Any}("instanceName" => instanceName), params)
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -1689,7 +1712,7 @@ function remove_tags_from_on_premises_instances(
         "RemoveTagsFromOnPremisesInstances",
         Dict{String,Any}("instanceNames" => instanceNames, "tags" => tags);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function remove_tags_from_on_premises_instances(
@@ -1708,7 +1731,7 @@ function remove_tags_from_on_premises_instances(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -1730,7 +1753,7 @@ function skip_wait_time_for_instance_termination(;
     return codedeploy(
         "SkipWaitTimeForInstanceTermination";
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function skip_wait_time_for_instance_termination(
@@ -1740,7 +1763,7 @@ function skip_wait_time_for_instance_termination(
         "SkipWaitTimeForInstanceTermination",
         params;
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -1764,7 +1787,7 @@ function stop_deployment(deploymentId; aws_config::AbstractAWSConfig=global_aws_
         "StopDeployment",
         Dict{String,Any}("deploymentId" => deploymentId);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function stop_deployment(
@@ -1778,7 +1801,7 @@ function stop_deployment(
             mergewith(_merge, Dict{String,Any}("deploymentId" => deploymentId), params)
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -1801,7 +1824,7 @@ function tag_resource(ResourceArn, Tags; aws_config::AbstractAWSConfig=global_aw
         "TagResource",
         Dict{String,Any}("ResourceArn" => ResourceArn, "Tags" => Tags);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function tag_resource(
@@ -1820,7 +1843,7 @@ function tag_resource(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -1846,7 +1869,7 @@ function untag_resource(
         "UntagResource",
         Dict{String,Any}("ResourceArn" => ResourceArn, "TagKeys" => TagKeys);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function untag_resource(
@@ -1865,7 +1888,7 @@ function untag_resource(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -1881,13 +1904,15 @@ Optional parameters can be passed as a `params::Dict{String,<:Any}`. Valid keys 
 - `"newApplicationName"`: The new name to give the application.
 """
 function update_application(; aws_config::AbstractAWSConfig=global_aws_config())
-    return codedeploy("UpdateApplication"; aws_config=aws_config, features=SERVICE_FEATURES)
+    return codedeploy(
+        "UpdateApplication"; aws_config=aws_config, feature_set=SERVICE_FEATURE_SET
+    )
 end
 function update_application(
     params::AbstractDict{String}; aws_config::AbstractAWSConfig=global_aws_config()
 )
     return codedeploy(
-        "UpdateApplication", params; aws_config=aws_config, features=SERVICE_FEATURES
+        "UpdateApplication", params; aws_config=aws_config, feature_set=SERVICE_FEATURE_SET
     )
 end
 
@@ -1957,7 +1982,7 @@ function update_deployment_group(
             "currentDeploymentGroupName" => currentDeploymentGroupName,
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function update_deployment_group(
@@ -1979,6 +2004,6 @@ function update_deployment_group(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end

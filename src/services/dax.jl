@@ -73,7 +73,7 @@ function create_cluster(
             "ReplicationFactor" => ReplicationFactor,
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function create_cluster(
@@ -99,7 +99,7 @@ function create_cluster(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -125,7 +125,7 @@ function create_parameter_group(
         "CreateParameterGroup",
         Dict{String,Any}("ParameterGroupName" => ParameterGroupName);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function create_parameter_group(
@@ -141,7 +141,7 @@ function create_parameter_group(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -167,7 +167,7 @@ function create_subnet_group(
         "CreateSubnetGroup",
         Dict{String,Any}("SubnetGroupName" => SubnetGroupName, "SubnetIds" => SubnetIds);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function create_subnet_group(
@@ -188,7 +188,7 @@ function create_subnet_group(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -217,7 +217,7 @@ function decrease_replication_factor(
             "ClusterName" => ClusterName, "NewReplicationFactor" => NewReplicationFactor
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function decrease_replication_factor(
@@ -239,7 +239,7 @@ function decrease_replication_factor(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -261,7 +261,7 @@ function delete_cluster(ClusterName; aws_config::AbstractAWSConfig=global_aws_co
         "DeleteCluster",
         Dict{String,Any}("ClusterName" => ClusterName);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function delete_cluster(
@@ -275,7 +275,7 @@ function delete_cluster(
             mergewith(_merge, Dict{String,Any}("ClusterName" => ClusterName), params)
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -297,7 +297,7 @@ function delete_parameter_group(
         "DeleteParameterGroup",
         Dict{String,Any}("ParameterGroupName" => ParameterGroupName);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function delete_parameter_group(
@@ -313,7 +313,7 @@ function delete_parameter_group(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -335,7 +335,7 @@ function delete_subnet_group(
         "DeleteSubnetGroup",
         Dict{String,Any}("SubnetGroupName" => SubnetGroupName);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function delete_subnet_group(
@@ -351,7 +351,7 @@ function delete_subnet_group(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -380,12 +380,14 @@ Optional parameters can be passed as a `params::Dict{String,<:Any}`. Valid keys 
   includes only results beyond the token, up to the value specified by MaxResults.
 """
 function describe_clusters(; aws_config::AbstractAWSConfig=global_aws_config())
-    return dax("DescribeClusters"; aws_config=aws_config, features=SERVICE_FEATURES)
+    return dax("DescribeClusters"; aws_config=aws_config, feature_set=SERVICE_FEATURE_SET)
 end
 function describe_clusters(
     params::AbstractDict{String}; aws_config::AbstractAWSConfig=global_aws_config()
 )
-    return dax("DescribeClusters", params; aws_config=aws_config, features=SERVICE_FEATURES)
+    return dax(
+        "DescribeClusters", params; aws_config=aws_config, feature_set=SERVICE_FEATURE_SET
+    )
 end
 
 """
@@ -405,7 +407,7 @@ Optional parameters can be passed as a `params::Dict{String,<:Any}`. Valid keys 
 """
 function describe_default_parameters(; aws_config::AbstractAWSConfig=global_aws_config())
     return dax(
-        "DescribeDefaultParameters"; aws_config=aws_config, features=SERVICE_FEATURES
+        "DescribeDefaultParameters"; aws_config=aws_config, feature_set=SERVICE_FEATURE_SET
     )
 end
 function describe_default_parameters(
@@ -415,7 +417,7 @@ function describe_default_parameters(
         "DescribeDefaultParameters",
         params;
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -447,12 +449,14 @@ Optional parameters can be passed as a `params::Dict{String,<:Any}`. Valid keys 
   ISO 8601 format.
 """
 function describe_events(; aws_config::AbstractAWSConfig=global_aws_config())
-    return dax("DescribeEvents"; aws_config=aws_config, features=SERVICE_FEATURES)
+    return dax("DescribeEvents"; aws_config=aws_config, feature_set=SERVICE_FEATURE_SET)
 end
 function describe_events(
     params::AbstractDict{String}; aws_config::AbstractAWSConfig=global_aws_config()
 )
-    return dax("DescribeEvents", params; aws_config=aws_config, features=SERVICE_FEATURES)
+    return dax(
+        "DescribeEvents", params; aws_config=aws_config, feature_set=SERVICE_FEATURE_SET
+    )
 end
 
 """
@@ -473,13 +477,18 @@ Optional parameters can be passed as a `params::Dict{String,<:Any}`. Valid keys 
 - `"ParameterGroupNames"`: The names of the parameter groups.
 """
 function describe_parameter_groups(; aws_config::AbstractAWSConfig=global_aws_config())
-    return dax("DescribeParameterGroups"; aws_config=aws_config, features=SERVICE_FEATURES)
+    return dax(
+        "DescribeParameterGroups"; aws_config=aws_config, feature_set=SERVICE_FEATURE_SET
+    )
 end
 function describe_parameter_groups(
     params::AbstractDict{String}; aws_config::AbstractAWSConfig=global_aws_config()
 )
     return dax(
-        "DescribeParameterGroups", params; aws_config=aws_config, features=SERVICE_FEATURES
+        "DescribeParameterGroups",
+        params;
+        aws_config=aws_config,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -510,7 +519,7 @@ function describe_parameters(
         "DescribeParameters",
         Dict{String,Any}("ParameterGroupName" => ParameterGroupName);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function describe_parameters(
@@ -526,7 +535,7 @@ function describe_parameters(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -548,13 +557,18 @@ Optional parameters can be passed as a `params::Dict{String,<:Any}`. Valid keys 
 - `"SubnetGroupNames"`: The name of the subnet group.
 """
 function describe_subnet_groups(; aws_config::AbstractAWSConfig=global_aws_config())
-    return dax("DescribeSubnetGroups"; aws_config=aws_config, features=SERVICE_FEATURES)
+    return dax(
+        "DescribeSubnetGroups"; aws_config=aws_config, feature_set=SERVICE_FEATURE_SET
+    )
 end
 function describe_subnet_groups(
     params::AbstractDict{String}; aws_config::AbstractAWSConfig=global_aws_config()
 )
     return dax(
-        "DescribeSubnetGroups", params; aws_config=aws_config, features=SERVICE_FEATURES
+        "DescribeSubnetGroups",
+        params;
+        aws_config=aws_config,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -583,7 +597,7 @@ function increase_replication_factor(
             "ClusterName" => ClusterName, "NewReplicationFactor" => NewReplicationFactor
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function increase_replication_factor(
@@ -605,7 +619,7 @@ function increase_replication_factor(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -630,7 +644,7 @@ function list_tags(ResourceName; aws_config::AbstractAWSConfig=global_aws_config
         "ListTags",
         Dict{String,Any}("ResourceName" => ResourceName);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function list_tags(
@@ -644,7 +658,7 @@ function list_tags(
             mergewith(_merge, Dict{String,Any}("ResourceName" => ResourceName), params)
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -666,7 +680,7 @@ function reboot_node(ClusterName, NodeId; aws_config::AbstractAWSConfig=global_a
         "RebootNode",
         Dict{String,Any}("ClusterName" => ClusterName, "NodeId" => NodeId);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function reboot_node(
@@ -685,7 +699,7 @@ function reboot_node(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -706,7 +720,7 @@ function tag_resource(ResourceName, Tags; aws_config::AbstractAWSConfig=global_a
         "TagResource",
         Dict{String,Any}("ResourceName" => ResourceName, "Tags" => Tags);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function tag_resource(
@@ -725,7 +739,7 @@ function tag_resource(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -749,7 +763,7 @@ function untag_resource(
         "UntagResource",
         Dict{String,Any}("ResourceName" => ResourceName, "TagKeys" => TagKeys);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function untag_resource(
@@ -768,7 +782,7 @@ function untag_resource(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -802,7 +816,7 @@ function update_cluster(ClusterName; aws_config::AbstractAWSConfig=global_aws_co
         "UpdateCluster",
         Dict{String,Any}("ClusterName" => ClusterName);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function update_cluster(
@@ -816,7 +830,7 @@ function update_cluster(
             mergewith(_merge, Dict{String,Any}("ClusterName" => ClusterName), params)
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -847,7 +861,7 @@ function update_parameter_group(
             "ParameterNameValues" => ParameterNameValues,
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function update_parameter_group(
@@ -869,7 +883,7 @@ function update_parameter_group(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -894,7 +908,7 @@ function update_subnet_group(
         "UpdateSubnetGroup",
         Dict{String,Any}("SubnetGroupName" => SubnetGroupName);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function update_subnet_group(
@@ -910,6 +924,6 @@ function update_subnet_group(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end

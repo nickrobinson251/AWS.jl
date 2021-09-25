@@ -16,7 +16,7 @@ Create a CLI token to use Airflow CLI.
 """
 function create_cli_token(Name; aws_config::AbstractAWSConfig=global_aws_config())
     return mwaa(
-        "POST", "/clitoken/$(Name)"; aws_config=aws_config, features=SERVICE_FEATURES
+        "POST", "/clitoken/$(Name)"; aws_config=aws_config, feature_set=SERVICE_FEATURE_SET
     )
 end
 function create_cli_token(
@@ -27,7 +27,7 @@ function create_cli_token(
         "/clitoken/$(Name)",
         params;
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -118,7 +118,7 @@ function create_environment(
             "SourceBucketArn" => SourceBucketArn,
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function create_environment(
@@ -146,7 +146,7 @@ function create_environment(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -162,7 +162,7 @@ Create a JWT token to be used to login to Airflow Web UI with claims based Authe
 """
 function create_web_login_token(Name; aws_config::AbstractAWSConfig=global_aws_config())
     return mwaa(
-        "POST", "/webtoken/$(Name)"; aws_config=aws_config, features=SERVICE_FEATURES
+        "POST", "/webtoken/$(Name)"; aws_config=aws_config, feature_set=SERVICE_FEATURE_SET
     )
 end
 function create_web_login_token(
@@ -173,7 +173,7 @@ function create_web_login_token(
         "/webtoken/$(Name)",
         params;
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -189,7 +189,10 @@ Deletes an Amazon Managed Workflows for Apache Airflow (MWAA) environment.
 """
 function delete_environment(Name; aws_config::AbstractAWSConfig=global_aws_config())
     return mwaa(
-        "DELETE", "/environments/$(Name)"; aws_config=aws_config, features=SERVICE_FEATURES
+        "DELETE",
+        "/environments/$(Name)";
+        aws_config=aws_config,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function delete_environment(
@@ -200,7 +203,7 @@ function delete_environment(
         "/environments/$(Name)",
         params;
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -216,7 +219,10 @@ Retrieves the details of an Amazon Managed Workflows for Apache Airflow (MWAA) e
 """
 function get_environment(Name; aws_config::AbstractAWSConfig=global_aws_config())
     return mwaa(
-        "GET", "/environments/$(Name)"; aws_config=aws_config, features=SERVICE_FEATURES
+        "GET",
+        "/environments/$(Name)";
+        aws_config=aws_config,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function get_environment(
@@ -227,7 +233,7 @@ function get_environment(
         "/environments/$(Name)",
         params;
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -244,13 +250,19 @@ Optional parameters can be passed as a `params::Dict{String,<:Any}`. Valid keys 
 - `"NextToken"`: Retrieves the next page of the results.
 """
 function list_environments(; aws_config::AbstractAWSConfig=global_aws_config())
-    return mwaa("GET", "/environments"; aws_config=aws_config, features=SERVICE_FEATURES)
+    return mwaa(
+        "GET", "/environments"; aws_config=aws_config, feature_set=SERVICE_FEATURE_SET
+    )
 end
 function list_environments(
     params::AbstractDict{String}; aws_config::AbstractAWSConfig=global_aws_config()
 )
     return mwaa(
-        "GET", "/environments", params; aws_config=aws_config, features=SERVICE_FEATURES
+        "GET",
+        "/environments",
+        params;
+        aws_config=aws_config,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -270,7 +282,10 @@ function list_tags_for_resource(
     ResourceArn; aws_config::AbstractAWSConfig=global_aws_config()
 )
     return mwaa(
-        "GET", "/tags/$(ResourceArn)"; aws_config=aws_config, features=SERVICE_FEATURES
+        "GET",
+        "/tags/$(ResourceArn)";
+        aws_config=aws_config,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function list_tags_for_resource(
@@ -283,7 +298,7 @@ function list_tags_for_resource(
         "/tags/$(ResourceArn)",
         params;
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -307,7 +322,7 @@ function publish_metrics(
         "/metrics/environments/$(EnvironmentName)",
         Dict{String,Any}("MetricData" => MetricData);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function publish_metrics(
@@ -323,7 +338,7 @@ function publish_metrics(
             mergewith(_merge, Dict{String,Any}("MetricData" => MetricData), params)
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -347,7 +362,7 @@ function tag_resource(ResourceArn, Tags; aws_config::AbstractAWSConfig=global_aw
         "/tags/$(ResourceArn)",
         Dict{String,Any}("Tags" => Tags);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function tag_resource(
@@ -361,7 +376,7 @@ function tag_resource(
         "/tags/$(ResourceArn)",
         Dict{String,Any}(mergewith(_merge, Dict{String,Any}("Tags" => Tags), params));
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -387,7 +402,7 @@ function untag_resource(
         "/tags/$(ResourceArn)",
         Dict{String,Any}("tagKeys" => tagKeys);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function untag_resource(
@@ -401,7 +416,7 @@ function untag_resource(
         "/tags/$(ResourceArn)",
         Dict{String,Any}(mergewith(_merge, Dict{String,Any}("tagKeys" => tagKeys), params));
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -471,7 +486,10 @@ Optional parameters can be passed as a `params::Dict{String,<:Any}`. Valid keys 
 """
 function update_environment(Name; aws_config::AbstractAWSConfig=global_aws_config())
     return mwaa(
-        "PATCH", "/environments/$(Name)"; aws_config=aws_config, features=SERVICE_FEATURES
+        "PATCH",
+        "/environments/$(Name)";
+        aws_config=aws_config,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function update_environment(
@@ -482,6 +500,6 @@ function update_environment(
         "/environments/$(Name)",
         params;
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end

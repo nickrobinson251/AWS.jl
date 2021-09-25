@@ -47,7 +47,7 @@ function analyze_document(
         "AnalyzeDocument",
         Dict{String,Any}("Document" => Document, "FeatureTypes" => FeatureTypes);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function analyze_document(
@@ -66,7 +66,7 @@ function analyze_document(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -89,7 +89,7 @@ function analyze_expense(Document; aws_config::AbstractAWSConfig=global_aws_conf
         "AnalyzeExpense",
         Dict{String,Any}("Document" => Document);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function analyze_expense(
@@ -103,7 +103,7 @@ function analyze_expense(
             mergewith(_merge, Dict{String,Any}("Document" => Document), params)
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -132,7 +132,7 @@ function detect_document_text(Document; aws_config::AbstractAWSConfig=global_aws
         "DetectDocumentText",
         Dict{String,Any}("Document" => Document);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function detect_document_text(
@@ -146,7 +146,7 @@ function detect_document_text(
             mergewith(_merge, Dict{String,Any}("Document" => Document), params)
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -198,7 +198,7 @@ function get_document_analysis(JobId; aws_config::AbstractAWSConfig=global_aws_c
         "GetDocumentAnalysis",
         Dict{String,Any}("JobId" => JobId);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function get_document_analysis(
@@ -208,7 +208,7 @@ function get_document_analysis(
         "GetDocumentAnalysis",
         Dict{String,Any}(mergewith(_merge, Dict{String,Any}("JobId" => JobId), params));
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -256,7 +256,7 @@ function get_document_text_detection(
         "GetDocumentTextDetection",
         Dict{String,Any}("JobId" => JobId);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function get_document_text_detection(
@@ -266,7 +266,7 @@ function get_document_text_detection(
         "GetDocumentTextDetection",
         Dict{String,Any}(mergewith(_merge, Dict{String,Any}("JobId" => JobId), params));
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -322,7 +322,7 @@ function start_document_analysis(
             "DocumentLocation" => DocumentLocation, "FeatureTypes" => FeatureTypes
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function start_document_analysis(
@@ -343,7 +343,7 @@ function start_document_analysis(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -392,7 +392,7 @@ function start_document_text_detection(
         "StartDocumentTextDetection",
         Dict{String,Any}("DocumentLocation" => DocumentLocation);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function start_document_text_detection(
@@ -408,6 +408,6 @@ function start_document_text_detection(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end

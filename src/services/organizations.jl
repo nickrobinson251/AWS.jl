@@ -35,7 +35,7 @@ function accept_handshake(HandshakeId; aws_config::AbstractAWSConfig=global_aws_
         "AcceptHandshake",
         Dict{String,Any}("HandshakeId" => HandshakeId);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function accept_handshake(
@@ -49,7 +49,7 @@ function accept_handshake(
             mergewith(_merge, Dict{String,Any}("HandshakeId" => HandshakeId), params)
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -86,7 +86,7 @@ function attach_policy(
         "AttachPolicy",
         Dict{String,Any}("PolicyId" => PolicyId, "TargetId" => TargetId);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function attach_policy(
@@ -105,7 +105,7 @@ function attach_policy(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -131,7 +131,7 @@ function cancel_handshake(HandshakeId; aws_config::AbstractAWSConfig=global_aws_
         "CancelHandshake",
         Dict{String,Any}("HandshakeId" => HandshakeId);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function cancel_handshake(
@@ -145,7 +145,7 @@ function cancel_handshake(
             mergewith(_merge, Dict{String,Any}("HandshakeId" => HandshakeId), params)
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -236,7 +236,7 @@ function create_account(
         "CreateAccount",
         Dict{String,Any}("AccountName" => AccountName, "Email" => Email);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function create_account(
@@ -255,7 +255,7 @@ function create_account(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -374,7 +374,7 @@ function create_gov_cloud_account(
         "CreateGovCloudAccount",
         Dict{String,Any}("AccountName" => AccountName, "Email" => Email);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function create_gov_cloud_account(
@@ -393,7 +393,7 @@ function create_gov_cloud_account(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -426,14 +426,14 @@ Optional parameters can be passed as a `params::Dict{String,<:Any}`. Valid keys 
 """
 function create_organization(; aws_config::AbstractAWSConfig=global_aws_config())
     return organizations(
-        "CreateOrganization"; aws_config=aws_config, features=SERVICE_FEATURES
+        "CreateOrganization"; aws_config=aws_config, feature_set=SERVICE_FEATURE_SET
     )
 end
 function create_organization(
     params::AbstractDict{String}; aws_config::AbstractAWSConfig=global_aws_config()
 )
     return organizations(
-        "CreateOrganization", params; aws_config=aws_config, features=SERVICE_FEATURES
+        "CreateOrganization", params; aws_config=aws_config, feature_set=SERVICE_FEATURE_SET
     )
 end
 
@@ -475,7 +475,7 @@ function create_organizational_unit(
         "CreateOrganizationalUnit",
         Dict{String,Any}("Name" => Name, "ParentId" => ParentId);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function create_organizational_unit(
@@ -492,7 +492,7 @@ function create_organizational_unit(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -536,7 +536,7 @@ function create_policy(
             "Type" => Type,
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function create_policy(
@@ -562,7 +562,7 @@ function create_policy(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -588,7 +588,7 @@ function decline_handshake(HandshakeId; aws_config::AbstractAWSConfig=global_aws
         "DeclineHandshake",
         Dict{String,Any}("HandshakeId" => HandshakeId);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function decline_handshake(
@@ -602,7 +602,7 @@ function decline_handshake(
             mergewith(_merge, Dict{String,Any}("HandshakeId" => HandshakeId), params)
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -616,14 +616,14 @@ management account. The organization must be empty of member accounts.
 """
 function delete_organization(; aws_config::AbstractAWSConfig=global_aws_config())
     return organizations(
-        "DeleteOrganization"; aws_config=aws_config, features=SERVICE_FEATURES
+        "DeleteOrganization"; aws_config=aws_config, feature_set=SERVICE_FEATURE_SET
     )
 end
 function delete_organization(
     params::AbstractDict{String}; aws_config::AbstractAWSConfig=global_aws_config()
 )
     return organizations(
-        "DeleteOrganization", params; aws_config=aws_config, features=SERVICE_FEATURES
+        "DeleteOrganization", params; aws_config=aws_config, feature_set=SERVICE_FEATURE_SET
     )
 end
 
@@ -650,7 +650,7 @@ function delete_organizational_unit(
         "DeleteOrganizationalUnit",
         Dict{String,Any}("OrganizationalUnitId" => OrganizationalUnitId);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function delete_organizational_unit(
@@ -668,7 +668,7 @@ function delete_organizational_unit(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -692,7 +692,7 @@ function delete_policy(PolicyId; aws_config::AbstractAWSConfig=global_aws_config
         "DeletePolicy",
         Dict{String,Any}("PolicyId" => PolicyId);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function delete_policy(
@@ -706,7 +706,7 @@ function delete_policy(
             mergewith(_merge, Dict{String,Any}("PolicyId" => PolicyId), params)
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -741,7 +741,7 @@ function deregister_delegated_administrator(
         "DeregisterDelegatedAdministrator",
         Dict{String,Any}("AccountId" => AccountId, "ServicePrincipal" => ServicePrincipal);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function deregister_delegated_administrator(
@@ -762,7 +762,7 @@ function deregister_delegated_administrator(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -785,7 +785,7 @@ function describe_account(AccountId; aws_config::AbstractAWSConfig=global_aws_co
         "DescribeAccount",
         Dict{String,Any}("AccountId" => AccountId);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function describe_account(
@@ -799,7 +799,7 @@ function describe_account(
             mergewith(_merge, Dict{String,Any}("AccountId" => AccountId), params)
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -826,7 +826,7 @@ function describe_create_account_status(
         "DescribeCreateAccountStatus",
         Dict{String,Any}("CreateAccountRequestId" => CreateAccountRequestId);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function describe_create_account_status(
@@ -844,7 +844,7 @@ function describe_create_account_status(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -878,7 +878,7 @@ function describe_effective_policy(
         "DescribeEffectivePolicy",
         Dict{String,Any}("PolicyType" => PolicyType);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function describe_effective_policy(
@@ -892,7 +892,7 @@ function describe_effective_policy(
             mergewith(_merge, Dict{String,Any}("PolicyType" => PolicyType), params)
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -918,7 +918,7 @@ function describe_handshake(HandshakeId; aws_config::AbstractAWSConfig=global_aw
         "DescribeHandshake",
         Dict{String,Any}("HandshakeId" => HandshakeId);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function describe_handshake(
@@ -932,7 +932,7 @@ function describe_handshake(
             mergewith(_merge, Dict{String,Any}("HandshakeId" => HandshakeId), params)
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -949,14 +949,17 @@ root.
 """
 function describe_organization(; aws_config::AbstractAWSConfig=global_aws_config())
     return organizations(
-        "DescribeOrganization"; aws_config=aws_config, features=SERVICE_FEATURES
+        "DescribeOrganization"; aws_config=aws_config, feature_set=SERVICE_FEATURE_SET
     )
 end
 function describe_organization(
     params::AbstractDict{String}; aws_config::AbstractAWSConfig=global_aws_config()
 )
     return organizations(
-        "DescribeOrganization", params; aws_config=aws_config, features=SERVICE_FEATURES
+        "DescribeOrganization",
+        params;
+        aws_config=aws_config,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -983,7 +986,7 @@ function describe_organizational_unit(
         "DescribeOrganizationalUnit",
         Dict{String,Any}("OrganizationalUnitId" => OrganizationalUnitId);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function describe_organizational_unit(
@@ -1001,7 +1004,7 @@ function describe_organizational_unit(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -1025,7 +1028,7 @@ function describe_policy(PolicyId; aws_config::AbstractAWSConfig=global_aws_conf
         "DescribePolicy",
         Dict{String,Any}("PolicyId" => PolicyId);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function describe_policy(
@@ -1039,7 +1042,7 @@ function describe_policy(
             mergewith(_merge, Dict{String,Any}("PolicyId" => PolicyId), params)
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -1082,7 +1085,7 @@ function detach_policy(
         "DetachPolicy",
         Dict{String,Any}("PolicyId" => PolicyId, "TargetId" => TargetId);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function detach_policy(
@@ -1101,7 +1104,7 @@ function detach_policy(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -1157,7 +1160,7 @@ function disable_awsservice_access(
         "DisableAWSServiceAccess",
         Dict{String,Any}("ServicePrincipal" => ServicePrincipal);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function disable_awsservice_access(
@@ -1173,7 +1176,7 @@ function disable_awsservice_access(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -1209,7 +1212,7 @@ function disable_policy_type(
         "DisablePolicyType",
         Dict{String,Any}("PolicyType" => PolicyType, "RootId" => RootId);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function disable_policy_type(
@@ -1228,7 +1231,7 @@ function disable_policy_type(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -1260,14 +1263,14 @@ organization's management account.
 """
 function enable_all_features(; aws_config::AbstractAWSConfig=global_aws_config())
     return organizations(
-        "EnableAllFeatures"; aws_config=aws_config, features=SERVICE_FEATURES
+        "EnableAllFeatures"; aws_config=aws_config, feature_set=SERVICE_FEATURE_SET
     )
 end
 function enable_all_features(
     params::AbstractDict{String}; aws_config::AbstractAWSConfig=global_aws_config()
 )
     return organizations(
-        "EnableAllFeatures", params; aws_config=aws_config, features=SERVICE_FEATURES
+        "EnableAllFeatures", params; aws_config=aws_config, feature_set=SERVICE_FEATURE_SET
     )
 end
 
@@ -1302,7 +1305,7 @@ function enable_awsservice_access(
         "EnableAWSServiceAccess",
         Dict{String,Any}("ServicePrincipal" => ServicePrincipal);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function enable_awsservice_access(
@@ -1318,7 +1321,7 @@ function enable_awsservice_access(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -1351,7 +1354,7 @@ function enable_policy_type(
         "EnablePolicyType",
         Dict{String,Any}("PolicyType" => PolicyType, "RootId" => RootId);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function enable_policy_type(
@@ -1370,7 +1373,7 @@ function enable_policy_type(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -1426,7 +1429,7 @@ function invite_account_to_organization(
         "InviteAccountToOrganization",
         Dict{String,Any}("Target" => Target);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function invite_account_to_organization(
@@ -1436,7 +1439,7 @@ function invite_account_to_organization(
         "InviteAccountToOrganization",
         Dict{String,Any}(mergewith(_merge, Dict{String,Any}("Target" => Target), params));
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -1476,14 +1479,14 @@ required, then try again in a few days.
 """
 function leave_organization(; aws_config::AbstractAWSConfig=global_aws_config())
     return organizations(
-        "LeaveOrganization"; aws_config=aws_config, features=SERVICE_FEATURES
+        "LeaveOrganization"; aws_config=aws_config, feature_set=SERVICE_FEATURE_SET
     )
 end
 function leave_organization(
     params::AbstractDict{String}; aws_config::AbstractAWSConfig=global_aws_config()
 )
     return organizations(
-        "LeaveOrganization", params; aws_config=aws_config, features=SERVICE_FEATURES
+        "LeaveOrganization", params; aws_config=aws_config, feature_set=SERVICE_FEATURE_SET
     )
 end
 
@@ -1516,13 +1519,15 @@ Optional parameters can be passed as a `params::Dict{String,<:Any}`. Valid keys 
   indicate where the output should continue from.
 """
 function list_accounts(; aws_config::AbstractAWSConfig=global_aws_config())
-    return organizations("ListAccounts"; aws_config=aws_config, features=SERVICE_FEATURES)
+    return organizations(
+        "ListAccounts"; aws_config=aws_config, feature_set=SERVICE_FEATURE_SET
+    )
 end
 function list_accounts(
     params::AbstractDict{String}; aws_config::AbstractAWSConfig=global_aws_config()
 )
     return organizations(
-        "ListAccounts", params; aws_config=aws_config, features=SERVICE_FEATURES
+        "ListAccounts", params; aws_config=aws_config, feature_set=SERVICE_FEATURE_SET
     )
 end
 
@@ -1567,7 +1572,7 @@ function list_accounts_for_parent(
         "ListAccountsForParent",
         Dict{String,Any}("ParentId" => ParentId);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function list_accounts_for_parent(
@@ -1581,7 +1586,7 @@ function list_accounts_for_parent(
             mergewith(_merge, Dict{String,Any}("ParentId" => ParentId), params)
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -1619,7 +1624,7 @@ function list_awsservice_access_for_organization(;
     return organizations(
         "ListAWSServiceAccessForOrganization";
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function list_awsservice_access_for_organization(
@@ -1629,7 +1634,7 @@ function list_awsservice_access_for_organization(
         "ListAWSServiceAccessForOrganization",
         params;
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -1677,7 +1682,7 @@ function list_children(
         "ListChildren",
         Dict{String,Any}("ChildType" => ChildType, "ParentId" => ParentId);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function list_children(
@@ -1696,7 +1701,7 @@ function list_children(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -1731,14 +1736,17 @@ Optional parameters can be passed as a `params::Dict{String,<:Any}`. Valid keys 
 """
 function list_create_account_status(; aws_config::AbstractAWSConfig=global_aws_config())
     return organizations(
-        "ListCreateAccountStatus"; aws_config=aws_config, features=SERVICE_FEATURES
+        "ListCreateAccountStatus"; aws_config=aws_config, feature_set=SERVICE_FEATURE_SET
     )
 end
 function list_create_account_status(
     params::AbstractDict{String}; aws_config::AbstractAWSConfig=global_aws_config()
 )
     return organizations(
-        "ListCreateAccountStatus", params; aws_config=aws_config, features=SERVICE_FEATURES
+        "ListCreateAccountStatus",
+        params;
+        aws_config=aws_config,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -1771,7 +1779,9 @@ Optional parameters can be passed as a `params::Dict{String,<:Any}`. Valid keys 
 """
 function list_delegated_administrators(; aws_config::AbstractAWSConfig=global_aws_config())
     return organizations(
-        "ListDelegatedAdministrators"; aws_config=aws_config, features=SERVICE_FEATURES
+        "ListDelegatedAdministrators";
+        aws_config=aws_config,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function list_delegated_administrators(
@@ -1781,7 +1791,7 @@ function list_delegated_administrators(
         "ListDelegatedAdministrators",
         params;
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -1819,7 +1829,7 @@ function list_delegated_services_for_account(
         "ListDelegatedServicesForAccount",
         Dict{String,Any}("AccountId" => AccountId);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function list_delegated_services_for_account(
@@ -1833,7 +1843,7 @@ function list_delegated_services_for_account(
             mergewith(_merge, Dict{String,Any}("AccountId" => AccountId), params)
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -1873,14 +1883,17 @@ Optional parameters can be passed as a `params::Dict{String,<:Any}`. Valid keys 
 """
 function list_handshakes_for_account(; aws_config::AbstractAWSConfig=global_aws_config())
     return organizations(
-        "ListHandshakesForAccount"; aws_config=aws_config, features=SERVICE_FEATURES
+        "ListHandshakesForAccount"; aws_config=aws_config, feature_set=SERVICE_FEATURE_SET
     )
 end
 function list_handshakes_for_account(
     params::AbstractDict{String}; aws_config::AbstractAWSConfig=global_aws_config()
 )
     return organizations(
-        "ListHandshakesForAccount", params; aws_config=aws_config, features=SERVICE_FEATURES
+        "ListHandshakesForAccount",
+        params;
+        aws_config=aws_config,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -1925,7 +1938,9 @@ function list_handshakes_for_organization(;
     aws_config::AbstractAWSConfig=global_aws_config()
 )
     return organizations(
-        "ListHandshakesForOrganization"; aws_config=aws_config, features=SERVICE_FEATURES
+        "ListHandshakesForOrganization";
+        aws_config=aws_config,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function list_handshakes_for_organization(
@@ -1935,7 +1950,7 @@ function list_handshakes_for_organization(
         "ListHandshakesForOrganization",
         params;
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -1980,7 +1995,7 @@ function list_organizational_units_for_parent(
         "ListOrganizationalUnitsForParent",
         Dict{String,Any}("ParentId" => ParentId);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function list_organizational_units_for_parent(
@@ -1994,7 +2009,7 @@ function list_organizational_units_for_parent(
             mergewith(_merge, Dict{String,Any}("ParentId" => ParentId), params)
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -2040,7 +2055,7 @@ function list_parents(ChildId; aws_config::AbstractAWSConfig=global_aws_config()
         "ListParents",
         Dict{String,Any}("ChildId" => ChildId);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function list_parents(
@@ -2050,7 +2065,7 @@ function list_parents(
         "ListParents",
         Dict{String,Any}(mergewith(_merge, Dict{String,Any}("ChildId" => ChildId), params));
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -2090,7 +2105,7 @@ function list_policies(Filter; aws_config::AbstractAWSConfig=global_aws_config()
         "ListPolicies",
         Dict{String,Any}("Filter" => Filter);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function list_policies(
@@ -2100,7 +2115,7 @@ function list_policies(
         "ListPolicies",
         Dict{String,Any}(mergewith(_merge, Dict{String,Any}("Filter" => Filter), params));
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -2151,7 +2166,7 @@ function list_policies_for_target(
         "ListPoliciesForTarget",
         Dict{String,Any}("Filter" => Filter, "TargetId" => TargetId);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function list_policies_for_target(
@@ -2168,7 +2183,7 @@ function list_policies_for_target(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -2203,13 +2218,15 @@ Optional parameters can be passed as a `params::Dict{String,<:Any}`. Valid keys 
   indicate where the output should continue from.
 """
 function list_roots(; aws_config::AbstractAWSConfig=global_aws_config())
-    return organizations("ListRoots"; aws_config=aws_config, features=SERVICE_FEATURES)
+    return organizations(
+        "ListRoots"; aws_config=aws_config, feature_set=SERVICE_FEATURE_SET
+    )
 end
 function list_roots(
     params::AbstractDict{String}; aws_config::AbstractAWSConfig=global_aws_config()
 )
     return organizations(
-        "ListRoots", params; aws_config=aws_config, features=SERVICE_FEATURES
+        "ListRoots", params; aws_config=aws_config, feature_set=SERVICE_FEATURE_SET
     )
 end
 
@@ -2245,7 +2262,7 @@ function list_tags_for_resource(
         "ListTagsForResource",
         Dict{String,Any}("ResourceId" => ResourceId);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function list_tags_for_resource(
@@ -2259,7 +2276,7 @@ function list_tags_for_resource(
             mergewith(_merge, Dict{String,Any}("ResourceId" => ResourceId), params)
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -2302,7 +2319,7 @@ function list_targets_for_policy(
         "ListTargetsForPolicy",
         Dict{String,Any}("PolicyId" => PolicyId);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function list_targets_for_policy(
@@ -2316,7 +2333,7 @@ function list_targets_for_policy(
             mergewith(_merge, Dict{String,Any}("PolicyId" => PolicyId), params)
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -2361,7 +2378,7 @@ function move_account(
             "SourceParentId" => SourceParentId,
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function move_account(
@@ -2385,7 +2402,7 @@ function move_account(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -2415,7 +2432,7 @@ function register_delegated_administrator(
         "RegisterDelegatedAdministrator",
         Dict{String,Any}("AccountId" => AccountId, "ServicePrincipal" => ServicePrincipal);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function register_delegated_administrator(
@@ -2436,7 +2453,7 @@ function register_delegated_administrator(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -2480,7 +2497,7 @@ function remove_account_from_organization(
         "RemoveAccountFromOrganization",
         Dict{String,Any}("AccountId" => AccountId);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function remove_account_from_organization(
@@ -2494,7 +2511,7 @@ function remove_account_from_organization(
             mergewith(_merge, Dict{String,Any}("AccountId" => AccountId), params)
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -2525,7 +2542,7 @@ function tag_resource(ResourceId, Tags; aws_config::AbstractAWSConfig=global_aws
         "TagResource",
         Dict{String,Any}("ResourceId" => ResourceId, "Tags" => Tags);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function tag_resource(
@@ -2542,7 +2559,7 @@ function tag_resource(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -2572,7 +2589,7 @@ function untag_resource(
         "UntagResource",
         Dict{String,Any}("ResourceId" => ResourceId, "TagKeys" => TagKeys);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function untag_resource(
@@ -2591,7 +2608,7 @@ function untag_resource(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -2623,7 +2640,7 @@ function update_organizational_unit(
         "UpdateOrganizationalUnit",
         Dict{String,Any}("OrganizationalUnitId" => OrganizationalUnitId);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function update_organizational_unit(
@@ -2641,7 +2658,7 @@ function update_organizational_unit(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -2672,7 +2689,7 @@ function update_policy(PolicyId; aws_config::AbstractAWSConfig=global_aws_config
         "UpdatePolicy",
         Dict{String,Any}("PolicyId" => PolicyId);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function update_policy(
@@ -2686,6 +2703,6 @@ function update_policy(
             mergewith(_merge, Dict{String,Any}("PolicyId" => PolicyId), params)
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end

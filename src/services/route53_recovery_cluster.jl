@@ -28,7 +28,7 @@ function get_routing_control_state(
         "GetRoutingControlState",
         Dict{String,Any}("RoutingControlArn" => RoutingControlArn);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function get_routing_control_state(
@@ -44,7 +44,7 @@ function get_routing_control_state(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -76,7 +76,7 @@ function update_routing_control_state(
             "RoutingControlState" => RoutingControlState,
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function update_routing_control_state(
@@ -98,7 +98,7 @@ function update_routing_control_state(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -125,7 +125,7 @@ function update_routing_control_states(
             "UpdateRoutingControlStateEntries" => UpdateRoutingControlStateEntries
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function update_routing_control_states(
@@ -145,6 +145,6 @@ function update_routing_control_states(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end

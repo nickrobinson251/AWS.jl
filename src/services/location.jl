@@ -31,7 +31,7 @@ function associate_tracker_consumer(
         "/tracking/v0/trackers/$(TrackerName)/consumers",
         Dict{String,Any}("ConsumerArn" => ConsumerArn);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function associate_tracker_consumer(
@@ -47,7 +47,7 @@ function associate_tracker_consumer(
             mergewith(_merge, Dict{String,Any}("ConsumerArn" => ConsumerArn), params)
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -72,7 +72,7 @@ function batch_delete_device_position_history(
         "/tracking/v0/trackers/$(TrackerName)/delete-positions",
         Dict{String,Any}("DeviceIds" => DeviceIds);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function batch_delete_device_position_history(
@@ -88,7 +88,7 @@ function batch_delete_device_position_history(
             mergewith(_merge, Dict{String,Any}("DeviceIds" => DeviceIds), params)
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -112,7 +112,7 @@ function batch_delete_geofence(
         "/geofencing/v0/collections/$(CollectionName)/delete-geofences",
         Dict{String,Any}("GeofenceIds" => GeofenceIds);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function batch_delete_geofence(
@@ -128,7 +128,7 @@ function batch_delete_geofence(
             mergewith(_merge, Dict{String,Any}("GeofenceIds" => GeofenceIds), params)
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -160,7 +160,7 @@ function batch_evaluate_geofences(
         "/geofencing/v0/collections/$(CollectionName)/positions",
         Dict{String,Any}("DevicePositionUpdates" => DevicePositionUpdates);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function batch_evaluate_geofences(
@@ -180,7 +180,7 @@ function batch_evaluate_geofences(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -204,7 +204,7 @@ function batch_get_device_position(
         "/tracking/v0/trackers/$(TrackerName)/get-positions",
         Dict{String,Any}("DeviceIds" => DeviceIds);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function batch_get_device_position(
@@ -220,7 +220,7 @@ function batch_get_device_position(
             mergewith(_merge, Dict{String,Any}("DeviceIds" => DeviceIds), params)
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -244,7 +244,7 @@ function batch_put_geofence(
         "/geofencing/v0/collections/$(CollectionName)/put-geofences",
         Dict{String,Any}("Entries" => Entries);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function batch_put_geofence(
@@ -258,7 +258,7 @@ function batch_put_geofence(
         "/geofencing/v0/collections/$(CollectionName)/put-geofences",
         Dict{String,Any}(mergewith(_merge, Dict{String,Any}("Entries" => Entries), params));
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -284,7 +284,7 @@ function batch_update_device_position(
         "/tracking/v0/trackers/$(TrackerName)/positions",
         Dict{String,Any}("Updates" => Updates);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function batch_update_device_position(
@@ -298,7 +298,7 @@ function batch_update_device_position(
         "/tracking/v0/trackers/$(TrackerName)/positions",
         Dict{String,Any}(mergewith(_merge, Dict{String,Any}("Updates" => Updates), params));
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -373,7 +373,7 @@ function calculate_route(
             "DestinationPosition" => DestinationPosition,
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function calculate_route(
@@ -397,7 +397,7 @@ function calculate_route(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -442,7 +442,7 @@ function create_geofence_collection(
         "/geofencing/v0/collections",
         Dict{String,Any}("CollectionName" => CollectionName, "PricingPlan" => PricingPlan);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function create_geofence_collection(
@@ -464,7 +464,7 @@ function create_geofence_collection(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -505,7 +505,7 @@ function create_map(
             "PricingPlan" => PricingPlan,
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function create_map(
@@ -530,7 +530,7 @@ function create_map(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -582,7 +582,7 @@ function create_place_index(
             "PricingPlan" => PricingPlan,
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function create_place_index(
@@ -607,7 +607,7 @@ function create_place_index(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -661,7 +661,7 @@ function create_route_calculator(
             "PricingPlan" => PricingPlan,
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function create_route_calculator(
@@ -686,7 +686,7 @@ function create_route_calculator(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -731,7 +731,7 @@ function create_tracker(
         "/tracking/v0/trackers",
         Dict{String,Any}("PricingPlan" => PricingPlan, "TrackerName" => TrackerName);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function create_tracker(
@@ -753,7 +753,7 @@ function create_tracker(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -776,7 +776,7 @@ function delete_geofence_collection(
         "DELETE",
         "/geofencing/v0/collections/$(CollectionName)";
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function delete_geofence_collection(
@@ -789,7 +789,7 @@ function delete_geofence_collection(
         "/geofencing/v0/collections/$(CollectionName)",
         params;
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -809,7 +809,7 @@ function delete_map(MapName; aws_config::AbstractAWSConfig=global_aws_config())
         "DELETE",
         "/maps/v0/maps/$(MapName)";
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function delete_map(
@@ -820,7 +820,7 @@ function delete_map(
         "/maps/v0/maps/$(MapName)",
         params;
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -840,7 +840,7 @@ function delete_place_index(IndexName; aws_config::AbstractAWSConfig=global_aws_
         "DELETE",
         "/places/v0/indexes/$(IndexName)";
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function delete_place_index(
@@ -853,7 +853,7 @@ function delete_place_index(
         "/places/v0/indexes/$(IndexName)",
         params;
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -875,7 +875,7 @@ function delete_route_calculator(
         "DELETE",
         "/routes/v0/calculators/$(CalculatorName)";
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function delete_route_calculator(
@@ -888,7 +888,7 @@ function delete_route_calculator(
         "/routes/v0/calculators/$(CalculatorName)",
         params;
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -909,7 +909,7 @@ function delete_tracker(TrackerName; aws_config::AbstractAWSConfig=global_aws_co
         "DELETE",
         "/tracking/v0/trackers/$(TrackerName)";
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function delete_tracker(
@@ -922,7 +922,7 @@ function delete_tracker(
         "/tracking/v0/trackers/$(TrackerName)",
         params;
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -943,7 +943,7 @@ function describe_geofence_collection(
         "GET",
         "/geofencing/v0/collections/$(CollectionName)";
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function describe_geofence_collection(
@@ -956,7 +956,7 @@ function describe_geofence_collection(
         "/geofencing/v0/collections/$(CollectionName)",
         params;
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -972,7 +972,10 @@ Retrieves the map resource details.
 """
 function describe_map(MapName; aws_config::AbstractAWSConfig=global_aws_config())
     return location(
-        "GET", "/maps/v0/maps/$(MapName)"; aws_config=aws_config, features=SERVICE_FEATURES
+        "GET",
+        "/maps/v0/maps/$(MapName)";
+        aws_config=aws_config,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function describe_map(
@@ -983,7 +986,7 @@ function describe_map(
         "/maps/v0/maps/$(MapName)",
         params;
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -1002,7 +1005,7 @@ function describe_place_index(IndexName; aws_config::AbstractAWSConfig=global_aw
         "GET",
         "/places/v0/indexes/$(IndexName)";
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function describe_place_index(
@@ -1015,7 +1018,7 @@ function describe_place_index(
         "/places/v0/indexes/$(IndexName)",
         params;
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -1036,7 +1039,7 @@ function describe_route_calculator(
         "GET",
         "/routes/v0/calculators/$(CalculatorName)";
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function describe_route_calculator(
@@ -1049,7 +1052,7 @@ function describe_route_calculator(
         "/routes/v0/calculators/$(CalculatorName)",
         params;
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -1068,7 +1071,7 @@ function describe_tracker(TrackerName; aws_config::AbstractAWSConfig=global_aws_
         "GET",
         "/tracking/v0/trackers/$(TrackerName)";
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function describe_tracker(
@@ -1081,7 +1084,7 @@ function describe_tracker(
         "/tracking/v0/trackers/$(TrackerName)",
         params;
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -1108,7 +1111,7 @@ function disassociate_tracker_consumer(
         "DELETE",
         "/tracking/v0/trackers/$(TrackerName)/consumers/$(ConsumerArn)";
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function disassociate_tracker_consumer(
@@ -1122,7 +1125,7 @@ function disassociate_tracker_consumer(
         "/tracking/v0/trackers/$(TrackerName)/consumers/$(ConsumerArn)",
         params;
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -1145,7 +1148,7 @@ function get_device_position(
         "GET",
         "/tracking/v0/trackers/$(TrackerName)/devices/$(DeviceId)/positions/latest";
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function get_device_position(
@@ -1159,7 +1162,7 @@ function get_device_position(
         "/tracking/v0/trackers/$(TrackerName)/devices/$(DeviceId)/positions/latest",
         params;
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -1195,7 +1198,7 @@ function get_device_position_history(
         "POST",
         "/tracking/v0/trackers/$(TrackerName)/devices/$(DeviceId)/list-positions";
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function get_device_position_history(
@@ -1209,7 +1212,7 @@ function get_device_position_history(
         "/tracking/v0/trackers/$(TrackerName)/devices/$(DeviceId)/list-positions",
         params;
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -1231,7 +1234,7 @@ function get_geofence(
         "GET",
         "/geofencing/v0/collections/$(CollectionName)/geofences/$(GeofenceId)";
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function get_geofence(
@@ -1245,7 +1248,7 @@ function get_geofence(
         "/geofencing/v0/collections/$(CollectionName)/geofences/$(GeofenceId)",
         params;
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -1278,7 +1281,7 @@ function get_map_glyphs(
         "GET",
         "/maps/v0/maps/$(MapName)/glyphs/$(FontStack)/$(FontUnicodeRange)";
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function get_map_glyphs(
@@ -1293,7 +1296,7 @@ function get_map_glyphs(
         "/maps/v0/maps/$(MapName)/glyphs/$(FontStack)/$(FontUnicodeRange)",
         params;
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -1320,7 +1323,7 @@ function get_map_sprites(
         "GET",
         "/maps/v0/maps/$(MapName)/sprites/$(FileName)";
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function get_map_sprites(
@@ -1334,7 +1337,7 @@ function get_map_sprites(
         "/maps/v0/maps/$(MapName)/sprites/$(FileName)",
         params;
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -1358,7 +1361,7 @@ function get_map_style_descriptor(
         "GET",
         "/maps/v0/maps/$(MapName)/style-descriptor";
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function get_map_style_descriptor(
@@ -1369,7 +1372,7 @@ function get_map_style_descriptor(
         "/maps/v0/maps/$(MapName)/style-descriptor",
         params;
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -1395,7 +1398,7 @@ function get_map_tile(MapName, X, Y, Z; aws_config::AbstractAWSConfig=global_aws
         "GET",
         "/maps/v0/maps/$(MapName)/tiles/$(Z)/$(X)/$(Y)";
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function get_map_tile(
@@ -1411,7 +1414,7 @@ function get_map_tile(
         "/maps/v0/maps/$(MapName)/tiles/$(Z)/$(X)/$(Y)",
         params;
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -1438,7 +1441,7 @@ function list_device_positions(
         "POST",
         "/tracking/v0/trackers/$(TrackerName)/list-positions";
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function list_device_positions(
@@ -1451,7 +1454,7 @@ function list_device_positions(
         "/tracking/v0/trackers/$(TrackerName)/list-positions",
         params;
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -1473,7 +1476,7 @@ function list_geofence_collections(; aws_config::AbstractAWSConfig=global_aws_co
         "POST",
         "/geofencing/v0/list-collections";
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function list_geofence_collections(
@@ -1484,7 +1487,7 @@ function list_geofence_collections(
         "/geofencing/v0/list-collections",
         params;
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -1507,7 +1510,7 @@ function list_geofences(CollectionName; aws_config::AbstractAWSConfig=global_aws
         "POST",
         "/geofencing/v0/collections/$(CollectionName)/list-geofences";
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function list_geofences(
@@ -1520,7 +1523,7 @@ function list_geofences(
         "/geofencing/v0/collections/$(CollectionName)/list-geofences",
         params;
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -1539,7 +1542,7 @@ Optional parameters can be passed as a `params::Dict{String,<:Any}`. Valid keys 
 """
 function list_maps(; aws_config::AbstractAWSConfig=global_aws_config())
     return location(
-        "POST", "/maps/v0/list-maps"; aws_config=aws_config, features=SERVICE_FEATURES
+        "POST", "/maps/v0/list-maps"; aws_config=aws_config, feature_set=SERVICE_FEATURE_SET
     )
 end
 function list_maps(
@@ -1550,7 +1553,7 @@ function list_maps(
         "/maps/v0/list-maps",
         params;
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -1569,7 +1572,10 @@ Optional parameters can be passed as a `params::Dict{String,<:Any}`. Valid keys 
 """
 function list_place_indexes(; aws_config::AbstractAWSConfig=global_aws_config())
     return location(
-        "POST", "/places/v0/list-indexes"; aws_config=aws_config, features=SERVICE_FEATURES
+        "POST",
+        "/places/v0/list-indexes";
+        aws_config=aws_config,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function list_place_indexes(
@@ -1580,7 +1586,7 @@ function list_place_indexes(
         "/places/v0/list-indexes",
         params;
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -1602,7 +1608,7 @@ function list_route_calculators(; aws_config::AbstractAWSConfig=global_aws_confi
         "POST",
         "/routes/v0/list-calculators";
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function list_route_calculators(
@@ -1613,7 +1619,7 @@ function list_route_calculators(
         "/routes/v0/list-calculators",
         params;
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -1632,7 +1638,10 @@ function list_tags_for_resource(
     ResourceArn; aws_config::AbstractAWSConfig=global_aws_config()
 )
     return location(
-        "GET", "/tags/$(ResourceArn)"; aws_config=aws_config, features=SERVICE_FEATURES
+        "GET",
+        "/tags/$(ResourceArn)";
+        aws_config=aws_config,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function list_tags_for_resource(
@@ -1645,7 +1654,7 @@ function list_tags_for_resource(
         "/tags/$(ResourceArn)",
         params;
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -1673,7 +1682,7 @@ function list_tracker_consumers(
         "POST",
         "/tracking/v0/trackers/$(TrackerName)/list-consumers";
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function list_tracker_consumers(
@@ -1686,7 +1695,7 @@ function list_tracker_consumers(
         "/tracking/v0/trackers/$(TrackerName)/list-consumers",
         params;
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -1708,7 +1717,7 @@ function list_trackers(; aws_config::AbstractAWSConfig=global_aws_config())
         "POST",
         "/tracking/v0/list-trackers";
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function list_trackers(
@@ -1719,7 +1728,7 @@ function list_trackers(
         "/tracking/v0/list-trackers",
         params;
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -1745,7 +1754,7 @@ function put_geofence(
         "/geofencing/v0/collections/$(CollectionName)/geofences/$(GeofenceId)",
         Dict{String,Any}("Geometry" => Geometry);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function put_geofence(
@@ -1762,7 +1771,7 @@ function put_geofence(
             mergewith(_merge, Dict{String,Any}("Geometry" => Geometry), params)
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -1792,7 +1801,7 @@ function search_place_index_for_position(
         "/places/v0/indexes/$(IndexName)/search/position",
         Dict{String,Any}("Position" => Position);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function search_place_index_for_position(
@@ -1808,7 +1817,7 @@ function search_place_index_for_position(
             mergewith(_merge, Dict{String,Any}("Position" => Position), params)
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -1856,7 +1865,7 @@ function search_place_index_for_text(
         "/places/v0/indexes/$(IndexName)/search/text",
         Dict{String,Any}("Text" => Text);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function search_place_index_for_text(
@@ -1870,7 +1879,7 @@ function search_place_index_for_text(
         "/places/v0/indexes/$(IndexName)/search/text",
         Dict{String,Any}(mergewith(_merge, Dict{String,Any}("Text" => Text), params));
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -1903,7 +1912,7 @@ function tag_resource(ResourceArn, Tags; aws_config::AbstractAWSConfig=global_aw
         "/tags/$(ResourceArn)",
         Dict{String,Any}("Tags" => Tags);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function tag_resource(
@@ -1917,7 +1926,7 @@ function tag_resource(
         "/tags/$(ResourceArn)",
         Dict{String,Any}(mergewith(_merge, Dict{String,Any}("Tags" => Tags), params));
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -1941,7 +1950,7 @@ function untag_resource(
         "/tags/$(ResourceArn)",
         Dict{String,Any}("tagKeys" => tagKeys);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function untag_resource(
@@ -1955,7 +1964,7 @@ function untag_resource(
         "/tags/$(ResourceArn)",
         Dict{String,Any}(mergewith(_merge, Dict{String,Any}("tagKeys" => tagKeys), params));
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -1989,7 +1998,7 @@ function update_geofence_collection(
         "PATCH",
         "/geofencing/v0/collections/$(CollectionName)";
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function update_geofence_collection(
@@ -2002,7 +2011,7 @@ function update_geofence_collection(
         "/geofencing/v0/collections/$(CollectionName)",
         params;
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -2026,7 +2035,7 @@ function update_map(MapName; aws_config::AbstractAWSConfig=global_aws_config())
         "PATCH",
         "/maps/v0/maps/$(MapName)";
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function update_map(
@@ -2037,7 +2046,7 @@ function update_map(
         "/maps/v0/maps/$(MapName)",
         params;
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -2063,7 +2072,7 @@ function update_place_index(IndexName; aws_config::AbstractAWSConfig=global_aws_
         "PATCH",
         "/places/v0/indexes/$(IndexName)";
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function update_place_index(
@@ -2076,7 +2085,7 @@ function update_place_index(
         "/places/v0/indexes/$(IndexName)",
         params;
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -2103,7 +2112,7 @@ function update_route_calculator(
         "PATCH",
         "/routes/v0/calculators/$(CalculatorName)";
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function update_route_calculator(
@@ -2116,7 +2125,7 @@ function update_route_calculator(
         "/routes/v0/calculators/$(CalculatorName)",
         params;
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -2147,7 +2156,7 @@ function update_tracker(TrackerName; aws_config::AbstractAWSConfig=global_aws_co
         "PATCH",
         "/tracking/v0/trackers/$(TrackerName)";
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function update_tracker(
@@ -2160,6 +2169,6 @@ function update_tracker(
         "/tracking/v0/trackers/$(TrackerName)",
         params;
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end

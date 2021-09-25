@@ -24,7 +24,7 @@ function associate_phone_number_with_user(
         "/accounts/$(accountId)/users/$(userId)?operation=associate-phone-number",
         Dict{String,Any}("E164PhoneNumber" => E164PhoneNumber);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function associate_phone_number_with_user(
@@ -43,7 +43,7 @@ function associate_phone_number_with_user(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -71,7 +71,7 @@ function associate_phone_numbers_with_voice_connector(
         "/voice-connectors/$(voiceConnectorId)?operation=associate-phone-numbers",
         Dict{String,Any}("E164PhoneNumbers" => E164PhoneNumbers);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function associate_phone_numbers_with_voice_connector(
@@ -89,7 +89,7 @@ function associate_phone_numbers_with_voice_connector(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -119,7 +119,7 @@ function associate_phone_numbers_with_voice_connector_group(
         "/voice-connector-groups/$(voiceConnectorGroupId)?operation=associate-phone-numbers",
         Dict{String,Any}("E164PhoneNumbers" => E164PhoneNumbers);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function associate_phone_numbers_with_voice_connector_group(
@@ -137,7 +137,7 @@ function associate_phone_numbers_with_voice_connector_group(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -160,7 +160,7 @@ function associate_signin_delegate_groups_with_account(
         "/accounts/$(accountId)?operation=associate-signin-delegate-groups",
         Dict{String,Any}("SigninDelegateGroups" => SigninDelegateGroups);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function associate_signin_delegate_groups_with_account(
@@ -180,7 +180,7 @@ function associate_signin_delegate_groups_with_account(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -205,7 +205,7 @@ function batch_create_attendee(
         "/meetings/$(meetingId)/attendees?operation=batch-create",
         Dict{String,Any}("Attendees" => Attendees);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function batch_create_attendee(
@@ -221,7 +221,7 @@ function batch_create_attendee(
             mergewith(_merge, Dict{String,Any}("Attendees" => Attendees), params)
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -251,7 +251,7 @@ function batch_create_channel_membership(
         "/channels/$(channelArn)/memberships?operation=batch-create",
         Dict{String,Any}("MemberArns" => MemberArns);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function batch_create_channel_membership(
@@ -267,7 +267,7 @@ function batch_create_channel_membership(
             mergewith(_merge, Dict{String,Any}("MemberArns" => MemberArns), params)
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -293,7 +293,7 @@ function batch_create_room_membership(
         "/accounts/$(accountId)/rooms/$(roomId)/memberships?operation=batch-create",
         Dict{String,Any}("MembershipItemList" => MembershipItemList);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function batch_create_room_membership(
@@ -312,7 +312,7 @@ function batch_create_room_membership(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -336,7 +336,7 @@ function batch_delete_phone_number(
         "/phone-numbers?operation=batch-delete",
         Dict{String,Any}("PhoneNumberIds" => PhoneNumberIds);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function batch_delete_phone_number(
@@ -351,7 +351,7 @@ function batch_delete_phone_number(
             mergewith(_merge, Dict{String,Any}("PhoneNumberIds" => PhoneNumberIds), params)
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -382,7 +382,7 @@ function batch_suspend_user(
         "/accounts/$(accountId)/users?operation=suspend",
         Dict{String,Any}("UserIdList" => UserIdList);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function batch_suspend_user(
@@ -398,7 +398,7 @@ function batch_suspend_user(
             mergewith(_merge, Dict{String,Any}("UserIdList" => UserIdList), params)
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -426,7 +426,7 @@ function batch_unsuspend_user(
         "/accounts/$(accountId)/users?operation=unsuspend",
         Dict{String,Any}("UserIdList" => UserIdList);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function batch_unsuspend_user(
@@ -442,7 +442,7 @@ function batch_unsuspend_user(
             mergewith(_merge, Dict{String,Any}("UserIdList" => UserIdList), params)
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -471,7 +471,7 @@ function batch_update_phone_number(
         "/phone-numbers?operation=batch-update",
         Dict{String,Any}("UpdatePhoneNumberRequestItems" => UpdatePhoneNumberRequestItems);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function batch_update_phone_number(
@@ -492,7 +492,7 @@ function batch_update_phone_number(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -517,7 +517,7 @@ function batch_update_user(
         "/accounts/$(accountId)/users",
         Dict{String,Any}("UpdateUserRequestItems" => UpdateUserRequestItems);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function batch_update_user(
@@ -537,7 +537,7 @@ function batch_update_user(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -559,7 +559,7 @@ function create_account(Name; aws_config::AbstractAWSConfig=global_aws_config())
         "/accounts",
         Dict{String,Any}("Name" => Name);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function create_account(
@@ -570,7 +570,7 @@ function create_account(
         "/accounts",
         Dict{String,Any}(mergewith(_merge, Dict{String,Any}("Name" => Name), params));
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -599,7 +599,7 @@ function create_app_instance(
         "/app-instances",
         Dict{String,Any}("ClientRequestToken" => ClientRequestToken, "Name" => Name);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function create_app_instance(
@@ -621,7 +621,7 @@ function create_app_instance(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -647,7 +647,7 @@ function create_app_instance_admin(
         "/app-instances/$(appInstanceArn)/admins",
         Dict{String,Any}("AppInstanceAdminArn" => AppInstanceAdminArn);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function create_app_instance_admin(
@@ -667,7 +667,7 @@ function create_app_instance_admin(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -706,7 +706,7 @@ function create_app_instance_user(
             "Name" => Name,
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function create_app_instance_user(
@@ -733,7 +733,7 @@ function create_app_instance_user(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -761,7 +761,7 @@ function create_attendee(
         "/meetings/$(meetingId)/attendees",
         Dict{String,Any}("ExternalUserId" => ExternalUserId);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function create_attendee(
@@ -777,7 +777,7 @@ function create_attendee(
             mergewith(_merge, Dict{String,Any}("ExternalUserId" => ExternalUserId), params)
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -803,7 +803,7 @@ function create_bot(
         "/accounts/$(accountId)/bots",
         Dict{String,Any}("DisplayName" => DisplayName);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function create_bot(
@@ -819,7 +819,7 @@ function create_bot(
             mergewith(_merge, Dict{String,Any}("DisplayName" => DisplayName), params)
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -863,7 +863,7 @@ function create_channel(
             "Name" => Name,
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function create_channel(
@@ -888,7 +888,7 @@ function create_channel(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -919,7 +919,7 @@ function create_channel_ban(
         "/channels/$(channelArn)/bans",
         Dict{String,Any}("MemberArn" => MemberArn);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function create_channel_ban(
@@ -935,7 +935,7 @@ function create_channel_ban(
             mergewith(_merge, Dict{String,Any}("MemberArn" => MemberArn), params)
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -971,7 +971,7 @@ function create_channel_membership(
         "/channels/$(channelArn)/memberships",
         Dict{String,Any}("MemberArn" => MemberArn, "Type" => Type);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function create_channel_membership(
@@ -990,7 +990,7 @@ function create_channel_membership(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -1020,7 +1020,7 @@ function create_channel_moderator(
         "/channels/$(channelArn)/moderators",
         Dict{String,Any}("ChannelModeratorArn" => ChannelModeratorArn);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function create_channel_moderator(
@@ -1040,7 +1040,7 @@ function create_channel_moderator(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -1080,7 +1080,7 @@ function create_media_capture_pipeline(
             "ClientRequestToken" => string(uuid4()),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function create_media_capture_pipeline(
@@ -1108,7 +1108,7 @@ function create_media_capture_pipeline(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -1146,7 +1146,7 @@ function create_meeting(
         "/meetings",
         Dict{String,Any}("ClientRequestToken" => ClientRequestToken);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function create_meeting(
@@ -1163,7 +1163,7 @@ function create_meeting(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -1202,7 +1202,7 @@ function create_meeting_dial_out(
             "ToPhoneNumber" => ToPhoneNumber,
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function create_meeting_dial_out(
@@ -1228,7 +1228,7 @@ function create_meeting_dial_out(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -1266,7 +1266,7 @@ function create_meeting_with_attendees(
         "/meetings?operation=create-attendees",
         Dict{String,Any}("ClientRequestToken" => ClientRequestToken);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function create_meeting_with_attendees(
@@ -1283,7 +1283,7 @@ function create_meeting_with_attendees(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -1310,7 +1310,7 @@ function create_phone_number_order(
             "E164PhoneNumbers" => E164PhoneNumbers, "ProductType" => ProductType
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function create_phone_number_order(
@@ -1332,7 +1332,7 @@ function create_phone_number_order(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -1372,7 +1372,7 @@ function create_proxy_session(
             "ParticipantPhoneNumbers" => ParticipantPhoneNumbers,
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function create_proxy_session(
@@ -1396,7 +1396,7 @@ function create_proxy_session(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -1420,7 +1420,7 @@ function create_room(Name, accountId; aws_config::AbstractAWSConfig=global_aws_c
         "/accounts/$(accountId)/rooms",
         Dict{String,Any}("Name" => Name, "ClientRequestToken" => string(uuid4()));
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function create_room(
@@ -1440,7 +1440,7 @@ function create_room(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -1469,7 +1469,7 @@ function create_room_membership(
         "/accounts/$(accountId)/rooms/$(roomId)/memberships",
         Dict{String,Any}("MemberId" => MemberId);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function create_room_membership(
@@ -1486,7 +1486,7 @@ function create_room_membership(
             mergewith(_merge, Dict{String,Any}("MemberId" => MemberId), params)
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -1513,7 +1513,7 @@ function create_sip_media_application(
             "AwsRegion" => AwsRegion, "Endpoints" => Endpoints, "Name" => Name
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function create_sip_media_application(
@@ -1536,7 +1536,7 @@ function create_sip_media_application(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -1570,7 +1570,7 @@ function create_sip_media_application_call(
             "FromPhoneNumber" => FromPhoneNumber, "ToPhoneNumber" => ToPhoneNumber
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function create_sip_media_application_call(
@@ -1593,7 +1593,7 @@ function create_sip_media_application_call(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -1639,7 +1639,7 @@ function create_sip_rule(
             "TriggerValue" => TriggerValue,
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function create_sip_rule(
@@ -1666,7 +1666,7 @@ function create_sip_rule(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -1690,7 +1690,7 @@ function create_user(accountId; aws_config::AbstractAWSConfig=global_aws_config(
         "POST",
         "/accounts/$(accountId)/users?operation=create";
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function create_user(
@@ -1703,7 +1703,7 @@ function create_user(
         "/accounts/$(accountId)/users?operation=create",
         params;
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -1735,7 +1735,7 @@ function create_voice_connector(
         "/voice-connectors",
         Dict{String,Any}("Name" => Name, "RequireEncryption" => RequireEncryption);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function create_voice_connector(
@@ -1755,7 +1755,7 @@ function create_voice_connector(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -1784,7 +1784,7 @@ function create_voice_connector_group(
         "/voice-connector-groups",
         Dict{String,Any}("Name" => Name);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function create_voice_connector_group(
@@ -1795,7 +1795,7 @@ function create_voice_connector_group(
         "/voice-connector-groups",
         Dict{String,Any}(mergewith(_merge, Dict{String,Any}("Name" => Name), params));
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -1817,7 +1817,10 @@ days, deleted accounts are permanently removed from your Disabled accounts list.
 """
 function delete_account(accountId; aws_config::AbstractAWSConfig=global_aws_config())
     return chime(
-        "DELETE", "/accounts/$(accountId)"; aws_config=aws_config, features=SERVICE_FEATURES
+        "DELETE",
+        "/accounts/$(accountId)";
+        aws_config=aws_config,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function delete_account(
@@ -1830,7 +1833,7 @@ function delete_account(
         "/accounts/$(accountId)",
         params;
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -1851,7 +1854,7 @@ function delete_app_instance(
         "DELETE",
         "/app-instances/$(appInstanceArn)";
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function delete_app_instance(
@@ -1864,7 +1867,7 @@ function delete_app_instance(
         "/app-instances/$(appInstanceArn)",
         params;
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -1886,7 +1889,7 @@ function delete_app_instance_admin(
         "DELETE",
         "/app-instances/$(appInstanceArn)/admins/$(appInstanceAdminArn)";
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function delete_app_instance_admin(
@@ -1900,7 +1903,7 @@ function delete_app_instance_admin(
         "/app-instances/$(appInstanceArn)/admins/$(appInstanceAdminArn)",
         params;
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -1921,7 +1924,7 @@ function delete_app_instance_streaming_configurations(
         "DELETE",
         "/app-instances/$(appInstanceArn)/streaming-configurations";
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function delete_app_instance_streaming_configurations(
@@ -1934,7 +1937,7 @@ function delete_app_instance_streaming_configurations(
         "/app-instances/$(appInstanceArn)/streaming-configurations",
         params;
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -1955,7 +1958,7 @@ function delete_app_instance_user(
         "DELETE",
         "/app-instance-users/$(appInstanceUserArn)";
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function delete_app_instance_user(
@@ -1968,7 +1971,7 @@ function delete_app_instance_user(
         "/app-instance-users/$(appInstanceUserArn)",
         params;
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -1993,7 +1996,7 @@ function delete_attendee(
         "DELETE",
         "/meetings/$(meetingId)/attendees/$(attendeeId)";
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function delete_attendee(
@@ -2007,7 +2010,7 @@ function delete_attendee(
         "/meetings/$(meetingId)/attendees/$(attendeeId)",
         params;
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -2031,7 +2034,7 @@ function delete_channel(channelArn; aws_config::AbstractAWSConfig=global_aws_con
         "DELETE",
         "/channels/$(channelArn)";
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function delete_channel(
@@ -2044,7 +2047,7 @@ function delete_channel(
         "/channels/$(channelArn)",
         params;
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -2071,7 +2074,7 @@ function delete_channel_ban(
         "DELETE",
         "/channels/$(channelArn)/bans/$(memberArn)";
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function delete_channel_ban(
@@ -2085,7 +2088,7 @@ function delete_channel_ban(
         "/channels/$(channelArn)/bans/$(memberArn)",
         params;
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -2111,7 +2114,7 @@ function delete_channel_membership(
         "DELETE",
         "/channels/$(channelArn)/memberships/$(memberArn)";
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function delete_channel_membership(
@@ -2125,7 +2128,7 @@ function delete_channel_membership(
         "/channels/$(channelArn)/memberships/$(memberArn)",
         params;
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -2153,7 +2156,7 @@ function delete_channel_message(
         "DELETE",
         "/channels/$(channelArn)/messages/$(messageId)";
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function delete_channel_message(
@@ -2167,7 +2170,7 @@ function delete_channel_message(
         "/channels/$(channelArn)/messages/$(messageId)",
         params;
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -2193,7 +2196,7 @@ function delete_channel_moderator(
         "DELETE",
         "/channels/$(channelArn)/moderators/$(channelModeratorArn)";
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function delete_channel_moderator(
@@ -2207,7 +2210,7 @@ function delete_channel_moderator(
         "/channels/$(channelArn)/moderators/$(channelModeratorArn)",
         params;
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -2229,7 +2232,7 @@ function delete_events_configuration(
         "DELETE",
         "/accounts/$(accountId)/bots/$(botId)/events-configuration";
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function delete_events_configuration(
@@ -2243,7 +2246,7 @@ function delete_events_configuration(
         "/accounts/$(accountId)/bots/$(botId)/events-configuration",
         params;
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -2264,7 +2267,7 @@ function delete_media_capture_pipeline(
         "DELETE",
         "/media-capture-pipelines/$(mediaPipelineId)";
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function delete_media_capture_pipeline(
@@ -2277,7 +2280,7 @@ function delete_media_capture_pipeline(
         "/media-capture-pipelines/$(mediaPipelineId)",
         params;
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -2296,7 +2299,10 @@ Developer Guide.
 """
 function delete_meeting(meetingId; aws_config::AbstractAWSConfig=global_aws_config())
     return chime(
-        "DELETE", "/meetings/$(meetingId)"; aws_config=aws_config, features=SERVICE_FEATURES
+        "DELETE",
+        "/meetings/$(meetingId)";
+        aws_config=aws_config,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function delete_meeting(
@@ -2309,7 +2315,7 @@ function delete_meeting(
         "/meetings/$(meetingId)",
         params;
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -2333,7 +2339,7 @@ function delete_phone_number(
         "DELETE",
         "/phone-numbers/$(phoneNumberId)";
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function delete_phone_number(
@@ -2346,7 +2352,7 @@ function delete_phone_number(
         "/phone-numbers/$(phoneNumberId)",
         params;
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -2368,7 +2374,7 @@ function delete_proxy_session(
         "DELETE",
         "/voice-connectors/$(voiceConnectorId)/proxy-sessions/$(proxySessionId)";
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function delete_proxy_session(
@@ -2382,7 +2388,7 @@ function delete_proxy_session(
         "/voice-connectors/$(voiceConnectorId)/proxy-sessions/$(proxySessionId)",
         params;
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -2402,7 +2408,7 @@ function delete_room(accountId, roomId; aws_config::AbstractAWSConfig=global_aws
         "DELETE",
         "/accounts/$(accountId)/rooms/$(roomId)";
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function delete_room(
@@ -2416,7 +2422,7 @@ function delete_room(
         "/accounts/$(accountId)/rooms/$(roomId)",
         params;
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -2439,7 +2445,7 @@ function delete_room_membership(
         "DELETE",
         "/accounts/$(accountId)/rooms/$(roomId)/memberships/$(memberId)";
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function delete_room_membership(
@@ -2454,7 +2460,7 @@ function delete_room_membership(
         "/accounts/$(accountId)/rooms/$(roomId)/memberships/$(memberId)",
         params;
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -2475,7 +2481,7 @@ function delete_sip_media_application(
         "DELETE",
         "/sip-media-applications/$(sipMediaApplicationId)";
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function delete_sip_media_application(
@@ -2488,7 +2494,7 @@ function delete_sip_media_application(
         "/sip-media-applications/$(sipMediaApplicationId)",
         params;
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -2507,7 +2513,7 @@ function delete_sip_rule(sipRuleId; aws_config::AbstractAWSConfig=global_aws_con
         "DELETE",
         "/sip-rules/$(sipRuleId)";
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function delete_sip_rule(
@@ -2520,7 +2526,7 @@ function delete_sip_rule(
         "/sip-rules/$(sipRuleId)",
         params;
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -2542,7 +2548,7 @@ function delete_voice_connector(
         "DELETE",
         "/voice-connectors/$(voiceConnectorId)";
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function delete_voice_connector(
@@ -2555,7 +2561,7 @@ function delete_voice_connector(
         "/voice-connectors/$(voiceConnectorId)",
         params;
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -2577,7 +2583,7 @@ function delete_voice_connector_emergency_calling_configuration(
         "DELETE",
         "/voice-connectors/$(voiceConnectorId)/emergency-calling-configuration";
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function delete_voice_connector_emergency_calling_configuration(
@@ -2590,7 +2596,7 @@ function delete_voice_connector_emergency_calling_configuration(
         "/voice-connectors/$(voiceConnectorId)/emergency-calling-configuration",
         params;
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -2612,7 +2618,7 @@ function delete_voice_connector_group(
         "DELETE",
         "/voice-connector-groups/$(voiceConnectorGroupId)";
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function delete_voice_connector_group(
@@ -2625,7 +2631,7 @@ function delete_voice_connector_group(
         "/voice-connector-groups/$(voiceConnectorGroupId)",
         params;
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -2648,7 +2654,7 @@ function delete_voice_connector_origination(
         "DELETE",
         "/voice-connectors/$(voiceConnectorId)/origination";
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function delete_voice_connector_origination(
@@ -2661,7 +2667,7 @@ function delete_voice_connector_origination(
         "/voice-connectors/$(voiceConnectorId)/origination",
         params;
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -2682,7 +2688,7 @@ function delete_voice_connector_proxy(
         "DELETE",
         "/voice-connectors/$(voiceConnectorId)/programmable-numbers/proxy";
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function delete_voice_connector_proxy(
@@ -2695,7 +2701,7 @@ function delete_voice_connector_proxy(
         "/voice-connectors/$(voiceConnectorId)/programmable-numbers/proxy",
         params;
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -2716,7 +2722,7 @@ function delete_voice_connector_streaming_configuration(
         "DELETE",
         "/voice-connectors/$(voiceConnectorId)/streaming-configuration";
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function delete_voice_connector_streaming_configuration(
@@ -2729,7 +2735,7 @@ function delete_voice_connector_streaming_configuration(
         "/voice-connectors/$(voiceConnectorId)/streaming-configuration",
         params;
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -2752,7 +2758,7 @@ function delete_voice_connector_termination(
         "DELETE",
         "/voice-connectors/$(voiceConnectorId)/termination";
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function delete_voice_connector_termination(
@@ -2765,7 +2771,7 @@ function delete_voice_connector_termination(
         "/voice-connectors/$(voiceConnectorId)/termination",
         params;
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -2790,7 +2796,7 @@ function delete_voice_connector_termination_credentials(
         "/voice-connectors/$(voiceConnectorId)/termination/credentials?operation=delete",
         Dict{String,Any}("Usernames" => Usernames);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function delete_voice_connector_termination_credentials(
@@ -2806,7 +2812,7 @@ function delete_voice_connector_termination_credentials(
             mergewith(_merge, Dict{String,Any}("Usernames" => Usernames), params)
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -2827,7 +2833,7 @@ function describe_app_instance(
         "GET",
         "/app-instances/$(appInstanceArn)";
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function describe_app_instance(
@@ -2840,7 +2846,7 @@ function describe_app_instance(
         "/app-instances/$(appInstanceArn)",
         params;
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -2862,7 +2868,7 @@ function describe_app_instance_admin(
         "GET",
         "/app-instances/$(appInstanceArn)/admins/$(appInstanceAdminArn)";
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function describe_app_instance_admin(
@@ -2876,7 +2882,7 @@ function describe_app_instance_admin(
         "/app-instances/$(appInstanceArn)/admins/$(appInstanceAdminArn)",
         params;
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -2897,7 +2903,7 @@ function describe_app_instance_user(
         "GET",
         "/app-instance-users/$(appInstanceUserArn)";
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function describe_app_instance_user(
@@ -2910,7 +2916,7 @@ function describe_app_instance_user(
         "/app-instance-users/$(appInstanceUserArn)",
         params;
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -2931,7 +2937,10 @@ Optional parameters can be passed as a `params::Dict{String,<:Any}`. Valid keys 
 """
 function describe_channel(channelArn; aws_config::AbstractAWSConfig=global_aws_config())
     return chime(
-        "GET", "/channels/$(channelArn)"; aws_config=aws_config, features=SERVICE_FEATURES
+        "GET",
+        "/channels/$(channelArn)";
+        aws_config=aws_config,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function describe_channel(
@@ -2944,7 +2953,7 @@ function describe_channel(
         "/channels/$(channelArn)",
         params;
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -2971,7 +2980,7 @@ function describe_channel_ban(
         "GET",
         "/channels/$(channelArn)/bans/$(memberArn)";
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function describe_channel_ban(
@@ -2985,7 +2994,7 @@ function describe_channel_ban(
         "/channels/$(channelArn)/bans/$(memberArn)",
         params;
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -3012,7 +3021,7 @@ function describe_channel_membership(
         "GET",
         "/channels/$(channelArn)/memberships/$(memberArn)";
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function describe_channel_membership(
@@ -3026,7 +3035,7 @@ function describe_channel_membership(
         "/channels/$(channelArn)/memberships/$(memberArn)",
         params;
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -3054,7 +3063,7 @@ function describe_channel_membership_for_app_instance_user(
         "/channels/$(channelArn)?scope=app-instance-user-membership",
         Dict{String,Any}("app-instance-user-arn" => app_instance_user_arn);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function describe_channel_membership_for_app_instance_user(
@@ -3074,7 +3083,7 @@ function describe_channel_membership_for_app_instance_user(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -3102,7 +3111,7 @@ function describe_channel_moderated_by_app_instance_user(
         "/channels/$(channelArn)?scope=app-instance-user-moderated-channel",
         Dict{String,Any}("app-instance-user-arn" => app_instance_user_arn);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function describe_channel_moderated_by_app_instance_user(
@@ -3122,7 +3131,7 @@ function describe_channel_moderated_by_app_instance_user(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -3149,7 +3158,7 @@ function describe_channel_moderator(
         "GET",
         "/channels/$(channelArn)/moderators/$(channelModeratorArn)";
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function describe_channel_moderator(
@@ -3163,7 +3172,7 @@ function describe_channel_moderator(
         "/channels/$(channelArn)/moderators/$(channelModeratorArn)",
         params;
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -3185,7 +3194,7 @@ function disassociate_phone_number_from_user(
         "POST",
         "/accounts/$(accountId)/users/$(userId)?operation=disassociate-phone-number";
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function disassociate_phone_number_from_user(
@@ -3199,7 +3208,7 @@ function disassociate_phone_number_from_user(
         "/accounts/$(accountId)/users/$(userId)?operation=disassociate-phone-number",
         params;
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -3222,7 +3231,7 @@ function disassociate_phone_numbers_from_voice_connector(
         "/voice-connectors/$(voiceConnectorId)?operation=disassociate-phone-numbers",
         Dict{String,Any}("E164PhoneNumbers" => E164PhoneNumbers);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function disassociate_phone_numbers_from_voice_connector(
@@ -3240,7 +3249,7 @@ function disassociate_phone_numbers_from_voice_connector(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -3266,7 +3275,7 @@ function disassociate_phone_numbers_from_voice_connector_group(
         "/voice-connector-groups/$(voiceConnectorGroupId)?operation=disassociate-phone-numbers",
         Dict{String,Any}("E164PhoneNumbers" => E164PhoneNumbers);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function disassociate_phone_numbers_from_voice_connector_group(
@@ -3284,7 +3293,7 @@ function disassociate_phone_numbers_from_voice_connector_group(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -3307,7 +3316,7 @@ function disassociate_signin_delegate_groups_from_account(
         "/accounts/$(accountId)?operation=disassociate-signin-delegate-groups",
         Dict{String,Any}("GroupNames" => GroupNames);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function disassociate_signin_delegate_groups_from_account(
@@ -3323,7 +3332,7 @@ function disassociate_signin_delegate_groups_from_account(
             mergewith(_merge, Dict{String,Any}("GroupNames" => GroupNames), params)
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -3340,7 +3349,10 @@ supported licenses.
 """
 function get_account(accountId; aws_config::AbstractAWSConfig=global_aws_config())
     return chime(
-        "GET", "/accounts/$(accountId)"; aws_config=aws_config, features=SERVICE_FEATURES
+        "GET",
+        "/accounts/$(accountId)";
+        aws_config=aws_config,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function get_account(
@@ -3353,7 +3365,7 @@ function get_account(
         "/accounts/$(accountId)",
         params;
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -3374,7 +3386,7 @@ function get_account_settings(accountId; aws_config::AbstractAWSConfig=global_aw
         "GET",
         "/accounts/$(accountId)/settings";
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function get_account_settings(
@@ -3387,7 +3399,7 @@ function get_account_settings(
         "/accounts/$(accountId)/settings",
         params;
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -3408,7 +3420,7 @@ function get_app_instance_retention_settings(
         "GET",
         "/app-instances/$(appInstanceArn)/retention-settings";
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function get_app_instance_retention_settings(
@@ -3421,7 +3433,7 @@ function get_app_instance_retention_settings(
         "/app-instances/$(appInstanceArn)/retention-settings",
         params;
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -3442,7 +3454,7 @@ function get_app_instance_streaming_configurations(
         "GET",
         "/app-instances/$(appInstanceArn)/streaming-configurations";
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function get_app_instance_streaming_configurations(
@@ -3455,7 +3467,7 @@ function get_app_instance_streaming_configurations(
         "/app-instances/$(appInstanceArn)/streaming-configurations",
         params;
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -3479,7 +3491,7 @@ function get_attendee(
         "GET",
         "/meetings/$(meetingId)/attendees/$(attendeeId)";
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function get_attendee(
@@ -3493,7 +3505,7 @@ function get_attendee(
         "/meetings/$(meetingId)/attendees/$(attendeeId)",
         params;
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -3514,7 +3526,7 @@ function get_bot(accountId, botId; aws_config::AbstractAWSConfig=global_aws_conf
         "GET",
         "/accounts/$(accountId)/bots/$(botId)";
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function get_bot(
@@ -3528,7 +3540,7 @@ function get_bot(
         "/accounts/$(accountId)/bots/$(botId)",
         params;
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -3555,7 +3567,7 @@ function get_channel_message(
         "GET",
         "/channels/$(channelArn)/messages/$(messageId)";
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function get_channel_message(
@@ -3569,7 +3581,7 @@ function get_channel_message(
         "/channels/$(channelArn)/messages/$(messageId)",
         params;
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -3592,7 +3604,7 @@ function get_events_configuration(
         "GET",
         "/accounts/$(accountId)/bots/$(botId)/events-configuration";
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function get_events_configuration(
@@ -3606,7 +3618,7 @@ function get_events_configuration(
         "/accounts/$(accountId)/bots/$(botId)/events-configuration",
         params;
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -3619,13 +3631,13 @@ Business Calling and Amazon Chime Voice Connector settings.
 
 """
 function get_global_settings(; aws_config::AbstractAWSConfig=global_aws_config())
-    return chime("GET", "/settings"; aws_config=aws_config, features=SERVICE_FEATURES)
+    return chime("GET", "/settings"; aws_config=aws_config, feature_set=SERVICE_FEATURE_SET)
 end
 function get_global_settings(
     params::AbstractDict{String}; aws_config::AbstractAWSConfig=global_aws_config()
 )
     return chime(
-        "GET", "/settings", params; aws_config=aws_config, features=SERVICE_FEATURES
+        "GET", "/settings", params; aws_config=aws_config, feature_set=SERVICE_FEATURE_SET
     )
 end
 
@@ -3646,7 +3658,7 @@ function get_media_capture_pipeline(
         "GET",
         "/media-capture-pipelines/$(mediaPipelineId)";
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function get_media_capture_pipeline(
@@ -3659,7 +3671,7 @@ function get_media_capture_pipeline(
         "/media-capture-pipelines/$(mediaPipelineId)",
         params;
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -3677,7 +3689,10 @@ Developer Guide .
 """
 function get_meeting(meetingId; aws_config::AbstractAWSConfig=global_aws_config())
     return chime(
-        "GET", "/meetings/$(meetingId)"; aws_config=aws_config, features=SERVICE_FEATURES
+        "GET",
+        "/meetings/$(meetingId)";
+        aws_config=aws_config,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function get_meeting(
@@ -3690,7 +3705,7 @@ function get_meeting(
         "/meetings/$(meetingId)",
         params;
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -3706,7 +3721,7 @@ function get_messaging_session_endpoint(; aws_config::AbstractAWSConfig=global_a
         "GET",
         "/endpoints/messaging-session";
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function get_messaging_session_endpoint(
@@ -3717,7 +3732,7 @@ function get_messaging_session_endpoint(
         "/endpoints/messaging-session",
         params;
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -3737,7 +3752,7 @@ function get_phone_number(phoneNumberId; aws_config::AbstractAWSConfig=global_aw
         "GET",
         "/phone-numbers/$(phoneNumberId)";
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function get_phone_number(
@@ -3750,7 +3765,7 @@ function get_phone_number(
         "/phone-numbers/$(phoneNumberId)",
         params;
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -3772,7 +3787,7 @@ function get_phone_number_order(
         "GET",
         "/phone-number-orders/$(phoneNumberOrderId)";
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function get_phone_number_order(
@@ -3785,7 +3800,7 @@ function get_phone_number_order(
         "/phone-number-orders/$(phoneNumberOrderId)",
         params;
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -3799,7 +3814,10 @@ default outbound calling name.
 """
 function get_phone_number_settings(; aws_config::AbstractAWSConfig=global_aws_config())
     return chime(
-        "GET", "/settings/phone-number"; aws_config=aws_config, features=SERVICE_FEATURES
+        "GET",
+        "/settings/phone-number";
+        aws_config=aws_config,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function get_phone_number_settings(
@@ -3810,7 +3828,7 @@ function get_phone_number_settings(
         "/settings/phone-number",
         params;
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -3832,7 +3850,7 @@ function get_proxy_session(
         "GET",
         "/voice-connectors/$(voiceConnectorId)/proxy-sessions/$(proxySessionId)";
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function get_proxy_session(
@@ -3846,7 +3864,7 @@ function get_proxy_session(
         "/voice-connectors/$(voiceConnectorId)/proxy-sessions/$(proxySessionId)",
         params;
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -3869,7 +3887,7 @@ function get_retention_settings(
         "GET",
         "/accounts/$(accountId)/retention-settings";
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function get_retention_settings(
@@ -3882,7 +3900,7 @@ function get_retention_settings(
         "/accounts/$(accountId)/retention-settings",
         params;
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -3903,7 +3921,7 @@ function get_room(accountId, roomId; aws_config::AbstractAWSConfig=global_aws_co
         "GET",
         "/accounts/$(accountId)/rooms/$(roomId)";
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function get_room(
@@ -3917,7 +3935,7 @@ function get_room(
         "/accounts/$(accountId)/rooms/$(roomId)",
         params;
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -3939,7 +3957,7 @@ function get_sip_media_application(
         "GET",
         "/sip-media-applications/$(sipMediaApplicationId)";
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function get_sip_media_application(
@@ -3952,7 +3970,7 @@ function get_sip_media_application(
         "/sip-media-applications/$(sipMediaApplicationId)",
         params;
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -3973,7 +3991,7 @@ function get_sip_media_application_logging_configuration(
         "GET",
         "/sip-media-applications/$(sipMediaApplicationId)/logging-configuration";
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function get_sip_media_application_logging_configuration(
@@ -3986,7 +4004,7 @@ function get_sip_media_application_logging_configuration(
         "/sip-media-applications/$(sipMediaApplicationId)/logging-configuration",
         params;
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -4003,7 +4021,10 @@ endpoints.
 """
 function get_sip_rule(sipRuleId; aws_config::AbstractAWSConfig=global_aws_config())
     return chime(
-        "GET", "/sip-rules/$(sipRuleId)"; aws_config=aws_config, features=SERVICE_FEATURES
+        "GET",
+        "/sip-rules/$(sipRuleId)";
+        aws_config=aws_config,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function get_sip_rule(
@@ -4016,7 +4037,7 @@ function get_sip_rule(
         "/sip-rules/$(sipRuleId)",
         params;
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -4038,7 +4059,7 @@ function get_user(accountId, userId; aws_config::AbstractAWSConfig=global_aws_co
         "GET",
         "/accounts/$(accountId)/users/$(userId)";
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function get_user(
@@ -4052,7 +4073,7 @@ function get_user(
         "/accounts/$(accountId)/users/$(userId)",
         params;
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -4074,7 +4095,7 @@ function get_user_settings(
         "GET",
         "/accounts/$(accountId)/users/$(userId)/settings";
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function get_user_settings(
@@ -4088,7 +4109,7 @@ function get_user_settings(
         "/accounts/$(accountId)/users/$(userId)/settings",
         params;
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -4110,7 +4131,7 @@ function get_voice_connector(
         "GET",
         "/voice-connectors/$(voiceConnectorId)";
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function get_voice_connector(
@@ -4123,7 +4144,7 @@ function get_voice_connector(
         "/voice-connectors/$(voiceConnectorId)",
         params;
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -4145,7 +4166,7 @@ function get_voice_connector_emergency_calling_configuration(
         "GET",
         "/voice-connectors/$(voiceConnectorId)/emergency-calling-configuration";
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function get_voice_connector_emergency_calling_configuration(
@@ -4158,7 +4179,7 @@ function get_voice_connector_emergency_calling_configuration(
         "/voice-connectors/$(voiceConnectorId)/emergency-calling-configuration",
         params;
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -4180,7 +4201,7 @@ function get_voice_connector_group(
         "GET",
         "/voice-connector-groups/$(voiceConnectorGroupId)";
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function get_voice_connector_group(
@@ -4193,7 +4214,7 @@ function get_voice_connector_group(
         "/voice-connector-groups/$(voiceConnectorGroupId)",
         params;
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -4215,7 +4236,7 @@ function get_voice_connector_logging_configuration(
         "GET",
         "/voice-connectors/$(voiceConnectorId)/logging-configuration";
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function get_voice_connector_logging_configuration(
@@ -4228,7 +4249,7 @@ function get_voice_connector_logging_configuration(
         "/voice-connectors/$(voiceConnectorId)/logging-configuration",
         params;
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -4249,7 +4270,7 @@ function get_voice_connector_origination(
         "GET",
         "/voice-connectors/$(voiceConnectorId)/origination";
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function get_voice_connector_origination(
@@ -4262,7 +4283,7 @@ function get_voice_connector_origination(
         "/voice-connectors/$(voiceConnectorId)/origination",
         params;
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -4283,7 +4304,7 @@ function get_voice_connector_proxy(
         "GET",
         "/voice-connectors/$(voiceConnectorId)/programmable-numbers/proxy";
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function get_voice_connector_proxy(
@@ -4296,7 +4317,7 @@ function get_voice_connector_proxy(
         "/voice-connectors/$(voiceConnectorId)/programmable-numbers/proxy",
         params;
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -4319,7 +4340,7 @@ function get_voice_connector_streaming_configuration(
         "GET",
         "/voice-connectors/$(voiceConnectorId)/streaming-configuration";
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function get_voice_connector_streaming_configuration(
@@ -4332,7 +4353,7 @@ function get_voice_connector_streaming_configuration(
         "/voice-connectors/$(voiceConnectorId)/streaming-configuration",
         params;
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -4353,7 +4374,7 @@ function get_voice_connector_termination(
         "GET",
         "/voice-connectors/$(voiceConnectorId)/termination";
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function get_voice_connector_termination(
@@ -4366,7 +4387,7 @@ function get_voice_connector_termination(
         "/voice-connectors/$(voiceConnectorId)/termination",
         params;
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -4388,7 +4409,7 @@ function get_voice_connector_termination_health(
         "GET",
         "/voice-connectors/$(voiceConnectorId)/termination/health";
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function get_voice_connector_termination_health(
@@ -4401,7 +4422,7 @@ function get_voice_connector_termination_health(
         "/voice-connectors/$(voiceConnectorId)/termination/health",
         params;
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -4428,7 +4449,7 @@ function invite_users(
         "/accounts/$(accountId)/users?operation=add",
         Dict{String,Any}("UserEmailList" => UserEmailList);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function invite_users(
@@ -4444,7 +4465,7 @@ function invite_users(
             mergewith(_merge, Dict{String,Any}("UserEmailList" => UserEmailList), params)
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -4465,13 +4486,13 @@ Optional parameters can be passed as a `params::Dict{String,<:Any}`. Valid keys 
 - `"user-email"`: User email address with which to filter results.
 """
 function list_accounts(; aws_config::AbstractAWSConfig=global_aws_config())
-    return chime("GET", "/accounts"; aws_config=aws_config, features=SERVICE_FEATURES)
+    return chime("GET", "/accounts"; aws_config=aws_config, feature_set=SERVICE_FEATURE_SET)
 end
 function list_accounts(
     params::AbstractDict{String}; aws_config::AbstractAWSConfig=global_aws_config()
 )
     return chime(
-        "GET", "/accounts", params; aws_config=aws_config, features=SERVICE_FEATURES
+        "GET", "/accounts", params; aws_config=aws_config, feature_set=SERVICE_FEATURE_SET
     )
 end
 
@@ -4497,7 +4518,7 @@ function list_app_instance_admins(
         "GET",
         "/app-instances/$(appInstanceArn)/admins";
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function list_app_instance_admins(
@@ -4510,7 +4531,7 @@ function list_app_instance_admins(
         "/app-instances/$(appInstanceArn)/admins",
         params;
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -4537,7 +4558,7 @@ function list_app_instance_users(
         "/app-instance-users",
         Dict{String,Any}("app-instance-arn" => app_instance_arn);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function list_app_instance_users(
@@ -4554,7 +4575,7 @@ function list_app_instance_users(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -4571,13 +4592,19 @@ Optional parameters can be passed as a `params::Dict{String,<:Any}`. Valid keys 
   number of AppInstances.
 """
 function list_app_instances(; aws_config::AbstractAWSConfig=global_aws_config())
-    return chime("GET", "/app-instances"; aws_config=aws_config, features=SERVICE_FEATURES)
+    return chime(
+        "GET", "/app-instances"; aws_config=aws_config, feature_set=SERVICE_FEATURE_SET
+    )
 end
 function list_app_instances(
     params::AbstractDict{String}; aws_config::AbstractAWSConfig=global_aws_config()
 )
     return chime(
-        "GET", "/app-instances", params; aws_config=aws_config, features=SERVICE_FEATURES
+        "GET",
+        "/app-instances",
+        params;
+        aws_config=aws_config,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -4599,7 +4626,7 @@ function list_attendee_tags(
         "GET",
         "/meetings/$(meetingId)/attendees/$(attendeeId)/tags";
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function list_attendee_tags(
@@ -4613,7 +4640,7 @@ function list_attendee_tags(
         "/meetings/$(meetingId)/attendees/$(attendeeId)/tags",
         params;
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -4637,7 +4664,7 @@ function list_attendees(meetingId; aws_config::AbstractAWSConfig=global_aws_conf
         "GET",
         "/meetings/$(meetingId)/attendees";
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function list_attendees(
@@ -4650,7 +4677,7 @@ function list_attendees(
         "/meetings/$(meetingId)/attendees",
         params;
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -4674,7 +4701,7 @@ function list_bots(accountId; aws_config::AbstractAWSConfig=global_aws_config())
         "GET",
         "/accounts/$(accountId)/bots";
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function list_bots(
@@ -4687,7 +4714,7 @@ function list_bots(
         "/accounts/$(accountId)/bots",
         params;
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -4714,7 +4741,7 @@ function list_channel_bans(channelArn; aws_config::AbstractAWSConfig=global_aws_
         "GET",
         "/channels/$(channelArn)/bans";
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function list_channel_bans(
@@ -4727,7 +4754,7 @@ function list_channel_bans(
         "/channels/$(channelArn)/bans",
         params;
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -4759,7 +4786,7 @@ function list_channel_memberships(
         "GET",
         "/channels/$(channelArn)/memberships";
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function list_channel_memberships(
@@ -4772,7 +4799,7 @@ function list_channel_memberships(
         "/channels/$(channelArn)/memberships",
         params;
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -4800,7 +4827,7 @@ function list_channel_memberships_for_app_instance_user(;
         "GET",
         "/channels?scope=app-instance-user-memberships";
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function list_channel_memberships_for_app_instance_user(
@@ -4811,7 +4838,7 @@ function list_channel_memberships_for_app_instance_user(
         "/channels?scope=app-instance-user-memberships",
         params;
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -4847,7 +4874,7 @@ function list_channel_messages(
         "GET",
         "/channels/$(channelArn)/messages";
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function list_channel_messages(
@@ -4860,7 +4887,7 @@ function list_channel_messages(
         "/channels/$(channelArn)/messages",
         params;
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -4889,7 +4916,7 @@ function list_channel_moderators(
         "GET",
         "/channels/$(channelArn)/moderators";
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function list_channel_moderators(
@@ -4902,7 +4929,7 @@ function list_channel_moderators(
         "/channels/$(channelArn)/moderators",
         params;
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -4935,7 +4962,7 @@ function list_channels(app_instance_arn; aws_config::AbstractAWSConfig=global_aw
         "/channels",
         Dict{String,Any}("app-instance-arn" => app_instance_arn);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function list_channels(
@@ -4952,7 +4979,7 @@ function list_channels(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -4979,7 +5006,7 @@ function list_channels_moderated_by_app_instance_user(;
         "GET",
         "/channels?scope=app-instance-user-moderated-channels";
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function list_channels_moderated_by_app_instance_user(
@@ -4990,7 +5017,7 @@ function list_channels_moderated_by_app_instance_user(
         "/channels?scope=app-instance-user-moderated-channels",
         params;
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -5008,7 +5035,10 @@ Optional parameters can be passed as a `params::Dict{String,<:Any}`. Valid keys 
 """
 function list_media_capture_pipelines(; aws_config::AbstractAWSConfig=global_aws_config())
     return chime(
-        "GET", "/media-capture-pipelines"; aws_config=aws_config, features=SERVICE_FEATURES
+        "GET",
+        "/media-capture-pipelines";
+        aws_config=aws_config,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function list_media_capture_pipelines(
@@ -5019,7 +5049,7 @@ function list_media_capture_pipelines(
         "/media-capture-pipelines",
         params;
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -5038,7 +5068,7 @@ function list_meeting_tags(meetingId; aws_config::AbstractAWSConfig=global_aws_c
         "GET",
         "/meetings/$(meetingId)/tags";
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function list_meeting_tags(
@@ -5051,7 +5081,7 @@ function list_meeting_tags(
         "/meetings/$(meetingId)/tags",
         params;
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -5068,13 +5098,13 @@ Optional parameters can be passed as a `params::Dict{String,<:Any}`. Valid keys 
 - `"next-token"`: The token to use to retrieve the next page of results.
 """
 function list_meetings(; aws_config::AbstractAWSConfig=global_aws_config())
-    return chime("GET", "/meetings"; aws_config=aws_config, features=SERVICE_FEATURES)
+    return chime("GET", "/meetings"; aws_config=aws_config, feature_set=SERVICE_FEATURE_SET)
 end
 function list_meetings(
     params::AbstractDict{String}; aws_config::AbstractAWSConfig=global_aws_config()
 )
     return chime(
-        "GET", "/meetings", params; aws_config=aws_config, features=SERVICE_FEATURES
+        "GET", "/meetings", params; aws_config=aws_config, feature_set=SERVICE_FEATURE_SET
     )
 end
 
@@ -5091,7 +5121,10 @@ Optional parameters can be passed as a `params::Dict{String,<:Any}`. Valid keys 
 """
 function list_phone_number_orders(; aws_config::AbstractAWSConfig=global_aws_config())
     return chime(
-        "GET", "/phone-number-orders"; aws_config=aws_config, features=SERVICE_FEATURES
+        "GET",
+        "/phone-number-orders";
+        aws_config=aws_config,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function list_phone_number_orders(
@@ -5102,7 +5135,7 @@ function list_phone_number_orders(
         "/phone-number-orders",
         params;
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -5123,13 +5156,19 @@ Optional parameters can be passed as a `params::Dict{String,<:Any}`. Valid keys 
 - `"status"`: The phone number status.
 """
 function list_phone_numbers(; aws_config::AbstractAWSConfig=global_aws_config())
-    return chime("GET", "/phone-numbers"; aws_config=aws_config, features=SERVICE_FEATURES)
+    return chime(
+        "GET", "/phone-numbers"; aws_config=aws_config, feature_set=SERVICE_FEATURE_SET
+    )
 end
 function list_phone_numbers(
     params::AbstractDict{String}; aws_config::AbstractAWSConfig=global_aws_config()
 )
     return chime(
-        "GET", "/phone-numbers", params; aws_config=aws_config, features=SERVICE_FEATURES
+        "GET",
+        "/phone-numbers",
+        params;
+        aws_config=aws_config,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -5155,7 +5194,7 @@ function list_proxy_sessions(
         "GET",
         "/voice-connectors/$(voiceConnectorId)/proxy-sessions";
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function list_proxy_sessions(
@@ -5168,7 +5207,7 @@ function list_proxy_sessions(
         "/voice-connectors/$(voiceConnectorId)/proxy-sessions",
         params;
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -5195,7 +5234,7 @@ function list_room_memberships(
         "GET",
         "/accounts/$(accountId)/rooms/$(roomId)/memberships";
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function list_room_memberships(
@@ -5209,7 +5248,7 @@ function list_room_memberships(
         "/accounts/$(accountId)/rooms/$(roomId)/memberships",
         params;
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -5235,7 +5274,7 @@ function list_rooms(accountId; aws_config::AbstractAWSConfig=global_aws_config()
         "GET",
         "/accounts/$(accountId)/rooms";
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function list_rooms(
@@ -5248,7 +5287,7 @@ function list_rooms(
         "/accounts/$(accountId)/rooms",
         params;
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -5266,7 +5305,10 @@ Optional parameters can be passed as a `params::Dict{String,<:Any}`. Valid keys 
 """
 function list_sip_media_applications(; aws_config::AbstractAWSConfig=global_aws_config())
     return chime(
-        "GET", "/sip-media-applications"; aws_config=aws_config, features=SERVICE_FEATURES
+        "GET",
+        "/sip-media-applications";
+        aws_config=aws_config,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function list_sip_media_applications(
@@ -5277,7 +5319,7 @@ function list_sip_media_applications(
         "/sip-media-applications",
         params;
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -5295,13 +5337,15 @@ Optional parameters can be passed as a `params::Dict{String,<:Any}`. Valid keys 
 - `"sip-media-application"`: The SIP media application ID.
 """
 function list_sip_rules(; aws_config::AbstractAWSConfig=global_aws_config())
-    return chime("GET", "/sip-rules"; aws_config=aws_config, features=SERVICE_FEATURES)
+    return chime(
+        "GET", "/sip-rules"; aws_config=aws_config, feature_set=SERVICE_FEATURE_SET
+    )
 end
 function list_sip_rules(
     params::AbstractDict{String}; aws_config::AbstractAWSConfig=global_aws_config()
 )
     return chime(
-        "GET", "/sip-rules", params; aws_config=aws_config, features=SERVICE_FEATURES
+        "GET", "/sip-rules", params; aws_config=aws_config, feature_set=SERVICE_FEATURE_SET
     )
 end
 
@@ -5323,7 +5367,7 @@ function list_supported_phone_number_countries(
         "/phone-number-countries",
         Dict{String,Any}("product-type" => product_type);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function list_supported_phone_number_countries(
@@ -5338,7 +5382,7 @@ function list_supported_phone_number_countries(
             mergewith(_merge, Dict{String,Any}("product-type" => product_type), params)
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -5358,7 +5402,7 @@ function list_tags_for_resource(arn; aws_config::AbstractAWSConfig=global_aws_co
         "/tags",
         Dict{String,Any}("arn" => arn);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function list_tags_for_resource(
@@ -5369,7 +5413,7 @@ function list_tags_for_resource(
         "/tags",
         Dict{String,Any}(mergewith(_merge, Dict{String,Any}("arn" => arn), params));
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -5396,7 +5440,7 @@ function list_users(accountId; aws_config::AbstractAWSConfig=global_aws_config()
         "GET",
         "/accounts/$(accountId)/users";
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function list_users(
@@ -5409,7 +5453,7 @@ function list_users(
         "/accounts/$(accountId)/users",
         params;
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -5426,7 +5470,10 @@ Optional parameters can be passed as a `params::Dict{String,<:Any}`. Valid keys 
 """
 function list_voice_connector_groups(; aws_config::AbstractAWSConfig=global_aws_config())
     return chime(
-        "GET", "/voice-connector-groups"; aws_config=aws_config, features=SERVICE_FEATURES
+        "GET",
+        "/voice-connector-groups";
+        aws_config=aws_config,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function list_voice_connector_groups(
@@ -5437,7 +5484,7 @@ function list_voice_connector_groups(
         "/voice-connector-groups",
         params;
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -5458,7 +5505,7 @@ function list_voice_connector_termination_credentials(
         "GET",
         "/voice-connectors/$(voiceConnectorId)/termination/credentials";
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function list_voice_connector_termination_credentials(
@@ -5471,7 +5518,7 @@ function list_voice_connector_termination_credentials(
         "/voice-connectors/$(voiceConnectorId)/termination/credentials",
         params;
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -5488,14 +5535,18 @@ Optional parameters can be passed as a `params::Dict{String,<:Any}`. Valid keys 
 """
 function list_voice_connectors(; aws_config::AbstractAWSConfig=global_aws_config())
     return chime(
-        "GET", "/voice-connectors"; aws_config=aws_config, features=SERVICE_FEATURES
+        "GET", "/voice-connectors"; aws_config=aws_config, feature_set=SERVICE_FEATURE_SET
     )
 end
 function list_voice_connectors(
     params::AbstractDict{String}; aws_config::AbstractAWSConfig=global_aws_config()
 )
     return chime(
-        "GET", "/voice-connectors", params; aws_config=aws_config, features=SERVICE_FEATURES
+        "GET",
+        "/voice-connectors",
+        params;
+        aws_config=aws_config,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -5515,7 +5566,7 @@ function logout_user(accountId, userId; aws_config::AbstractAWSConfig=global_aws
         "POST",
         "/accounts/$(accountId)/users/$(userId)?operation=logout";
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function logout_user(
@@ -5529,7 +5580,7 @@ function logout_user(
         "/accounts/$(accountId)/users/$(userId)?operation=logout",
         params;
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -5554,7 +5605,7 @@ function put_app_instance_retention_settings(
         "/app-instances/$(appInstanceArn)/retention-settings",
         Dict{String,Any}("AppInstanceRetentionSettings" => AppInstanceRetentionSettings);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function put_app_instance_retention_settings(
@@ -5576,7 +5627,7 @@ function put_app_instance_retention_settings(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -5604,7 +5655,7 @@ function put_app_instance_streaming_configurations(
             "AppInstanceStreamingConfigurations" => AppInstanceStreamingConfigurations
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function put_app_instance_streaming_configurations(
@@ -5627,7 +5678,7 @@ function put_app_instance_streaming_configurations(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -5656,7 +5707,7 @@ function put_events_configuration(
         "PUT",
         "/accounts/$(accountId)/bots/$(botId)/events-configuration";
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function put_events_configuration(
@@ -5670,7 +5721,7 @@ function put_events_configuration(
         "/accounts/$(accountId)/bots/$(botId)/events-configuration",
         params;
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -5699,7 +5750,7 @@ function put_retention_settings(
         "/accounts/$(accountId)/retention-settings",
         Dict{String,Any}("RetentionSettings" => RetentionSettings);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function put_retention_settings(
@@ -5717,7 +5768,7 @@ function put_retention_settings(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -5741,7 +5792,7 @@ function put_sip_media_application_logging_configuration(
         "PUT",
         "/sip-media-applications/$(sipMediaApplicationId)/logging-configuration";
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function put_sip_media_application_logging_configuration(
@@ -5754,7 +5805,7 @@ function put_sip_media_application_logging_configuration(
         "/sip-media-applications/$(sipMediaApplicationId)/logging-configuration",
         params;
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -5782,7 +5833,7 @@ function put_voice_connector_emergency_calling_configuration(
         "/voice-connectors/$(voiceConnectorId)/emergency-calling-configuration",
         Dict{String,Any}("EmergencyCallingConfiguration" => EmergencyCallingConfiguration);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function put_voice_connector_emergency_calling_configuration(
@@ -5804,7 +5855,7 @@ function put_voice_connector_emergency_calling_configuration(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -5831,7 +5882,7 @@ function put_voice_connector_logging_configuration(
         "/voice-connectors/$(voiceConnectorId)/logging-configuration",
         Dict{String,Any}("LoggingConfiguration" => LoggingConfiguration);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function put_voice_connector_logging_configuration(
@@ -5851,7 +5902,7 @@ function put_voice_connector_logging_configuration(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -5876,7 +5927,7 @@ function put_voice_connector_origination(
         "/voice-connectors/$(voiceConnectorId)/origination",
         Dict{String,Any}("Origination" => Origination);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function put_voice_connector_origination(
@@ -5892,7 +5943,7 @@ function put_voice_connector_origination(
             mergewith(_merge, Dict{String,Any}("Origination" => Origination), params)
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -5928,7 +5979,7 @@ function put_voice_connector_proxy(
             "PhoneNumberPoolCountries" => PhoneNumberPoolCountries,
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function put_voice_connector_proxy(
@@ -5952,7 +6003,7 @@ function put_voice_connector_proxy(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -5979,7 +6030,7 @@ function put_voice_connector_streaming_configuration(
         "/voice-connectors/$(voiceConnectorId)/streaming-configuration",
         Dict{String,Any}("StreamingConfiguration" => StreamingConfiguration);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function put_voice_connector_streaming_configuration(
@@ -5999,7 +6050,7 @@ function put_voice_connector_streaming_configuration(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -6024,7 +6075,7 @@ function put_voice_connector_termination(
         "/voice-connectors/$(voiceConnectorId)/termination",
         Dict{String,Any}("Termination" => Termination);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function put_voice_connector_termination(
@@ -6040,7 +6091,7 @@ function put_voice_connector_termination(
             mergewith(_merge, Dict{String,Any}("Termination" => Termination), params)
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -6064,7 +6115,7 @@ function put_voice_connector_termination_credentials(
         "POST",
         "/voice-connectors/$(voiceConnectorId)/termination/credentials?operation=put";
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function put_voice_connector_termination_credentials(
@@ -6077,7 +6128,7 @@ function put_voice_connector_termination_credentials(
         "/voice-connectors/$(voiceConnectorId)/termination/credentials?operation=put",
         params;
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -6105,7 +6156,7 @@ function redact_channel_message(
         "POST",
         "/channels/$(channelArn)/messages/$(messageId)?operation=redact";
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function redact_channel_message(
@@ -6119,7 +6170,7 @@ function redact_channel_message(
         "/channels/$(channelArn)/messages/$(messageId)?operation=redact",
         params;
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -6142,7 +6193,7 @@ function redact_conversation_message(
         "POST",
         "/accounts/$(accountId)/conversations/$(conversationId)/messages/$(messageId)?operation=redact";
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function redact_conversation_message(
@@ -6157,7 +6208,7 @@ function redact_conversation_message(
         "/accounts/$(accountId)/conversations/$(conversationId)/messages/$(messageId)?operation=redact",
         params;
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -6180,7 +6231,7 @@ function redact_room_message(
         "POST",
         "/accounts/$(accountId)/rooms/$(roomId)/messages/$(messageId)?operation=redact";
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function redact_room_message(
@@ -6195,7 +6246,7 @@ function redact_room_message(
         "/accounts/$(accountId)/rooms/$(roomId)/messages/$(messageId)?operation=redact",
         params;
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -6217,7 +6268,7 @@ function regenerate_security_token(
         "POST",
         "/accounts/$(accountId)/bots/$(botId)?operation=regenerate-security-token";
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function regenerate_security_token(
@@ -6231,7 +6282,7 @@ function regenerate_security_token(
         "/accounts/$(accountId)/bots/$(botId)?operation=regenerate-security-token",
         params;
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -6254,7 +6305,7 @@ function reset_personal_pin(
         "POST",
         "/accounts/$(accountId)/users/$(userId)?operation=reset-personal-pin";
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function reset_personal_pin(
@@ -6268,7 +6319,7 @@ function reset_personal_pin(
         "/accounts/$(accountId)/users/$(userId)?operation=reset-personal-pin",
         params;
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -6289,7 +6340,7 @@ function restore_phone_number(
         "POST",
         "/phone-numbers/$(phoneNumberId)?operation=restore";
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function restore_phone_number(
@@ -6302,7 +6353,7 @@ function restore_phone_number(
         "/phone-numbers/$(phoneNumberId)?operation=restore",
         params;
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -6335,7 +6386,7 @@ function search_available_phone_numbers(; aws_config::AbstractAWSConfig=global_a
         "GET",
         "/search?type=phone-numbers";
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function search_available_phone_numbers(
@@ -6346,7 +6397,7 @@ function search_available_phone_numbers(
         "/search?type=phone-numbers",
         params;
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -6391,7 +6442,7 @@ function send_channel_message(
             "Type" => Type,
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function send_channel_message(
@@ -6419,7 +6470,7 @@ function send_channel_message(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -6443,7 +6494,7 @@ function start_meeting_transcription(
         "/meetings/$(meetingId)/transcription?operation=start",
         Dict{String,Any}("TranscriptionConfiguration" => TranscriptionConfiguration);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function start_meeting_transcription(
@@ -6465,7 +6516,7 @@ function start_meeting_transcription(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -6486,7 +6537,7 @@ function stop_meeting_transcription(
         "POST",
         "/meetings/$(meetingId)/transcription?operation=stop";
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function stop_meeting_transcription(
@@ -6499,7 +6550,7 @@ function stop_meeting_transcription(
         "/meetings/$(meetingId)/transcription?operation=stop",
         params;
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -6523,7 +6574,7 @@ function tag_attendee(
         "/meetings/$(meetingId)/attendees/$(attendeeId)/tags?operation=add",
         Dict{String,Any}("Tags" => Tags);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function tag_attendee(
@@ -6538,7 +6589,7 @@ function tag_attendee(
         "/meetings/$(meetingId)/attendees/$(attendeeId)/tags?operation=add",
         Dict{String,Any}(mergewith(_merge, Dict{String,Any}("Tags" => Tags), params));
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -6559,7 +6610,7 @@ function tag_meeting(Tags, meetingId; aws_config::AbstractAWSConfig=global_aws_c
         "/meetings/$(meetingId)/tags?operation=add",
         Dict{String,Any}("Tags" => Tags);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function tag_meeting(
@@ -6573,7 +6624,7 @@ function tag_meeting(
         "/meetings/$(meetingId)/tags?operation=add",
         Dict{String,Any}(mergewith(_merge, Dict{String,Any}("Tags" => Tags), params));
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -6594,7 +6645,7 @@ function tag_resource(ResourceARN, Tags; aws_config::AbstractAWSConfig=global_aw
         "/tags?operation=tag-resource",
         Dict{String,Any}("ResourceARN" => ResourceARN, "Tags" => Tags);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function tag_resource(
@@ -6614,7 +6665,7 @@ function tag_resource(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -6638,7 +6689,7 @@ function untag_attendee(
         "/meetings/$(meetingId)/attendees/$(attendeeId)/tags?operation=delete",
         Dict{String,Any}("TagKeys" => TagKeys);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function untag_attendee(
@@ -6653,7 +6704,7 @@ function untag_attendee(
         "/meetings/$(meetingId)/attendees/$(attendeeId)/tags?operation=delete",
         Dict{String,Any}(mergewith(_merge, Dict{String,Any}("TagKeys" => TagKeys), params));
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -6676,7 +6727,7 @@ function untag_meeting(
         "/meetings/$(meetingId)/tags?operation=delete",
         Dict{String,Any}("TagKeys" => TagKeys);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function untag_meeting(
@@ -6690,7 +6741,7 @@ function untag_meeting(
         "/meetings/$(meetingId)/tags?operation=delete",
         Dict{String,Any}(mergewith(_merge, Dict{String,Any}("TagKeys" => TagKeys), params));
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -6713,7 +6764,7 @@ function untag_resource(
         "/tags?operation=untag-resource",
         Dict{String,Any}("ResourceARN" => ResourceARN, "TagKeys" => TagKeys);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function untag_resource(
@@ -6733,7 +6784,7 @@ function untag_resource(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -6755,7 +6806,10 @@ Optional parameters can be passed as a `params::Dict{String,<:Any}`. Valid keys 
 """
 function update_account(accountId; aws_config::AbstractAWSConfig=global_aws_config())
     return chime(
-        "POST", "/accounts/$(accountId)"; aws_config=aws_config, features=SERVICE_FEATURES
+        "POST",
+        "/accounts/$(accountId)";
+        aws_config=aws_config,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function update_account(
@@ -6768,7 +6822,7 @@ function update_account(
         "/accounts/$(accountId)",
         params;
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -6793,7 +6847,7 @@ function update_account_settings(
         "/accounts/$(accountId)/settings",
         Dict{String,Any}("AccountSettings" => AccountSettings);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function update_account_settings(
@@ -6811,7 +6865,7 @@ function update_account_settings(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -6837,7 +6891,7 @@ function update_app_instance(
         "/app-instances/$(appInstanceArn)",
         Dict{String,Any}("Name" => Name);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function update_app_instance(
@@ -6851,7 +6905,7 @@ function update_app_instance(
         "/app-instances/$(appInstanceArn)",
         Dict{String,Any}(mergewith(_merge, Dict{String,Any}("Name" => Name), params));
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -6877,7 +6931,7 @@ function update_app_instance_user(
         "/app-instance-users/$(appInstanceUserArn)",
         Dict{String,Any}("Name" => Name);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function update_app_instance_user(
@@ -6891,7 +6945,7 @@ function update_app_instance_user(
         "/app-instance-users/$(appInstanceUserArn)",
         Dict{String,Any}(mergewith(_merge, Dict{String,Any}("Name" => Name), params));
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -6915,7 +6969,7 @@ function update_bot(accountId, botId; aws_config::AbstractAWSConfig=global_aws_c
         "POST",
         "/accounts/$(accountId)/bots/$(botId)";
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function update_bot(
@@ -6929,7 +6983,7 @@ function update_bot(
         "/accounts/$(accountId)/bots/$(botId)",
         params;
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -6959,7 +7013,7 @@ function update_channel(
         "/channels/$(channelArn)",
         Dict{String,Any}("Mode" => Mode, "Name" => Name);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function update_channel(
@@ -6976,7 +7030,7 @@ function update_channel(
             mergewith(_merge, Dict{String,Any}("Mode" => Mode, "Name" => Name), params)
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -7004,7 +7058,7 @@ function update_channel_message(
         "PUT",
         "/channels/$(channelArn)/messages/$(messageId)";
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function update_channel_message(
@@ -7018,7 +7072,7 @@ function update_channel_message(
         "/channels/$(channelArn)/messages/$(messageId)",
         params;
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -7044,7 +7098,7 @@ function update_channel_read_marker(
         "PUT",
         "/channels/$(channelArn)/readMarker";
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function update_channel_read_marker(
@@ -7057,7 +7111,7 @@ function update_channel_read_marker(
         "/channels/$(channelArn)/readMarker",
         params;
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -7083,7 +7137,7 @@ function update_global_settings(
             "BusinessCalling" => BusinessCalling, "VoiceConnector" => VoiceConnector
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function update_global_settings(
@@ -7105,7 +7159,7 @@ function update_global_settings(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -7136,7 +7190,7 @@ function update_phone_number(
         "POST",
         "/phone-numbers/$(phoneNumberId)";
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function update_phone_number(
@@ -7149,7 +7203,7 @@ function update_phone_number(
         "/phone-numbers/$(phoneNumberId)",
         params;
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -7173,7 +7227,7 @@ function update_phone_number_settings(
         "/settings/phone-number",
         Dict{String,Any}("CallingName" => CallingName);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function update_phone_number_settings(
@@ -7188,7 +7242,7 @@ function update_phone_number_settings(
             mergewith(_merge, Dict{String,Any}("CallingName" => CallingName), params)
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -7218,7 +7272,7 @@ function update_proxy_session(
         "/voice-connectors/$(voiceConnectorId)/proxy-sessions/$(proxySessionId)",
         Dict{String,Any}("Capabilities" => Capabilities);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function update_proxy_session(
@@ -7235,7 +7289,7 @@ function update_proxy_session(
             mergewith(_merge, Dict{String,Any}("Capabilities" => Capabilities), params)
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -7259,7 +7313,7 @@ function update_room(accountId, roomId; aws_config::AbstractAWSConfig=global_aws
         "POST",
         "/accounts/$(accountId)/rooms/$(roomId)";
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function update_room(
@@ -7273,7 +7327,7 @@ function update_room(
         "/accounts/$(accountId)/rooms/$(roomId)",
         params;
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -7302,7 +7356,7 @@ function update_room_membership(
         "POST",
         "/accounts/$(accountId)/rooms/$(roomId)/memberships/$(memberId)";
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function update_room_membership(
@@ -7317,7 +7371,7 @@ function update_room_membership(
         "/accounts/$(accountId)/rooms/$(roomId)/memberships/$(memberId)",
         params;
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -7342,7 +7396,7 @@ function update_sip_media_application(
         "PUT",
         "/sip-media-applications/$(sipMediaApplicationId)";
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function update_sip_media_application(
@@ -7355,7 +7409,7 @@ function update_sip_media_application(
         "/sip-media-applications/$(sipMediaApplicationId)",
         params;
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -7384,7 +7438,7 @@ function update_sip_media_application_call(
         "/sip-media-applications/$(sipMediaApplicationId)/calls/$(transactionId)",
         Dict{String,Any}("Arguments" => Arguments);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function update_sip_media_application_call(
@@ -7401,7 +7455,7 @@ function update_sip_media_application_call(
             mergewith(_merge, Dict{String,Any}("Arguments" => Arguments), params)
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -7426,7 +7480,7 @@ function update_sip_rule(Name, sipRuleId; aws_config::AbstractAWSConfig=global_a
         "/sip-rules/$(sipRuleId)",
         Dict{String,Any}("Name" => Name);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function update_sip_rule(
@@ -7440,7 +7494,7 @@ function update_sip_rule(
         "/sip-rules/$(sipRuleId)",
         Dict{String,Any}(mergewith(_merge, Dict{String,Any}("Name" => Name), params));
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -7467,7 +7521,7 @@ function update_user(accountId, userId; aws_config::AbstractAWSConfig=global_aws
         "POST",
         "/accounts/$(accountId)/users/$(userId)";
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function update_user(
@@ -7481,7 +7535,7 @@ function update_user(
         "/accounts/$(accountId)/users/$(userId)",
         params;
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -7505,7 +7559,7 @@ function update_user_settings(
         "/accounts/$(accountId)/users/$(userId)/settings",
         Dict{String,Any}("UserSettings" => UserSettings);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function update_user_settings(
@@ -7522,7 +7576,7 @@ function update_user_settings(
             mergewith(_merge, Dict{String,Any}("UserSettings" => UserSettings), params)
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -7550,7 +7604,7 @@ function update_voice_connector(
         "/voice-connectors/$(voiceConnectorId)",
         Dict{String,Any}("Name" => Name, "RequireEncryption" => RequireEncryption);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function update_voice_connector(
@@ -7571,7 +7625,7 @@ function update_voice_connector(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -7599,7 +7653,7 @@ function update_voice_connector_group(
         "/voice-connector-groups/$(voiceConnectorGroupId)",
         Dict{String,Any}("Name" => Name, "VoiceConnectorItems" => VoiceConnectorItems);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function update_voice_connector_group(
@@ -7622,6 +7676,6 @@ function update_voice_connector_group(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end

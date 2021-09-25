@@ -63,7 +63,7 @@ function create_application(
         "/applications",
         Dict{String,Any}("author" => author, "description" => description, "name" => name);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function create_application(
@@ -86,7 +86,7 @@ function create_application(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -116,7 +116,7 @@ function create_application_version(
         "PUT",
         "/applications/$(applicationId)/versions/$(semanticVersion)";
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function create_application_version(
@@ -130,7 +130,7 @@ function create_application_version(
         "/applications/$(applicationId)/versions/$(semanticVersion)",
         params;
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -219,7 +219,7 @@ function create_cloud_formation_change_set(
         "/applications/$(applicationId)/changesets",
         Dict{String,Any}("stackName" => stackName);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function create_cloud_formation_change_set(
@@ -235,7 +235,7 @@ function create_cloud_formation_change_set(
             mergewith(_merge, Dict{String,Any}("stackName" => stackName), params)
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -260,7 +260,7 @@ function create_cloud_formation_template(
         "POST",
         "/applications/$(applicationId)/templates";
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function create_cloud_formation_template(
@@ -273,7 +273,7 @@ function create_cloud_formation_template(
         "/applications/$(applicationId)/templates",
         params;
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -294,7 +294,7 @@ function delete_application(
         "DELETE",
         "/applications/$(applicationId)";
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function delete_application(
@@ -307,7 +307,7 @@ function delete_application(
         "/applications/$(applicationId)",
         params;
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -329,7 +329,7 @@ function get_application(applicationId; aws_config::AbstractAWSConfig=global_aws
         "GET",
         "/applications/$(applicationId)";
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function get_application(
@@ -342,7 +342,7 @@ function get_application(
         "/applications/$(applicationId)",
         params;
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -363,7 +363,7 @@ function get_application_policy(
         "GET",
         "/applications/$(applicationId)/policy";
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function get_application_policy(
@@ -376,7 +376,7 @@ function get_application_policy(
         "/applications/$(applicationId)/policy",
         params;
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -399,7 +399,7 @@ function get_cloud_formation_template(
         "GET",
         "/applications/$(applicationId)/templates/$(templateId)";
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function get_cloud_formation_template(
@@ -413,7 +413,7 @@ function get_cloud_formation_template(
         "/applications/$(applicationId)/templates/$(templateId)",
         params;
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -439,7 +439,7 @@ function list_application_dependencies(
         "GET",
         "/applications/$(applicationId)/dependencies";
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function list_application_dependencies(
@@ -452,7 +452,7 @@ function list_application_dependencies(
         "/applications/$(applicationId)/dependencies",
         params;
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -477,7 +477,7 @@ function list_application_versions(
         "GET",
         "/applications/$(applicationId)/versions";
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function list_application_versions(
@@ -490,7 +490,7 @@ function list_application_versions(
         "/applications/$(applicationId)/versions",
         params;
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -507,14 +507,18 @@ Optional parameters can be passed as a `params::Dict{String,<:Any}`. Valid keys 
 """
 function list_applications(; aws_config::AbstractAWSConfig=global_aws_config())
     return serverlessapplicationrepository(
-        "GET", "/applications"; aws_config=aws_config, features=SERVICE_FEATURES
+        "GET", "/applications"; aws_config=aws_config, feature_set=SERVICE_FEATURE_SET
     )
 end
 function list_applications(
     params::AbstractDict{String}; aws_config::AbstractAWSConfig=global_aws_config()
 )
     return serverlessapplicationrepository(
-        "GET", "/applications", params; aws_config=aws_config, features=SERVICE_FEATURES
+        "GET",
+        "/applications",
+        params;
+        aws_config=aws_config,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -541,7 +545,7 @@ function put_application_policy(
         "/applications/$(applicationId)/policy",
         Dict{String,Any}("statements" => statements);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function put_application_policy(
@@ -557,7 +561,7 @@ function put_application_policy(
             mergewith(_merge, Dict{String,Any}("statements" => statements), params)
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -581,7 +585,7 @@ function unshare_application(
         "/applications/$(applicationId)/unshare",
         Dict{String,Any}("organizationId" => organizationId);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function unshare_application(
@@ -597,7 +601,7 @@ function unshare_application(
             mergewith(_merge, Dict{String,Any}("organizationId" => organizationId), params)
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -631,7 +635,7 @@ function update_application(
         "PATCH",
         "/applications/$(applicationId)";
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function update_application(
@@ -644,6 +648,6 @@ function update_application(
         "/applications/$(applicationId)",
         params;
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end

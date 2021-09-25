@@ -37,7 +37,7 @@ function create_parallel_data(
             "ParallelDataConfig" => ParallelDataConfig,
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function create_parallel_data(
@@ -61,7 +61,7 @@ function create_parallel_data(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -80,7 +80,7 @@ function delete_parallel_data(Name; aws_config::AbstractAWSConfig=global_aws_con
         "DeleteParallelData",
         Dict{String,Any}("Name" => Name);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function delete_parallel_data(
@@ -90,7 +90,7 @@ function delete_parallel_data(
         "DeleteParallelData",
         Dict{String,Any}(mergewith(_merge, Dict{String,Any}("Name" => Name), params));
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -109,7 +109,7 @@ function delete_terminology(Name; aws_config::AbstractAWSConfig=global_aws_confi
         "DeleteTerminology",
         Dict{String,Any}("Name" => Name);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function delete_terminology(
@@ -119,7 +119,7 @@ function delete_terminology(
         "DeleteTerminology",
         Dict{String,Any}(mergewith(_merge, Dict{String,Any}("Name" => Name), params));
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -142,7 +142,7 @@ function describe_text_translation_job(
         "DescribeTextTranslationJob",
         Dict{String,Any}("JobId" => JobId);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function describe_text_translation_job(
@@ -152,7 +152,7 @@ function describe_text_translation_job(
         "DescribeTextTranslationJob",
         Dict{String,Any}(mergewith(_merge, Dict{String,Any}("JobId" => JobId), params));
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -171,7 +171,7 @@ function get_parallel_data(Name; aws_config::AbstractAWSConfig=global_aws_config
         "GetParallelData",
         Dict{String,Any}("Name" => Name);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function get_parallel_data(
@@ -181,7 +181,7 @@ function get_parallel_data(
         "GetParallelData",
         Dict{String,Any}(mergewith(_merge, Dict{String,Any}("Name" => Name), params));
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -204,7 +204,7 @@ function get_terminology(
         "GetTerminology",
         Dict{String,Any}("Name" => Name, "TerminologyDataFormat" => TerminologyDataFormat);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function get_terminology(
@@ -225,7 +225,7 @@ function get_terminology(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -265,7 +265,7 @@ function import_terminology(
             "TerminologyData" => TerminologyData,
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function import_terminology(
@@ -289,7 +289,7 @@ function import_terminology(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -306,13 +306,15 @@ Optional parameters can be passed as a `params::Dict{String,<:Any}`. Valid keys 
   response.
 """
 function list_parallel_data(; aws_config::AbstractAWSConfig=global_aws_config())
-    return translate("ListParallelData"; aws_config=aws_config, features=SERVICE_FEATURES)
+    return translate(
+        "ListParallelData"; aws_config=aws_config, feature_set=SERVICE_FEATURE_SET
+    )
 end
 function list_parallel_data(
     params::AbstractDict{String}; aws_config::AbstractAWSConfig=global_aws_config()
 )
     return translate(
-        "ListParallelData", params; aws_config=aws_config, features=SERVICE_FEATURES
+        "ListParallelData", params; aws_config=aws_config, feature_set=SERVICE_FEATURE_SET
     )
 end
 
@@ -329,13 +331,15 @@ Optional parameters can be passed as a `params::Dict{String,<:Any}`. Valid keys 
   the NextToken to fetch the next group of custom terminologies.
 """
 function list_terminologies(; aws_config::AbstractAWSConfig=global_aws_config())
-    return translate("ListTerminologies"; aws_config=aws_config, features=SERVICE_FEATURES)
+    return translate(
+        "ListTerminologies"; aws_config=aws_config, feature_set=SERVICE_FEATURE_SET
+    )
 end
 function list_terminologies(
     params::AbstractDict{String}; aws_config::AbstractAWSConfig=global_aws_config()
 )
     return translate(
-        "ListTerminologies", params; aws_config=aws_config, features=SERVICE_FEATURES
+        "ListTerminologies", params; aws_config=aws_config, feature_set=SERVICE_FEATURE_SET
     )
 end
 
@@ -355,14 +359,17 @@ Optional parameters can be passed as a `params::Dict{String,<:Any}`. Valid keys 
 """
 function list_text_translation_jobs(; aws_config::AbstractAWSConfig=global_aws_config())
     return translate(
-        "ListTextTranslationJobs"; aws_config=aws_config, features=SERVICE_FEATURES
+        "ListTextTranslationJobs"; aws_config=aws_config, feature_set=SERVICE_FEATURE_SET
     )
 end
 function list_text_translation_jobs(
     params::AbstractDict{String}; aws_config::AbstractAWSConfig=global_aws_config()
 )
     return translate(
-        "ListTextTranslationJobs", params; aws_config=aws_config, features=SERVICE_FEATURES
+        "ListTextTranslationJobs",
+        params;
+        aws_config=aws_config,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -420,7 +427,7 @@ function start_text_translation_job(
             "TargetLanguageCodes" => TargetLanguageCodes,
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function start_text_translation_job(
@@ -450,7 +457,7 @@ function start_text_translation_job(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -475,7 +482,7 @@ function stop_text_translation_job(JobId; aws_config::AbstractAWSConfig=global_a
         "StopTextTranslationJob",
         Dict{String,Any}("JobId" => JobId);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function stop_text_translation_job(
@@ -485,7 +492,7 @@ function stop_text_translation_job(
         "StopTextTranslationJob",
         Dict{String,Any}(mergewith(_merge, Dict{String,Any}("JobId" => JobId), params));
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -527,7 +534,7 @@ function translate_text(
             "Text" => Text,
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function translate_text(
@@ -551,7 +558,7 @@ function translate_text(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -584,7 +591,7 @@ function update_parallel_data(
             "ParallelDataConfig" => ParallelDataConfig,
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function update_parallel_data(
@@ -608,6 +615,6 @@ function update_parallel_data(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end

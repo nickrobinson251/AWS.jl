@@ -100,7 +100,7 @@ function generate_data_set(
             "snsTopicArn" => snsTopicArn,
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function generate_data_set(
@@ -128,7 +128,7 @@ function generate_data_set(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -195,7 +195,7 @@ function start_support_data_export(
             "snsTopicArn" => snsTopicArn,
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function start_support_data_export(
@@ -223,6 +223,6 @@ function start_support_data_export(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end

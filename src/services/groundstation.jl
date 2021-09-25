@@ -16,7 +16,10 @@ Cancels a contact with a specified contact ID.
 """
 function cancel_contact(contactId; aws_config::AbstractAWSConfig=global_aws_config())
     return groundstation(
-        "DELETE", "/contact/$(contactId)"; aws_config=aws_config, features=SERVICE_FEATURES
+        "DELETE",
+        "/contact/$(contactId)";
+        aws_config=aws_config,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function cancel_contact(
@@ -29,7 +32,7 @@ function cancel_contact(
         "/contact/$(contactId)",
         params;
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -54,7 +57,7 @@ function create_config(configData, name; aws_config::AbstractAWSConfig=global_aw
         "/config",
         Dict{String,Any}("configData" => configData, "name" => name);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function create_config(
@@ -72,7 +75,7 @@ function create_config(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -100,7 +103,7 @@ function create_dataflow_endpoint_group(
         "/dataflowEndpointGroup",
         Dict{String,Any}("endpointDetails" => endpointDetails);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function create_dataflow_endpoint_group(
@@ -117,7 +120,7 @@ function create_dataflow_endpoint_group(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -162,7 +165,7 @@ function create_mission_profile(
             "trackingConfigArn" => trackingConfigArn,
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function create_mission_profile(
@@ -190,7 +193,7 @@ function create_mission_profile(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -212,7 +215,7 @@ function delete_config(
         "DELETE",
         "/config/$(configType)/$(configId)";
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function delete_config(
@@ -226,7 +229,7 @@ function delete_config(
         "/config/$(configType)/$(configId)",
         params;
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -247,7 +250,7 @@ function delete_dataflow_endpoint_group(
         "DELETE",
         "/dataflowEndpointGroup/$(dataflowEndpointGroupId)";
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function delete_dataflow_endpoint_group(
@@ -260,7 +263,7 @@ function delete_dataflow_endpoint_group(
         "/dataflowEndpointGroup/$(dataflowEndpointGroupId)",
         params;
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -281,7 +284,7 @@ function delete_mission_profile(
         "DELETE",
         "/missionprofile/$(missionProfileId)";
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function delete_mission_profile(
@@ -294,7 +297,7 @@ function delete_mission_profile(
         "/missionprofile/$(missionProfileId)",
         params;
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -310,7 +313,10 @@ Describes an existing contact.
 """
 function describe_contact(contactId; aws_config::AbstractAWSConfig=global_aws_config())
     return groundstation(
-        "GET", "/contact/$(contactId)"; aws_config=aws_config, features=SERVICE_FEATURES
+        "GET",
+        "/contact/$(contactId)";
+        aws_config=aws_config,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function describe_contact(
@@ -323,7 +329,7 @@ function describe_contact(
         "/contact/$(contactId)",
         params;
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -343,7 +349,7 @@ function get_config(configId, configType; aws_config::AbstractAWSConfig=global_a
         "GET",
         "/config/$(configType)/$(configId)";
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function get_config(
@@ -357,7 +363,7 @@ function get_config(
         "/config/$(configType)/$(configId)",
         params;
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -378,7 +384,7 @@ function get_dataflow_endpoint_group(
         "GET",
         "/dataflowEndpointGroup/$(dataflowEndpointGroupId)";
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function get_dataflow_endpoint_group(
@@ -391,7 +397,7 @@ function get_dataflow_endpoint_group(
         "/dataflowEndpointGroup/$(dataflowEndpointGroupId)",
         params;
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -412,7 +418,7 @@ function get_minute_usage(month, year; aws_config::AbstractAWSConfig=global_aws_
         "/minute-usage",
         Dict{String,Any}("month" => month, "year" => year);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function get_minute_usage(
@@ -428,7 +434,7 @@ function get_minute_usage(
             mergewith(_merge, Dict{String,Any}("month" => month, "year" => year), params)
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -449,7 +455,7 @@ function get_mission_profile(
         "GET",
         "/missionprofile/$(missionProfileId)";
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function get_mission_profile(
@@ -462,7 +468,7 @@ function get_mission_profile(
         "/missionprofile/$(missionProfileId)",
         params;
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -478,7 +484,10 @@ Returns a satellite.
 """
 function get_satellite(satelliteId; aws_config::AbstractAWSConfig=global_aws_config())
     return groundstation(
-        "GET", "/satellite/$(satelliteId)"; aws_config=aws_config, features=SERVICE_FEATURES
+        "GET",
+        "/satellite/$(satelliteId)";
+        aws_config=aws_config,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function get_satellite(
@@ -491,7 +500,7 @@ function get_satellite(
         "/satellite/$(satelliteId)",
         params;
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -508,13 +517,15 @@ Optional parameters can be passed as a `params::Dict{String,<:Any}`. Valid keys 
   get the next page of results.
 """
 function list_configs(; aws_config::AbstractAWSConfig=global_aws_config())
-    return groundstation("GET", "/config"; aws_config=aws_config, features=SERVICE_FEATURES)
+    return groundstation(
+        "GET", "/config"; aws_config=aws_config, feature_set=SERVICE_FEATURE_SET
+    )
 end
 function list_configs(
     params::AbstractDict{String}; aws_config::AbstractAWSConfig=global_aws_config()
 )
     return groundstation(
-        "GET", "/config", params; aws_config=aws_config, features=SERVICE_FEATURES
+        "GET", "/config", params; aws_config=aws_config, feature_set=SERVICE_FEATURE_SET
     )
 end
 
@@ -549,7 +560,7 @@ function list_contacts(
             "endTime" => endTime, "startTime" => startTime, "statusList" => statusList
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function list_contacts(
@@ -574,7 +585,7 @@ function list_contacts(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -592,7 +603,10 @@ Optional parameters can be passed as a `params::Dict{String,<:Any}`. Valid keys 
 """
 function list_dataflow_endpoint_groups(; aws_config::AbstractAWSConfig=global_aws_config())
     return groundstation(
-        "GET", "/dataflowEndpointGroup"; aws_config=aws_config, features=SERVICE_FEATURES
+        "GET",
+        "/dataflowEndpointGroup";
+        aws_config=aws_config,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function list_dataflow_endpoint_groups(
@@ -603,7 +617,7 @@ function list_dataflow_endpoint_groups(
         "/dataflowEndpointGroup",
         params;
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -622,14 +636,18 @@ Optional parameters can be passed as a `params::Dict{String,<:Any}`. Valid keys 
 """
 function list_ground_stations(; aws_config::AbstractAWSConfig=global_aws_config())
     return groundstation(
-        "GET", "/groundstation"; aws_config=aws_config, features=SERVICE_FEATURES
+        "GET", "/groundstation"; aws_config=aws_config, feature_set=SERVICE_FEATURE_SET
     )
 end
 function list_ground_stations(
     params::AbstractDict{String}; aws_config::AbstractAWSConfig=global_aws_config()
 )
     return groundstation(
-        "GET", "/groundstation", params; aws_config=aws_config, features=SERVICE_FEATURES
+        "GET",
+        "/groundstation",
+        params;
+        aws_config=aws_config,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -647,14 +665,18 @@ Optional parameters can be passed as a `params::Dict{String,<:Any}`. Valid keys 
 """
 function list_mission_profiles(; aws_config::AbstractAWSConfig=global_aws_config())
     return groundstation(
-        "GET", "/missionprofile"; aws_config=aws_config, features=SERVICE_FEATURES
+        "GET", "/missionprofile"; aws_config=aws_config, feature_set=SERVICE_FEATURE_SET
     )
 end
 function list_mission_profiles(
     params::AbstractDict{String}; aws_config::AbstractAWSConfig=global_aws_config()
 )
     return groundstation(
-        "GET", "/missionprofile", params; aws_config=aws_config, features=SERVICE_FEATURES
+        "GET",
+        "/missionprofile",
+        params;
+        aws_config=aws_config,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -672,14 +694,14 @@ Optional parameters can be passed as a `params::Dict{String,<:Any}`. Valid keys 
 """
 function list_satellites(; aws_config::AbstractAWSConfig=global_aws_config())
     return groundstation(
-        "GET", "/satellite"; aws_config=aws_config, features=SERVICE_FEATURES
+        "GET", "/satellite"; aws_config=aws_config, feature_set=SERVICE_FEATURE_SET
     )
 end
 function list_satellites(
     params::AbstractDict{String}; aws_config::AbstractAWSConfig=global_aws_config()
 )
     return groundstation(
-        "GET", "/satellite", params; aws_config=aws_config, features=SERVICE_FEATURES
+        "GET", "/satellite", params; aws_config=aws_config, feature_set=SERVICE_FEATURE_SET
     )
 end
 
@@ -697,7 +719,10 @@ function list_tags_for_resource(
     resourceArn; aws_config::AbstractAWSConfig=global_aws_config()
 )
     return groundstation(
-        "GET", "/tags/$(resourceArn)"; aws_config=aws_config, features=SERVICE_FEATURES
+        "GET",
+        "/tags/$(resourceArn)";
+        aws_config=aws_config,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function list_tags_for_resource(
@@ -710,7 +735,7 @@ function list_tags_for_resource(
         "/tags/$(resourceArn)",
         params;
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -750,7 +775,7 @@ function reserve_contact(
             "startTime" => startTime,
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function reserve_contact(
@@ -779,7 +804,7 @@ function reserve_contact(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -800,7 +825,7 @@ function tag_resource(resourceArn, tags; aws_config::AbstractAWSConfig=global_aw
         "/tags/$(resourceArn)",
         Dict{String,Any}("tags" => tags);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function tag_resource(
@@ -814,7 +839,7 @@ function tag_resource(
         "/tags/$(resourceArn)",
         Dict{String,Any}(mergewith(_merge, Dict{String,Any}("tags" => tags), params));
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -837,7 +862,7 @@ function untag_resource(
         "/tags/$(resourceArn)",
         Dict{String,Any}("tagKeys" => tagKeys);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function untag_resource(
@@ -851,7 +876,7 @@ function untag_resource(
         "/tags/$(resourceArn)",
         Dict{String,Any}(mergewith(_merge, Dict{String,Any}("tagKeys" => tagKeys), params));
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -881,7 +906,7 @@ function update_config(
         "/config/$(configType)/$(configId)",
         Dict{String,Any}("configData" => configData, "name" => name);
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function update_config(
@@ -901,7 +926,7 @@ function update_config(
             ),
         );
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 
@@ -936,7 +961,7 @@ function update_mission_profile(
         "PUT",
         "/missionprofile/$(missionProfileId)";
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
 function update_mission_profile(
@@ -949,6 +974,6 @@ function update_mission_profile(
         "/missionprofile/$(missionProfileId)",
         params;
         aws_config=aws_config,
-        features=SERVICE_FEATURES,
+        feature_set=SERVICE_FEATURE_SET,
     )
 end
