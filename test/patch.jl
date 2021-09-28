@@ -53,13 +53,16 @@ function _response(;
     response.version = version
     response.status = status
     response.headers = headers
-    response.body = Vector{UInt8}(body)
+    response.body = b"[Message Body was streamed]"
 
-    return response
+    b = IOBuffer(body)
+
+    return AWS.Response(response, b)
 end
 
-function _aws_http_request_patch(response::HTTP.Messages.Response=_response())
-    return @patch AWS._http_request(::AWS.AbstractBackend, request::Request) = response
+function _aws_http_request_patch(response::AWS.Response=_response())
+    p = @patch AWS._http_request(::AWS.AbstractBackend, request::Request, ::IO) = response
+    return p
 end
 
 _cred_file_patch = @patch function dot_aws_credentials_file()
@@ -77,19 +80,25 @@ _assume_role_patch = function (
     session_token="token",
     role_arn="arn:aws:sts:::assumed-role/role-name",
 )
-    @patch function AWSServices.sts(op, params; aws_config)
-        return Dict(
-            "$(op)Result" => Dict(
-                "Credentials" => Dict(
-                    "AccessKeyId" => access_key,
-                    "SecretAccessKey" => secret_key,
-                    "SessionToken" => session_token,
-                    "Expiration" => string(now(UTC)),
-                ),
-                "AssumedRoleUser" =>
-                    Dict("Arn" => "$(role_arn)/$(params["RoleSessionName"])"),
-            ),
-        )
+    @patch function AWSServices.sts(op, params; aws_config, feature_set)
+        xml = """
+            <$(op)Response xmlns="https://sts.amazonaws.com/doc/2011-06-15/">
+              <$(op)Result>
+                <AssumedRoleUser>
+                  <Arn>$(role_arn)/$(params["RoleSessionName"])</Arn>
+                </AssumedRoleUser>
+                <Credentials>
+                  <AccessKeyId>$access_key</AccessKeyId>
+                  <SecretAccessKey>$secret_key</SecretAccessKey>
+                  <SessionToken>$session_token</SessionToken>
+                  <Expiration>$(now(UTC))</Expiration>
+                </Credentials>
+              </$(op)Result>
+            </$(op)Response>
+            """
+
+        r = _response(; body=xml)
+        return feature_set.use_response_type ? r : parse(r)::AbstractDict
     end
 end
 
@@ -115,12 +124,15 @@ end
 # except `require_ssl_verification` and `response_stream`. This is used to
 # test which other options are being passed to `HTTP.Request` inside of
 # `_http_request`.
-_http_options_patch = @patch function HTTP.request(args...; kwargs...)
-    options = Dict(kwargs)
-    delete!(options, :require_ssl_verification)
-    delete!(options, :response_stream)
-    return options
-end
+_http_options_patches = [
+    @patch function HTTP.request(args...; kwargs...)
+        options = Dict(kwargs)
+        delete!(options, :require_ssl_verification)
+        delete!(options, :response_stream)
+        return options
+    end
+    @patch AWS.Response(options, args...) = options
+]
 
 get_profile_settings_empty_patch = @patch function aws_get_profile_settings(profile, ini)
     return nothing

@@ -32,8 +32,11 @@ include("AWSConfig.jl")
 include("AWSMetadata.jl")
 
 include(joinpath("utilities", "request.jl"))
+include(joinpath("utilities", "response.jl"))
 include(joinpath("utilities", "sign.jl"))
 include(joinpath("utilities", "downloads_backend.jl"))
+
+include("deprecated.jl")
 
 using ..AWSExceptions
 using ..AWSExceptions: AWSException
@@ -41,7 +44,9 @@ using ..AWSExceptions: AWSException
 const user_agent = Ref("AWS.jl/1.0.0")
 const aws_config = Ref{AbstractAWSConfig}()
 
-Base.@kwdef struct FeatureSet end
+Base.@kwdef struct FeatureSet
+    use_response_type::Bool = false
+end
 
 """
     global_aws_config()
@@ -218,7 +223,7 @@ Perform a RestXML request to AWS.
 - `aws::AbstractAWSConfig`: AWSConfig containing credentials and other information for fulfilling the request, default value is the global configuration
 
 # Returns
-- `Tuple or Dict`: If `return_headers` is passed in through `args` a Tuple containing the Headers and Response will be returned, otherwise just a Dict
+- `AWS.Response`: A struct containing the response details
 """
 function (service::RestXMLService)(
     request_method::String,
@@ -227,10 +232,13 @@ function (service::RestXMLService)(
     aws_config::AbstractAWSConfig=global_aws_config(),
     feature_set::FeatureSet=FeatureSet(),
 )
-    return_headers = _pop!(args, "return_headers", false)
+    feature_set.use_response_type && _delete_legacy_response_kw_args!(args)
+
+    return_headers = _pop!(args, "return_headers", nothing)
 
     request = Request(;
         _extract_common_kw_args(service, args)...,
+        use_response_type=feature_set.use_response_type,
         request_method=request_method,
         content=_pop!(args, "body", ""),
     )
@@ -272,7 +280,7 @@ Perform a Query request to AWS.
 - `aws::AbstractAWSConfig`: AWSConfig containing credentials and other information for fulfilling the request, default value is the global configuration
 
 # Returns
-- `Tuple or Dict`: If `return_headers` is passed in through `args` a Tuple containing the Headers and Response will be returned, otherwise just a Dict
+- `AWS.Response`: A struct containing the response details
 """
 function (service::QueryService)(
     operation::String,
@@ -280,11 +288,14 @@ function (service::QueryService)(
     aws_config::AbstractAWSConfig=global_aws_config(),
     feature_set::FeatureSet=FeatureSet(),
 )
+    feature_set.use_response_type && _delete_legacy_response_kw_args!(args)
+
     POST_RESOURCE = "/"
-    return_headers = _pop!(args, "return_headers", false)
+    return_headers = _pop!(args, "return_headers", nothing)
 
     request = Request(;
         _extract_common_kw_args(service, args)...,
+        use_response_type=feature_set.use_response_type,
         resource=POST_RESOURCE,
         request_method="POST",
         url=generate_service_url(aws_config, service.endpoint_prefix, POST_RESOURCE),
@@ -315,7 +326,7 @@ Perform a JSON request to AWS.
 - `aws::AbstractAWSConfig`: AWSConfig containing credentials and other information for fulfilling the request, default value is the global configuration
 
 # Returns
-- `Tuple or Dict`: If `return_headers` is passed in through `args` a Tuple containing the Headers and Response will be returned, otherwise just a Dict
+- `AWS.Response`: A struct containing the response details
 """
 function (service::JSONService)(
     operation::String,
@@ -323,11 +334,14 @@ function (service::JSONService)(
     aws_config::AbstractAWSConfig=global_aws_config(),
     feature_set::FeatureSet=FeatureSet(),
 )
+    feature_set.use_response_type && _delete_legacy_response_kw_args!(args)
+
     POST_RESOURCE = "/"
-    return_headers = _pop!(args, "return_headers", false)
+    return_headers = _pop!(args, "return_headers", nothing)
 
     request = Request(;
         _extract_common_kw_args(service, args)...,
+        use_response_type=feature_set.use_response_type,
         resource=POST_RESOURCE,
         request_method="POST",
         content=json(args),
@@ -357,7 +371,7 @@ Perform a RestJSON request to AWS.
 - `aws::AbstractAWSConfig`: AWSConfig containing credentials and other information for fulfilling the request, default value is the global configuration
 
 # Returns
-- `Tuple or Dict`: If `return_headers` is passed in through `args` a Tuple containing the Headers and Response will be returned, otherwise just a Dict
+- `AWS.Response`: A struct containing the response details
 """
 function (service::RestJSONService)(
     request_method::String,
@@ -366,10 +380,13 @@ function (service::RestJSONService)(
     aws_config::AbstractAWSConfig=global_aws_config(),
     feature_set::FeatureSet=FeatureSet(),
 )
-    return_headers = _pop!(args, "return_headers", false)
+    feature_set.use_response_type && _delete_legacy_response_kw_args!(args)
+
+    return_headers = _pop!(args, "return_headers", nothing)
 
     request = Request(;
         _extract_common_kw_args(service, args)...,
+        use_response_type=feature_set.use_response_type,
         request_method=request_method,
         resource=_generate_rest_resource(request_uri, args),
     )
